@@ -102,15 +102,23 @@ def aula(r):
         x = rnd.choice([tx0 + 0.6, tx1 - 0.6]); poner('exterior/bote_exterior' if False else variante('exterior/bote_exterior', alto=34), x * T, (ty1 - 0.2) * T)
 def lab(r):
     tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
+    exterior_norte = r['nombre'] in ('Sala 1', 'Sala 3')
     for xx in range(tx0 + 1, tx1 - 1, 2):
         poner('laboratorio/pc_frente', xx * T + 32, (ty_walk + 1) * T + 6, pie=(62, 30))
-        poner('laboratorio/silla_oficina_espalda', xx * T + 32, (ty_walk + 2) * T + 12, choque=False)
-        poner('laboratorio/silla_oficina_frente', xx * T + 32, (ty1 - 1) * T - 4, choque=False)
+        poner('extra/silla_negra_espalda', xx * T + 32, (ty_walk + 2) * T + 10, choque=False)
+        poner('extra/silla_negra_frente', xx * T + 32, (ty1 - 1) * T - 2, choque=False)
         poner('laboratorio/pc_espalda', xx * T + 32, ty1 * T - 2, pie=(62, 30))
-    poner('laboratorio/mesa_maestro_lab', (tx0 + 0.5) * T + 44, (ty1 - 2) * T - 4, pie=(76, 30), forzar=True)
+    mx = (tx0 + 2.5) * T if r['nombre'] in ('Sala 1', 'Sala 2') else (tx1 - 2.5) * T
+    poner('laboratorio/mesa_maestro_lab', mx, (ty_walk + 4.6) * T, pie=(76, 30), forzar=True)
+    poner('extra/silla_negra_frente', mx + 6, (ty_walk + 3.2) * T, choque=False)
     segs = segmentos_pared(r)
-    en_pared(r, 'senaletica/salida_emergencia', segs[0][0] + 1, lambda f: 24)
-    en_pared(r, 'salon/minisplit', segs[0][-1], lambda f: 30)
+    en_pared(r, 'salon/minisplit', segs[0][-1] - 1, lambda f: 30)
+    if exterior_norte:
+        for k in (0.25, 0.55):
+            x = segs[0][0] + (segs[0][-1] - segs[0][0]) * k
+            en_pared(r, 'salon/ventana_persiana', x, lambda f: f - 16)
+    else:
+        en_pared(r, 'senaletica/salida_emergencia', segs[0][0] + 1, lambda f: 24)
 def oficina_cic(r):
     tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
     poner('cic/archivero', (tx0 + 0.7) * T, (ty_walk + 1.6) * T)
@@ -119,12 +127,10 @@ def oficina_cic(r):
     poner('cic/escritorio_oficina_pc', (tx1 - 1.6) * T, (ty_walk + 2) * T)
 def cubiculos_cic(r):
     tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
-    poner('cic/estante_equipo', (tx0 + 1.1) * T, (ty_walk + 1.8) * T)
-    poner('cic/escritorio_oficina_pc', (tx0 + 4) * T, (ty_walk + 2.2) * T)
-    poner('laboratorio/silla_oficina_frente', (tx0 + 4) * T + 10, (ty_walk + 0.9) * T, choque=False)
-    poner('cic/escritorio_oficina_pc', (tx1 - 2) * T, (ty_walk + 2.2) * T)
-    poner('cic/cajas_carton', (tx1 - 1) * T, (ty1 - 0.2) * T)
-    poner('cic/cajas_carton', (tx0 + 1) * T, (ty1 - 0.2) * T)
+    poner('cic/estante_equipo', (tx0 + 1) * T, (ty_walk + 1.9) * T, forzar=True)
+    poner('cic/escritorio_oficina_pc', (tx1 - 1.6) * T, (ty_walk + 2.3) * T, forzar=True)
+    poner('laboratorio/silla_oficina_frente', (tx1 - 1.6) * T + 10, (ty_walk + 1.1) * T, choque=False)
+    poner('cic/cajas_carton', (tx0 + 2.4) * T, (ty1 - 0.1) * T, choque=False)
 def site(r):
     tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
     en_pared(r, 'site/tablero_apagado', tx1 - 1.5, lambda f: f - 8)
@@ -135,31 +141,42 @@ def site(r):
     poner('site/cables_piso', (tx0 + 3) * T, (ty1 - 0.3) * T, choque=False)
 def vestibulo(r):
     tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
-    for i, xx in enumerate(range(tx0 + 1, tx0 + 9, 2)):
-        poner('cic/locker_abierto' if i == 2 else 'cic/lockers_cerrados', xx * T + 16, (ty_walk + 1.3) * T, pie=(46, 22))
-    segs = segmentos_pared(r)
-    en_pared(r, 'senaletica/tablero_avisos', (segs[0][0] + segs[0][-1] + 1) / 2, lambda f: f - 16)
-    en_pared(r, 'senaletica/reloj_pared', segs[0][-1] - 1, lambda f: 30)
-    poner('oficinas/sillon_espera', (tx1 - 5) * T, (ty_walk + 2) * T)
-    poner('oficinas/garrafon_agua', (tx1 - 1) * T, (ty_walk + 1.5) * T)
-    poner('oficinas/planta_oficina', (tx0 + 0.7) * T, (ty1 - 0.2) * T)
-    poner('oficinas/planta_oficina', (tx1 - 0.7) * T, (ty1 - 0.2) * T)
-    poner('exterior/banca_metal', (tx0 + tx1) / 2 * T - 120, (ty1 - 3) * T)
+    cx = (tx0 + tx1) / 2
+    # pizarrón entre los dos cubículos y un locker junto a la puerta de cada uno
+    en_pared(r, 'senaletica/tablero_avisos', cx, lambda f: f - 16)
+    poner('cic/lockers_cerrados', (tx0 + 4.6) * T, (ty_walk + 0.9) * T, pie=(46, 20), forzar=True)
+    poner('cic/lockers_cerrados', (tx1 - 4.6) * T, (ty_walk + 0.9) * T, pie=(46, 20), forzar=True)
+    en_pared(r, 'senaletica/reloj_pared', tx1 - 1, lambda f: 30)
+    mostrador = variante('cic/mostrador_curvo', ancho=264)
+    poner(mostrador, cx * T, (ty_walk + 6.5) * T, pie=(250, 56), forzar=True)
+    for dx in (-60, 0, 60): poner('laboratorio/silla_oficina_frente', cx * T + dx, (ty_walk + 3.6) * T, choque=False)
+    poner('oficinas/garrafon_agua', (tx0 + 0.7) * T, (ty1 - 0.2) * T)
+    poner('oficinas/planta_oficina', (tx1 - 0.8) * T, (ty1 - 0.1) * T)
 def neveria(r):
     tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
     segs = segmentos_pared(r)
-    en_pared(r, 'neveria/menu_pared', (segs[0][0] + segs[0][-1] + 1) / 2, lambda f: f - 12)
-    barra = variante('neveria/barra_verde', ancho=150)
-    poner(barra, (tx0 + tx1) / 2 * T, (ty_walk + 4) * T, pie=(140, 64))
-    poner('neveria/caja_registradora', (tx0 + tx1) / 2 * T + 30, (ty_walk + 2.2) * T, capa='encima', choque=False)
-    poner('neveria/refri_refresco', (tx0 + 0.9) * T, (ty_walk + 1.8) * T)
-    poner('neveria/congelador_helados', (tx1 - 1.4) * T, (ty_walk + 1.8) * T)
-    for yy in range(ty_walk + 7, ty1 - 1, 4):
-        for xx in (tx0 + 3.5, tx1 - 3.5):
-            poner('neveria/mesa_sillas_blancas', xx * T, yy * T + 40, pie=(96, 50))
-    for yy in (ty_walk + 6, ty1 - 1):
-        poner('neveria/maceta_flores', (tx0 + 0.8) * T, yy * T + 20); poner('neveria/maceta_flores', (tx1 - 0.8) * T, yy * T + 20)
-    poner(variante('exterior/bote_exterior', alto=40), (tx1 - 0.6) * T, (ty1 - 3) * T)
+    en_pared(r, 'neveria/menu_pared', segs[0][-1] - 2, lambda f: f - 12)
+    # refris y congelador detrás de la barra
+    poner('neveria/refri_refresco', (tx0 + 1) * T, (ty_walk + 1.6) * T, forzar=True)
+    poner('neveria/refri_refresco', (tx0 + 3) * T, (ty_walk + 1.6) * T, forzar=True)
+    poner('neveria/congelador_helados', (tx0 + 6.5) * T, (ty_walk + 1.6) * T, forzar=True)
+    # barra en L: tramo largo y vuelta hacia abajo del lado izquierdo
+    bk = variante('extra/neveria__barra_L', espejo=True); b = sprite(bk); bx0 = (tx1 - 2.6) * T - b.width; by0 = (ty_walk + 2) * T
+    props.append(dict(sprite=bk, archivo=f'mapa_extra/{bk[6:]}.png', x=int(bx0 + b.width / 2), y=int(by0 + b.height), capa='piso',
+                      colision=dict(x=int(bx0), y=int(by0), w=b.width, h=58), w=b.width, h=b.height))
+    props.append(dict(sprite='colision', archivo=None, x=0, y=0, capa='colision', colision=dict(x=int(bx0 + b.width - 30), y=int(by0), w=30, h=b.height), w=30, h=b.height))
+    ocupado[int(by0 // T):int((by0 + b.height) // T) + 1, int(bx0 // T):int((bx0 + b.width) // T) + 1] = True
+    poner('neveria/caja_registradora', bx0 + 120, by0 + 18, capa='encima', choque=False)
+    # mesas alineadas en cuadrícula; algunas son dobles (dos mesas juntas)
+    fila = 0
+    for yy in range(ty_walk + 9, ty1 - 1, 4):
+        izq, der = ('extra/neveria__mesa_doble', 'extra/neveria__mesa_4') if fila % 2 == 0 else ('extra/neveria__mesa_4', 'extra/neveria__mesa_doble')
+        poner(izq, (tx0 + 3.6) * T, yy * T + 60, pie=(sprite(izq).width - 10, 40), forzar=True)
+        poner(der, (tx1 - 3.6) * T, yy * T + 60, pie=(sprite(der).width - 10, 40), forzar=True)
+        fila += 1
+    poner('neveria/maceta_flores', (tx1 - 0.8) * T, (ty_walk + 6) * T + 20)
+    poner('neveria/maceta_flores', (tx0 + 0.8) * T, (ty1 - 0.4) * T)
+    poner(variante('exterior/bote_exterior', alto=40), (tx1 - 0.6) * T, (ty1 - 0.3) * T)
 def cocina(r):
     tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
     poner('neveria/refri_refresco', (tx0 + 1) * T, (ty_walk + 2) * T)
@@ -183,17 +200,23 @@ def oficina(r, jefe=False):
     poner('oficinas/escritorio_l', (tx0 + tx1) / 2 * T, (ty_walk + 4) * T, pie=(100, 36))
     poner('oficinas/silla_visita', (tx0 + tx1) / 2 * T - 20, (ty_walk + 5.4) * T, pie=(24, 14))
     poner('oficinas/planta_oficina', (tx1 - 0.8) * T, (ty1 - 0.1) * T)
+def recepcion(r):
+    tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
+    poner('oficinas/sillon_espera', (tx0 + 4) * T, (ty_walk + 2) * T)
+    poner('cic/escritorio_oficina_pc', (tx0 + 5) * T, (ty_walk + 13) * T, pie=(84, 34))
+    poner('laboratorio/silla_oficina_frente', (tx0 + 5) * T + 8, (ty_walk + 11.8) * T, choque=False)
+    poner('oficinas/sillon_espera', (tx0 + 4) * T, (ty1 - 1.5) * T)
+    poner('oficinas/planta_oficina', (tx1 - 0.8) * T, (ty_walk + 1.6) * T); poner('oficinas/garrafon_agua', (tx1 - 0.7) * T, (ty1 - 3) * T)
 def servicios(r):
     tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
-    for yy in (ty_walk + 3, ty_walk + 9, ty_walk + 15):
-        poner('cic/escritorio_oficina_pc', (tx0 + 3) * T, yy * T, pie=(84, 34))
-        poner('laboratorio/silla_oficina_frente', (tx0 + 3) * T + 8, (yy - 1.2) * T, choque=False)
-        poner('oficinas/silla_visita', (tx0 + 3) * T, (yy + 1.2) * T, pie=(24, 14))
-    poner('oficinas/sillon_espera', (tx0 + 4) * T, (ty1 - 3) * T)
-    poner('oficinas/garrafon_agua', (tx1 - 0.7) * T, (ty1 - 0.3) * T)
-    for yy in (ty_walk + 1.8, ty_walk + 7):
-        poner('cic/archivero', (tx1 - 0.7) * T, yy * T)
-    poner('oficinas/planta_oficina', (tx0 + 0.8) * T, (ty1 - 0.1) * T)
+    for k in range(3):
+        x = (tx0 + 3 + k * 5.5) * T
+        poner('cic/escritorio_oficina_pc', x, (ty_walk + 2.2) * T, pie=(84, 34))
+        poner('laboratorio/silla_oficina_frente', x + 8, (ty_walk + 1) * T, choque=False)
+    for yy in range(ty_walk + 6, ty1 - 1, 3):
+        for xx in range(tx0 + 2, tx1 - 2, 4):
+            poner('oficinas/sillon_espera', xx * T + 56, yy * T + 40, pie=(108, 30))
+    poner('oficinas/planta_oficina', (tx1 - 0.8) * T, (ty1 - 0.1) * T)
 def espera(r):
     tx0, tx1 = r['x0'] // T, r['x1'] // T; n = fondo_n(r); ty_walk = r['y0'] // T + n; ty1 = r['y1'] // T
     segs = segmentos_pared(r); en_pared(r, 'senaletica/tablero_avisos', (segs[0][0] + segs[0][-1] + 1) / 2, lambda f: f - 16)
@@ -224,8 +247,8 @@ def cubiculos_c(r):
     poner('oficinas/cancel_vidrio', (tx0 + 7) * T, (ty1 - 0.1) * T, pie=(60, 16))
     poner('oficinas/planta_oficina', (tx1 - 0.8) * T, (ty_walk + 1.6) * T)
 
-POR_NOMBRE = {'Oficina CIC': oficina_cic, 'Cubículos CIC': cubiculos_cic, 'SITE': site, 'Vestíbulo CIC': vestibulo, 'Nevería': neveria,
-              'Cocina nevería': cocina, 'Servicios Escolares': servicios, 'Sala de espera': espera, 'Sala de juntas': juntas, 'Archivo': archivo,
+POR_NOMBRE = {'CIC': vestibulo, 'Pasillo CIC oeste': lambda r: None, 'Pasillo CIC este': lambda r: None, 'Cubículos CIC': cubiculos_cic, 'Cubículo CIC 1': cubiculos_cic, 'Cubículo CIC 2': cubiculos_cic, 'Cubículo CIC 3': cubiculos_cic, 'Cubículo CIC 4': cubiculos_cic, 'SITE': site, 'Nevería': neveria,
+              'Cocina nevería': cocina, 'Administración (recepción)': lambda r: recepcion(r), 'Servicios Escolares': lambda r: servicios(r), 'Sala de juntas': juntas, 'Archivo': archivo,
               'Conserjería': conserjeria, 'C-01 Cubículos': cubiculos_c, 'C-02 Cubículos': cubiculos_c, 'Dirección': lambda r: oficina(r, True),
               'Baño M': lambda r: bano(r, False)}
 for r in D['cuartos']:
@@ -249,24 +272,22 @@ poner('hitos/corazon_tapitas', M['corazon_tapitas']['x'], M['corazon_tapitas']['
 poner('hitos/arco_salida', 216 * T, 152 * T, capa='hito', pie=(30, 30), forzar=True)
 poner('exterior/directorio', (ax + 200), ay - 40, forzar=True)
 for x in range(4 * T + 64, 100 * T, 128):
-    if not (60 * T < x < 78 * T): poner('hitos/reja_blanca', x, 164 * T - 2, capa='piso', pie=(128, 20), forzar=True)
+    if not (60 * T < x < 78 * T) and not (84 * T < x < 142 * T): poner('hitos/reja_blanca', x, 164 * T - 2, capa='piso', pie=(128, 20), forzar=True)
 # estacionamiento
-cam = M['camion']
-camion = variante('camion', base=Image.open(OBJ + 'camion/camion.png').convert('RGBA'), alto=320)
-props.append(dict(sprite=camion, archivo=f'mapa_extra/{camion[6:]}.png', x=int(cam['x']), y=int(cam['y'] + 160), capa='piso',
-                  colision=dict(x=int(cam['x'] - 46), y=int(cam['y'] - 150), w=92, h=300), w=100, h=320))
-carros = ['estacionamiento/pickup_blanca', 'estacionamiento/sedan_rojo', 'estacionamiento/suv_gris']
-for (ry0, ry1) in ((66, 73), (84, 91), (109, 116), (127, 134)):
-    for c in range(8):
-        if rnd.random() < 0.45: continue
-        x = (7 + c * 4 + 2) * T; y = ry1 * T - 6
-        if 10 * T <= x <= 15 * T and 90 * T < y < 118 * T: continue
-        k = rnd.choice(carros)
-        if ry0 in (84, 127): k = variante(k, espejo=False)
-        poner(k, x, y, pie=(int(sprite(k).width * 0.9), int(sprite(k).height * 0.8)), forzar=True)
-poner('estacionamiento/caseta_vigilancia', 8 * T, 81 * T, pie=(100, 50), forzar=True)
-poner('estacionamiento/reja_cerrada', 3 * T + 16, 120 * T, capa='piso', choque=False)
-for (x, y) in ((22, 98), (24, 98), (26, 104), (30, 104)): poner('estacionamiento/cono', x * T, y * T, pie=(20, 12))
+PARK = [(5, 11, [(66, 82), (122, 134)], 'izq'), (18, 24, [(66, 94), (108, 134)], 'izq'), (24, 30, [(66, 94), (108, 134)], 'der'), (37, 43, [(66, 94), (110, 134)], 'der')]
+carros = ['pickup_blanca', 'sedan_rojo', 'suv_gris']
+for (x0, x1, rangos, lado) in PARK:
+    for (y0, y1) in rangos:
+        for sy in range(y0, y1 - 3, 4):
+            if rnd.random() < 0.3: continue
+            k = f'extra/estacionamiento__{rnd.choice(carros)}_{lado}'
+            im = sprite(k)
+            poner(k, (x0 + x1) / 2 * T, (sy + 3.6) * T, pie=(int(im.width * 0.92), int(im.height * 0.8)), forzar=True)
+cam = sprite('extra/camion_izq')
+props.append(dict(sprite='extra/camion_izq', archivo='mapa_extra/camion_izq.png', x=int(9.5 * T), y=int(104 * T), capa='piso',
+                  colision=dict(x=int(9.5 * T - 155), y=int(104 * T - 90), w=310, h=86), w=cam.width, h=cam.height))
+poner('estacionamiento/caseta_vigilancia', 7 * T, 95 * T, pie=(100, 50), forzar=True)
+for (x, y) in ((33, 98), (33, 106), (36, 98), (36, 106)): poner('estacionamiento/cono', x * T, y * T, pie=(20, 12))
 # cancha
 poner('cancha/canasta_basquet', 119 * T, 13 * T, pie=(30, 20), forzar=True)
 poner(variante('cancha/canasta_basquet', espejo=True), 148 * T, 13 * T, pie=(30, 20), forzar=True)
@@ -295,13 +316,10 @@ for (X, Y) in pasto:
     if k >= 70: break
     if poner(rnd.choice(['vegetacion/arbusto', 'vegetacion/arbusto', 'vegetacion/mata_flores', 'vegetacion/arbol_joven']), X * T + 16, Y * T + 28, pie=(30, 14)):
         k += 1
-# jardineras con árbol en las plazas grandes
-for (x0, y0, x1, y1) in ((200, 98, 234, 148), (128, 130, 162, 160), (174, 140, 196, 160)):
-    for yy in range(y0, y1, 9):
-        for xx in range(x0, x1, 9):
-            if poner('vegetacion/jardinera_piedra', xx * T, yy * T, pie=(90, 40)):
-                poner(rnd.choice(['vegetacion/arbol_mediano', 'vegetacion/palma_baja']), xx * T, yy * T - 18, capa='arbol', choque=False)
-            poner('exterior/banca_metal', xx * T + 4 * T, yy * T + 3 * T, pie=(90, 20))
+# unos árboles sueltos en las plazas grandes (sin bancas)
+for (x, y) in ((206, 104), (226, 118), (208, 138), (140, 140), (156, 150), (184, 150)):
+    poner('vegetacion/jardinera_piedra', x * T, y * T, pie=(90, 40))
+    poner('vegetacion/arbol_mediano', x * T, y * T - 18, capa='arbol', choque=False)
 # botes y bancas en los porches
 for (x, y) in ((112, 72), (130, 72), (148, 72), (166, 72), (180, 40), (180, 95), (180, 125), (220, 28), (245, 28)):
     poner(variante('exterior/bote_exterior', alto=40), x * T + 16, y * T + 28, pie=(24, 14))

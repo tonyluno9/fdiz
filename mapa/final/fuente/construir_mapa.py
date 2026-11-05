@@ -76,9 +76,9 @@ fill(141, 46, 172, 66, CONCRETO)
 fill(41, 101, 50, 103, TACTIL); fill(PH[0] + 9, PH[1] - 2, PH[0] + 13, PH[1] - 1, TACTIL)
 
 # ---------------- edificios ----------------
-rooms, walls, doors, porches, pillars = [], set(), [], [], set()
-def room(x0, y0, x1, y1, name, floor, zona=True):
-    rooms.append(dict(x0=x0, y0=y0, x1=x1, y1=y1, nombre=name, piso=floor, zona=zona))
+rooms, walls, doors, porches, pillars, vidrio = [], set(), [], [], set(), set()
+def room(x0, y0, x1, y1, name, floor, zona=True, grupo=None, fondo=True):
+    rooms.append(dict(x0=x0, y0=y0, x1=x1, y1=y1, nombre=name, piso=floor, zona=zona, grupo=grupo or name, fondo=fondo))
     for X in range(x0 - 1, x1 + 1): walls.add((X, y0 - 1)); walls.add((X, y1))
     for Y in range(y0 - 1, y1 + 1): walls.add((x0 - 1, Y)); walls.add((x1, Y))
 def door(x, y, w, h, kind='normal'):
@@ -104,7 +104,11 @@ def fila_v(x, y, n, rw, rd, names):
         ry = y + 1 + i * (rd + 1); room(rx, ry, rx + rw, ry + rd, names[i], 'aula'); door(rx - 1, ry + rd // 2 - 1, 1, 2)
     porch(x, y, x + 3, y + n * (rd + 1) + 1, 'W')
 
-fila_h(109, 70, 4, 14, 10, ['E-01', 'E-02', 'E-03', 'E-04'], 'N')
+fila_h(109, 71, 4, 14, 10, ['E-01', 'E-02', 'E-03', 'E-04'], 'S')
+# baños de E, pegados a los salones (lado oeste), con la misma entrada por el pasillo sur
+room(96, 72, 102, 82, 'Baño H (E)', 'bano'); door(98, 82, 2, 1)
+room(103, 72, 109, 82, 'Baño M (E)', 'bano'); door(105, 82, 2, 1)
+porch(95, 83, 109, 86, 'S')
 fila_v(178, 86, 3, 10, 15, ['B-01', 'B-02', 'B-03'])
 fila_v(178, 32, 3, 10, 15, ['B-04', 'B-05', 'B-06'])
 fill(178, 81, 195, 86, BANQUETA)  # pasillo techado entre las dos mitades de B
@@ -124,33 +128,41 @@ for (a, b, w, h, k) in [(cx + 5, cy + 10, 2, 1, 'normal'), (cx + 19, cy + 10, 2,
                         (cx + 11, cy + 4, 1, 2, 'abierta'), (cx + 14, cy + 4, 1, 2, 'abierta'), (cx + 11, cy + 17, 1, 2, 'abierta'), (cx + 14, cy + 17, 1, 2, 'abierta'),
                         (cx + 11, cy + 11, 1, 2, 'abierta'), (cx + 14, cy + 11, 1, 2, 'abierta')]:
     door(a, b, w, h, k)
-# F (CIC)
+# F (CIC): vestíbulo con mostrador al centro, pasillo a cada lado y las salas al fondo de cada pasillo
 fx, fy = 64, 43
-room(fx + 1, fy + 1, fx + 19, fy + 11, 'Sala 1', 'lab'); room(fx + 1, fy + 12, fx + 19, fy + 22, 'Sala 2', 'lab')
-room(fx + 53, fy + 1, fx + 71, fy + 11, 'Sala 3', 'lab'); room(fx + 53, fy + 12, fx + 71, fy + 22, 'Sala 4', 'lab')
-room(fx + 20, fy + 1, fx + 30, fy + 8, 'Cubículos CIC', 'oficina'); room(fx + 31, fy + 1, fx + 42, fy + 8, 'Oficina CIC', 'oficina')
-room(fx + 43, fy + 1, fx + 52, fy + 8, 'SITE', 'servidores')
-room(fx + 20, fy + 9, fx + 52, fy + 22, 'Vestíbulo CIC', 'pasillo')
-door(fx + 19, fy + 5, 1, 2); door(fx + 19, fy + 16, 1, 2); door(fx + 52, fy + 5, 1, 2); door(fx + 52, fy + 16, 1, 2)
-door(fx + 24, fy + 8, 2, 1); door(fx + 36, fy + 8, 2, 1); door(fx + 47, fy + 8, 2, 1, 'restringida_electronica')
+room(fx + 1, fy + 1, fx + 19, fy + 11, 'Sala 3', 'lab'); room(fx + 1, fy + 12, fx + 19, fy + 22, 'Sala 4', 'lab')
+room(fx + 20, fy + 1, fx + 28, fy + 7, 'Cubículo CIC 1', 'oficina'); room(fx + 20, fy + 17, fx + 28, fy + 22, 'Cubículo CIC 2', 'oficina')
+room(fx + 20, fy + 8, fx + 28, fy + 16, 'Pasillo CIC oeste', 'pasillo', grupo='CIC', fondo=False)
+room(fx + 29, fy + 1, fx + 35, fy + 7, 'Cubículo CIC 3', 'oficina'); room(fx + 38, fy + 1, fx + 44, fy + 7, 'Cubículo CIC 4', 'oficina')
+for Y in range(fy, fy + 8):
+    walls.add((fx + 36, Y)); walls.add((fx + 37, Y))
+room(fx + 29, fy + 8, fx + 44, fy + 22, 'CIC', 'pasillo', grupo='CIC')
+door(fx + 31, fy + 7, 2, 1); door(fx + 40, fy + 7, 2, 1)
+room(fx + 45, fy + 8, fx + 53, fy + 16, 'Pasillo CIC este', 'pasillo', grupo='CIC', fondo=False)
+room(fx + 45, fy + 1, fx + 53, fy + 7, 'SITE', 'servidores'); room(fx + 45, fy + 17, fx + 53, fy + 22, 'Cubículos CIC', 'oficina')
+room(fx + 54, fy + 1, fx + 72, fy + 11, 'Sala 1', 'lab'); room(fx + 54, fy + 12, fx + 72, fy + 22, 'Sala 2', 'lab')
+door(fx + 28, fy + 9, 1, 6, 'abierta'); door(fx + 44, fy + 9, 1, 6, 'abierta')
+door(fx + 19, fy + 8, 1, 2); door(fx + 19, fy + 13, 1, 2); door(fx + 53, fy + 8, 1, 2); door(fx + 53, fy + 13, 1, 2)
+door(fx + 23, fy + 7, 2, 1); door(fx + 23, fy + 16, 2, 1); door(fx + 48, fy + 7, 2, 1, 'restringida_electronica'); door(fx + 48, fy + 16, 2, 1)
 door(fx + 34, fy + 22, 4, 1, 'electronica')
+for X in list(range(fx + 20, fx + 23)) + list(range(fx + 25, fx + 28)) + list(range(fx + 45, fx + 48)) + list(range(fx + 50, fx + 53)):
+    vidrio.add((X, fy + 7)); vidrio.add((X, fy + 16))
 # Nevería
 nx, ny = 47, 36
 room(nx + 1, ny + 1, nx + 15, ny + 8, 'Cocina nevería', 'cocina'); room(nx + 1, ny + 9, nx + 15, ny + 40, 'Nevería', 'cafeteria')
 door(nx + 7, ny + 8, 2, 1); door(nx + 15, ny + 17, 1, 2, 'cristal'); door(nx + 15, ny + 30, 1, 2, 'cristal')
 # baño entre F y E
-room(95, 73, 105, 82, 'Baño E', 'bano'); door(105, 77, 1, 2)
-# A
+# A (como el mapa del compañero): recepción a la izquierda, 4 oficinas arriba, pasillo, abajo Servicios Escolares, juntas, archivo y WC
 ax, ay = 88, 132
-room(ax + 1, ay + 1, ax + 11, ay + 31, 'Servicios Escolares', 'oficina')
+room(ax + 1, ay + 1, ax + 11, ay + 31, 'Administración (recepción)', 'oficina')
 for i, nm in enumerate(['Dirección', 'Subdirección', 'Secretaría', 'Contabilidad']):
     room(ax + 12 + i * 9, ay + 1, ax + 20 + i * 9, ay + 10, nm, 'madera' if i == 0 else 'oficina')
     door(ax + 15 + i * 9, ay + 10, 2, 1, 'restringida' if i == 0 else 'normal')
 room(ax + 12, ay + 11, ax + 48, ay + 14, 'Pasillo A', 'pasillo', zona=False)
-room(ax + 12, ay + 15, ax + 26, ay + 31, 'Sala de espera', 'oficina'); room(ax + 27, ay + 15, ax + 39, ay + 31, 'Sala de juntas', 'madera')
-room(ax + 40, ay + 15, ax + 48, ay + 22, 'Archivo', 'oficina'); room(ax + 40, ay + 23, ax + 48, ay + 31, 'Baño A', 'bano')
-door(ax + 18, ay + 14, 2, 1); door(ax + 32, ay + 14, 2, 1); door(ax + 43, ay + 14, 2, 1); door(ax + 43, ay + 22, 2, 1)
-door(ax + 11, ay + 12, 1, 2); door(ax, ay + 20, 1, 3, 'cristal'); door(ax + 48, ay + 12, 1, 2, 'cristal')
+room(ax + 12, ay + 15, ax + 30, ay + 31, 'Servicios Escolares', 'oficina'); room(ax + 31, ay + 15, ax + 40, ay + 31, 'Sala de juntas', 'madera')
+room(ax + 41, ay + 15, ax + 48, ay + 22, 'Archivo', 'oficina'); room(ax + 41, ay + 23, ax + 48, ay + 31, 'Baño A', 'bano')
+door(ax + 20, ay + 14, 2, 1); door(ax + 35, ay + 14, 2, 1); door(ax + 44, ay + 14, 2, 1); door(ax + 44, ay + 22, 2, 1)
+door(ax + 11, ay + 12, 1, 2); door(ax, ay + 18, 1, 3, 'cristal'); door(ax + 4, ay + 31, 3, 1, 'cristal'); door(ax + 48, ay + 12, 1, 2, 'cristal')
 fill(ax - 3, ay - 3, ax + 52, ay, BANQUETA); fill(ax + 49, ay, ax + 52, ay + 33, BANQUETA); fill(ax - 3, ay, ax, ay + 33, BANQUETA)
 # Conserjería junto a la cancha
 room(153, 16, 163, 24, 'Conserjería', 'bodega'); door(157, 24, 2, 1, 'restringida')
@@ -193,12 +205,13 @@ for (X, Y) in walls:
 for (X, Y) in pillars: muro[Y][X] = 'columna'
 fondo = {}   # (X,Y) -> (fila, total)
 for r in rooms:
-    if not r['zona'] and r['piso'] == 'pasillo': continue
+    if (not r['zona'] and r['piso'] == 'pasillo') or not r['fondo']: continue
     n = 2 if (r['y1'] - r['y0']) >= 10 else 1
     for X in range(r['x0'], r['x1']):
         if (X, r['y0'] - 1) in door_cells: continue
         for k in range(n):
             if (X, r['y0'] + k) in door_cells: continue
+            if (X - 1, r['y0'] + k) in door_cells or (X + 1, r['y0'] + k) in door_cells: continue
             fondo[(X, r['y0'] + k)] = (k, n); muro[r['y0'] + k][X] = 'fondo'
 for Y in range(NH):
     for X in range(NW):
@@ -333,11 +346,13 @@ def cancha_lines(a, X, Y):
     a[(dd > 94) & (dd < 97)] = P['linea']
     return a
 
+PARK = [(5, 11, [(66, 82), (122, 134)]), (18, 24, [(66, 94), (108, 134)]), (24, 30, [(66, 94), (108, 134)]), (37, 43, [(66, 94), (110, 134)])]
 def parking_lines(a, X, Y):
-    # cajones: columnas cada 4 casillas en filas de 7 casillas
-    for (ry0, ry1) in ((66, 73), (84, 91), (109, 116), (127, 134)):
-        if ry0 <= Y < ry1 and 7 <= X <= 39 and (X - 7) % 4 == 0: a[:, 0:2] = P['linea']
-    if Y in (99, 100) and 6 <= X <= 40: a[14:18, 4:20] = P['amarillo']  # tope pintado
+    # cajones horizontales: los carros miran hacia la calle (oeste) o hacia la escuela (este)
+    for (x0, x1, rangos) in PARK:
+        for (y0, y1) in rangos:
+            if x0 <= X < x1 and y0 <= Y <= y1 and (Y - y0) % 4 == 0: a[0:2, :] = P['linea']
+            if X == 24 and y0 <= Y < y1 and x0 == 18: a[:, 0:2] = P['linea']
     return a
 
 def calle_lines(a, X, Y):
@@ -373,6 +388,9 @@ def wall_tile(kind, X, Y):
                 a[cap_h:, :, :3] = P['marino']; a[cap_h:, 2:5, :3] = P['marino_c']; a[cap_h:, 0, :3] = P['contorno']; a[cap_h:, 31, :3] = P['contorno']
             elif exterior_below and X % 2 == 0 and isw(X - 1, Y) and isw(X + 1, Y):
                 a[14:28, 1:31, :3] = P['contorno']; a[15:27, 2:30, :3] = P['vidrio']; a[15:18, 2:30, :3] = P['vidrio_c']; a[15:27, 15:17, :3] = P['contorno']
+            if (X, Y) in vidrio:
+                a[cap_h + 3:28, :, :3] = P['vidrio']; a[cap_h + 3:cap_h + 6, :, :3] = P['vidrio_c']; a[cap_h + 3, :, :3] = (170, 175, 180); a[27, :, :3] = (170, 175, 180)
+                a[cap_h + 3:28, 0, :3] = (170, 175, 180)
             if not isw(X - 1, Y): a[cap_h:, 0, :3] = P['contorno']
             if not isw(X + 1, Y): a[cap_h:, 31, :3] = P['contorno']
         return a
@@ -445,12 +463,12 @@ def zona_de_puerta(dd):
     cands = []
     for X in range(dd['x'] - 1, dd['x'] + dd['w'] + 1):
         for Y in range(dd['y'] - 1, dd['y'] + dd['h'] + 1):
-            if (X, Y) in room_at and rooms[room_at[(X, Y)]]['zona']: cands.append(rooms[room_at[(X, Y)]]['nombre'])
+            if (X, Y) in room_at and rooms[room_at[(X, Y)]]['zona']: cands.append(rooms[room_at[(X, Y)]]['grupo'])
     return sorted(set(cands))
 puertas = [dict(id=f'P{i:02d}', tipo=TIPO_PUERTA[dd['tipo']], estilo='cristal' if dd['tipo'] == 'cristal' else 'madera',
                 orientacion='horizontal' if dd['w'] >= dd['h'] else 'vertical', x=dd['x'] * T, y=dd['y'] * T, w=dd['w'] * T, h=dd['h'] * T,
                 zonas=zona_de_puerta(dd)) for i, dd in enumerate(doors) if dd['tipo'] != 'abierta']
-zonas = [dict(nombre=r['nombre'], x=r['x0'] * T, y=r['y0'] * T, w=(r['x1'] - r['x0']) * T, h=(r['y1'] - r['y0']) * T) for r in rooms if r['zona']]
+zonas = [dict(nombre=r['nombre'], grupo=r['grupo'], x=r['x0'] * T, y=r['y0'] * T, w=(r['x1'] - r['x0']) * T, h=(r['y1'] - r['y0']) * T) for r in rooms if r['zona']]
 zonas.append(dict(nombre='Inicio (E-04) descubierta', x=0, y=0, w=0, h=0)) if False else None
 ext = d['mundo']['objetos_exteriores']; ext = ast.literal_eval(ext) if isinstance(ext, str) else ext
 def libre(X, Y, r=1):
@@ -483,14 +501,14 @@ marcadores = {
     'arco_entrada': dict(x=69 * T, y=158 * T, nota='entrada principal desde la calle'),
     'servidor_site': dict(x=c('SITE')[0], y=c('SITE')[1] - 48),
     'interruptor_principal': dict(x=c('SITE')[0] + 96, y=(43 + 1) * T + 8),
-    'computadoras_llamada': [dict(x=c('Oficina CIC')[0] + dx, y=c('Oficina CIC')[1]) for dx in (-64, 64)],
+    'computadoras_llamada': [dict(x=c('CIC')[0] + dx, y=c('CIC')[1] - 96) for dx in (-80, 80)],
     'llaves_conserjeria': dict(x=c('Conserjería')[0], y=c('Conserjería')[1]),
     'conserje_zombie': dict(x=c('Conserjería')[0] - 64, y=c('Conserjería')[1] + 32),
     'carnada_neveria': dict(x=c('Nevería')[0], y=c('Nevería')[1]),
     'horda_explanada': dict(x=CORAZON[0] * T + 16, y=CORAZON[1] * T + 16, radio=6 * T),
     'corazon_tapitas': dict(x=CORAZON[0] * T + 16, y=CORAZON[1] * T + 16),
     'bidones_posibles': [dict(x=c(n)[0], y=c(n)[1], zona=n) for n in ('Sala 4', 'Baños C', 'D-03', 'Archivo', 'Cocina nevería', 'B-05', 'Conserjería', 'Sala de juntas')],
-    'bolsa_comida_posible': [dict(x=c(n)[0], y=c(n)[1], zona=n) for n in ('Cocina nevería', 'Sala de espera', 'C-01 Cubículos')],
+    'bolsa_comida_posible': [dict(x=c(n)[0], y=c(n)[1], zona=n) for n in ('Cocina nevería', 'Servicios Escolares', 'C-01 Cubículos')],
     'botin_raro': dict(x=c('Dirección')[0], y=c('Dirección')[1], zona='Dirección'),
     'tarjeta_electronica': dict(x=c('Secretaría')[0], y=c('Secretaría')[1], zona='Secretaría'),
     'interruptor_luz_lab': dict(x=c('Sala 3')[0] + 240, y=(43 + 1) * T + 8),
@@ -500,7 +518,7 @@ marcadores = {
 }
 props_ext = dict(arboles=[dict(x=round(X * T), y=round(Y * T), sprite=s) for X, Y, s in arboles],
                  mesas_redondas=[dict(x=(PH[0] + 4 + 6 * i) * T, y=(PH[1] + 4 + 8 * j) * T) for i in range(4) for j in range(2)] +
-                                [dict(x=(145 + 7 * i) * T, y=(50 + 8 * j) * T) for i in range(4) for j in range(2)],
+                                [dict(x=(147 + 9 * i) * T, y=(50 + 8 * j) * T) for i in range(3) for j in range(2)],
                  postes_luz=[dict(x=X * T, y=Y * T) for (X, Y) in ((60, 90), (90, 92), (120, 92), (140, 95), (176, 92), (100, 128), (140, 128), (30, 66), (30, 133), (200, 100))])
 
 # ---------------- Tiled (.tmj) ----------------

@@ -2,7 +2,7 @@
  "proyecto": "FDI-Z",
  "lote": "mapa",
  "modelo": "google/nano-banana-2.1/edit",
- "total": 14,
+ "total": 17,
  "limite_generaciones": 20,
  "jobs": [
   {
@@ -670,6 +670,112 @@
    "tamanos": {},
    "filas": 2,
    "fase": "T"
+  },
+  {
+   "id": "mapa__neveria2",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "neveria2",
+   "frames": 4,
+   "escala": "mapa",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_frontal.png",
+    "mapa/referencias/fotos_neveria.png"
+   ],
+   "prompt": "Use image 1 as the exact style AND camera reference: the same chunky pixel art, dark 1-pixel outlines, flat shading, and the SAME camera angle: front-facing 3/4 top-down view like classic Pokemon or Stardew Valley, where every object is drawn straight-on with its edges PARALLEL to the image borders. Absolutely NOT isometric, NOT rotated, NOT diagonal, no 45-degree angles. Use image 2 only to see what the real objects look like (shapes, materials, colors); do not copy its perspective. Create exactly 4 separate game props in one single row, left to right, each centered in its own equal-width cell with wide empty space between them, nothing touching another object or the image edges. Objects in order: 1) an L-shaped ice cream shop counter: a long horizontal counter with a white top and a front covered in small dark green square tiles, and at its LEFT end the counter turns 90 degrees and continues DOWN toward the viewer, forming an L; seen straight from the front-top; 2) a square white plastic table with four white plastic chairs: two chairs behind the table facing the viewer and two chairs in front of the table seen from behind; table edges parallel to the image borders; 3) two of those square white tables pushed together side by side into one long table, with six white plastic chairs (three behind facing the viewer, three in front seen from behind); 4) a single white plastic chair seen from behind; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/neveria2.png",
+   "nombres": [
+    "barra_L",
+    "mesa_4",
+    "mesa_doble",
+    "silla_blanca_espalda"
+   ],
+   "tamanos": {
+    "barra_L": {
+     "ancho": 320
+    },
+    "mesa_4": {
+     "ancho": 104
+    },
+    "mesa_doble": {
+     "ancho": 200
+    },
+    "silla_blanca_espalda": {
+     "alto": 44
+    }
+   },
+   "filas": 1,
+   "fase": "M2"
+  },
+  {
+   "id": "mapa__sillas2",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "sillas2",
+   "frames": 3,
+   "escala": "mapa",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_frontal.png",
+    "mapa/referencias/fotos_laboratorio.png"
+   ],
+   "prompt": "Use image 1 as the exact style AND camera reference: the same chunky pixel art, dark 1-pixel outlines, flat shading, and the SAME camera angle: front-facing 3/4 top-down view like classic Pokemon or Stardew Valley, where every object is drawn straight-on with its edges PARALLEL to the image borders. Absolutely NOT isometric, NOT rotated, NOT diagonal, no 45-degree angles. Use image 2 only to see what the real objects look like (shapes, materials, colors); do not copy its perspective. Create exactly 3 separate game props in one single row, left to right, each centered in its own equal-width cell with wide empty space between them, nothing touching another object or the image edges. Objects in order: 1) a simple black plastic chair with four thin metal legs, seen from the front; 2) the same black chair seen from behind (we see the back of the backrest); 3) the same black chair seen from the side, facing right; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/sillas2.png",
+   "nombres": [
+    "silla_negra_frente",
+    "silla_negra_espalda",
+    "silla_negra_lado"
+   ],
+   "tamanos": {
+    "silla_negra_frente": {
+     "alto": 46
+    },
+    "silla_negra_espalda": {
+     "alto": 46
+    },
+    "silla_negra_lado": {
+     "alto": 46
+    }
+   },
+   "filas": 1,
+   "fase": "M2"
+  },
+  {
+   "id": "mapa__carros2",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "carros2",
+   "frames": 3,
+   "escala": "mapa",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_frontal.png",
+    "mapa/referencias/fotos_estacionamiento.png"
+   ],
+   "prompt": "Use image 1 as the exact style AND camera reference: the same chunky pixel art, dark 1-pixel outlines, flat shading, and the SAME camera angle: front-facing 3/4 top-down view like classic Pokemon or Stardew Valley, where every object is drawn straight-on with its edges PARALLEL to the image borders. Absolutely NOT isometric, NOT rotated, NOT diagonal, no 45-degree angles. Use image 2 only to see what the real objects look like (shapes, materials, colors); do not copy its perspective. Create exactly 3 separate game props in one single row, left to right, each centered in its own equal-width cell with wide empty space between them, nothing touching another object or the image edges. Objects in order: 1) a white pickup truck seen from directly above (top-down view of the roof), lying horizontally with its hood pointing LEFT; 2) a red sedan car seen from directly above, lying horizontally with its hood pointing LEFT; 3) a grey SUV seen from directly above, lying horizontally with its hood pointing LEFT; All three cars have the same top-down camera and the same horizontal orientation. Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/carros2.png",
+   "nombres": [
+    "pickup_blanca_izq",
+    "sedan_rojo_izq",
+    "suv_gris_izq"
+   ],
+   "tamanos": {
+    "pickup_blanca_izq": {
+     "ancho": 190
+    },
+    "sedan_rojo_izq": {
+     "ancho": 176
+    },
+    "suv_gris_izq": {
+     "ancho": 184
+    }
+   },
+   "filas": 1,
+   "fase": "M2"
   }
  ]
 }
