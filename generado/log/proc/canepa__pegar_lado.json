@@ -1,0 +1,21 @@
+{
+ "id": "canepa__pegar_lado",
+ "metodo": "componentes",
+ "esperados": 4,
+ "segmentos_proyeccion": 3,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  577,
+  586,
+  586,
+  591
+ ],
+ "marcas": [],
+ "factor": 0.16382252559726962,
+ "dist_paleta": 9.536442041397095,
+ "lienzo": [
+  79,
+  108
+ ]
+}

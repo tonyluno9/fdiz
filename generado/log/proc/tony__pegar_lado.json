@@ -1,0 +1,21 @@
+{
+ "id": "tony__pegar_lado",
+ "metodo": "componentes",
+ "esperados": 4,
+ "segmentos_proyeccion": 3,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  554,
+  561,
+  553,
+  562
+ ],
+ "marcas": [],
+ "factor": 0.17219730941704037,
+ "dist_paleta": 9.999564409255981,
+ "lienzo": [
+  80,
+  127
+ ]
+}

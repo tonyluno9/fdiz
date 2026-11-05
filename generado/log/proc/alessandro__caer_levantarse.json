@@ -1,0 +1,23 @@
+{
+ "id": "alessandro__caer_levantarse",
+ "metodo": "componentes",
+ "esperados": 6,
+ "segmentos_proyeccion": 4,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  561,
+  529,
+  391,
+  187,
+  412,
+  589
+ ],
+ "marcas": [],
+ "factor": 0.16695652173913045,
+ "dist_paleta": 10.639742374420166,
+ "lienzo": [
+  88,
+  105
+ ]
+}

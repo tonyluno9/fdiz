@@ -1,0 +1,10 @@
+{
+  "objetos__armas": {"calificacion": "OK", "razon": "5 objetos en orden (escoba, silla, regla, bate, extintor), reconocibles, mismo estilo y recorte limpio", "correccion": null},
+  "objetos__lanzables": {"calificacion": "OK", "razon": "balón, engrapadora, libro rojo y grapa en orden; la grapa es pequeña pero se entiende", "correccion": null},
+  "objetos__comida": {"calificacion": "OK", "razon": "hamburguesa, torta, jugo, galletas y bolsa en orden, claros y en el mismo estilo", "correccion": null},
+  "objetos__objetivos": {"calificacion": "OK", "razon": "bidón, llavero, tarjeta, llave roja y moneda en orden, reconocibles y limpios", "correccion": null},
+  "objetos__contenedores": {"calificacion": "OK", "razon": "lockers, máquinas (llena y rota/abierta) y mochilas cerrada/abierta en orden, estados claros", "correccion": null},
+  "objetos__props_especiales": {"calificacion": "OK", "razon": "minigun, laptop, celular, estuche de audífonos, tablet y celular con cruz verde en orden; la minigun queda baja (16 px) pero legible", "correccion": null},
+  "objetos__efectos_generales": {"calificacion": "OK", "razon": "arco, salpicadura verde, polvo, Zzz, estrellas y exclamación en orden, sin sangre, estilo consistente", "correccion": null},
+  "objetos__camion": {"calificacion": "OK", "razon": "autobús escolar amarillo visto desde arriba, vertical con el frente hacia abajo, recorte limpio", "correccion": null}
+}

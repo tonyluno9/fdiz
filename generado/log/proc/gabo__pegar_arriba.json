@@ -1,0 +1,21 @@
+{
+ "id": "gabo__pegar_arriba",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  583,
+  583,
+  603,
+  583
+ ],
+ "marcas": [],
+ "factor": 0.1646655231560892,
+ "dist_paleta": 7.783758521080017,
+ "lienzo": [
+  88,
+  103
+ ]
+}

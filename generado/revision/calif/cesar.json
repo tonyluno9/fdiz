@@ -1,0 +1,67 @@
+{
+ "cesar__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, respiración y parpadeo correctos",
+  "correccion": null
+ },
+ "cesar__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "cesar__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "cesar__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "perfil (3/4) mirando a la derecha, ciclo correcto",
+  "correccion": null
+ },
+ "cesar__pegar_lado": {
+  "calificacion": "OK",
+  "razon": "golpe a la derecha con arco blanco; último cuadro algo más frontal, aceptable",
+  "correccion": null
+ },
+ "cesar__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "golpe de frente con arco, mismo personaje",
+  "correccion": null
+ },
+ "cesar__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "golpe de espaldas con arco, mismo personaje",
+  "correccion": null
+ },
+ "cesar__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "El cuadro acostado quedaba encimado bajo el de caída; se corrigió la separación en el procesamiento (sin regenerar). Revisado: 6 cuadros correctos.",
+  "correccion": null
+ },
+ "cesar__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, festejo y pulgar arriba correctos",
+  "correccion": null
+ },
+ "cesar__habilidad": {
+  "calificacion": "OK",
+  "razon": "laptop plateada y código verde según el prompt",
+  "correccion": null
+ },
+ "cesar__especial": {
+  "calificacion": "OK",
+  "razon": "laptop en alto, destello azul y ondas; leve brillo morado (30 px magenta) en el cuadro 2",
+  "correccion": null
+ },
+ "cesar__efecto_habilidad": {
+  "calificacion": "REVISAR",
+  "razon": "código verde muy denso, con pseudotexto ilegible y bloques cortados en recto arriba; cuadro 4 casi vacío",
+  "correccion": null
+ },
+ "cesar__efecto_especial": {
+  "calificacion": "REVISAR",
+  "razon": "estallido y anillos correctos, pero el anillo del cuadro 4 toca el borde derecho y está cortado",
+  "correccion": null
+ }
+}

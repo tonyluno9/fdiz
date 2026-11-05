@@ -1,0 +1,7 @@
+{
+  "tonyfuerte__quieto": {"calificacion": "OK", "razon": "mismo Tony modo gym con aura dorada pedida, 4 cuadros con respiración y parpadeo; la alerta de color es el aura", "correccion": null},
+  "tonyfuerte__caminar_abajo": {"calificacion": "OK", "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto; aura más delgada pero presente (alerta de color = aura)", "correccion": null},
+  "tonyfuerte__caminar_arriba": {"calificacion": "OK", "razon": "de espaldas, mismo cabello, jeans y tenis, ciclo de 6 cuadros con aura; alerta de color = aura", "correccion": null},
+  "tonyfuerte__caminar_lado": {"calificacion": "REHACER", "razon": "no es perfil: el torso y la cara van en vista 3/4 de frente; el cuadro 5 es más grande, distinto y casi sin aura arriba (estatura varía 12%)", "correccion": "Strict side profile facing right in all 6 frames (only one eye visible), same size and full golden aura in every frame."},
+  "tonyfuerte__pegar_lado": {"calificacion": "REHACER", "razon": "los cuadros 1 (pose de bíceps) y 4 están de frente, no de perfil; solo los cuadros 2 y 3 muestran el golpe hacia la derecha", "correccion": "All 4 frames in side profile facing right; frame 1 pulls the fist back to the waist, frame 4 is a side-view guard pose."}
+}

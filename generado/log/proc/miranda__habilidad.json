@@ -1,0 +1,22 @@
+{
+ "id": "miranda__habilidad",
+ "metodo": "proyeccion",
+ "esperados": 5,
+ "segmentos_proyeccion": 5,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  593,
+  592,
+  592,
+  593,
+  592
+ ],
+ "marcas": [],
+ "factor": 0.16216216216216217,
+ "dist_paleta": 12.383875274658203,
+ "lienzo": [
+  89,
+  102
+ ]
+}

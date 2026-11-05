@@ -1,0 +1,21 @@
+{
+ "id": "alan__festejo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  604,
+  562,
+  594,
+  604
+ ],
+ "marcas": [],
+ "factor": 0.16026711185308848,
+ "dist_paleta": 8.49114191532135,
+ "lienzo": [
+  86,
+  102
+ ]
+}

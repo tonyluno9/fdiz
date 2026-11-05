@@ -1,0 +1,23 @@
+{
+ "id": "tonyfuerte__caminar_lado",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  588,
+  555,
+  589,
+  589,
+  555,
+  589
+ ],
+ "marcas": [],
+ "factor": 0.1631265930331351,
+ "dist_paleta": 27.611982345581055,
+ "lienzo": [
+  85,
+  100
+ ]
+}

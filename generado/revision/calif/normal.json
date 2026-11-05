@@ -1,0 +1,8 @@
+{
+  "normal__caminar_abajo": {"calificacion": "OK", "razon": "mismo zombie (lentes, ojos rojos, polo marino, jeans rotos), vista de frente, ciclo de 6 cuadros correcto", "correccion": null},
+  "normal__caminar_arriba": {"calificacion": "OK", "razon": "mismo zombie de espaldas, ropa y cabello correctos, ciclo de 6 cuadros correcto", "correccion": null},
+  "normal__caminar_lado": {"calificacion": "REVISAR", "razon": "mismo personaje pero en vista 3/4 hacia la derecha, no perfil puro; el cuadro 4 baja los brazos y rompe el ciclo", "correccion": null},
+  "normal__atacar_lado": {"calificacion": "REVISAR", "razon": "mismo personaje y ataque legible con arco, pero en vista 3/4 hacia la derecha en lugar de perfil", "correccion": null},
+  "normal__atacar_abajo": {"calificacion": "REHACER", "razon": "los cuadros 2 y 3 giran el cuerpo y atacan hacia la derecha, no hacia el espectador; el cuadro 2 cambia el peinado", "correccion": "Keep the front view in all 4 frames; the zombie lunges and claws straight toward the viewer, not to the side."},
+  "normal__golpe_morir": {"calificacion": "REHACER", "razon": "en la imagen de la IA los cuadros 3 y 4 se enciman (el cuerpo cayendo pisa al acostado), así que la separación corta mal; resto correcto y sin sangre", "correccion": "Keep clear empty space between all 6 frames; the falling and lying bodies must not overlap."}
+}

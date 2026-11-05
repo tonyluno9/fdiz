@@ -1,0 +1,21 @@
+{
+ "id": "cesar__efecto_habilidad",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  379,
+  515,
+  535,
+  554
+ ],
+ "marcas": [],
+ "factor": 0.17328519855595667,
+ "dist_paleta": null,
+ "lienzo": [
+  65,
+  100
+ ]
+}

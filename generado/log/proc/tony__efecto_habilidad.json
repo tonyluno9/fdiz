@@ -1,0 +1,21 @@
+{
+ "id": "tony__efecto_habilidad",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  316,
+  389,
+  495,
+  548
+ ],
+ "marcas": [],
+ "factor": 0.17518248175182483,
+ "dist_paleta": null,
+ "lienzo": [
+  55,
+  100
+ ]
+}

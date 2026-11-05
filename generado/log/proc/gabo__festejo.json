@@ -1,0 +1,21 @@
+{
+ "id": "gabo__festejo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  589,
+  534,
+  582,
+  589
+ ],
+ "marcas": [],
+ "factor": 0.16396242527754057,
+ "dist_paleta": 9.57957124710083,
+ "lienzo": [
+  88,
+  103
+ ]
+}

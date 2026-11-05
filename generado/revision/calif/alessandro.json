@@ -1,0 +1,15 @@
+{
+  "alessandro__quieto": {"calificacion": "OK", "razon": "mismo personaje (lentes, playera negra, cargo gris, reloj dorado), respiración y parpadeo correctos", "correccion": null},
+  "alessandro__caminar_abajo": {"calificacion": "OK", "razon": "mismo personaje, de frente, ciclo de 6 cuadros correcto", "correccion": null},
+  "alessandro__caminar_arriba": {"calificacion": "OK", "razon": "mismo personaje de espaldas, ciclo de 6 cuadros correcto", "correccion": null},
+  "alessandro__caminar_lado": {"calificacion": "REVISAR", "razon": "piernas caminan a la derecha, pero la cara y el torso están en vista 3/4 de frente, no de perfil; se ve como si caminara de lado mirando a cámara", "correccion": null},
+  "alessandro__pegar_lado": {"calificacion": "REVISAR", "razon": "golpe a la derecha bien hecho y mismo personaje, pero el cuerpo y la cara están en 3/4 de frente en lugar de perfil", "correccion": null},
+  "alessandro__pegar_abajo": {"calificacion": "REHACER", "razon": "el golpe va hacia la derecha (casi igual a pegar_lado), no hacia el espectador", "correccion": "Front view facing the camera, punching straight toward the viewer with the fist coming at the camera, not to the side."},
+  "alessandro__pegar_arriba": {"calificacion": "REVISAR", "razon": "vista de espaldas correcta, pero el brazo se extiende hacia la derecha en lugar de hacia arriba/al frente; dirección ambigua", "correccion": null},
+  "alessandro__caer_levantarse": {"calificacion": "OK", "razon": "mismo personaje, 6 cuadros en orden: retroceso, caída, acostado con ojos cerrados, se levanta", "correccion": null},
+  "alessandro__festejo": {"calificacion": "OK", "razon": "mismo personaje; puño, salto, aterrizaje y pulgar arriba; la variación de estatura es por el salto", "correccion": null},
+  "alessandro__habilidad": {"calificacion": "OK", "razon": "mismo personaje; dedo arriba, gestos, remate, risa y risa agarrándose la panza", "correccion": null},
+  "alessandro__especial": {"calificacion": "OK", "razon": "mismo personaje; muestra el reloj, lo toca, brilla, anillo de reloj dorado y pose final con entorno gris", "correccion": null},
+  "alessandro__efecto_habilidad": {"calificacion": "REVISAR", "razon": "4 cuadros con caritas riendo, pero el estallido central parece más una explosión que líneas de risa", "correccion": null},
+  "alessandro__efecto_especial": {"calificacion": "OK", "razon": "esfera de reloj dorada con manecillas que se expande en 4 cuadros, estilo coherente", "correccion": null}
+}

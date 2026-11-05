@@ -1,0 +1,22 @@
+{
+ "id": "tony__especial",
+ "metodo": "valle",
+ "esperados": 5,
+ "segmentos_proyeccion": 4,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  394,
+  406,
+  485,
+  601,
+  622
+ ],
+ "marcas": [],
+ "factor": 0.1979381443298969,
+ "dist_paleta": 34.219045639038086,
+ "lienzo": [
+  80,
+  127
+ ]
+}

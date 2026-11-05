@@ -1,0 +1,23 @@
+{
+ "id": "normal__golpe_morir",
+ "metodo": "valle",
+ "esperados": 6,
+ "segmentos_proyeccion": 3,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  423,
+  414,
+  374,
+  134,
+  277,
+  128
+ ],
+ "marcas": [],
+ "factor": 0.22695035460992907,
+ "dist_paleta": 15.977642695109049,
+ "lienzo": [
+  79,
+  101
+ ]
+}

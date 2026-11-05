@@ -1,0 +1,8 @@
+{
+  "canepa__quieto": {"calificacion": "OK", "razon": "mismo personaje (gorra negra/verde, barba, polo verde, reloj), 4 cuadros con parpadeo en el 3, de frente", "correccion": null},
+  "canepa__caminar_abajo": {"calificacion": "OK", "razon": "mismo personaje de frente, 6 cuadros, ciclo de caminata sutil pero legible", "correccion": null},
+  "canepa__caminar_arriba": {"calificacion": "OK", "razon": "mismo personaje de espaldas, 6 cuadros, ciclo correcto", "correccion": null},
+  "canepa__caminar_lado": {"calificacion": "OK", "razon": "mismo personaje de perfil mirando a la derecha, 6 cuadros, ciclo correcto", "correccion": null},
+  "canepa__pegar_lado": {"calificacion": "OK", "razon": "mismo personaje mirando a la derecha, puñetazo con arco blanco en el cuadro 3, 4 cuadros", "correccion": null},
+  "canepa__pegar_arriba": {"calificacion": "OK", "razon": "mismo personaje de espaldas, puñetazo hacia arriba con arco en el cuadro 3; variación de estatura por el brazo alzado, aceptable", "correccion": null}
+}

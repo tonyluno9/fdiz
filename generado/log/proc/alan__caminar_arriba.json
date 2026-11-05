@@ -1,0 +1,23 @@
+{
+ "id": "alan__caminar_arriba",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  526,
+  516,
+  536,
+  536,
+  526,
+  536
+ ],
+ "marcas": [],
+ "factor": 0.1807909604519774,
+ "dist_paleta": 6.539198239644368,
+ "lienzo": [
+  86,
+  102
+ ]
+}

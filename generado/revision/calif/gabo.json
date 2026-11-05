@@ -1,0 +1,15 @@
+{
+  "gabo__quieto": {"calificacion": "OK", "razon": "mismo personaje, 4 cuadros de respiración/parpadeo, ciclo correcto", "correccion": null},
+  "gabo__caminar_abajo": {"calificacion": "OK", "razon": "mismo personaje de frente, 6 cuadros, ciclo de caminata correcto", "correccion": null},
+  "gabo__caminar_arriba": {"calificacion": "OK", "razon": "mismo personaje de espaldas, 6 cuadros, ciclo correcto", "correccion": null},
+  "gabo__caminar_lado": {"calificacion": "REVISAR", "razon": "piernas caminan a la derecha pero cara y torso quedan en vista 3/4 casi de frente, no de perfil", "correccion": null},
+  "gabo__pegar_lado": {"calificacion": "REVISAR", "razon": "golpe a la derecha legible, pero en vista 3/4 con la cara hacia la cámara en lugar de perfil", "correccion": null},
+  "gabo__pegar_abajo": {"calificacion": "REHACER", "razon": "vista equivocada: es casi idéntica a pegar_lado, golpea hacia la derecha y no hacia el espectador", "correccion": "Front view facing the camera, punching straight toward the viewer, not to the side."},
+  "gabo__pegar_arriba": {"calificacion": "OK", "razon": "mismo personaje de espaldas, 4 cuadros con arco de golpe", "correccion": null},
+  "gabo__caer_levantarse": {"calificacion": "OK", "razon": "mismo personaje, 6 cuadros en orden: golpe, caída, acostado, se levanta", "correccion": null},
+  "gabo__festejo": {"calificacion": "OK", "razon": "mismo personaje, puño, salto, aterrizaje y pulgar arriba", "correccion": null},
+  "gabo__habilidad": {"calificacion": "OK", "razon": "mismo personaje, súper velocidad a la derecha con líneas e imágenes residuales; la variación de estatura es por la pose", "correccion": null},
+  "gabo__especial": {"calificacion": "OK", "razon": "mismo personaje, saca laptop, teléfono, lanza gadgets y pose final con chispas", "correccion": null},
+  "gabo__efecto_habilidad": {"calificacion": "REVISAR", "razon": "SEPARACIÓN: la IA lo hizo en cuadrícula 2x2 (nubes de polvo con líneas de velocidad) y los cuadros quedaron mal cortados", "correccion": null},
+  "gabo__efecto_especial": {"calificacion": "OK", "razon": "laptop, teléfono, tablet y audífonos con chispas y ondas, 4 cuadros en loop", "correccion": null}
+}

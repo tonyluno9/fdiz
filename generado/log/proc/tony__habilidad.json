@@ -1,0 +1,22 @@
+{
+ "id": "tony__habilidad",
+ "metodo": "proyeccion",
+ "esperados": 5,
+ "segmentos_proyeccion": 5,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  600,
+  600,
+  600,
+  600,
+  600
+ ],
+ "marcas": [],
+ "factor": 0.16,
+ "dist_paleta": 10.567761039733886,
+ "lienzo": [
+  80,
+  127
+ ]
+}

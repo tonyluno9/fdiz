@@ -1,0 +1,10530 @@
+{
+"nota": "x,y = ancla abajo-centro en px; colision en px (None = no choca); capa: piso, pared, encima, arbol, hito",
+"props": [
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 3616,
+"y": 2426,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 3872,
+"y": 2426,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 3636,
+"y": 2474,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 3616,
+"y": 2504,
+"capa": "piso",
+"colision": {
+"x": 3571,
+"y": 2474,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 3568,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 3553,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 3632,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 3617,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 3696,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 3681,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 3888,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 3873,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 3568,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 3553,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 3696,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 3681,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 3888,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 3873,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 3539,
+"y": 2681,
+"capa": "piso",
+"colision": {
+"x": 3530,
+"y": 2663,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 4096,
+"y": 2426,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 4352,
+"y": 2426,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 4116,
+"y": 2474,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 4096,
+"y": 2504,
+"capa": "piso",
+"colision": {
+"x": 4051,
+"y": 2474,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4112,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 4097,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4176,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 4161,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4304,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 4289,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4368,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 4353,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4048,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4033,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4112,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4097,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4176,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4161,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4304,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4289,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4368,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4353,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 4019,
+"y": 2681,
+"capa": "piso",
+"colision": {
+"x": 4010,
+"y": 2663,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 4576,
+"y": 2426,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 4832,
+"y": 2426,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 4596,
+"y": 2474,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 4576,
+"y": 2504,
+"capa": "piso",
+"colision": {
+"x": 4531,
+"y": 2474,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4528,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 4513,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4592,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 4577,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4784,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 4769,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4848,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 4833,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4528,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4513,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4592,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4577,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4656,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4641,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4784,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4769,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 4848,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4833,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 4499,
+"y": 2681,
+"capa": "piso",
+"colision": {
+"x": 4490,
+"y": 2663,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 5056,
+"y": 2426,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 5312,
+"y": 2426,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 5076,
+"y": 2474,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 5056,
+"y": 2504,
+"capa": "piso",
+"colision": {
+"x": 5011,
+"y": 2474,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5008,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 4993,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5072,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 5057,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5136,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 5121,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5264,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 5249,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5328,
+"y": 2586,
+"capa": "piso",
+"colision": {
+"x": 5313,
+"y": 2568,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5008,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 4993,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5072,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 5057,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5136,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 5121,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5264,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 5249,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5328,
+"y": 2650,
+"capa": "piso",
+"colision": {
+"x": 5313,
+"y": 2632,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 4979,
+"y": 2681,
+"capa": "piso",
+"colision": {
+"x": 4970,
+"y": 2663,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 5388,
+"y": 2681,
+"capa": "piso",
+"colision": {
+"x": 5379,
+"y": 2663,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 5984,
+"y": 2842,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 6080,
+"y": 2842,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 6004,
+"y": 2890,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 5984,
+"y": 2920,
+"capa": "piso",
+"colision": {
+"x": 5939,
+"y": 2890,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 3002,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 2984,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 3002,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 2984,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 3066,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 3048,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 3130,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 3112,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 3130,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 3112,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 3130,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 3112,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 3194,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 3176,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 3194,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 3176,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 3258,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 3240,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 3258,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 3240,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 3258,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 3240,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 6124,
+"y": 3257,
+"capa": "piso",
+"colision": {
+"x": 6115,
+"y": 3239,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 5984,
+"y": 3354,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 6080,
+"y": 3354,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 6004,
+"y": 3402,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 5984,
+"y": 3432,
+"capa": "piso",
+"colision": {
+"x": 5939,
+"y": 3402,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 3514,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 3496,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 3514,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 3496,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 3578,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 3560,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 3578,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 3560,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 3642,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 3624,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 3642,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 3624,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 3706,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 3688,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 3706,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 3688,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 3706,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 3688,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 3770,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 3752,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 3770,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 3752,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 3770,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 3752,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 6124,
+"y": 3769,
+"capa": "piso",
+"colision": {
+"x": 6115,
+"y": 3751,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 5843,
+"y": 3769,
+"capa": "piso",
+"colision": {
+"x": 5834,
+"y": 3751,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 5984,
+"y": 3866,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 6080,
+"y": 3866,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 6004,
+"y": 3914,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 5984,
+"y": 3944,
+"capa": "piso",
+"colision": {
+"x": 5939,
+"y": 3914,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 4026,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 4008,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 4026,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 4008,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 4090,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 4072,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 4090,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 4072,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 4154,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 4136,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 4154,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 4136,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 4154,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 4136,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 4218,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 4200,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 4218,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 4200,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 4218,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 4200,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 4282,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 4264,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 4282,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 4264,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 4282,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 4264,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 6124,
+"y": 4281,
+"capa": "piso",
+"colision": {
+"x": 6115,
+"y": 4263,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 5984,
+"y": 1114,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 6080,
+"y": 1114,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 6004,
+"y": 1162,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 5984,
+"y": 1192,
+"capa": "piso",
+"colision": {
+"x": 5939,
+"y": 1162,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 1274,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 1256,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 1274,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 1256,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 1338,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 1320,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 1402,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 1384,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 1402,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 1384,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 1466,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 1448,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 1466,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 1448,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 1466,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 1448,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 1530,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 1512,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 1530,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 1512,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 1530,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 1512,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 5843,
+"y": 1529,
+"capa": "piso",
+"colision": {
+"x": 5834,
+"y": 1511,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 5984,
+"y": 1626,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 6080,
+"y": 1626,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 6004,
+"y": 1674,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 5984,
+"y": 1704,
+"capa": "piso",
+"colision": {
+"x": 5939,
+"y": 1674,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 1786,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 1768,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 1786,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 1768,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 1850,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 1832,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 1850,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 1832,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 1914,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 1896,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 1914,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 1896,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 1914,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 1896,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 1978,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 1960,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 1978,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 1960,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 1978,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 1960,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 2042,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 2024,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 5843,
+"y": 2041,
+"capa": "piso",
+"colision": {
+"x": 5834,
+"y": 2023,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 5984,
+"y": 2138,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 6080,
+"y": 2138,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 6004,
+"y": 2186,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 5984,
+"y": 2216,
+"capa": "piso",
+"colision": {
+"x": 5939,
+"y": 2186,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 2298,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 2280,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 2362,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 2344,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 2362,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 2344,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 2426,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 2408,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 2426,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 2408,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 2426,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 2408,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 2490,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 2472,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 2490,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 2472,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5872,
+"y": 2554,
+"capa": "piso",
+"colision": {
+"x": 5857,
+"y": 2536,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 5936,
+"y": 2554,
+"capa": "piso",
+"colision": {
+"x": 5921,
+"y": 2536,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6064,
+"y": 2554,
+"capa": "piso",
+"colision": {
+"x": 6049,
+"y": 2536,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 6124,
+"y": 2553,
+"capa": "piso",
+"colision": {
+"x": 6115,
+"y": 2535,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 7088,
+"y": 538,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 7232,
+"y": 538,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 7108,
+"y": 586,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 7088,
+"y": 616,
+"capa": "piso",
+"colision": {
+"x": 7043,
+"y": 586,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6928,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 6913,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6992,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 6977,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7056,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7041,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7120,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7105,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7184,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7169,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7248,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7233,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 6928,
+"y": 762,
+"capa": "piso",
+"colision": {
+"x": 6913,
+"y": 744,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7184,
+"y": 762,
+"capa": "piso",
+"colision": {
+"x": 7169,
+"y": 744,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 7276,
+"y": 793,
+"capa": "piso",
+"colision": {
+"x": 7267,
+"y": 775,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 7536,
+"y": 538,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 7680,
+"y": 538,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 7556,
+"y": 586,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 7536,
+"y": 616,
+"capa": "piso",
+"colision": {
+"x": 7491,
+"y": 586,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7376,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7361,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7440,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7425,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7504,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7489,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7568,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7553,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7632,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7617,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7696,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7681,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7376,
+"y": 762,
+"capa": "piso",
+"colision": {
+"x": 7361,
+"y": 744,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7632,
+"y": 762,
+"capa": "piso",
+"colision": {
+"x": 7617,
+"y": 744,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7696,
+"y": 762,
+"capa": "piso",
+"colision": {
+"x": 7681,
+"y": 744,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 7347,
+"y": 793,
+"capa": "piso",
+"colision": {
+"x": 7338,
+"y": 775,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/salon__pizarron_h70",
+"archivo": "mapa_extra/salon__pizarron_h70.png",
+"x": 7984,
+"y": 538,
+"capa": "pared",
+"colision": null,
+"w": 105,
+"h": 70
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 8128,
+"y": 538,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "salon/silla_profesor",
+"archivo": "mapa/salon/silla_profesor.png",
+"x": 8004,
+"y": 586,
+"capa": "piso",
+"colision": null,
+"w": 28,
+"h": 46
+},
+{
+"sprite": "salon/escritorio_profesor",
+"archivo": "mapa/salon/escritorio_profesor.png",
+"x": 7984,
+"y": 616,
+"capa": "piso",
+"colision": {
+"x": 7939,
+"y": 586,
+"w": 90,
+"h": 30
+},
+"w": 96,
+"h": 75
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7824,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7809,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7888,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 7873,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 8080,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 8065,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 8144,
+"y": 698,
+"capa": "piso",
+"colision": {
+"x": 8129,
+"y": 680,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 7824,
+"y": 762,
+"capa": "piso",
+"colision": {
+"x": 7809,
+"y": 744,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 8080,
+"y": 762,
+"capa": "piso",
+"colision": {
+"x": 8065,
+"y": 744,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "salon/pupitre_espalda",
+"archivo": "mapa/salon/pupitre_espalda.png",
+"x": 8144,
+"y": 762,
+"capa": "piso",
+"colision": {
+"x": 8129,
+"y": 744,
+"w": 30,
+"h": 18
+},
+"w": 40,
+"h": 52
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 8172,
+"y": 793,
+"capa": "piso",
+"colision": {
+"x": 8163,
+"y": 775,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "extra/exterior__bote_exterior_h34",
+"archivo": "mapa_extra/exterior__bote_exterior_h34.png",
+"x": 7795,
+"y": 793,
+"capa": "piso",
+"colision": {
+"x": 7786,
+"y": 775,
+"w": 18,
+"h": 18
+},
+"w": 22,
+"h": 34
+},
+{
+"sprite": "banos/cubiculo_cerrado",
+"archivo": "mapa/banos/cubiculo_cerrado.png",
+"x": 8262,
+"y": 627,
+"capa": "piso",
+"colision": {
+"x": 8229,
+"y": 597,
+"w": 66,
+"h": 30
+},
+"w": 72,
+"h": 100
+},
+{
+"sprite": "banos/cubiculo_cerrado",
+"archivo": "mapa/banos/cubiculo_cerrado.png",
+"x": 8486,
+"y": 627,
+"capa": "piso",
+"colision": {
+"x": 8453,
+"y": 597,
+"w": 66,
+"h": 30
+},
+"w": 72,
+"h": 100
+},
+{
+"sprite": "oficinas/librero",
+"archivo": "mapa/oficinas/librero.png",
+"x": 6816,
+"y": 1404,
+"capa": "piso",
+"colision": {
+"x": 6788,
+"y": 1380,
+"w": 56,
+"h": 24
+},
+"w": 60,
+"h": 100
+},
+{
+"sprite": "oficinas/escritorio_l",
+"archivo": "mapa/oficinas/escritorio_l.png",
+"x": 6928,
+"y": 1440,
+"capa": "piso",
+"colision": {
+"x": 6878,
+"y": 1404,
+"w": 100,
+"h": 36
+},
+"w": 104,
+"h": 72
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 6936,
+"y": 1401,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "oficinas/librero",
+"archivo": "mapa/oficinas/librero.png",
+"x": 7264,
+"y": 1404,
+"capa": "piso",
+"colision": {
+"x": 7236,
+"y": 1380,
+"w": 56,
+"h": 24
+},
+"w": 60,
+"h": 100
+},
+{
+"sprite": "oficinas/escritorio_l",
+"archivo": "mapa/oficinas/escritorio_l.png",
+"x": 7376,
+"y": 1440,
+"capa": "piso",
+"colision": {
+"x": 7326,
+"y": 1404,
+"w": 100,
+"h": 36
+},
+"w": 104,
+"h": 72
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 7384,
+"y": 1401,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "oficinas/planta_oficina",
+"archivo": "mapa/oficinas/planta_oficina.png",
+"x": 7526,
+"y": 1395,
+"capa": "piso",
+"colision": {
+"x": 7508,
+"y": 1368,
+"w": 36,
+"h": 27
+},
+"w": 42,
+"h": 68
+},
+{
+"sprite": "banos/cubiculo_cerrado",
+"archivo": "mapa/banos/cubiculo_cerrado.png",
+"x": 6822,
+"y": 1843,
+"capa": "piso",
+"colision": {
+"x": 6789,
+"y": 1813,
+"w": 66,
+"h": 30
+},
+"w": 72,
+"h": 100
+},
+{
+"sprite": "banos/cubiculo_cerrado",
+"archivo": "mapa/banos/cubiculo_cerrado.png",
+"x": 6976,
+"y": 1843,
+"capa": "piso",
+"colision": {
+"x": 6943,
+"y": 1813,
+"w": 66,
+"h": 30
+},
+"w": 72,
+"h": 100
+},
+{
+"sprite": "banos/mingitorio",
+"archivo": "mapa/banos/mingitorio.png",
+"x": 6816,
+"y": 2009,
+"capa": "piso",
+"colision": {
+"x": 6804,
+"y": 1987,
+"w": 24,
+"h": 22
+},
+"w": 28,
+"h": 56
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2144,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 2113,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2144,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2144,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2144,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 2113,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2208,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 2177,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2208,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2208,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2208,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 2177,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2272,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 2241,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2272,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2272,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2272,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 2241,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2336,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 2305,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2336,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2336,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2336,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 2305,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2400,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 2369,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2400,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2400,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2400,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 2369,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2464,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 2433,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2464,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2464,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2464,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 2433,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2528,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 2497,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2528,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2528,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2528,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 2497,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2592,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2592,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2592,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 2561,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/mesa_maestro_lab",
+"archivo": "mapa/laboratorio/mesa_maestro_lab.png",
+"x": 2140,
+"y": 1660,
+"capa": "piso",
+"colision": {
+"x": 2102,
+"y": 1630,
+"w": 76,
+"h": 30
+},
+"w": 80,
+"h": 80
+},
+{
+"sprite": "senaletica/salida_emergencia",
+"archivo": "mapa/senaletica/salida_emergencia.png",
+"x": 2112,
+"y": 1466,
+"capa": "pared",
+"colision": null,
+"w": 40,
+"h": 24
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 2624,
+"y": 1466,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2144,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 2113,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2144,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2144,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2144,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 2113,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2208,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 2177,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2208,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2208,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2208,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 2177,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2272,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 2241,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2272,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2272,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2272,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 2241,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2336,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 2305,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2336,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2336,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2336,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 2305,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2400,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 2369,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2400,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2400,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2400,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 2369,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2464,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 2433,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2464,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2464,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2464,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 2433,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 2528,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 2497,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2528,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2528,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2528,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 2497,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 2592,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2592,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 2592,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 2561,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/mesa_maestro_lab",
+"archivo": "mapa/laboratorio/mesa_maestro_lab.png",
+"x": 2140,
+"y": 2012,
+"capa": "piso",
+"colision": {
+"x": 2102,
+"y": 1982,
+"w": 76,
+"h": 30
+},
+"w": 80,
+"h": 80
+},
+{
+"sprite": "senaletica/salida_emergencia",
+"archivo": "mapa/senaletica/salida_emergencia.png",
+"x": 2112,
+"y": 1818,
+"capa": "pared",
+"colision": null,
+"w": 40,
+"h": 24
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 2624,
+"y": 1818,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 3808,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 3808,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 3808,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 3777,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 3872,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 3841,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 3872,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 3872,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 3872,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 3841,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 3936,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 3905,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 3936,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 3936,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 3936,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 3905,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4000,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 3969,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4000,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4000,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4000,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 3969,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4064,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 4033,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4064,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4064,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4064,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 4033,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4128,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 4097,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4128,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4128,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4128,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 4097,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4192,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 4161,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4192,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4192,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4192,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 4161,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4256,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 4225,
+"y": 1480,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4256,
+"y": 1548,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4256,
+"y": 1692,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4256,
+"y": 1726,
+"capa": "piso",
+"colision": {
+"x": 4225,
+"y": 1696,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/mesa_maestro_lab",
+"archivo": "mapa/laboratorio/mesa_maestro_lab.png",
+"x": 3804,
+"y": 1660,
+"capa": "piso",
+"colision": {
+"x": 3766,
+"y": 1630,
+"w": 76,
+"h": 30
+},
+"w": 80,
+"h": 80
+},
+{
+"sprite": "senaletica/salida_emergencia",
+"archivo": "mapa/senaletica/salida_emergencia.png",
+"x": 3776,
+"y": 1466,
+"capa": "pared",
+"colision": null,
+"w": 40,
+"h": 24
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 4288,
+"y": 1466,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 3808,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 3808,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 3808,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 3777,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 3872,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 3841,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 3872,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 3872,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 3872,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 3841,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 3936,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 3905,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 3936,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 3936,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 3936,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 3905,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4000,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 3969,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4000,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4000,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4000,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 3969,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4064,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 4033,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4064,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4064,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4064,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 4033,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4128,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 4097,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4128,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4128,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4128,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 4097,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4192,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 4161,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4192,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4192,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4192,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 4161,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/pc_frente",
+"archivo": "mapa/laboratorio/pc_frente.png",
+"x": 4256,
+"y": 1862,
+"capa": "piso",
+"colision": {
+"x": 4225,
+"y": 1832,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 48
+},
+{
+"sprite": "laboratorio/silla_oficina_espalda",
+"archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+"x": 4256,
+"y": 1900,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4256,
+"y": 2044,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "laboratorio/pc_espalda",
+"archivo": "mapa/laboratorio/pc_espalda.png",
+"x": 4256,
+"y": 2078,
+"capa": "piso",
+"colision": {
+"x": 4225,
+"y": 2048,
+"w": 62,
+"h": 30
+},
+"w": 64,
+"h": 47
+},
+{
+"sprite": "laboratorio/mesa_maestro_lab",
+"archivo": "mapa/laboratorio/mesa_maestro_lab.png",
+"x": 3804,
+"y": 2012,
+"capa": "piso",
+"colision": {
+"x": 3766,
+"y": 1982,
+"w": 76,
+"h": 30
+},
+"w": 80,
+"h": 80
+},
+{
+"sprite": "senaletica/salida_emergencia",
+"archivo": "mapa/senaletica/salida_emergencia.png",
+"x": 3776,
+"y": 1818,
+"capa": "pared",
+"colision": null,
+"w": 40,
+"h": 24
+},
+{
+"sprite": "extra/salon__minisplit_h30",
+"archivo": "mapa_extra/salon__minisplit_h30.png",
+"x": 4288,
+"y": 1818,
+"capa": "pared",
+"colision": null,
+"w": 64,
+"h": 30
+},
+{
+"sprite": "cic/escritorio_oficina_pc",
+"archivo": "mapa/cic/escritorio_oficina_pc.png",
+"x": 2816,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 2778,
+"y": 1478,
+"w": 75,
+"h": 32
+},
+"w": 88,
+"h": 82
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2826,
+"y": 1468,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "cic/escritorio_oficina_pc",
+"archivo": "mapa/cic/escritorio_oficina_pc.png",
+"x": 2944,
+"y": 1510,
+"capa": "piso",
+"colision": {
+"x": 2906,
+"y": 1478,
+"w": 75,
+"h": 32
+},
+"w": 88,
+"h": 82
+},
+{
+"sprite": "cic/cajas_carton",
+"archivo": "mapa/cic/cajas_carton.png",
+"x": 2976,
+"y": 1625,
+"capa": "piso",
+"colision": {
+"x": 2959,
+"y": 1606,
+"w": 34,
+"h": 19
+},
+"w": 40,
+"h": 48
+},
+{
+"sprite": "cic/archivero",
+"archivo": "mapa/cic/archivero.png",
+"x": 3062,
+"y": 1491,
+"capa": "piso",
+"colision": {
+"x": 3047,
+"y": 1466,
+"w": 30,
+"h": 25
+},
+"w": 35,
+"h": 64
+},
+{
+"sprite": "cic/escritorio_oficina_pc",
+"archivo": "mapa/cic/escritorio_oficina_pc.png",
+"x": 3340,
+"y": 1504,
+"capa": "piso",
+"colision": {
+"x": 3303,
+"y": 1472,
+"w": 75,
+"h": 32
+},
+"w": 88,
+"h": 82
+},
+{
+"sprite": "extra/site__tablero_apagado_h44",
+"archivo": "mapa_extra/site__tablero_apagado_h44.png",
+"x": 3664,
+"y": 1434,
+"capa": "pared",
+"colision": null,
+"w": 33,
+"h": 44
+},
+{
+"sprite": "extra/site__caja_telecom_h42",
+"archivo": "mapa_extra/site__caja_telecom_h42.png",
+"x": 3456,
+"y": 1434,
+"capa": "pared",
+"colision": null,
+"w": 24,
+"h": 42
+},
+{
+"sprite": "site/rack_apagado",
+"archivo": "mapa/site/rack_apagado.png",
+"x": 3472,
+"y": 1542,
+"capa": "piso",
+"colision": {
+"x": 3437,
+"y": 1502,
+"w": 70,
+"h": 40
+},
+"w": 76,
+"h": 116
+},
+{
+"sprite": "site/rack_apagado",
+"archivo": "mapa/site/rack_apagado.png",
+"x": 3558,
+"y": 1542,
+"capa": "piso",
+"colision": {
+"x": 3523,
+"y": 1502,
+"w": 70,
+"h": 40
+},
+"w": 76,
+"h": 116
+},
+{
+"sprite": "site/cables_piso",
+"archivo": "mapa/site/cables_piso.png",
+"x": 3520,
+"y": 1622,
+"capa": "piso",
+"colision": null,
+"w": 64,
+"h": 33
+},
+{
+"sprite": "cic/lockers_cerrados",
+"archivo": "mapa/cic/lockers_cerrados.png",
+"x": 2736,
+"y": 1769,
+"capa": "piso",
+"colision": {
+"x": 2713,
+"y": 1747,
+"w": 46,
+"h": 22
+},
+"w": 48,
+"h": 100
+},
+{
+"sprite": "cic/locker_abierto",
+"archivo": "mapa/cic/locker_abierto.png",
+"x": 2864,
+"y": 1769,
+"capa": "piso",
+"colision": {
+"x": 2841,
+"y": 1747,
+"w": 46,
+"h": 22
+},
+"w": 64,
+"h": 100
+},
+{
+"sprite": "senaletica/tablero_avisos",
+"archivo": "mapa/senaletica/tablero_avisos.png",
+"x": 3040,
+"y": 1722,
+"capa": "pared",
+"colision": null,
+"w": 72,
+"h": 52
+},
+{
+"sprite": "senaletica/reloj_pared",
+"archivo": "mapa/senaletica/reloj_pared.png",
+"x": 3136,
+"y": 1722,
+"capa": "pared",
+"colision": null,
+"w": 28,
+"h": 29
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 3552,
+"y": 1792,
+"capa": "piso",
+"colision": {
+"x": 3504,
+"y": 1751,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/garrafon_agua",
+"archivo": "mapa/oficinas/garrafon_agua.png",
+"x": 3680,
+"y": 1776,
+"capa": "piso",
+"colision": {
+"x": 3668,
+"y": 1749,
+"w": 24,
+"h": 27
+},
+"w": 29,
+"h": 68
+},
+{
+"sprite": "oficinas/planta_oficina",
+"archivo": "mapa/oficinas/planta_oficina.png",
+"x": 2710,
+"y": 2073,
+"capa": "piso",
+"colision": {
+"x": 2692,
+"y": 2046,
+"w": 36,
+"h": 27
+},
+"w": 42,
+"h": 68
+},
+{
+"sprite": "oficinas/planta_oficina",
+"archivo": "mapa/oficinas/planta_oficina.png",
+"x": 3689,
+"y": 2073,
+"capa": "piso",
+"colision": {
+"x": 3671,
+"y": 2046,
+"w": 36,
+"h": 27
+},
+"w": 42,
+"h": 68
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 3080,
+"y": 1984,
+"capa": "piso",
+"colision": {
+"x": 3039,
+"y": 1959,
+"w": 82,
+"h": 25
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "neveria/refri_refresco",
+"archivo": "mapa/neveria/refri_refresco.png",
+"x": 1568,
+"y": 1280,
+"capa": "piso",
+"colision": {
+"x": 1543,
+"y": 1239,
+"w": 49,
+"h": 41
+},
+"w": 58,
+"h": 104
+},
+{
+"sprite": "neveria/refri_refresco",
+"archivo": "mapa/neveria/refri_refresco.png",
+"x": 1632,
+"y": 1280,
+"capa": "piso",
+"colision": {
+"x": 1607,
+"y": 1239,
+"w": 49,
+"h": 41
+},
+"w": 58,
+"h": 104
+},
+{
+"sprite": "neveria/congelador_helados",
+"archivo": "mapa/neveria/congelador_helados.png",
+"x": 1744,
+"y": 1280,
+"capa": "piso",
+"colision": {
+"x": 1708,
+"y": 1249,
+"w": 72,
+"h": 31
+},
+"w": 84,
+"h": 79
+},
+{
+"sprite": "cic/estante_equipo",
+"archivo": "mapa/cic/estante_equipo.png",
+"x": 1945,
+"y": 1286,
+"capa": "piso",
+"colision": {
+"x": 1918,
+"y": 1248,
+"w": 54,
+"h": 38
+},
+"w": 63,
+"h": 96
+},
+{
+"sprite": "cic/cajas_carton",
+"archivo": "mapa/cic/cajas_carton.png",
+"x": 1888,
+"y": 1401,
+"capa": "piso",
+"colision": {
+"x": 1871,
+"y": 1382,
+"w": 34,
+"h": 19
+},
+"w": 40,
+"h": 48
+},
+{
+"sprite": "extra/neveria__menu_pared_h72",
+"archivo": "mapa_extra/neveria__menu_pared_h72.png",
+"x": 1632,
+"y": 1498,
+"capa": "pared",
+"colision": null,
+"w": 55,
+"h": 72
+},
+{
+"sprite": "extra/neveria__barra_verde_h128",
+"archivo": "mapa_extra/neveria__barra_verde_h128.png",
+"x": 1760,
+"y": 1632,
+"capa": "piso",
+"colision": {
+"x": 1690,
+"y": 1568,
+"w": 140,
+"h": 64
+},
+"w": 150,
+"h": 128
+},
+{
+"sprite": "neveria/caja_registradora",
+"archivo": "mapa/neveria/caja_registradora.png",
+"x": 1790,
+"y": 1574,
+"capa": "encima",
+"colision": null,
+"w": 32,
+"h": 34
+},
+{
+"sprite": "neveria/refri_refresco",
+"archivo": "mapa/neveria/refri_refresco.png",
+"x": 1564,
+"y": 1561,
+"capa": "piso",
+"colision": {
+"x": 1540,
+"y": 1520,
+"w": 49,
+"h": 41
+},
+"w": 58,
+"h": 104
+},
+{
+"sprite": "neveria/congelador_helados",
+"archivo": "mapa/neveria/congelador_helados.png",
+"x": 1939,
+"y": 1561,
+"capa": "piso",
+"colision": {
+"x": 1903,
+"y": 1530,
+"w": 72,
+"h": 31
+},
+"w": 84,
+"h": 79
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1648,
+"y": 1768,
+"capa": "piso",
+"colision": {
+"x": 1600,
+"y": 1718,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1872,
+"y": 1768,
+"capa": "piso",
+"colision": {
+"x": 1824,
+"y": 1718,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1648,
+"y": 1896,
+"capa": "piso",
+"colision": {
+"x": 1600,
+"y": 1846,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1872,
+"y": 1896,
+"capa": "piso",
+"colision": {
+"x": 1824,
+"y": 1846,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1648,
+"y": 2024,
+"capa": "piso",
+"colision": {
+"x": 1600,
+"y": 1974,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1872,
+"y": 2024,
+"capa": "piso",
+"colision": {
+"x": 1824,
+"y": 1974,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1648,
+"y": 2152,
+"capa": "piso",
+"colision": {
+"x": 1600,
+"y": 2102,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1872,
+"y": 2152,
+"capa": "piso",
+"colision": {
+"x": 1824,
+"y": 2102,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1648,
+"y": 2280,
+"capa": "piso",
+"colision": {
+"x": 1600,
+"y": 2230,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1872,
+"y": 2280,
+"capa": "piso",
+"colision": {
+"x": 1824,
+"y": 2230,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1648,
+"y": 2408,
+"capa": "piso",
+"colision": {
+"x": 1600,
+"y": 2358,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/mesa_sillas_blancas",
+"archivo": "mapa/neveria/mesa_sillas_blancas.png",
+"x": 1872,
+"y": 2408,
+"capa": "piso",
+"colision": {
+"x": 1824,
+"y": 2358,
+"w": 96,
+"h": 50
+},
+"w": 104,
+"h": 97
+},
+{
+"sprite": "neveria/maceta_flores",
+"archivo": "mapa/neveria/maceta_flores.png",
+"x": 1561,
+"y": 1716,
+"capa": "piso",
+"colision": {
+"x": 1539,
+"y": 1686,
+"w": 44,
+"h": 30
+},
+"w": 52,
+"h": 76
+},
+{
+"sprite": "neveria/maceta_flores",
+"archivo": "mapa/neveria/maceta_flores.png",
+"x": 1561,
+"y": 2420,
+"capa": "piso",
+"colision": {
+"x": 1539,
+"y": 2390,
+"w": 44,
+"h": 30
+},
+"w": 52,
+"h": 76
+},
+{
+"sprite": "neveria/maceta_flores",
+"archivo": "mapa/neveria/maceta_flores.png",
+"x": 1958,
+"y": 2420,
+"capa": "piso",
+"colision": {
+"x": 1936,
+"y": 2390,
+"w": 44,
+"h": 30
+},
+"w": 52,
+"h": 76
+},
+{
+"sprite": "extra/exterior__bote_exterior_h40",
+"archivo": "mapa_extra/exterior__bote_exterior_h40.png",
+"x": 1964,
+"y": 2336,
+"capa": "piso",
+"colision": {
+"x": 1953,
+"y": 2318,
+"w": 22,
+"h": 18
+},
+"w": 26,
+"h": 40
+},
+{
+"sprite": "banos/cubiculo_cerrado",
+"archivo": "mapa/banos/cubiculo_cerrado.png",
+"x": 3078,
+"y": 2451,
+"capa": "piso",
+"colision": {
+"x": 3045,
+"y": 2421,
+"w": 66,
+"h": 30
+},
+"w": 72,
+"h": 100
+},
+{
+"sprite": "banos/cubiculo_cerrado",
+"archivo": "mapa/banos/cubiculo_cerrado.png",
+"x": 3232,
+"y": 2451,
+"capa": "piso",
+"colision": {
+"x": 3199,
+"y": 2421,
+"w": 66,
+"h": 30
+},
+"w": 72,
+"h": 100
+},
+{
+"sprite": "banos/lavabo_espejo",
+"archivo": "mapa/banos/lavabo_espejo.png",
+"x": 3321,
+"y": 2617,
+"capa": "piso",
+"colision": {
+"x": 3293,
+"y": 2595,
+"w": 56,
+"h": 22
+},
+"w": 64,
+"h": 59
+},
+{
+"sprite": "banos/mingitorio",
+"archivo": "mapa/banos/mingitorio.png",
+"x": 3072,
+"y": 2617,
+"capa": "piso",
+"colision": {
+"x": 3060,
+"y": 2595,
+"w": 24,
+"h": 22
+},
+"w": 28,
+"h": 56
+},
+{
+"sprite": "cic/escritorio_oficina_pc",
+"archivo": "mapa/cic/escritorio_oficina_pc.png",
+"x": 2944,
+"y": 4416,
+"capa": "piso",
+"colision": {
+"x": 2902,
+"y": 4382,
+"w": 84,
+"h": 34
+},
+"w": 88,
+"h": 82
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2952,
+"y": 4377,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "oficinas/silla_visita",
+"archivo": "mapa/oficinas/silla_visita.png",
+"x": 2944,
+"y": 4454,
+"capa": "piso",
+"colision": {
+"x": 2932,
+"y": 4440,
+"w": 24,
+"h": 14
+},
+"w": 29,
+"h": 44
+},
+{
+"sprite": "cic/escritorio_oficina_pc",
+"archivo": "mapa/cic/escritorio_oficina_pc.png",
+"x": 2944,
+"y": 4608,
+"capa": "piso",
+"colision": {
+"x": 2902,
+"y": 4574,
+"w": 84,
+"h": 34
+},
+"w": 88,
+"h": 82
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2952,
+"y": 4569,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "oficinas/silla_visita",
+"archivo": "mapa/oficinas/silla_visita.png",
+"x": 2944,
+"y": 4646,
+"capa": "piso",
+"colision": {
+"x": 2932,
+"y": 4632,
+"w": 24,
+"h": 14
+},
+"w": 29,
+"h": 44
+},
+{
+"sprite": "cic/escritorio_oficina_pc",
+"archivo": "mapa/cic/escritorio_oficina_pc.png",
+"x": 2944,
+"y": 4800,
+"capa": "piso",
+"colision": {
+"x": 2902,
+"y": 4766,
+"w": 84,
+"h": 34
+},
+"w": 88,
+"h": 82
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 2952,
+"y": 4761,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "oficinas/silla_visita",
+"archivo": "mapa/oficinas/silla_visita.png",
+"x": 2944,
+"y": 4838,
+"capa": "piso",
+"colision": {
+"x": 2932,
+"y": 4824,
+"w": 24,
+"h": 14
+},
+"w": 29,
+"h": 44
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 2976,
+"y": 5120,
+"capa": "piso",
+"colision": {
+"x": 2928,
+"y": 5079,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/garrafon_agua",
+"archivo": "mapa/oficinas/garrafon_agua.png",
+"x": 3145,
+"y": 5206,
+"capa": "piso",
+"colision": {
+"x": 3133,
+"y": 5179,
+"w": 24,
+"h": 27
+},
+"w": 29,
+"h": 68
+},
+{
+"sprite": "cic/archivero",
+"archivo": "mapa/cic/archivero.png",
+"x": 3145,
+"y": 4377,
+"capa": "piso",
+"colision": {
+"x": 3130,
+"y": 4352,
+"w": 30,
+"h": 25
+},
+"w": 35,
+"h": 64
+},
+{
+"sprite": "cic/archivero",
+"archivo": "mapa/cic/archivero.png",
+"x": 3145,
+"y": 4544,
+"capa": "piso",
+"colision": {
+"x": 3130,
+"y": 4519,
+"w": 30,
+"h": 25
+},
+"w": 35,
+"h": 64
+},
+{
+"sprite": "oficinas/planta_oficina",
+"archivo": "mapa/oficinas/planta_oficina.png",
+"x": 2873,
+"y": 5212,
+"capa": "piso",
+"colision": {
+"x": 2855,
+"y": 5185,
+"w": 36,
+"h": 27
+},
+"w": 42,
+"h": 68
+},
+{
+"sprite": "oficinas/librero",
+"archivo": "mapa/oficinas/librero.png",
+"x": 3232,
+"y": 4348,
+"capa": "piso",
+"colision": {
+"x": 3204,
+"y": 4324,
+"w": 56,
+"h": 24
+},
+"w": 60,
+"h": 100
+},
+{
+"sprite": "cic/archivero",
+"archivo": "mapa/cic/archivero.png",
+"x": 3430,
+"y": 4339,
+"capa": "piso",
+"colision": {
+"x": 3415,
+"y": 4314,
+"w": 30,
+"h": 25
+},
+"w": 35,
+"h": 64
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 3336,
+"y": 4374,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "oficinas/escritorio_l",
+"archivo": "mapa/oficinas/escritorio_l.png",
+"x": 3328,
+"y": 4416,
+"capa": "piso",
+"colision": {
+"x": 3278,
+"y": 4380,
+"w": 100,
+"h": 36
+},
+"w": 104,
+"h": 72
+},
+{
+"sprite": "oficinas/silla_visita",
+"archivo": "mapa/oficinas/silla_visita.png",
+"x": 3308,
+"y": 4460,
+"capa": "piso",
+"colision": {
+"x": 3296,
+"y": 4446,
+"w": 24,
+"h": 14
+},
+"w": 29,
+"h": 44
+},
+{
+"sprite": "oficinas/librero",
+"archivo": "mapa/oficinas/librero.png",
+"x": 3520,
+"y": 4348,
+"capa": "piso",
+"colision": {
+"x": 3492,
+"y": 4324,
+"w": 56,
+"h": 24
+},
+"w": 60,
+"h": 100
+},
+{
+"sprite": "cic/archivero",
+"archivo": "mapa/cic/archivero.png",
+"x": 3718,
+"y": 4339,
+"capa": "piso",
+"colision": {
+"x": 3703,
+"y": 4314,
+"w": 30,
+"h": 25
+},
+"w": 35,
+"h": 64
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 3624,
+"y": 4374,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "oficinas/escritorio_l",
+"archivo": "mapa/oficinas/escritorio_l.png",
+"x": 3616,
+"y": 4416,
+"capa": "piso",
+"colision": {
+"x": 3566,
+"y": 4380,
+"w": 100,
+"h": 36
+},
+"w": 104,
+"h": 72
+},
+{
+"sprite": "oficinas/silla_visita",
+"archivo": "mapa/oficinas/silla_visita.png",
+"x": 3596,
+"y": 4460,
+"capa": "piso",
+"colision": {
+"x": 3584,
+"y": 4446,
+"w": 24,
+"h": 14
+},
+"w": 29,
+"h": 44
+},
+{
+"sprite": "oficinas/librero",
+"archivo": "mapa/oficinas/librero.png",
+"x": 3808,
+"y": 4348,
+"capa": "piso",
+"colision": {
+"x": 3780,
+"y": 4324,
+"w": 56,
+"h": 24
+},
+"w": 60,
+"h": 100
+},
+{
+"sprite": "cic/archivero",
+"archivo": "mapa/cic/archivero.png",
+"x": 4006,
+"y": 4339,
+"capa": "piso",
+"colision": {
+"x": 3991,
+"y": 4314,
+"w": 30,
+"h": 25
+},
+"w": 35,
+"h": 64
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 3912,
+"y": 4374,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "oficinas/escritorio_l",
+"archivo": "mapa/oficinas/escritorio_l.png",
+"x": 3904,
+"y": 4416,
+"capa": "piso",
+"colision": {
+"x": 3854,
+"y": 4380,
+"w": 100,
+"h": 36
+},
+"w": 104,
+"h": 72
+},
+{
+"sprite": "oficinas/silla_visita",
+"archivo": "mapa/oficinas/silla_visita.png",
+"x": 3884,
+"y": 4460,
+"capa": "piso",
+"colision": {
+"x": 3872,
+"y": 4446,
+"w": 24,
+"h": 14
+},
+"w": 29,
+"h": 44
+},
+{
+"sprite": "oficinas/librero",
+"archivo": "mapa/oficinas/librero.png",
+"x": 4096,
+"y": 4348,
+"capa": "piso",
+"colision": {
+"x": 4068,
+"y": 4324,
+"w": 56,
+"h": 24
+},
+"w": 60,
+"h": 100
+},
+{
+"sprite": "cic/archivero",
+"archivo": "mapa/cic/archivero.png",
+"x": 4294,
+"y": 4339,
+"capa": "piso",
+"colision": {
+"x": 4279,
+"y": 4314,
+"w": 30,
+"h": 25
+},
+"w": 35,
+"h": 64
+},
+{
+"sprite": "laboratorio/silla_oficina_frente",
+"archivo": "mapa/laboratorio/silla_oficina_frente.png",
+"x": 4200,
+"y": 4374,
+"capa": "piso",
+"colision": null,
+"w": 27,
+"h": 46
+},
+{
+"sprite": "oficinas/escritorio_l",
+"archivo": "mapa/oficinas/escritorio_l.png",
+"x": 4192,
+"y": 4416,
+"capa": "piso",
+"colision": {
+"x": 4142,
+"y": 4380,
+"w": 100,
+"h": 36
+},
+"w": 104,
+"h": 72
+},
+{
+"sprite": "oficinas/silla_visita",
+"archivo": "mapa/oficinas/silla_visita.png",
+"x": 4172,
+"y": 4460,
+"capa": "piso",
+"colision": {
+"x": 4160,
+"y": 4446,
+"w": 24,
+"h": 14
+},
+"w": 29,
+"h": 44
+},
+{
+"sprite": "senaletica/tablero_avisos",
+"archivo": "mapa/senaletica/tablero_avisos.png",
+"x": 3296,
+"y": 4762,
+"capa": "pared",
+"colision": null,
+"w": 72,
+"h": 52
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 3328,
+"y": 4864,
+"capa": "piso",
+"colision": {
+"x": 3280,
+"y": 4823,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 3520,
+"y": 4864,
+"capa": "piso",
+"colision": {
+"x": 3472,
+"y": 4823,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 3328,
+"y": 4960,
+"capa": "piso",
+"colision": {
+"x": 3280,
+"y": 4919,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 3520,
+"y": 4960,
+"capa": "piso",
+"colision": {
+"x": 3472,
+"y": 4919,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 3328,
+"y": 5056,
+"capa": "piso",
+"colision": {
+"x": 3280,
+"y": 5015,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 3520,
+"y": 5056,
+"capa": "piso",
+"colision": {
+"x": 3472,
+"y": 5015,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 3328,
+"y": 5152,
+"capa": "piso",
+"colision": {
+"x": 3280,
+"y": 5111,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/sillon_espera",
+"archivo": "mapa/oficinas/sillon_espera.png",
+"x": 3520,
+"y": 5152,
+"capa": "piso",
+"colision": {
+"x": 3472,
+"y": 5111,
+"w": 96,
+"h": 41
+},
+"w": 112,
+"h": 103
+},
+{
+"sprite": "oficinas/garrafon_agua",
+"archivo": "mapa/oficinas/garrafon_agua.png",
+"x": 3222,
+"y": 4819,
+"capa": "piso",
+"colision": {
+"x": 3210,
+"y": 4792,
+"w": 24,
+"h": 27
+},
+"w": 29,
+"h": 68
+},
+{
+"sprite": "oficinas/planta_oficina",
+"archivo": "mapa/oficinas/planta_oficina.png",
+"x": 3622,
+"y": 4819,
+"capa": "piso",
+"colision": {
+"x": 3604,
+"y": 4792,
+"w": 36,
+"h": 27
+},
+"w": 42,
+"h": 68
+},
+{
+"sprite": "oficinas/mesa_juntas",
+"archivo": "mapa/oficinas/mesa_juntas.png",
+"x": 3872,
+"y": 5056,
+"capa": "piso",
+"colision": {
+"x": 3787,
+"y": 4956,
+"w": 170,
+"h": 100
+},
+"w": 200,
+"h": 161
+},
+{
+"sprite": "oficinas/librero",
+"archivo": "mapa/oficinas/librero.png",
+"x": 3712,
+"y": 4828,
+"capa": "piso",
+"colision": {
+"x": 3684,
+"y": 4804,
+"w": 56,
+"h": 24
+},
+"w": 60,
+"h": 100
+},
+{
+"sprite": "oficinas/librero",
+"archivo": "mapa/oficinas/librero.png",
+"x": 3776,
+"y": 4828,
+"capa": "piso",
+"colision": {
+"x": 3748,
+"y": 4804,
+"w": 56,
+"h": 24
+},
+"w": 60,
+"h": 100
+},
+{
+"sprite": "oficinas/planta_oficina",
+"archivo": "mapa/oficinas/planta_oficina.png",
+"x": 4038,
+"y": 4819,
+"capa": "piso",
+"colision": {
+"x": 4020,
+"y": 4792,
+"w": 36,
+"h": 27
+},
+"w": 42,
+"h": 68
+},
+{
+"sprite": "oficinas/librero",
+"archivo": "mapa/oficinas/librero.png",
+"x": 4313,
+"y": 4796,
+"capa": "piso",
+"colision": {
+"x": 4285,
+"y": 4772,
+"w": 56,
+"h": 24
+},
+"w": 60,
+"h": 100
+},
+{
+"sprite": "banos/cubiculo_cerrado",
+"archivo": "mapa/banos/cubiculo_cerrado.png",
+"x": 4134,
+"y": 5075,
+"capa": "piso",
+"colision": {
+"x": 4101,
+"y": 5045,
+"w": 66,
+"h": 30
+},
+"w": 72,
+"h": 100
+},
+{
+"sprite": "banos/cubiculo_cerrado",
+"archivo": "mapa/banos/cubiculo_cerrado.png",
+"x": 4288,
+"y": 5075,
+"capa": "piso",
+"colision": {
+"x": 4255,
+"y": 5045,
+"w": 66,
+"h": 30
+},
+"w": 72,
+"h": 100
+},
+{
+"sprite": "banos/lavabo_espejo",
+"archivo": "mapa/banos/lavabo_espejo.png",
+"x": 4313,
+"y": 5209,
+"capa": "piso",
+"colision": {
+"x": 4285,
+"y": 5187,
+"w": 56,
+"h": 22
+},
+"w": 64,
+"h": 59
+},
+{
+"sprite": "banos/mingitorio",
+"archivo": "mapa/banos/mingitorio.png",
+"x": 4128,
+"y": 5209,
+"capa": "piso",
+"colision": {
+"x": 4116,
+"y": 5187,
+"w": 24,
+"h": 22
+},
+"w": 28,
+"h": 56
+},
+{
+"sprite": "cic/estante_equipo",
+"archivo": "mapa/cic/estante_equipo.png",
+"x": 4931,
+"y": 608,
+"capa": "piso",
+"colision": {
+"x": 4904,
+"y": 570,
+"w": 54,
+"h": 38
+},
+"w": 63,
+"h": 96
+},
+{
+"sprite": "cic/estante_equipo",
+"archivo": "mapa/cic/estante_equipo.png",
+"x": 4998,
+"y": 608,
+"capa": "piso",
+"colision": {
+"x": 4971,
+"y": 570,
+"w": 54,
+"h": 38
+},
+"w": 63,
+"h": 96
+},
+{
+"sprite": "cic/cajas_carton",
+"archivo": "mapa/cic/cajas_carton.png",
+"x": 5184,
+"y": 761,
+"capa": "piso",
+"colision": {
+"x": 5167,
+"y": 742,
+"w": 34,
+"h": 19
+},
+"w": 40,
+"h": 48
+},
+{
+"sprite": "extra/exterior__bote_exterior_h40",
+"archivo": "mapa_extra/exterior__bote_exterior_h40.png",
+"x": 5184,
+"y": 592,
+"capa": "piso",
+"colision": {
+"x": 5173,
+"y": 574,
+"w": 22,
+"h": 18
+},
+"w": 26,
+"h": 40
+},
+{
+"sprite": "hitos/arco_entrada",
+"archivo": "mapa/hitos/arco_entrada.png",
+"x": 2208,
+"y": 5056,
+"capa": "hito",
+"colision": null,
+"w": 320,
+"h": 232
+},
+{
+"sprite": "colision",
+"archivo": null,
+"x": 2048,
+"y": 5016,
+"capa": "colision",
+"colision": {
+"x": 2048,
+"y": 5016,
+"w": 96,
+"h": 40
+},
+"w": 96,
+"h": 40
+},
+{
+"sprite": "colision",
+"archivo": null,
+"x": 2312,
+"y": 4906,
+"capa": "colision",
+"colision": {
+"x": 2312,
+"y": 4906,
+"w": 44,
+"h": 40
+},
+"w": 44,
+"h": 40
+},
+{
+"sprite": "hitos/corazon_tapitas",
+"archivo": "mapa/hitos/corazon_tapitas.png",
+"x": 2320,
+"y": 3352,
+"capa": "hito",
+"colision": {
+"x": 2250,
+"y": 3292,
+"w": 140,
+"h": 60
+},
+"w": 160,
+"h": 172
+},
+{
+"sprite": "hitos/arco_salida",
+"archivo": "mapa/hitos/arco_salida.png",
+"x": 6912,
+"y": 4864,
+"capa": "hito",
+"colision": {
+"x": 6897,
+"y": 4834,
+"w": 30,
+"h": 30
+},
+"w": 160,
+"h": 142
+},
+{
+"sprite": "exterior/directorio",
+"archivo": "mapa/exterior/directorio.png",
+"x": 2408,
+"y": 5016,
+"capa": "piso",
+"colision": {
+"x": 2382,
+"y": 4972,
+"w": 51,
+"h": 44
+},
+"w": 60,
+"h": 116
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 192,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 128,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 320,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 256,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 448,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 384,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 576,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 512,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 704,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 640,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 832,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 768,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 960,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 896,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 1088,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 1024,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 1216,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 1152,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 1344,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 1280,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 1472,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 1408,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 1600,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 1536,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 1728,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 1664,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 1856,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 1792,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 2496,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 2432,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 2624,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 2560,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 2752,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 2688,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 2880,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 2816,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 3008,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 2944,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "hitos/reja_blanca",
+"archivo": "mapa/hitos/reja_blanca.png",
+"x": 3136,
+"y": 5246,
+"capa": "piso",
+"colision": {
+"x": 3072,
+"y": 5226,
+"w": 128,
+"h": 20
+},
+"w": 128,
+"h": 114
+},
+{
+"sprite": "extra/camion_h320",
+"archivo": "mapa_extra/camion_h320.png",
+"x": 400,
+"y": 3424,
+"capa": "piso",
+"colision": {
+"x": 354,
+"y": 3114,
+"w": 92,
+"h": 300
+},
+"w": 100,
+"h": 320
+},
+{
+"sprite": "estacionamiento/suv_gris",
+"archivo": "mapa/estacionamiento/suv_gris.png",
+"x": 800,
+"y": 2330,
+"capa": "piso",
+"colision": {
+"x": 754,
+"y": 2183,
+"w": 92,
+"h": 147
+},
+"w": 103,
+"h": 184
+},
+{
+"sprite": "estacionamiento/sedan_rojo",
+"archivo": "mapa/estacionamiento/sedan_rojo.png",
+"x": 928,
+"y": 2330,
+"capa": "piso",
+"colision": {
+"x": 884,
+"y": 2190,
+"w": 88,
+"h": 140
+},
+"w": 98,
+"h": 176
+},
+{
+"sprite": "estacionamiento/sedan_rojo",
+"archivo": "mapa/estacionamiento/sedan_rojo.png",
+"x": 1056,
+"y": 2330,
+"capa": "piso",
+"colision": {
+"x": 1012,
+"y": 2190,
+"w": 88,
+"h": 140
+},
+"w": 98,
+"h": 176
+},
+{
+"sprite": "estacionamiento/pickup_blanca",
+"archivo": "mapa/estacionamiento/pickup_blanca.png",
+"x": 1184,
+"y": 2330,
+"capa": "piso",
+"colision": {
+"x": 1136,
+"y": 2178,
+"w": 95,
+"h": 152
+},
+"w": 106,
+"h": 190
+},
+{
+"sprite": "extra/estacionamiento__pickup_blanca",
+"archivo": "mapa_extra/estacionamiento__pickup_blanca.png",
+"x": 288,
+"y": 2906,
+"capa": "piso",
+"colision": {
+"x": 240,
+"y": 2754,
+"w": 95,
+"h": 152
+},
+"w": 106,
+"h": 190
+},
+{
+"sprite": "extra/estacionamiento__pickup_blanca",
+"archivo": "mapa_extra/estacionamiento__pickup_blanca.png",
+"x": 544,
+"y": 2906,
+"capa": "piso",
+"colision": {
+"x": 496,
+"y": 2754,
+"w": 95,
+"h": 152
+},
+"w": 106,
+"h": 190
+},
+{
+"sprite": "extra/estacionamiento__pickup_blanca",
+"archivo": "mapa_extra/estacionamiento__pickup_blanca.png",
+"x": 672,
+"y": 2906,
+"capa": "piso",
+"colision": {
+"x": 624,
+"y": 2754,
+"w": 95,
+"h": 152
+},
+"w": 106,
+"h": 190
+},
+{
+"sprite": "extra/estacionamiento__pickup_blanca",
+"archivo": "mapa_extra/estacionamiento__pickup_blanca.png",
+"x": 928,
+"y": 2906,
+"capa": "piso",
+"colision": {
+"x": 880,
+"y": 2754,
+"w": 95,
+"h": 152
+},
+"w": 106,
+"h": 190
+},
+{
+"sprite": "extra/estacionamiento__suv_gris",
+"archivo": "mapa_extra/estacionamiento__suv_gris.png",
+"x": 1056,
+"y": 2906,
+"capa": "piso",
+"colision": {
+"x": 1010,
+"y": 2759,
+"w": 92,
+"h": 147
+},
+"w": 103,
+"h": 184
+},
+{
+"sprite": "estacionamiento/pickup_blanca",
+"archivo": "mapa/estacionamiento/pickup_blanca.png",
+"x": 544,
+"y": 3706,
+"capa": "piso",
+"colision": {
+"x": 496,
+"y": 3554,
+"w": 95,
+"h": 152
+},
+"w": 106,
+"h": 190
+},
+{
+"sprite": "estacionamiento/pickup_blanca",
+"archivo": "mapa/estacionamiento/pickup_blanca.png",
+"x": 672,
+"y": 3706,
+"capa": "piso",
+"colision": {
+"x": 624,
+"y": 3554,
+"w": 95,
+"h": 152
+},
+"w": 106,
+"h": 190
+},
+{
+"sprite": "estacionamiento/suv_gris",
+"archivo": "mapa/estacionamiento/suv_gris.png",
+"x": 928,
+"y": 3706,
+"capa": "piso",
+"colision": {
+"x": 882,
+"y": 3559,
+"w": 92,
+"h": 147
+},
+"w": 103,
+"h": 184
+},
+{
+"sprite": "estacionamiento/sedan_rojo",
+"archivo": "mapa/estacionamiento/sedan_rojo.png",
+"x": 1184,
+"y": 3706,
+"capa": "piso",
+"colision": {
+"x": 1140,
+"y": 3566,
+"w": 88,
+"h": 140
+},
+"w": 98,
+"h": 176
+},
+{
+"sprite": "extra/estacionamiento__sedan_rojo",
+"archivo": "mapa_extra/estacionamiento__sedan_rojo.png",
+"x": 288,
+"y": 4282,
+"capa": "piso",
+"colision": {
+"x": 244,
+"y": 4142,
+"w": 88,
+"h": 140
+},
+"w": 98,
+"h": 176
+},
+{
+"sprite": "extra/estacionamiento__pickup_blanca",
+"archivo": "mapa_extra/estacionamiento__pickup_blanca.png",
+"x": 544,
+"y": 4282,
+"capa": "piso",
+"colision": {
+"x": 496,
+"y": 4130,
+"w": 95,
+"h": 152
+},
+"w": 106,
+"h": 190
+},
+{
+"sprite": "extra/estacionamiento__suv_gris",
+"archivo": "mapa_extra/estacionamiento__suv_gris.png",
+"x": 800,
+"y": 4282,
+"capa": "piso",
+"colision": {
+"x": 754,
+"y": 4135,
+"w": 92,
+"h": 147
+},
+"w": 103,
+"h": 184
+},
+{
+"sprite": "extra/estacionamiento__pickup_blanca",
+"archivo": "mapa_extra/estacionamiento__pickup_blanca.png",
+"x": 1056,
+"y": 4282,
+"capa": "piso",
+"colision": {
+"x": 1008,
+"y": 4130,
+"w": 95,
+"h": 152
+},
+"w": 106,
+"h": 190
+},
+{
+"sprite": "estacionamiento/caseta_vigilancia",
+"archivo": "mapa/estacionamiento/caseta_vigilancia.png",
+"x": 256,
+"y": 2592,
+"capa": "piso",
+"colision": {
+"x": 206,
+"y": 2542,
+"w": 100,
+"h": 50
+},
+"w": 109,
+"h": 140
+},
+{
+"sprite": "estacionamiento/reja_cerrada",
+"archivo": "mapa/estacionamiento/reja_cerrada.png",
+"x": 112,
+"y": 3840,
+"capa": "piso",
+"colision": null,
+"w": 192,
+"h": 133
+},
+{
+"sprite": "estacionamiento/cono",
+"archivo": "mapa/estacionamiento/cono.png",
+"x": 704,
+"y": 3136,
+"capa": "piso",
+"colision": {
+"x": 694,
+"y": 3124,
+"w": 20,
+"h": 12
+},
+"w": 29,
+"h": 34
+},
+{
+"sprite": "estacionamiento/cono",
+"archivo": "mapa/estacionamiento/cono.png",
+"x": 768,
+"y": 3136,
+"capa": "piso",
+"colision": {
+"x": 758,
+"y": 3124,
+"w": 20,
+"h": 12
+},
+"w": 29,
+"h": 34
+},
+{
+"sprite": "estacionamiento/cono",
+"archivo": "mapa/estacionamiento/cono.png",
+"x": 832,
+"y": 3328,
+"capa": "piso",
+"colision": {
+"x": 822,
+"y": 3316,
+"w": 20,
+"h": 12
+},
+"w": 29,
+"h": 34
+},
+{
+"sprite": "estacionamiento/cono",
+"archivo": "mapa/estacionamiento/cono.png",
+"x": 960,
+"y": 3328,
+"capa": "piso",
+"colision": {
+"x": 950,
+"y": 3316,
+"w": 20,
+"h": 12
+},
+"w": 29,
+"h": 34
+},
+{
+"sprite": "cancha/canasta_basquet",
+"archivo": "mapa/cancha/canasta_basquet.png",
+"x": 3808,
+"y": 416,
+"capa": "piso",
+"colision": {
+"x": 3793,
+"y": 396,
+"w": 30,
+"h": 20
+},
+"w": 119,
+"h": 200
+},
+{
+"sprite": "extra/cancha__canasta_basquet_espejo",
+"archivo": "mapa_extra/cancha__canasta_basquet_espejo.png",
+"x": 4736,
+"y": 416,
+"capa": "piso",
+"colision": {
+"x": 4721,
+"y": 396,
+"w": 30,
+"h": 20
+},
+"w": 119,
+"h": 200
+},
+{
+"sprite": "cancha/poste_techo",
+"archivo": "mapa/cancha/poste_techo.png",
+"x": 3712,
+"y": 64,
+"capa": "piso",
+"colision": {
+"x": 3702,
+"y": 48,
+"w": 20,
+"h": 16
+},
+"w": 38,
+"h": 200
+},
+{
+"sprite": "cancha/poste_techo",
+"archivo": "mapa/cancha/poste_techo.png",
+"x": 3712,
+"y": 800,
+"capa": "piso",
+"colision": {
+"x": 3702,
+"y": 784,
+"w": 20,
+"h": 16
+},
+"w": 38,
+"h": 200
+},
+{
+"sprite": "cancha/poste_techo",
+"archivo": "mapa/cancha/poste_techo.png",
+"x": 4256,
+"y": 64,
+"capa": "piso",
+"colision": {
+"x": 4246,
+"y": 48,
+"w": 20,
+"h": 16
+},
+"w": 38,
+"h": 200
+},
+{
+"sprite": "cancha/poste_techo",
+"archivo": "mapa/cancha/poste_techo.png",
+"x": 4256,
+"y": 800,
+"capa": "piso",
+"colision": {
+"x": 4246,
+"y": 784,
+"w": 20,
+"h": 16
+},
+"w": 38,
+"h": 200
+},
+{
+"sprite": "cancha/poste_techo",
+"archivo": "mapa/cancha/poste_techo.png",
+"x": 4832,
+"y": 64,
+"capa": "piso",
+"colision": {
+"x": 4822,
+"y": 48,
+"w": 20,
+"h": 16
+},
+"w": 38,
+"h": 200
+},
+{
+"sprite": "cancha/poste_techo",
+"archivo": "mapa/cancha/poste_techo.png",
+"x": 4832,
+"y": 800,
+"capa": "piso",
+"colision": {
+"x": 4822,
+"y": 784,
+"w": 20,
+"h": 16
+},
+"w": 38,
+"h": 200
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 4816,
+"y": 3644,
+"capa": "piso",
+"colision": {
+"x": 4761,
+"y": 3594,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 4816,
+"y": 3900,
+"capa": "piso",
+"colision": {
+"x": 4761,
+"y": 3850,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 5008,
+"y": 3644,
+"capa": "piso",
+"colision": {
+"x": 4953,
+"y": 3594,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 5008,
+"y": 3900,
+"capa": "piso",
+"colision": {
+"x": 4953,
+"y": 3850,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 5200,
+"y": 3644,
+"capa": "piso",
+"colision": {
+"x": 5145,
+"y": 3594,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 5200,
+"y": 3900,
+"capa": "piso",
+"colision": {
+"x": 5145,
+"y": 3850,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 4656,
+"y": 1660,
+"capa": "piso",
+"colision": {
+"x": 4601,
+"y": 1610,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 4656,
+"y": 1916,
+"capa": "piso",
+"colision": {
+"x": 4601,
+"y": 1866,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 4880,
+"y": 1660,
+"capa": "piso",
+"colision": {
+"x": 4825,
+"y": 1610,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 4880,
+"y": 1916,
+"capa": "piso",
+"colision": {
+"x": 4825,
+"y": 1866,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 5104,
+"y": 1660,
+"capa": "piso",
+"colision": {
+"x": 5049,
+"y": 1610,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 5104,
+"y": 1916,
+"capa": "piso",
+"colision": {
+"x": 5049,
+"y": 1866,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 5328,
+"y": 1660,
+"capa": "piso",
+"colision": {
+"x": 5273,
+"y": 1610,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/mesa_redonda_bancas",
+"archivo": "mapa/exterior/mesa_redonda_bancas.png",
+"x": 5328,
+"y": 1916,
+"capa": "piso",
+"colision": {
+"x": 5273,
+"y": 1866,
+"w": 110,
+"h": 50
+},
+"w": 132,
+"h": 95
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 1920,
+"y": 2880,
+"capa": "piso",
+"colision": {
+"x": 1912,
+"y": 2868,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 2880,
+"y": 2944,
+"capa": "piso",
+"colision": {
+"x": 2872,
+"y": 2932,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 3840,
+"y": 2944,
+"capa": "piso",
+"colision": {
+"x": 3832,
+"y": 2932,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 4480,
+"y": 3040,
+"capa": "piso",
+"colision": {
+"x": 4472,
+"y": 3028,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 5632,
+"y": 2944,
+"capa": "piso",
+"colision": {
+"x": 5624,
+"y": 2932,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 3200,
+"y": 4096,
+"capa": "piso",
+"colision": {
+"x": 3192,
+"y": 4084,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 4480,
+"y": 4096,
+"capa": "piso",
+"colision": {
+"x": 4472,
+"y": 4084,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 960,
+"y": 2112,
+"capa": "piso",
+"colision": {
+"x": 952,
+"y": 2100,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 960,
+"y": 4256,
+"capa": "piso",
+"colision": {
+"x": 952,
+"y": 4244,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "exterior/poste_luz",
+"archivo": "mapa/exterior/poste_luz.png",
+"x": 6400,
+"y": 3200,
+"capa": "piso",
+"colision": {
+"x": 6392,
+"y": 3188,
+"w": 16,
+"h": 12
+},
+"w": 62,
+"h": 200
+},
+{
+"sprite": "vegetacion/palma_alta",
+"archivo": "mapa/vegetacion/palma_alta.png",
+"x": 5490,
+"y": 3194,
+"capa": "arbol",
+"colision": {
+"x": 5477,
+"y": 3178,
+"w": 26,
+"h": 16
+},
+"w": 205,
+"h": 288
+},
+{
+"sprite": "vegetacion/arbol_grande",
+"archivo": "mapa/vegetacion/arbol_grande.png",
+"x": 5490,
+"y": 3390,
+"capa": "arbol",
+"colision": {
+"x": 5477,
+"y": 3374,
+"w": 26,
+"h": 16
+},
+"w": 192,
+"h": 183
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 5511,
+"y": 4092,
+"capa": "arbol",
+"colision": {
+"x": 5498,
+"y": 4076,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 4571,
+"y": 3539,
+"capa": "arbol",
+"colision": {
+"x": 4558,
+"y": 3523,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 4993,
+"y": 3378,
+"capa": "arbol",
+"colision": {
+"x": 4980,
+"y": 3362,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 3726,
+"y": 3931,
+"capa": "arbol",
+"colision": {
+"x": 3713,
+"y": 3915,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/palma_alta",
+"archivo": "mapa/vegetacion/palma_alta.png",
+"x": 3103,
+"y": 3747,
+"capa": "arbol",
+"colision": {
+"x": 3090,
+"y": 3731,
+"w": 26,
+"h": 16
+},
+"w": 205,
+"h": 288
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 2744,
+"y": 3747,
+"capa": "arbol",
+"colision": {
+"x": 2731,
+"y": 3731,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 2839,
+"y": 3459,
+"capa": "arbol",
+"colision": {
+"x": 2826,
+"y": 3443,
+"w": 26,
+"h": 16
+},
+"w": 128,
+"h": 145
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 3219,
+"y": 3528,
+"capa": "arbol",
+"colision": {
+"x": 3206,
+"y": 3512,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/arbol_grande",
+"archivo": "mapa/vegetacion/arbol_grande.png",
+"x": 3494,
+"y": 3643,
+"capa": "arbol",
+"colision": {
+"x": 3481,
+"y": 3627,
+"w": 26,
+"h": 16
+},
+"w": 192,
+"h": 183
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 3631,
+"y": 3320,
+"capa": "arbol",
+"colision": {
+"x": 3618,
+"y": 3304,
+"w": 26,
+"h": 16
+},
+"w": 128,
+"h": 145
+},
+{
+"sprite": "vegetacion/palma_alta",
+"archivo": "mapa/vegetacion/palma_alta.png",
+"x": 3705,
+"y": 3148,
+"capa": "arbol",
+"colision": {
+"x": 3692,
+"y": 3132,
+"w": 26,
+"h": 16
+},
+"w": 205,
+"h": 288
+},
+{
+"sprite": "vegetacion/arbol_grande",
+"archivo": "mapa/vegetacion/arbol_grande.png",
+"x": 3019,
+"y": 3102,
+"capa": "arbol",
+"colision": {
+"x": 3006,
+"y": 3086,
+"w": 26,
+"h": 16
+},
+"w": 192,
+"h": 183
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 2544,
+"y": 3032,
+"capa": "arbol",
+"colision": {
+"x": 2531,
+"y": 3016,
+"w": 26,
+"h": 16
+},
+"w": 128,
+"h": 145
+},
+{
+"sprite": "vegetacion/palma_alta",
+"archivo": "mapa/vegetacion/palma_alta.png",
+"x": 3219,
+"y": 3240,
+"capa": "arbol",
+"colision": {
+"x": 3206,
+"y": 3224,
+"w": 26,
+"h": 16
+},
+"w": 205,
+"h": 288
+},
+{
+"sprite": "vegetacion/arbol_grande",
+"archivo": "mapa/vegetacion/arbol_grande.png",
+"x": 2818,
+"y": 2641,
+"capa": "arbol",
+"colision": {
+"x": 2805,
+"y": 2625,
+"w": 26,
+"h": 16
+},
+"w": 192,
+"h": 183
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 2797,
+"y": 2387,
+"capa": "arbol",
+"colision": {
+"x": 2784,
+"y": 2371,
+"w": 26,
+"h": 16
+},
+"w": 128,
+"h": 145
+},
+{
+"sprite": "vegetacion/palma_alta",
+"archivo": "mapa/vegetacion/palma_alta.png",
+"x": 2280,
+"y": 2364,
+"capa": "arbol",
+"colision": {
+"x": 2267,
+"y": 2348,
+"w": 26,
+"h": 16
+},
+"w": 205,
+"h": 288
+},
+{
+"sprite": "vegetacion/arbol_grande",
+"archivo": "mapa/vegetacion/arbol_grande.png",
+"x": 2480,
+"y": 2376,
+"capa": "arbol",
+"colision": {
+"x": 2467,
+"y": 2360,
+"w": 26,
+"h": 16
+},
+"w": 192,
+"h": 183
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 2628,
+"y": 2353,
+"capa": "arbol",
+"colision": {
+"x": 2615,
+"y": 2337,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/palma_alta",
+"archivo": "mapa/vegetacion/palma_alta.png",
+"x": 2269,
+"y": 2514,
+"capa": "arbol",
+"colision": {
+"x": 2256,
+"y": 2498,
+"w": 26,
+"h": 16
+},
+"w": 205,
+"h": 288
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 2596,
+"y": 2618,
+"capa": "arbol",
+"colision": {
+"x": 2583,
+"y": 2602,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 3768,
+"y": 3413,
+"capa": "arbol",
+"colision": {
+"x": 3755,
+"y": 3397,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/palma_alta",
+"archivo": "mapa/vegetacion/palma_alta.png",
+"x": 2681,
+"y": 3125,
+"capa": "arbol",
+"colision": {
+"x": 2668,
+"y": 3109,
+"w": 26,
+"h": 16
+},
+"w": 205,
+"h": 288
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 3346,
+"y": 3367,
+"capa": "arbol",
+"colision": {
+"x": 3333,
+"y": 3351,
+"w": 26,
+"h": 16
+},
+"w": 148,
+"h": 192
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 2227,
+"y": 3090,
+"capa": "arbol",
+"colision": {
+"x": 2214,
+"y": 3074,
+"w": 26,
+"h": 16
+},
+"w": 128,
+"h": 145
+},
+{
+"sprite": "vegetacion/palma_alta",
+"archivo": "mapa/vegetacion/palma_alta.png",
+"x": 3409,
+"y": 3954,
+"capa": "arbol",
+"colision": {
+"x": 3396,
+"y": 3938,
+"w": 26,
+"h": 16
+},
+"w": 205,
+"h": 288
+},
+{
+"sprite": "vegetacion/arbol_grande",
+"archivo": "mapa/vegetacion/arbol_grande.png",
+"x": 3874,
+"y": 3908,
+"capa": "arbol",
+"colision": {
+"x": 3861,
+"y": 3892,
+"w": 26,
+"h": 16
+},
+"w": 192,
+"h": 183
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 2736,
+"y": 3612,
+"capa": "piso",
+"colision": {
+"x": 2721,
+"y": 3598,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 3216,
+"y": 3420,
+"capa": "piso",
+"colision": {
+"x": 3201,
+"y": 3406,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 2192,
+"y": 3036,
+"capa": "piso",
+"colision": {
+"x": 2177,
+"y": 3022,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 3280,
+"y": 3612,
+"capa": "piso",
+"colision": {
+"x": 3265,
+"y": 3598,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2608,
+"y": 3068,
+"capa": "piso",
+"colision": {
+"x": 2593,
+"y": 3054,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2352,
+"y": 2556,
+"capa": "piso",
+"colision": {
+"x": 2337,
+"y": 2542,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 2192,
+"y": 3068,
+"capa": "piso",
+"colision": {
+"x": 2177,
+"y": 3054,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 3920,
+"y": 3548,
+"capa": "piso",
+"colision": {
+"x": 3905,
+"y": 3534,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3120,
+"y": 3900,
+"capa": "piso",
+"colision": {
+"x": 3105,
+"y": 3886,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 2928,
+"y": 3452,
+"capa": "piso",
+"colision": {
+"x": 2913,
+"y": 3438,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3664,
+"y": 3676,
+"capa": "piso",
+"colision": {
+"x": 3649,
+"y": 3662,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 5104,
+"y": 3388,
+"capa": "piso",
+"colision": {
+"x": 5089,
+"y": 3374,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 2960,
+"y": 3484,
+"capa": "piso",
+"colision": {
+"x": 2945,
+"y": 3470,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2352,
+"y": 3836,
+"capa": "piso",
+"colision": {
+"x": 2337,
+"y": 3822,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2480,
+"y": 2972,
+"capa": "piso",
+"colision": {
+"x": 2465,
+"y": 2958,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 2416,
+"y": 2524,
+"capa": "piso",
+"colision": {
+"x": 2401,
+"y": 2510,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3696,
+"y": 3388,
+"capa": "piso",
+"colision": {
+"x": 3681,
+"y": 3374,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 3760,
+"y": 4060,
+"capa": "piso",
+"colision": {
+"x": 3745,
+"y": 4046,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 2224,
+"y": 2684,
+"capa": "piso",
+"colision": {
+"x": 2209,
+"y": 2670,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3184,
+"y": 3004,
+"capa": "piso",
+"colision": {
+"x": 3169,
+"y": 2990,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3504,
+"y": 4060,
+"capa": "piso",
+"colision": {
+"x": 3489,
+"y": 4046,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 2800,
+"y": 3004,
+"capa": "piso",
+"colision": {
+"x": 2785,
+"y": 2990,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3568,
+"y": 3292,
+"capa": "piso",
+"colision": {
+"x": 3553,
+"y": 3278,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 3600,
+"y": 3356,
+"capa": "piso",
+"colision": {
+"x": 3585,
+"y": 3342,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 2736,
+"y": 2460,
+"capa": "piso",
+"colision": {
+"x": 2721,
+"y": 2446,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3440,
+"y": 3708,
+"capa": "piso",
+"colision": {
+"x": 3425,
+"y": 3694,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 3280,
+"y": 3516,
+"capa": "piso",
+"colision": {
+"x": 3265,
+"y": 3502,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3856,
+"y": 4060,
+"capa": "piso",
+"colision": {
+"x": 3841,
+"y": 4046,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 2832,
+"y": 2524,
+"capa": "piso",
+"colision": {
+"x": 2817,
+"y": 2510,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 2096,
+"y": 3164,
+"capa": "piso",
+"colision": {
+"x": 2081,
+"y": 3150,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3120,
+"y": 3260,
+"capa": "piso",
+"colision": {
+"x": 3105,
+"y": 3246,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2768,
+"y": 2556,
+"capa": "piso",
+"colision": {
+"x": 2753,
+"y": 2542,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2416,
+"y": 2492,
+"capa": "piso",
+"colision": {
+"x": 2401,
+"y": 2478,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3536,
+"y": 3164,
+"capa": "piso",
+"colision": {
+"x": 3521,
+"y": 3150,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3600,
+"y": 3644,
+"capa": "piso",
+"colision": {
+"x": 3585,
+"y": 3630,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2896,
+"y": 2364,
+"capa": "piso",
+"colision": {
+"x": 2881,
+"y": 2350,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3696,
+"y": 3452,
+"capa": "piso",
+"colision": {
+"x": 3681,
+"y": 3438,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2960,
+"y": 3932,
+"capa": "piso",
+"colision": {
+"x": 2945,
+"y": 3918,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3120,
+"y": 3164,
+"capa": "piso",
+"colision": {
+"x": 3105,
+"y": 3150,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 2288,
+"y": 2620,
+"capa": "piso",
+"colision": {
+"x": 2273,
+"y": 2606,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 3760,
+"y": 3708,
+"capa": "piso",
+"colision": {
+"x": 3745,
+"y": 3694,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2416,
+"y": 2652,
+"capa": "piso",
+"colision": {
+"x": 2401,
+"y": 2638,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3760,
+"y": 3836,
+"capa": "piso",
+"colision": {
+"x": 3745,
+"y": 3822,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2928,
+"y": 3132,
+"capa": "piso",
+"colision": {
+"x": 2913,
+"y": 3118,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3152,
+"y": 3900,
+"capa": "piso",
+"colision": {
+"x": 3137,
+"y": 3886,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 3024,
+"y": 3420,
+"capa": "piso",
+"colision": {
+"x": 3009,
+"y": 3406,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3696,
+"y": 3804,
+"capa": "piso",
+"colision": {
+"x": 3681,
+"y": 3790,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 2416,
+"y": 2620,
+"capa": "piso",
+"colision": {
+"x": 2401,
+"y": 2606,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3824,
+"y": 3676,
+"capa": "piso",
+"colision": {
+"x": 3809,
+"y": 3662,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 3088,
+"y": 3804,
+"capa": "piso",
+"colision": {
+"x": 3073,
+"y": 3790,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3504,
+"y": 3196,
+"capa": "piso",
+"colision": {
+"x": 3489,
+"y": 3182,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 3824,
+"y": 3836,
+"capa": "piso",
+"colision": {
+"x": 3809,
+"y": 3822,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3888,
+"y": 3004,
+"capa": "piso",
+"colision": {
+"x": 3873,
+"y": 2990,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3504,
+"y": 3132,
+"capa": "piso",
+"colision": {
+"x": 3489,
+"y": 3118,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2096,
+"y": 3100,
+"capa": "piso",
+"colision": {
+"x": 2081,
+"y": 3086,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 2128,
+"y": 3068,
+"capa": "piso",
+"colision": {
+"x": 2113,
+"y": 3054,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 4656,
+"y": 3388,
+"capa": "piso",
+"colision": {
+"x": 4641,
+"y": 3374,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 2288,
+"y": 3132,
+"capa": "piso",
+"colision": {
+"x": 2273,
+"y": 3118,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 3216,
+"y": 3580,
+"capa": "piso",
+"colision": {
+"x": 3201,
+"y": 3566,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/mata_flores",
+"archivo": "mapa/vegetacion/mata_flores.png",
+"x": 2160,
+"y": 3164,
+"capa": "piso",
+"colision": {
+"x": 2145,
+"y": 3150,
+"w": 30,
+"h": 14
+},
+"w": 44,
+"h": 38
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2608,
+"y": 3612,
+"capa": "piso",
+"colision": {
+"x": 2593,
+"y": 3598,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3888,
+"y": 3708,
+"capa": "piso",
+"colision": {
+"x": 3873,
+"y": 3694,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3600,
+"y": 3964,
+"capa": "piso",
+"colision": {
+"x": 3585,
+"y": 3950,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 2032,
+"y": 3164,
+"capa": "piso",
+"colision": {
+"x": 2017,
+"y": 3150,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3152,
+"y": 3356,
+"capa": "piso",
+"colision": {
+"x": 3137,
+"y": 3342,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2704,
+"y": 2364,
+"capa": "piso",
+"colision": {
+"x": 2689,
+"y": 2350,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 3568,
+"y": 3068,
+"capa": "piso",
+"colision": {
+"x": 3553,
+"y": 3054,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbusto",
+"archivo": "mapa/vegetacion/arbusto.png",
+"x": 2736,
+"y": 2588,
+"capa": "piso",
+"colision": {
+"x": 2721,
+"y": 2574,
+"w": 30,
+"h": 14
+},
+"w": 64,
+"h": 57
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 3344,
+"y": 3580,
+"capa": "piso",
+"colision": {
+"x": 3329,
+"y": 3566,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/arbol_joven",
+"archivo": "mapa/vegetacion/arbol_joven.png",
+"x": 3024,
+"y": 3676,
+"capa": "piso",
+"colision": {
+"x": 3009,
+"y": 3662,
+"w": 30,
+"h": 14
+},
+"w": 48,
+"h": 96
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6400,
+"y": 3136,
+"capa": "piso",
+"colision": {
+"x": 6355,
+"y": 3096,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 6400,
+"y": 3118,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6528,
+"y": 3232,
+"capa": "piso",
+"colision": {
+"x": 6483,
+"y": 3212,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6688,
+"y": 3136,
+"capa": "piso",
+"colision": {
+"x": 6643,
+"y": 3096,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 6688,
+"y": 3118,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6816,
+"y": 3232,
+"capa": "piso",
+"colision": {
+"x": 6771,
+"y": 3212,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6976,
+"y": 3136,
+"capa": "piso",
+"colision": {
+"x": 6931,
+"y": 3096,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6976,
+"y": 3118,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7104,
+"y": 3232,
+"capa": "piso",
+"colision": {
+"x": 7059,
+"y": 3212,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 7264,
+"y": 3136,
+"capa": "piso",
+"colision": {
+"x": 7219,
+"y": 3096,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 7264,
+"y": 3118,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7392,
+"y": 3232,
+"capa": "piso",
+"colision": {
+"x": 7347,
+"y": 3212,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6400,
+"y": 3424,
+"capa": "piso",
+"colision": {
+"x": 6355,
+"y": 3384,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 6400,
+"y": 3406,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6528,
+"y": 3520,
+"capa": "piso",
+"colision": {
+"x": 6483,
+"y": 3500,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6688,
+"y": 3424,
+"capa": "piso",
+"colision": {
+"x": 6643,
+"y": 3384,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6688,
+"y": 3406,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6816,
+"y": 3520,
+"capa": "piso",
+"colision": {
+"x": 6771,
+"y": 3500,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6976,
+"y": 3424,
+"capa": "piso",
+"colision": {
+"x": 6931,
+"y": 3384,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 6976,
+"y": 3406,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7104,
+"y": 3520,
+"capa": "piso",
+"colision": {
+"x": 7059,
+"y": 3500,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 7264,
+"y": 3424,
+"capa": "piso",
+"colision": {
+"x": 7219,
+"y": 3384,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 7264,
+"y": 3406,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7392,
+"y": 3520,
+"capa": "piso",
+"colision": {
+"x": 7347,
+"y": 3500,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6400,
+"y": 3712,
+"capa": "piso",
+"colision": {
+"x": 6355,
+"y": 3672,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6400,
+"y": 3694,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6528,
+"y": 3808,
+"capa": "piso",
+"colision": {
+"x": 6483,
+"y": 3788,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6688,
+"y": 3712,
+"capa": "piso",
+"colision": {
+"x": 6643,
+"y": 3672,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6688,
+"y": 3694,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6816,
+"y": 3808,
+"capa": "piso",
+"colision": {
+"x": 6771,
+"y": 3788,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6976,
+"y": 3712,
+"capa": "piso",
+"colision": {
+"x": 6931,
+"y": 3672,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 6976,
+"y": 3694,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7104,
+"y": 3808,
+"capa": "piso",
+"colision": {
+"x": 7059,
+"y": 3788,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 7264,
+"y": 3712,
+"capa": "piso",
+"colision": {
+"x": 7219,
+"y": 3672,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 7264,
+"y": 3694,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7392,
+"y": 3808,
+"capa": "piso",
+"colision": {
+"x": 7347,
+"y": 3788,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6400,
+"y": 4000,
+"capa": "piso",
+"colision": {
+"x": 6355,
+"y": 3960,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6400,
+"y": 3982,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6528,
+"y": 4096,
+"capa": "piso",
+"colision": {
+"x": 6483,
+"y": 4076,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6688,
+"y": 4000,
+"capa": "piso",
+"colision": {
+"x": 6643,
+"y": 3960,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6688,
+"y": 3982,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6816,
+"y": 4096,
+"capa": "piso",
+"colision": {
+"x": 6771,
+"y": 4076,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6976,
+"y": 4000,
+"capa": "piso",
+"colision": {
+"x": 6931,
+"y": 3960,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6976,
+"y": 3982,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7104,
+"y": 4096,
+"capa": "piso",
+"colision": {
+"x": 7059,
+"y": 4076,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 7264,
+"y": 4000,
+"capa": "piso",
+"colision": {
+"x": 7219,
+"y": 3960,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 7264,
+"y": 3982,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7392,
+"y": 4096,
+"capa": "piso",
+"colision": {
+"x": 7347,
+"y": 4076,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6400,
+"y": 4288,
+"capa": "piso",
+"colision": {
+"x": 6355,
+"y": 4248,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6400,
+"y": 4270,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6528,
+"y": 4384,
+"capa": "piso",
+"colision": {
+"x": 6483,
+"y": 4364,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6688,
+"y": 4288,
+"capa": "piso",
+"colision": {
+"x": 6643,
+"y": 4248,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 6688,
+"y": 4270,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6816,
+"y": 4384,
+"capa": "piso",
+"colision": {
+"x": 6771,
+"y": 4364,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6976,
+"y": 4288,
+"capa": "piso",
+"colision": {
+"x": 6931,
+"y": 4248,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6976,
+"y": 4270,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7104,
+"y": 4384,
+"capa": "piso",
+"colision": {
+"x": 7059,
+"y": 4364,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 7264,
+"y": 4288,
+"capa": "piso",
+"colision": {
+"x": 7219,
+"y": 4248,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 7264,
+"y": 4270,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7392,
+"y": 4384,
+"capa": "piso",
+"colision": {
+"x": 7347,
+"y": 4364,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6400,
+"y": 4576,
+"capa": "piso",
+"colision": {
+"x": 6355,
+"y": 4536,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6400,
+"y": 4558,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6528,
+"y": 4672,
+"capa": "piso",
+"colision": {
+"x": 6483,
+"y": 4652,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6688,
+"y": 4576,
+"capa": "piso",
+"colision": {
+"x": 6643,
+"y": 4536,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 6688,
+"y": 4558,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6816,
+"y": 4672,
+"capa": "piso",
+"colision": {
+"x": 6771,
+"y": 4652,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 6976,
+"y": 4576,
+"capa": "piso",
+"colision": {
+"x": 6931,
+"y": 4536,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 6976,
+"y": 4558,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7104,
+"y": 4672,
+"capa": "piso",
+"colision": {
+"x": 7059,
+"y": 4652,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 7264,
+"y": 4576,
+"capa": "piso",
+"colision": {
+"x": 7219,
+"y": 4536,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 7264,
+"y": 4558,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 7392,
+"y": 4672,
+"capa": "piso",
+"colision": {
+"x": 7347,
+"y": 4652,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4096,
+"y": 4160,
+"capa": "piso",
+"colision": {
+"x": 4051,
+"y": 4120,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 4096,
+"y": 4142,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4384,
+"y": 4160,
+"capa": "piso",
+"colision": {
+"x": 4339,
+"y": 4120,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 4384,
+"y": 4142,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4512,
+"y": 4256,
+"capa": "piso",
+"colision": {
+"x": 4467,
+"y": 4236,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4672,
+"y": 4160,
+"capa": "piso",
+"colision": {
+"x": 4627,
+"y": 4120,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 4672,
+"y": 4142,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4800,
+"y": 4256,
+"capa": "piso",
+"colision": {
+"x": 4755,
+"y": 4236,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4960,
+"y": 4160,
+"capa": "piso",
+"colision": {
+"x": 4915,
+"y": 4120,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 4960,
+"y": 4142,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 5088,
+"y": 4256,
+"capa": "piso",
+"colision": {
+"x": 5043,
+"y": 4236,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4512,
+"y": 4544,
+"capa": "piso",
+"colision": {
+"x": 4467,
+"y": 4524,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4672,
+"y": 4448,
+"capa": "piso",
+"colision": {
+"x": 4627,
+"y": 4408,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 4672,
+"y": 4430,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4800,
+"y": 4544,
+"capa": "piso",
+"colision": {
+"x": 4755,
+"y": 4524,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4960,
+"y": 4448,
+"capa": "piso",
+"colision": {
+"x": 4915,
+"y": 4408,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 4960,
+"y": 4430,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 5088,
+"y": 4544,
+"capa": "piso",
+"colision": {
+"x": 5043,
+"y": 4524,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4224,
+"y": 4832,
+"capa": "piso",
+"colision": {
+"x": 4179,
+"y": 4812,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4512,
+"y": 4832,
+"capa": "piso",
+"colision": {
+"x": 4467,
+"y": 4812,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4672,
+"y": 4736,
+"capa": "piso",
+"colision": {
+"x": 4627,
+"y": 4696,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 4672,
+"y": 4718,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4800,
+"y": 4832,
+"capa": "piso",
+"colision": {
+"x": 4755,
+"y": 4812,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4960,
+"y": 4736,
+"capa": "piso",
+"colision": {
+"x": 4915,
+"y": 4696,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 4960,
+"y": 4718,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 5088,
+"y": 4832,
+"capa": "piso",
+"colision": {
+"x": 5043,
+"y": 4812,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4224,
+"y": 5120,
+"capa": "piso",
+"colision": {
+"x": 4179,
+"y": 5100,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4512,
+"y": 5120,
+"capa": "piso",
+"colision": {
+"x": 4467,
+"y": 5100,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4672,
+"y": 5024,
+"capa": "piso",
+"colision": {
+"x": 4627,
+"y": 4984,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 4672,
+"y": 5006,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 4800,
+"y": 5120,
+"capa": "piso",
+"colision": {
+"x": 4755,
+"y": 5100,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 4960,
+"y": 5024,
+"capa": "piso",
+"colision": {
+"x": 4915,
+"y": 4984,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 4960,
+"y": 5006,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 5088,
+"y": 5120,
+"capa": "piso",
+"colision": {
+"x": 5043,
+"y": 5100,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 5568,
+"y": 4480,
+"capa": "piso",
+"colision": {
+"x": 5523,
+"y": 4440,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/palma_baja",
+"archivo": "mapa/vegetacion/palma_baja.png",
+"x": 5568,
+"y": 4462,
+"capa": "arbol",
+"colision": null,
+"w": 148,
+"h": 192
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 5696,
+"y": 4576,
+"capa": "piso",
+"colision": {
+"x": 5651,
+"y": 4556,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 5856,
+"y": 4480,
+"capa": "piso",
+"colision": {
+"x": 5811,
+"y": 4440,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 5856,
+"y": 4462,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 5984,
+"y": 4576,
+"capa": "piso",
+"colision": {
+"x": 5939,
+"y": 4556,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 5568,
+"y": 4768,
+"capa": "piso",
+"colision": {
+"x": 5523,
+"y": 4728,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 5568,
+"y": 4750,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 5696,
+"y": 4864,
+"capa": "piso",
+"colision": {
+"x": 5651,
+"y": 4844,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "vegetacion/jardinera_piedra",
+"archivo": "mapa/vegetacion/jardinera_piedra.png",
+"x": 5856,
+"y": 4768,
+"capa": "piso",
+"colision": {
+"x": 5811,
+"y": 4728,
+"w": 90,
+"h": 40
+},
+"w": 96,
+"h": 69
+},
+{
+"sprite": "vegetacion/arbol_mediano",
+"archivo": "mapa/vegetacion/arbol_mediano.png",
+"x": 5856,
+"y": 4750,
+"capa": "arbol",
+"colision": null,
+"w": 128,
+"h": 145
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 5984,
+"y": 4864,
+"capa": "piso",
+"colision": {
+"x": 5939,
+"y": 4844,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "extra/exterior__bote_exterior_h40",
+"archivo": "mapa_extra/exterior__bote_exterior_h40.png",
+"x": 3600,
+"y": 2332,
+"capa": "piso",
+"colision": {
+"x": 3588,
+"y": 2318,
+"w": 24,
+"h": 14
+},
+"w": 26,
+"h": 40
+},
+{
+"sprite": "extra/exterior__bote_exterior_h40",
+"archivo": "mapa_extra/exterior__bote_exterior_h40.png",
+"x": 5328,
+"y": 2332,
+"capa": "piso",
+"colision": {
+"x": 5316,
+"y": 2318,
+"w": 24,
+"h": 14
+},
+"w": 26,
+"h": 40
+},
+{
+"sprite": "extra/exterior__bote_exterior_h40",
+"archivo": "mapa_extra/exterior__bote_exterior_h40.png",
+"x": 7056,
+"y": 924,
+"capa": "piso",
+"colision": {
+"x": 7044,
+"y": 910,
+"w": 24,
+"h": 14
+},
+"w": 26,
+"h": 40
+},
+{
+"sprite": "extra/exterior__bote_exterior_h40",
+"archivo": "mapa_extra/exterior__bote_exterior_h40.png",
+"x": 7856,
+"y": 924,
+"capa": "piso",
+"colision": {
+"x": 7844,
+"y": 910,
+"w": 24,
+"h": 14
+},
+"w": 26,
+"h": 40
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 5856,
+"y": 2676,
+"capa": "piso",
+"colision": {
+"x": 5811,
+"y": 2656,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "exterior/banca_metal",
+"archivo": "mapa/exterior/banca_metal.png",
+"x": 6048,
+"y": 2676,
+"capa": "piso",
+"colision": {
+"x": 6003,
+"y": 2656,
+"w": 90,
+"h": 20
+},
+"w": 96,
+"h": 63
+},
+{
+"sprite": "exterior/condensador_ac",
+"archivo": "mapa/exterior/condensador_ac.png",
+"x": 4480,
+"y": 3392,
+"capa": "piso",
+"colision": {
+"x": 4455,
+"y": 3368,
+"w": 50,
+"h": 24
+},
+"w": 56,
+"h": 63
+}
+]
+}

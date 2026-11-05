@@ -1,0 +1,24 @@
+{
+ "id": "miranda__especial",
+ "metodo": "componentes",
+ "esperados": 5,
+ "segmentos_proyeccion": 1,
+ "detectados": 5,
+ "cortados": [
+  4
+ ],
+ "alturas_hd": [
+  514,
+  515,
+  515,
+  514,
+  513
+ ],
+ "marcas": [],
+ "factor": 0.1867704280155642,
+ "dist_paleta": 14.225486183166504,
+ "lienzo": [
+  89,
+  102
+ ]
+}

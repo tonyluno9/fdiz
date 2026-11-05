@@ -1,0 +1,12 @@
+{
+  "gordo__caminar_lado": {"calificacion": "OK", "razon": "Corregido: perfil real a la derecha con un solo ojo y un lente; mismo zombie gordo, 6 cuadros con brazos al frente.", "correccion": null},
+  "gordo__atacar_lado": {"calificacion": "OK", "razon": "Corregido: perfil real a la derecha en los 4 cuadros; retroceso, embestida, zarpazo con arco y recuperación; mismo personaje.", "correccion": null},
+  "griton__atacar_abajo": {"calificacion": "OK", "razon": "Corregido: los 4 cuadros de frente, garras hacia el espectador con arco de movimiento; mismo gritón (pelo gris, lentes, polo).", "correccion": null},
+  "miranda__caminar_lado": {"calificacion": "OK", "razon": "Corregido: perfil estricto a la derecha con un solo ojo; misma Miranda (pelo, lentes, top negro, jeans), ciclo de 6 cuadros.", "correccion": null},
+  "miranda__efecto_especial": {"calificacion": "OK", "razon": "Corregido: 4 cuadros en una fila, un fogonazo por cuadro y balas a la derecha, sin tocar bordes; alguna bala suelta cae en el cuadro vecino (menor).", "correccion": null},
+  "normal__atacar_abajo": {"calificacion": "REHACER", "razon": "Sigue igual: vista 3/4 y en los cuadros 2-3 los brazos se estiran hacia el lado derecho, no hacia el espectador.", "correccion": null},
+  "normal__golpe_morir": {"calificacion": "REHACER", "razon": "Sigue igual: en el raw el cuerpo acostado (cuadro 4) toca el humo del cuadro 5; en la tira los pies quedan cortados y pasan al cuadro 5.", "correccion": null},
+  "tony__caminar_lado": {"calificacion": "OK", "razon": "Corregido: perfil a la derecha con un ojo y un lente; mismo Tony (rizos, playera blanca, cadena, arete), ciclo de 6 cuadros.", "correccion": null},
+  "tonyfuerte__caminar_lado": {"calificacion": "OK", "razon": "Corregido: perfil a la derecha en los 6 cuadros, mismo tamaño y aura dorada completa en todos; mismo Tony fuerte.", "correccion": null},
+  "tonyfuerte__pegar_lado": {"calificacion": "REHACER", "razon": "Sigue igual: cuadros 1 y 4 de frente en guardia (dos ojos) y cuadros 2-3 vistos de espaldas en 3/4; no es perfil a la derecha.", "correccion": null}
+}

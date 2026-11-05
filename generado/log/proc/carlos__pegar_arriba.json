@@ -1,0 +1,21 @@
+{
+ "id": "carlos__pegar_arriba",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  593,
+  593,
+  593,
+  593
+ ],
+ "marcas": [],
+ "factor": 0.16188870151770657,
+ "dist_paleta": 6.203720211982727,
+ "lienzo": [
+  92,
+  104
+ ]
+}

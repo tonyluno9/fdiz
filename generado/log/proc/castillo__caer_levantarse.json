@@ -1,0 +1,23 @@
+{
+ "id": "castillo__caer_levantarse",
+ "metodo": "componentes",
+ "esperados": 6,
+ "segmentos_proyeccion": 5,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  491,
+  424,
+  307,
+  128,
+  331,
+  513
+ ],
+ "marcas": [],
+ "factor": 0.19123505976095617,
+ "dist_paleta": 11.130391597747803,
+ "lienzo": [
+  81,
+  102
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "id": "alessandro__festejo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  584,
+  530,
+  516,
+  584
+ ],
+ "marcas": [],
+ "factor": 0.17235188509874327,
+ "dist_paleta": 10.371685028076172,
+ "lienzo": [
+  88,
+  105
+ ]
+}

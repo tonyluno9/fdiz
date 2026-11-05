@@ -1,0 +1,21 @@
+{
+ "id": "alessandro__efecto_habilidad",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  242,
+  410,
+  435,
+  356
+ ],
+ "marcas": [],
+ "factor": 0.2206896551724138,
+ "dist_paleta": null,
+ "lienzo": [
+  93,
+  100
+ ]
+}

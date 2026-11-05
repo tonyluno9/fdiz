@@ -1,0 +1,22 @@
+{
+ "id": "alan__especial",
+ "metodo": "componentes",
+ "esperados": 5,
+ "segmentos_proyeccion": 1,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  603,
+  603,
+  603,
+  603,
+  603
+ ],
+ "marcas": [],
+ "factor": 0.15920398009950248,
+ "dist_paleta": 9.868983840942382,
+ "lienzo": [
+  86,
+  102
+ ]
+}

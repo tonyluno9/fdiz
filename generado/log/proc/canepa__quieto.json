@@ -1,0 +1,21 @@
+{
+ "id": "canepa__quieto",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  604,
+  598,
+  605,
+  601
+ ],
+ "marcas": [],
+ "factor": 0.15933609958506223,
+ "dist_paleta": 9.601545333862305,
+ "lienzo": [
+  79,
+  108
+ ]
+}

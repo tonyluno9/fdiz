@@ -1,0 +1,24 @@
+Generaciones usadas antes: 159/220
+OK  miranda__caminar_lado (25.6 s)
+OK  miranda__efecto_especial (29.9 s)
+OK  tony__caminar_lado (34.3 s)
+OK  castillo__caminar_lado (34.2 s)
+OK  castillo__pegar_abajo (45.4 s)
+OK  alessandro__pegar_abajo (45.3 s)
+OK  carlos__caminar_lado (34.2 s)
+OK  gabo__pegar_abajo (51.8 s)
+OK  tonyfuerte__caminar_lado (23.0 s)
+OK  carlos__pegar_abajo (58.4 s)
+OK  normal__golpe_morir (31.9 s)
+OK  normal__atacar_abajo (47.4 s)
+OK  corredor__caminar_lado (18.7 s)
+OK  griton__atacar_abajo (18.7 s)
+OK  corredor__atacar_abajo (40.8 s)
+OK  gordo__caminar_lado (32.1 s)
+OK  gordo__atacar_lado (20.8 s)
+OK  conserje__caminar_lado (18.7 s)
+OK  conserje__golpe_morir (18.7 s)
+ERR tonyfuerte__pegar_lado: processing 
+OK  tonyfuerte__pegar_lado (23.1 s)
+Resumen: {'ok': 20}
+Generaciones usadas: 180/220

@@ -1,0 +1,714 @@
+{
+ "salon/pupitre_espalda": {
+  "archivo": "mapa/salon/pupitre_espalda.png",
+  "tamano": [
+   40,
+   52
+  ],
+  "ancla": "bottom-center"
+ },
+ "salon/pupitre_frente": {
+  "archivo": "mapa/salon/pupitre_frente.png",
+  "tamano": [
+   36,
+   52
+  ],
+  "ancla": "bottom-center"
+ },
+ "salon/escritorio_profesor": {
+  "archivo": "mapa/salon/escritorio_profesor.png",
+  "tamano": [
+   96,
+   75
+  ],
+  "ancla": "bottom-center"
+ },
+ "salon/silla_profesor": {
+  "archivo": "mapa/salon/silla_profesor.png",
+  "tamano": [
+   28,
+   46
+  ],
+  "ancla": "bottom-center"
+ },
+ "salon/pizarron": {
+  "archivo": "mapa/salon/pizarron.png",
+  "tamano": [
+   160,
+   107
+  ],
+  "ancla": "bottom-center"
+ },
+ "salon/minisplit": {
+  "archivo": "mapa/salon/minisplit.png",
+  "tamano": [
+   72,
+   34
+  ],
+  "ancla": "bottom-center"
+ },
+ "salon/ventana_persiana": {
+  "archivo": "mapa/salon/ventana_persiana.png",
+  "tamano": [
+   96,
+   100
+  ],
+  "ancla": "bottom-center"
+ },
+ "salon/ventilador_techo": {
+  "archivo": "mapa/salon/ventilador_techo.png",
+  "tamano": [
+   72,
+   72
+  ],
+  "ancla": "bottom-center"
+ },
+ "laboratorio/pc_espalda": {
+  "archivo": "mapa/laboratorio/pc_espalda.png",
+  "tamano": [
+   64,
+   47
+  ],
+  "ancla": "bottom-center"
+ },
+ "laboratorio/pc_frente": {
+  "archivo": "mapa/laboratorio/pc_frente.png",
+  "tamano": [
+   64,
+   48
+  ],
+  "ancla": "bottom-center"
+ },
+ "laboratorio/pc_lado": {
+  "archivo": "mapa/laboratorio/pc_lado.png",
+  "tamano": [
+   33,
+   64
+  ],
+  "ancla": "bottom-center"
+ },
+ "laboratorio/silla_oficina_espalda": {
+  "archivo": "mapa/laboratorio/silla_oficina_espalda.png",
+  "tamano": [
+   27,
+   46
+  ],
+  "ancla": "bottom-center"
+ },
+ "laboratorio/silla_oficina_frente": {
+  "archivo": "mapa/laboratorio/silla_oficina_frente.png",
+  "tamano": [
+   27,
+   46
+  ],
+  "ancla": "bottom-center"
+ },
+ "laboratorio/mesa_maestro_lab": {
+  "archivo": "mapa/laboratorio/mesa_maestro_lab.png",
+  "tamano": [
+   80,
+   80
+  ],
+  "ancla": "bottom-center"
+ },
+ "cic/mostrador_curvo": {
+  "archivo": "mapa/cic/mostrador_curvo.png",
+  "tamano": [
+   176,
+   120
+  ],
+  "ancla": "bottom-center"
+ },
+ "cic/archivero": {
+  "archivo": "mapa/cic/archivero.png",
+  "tamano": [
+   35,
+   64
+  ],
+  "ancla": "bottom-center"
+ },
+ "cic/copiadora": {
+  "archivo": "mapa/cic/copiadora.png",
+  "tamano": [
+   45,
+   60
+  ],
+  "ancla": "bottom-center"
+ },
+ "cic/cajas_carton": {
+  "archivo": "mapa/cic/cajas_carton.png",
+  "tamano": [
+   40,
+   48
+  ],
+  "ancla": "bottom-center"
+ },
+ "cic/lockers_cerrados": {
+  "archivo": "mapa/cic/lockers_cerrados.png",
+  "tamano": [
+   48,
+   100
+  ],
+  "ancla": "bottom-center"
+ },
+ "cic/locker_abierto": {
+  "archivo": "mapa/cic/locker_abierto.png",
+  "tamano": [
+   64,
+   100
+  ],
+  "ancla": "bottom-center"
+ },
+ "cic/estante_equipo": {
+  "archivo": "mapa/cic/estante_equipo.png",
+  "tamano": [
+   63,
+   96
+  ],
+  "ancla": "bottom-center"
+ },
+ "cic/escritorio_oficina_pc": {
+  "archivo": "mapa/cic/escritorio_oficina_pc.png",
+  "tamano": [
+   88,
+   82
+  ],
+  "ancla": "bottom-center"
+ },
+ "site/rack_apagado": {
+  "archivo": "mapa/site/rack_apagado.png",
+  "tamano": [
+   76,
+   116
+  ],
+  "ancla": "bottom-center"
+ },
+ "site/rack_prendido": {
+  "archivo": "mapa/site/rack_prendido.png",
+  "tamano": [
+   77,
+   116
+  ],
+  "ancla": "bottom-center"
+ },
+ "site/ups": {
+  "archivo": "mapa/site/ups.png",
+  "tamano": [
+   43,
+   40
+  ],
+  "ancla": "bottom-center"
+ },
+ "site/caja_telecom": {
+  "archivo": "mapa/site/caja_telecom.png",
+  "tamano": [
+   28,
+   48
+  ],
+  "ancla": "bottom-center"
+ },
+ "site/tablero_apagado": {
+  "archivo": "mapa/site/tablero_apagado.png",
+  "tamano": [
+   54,
+   72
+  ],
+  "ancla": "bottom-center"
+ },
+ "site/tablero_prendido": {
+  "archivo": "mapa/site/tablero_prendido.png",
+  "tamano": [
+   54,
+   72
+  ],
+  "ancla": "bottom-center"
+ },
+ "site/cables_piso": {
+  "archivo": "mapa/site/cables_piso.png",
+  "tamano": [
+   64,
+   33
+  ],
+  "ancla": "bottom-center"
+ },
+ "neveria/mesa_sillas_blancas": {
+  "archivo": "mapa/neveria/mesa_sillas_blancas.png",
+  "tamano": [
+   104,
+   97
+  ],
+  "ancla": "bottom-center"
+ },
+ "neveria/silla_blanca": {
+  "archivo": "mapa/neveria/silla_blanca.png",
+  "tamano": [
+   29,
+   44
+  ],
+  "ancla": "bottom-center"
+ },
+ "neveria/barra_verde": {
+  "archivo": "mapa/neveria/barra_verde.png",
+  "tamano": [
+   176,
+   150
+  ],
+  "ancla": "bottom-center"
+ },
+ "neveria/refri_refresco": {
+  "archivo": "mapa/neveria/refri_refresco.png",
+  "tamano": [
+   58,
+   104
+  ],
+  "ancla": "bottom-center"
+ },
+ "neveria/congelador_helados": {
+  "archivo": "mapa/neveria/congelador_helados.png",
+  "tamano": [
+   84,
+   79
+  ],
+  "ancla": "bottom-center"
+ },
+ "neveria/menu_pared": {
+  "archivo": "mapa/neveria/menu_pared.png",
+  "tamano": [
+   64,
+   84
+  ],
+  "ancla": "bottom-center"
+ },
+ "neveria/maceta_flores": {
+  "archivo": "mapa/neveria/maceta_flores.png",
+  "tamano": [
+   52,
+   76
+  ],
+  "ancla": "bottom-center"
+ },
+ "neveria/caja_registradora": {
+  "archivo": "mapa/neveria/caja_registradora.png",
+  "tamano": [
+   32,
+   34
+  ],
+  "ancla": "bottom-center"
+ },
+ "oficinas/escritorio_l": {
+  "archivo": "mapa/oficinas/escritorio_l.png",
+  "tamano": [
+   104,
+   72
+  ],
+  "ancla": "bottom-center"
+ },
+ "oficinas/silla_visita": {
+  "archivo": "mapa/oficinas/silla_visita.png",
+  "tamano": [
+   29,
+   44
+  ],
+  "ancla": "bottom-center"
+ },
+ "oficinas/sillon_espera": {
+  "archivo": "mapa/oficinas/sillon_espera.png",
+  "tamano": [
+   112,
+   103
+  ],
+  "ancla": "bottom-center"
+ },
+ "oficinas/mesa_juntas": {
+  "archivo": "mapa/oficinas/mesa_juntas.png",
+  "tamano": [
+   200,
+   161
+  ],
+  "ancla": "bottom-center"
+ },
+ "oficinas/librero": {
+  "archivo": "mapa/oficinas/librero.png",
+  "tamano": [
+   60,
+   100
+  ],
+  "ancla": "bottom-center"
+ },
+ "oficinas/garrafon_agua": {
+  "archivo": "mapa/oficinas/garrafon_agua.png",
+  "tamano": [
+   29,
+   68
+  ],
+  "ancla": "bottom-center"
+ },
+ "oficinas/cancel_vidrio": {
+  "archivo": "mapa/oficinas/cancel_vidrio.png",
+  "tamano": [
+   64,
+   78
+  ],
+  "ancla": "bottom-center"
+ },
+ "oficinas/planta_oficina": {
+  "archivo": "mapa/oficinas/planta_oficina.png",
+  "tamano": [
+   42,
+   68
+  ],
+  "ancla": "bottom-center"
+ },
+ "banos/inodoro": {
+  "archivo": "mapa/banos/inodoro.png",
+  "tamano": [
+   27,
+   48
+  ],
+  "ancla": "bottom-center"
+ },
+ "banos/mingitorio": {
+  "archivo": "mapa/banos/mingitorio.png",
+  "tamano": [
+   28,
+   56
+  ],
+  "ancla": "bottom-center"
+ },
+ "banos/lavabo_espejo": {
+  "archivo": "mapa/banos/lavabo_espejo.png",
+  "tamano": [
+   64,
+   59
+  ],
+  "ancla": "bottom-center"
+ },
+ "banos/cubiculo_cerrado": {
+  "archivo": "mapa/banos/cubiculo_cerrado.png",
+  "tamano": [
+   72,
+   100
+  ],
+  "ancla": "bottom-center"
+ },
+ "banos/cubiculo_abierto": {
+  "archivo": "mapa/banos/cubiculo_abierto.png",
+  "tamano": [
+   81,
+   100
+  ],
+  "ancla": "bottom-center"
+ },
+ "banos/secador_manos": {
+  "archivo": "mapa/banos/secador_manos.png",
+  "tamano": [
+   27,
+   30
+  ],
+  "ancla": "bottom-center"
+ },
+ "exterior/mesa_redonda_bancas": {
+  "archivo": "mapa/exterior/mesa_redonda_bancas.png",
+  "tamano": [
+   132,
+   95
+  ],
+  "ancla": "bottom-center"
+ },
+ "exterior/banca_metal": {
+  "archivo": "mapa/exterior/banca_metal.png",
+  "tamano": [
+   96,
+   63
+  ],
+  "ancla": "bottom-center"
+ },
+ "exterior/poste_luz": {
+  "archivo": "mapa/exterior/poste_luz.png",
+  "tamano": [
+   62,
+   200
+  ],
+  "ancla": "bottom-center"
+ },
+ "exterior/bote_exterior": {
+  "archivo": "mapa/exterior/bote_exterior.png",
+  "tamano": [
+   31,
+   48
+  ],
+  "ancla": "bottom-center"
+ },
+ "exterior/directorio": {
+  "archivo": "mapa/exterior/directorio.png",
+  "tamano": [
+   60,
+   116
+  ],
+  "ancla": "bottom-center"
+ },
+ "exterior/condensador_ac": {
+  "archivo": "mapa/exterior/condensador_ac.png",
+  "tamano": [
+   56,
+   63
+  ],
+  "ancla": "bottom-center"
+ },
+ "exterior/barandal": {
+  "archivo": "mapa/exterior/barandal.png",
+  "tamano": [
+   96,
+   83
+  ],
+  "ancla": "bottom-center"
+ },
+ "exterior/tapa_registro": {
+  "archivo": "mapa/exterior/tapa_registro.png",
+  "tamano": [
+   44,
+   24
+  ],
+  "ancla": "bottom-center"
+ },
+ "vegetacion/palma_alta": {
+  "archivo": "mapa/vegetacion/palma_alta.png",
+  "tamano": [
+   205,
+   288
+  ],
+  "ancla": "bottom-center"
+ },
+ "vegetacion/palma_baja": {
+  "archivo": "mapa/vegetacion/palma_baja.png",
+  "tamano": [
+   148,
+   192
+  ],
+  "ancla": "bottom-center"
+ },
+ "vegetacion/arbol_grande": {
+  "archivo": "mapa/vegetacion/arbol_grande.png",
+  "tamano": [
+   192,
+   183
+  ],
+  "ancla": "bottom-center"
+ },
+ "vegetacion/arbol_mediano": {
+  "archivo": "mapa/vegetacion/arbol_mediano.png",
+  "tamano": [
+   128,
+   145
+  ],
+  "ancla": "bottom-center"
+ },
+ "vegetacion/arbusto": {
+  "archivo": "mapa/vegetacion/arbusto.png",
+  "tamano": [
+   64,
+   57
+  ],
+  "ancla": "bottom-center"
+ },
+ "vegetacion/arbol_joven": {
+  "archivo": "mapa/vegetacion/arbol_joven.png",
+  "tamano": [
+   48,
+   96
+  ],
+  "ancla": "bottom-center"
+ },
+ "vegetacion/jardinera_piedra": {
+  "archivo": "mapa/vegetacion/jardinera_piedra.png",
+  "tamano": [
+   96,
+   69
+  ],
+  "ancla": "bottom-center"
+ },
+ "vegetacion/mata_flores": {
+  "archivo": "mapa/vegetacion/mata_flores.png",
+  "tamano": [
+   44,
+   38
+  ],
+  "ancla": "bottom-center"
+ },
+ "hitos/arco_entrada": {
+  "archivo": "mapa/hitos/arco_entrada.png",
+  "tamano": [
+   320,
+   232
+  ],
+  "ancla": "bottom-center"
+ },
+ "hitos/corazon_tapitas": {
+  "archivo": "mapa/hitos/corazon_tapitas.png",
+  "tamano": [
+   160,
+   172
+  ],
+  "ancla": "bottom-center"
+ },
+ "hitos/arco_salida": {
+  "archivo": "mapa/hitos/arco_salida.png",
+  "tamano": [
+   160,
+   142
+  ],
+  "ancla": "bottom-center"
+ },
+ "hitos/reja_blanca": {
+  "archivo": "mapa/hitos/reja_blanca.png",
+  "tamano": [
+   128,
+   114
+  ],
+  "ancla": "bottom-center"
+ },
+ "estacionamiento/pickup_blanca": {
+  "archivo": "mapa/estacionamiento/pickup_blanca.png",
+  "tamano": [
+   106,
+   190
+  ],
+  "ancla": "bottom-center"
+ },
+ "estacionamiento/sedan_rojo": {
+  "archivo": "mapa/estacionamiento/sedan_rojo.png",
+  "tamano": [
+   98,
+   176
+  ],
+  "ancla": "bottom-center"
+ },
+ "estacionamiento/suv_gris": {
+  "archivo": "mapa/estacionamiento/suv_gris.png",
+  "tamano": [
+   103,
+   184
+  ],
+  "ancla": "bottom-center"
+ },
+ "estacionamiento/tope": {
+  "archivo": "mapa/estacionamiento/tope.png",
+  "tamano": [
+   96,
+   17
+  ],
+  "ancla": "bottom-center"
+ },
+ "estacionamiento/reja_cerrada": {
+  "archivo": "mapa/estacionamiento/reja_cerrada.png",
+  "tamano": [
+   192,
+   133
+  ],
+  "ancla": "bottom-center"
+ },
+ "estacionamiento/reja_abierta": {
+  "archivo": "mapa/estacionamiento/reja_abierta.png",
+  "tamano": [
+   80,
+   60
+  ],
+  "ancla": "bottom-center"
+ },
+ "estacionamiento/cono": {
+  "archivo": "mapa/estacionamiento/cono.png",
+  "tamano": [
+   29,
+   34
+  ],
+  "ancla": "bottom-center"
+ },
+ "estacionamiento/caseta_vigilancia": {
+  "archivo": "mapa/estacionamiento/caseta_vigilancia.png",
+  "tamano": [
+   109,
+   140
+  ],
+  "ancla": "bottom-center"
+ },
+ "cancha/canasta_basquet": {
+  "archivo": "mapa/cancha/canasta_basquet.png",
+  "tamano": [
+   119,
+   200
+  ],
+  "ancla": "bottom-center"
+ },
+ "cancha/poste_techo": {
+  "archivo": "mapa/cancha/poste_techo.png",
+  "tamano": [
+   38,
+   200
+  ],
+  "ancla": "bottom-center"
+ },
+ "cancha/malla": {
+  "archivo": "mapa/cancha/malla.png",
+  "tamano": [
+   96,
+   95
+  ],
+  "ancla": "bottom-center"
+ },
+ "cancha/porteria": {
+  "archivo": "mapa/cancha/porteria.png",
+  "tamano": [
+   128,
+   129
+  ],
+  "ancla": "bottom-center"
+ },
+ "senaletica/tablero_avisos": {
+  "archivo": "mapa/senaletica/tablero_avisos.png",
+  "tamano": [
+   72,
+   52
+  ],
+  "ancla": "bottom-center"
+ },
+ "senaletica/salida_emergencia": {
+  "archivo": "mapa/senaletica/salida_emergencia.png",
+  "tamano": [
+   40,
+   24
+  ],
+  "ancla": "bottom-center"
+ },
+ "senaletica/reloj_pared": {
+  "archivo": "mapa/senaletica/reloj_pared.png",
+  "tamano": [
+   28,
+   29
+  ],
+  "ancla": "bottom-center"
+ },
+ "senaletica/extintor_pared": {
+  "archivo": "mapa/senaletica/extintor_pared.png",
+  "tamano": [
+   24,
+   56
+  ],
+  "ancla": "bottom-center"
+ },
+ "senaletica/bebedero": {
+  "archivo": "mapa/senaletica/bebedero.png",
+  "tamano": [
+   45,
+   48
+  ],
+  "ancla": "bottom-center"
+ },
+ "senaletica/botiquin": {
+  "archivo": "mapa/senaletica/botiquin.png",
+  "tamano": [
+   32,
+   37
+  ],
+  "ancla": "bottom-center"
+ }
+}

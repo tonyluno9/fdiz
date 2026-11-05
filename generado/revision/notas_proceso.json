@@ -1,0 +1,33 @@
+{
+ "proceso": [
+  "Paleta: los colores cercanos a la paleta de la base (distancia RGB < 55) se ajustan a ella; los colores que no existen en la base (aura dorada, armas, ojos rojos de zombie, fuego, etc.) se cuantizan aparte a 16 colores. Ajustar todo a la paleta de la base volvía café el aura de Tony y los ojos rojos del zombie (se vio en el piloto).",
+  "En animaciones con dos referencias (p. ej. tony/especial con tonyfuerte.png) la paleta es la unión de ambas bases.",
+  "Envío a la API: solo se reintenta si la API no aceptó el trabajo (error de conexión, 5xx o 429 en el envío); un trabajo aceptado (con id) siempre cuenta como generación.",
+  "Objetos: cada objeto se recorta a su contenido (sin lienzo común); 32 px por el lado mayor, contenedores 48 px y camión 160 px de alto. El GIF de objetos muestra cada objeto a 2 fps.",
+  "Separación de cuadros, en este orden: proyección de columnas; si faltan cuadros, piezas conectadas (cada figura es una pieza: resuelve el cuadro 'acostado' que la IA dibuja debajo del cuadro de caída, y el último cuadro de humo de golpe_morir); luego corte en el valle de la proyección; luego agrupar por centro; y al final partes iguales (marcada REVISAR: cuadros). Con esto se arreglaron sin regenerar caer_levantarse de Tony, Alan y César y golpe_morir del corredor, que el revisor había marcado.",
+  "Sombra del piso: la IA la pinta como magenta oscuro; en personajes, profes y zombies todo píxel con tono magenta se toma como fondo. En efectos no (pueden ser violetas de verdad).",
+  "Las imágenes anteriores a una regeneración se conservan como generado/raw/.../<animacion>.v1.png."
+ ],
+ "rehechos": [
+  "alessandro__pegar_abajo",
+  "carlos__caminar_lado",
+  "carlos__pegar_abajo",
+  "castillo__caminar_lado",
+  "castillo__pegar_abajo",
+  "conserje__caminar_lado",
+  "conserje__golpe_morir",
+  "corredor__caminar_lado",
+  "corredor__atacar_abajo",
+  "gabo__pegar_abajo",
+  "gordo__caminar_lado",
+  "gordo__atacar_lado",
+  "griton__atacar_abajo",
+  "miranda__caminar_lado",
+  "miranda__efecto_especial",
+  "normal__atacar_abajo",
+  "normal__golpe_morir",
+  "tony__caminar_lado",
+  "tonyfuerte__caminar_lado",
+  "tonyfuerte__pegar_lado"
+ ]
+}

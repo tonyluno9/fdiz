@@ -1,0 +1,21 @@
+{
+ "id": "tony__efecto_especial",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  516,
+  541,
+  520,
+  516
+ ],
+ "marcas": [],
+ "factor": 0.17744916820702403,
+ "dist_paleta": null,
+ "lienzo": [
+  63,
+  100
+ ]
+}

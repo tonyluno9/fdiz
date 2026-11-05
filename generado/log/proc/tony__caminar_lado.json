@@ -1,0 +1,23 @@
+{
+ "id": "tony__caminar_lado",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  576,
+  576,
+  576,
+  576,
+  576,
+  576
+ ],
+ "marcas": [],
+ "factor": 0.16666666666666666,
+ "dist_paleta": 12.83225123087565,
+ "lienzo": [
+  80,
+  127
+ ]
+}

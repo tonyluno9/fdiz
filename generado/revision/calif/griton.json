@@ -1,0 +1,9 @@
+{
+  "griton__caminar_abajo": {"calificacion": "OK", "razon": "mismo personaje (pelo gris, lentes, ojos rojos, polo marino), de frente con brazos al frente, ciclo de 6 correcto", "correccion": null},
+  "griton__caminar_arriba": {"calificacion": "OK", "razon": "mismo personaje de espaldas, ropa y colores fieles, ciclo de 6 correcto", "correccion": null},
+  "griton__caminar_lado": {"calificacion": "OK", "razon": "mismo personaje de perfil mirando a la derecha, brazos estirados, ciclo de 6 correcto", "correccion": null},
+  "griton__atacar_lado": {"calificacion": "OK", "razon": "mismo personaje, 4 cuadros hacia la derecha (preparación, embestida, zarpazo con chispas de movimiento, recuperación)", "correccion": null},
+  "griton__atacar_abajo": {"calificacion": "REHACER", "razon": "los cuadros 2 y 3 están en vista 3/4 lanzándose hacia la derecha, no de frente hacia el espectador", "correccion": "All 4 frames in front view facing the viewer; lunge and claw straight toward the camera, not to the side."},
+  "griton__golpe_morir": {"calificacion": "REVISAR", "razon": "SEPARACIÓN: en el raw el cuadro 3 se encima con el cuerpo acostado y el cuadro 3 quedó con piernas del 4; además cuadros 2-3 en 3/4 y el cuadro 4 acostado de lado, sin sangre", "correccion": null},
+  "griton__gritar": {"calificacion": "OK", "razon": "mismo personaje de frente; inhala, grita con líneas de sonido, manos en la cabeza y se recupera", "correccion": null}
+}

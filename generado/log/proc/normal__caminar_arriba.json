@@ -1,0 +1,23 @@
+{
+ "id": "normal__caminar_arriba",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  553,
+  556,
+  555,
+  555,
+  558,
+  553
+ ],
+ "marcas": [],
+ "factor": 0.17297297297297298,
+ "dist_paleta": 10.401355266571045,
+ "lienzo": [
+  79,
+  101
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "id": "gordo__caminar_lado",
+ "metodo": "componentes",
+ "esperados": 6,
+ "segmentos_proyeccion": 3,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  563,
+  562,
+  557,
+  563,
+  563,
+  563
+ ],
+ "marcas": [],
+ "factor": 0.1847246891651865,
+ "dist_paleta": 9.994832038879395,
+ "lienzo": [
+  93,
+  112
+ ]
+}

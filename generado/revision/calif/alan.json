@@ -1,0 +1,67 @@
+{
+ "alan__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, 4 cuadros de frente con parpadeo, ciclo correcto",
+  "correccion": null
+ },
+ "alan__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "alan__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "alan__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de perfil mirando a la derecha, ciclo correcto",
+  "correccion": null
+ },
+ "alan__pegar_lado": {
+  "calificacion": "OK",
+  "razon": "perfil a la derecha, puñetazo con arco blanco en cuadro 3, orden correcto",
+  "correccion": null
+ },
+ "alan__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "de frente, puñetazo algo diagonal hacia la derecha pero legible, arco en cuadro 3",
+  "correccion": null
+ },
+ "alan__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, puñetazo con arco en cuadro 3, mismo personaje",
+  "correccion": null
+ },
+ "alan__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "El cuadro acostado quedaba encimado bajo el de caída; se corrigió la separación en el procesamiento (sin regenerar). Revisado: 6 cuadros correctos.",
+  "correccion": null
+ },
+ "alan__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, puño, salto, sonrisa y pulgar arriba en orden",
+  "correccion": null
+ },
+ "alan__habilidad": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, aparece galleta con brillos y guiño; cuadro 1 poco 'sigiloso' pero aceptable",
+  "correccion": null
+ },
+ "alan__especial": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, saca recibo, lo agita, salen objetos y los lanza, pose final",
+  "correccion": null
+ },
+ "alan__efecto_habilidad": {
+  "calificacion": "OK",
+  "razon": "moneda con destello que crece y se desvanece en 4 cuadros; el último es solo partículas, intencional",
+  "correccion": null
+ },
+ "alan__efecto_especial": {
+  "calificacion": "OK",
+  "razon": "recibo volando con snack, lata y pelota alrededor, 4 cuadros, mismo estilo",
+  "correccion": null
+ }
+}

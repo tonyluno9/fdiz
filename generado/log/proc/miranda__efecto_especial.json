@@ -1,0 +1,21 @@
+{
+ "id": "miranda__efecto_especial",
+ "metodo": "centros",
+ "esperados": 4,
+ "segmentos_proyeccion": 10,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  138,
+  168,
+  192,
+  137
+ ],
+ "marcas": [],
+ "factor": 0.23821339950372208,
+ "dist_paleta": null,
+ "lienzo": [
+  100,
+  50
+ ]
+}

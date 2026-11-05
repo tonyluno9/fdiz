@@ -1,0 +1,21 @@
+{
+ "id": "carlos__efecto_habilidad",
+ "metodo": "centros",
+ "esperados": 4,
+ "segmentos_proyeccion": 9,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  39,
+  146,
+  243,
+  98
+ ],
+ "marcas": [],
+ "factor": 0.3950617283950617,
+ "dist_paleta": null,
+ "lienzo": [
+  95,
+  100
+ ]
+}

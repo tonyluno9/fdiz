@@ -1,0 +1,23 @@
+{
+ "id": "cesar__caer_levantarse",
+ "metodo": "componentes",
+ "esperados": 6,
+ "segmentos_proyeccion": 3,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  554,
+  529,
+  369,
+  170,
+  393,
+  567
+ ],
+ "marcas": [],
+ "factor": 0.17127564674397858,
+ "dist_paleta": 12.420202414194742,
+ "lienzo": [
+  95,
+  107
+ ]
+}

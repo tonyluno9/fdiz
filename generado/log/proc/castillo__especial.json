@@ -1,0 +1,22 @@
+{
+ "id": "castillo__especial",
+ "metodo": "valle",
+ "esperados": 5,
+ "segmentos_proyeccion": 3,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  598,
+  598,
+  598,
+  597,
+  597
+ ],
+ "marcas": [],
+ "factor": 0.1605351170568562,
+ "dist_paleta": 21.783728981018065,
+ "lienzo": [
+  81,
+  102
+ ]
+}

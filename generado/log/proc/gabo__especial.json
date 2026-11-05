@@ -1,0 +1,22 @@
+{
+ "id": "gabo__especial",
+ "metodo": "componentes",
+ "esperados": 5,
+ "segmentos_proyeccion": 3,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  552,
+  551,
+  551,
+  551,
+  566
+ ],
+ "marcas": [],
+ "factor": 0.17422867513611615,
+ "dist_paleta": 10.51108913421631,
+ "lienzo": [
+  88,
+  103
+ ]
+}

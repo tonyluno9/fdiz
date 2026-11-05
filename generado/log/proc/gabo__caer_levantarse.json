@@ -1,0 +1,23 @@
+{
+ "id": "gabo__caer_levantarse",
+ "metodo": "componentes",
+ "esperados": 6,
+ "segmentos_proyeccion": 3,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  532,
+  500,
+  335,
+  177,
+  414,
+  552
+ ],
+ "marcas": [],
+ "factor": 0.17712177121771217,
+ "dist_paleta": 10.167848904927572,
+ "lienzo": [
+  88,
+  103
+ ]
+}

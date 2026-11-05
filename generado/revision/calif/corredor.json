@@ -1,0 +1,32 @@
+{
+ "corredor__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo zombi (lentes, ojos rojos, polo marino, jeans), vista de frente, 6 cuadros y ciclo correcto",
+  "correccion": null
+ },
+ "corredor__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo zombi de espaldas, 6 cuadros, ciclo de caminata correcto",
+  "correccion": null
+ },
+ "corredor__caminar_lado": {
+  "calificacion": "REHACER",
+  "razon": "la imagen de la IA solo trae 5 cuadros (se esperaban 6); el procesamiento dejó un cuadro con fragmentos sueltos",
+  "correccion": "Exactly 6 frames, side view facing right."
+ },
+ "corredor__atacar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "mismo personaje y ataque hacia la derecha correcto, pero el cuerpo está en vista 3/4 en lugar de perfil puro, no coincide del todo con caminar_lado",
+  "correccion": null
+ },
+ "corredor__atacar_abajo": {
+  "calificacion": "REHACER",
+  "razon": "cuadros 1-3 en vista 3/4 atacando hacia la derecha (casi igual a atacar_lado), no de frente hacia el espectador",
+  "correccion": "Front view facing the camera, clawing straight toward the viewer, not to the side."
+ },
+ "corredor__golpe_morir": {
+  "calificacion": "OK",
+  "razon": "El cuerpo acostado quedaba encimado; se corrigió la separación en el procesamiento (sin regenerar). Revisado: 6 cuadros correctos, sin gore.",
+  "correccion": null
+ }
+}

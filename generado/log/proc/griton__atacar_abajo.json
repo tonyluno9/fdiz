@@ -1,0 +1,21 @@
+{
+ "id": "griton__atacar_abajo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  603,
+  600,
+  597,
+  604
+ ],
+ "marcas": [],
+ "factor": 0.1596009975062344,
+ "dist_paleta": 10.42644739151001,
+ "lienzo": [
+  80,
+  101
+ ]
+}

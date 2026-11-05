@@ -1,0 +1,21 @@
+{
+ "id": "miranda__quieto",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  618,
+  588,
+  617,
+  588
+ ],
+ "marcas": [],
+ "factor": 0.15933609958506223,
+ "dist_paleta": 9.65575909614563,
+ "lienzo": [
+  89,
+  102
+ ]
+}

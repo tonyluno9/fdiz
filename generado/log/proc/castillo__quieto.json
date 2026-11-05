@@ -1,0 +1,21 @@
+{
+ "id": "castillo__quieto",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  608,
+  595,
+  609,
+  595
+ ],
+ "marcas": [],
+ "factor": 0.1596009975062344,
+ "dist_paleta": 9.193921089172363,
+ "lienzo": [
+  81,
+  102
+ ]
+}

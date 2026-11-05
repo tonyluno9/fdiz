@@ -1,0 +1,21 @@
+{
+ "id": "alan__efecto_especial",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  303,
+  334,
+  337,
+  375
+ ],
+ "marcas": [],
+ "factor": 0.256,
+ "dist_paleta": null,
+ "lienzo": [
+  90,
+  100
+ ]
+}

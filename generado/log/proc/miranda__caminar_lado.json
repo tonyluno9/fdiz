@@ -1,0 +1,23 @@
+{
+ "id": "miranda__caminar_lado",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  565,
+  555,
+  575,
+  565,
+  555,
+  565
+ ],
+ "marcas": [],
+ "factor": 0.16991150442477876,
+ "dist_paleta": 10.152826150258383,
+ "lienzo": [
+  89,
+  102
+ ]
+}

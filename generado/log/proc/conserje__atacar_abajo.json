@@ -1,0 +1,21 @@
+{
+ "id": "conserje__atacar_abajo",
+ "metodo": "componentes",
+ "esperados": 4,
+ "segmentos_proyeccion": 2,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  566,
+  558,
+  563,
+  575
+ ],
+ "marcas": [],
+ "factor": 0.18423383525243578,
+ "dist_paleta": 10.847800254821777,
+ "lienzo": [
+  101,
+  110
+ ]
+}

@@ -1,0 +1,31 @@
+== personajes/tony: 11 animaciones
+== efectos/tony: 2 animaciones
+   hoja de contacto: tony
+== personajes/miranda: 11 animaciones
+== efectos/miranda: 2 animaciones
+   hoja de contacto: miranda
+== personajes/castillo: 11 animaciones
+== efectos/castillo: 2 animaciones
+   hoja de contacto: castillo
+== personajes/alessandro: 11 animaciones
+== efectos/alessandro: 2 animaciones
+   hoja de contacto: alessandro
+== personajes/gabo: 11 animaciones
+== efectos/gabo: 2 animaciones
+   hoja de contacto: gabo
+== personajes/carlos: 11 animaciones
+== efectos/carlos: 2 animaciones
+   hoja de contacto: carlos
+== personajes/tonyfuerte: 5 animaciones
+   hoja de contacto: tonyfuerte
+== zombies/normal: 6 animaciones
+   hoja de contacto: normal
+== zombies/corredor: 6 animaciones
+   hoja de contacto: corredor
+== zombies/griton: 7 animaciones
+   hoja de contacto: griton
+== zombies/gordo: 6 animaciones
+   hoja de contacto: gordo
+== zombies/conserje: 6 animaciones
+   hoja de contacto: conserje
+listo

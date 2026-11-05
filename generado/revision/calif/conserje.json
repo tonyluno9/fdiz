@@ -1,0 +1,8 @@
+{
+  "conserje__caminar_abajo": {"calificacion": "REVISAR", "razon": "Mismo conserje y ciclo de 6 cuadros correcto, pero sin el trapeador y los brazos apuntan a la derecha (vista 3/4) en vez de hacia el frente.", "correccion": null},
+  "conserje__caminar_arriba": {"calificacion": "REVISAR", "razon": "Vista de espaldas correcta y mismo personaje, pero el trapeador desaparece en el cuadro 4 y salta en el ciclo.", "correccion": null},
+  "conserje__caminar_lado": {"calificacion": "REHACER", "razon": "No es perfil: cara de frente en 3/4, casi idéntico a caminar_abajo; además el cuadro 6 queda cortado en el borde y no lleva trapeador.", "correccion": "True side profile facing right, face and body turned fully to the right, holding his mop, with space at the right edge."},
+  "conserje__atacar_lado": {"calificacion": "REVISAR", "razon": "Mismo personaje y golpe con trapeador hacia la derecha en 4 cuadros, pero el cuerpo y la cara están en 3/4 de frente, no de perfil.", "correccion": null},
+  "conserje__atacar_abajo": {"calificacion": "OK", "razon": "Mismo personaje, 4 cuadros con golpe de trapeador de frente bien legible.", "correccion": null},
+  "conserje__golpe_morir": {"calificacion": "REHACER", "razon": "La IA puso el cuerpo acostado debajo del cuadro 3 y no en su propia columna; al separar, los cuadros 3 y 4 quedan partidos.", "correccion": "All 6 frames side by side in one single row, the lying body in its own separate frame 4."}
+}

@@ -1,0 +1,23 @@
+{
+ "id": "corredor__golpe_morir",
+ "metodo": "componentes",
+ "esperados": 6,
+ "segmentos_proyeccion": 3,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  501,
+  510,
+  471,
+  150,
+  410,
+  183
+ ],
+ "marcas": [],
+ "factor": 0.19161676646706588,
+ "dist_paleta": 18.564754009246826,
+ "lienzo": [
+  87,
+  102
+ ]
+}

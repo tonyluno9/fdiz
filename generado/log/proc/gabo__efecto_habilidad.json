@@ -1,0 +1,21 @@
+{
+ "id": "gabo__efecto_habilidad",
+ "metodo": "valle",
+ "esperados": 4,
+ "segmentos_proyeccion": 2,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  430,
+  487,
+  170,
+  487
+ ],
+ "marcas": [],
+ "factor": 0.192,
+ "dist_paleta": null,
+ "lienzo": [
+  100,
+  98
+ ]
+}

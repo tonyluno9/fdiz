@@ -1,0 +1,8 @@
+{
+  "gordo__caminar_abajo": {"calificacion": "OK", "razon": "mismo personaje (lentes, ojos rojos, camisa azul, jeans rotos), 6 cuadros de frente, ciclo lento correcto", "correccion": null},
+  "gordo__caminar_arriba": {"calificacion": "OK", "razon": "mismo personaje de espaldas, 6 cuadros, ciclo de caminata correcto", "correccion": null},
+  "gordo__caminar_lado": {"calificacion": "REHACER", "razon": "vista de frente/tres cuartos casi idéntica a caminar_abajo; no es perfil mirando a la derecha", "correccion": "True side profile view facing right: only one eye and one lens visible, body turned 90 degrees, walking to the right."},
+  "gordo__atacar_lado": {"calificacion": "REHACER", "razon": "personaje correcto y 4 fases bien, pero la cara y el cuerpo miran al espectador, no es perfil a la derecha", "correccion": "True side profile view facing right: head and body turned 90 degrees, only one eye visible, lunging to the right."},
+  "gordo__atacar_abajo": {"calificacion": "OK", "razon": "mismo personaje de frente, 4 cuadros: retroceso, embestida, zarpazo con arco y recuperación", "correccion": null},
+  "gordo__golpe_morir": {"calificacion": "REVISAR", "razon": "SEPARACIÓN: la punta de la mano del cuadro 3 quedó cortada y aparece como fragmento suelto en el cuadro 4; secuencia y personaje correctos, sin gore", "correccion": null}
+}

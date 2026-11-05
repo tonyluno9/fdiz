@@ -1,0 +1,23 @@
+{
+ "id": "gordo__golpe_morir",
+ "metodo": "valle",
+ "esperados": 6,
+ "segmentos_proyeccion": 4,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  398,
+  384,
+  342,
+  266,
+  263,
+  84
+ ],
+ "marcas": [],
+ "factor": 0.2613065326633166,
+ "dist_paleta": 14.57316811879476,
+ "lienzo": [
+  93,
+  112
+ ]
+}

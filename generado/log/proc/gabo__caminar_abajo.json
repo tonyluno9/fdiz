@@ -1,0 +1,23 @@
+{
+ "id": "gabo__caminar_abajo",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  558,
+  545,
+  565,
+  554,
+  541,
+  563
+ ],
+ "marcas": [],
+ "factor": 0.17266187050359713,
+ "dist_paleta": 8.847471714019775,
+ "lienzo": [
+  88,
+  103
+ ]
+}

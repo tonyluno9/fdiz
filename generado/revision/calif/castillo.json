@@ -1,0 +1,15 @@
+{
+  "castillo__quieto": {"calificacion": "OK", "razon": "mismo personaje, 4 cuadros de respiración con parpadeo, loop correcto", "correccion": null},
+  "castillo__caminar_abajo": {"calificacion": "OK", "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto", "correccion": null},
+  "castillo__caminar_arriba": {"calificacion": "OK", "razon": "mismo personaje de espaldas, ciclo de 6 cuadros correcto", "correccion": null},
+  "castillo__caminar_lado": {"calificacion": "REHACER", "razon": "cara y torso de frente/tres cuartos en todos los cuadros; no es perfil mirando a la derecha", "correccion": "True side profile facing right: show only one eye and the side of the face and body, nose pointing right."},
+  "castillo__pegar_lado": {"calificacion": "REVISAR", "razon": "vista tres cuartos (cuadros 1 y 4 casi de frente) más que perfil; el golpe sí va a la derecha", "correccion": null},
+  "castillo__pegar_abajo": {"calificacion": "REHACER", "razon": "de frente pero el puñetazo sale hacia la derecha, no hacia la cámara; queda igual que pegar_lado", "correccion": "The punch goes straight toward the camera, fist extended at the viewer, not to the side."},
+  "castillo__pegar_arriba": {"calificacion": "REVISAR", "razon": "de espaldas correcto, pero el golpe se desvía hacia arriba-derecha en lugar de ir al frente", "correccion": null},
+  "castillo__caer_levantarse": {"calificacion": "OK", "razon": "mismo personaje, caída, acostado y levantarse en 6 cuadros en orden", "correccion": null},
+  "castillo__festejo": {"calificacion": "OK", "razon": "mismo personaje; puño, salto, sonrisa y pulgar arriba", "correccion": null},
+  "castillo__habilidad": {"calificacion": "OK", "razon": "mismo personaje; boca abierta, mordida, cachetes llenos, tragar y palmada a la panza", "correccion": null},
+  "castillo__especial": {"calificacion": "REVISAR", "razon": "el haz es violeta, no azul, y en cuadros 3-4 tapa la cara y el brazo de forma translúcida rara", "correccion": null},
+  "castillo__efecto_habilidad": {"calificacion": "OK", "razon": "mordida blanca con migajas en 4 cuadros, estilo correcto; la alerta de cuadros no se ve en la tira", "correccion": null},
+  "castillo__efecto_especial": {"calificacion": "REVISAR", "razon": "432 px magenta/violeta en bordes del haz; las formas del haz cambian mucho entre cuadros como loop", "correccion": null}
+}

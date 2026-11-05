@@ -1,0 +1,18 @@
+{
+ "id": "objetos__camion",
+ "metodo": "proyeccion",
+ "esperados": 1,
+ "segmentos_proyeccion": 1,
+ "detectados": 1,
+ "cortados": [],
+ "alturas_hd": [
+  1192
+ ],
+ "marcas": [],
+ "factor": null,
+ "dist_paleta": null,
+ "lienzo": [
+  54,
+  164
+ ]
+}

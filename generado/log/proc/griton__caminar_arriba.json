@@ -1,0 +1,23 @@
+{
+ "id": "griton__caminar_arriba",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  586,
+  581,
+  586,
+  586,
+  581,
+  586
+ ],
+ "marcas": [],
+ "factor": 0.16382252559726962,
+ "dist_paleta": 9.749255498250326,
+ "lienzo": [
+  80,
+  101
+ ]
+}

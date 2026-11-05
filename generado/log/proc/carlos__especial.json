@@ -1,0 +1,24 @@
+{
+ "id": "carlos__especial",
+ "metodo": "valle",
+ "esperados": 5,
+ "segmentos_proyeccion": 3,
+ "detectados": 5,
+ "cortados": [
+  4
+ ],
+ "alturas_hd": [
+  566,
+  566,
+  581,
+  603,
+  603
+ ],
+ "marcas": [],
+ "factor": 0.16523235800344235,
+ "dist_paleta": 45.41854419708252,
+ "lienzo": [
+  92,
+  104
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "id": "cesar__pegar_abajo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  605,
+  615,
+  619,
+  622
+ ],
+ "marcas": [],
+ "factor": 0.15559157212317667,
+ "dist_paleta": 12.33903169631958,
+ "lienzo": [
+  95,
+  107
+ ]
+}

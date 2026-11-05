@@ -1,0 +1,23 @@
+{
+ "id": "carlos__caminar_lado",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  596,
+  596,
+  596,
+  596,
+  596,
+  596
+ ],
+ "marcas": [],
+ "factor": 0.1610738255033557,
+ "dist_paleta": 8.239482164382935,
+ "lienzo": [
+  92,
+  104
+ ]
+}

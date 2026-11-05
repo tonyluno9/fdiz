@@ -1,0 +1,15 @@
+{
+  "miranda__quieto": {"calificacion": "OK", "razon": "mismo personaje, respiración y parpadeo correctos en 4 cuadros", "correccion": null},
+  "miranda__caminar_abajo": {"calificacion": "OK", "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto", "correccion": null},
+  "miranda__caminar_arriba": {"calificacion": "OK", "razon": "de espaldas, mismo cabello y ropa, ciclo de 6 cuadros correcto", "correccion": null},
+  "miranda__caminar_lado": {"calificacion": "REHACER", "razon": "cara y torso de frente (vista 3/4 hacia cámara), no es perfil mirando a la derecha", "correccion": "Strict side profile view facing right: we see only one eye and the side of her face, body turned fully to the right."},
+  "miranda__pegar_lado": {"calificacion": "REVISAR", "razon": "golpe claro hacia la derecha pero la cara queda casi de frente (3/4), no perfil puro", "correccion": null},
+  "miranda__pegar_abajo": {"calificacion": "OK", "razon": "mismo personaje de frente, preparación, golpe con arco y recuperación", "correccion": null},
+  "miranda__pegar_arriba": {"calificacion": "OK", "razon": "de espaldas, golpe con arco blanco, 4 cuadros correctos", "correccion": null},
+  "miranda__caer_levantarse": {"calificacion": "REVISAR", "razon": "cuadro 4 es solo cabeza/cabello con un moño azul inexistente y sin cuerpo; fragmentos sueltos en cuadros 3-4", "correccion": null},
+  "miranda__festejo": {"calificacion": "OK", "razon": "mismo personaje, puño, salto, sonrisa y pulgar arriba", "correccion": null},
+  "miranda__habilidad": {"calificacion": "OK", "razon": "mismo personaje cantando con notas y onda azul; 'Zzz' poco visible pero aceptable", "correccion": null},
+  "miranda__especial": {"calificacion": "REVISAR", "razon": "perfil a la derecha con minigun correcta, pero el cuadro 5 tiene la boca del cañón cortada en el borde", "correccion": null},
+  "miranda__efecto_habilidad": {"calificacion": "OK", "razon": "onda azul expansiva con 'Zzz', 4 cuadros; algunos px tono magenta en el último anillo, menor", "correccion": null},
+  "miranda__efecto_especial": {"calificacion": "REHACER", "razon": "la IA dibujó 2 filas de 4 (8 destellos); cada cuadro recortado contiene dos fogonazos apilados y el primero queda cortado", "correccion": "Exactly 4 frames in one single row, one muzzle flash per frame, nothing touching the image edges."}
+}

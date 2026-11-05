@@ -1,0 +1,21 @@
+{
+ "id": "castillo__festejo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  593,
+  549,
+  592,
+  595
+ ],
+ "marcas": [],
+ "factor": 0.1620253164556962,
+ "dist_paleta": 9.863030433654785,
+ "lienzo": [
+  81,
+  102
+ ]
+}

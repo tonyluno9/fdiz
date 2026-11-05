@@ -1,0 +1,21 @@
+{
+ "id": "carlos__festejo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  603,
+  575,
+  597,
+  603
+ ],
+ "marcas": [],
+ "factor": 0.16,
+ "dist_paleta": 9.241546630859375,
+ "lienzo": [
+  92,
+  104
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "id": "miranda__pegar_lado",
+ "metodo": "componentes",
+ "esperados": 4,
+ "segmentos_proyeccion": 3,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  535,
+  535,
+  535,
+  535
+ ],
+ "marcas": [],
+ "factor": 0.17943925233644858,
+ "dist_paleta": 10.420162200927734,
+ "lienzo": [
+  89,
+  102
+ ]
+}

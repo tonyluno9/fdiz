@@ -1,0 +1,2961 @@
+{
+ "notas": [
+  "Ancla bottom-center: los pies quedan 2 px arriba del borde inferior del lienzo; efectos centrados.",
+  "La izquierda es el espejo horizontal de caminar_lado, pegar_lado y atacar_lado (voltear el sprite en GDevelop).",
+  "El cuadro 4 (índice 03) de caer_levantarse sirve como estado 'caído'.",
+  "Todas las animaciones de una entidad comparten el mismo lienzo (excepto sus efectos)."
+ ],
+ "entidades": {
+  "personajes/tony": {
+   "categoria": "personajes",
+   "entidad": "tony",
+   "animaciones": {
+    "caminar_lado": {
+     "cuadros": [
+      "personajes/tony/caminar_lado/caminar_lado_00.png",
+      "personajes/tony/caminar_lado/caminar_lado_01.png",
+      "personajes/tony/caminar_lado/caminar_lado_02.png",
+      "personajes/tony/caminar_lado/caminar_lado_03.png",
+      "personajes/tony/caminar_lado/caminar_lado_04.png",
+      "personajes/tony/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "especial": {
+     "cuadros": [
+      "personajes/tony/especial/especial_00.png",
+      "personajes/tony/especial/especial_01.png",
+      "personajes/tony/especial/especial_02.png",
+      "personajes/tony/especial/especial_03.png",
+      "personajes/tony/especial/especial_04.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "quieto": {
+     "cuadros": [
+      "personajes/tony/quieto/quieto_00.png",
+      "personajes/tony/quieto/quieto_01.png",
+      "personajes/tony/quieto/quieto_02.png",
+      "personajes/tony/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "personajes/tony/caminar_abajo/caminar_abajo_00.png",
+      "personajes/tony/caminar_abajo/caminar_abajo_01.png",
+      "personajes/tony/caminar_abajo/caminar_abajo_02.png",
+      "personajes/tony/caminar_abajo/caminar_abajo_03.png",
+      "personajes/tony/caminar_abajo/caminar_abajo_04.png",
+      "personajes/tony/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "personajes/tony/caminar_arriba/caminar_arriba_00.png",
+      "personajes/tony/caminar_arriba/caminar_arriba_01.png",
+      "personajes/tony/caminar_arriba/caminar_arriba_02.png",
+      "personajes/tony/caminar_arriba/caminar_arriba_03.png",
+      "personajes/tony/caminar_arriba/caminar_arriba_04.png",
+      "personajes/tony/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "personajes/tony/pegar_lado/pegar_lado_00.png",
+      "personajes/tony/pegar_lado/pegar_lado_01.png",
+      "personajes/tony/pegar_lado/pegar_lado_02.png",
+      "personajes/tony/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_abajo": {
+     "cuadros": [
+      "personajes/tony/pegar_abajo/pegar_abajo_00.png",
+      "personajes/tony/pegar_abajo/pegar_abajo_01.png",
+      "personajes/tony/pegar_abajo/pegar_abajo_02.png",
+      "personajes/tony/pegar_abajo/pegar_abajo_03.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_arriba": {
+     "cuadros": [
+      "personajes/tony/pegar_arriba/pegar_arriba_00.png",
+      "personajes/tony/pegar_arriba/pegar_arriba_01.png",
+      "personajes/tony/pegar_arriba/pegar_arriba_02.png",
+      "personajes/tony/pegar_arriba/pegar_arriba_03.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "caer_levantarse": {
+     "cuadros": [
+      "personajes/tony/caer_levantarse/caer_levantarse_00.png",
+      "personajes/tony/caer_levantarse/caer_levantarse_01.png",
+      "personajes/tony/caer_levantarse/caer_levantarse_02.png",
+      "personajes/tony/caer_levantarse/caer_levantarse_03.png",
+      "personajes/tony/caer_levantarse/caer_levantarse_04.png",
+      "personajes/tony/caer_levantarse/caer_levantarse_05.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": false
+    },
+    "festejo": {
+     "cuadros": [
+      "personajes/tony/festejo/festejo_00.png",
+      "personajes/tony/festejo/festejo_01.png",
+      "personajes/tony/festejo/festejo_02.png",
+      "personajes/tony/festejo/festejo_03.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "habilidad": {
+     "cuadros": [
+      "personajes/tony/habilidad/habilidad_00.png",
+      "personajes/tony/habilidad/habilidad_01.png",
+      "personajes/tony/habilidad/habilidad_02.png",
+      "personajes/tony/habilidad/habilidad_03.png",
+      "personajes/tony/habilidad/habilidad_04.png"
+     ],
+     "lienzo": [
+      80,
+      127
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    80,
+    127
+   ],
+   "ancla": "bottom-center"
+  },
+  "zombies/normal": {
+   "categoria": "zombies",
+   "entidad": "normal",
+   "animaciones": {
+    "caminar_abajo": {
+     "cuadros": [
+      "zombies/normal/caminar_abajo/caminar_abajo_00.png",
+      "zombies/normal/caminar_abajo/caminar_abajo_01.png",
+      "zombies/normal/caminar_abajo/caminar_abajo_02.png",
+      "zombies/normal/caminar_abajo/caminar_abajo_03.png",
+      "zombies/normal/caminar_abajo/caminar_abajo_04.png",
+      "zombies/normal/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      79,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "zombies/normal/caminar_arriba/caminar_arriba_00.png",
+      "zombies/normal/caminar_arriba/caminar_arriba_01.png",
+      "zombies/normal/caminar_arriba/caminar_arriba_02.png",
+      "zombies/normal/caminar_arriba/caminar_arriba_03.png",
+      "zombies/normal/caminar_arriba/caminar_arriba_04.png",
+      "zombies/normal/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      79,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "zombies/normal/caminar_lado/caminar_lado_00.png",
+      "zombies/normal/caminar_lado/caminar_lado_01.png",
+      "zombies/normal/caminar_lado/caminar_lado_02.png",
+      "zombies/normal/caminar_lado/caminar_lado_03.png",
+      "zombies/normal/caminar_lado/caminar_lado_04.png",
+      "zombies/normal/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      79,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "atacar_lado": {
+     "cuadros": [
+      "zombies/normal/atacar_lado/atacar_lado_00.png",
+      "zombies/normal/atacar_lado/atacar_lado_01.png",
+      "zombies/normal/atacar_lado/atacar_lado_02.png",
+      "zombies/normal/atacar_lado/atacar_lado_03.png"
+     ],
+     "lienzo": [
+      79,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "atacar_abajo": {
+     "cuadros": [
+      "zombies/normal/atacar_abajo/atacar_abajo_00.png",
+      "zombies/normal/atacar_abajo/atacar_abajo_01.png",
+      "zombies/normal/atacar_abajo/atacar_abajo_02.png",
+      "zombies/normal/atacar_abajo/atacar_abajo_03.png"
+     ],
+     "lienzo": [
+      79,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "golpe_morir": {
+     "cuadros": [
+      "zombies/normal/golpe_morir/golpe_morir_00.png",
+      "zombies/normal/golpe_morir/golpe_morir_01.png",
+      "zombies/normal/golpe_morir/golpe_morir_02.png",
+      "zombies/normal/golpe_morir/golpe_morir_03.png",
+      "zombies/normal/golpe_morir/golpe_morir_04.png",
+      "zombies/normal/golpe_morir/golpe_morir_05.png"
+     ],
+     "lienzo": [
+      79,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    79,
+    101
+   ],
+   "ancla": "bottom-center"
+  },
+  "efectos/tony": {
+   "categoria": "efectos",
+   "entidad": "tony",
+   "animaciones": {
+    "efecto_habilidad": {
+     "cuadros": [
+      "efectos/tony/efecto_habilidad/efecto_habilidad_00.png",
+      "efectos/tony/efecto_habilidad/efecto_habilidad_01.png",
+      "efectos/tony/efecto_habilidad/efecto_habilidad_02.png",
+      "efectos/tony/efecto_habilidad/efecto_habilidad_03.png"
+     ],
+     "lienzo": [
+      55,
+      100
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    },
+    "efecto_especial": {
+     "cuadros": [
+      "efectos/tony/efecto_especial/efecto_especial_00.png",
+      "efectos/tony/efecto_especial/efecto_especial_01.png",
+      "efectos/tony/efecto_especial/efecto_especial_02.png",
+      "efectos/tony/efecto_especial/efecto_especial_03.png"
+     ],
+     "lienzo": [
+      63,
+      100
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    }
+   },
+   "lienzo": [
+    63,
+    100
+   ],
+   "ancla": "center"
+  },
+  "personajes/miranda": {
+   "categoria": "personajes",
+   "entidad": "miranda",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "personajes/miranda/quieto/quieto_00.png",
+      "personajes/miranda/quieto/quieto_01.png",
+      "personajes/miranda/quieto/quieto_02.png",
+      "personajes/miranda/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "personajes/miranda/caminar_abajo/caminar_abajo_00.png",
+      "personajes/miranda/caminar_abajo/caminar_abajo_01.png",
+      "personajes/miranda/caminar_abajo/caminar_abajo_02.png",
+      "personajes/miranda/caminar_abajo/caminar_abajo_03.png",
+      "personajes/miranda/caminar_abajo/caminar_abajo_04.png",
+      "personajes/miranda/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "personajes/miranda/caminar_arriba/caminar_arriba_00.png",
+      "personajes/miranda/caminar_arriba/caminar_arriba_01.png",
+      "personajes/miranda/caminar_arriba/caminar_arriba_02.png",
+      "personajes/miranda/caminar_arriba/caminar_arriba_03.png",
+      "personajes/miranda/caminar_arriba/caminar_arriba_04.png",
+      "personajes/miranda/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "personajes/miranda/caminar_lado/caminar_lado_00.png",
+      "personajes/miranda/caminar_lado/caminar_lado_01.png",
+      "personajes/miranda/caminar_lado/caminar_lado_02.png",
+      "personajes/miranda/caminar_lado/caminar_lado_03.png",
+      "personajes/miranda/caminar_lado/caminar_lado_04.png",
+      "personajes/miranda/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "personajes/miranda/pegar_lado/pegar_lado_00.png",
+      "personajes/miranda/pegar_lado/pegar_lado_01.png",
+      "personajes/miranda/pegar_lado/pegar_lado_02.png",
+      "personajes/miranda/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_abajo": {
+     "cuadros": [
+      "personajes/miranda/pegar_abajo/pegar_abajo_00.png",
+      "personajes/miranda/pegar_abajo/pegar_abajo_01.png",
+      "personajes/miranda/pegar_abajo/pegar_abajo_02.png",
+      "personajes/miranda/pegar_abajo/pegar_abajo_03.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_arriba": {
+     "cuadros": [
+      "personajes/miranda/pegar_arriba/pegar_arriba_00.png",
+      "personajes/miranda/pegar_arriba/pegar_arriba_01.png",
+      "personajes/miranda/pegar_arriba/pegar_arriba_02.png",
+      "personajes/miranda/pegar_arriba/pegar_arriba_03.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "caer_levantarse": {
+     "cuadros": [
+      "personajes/miranda/caer_levantarse/caer_levantarse_00.png",
+      "personajes/miranda/caer_levantarse/caer_levantarse_01.png",
+      "personajes/miranda/caer_levantarse/caer_levantarse_02.png",
+      "personajes/miranda/caer_levantarse/caer_levantarse_03.png",
+      "personajes/miranda/caer_levantarse/caer_levantarse_04.png",
+      "personajes/miranda/caer_levantarse/caer_levantarse_05.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": false
+    },
+    "festejo": {
+     "cuadros": [
+      "personajes/miranda/festejo/festejo_00.png",
+      "personajes/miranda/festejo/festejo_01.png",
+      "personajes/miranda/festejo/festejo_02.png",
+      "personajes/miranda/festejo/festejo_03.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "habilidad": {
+     "cuadros": [
+      "personajes/miranda/habilidad/habilidad_00.png",
+      "personajes/miranda/habilidad/habilidad_01.png",
+      "personajes/miranda/habilidad/habilidad_02.png",
+      "personajes/miranda/habilidad/habilidad_03.png",
+      "personajes/miranda/habilidad/habilidad_04.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "especial": {
+     "cuadros": [
+      "personajes/miranda/especial/especial_00.png",
+      "personajes/miranda/especial/especial_01.png",
+      "personajes/miranda/especial/especial_02.png",
+      "personajes/miranda/especial/especial_03.png",
+      "personajes/miranda/especial/especial_04.png"
+     ],
+     "lienzo": [
+      89,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    89,
+    102
+   ],
+   "ancla": "bottom-center"
+  },
+  "efectos/miranda": {
+   "categoria": "efectos",
+   "entidad": "miranda",
+   "animaciones": {
+    "efecto_habilidad": {
+     "cuadros": [
+      "efectos/miranda/efecto_habilidad/efecto_habilidad_00.png",
+      "efectos/miranda/efecto_habilidad/efecto_habilidad_01.png",
+      "efectos/miranda/efecto_habilidad/efecto_habilidad_02.png",
+      "efectos/miranda/efecto_habilidad/efecto_habilidad_03.png"
+     ],
+     "lienzo": [
+      88,
+      100
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    },
+    "efecto_especial": {
+     "cuadros": [
+      "efectos/miranda/efecto_especial/efecto_especial_00.png",
+      "efectos/miranda/efecto_especial/efecto_especial_01.png",
+      "efectos/miranda/efecto_especial/efecto_especial_02.png",
+      "efectos/miranda/efecto_especial/efecto_especial_03.png"
+     ],
+     "lienzo": [
+      100,
+      50
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    }
+   },
+   "lienzo": [
+    100,
+    50
+   ],
+   "ancla": "center"
+  },
+  "personajes/cesar": {
+   "categoria": "personajes",
+   "entidad": "cesar",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "personajes/cesar/quieto/quieto_00.png",
+      "personajes/cesar/quieto/quieto_01.png",
+      "personajes/cesar/quieto/quieto_02.png",
+      "personajes/cesar/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "personajes/cesar/caminar_abajo/caminar_abajo_00.png",
+      "personajes/cesar/caminar_abajo/caminar_abajo_01.png",
+      "personajes/cesar/caminar_abajo/caminar_abajo_02.png",
+      "personajes/cesar/caminar_abajo/caminar_abajo_03.png",
+      "personajes/cesar/caminar_abajo/caminar_abajo_04.png",
+      "personajes/cesar/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "personajes/cesar/caminar_arriba/caminar_arriba_00.png",
+      "personajes/cesar/caminar_arriba/caminar_arriba_01.png",
+      "personajes/cesar/caminar_arriba/caminar_arriba_02.png",
+      "personajes/cesar/caminar_arriba/caminar_arriba_03.png",
+      "personajes/cesar/caminar_arriba/caminar_arriba_04.png",
+      "personajes/cesar/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "personajes/cesar/caminar_lado/caminar_lado_00.png",
+      "personajes/cesar/caminar_lado/caminar_lado_01.png",
+      "personajes/cesar/caminar_lado/caminar_lado_02.png",
+      "personajes/cesar/caminar_lado/caminar_lado_03.png",
+      "personajes/cesar/caminar_lado/caminar_lado_04.png",
+      "personajes/cesar/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "personajes/cesar/pegar_lado/pegar_lado_00.png",
+      "personajes/cesar/pegar_lado/pegar_lado_01.png",
+      "personajes/cesar/pegar_lado/pegar_lado_02.png",
+      "personajes/cesar/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_abajo": {
+     "cuadros": [
+      "personajes/cesar/pegar_abajo/pegar_abajo_00.png",
+      "personajes/cesar/pegar_abajo/pegar_abajo_01.png",
+      "personajes/cesar/pegar_abajo/pegar_abajo_02.png",
+      "personajes/cesar/pegar_abajo/pegar_abajo_03.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_arriba": {
+     "cuadros": [
+      "personajes/cesar/pegar_arriba/pegar_arriba_00.png",
+      "personajes/cesar/pegar_arriba/pegar_arriba_01.png",
+      "personajes/cesar/pegar_arriba/pegar_arriba_02.png",
+      "personajes/cesar/pegar_arriba/pegar_arriba_03.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "caer_levantarse": {
+     "cuadros": [
+      "personajes/cesar/caer_levantarse/caer_levantarse_00.png",
+      "personajes/cesar/caer_levantarse/caer_levantarse_01.png",
+      "personajes/cesar/caer_levantarse/caer_levantarse_02.png",
+      "personajes/cesar/caer_levantarse/caer_levantarse_03.png",
+      "personajes/cesar/caer_levantarse/caer_levantarse_04.png",
+      "personajes/cesar/caer_levantarse/caer_levantarse_05.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": false
+    },
+    "festejo": {
+     "cuadros": [
+      "personajes/cesar/festejo/festejo_00.png",
+      "personajes/cesar/festejo/festejo_01.png",
+      "personajes/cesar/festejo/festejo_02.png",
+      "personajes/cesar/festejo/festejo_03.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "habilidad": {
+     "cuadros": [
+      "personajes/cesar/habilidad/habilidad_00.png",
+      "personajes/cesar/habilidad/habilidad_01.png",
+      "personajes/cesar/habilidad/habilidad_02.png",
+      "personajes/cesar/habilidad/habilidad_03.png",
+      "personajes/cesar/habilidad/habilidad_04.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "especial": {
+     "cuadros": [
+      "personajes/cesar/especial/especial_00.png",
+      "personajes/cesar/especial/especial_01.png",
+      "personajes/cesar/especial/especial_02.png",
+      "personajes/cesar/especial/especial_03.png",
+      "personajes/cesar/especial/especial_04.png"
+     ],
+     "lienzo": [
+      95,
+      107
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    95,
+    107
+   ],
+   "ancla": "bottom-center"
+  },
+  "efectos/cesar": {
+   "categoria": "efectos",
+   "entidad": "cesar",
+   "animaciones": {
+    "efecto_habilidad": {
+     "cuadros": [
+      "efectos/cesar/efecto_habilidad/efecto_habilidad_00.png",
+      "efectos/cesar/efecto_habilidad/efecto_habilidad_01.png",
+      "efectos/cesar/efecto_habilidad/efecto_habilidad_02.png",
+      "efectos/cesar/efecto_habilidad/efecto_habilidad_03.png"
+     ],
+     "lienzo": [
+      65,
+      100
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    },
+    "efecto_especial": {
+     "cuadros": [
+      "efectos/cesar/efecto_especial/efecto_especial_00.png",
+      "efectos/cesar/efecto_especial/efecto_especial_01.png",
+      "efectos/cesar/efecto_especial/efecto_especial_02.png",
+      "efectos/cesar/efecto_especial/efecto_especial_03.png"
+     ],
+     "lienzo": [
+      98,
+      100
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    }
+   },
+   "lienzo": [
+    98,
+    100
+   ],
+   "ancla": "center"
+  },
+  "personajes/alan": {
+   "categoria": "personajes",
+   "entidad": "alan",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "personajes/alan/quieto/quieto_00.png",
+      "personajes/alan/quieto/quieto_01.png",
+      "personajes/alan/quieto/quieto_02.png",
+      "personajes/alan/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "personajes/alan/caminar_abajo/caminar_abajo_00.png",
+      "personajes/alan/caminar_abajo/caminar_abajo_01.png",
+      "personajes/alan/caminar_abajo/caminar_abajo_02.png",
+      "personajes/alan/caminar_abajo/caminar_abajo_03.png",
+      "personajes/alan/caminar_abajo/caminar_abajo_04.png",
+      "personajes/alan/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "personajes/alan/caminar_arriba/caminar_arriba_00.png",
+      "personajes/alan/caminar_arriba/caminar_arriba_01.png",
+      "personajes/alan/caminar_arriba/caminar_arriba_02.png",
+      "personajes/alan/caminar_arriba/caminar_arriba_03.png",
+      "personajes/alan/caminar_arriba/caminar_arriba_04.png",
+      "personajes/alan/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "personajes/alan/caminar_lado/caminar_lado_00.png",
+      "personajes/alan/caminar_lado/caminar_lado_01.png",
+      "personajes/alan/caminar_lado/caminar_lado_02.png",
+      "personajes/alan/caminar_lado/caminar_lado_03.png",
+      "personajes/alan/caminar_lado/caminar_lado_04.png",
+      "personajes/alan/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "personajes/alan/pegar_lado/pegar_lado_00.png",
+      "personajes/alan/pegar_lado/pegar_lado_01.png",
+      "personajes/alan/pegar_lado/pegar_lado_02.png",
+      "personajes/alan/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_abajo": {
+     "cuadros": [
+      "personajes/alan/pegar_abajo/pegar_abajo_00.png",
+      "personajes/alan/pegar_abajo/pegar_abajo_01.png",
+      "personajes/alan/pegar_abajo/pegar_abajo_02.png",
+      "personajes/alan/pegar_abajo/pegar_abajo_03.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_arriba": {
+     "cuadros": [
+      "personajes/alan/pegar_arriba/pegar_arriba_00.png",
+      "personajes/alan/pegar_arriba/pegar_arriba_01.png",
+      "personajes/alan/pegar_arriba/pegar_arriba_02.png",
+      "personajes/alan/pegar_arriba/pegar_arriba_03.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "caer_levantarse": {
+     "cuadros": [
+      "personajes/alan/caer_levantarse/caer_levantarse_00.png",
+      "personajes/alan/caer_levantarse/caer_levantarse_01.png",
+      "personajes/alan/caer_levantarse/caer_levantarse_02.png",
+      "personajes/alan/caer_levantarse/caer_levantarse_03.png",
+      "personajes/alan/caer_levantarse/caer_levantarse_04.png",
+      "personajes/alan/caer_levantarse/caer_levantarse_05.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": false
+    },
+    "festejo": {
+     "cuadros": [
+      "personajes/alan/festejo/festejo_00.png",
+      "personajes/alan/festejo/festejo_01.png",
+      "personajes/alan/festejo/festejo_02.png",
+      "personajes/alan/festejo/festejo_03.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "habilidad": {
+     "cuadros": [
+      "personajes/alan/habilidad/habilidad_00.png",
+      "personajes/alan/habilidad/habilidad_01.png",
+      "personajes/alan/habilidad/habilidad_02.png",
+      "personajes/alan/habilidad/habilidad_03.png",
+      "personajes/alan/habilidad/habilidad_04.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "especial": {
+     "cuadros": [
+      "personajes/alan/especial/especial_00.png",
+      "personajes/alan/especial/especial_01.png",
+      "personajes/alan/especial/especial_02.png",
+      "personajes/alan/especial/especial_03.png",
+      "personajes/alan/especial/especial_04.png"
+     ],
+     "lienzo": [
+      86,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    86,
+    102
+   ],
+   "ancla": "bottom-center"
+  },
+  "efectos/alan": {
+   "categoria": "efectos",
+   "entidad": "alan",
+   "animaciones": {
+    "efecto_habilidad": {
+     "cuadros": [
+      "efectos/alan/efecto_habilidad/efecto_habilidad_00.png",
+      "efectos/alan/efecto_habilidad/efecto_habilidad_01.png",
+      "efectos/alan/efecto_habilidad/efecto_habilidad_02.png",
+      "efectos/alan/efecto_habilidad/efecto_habilidad_03.png"
+     ],
+     "lienzo": [
+      100,
+      95
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    },
+    "efecto_especial": {
+     "cuadros": [
+      "efectos/alan/efecto_especial/efecto_especial_00.png",
+      "efectos/alan/efecto_especial/efecto_especial_01.png",
+      "efectos/alan/efecto_especial/efecto_especial_02.png",
+      "efectos/alan/efecto_especial/efecto_especial_03.png"
+     ],
+     "lienzo": [
+      90,
+      100
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    }
+   },
+   "lienzo": [
+    90,
+    100
+   ],
+   "ancla": "center"
+  },
+  "personajes/castillo": {
+   "categoria": "personajes",
+   "entidad": "castillo",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "personajes/castillo/quieto/quieto_00.png",
+      "personajes/castillo/quieto/quieto_01.png",
+      "personajes/castillo/quieto/quieto_02.png",
+      "personajes/castillo/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "personajes/castillo/caminar_abajo/caminar_abajo_00.png",
+      "personajes/castillo/caminar_abajo/caminar_abajo_01.png",
+      "personajes/castillo/caminar_abajo/caminar_abajo_02.png",
+      "personajes/castillo/caminar_abajo/caminar_abajo_03.png",
+      "personajes/castillo/caminar_abajo/caminar_abajo_04.png",
+      "personajes/castillo/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "personajes/castillo/caminar_arriba/caminar_arriba_00.png",
+      "personajes/castillo/caminar_arriba/caminar_arriba_01.png",
+      "personajes/castillo/caminar_arriba/caminar_arriba_02.png",
+      "personajes/castillo/caminar_arriba/caminar_arriba_03.png",
+      "personajes/castillo/caminar_arriba/caminar_arriba_04.png",
+      "personajes/castillo/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "personajes/castillo/caminar_lado/caminar_lado_00.png",
+      "personajes/castillo/caminar_lado/caminar_lado_01.png",
+      "personajes/castillo/caminar_lado/caminar_lado_02.png",
+      "personajes/castillo/caminar_lado/caminar_lado_03.png",
+      "personajes/castillo/caminar_lado/caminar_lado_04.png",
+      "personajes/castillo/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "personajes/castillo/pegar_lado/pegar_lado_00.png",
+      "personajes/castillo/pegar_lado/pegar_lado_01.png",
+      "personajes/castillo/pegar_lado/pegar_lado_02.png",
+      "personajes/castillo/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_abajo": {
+     "cuadros": [
+      "personajes/castillo/pegar_abajo/pegar_abajo_00.png",
+      "personajes/castillo/pegar_abajo/pegar_abajo_01.png",
+      "personajes/castillo/pegar_abajo/pegar_abajo_02.png",
+      "personajes/castillo/pegar_abajo/pegar_abajo_03.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_arriba": {
+     "cuadros": [
+      "personajes/castillo/pegar_arriba/pegar_arriba_00.png",
+      "personajes/castillo/pegar_arriba/pegar_arriba_01.png",
+      "personajes/castillo/pegar_arriba/pegar_arriba_02.png",
+      "personajes/castillo/pegar_arriba/pegar_arriba_03.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "caer_levantarse": {
+     "cuadros": [
+      "personajes/castillo/caer_levantarse/caer_levantarse_00.png",
+      "personajes/castillo/caer_levantarse/caer_levantarse_01.png",
+      "personajes/castillo/caer_levantarse/caer_levantarse_02.png",
+      "personajes/castillo/caer_levantarse/caer_levantarse_03.png",
+      "personajes/castillo/caer_levantarse/caer_levantarse_04.png",
+      "personajes/castillo/caer_levantarse/caer_levantarse_05.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": false
+    },
+    "festejo": {
+     "cuadros": [
+      "personajes/castillo/festejo/festejo_00.png",
+      "personajes/castillo/festejo/festejo_01.png",
+      "personajes/castillo/festejo/festejo_02.png",
+      "personajes/castillo/festejo/festejo_03.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "habilidad": {
+     "cuadros": [
+      "personajes/castillo/habilidad/habilidad_00.png",
+      "personajes/castillo/habilidad/habilidad_01.png",
+      "personajes/castillo/habilidad/habilidad_02.png",
+      "personajes/castillo/habilidad/habilidad_03.png",
+      "personajes/castillo/habilidad/habilidad_04.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "especial": {
+     "cuadros": [
+      "personajes/castillo/especial/especial_00.png",
+      "personajes/castillo/especial/especial_01.png",
+      "personajes/castillo/especial/especial_02.png",
+      "personajes/castillo/especial/especial_03.png",
+      "personajes/castillo/especial/especial_04.png"
+     ],
+     "lienzo": [
+      81,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    81,
+    102
+   ],
+   "ancla": "bottom-center"
+  },
+  "efectos/castillo": {
+   "categoria": "efectos",
+   "entidad": "castillo",
+   "animaciones": {
+    "efecto_habilidad": {
+     "cuadros": [
+      "efectos/castillo/efecto_habilidad/efecto_habilidad_00.png",
+      "efectos/castillo/efecto_habilidad/efecto_habilidad_01.png",
+      "efectos/castillo/efecto_habilidad/efecto_habilidad_02.png",
+      "efectos/castillo/efecto_habilidad/efecto_habilidad_03.png"
+     ],
+     "lienzo": [
+      100,
+      84
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    },
+    "efecto_especial": {
+     "cuadros": [
+      "efectos/castillo/efecto_especial/efecto_especial_00.png",
+      "efectos/castillo/efecto_especial/efecto_especial_01.png",
+      "efectos/castillo/efecto_especial/efecto_especial_02.png",
+      "efectos/castillo/efecto_especial/efecto_especial_03.png"
+     ],
+     "lienzo": [
+      100,
+      90
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    }
+   },
+   "lienzo": [
+    100,
+    90
+   ],
+   "ancla": "center"
+  },
+  "personajes/alessandro": {
+   "categoria": "personajes",
+   "entidad": "alessandro",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "personajes/alessandro/quieto/quieto_00.png",
+      "personajes/alessandro/quieto/quieto_01.png",
+      "personajes/alessandro/quieto/quieto_02.png",
+      "personajes/alessandro/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "personajes/alessandro/caminar_abajo/caminar_abajo_00.png",
+      "personajes/alessandro/caminar_abajo/caminar_abajo_01.png",
+      "personajes/alessandro/caminar_abajo/caminar_abajo_02.png",
+      "personajes/alessandro/caminar_abajo/caminar_abajo_03.png",
+      "personajes/alessandro/caminar_abajo/caminar_abajo_04.png",
+      "personajes/alessandro/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "personajes/alessandro/caminar_arriba/caminar_arriba_00.png",
+      "personajes/alessandro/caminar_arriba/caminar_arriba_01.png",
+      "personajes/alessandro/caminar_arriba/caminar_arriba_02.png",
+      "personajes/alessandro/caminar_arriba/caminar_arriba_03.png",
+      "personajes/alessandro/caminar_arriba/caminar_arriba_04.png",
+      "personajes/alessandro/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "personajes/alessandro/caminar_lado/caminar_lado_00.png",
+      "personajes/alessandro/caminar_lado/caminar_lado_01.png",
+      "personajes/alessandro/caminar_lado/caminar_lado_02.png",
+      "personajes/alessandro/caminar_lado/caminar_lado_03.png",
+      "personajes/alessandro/caminar_lado/caminar_lado_04.png",
+      "personajes/alessandro/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "personajes/alessandro/pegar_lado/pegar_lado_00.png",
+      "personajes/alessandro/pegar_lado/pegar_lado_01.png",
+      "personajes/alessandro/pegar_lado/pegar_lado_02.png",
+      "personajes/alessandro/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_abajo": {
+     "cuadros": [
+      "personajes/alessandro/pegar_abajo/pegar_abajo_00.png",
+      "personajes/alessandro/pegar_abajo/pegar_abajo_01.png",
+      "personajes/alessandro/pegar_abajo/pegar_abajo_02.png",
+      "personajes/alessandro/pegar_abajo/pegar_abajo_03.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_arriba": {
+     "cuadros": [
+      "personajes/alessandro/pegar_arriba/pegar_arriba_00.png",
+      "personajes/alessandro/pegar_arriba/pegar_arriba_01.png",
+      "personajes/alessandro/pegar_arriba/pegar_arriba_02.png",
+      "personajes/alessandro/pegar_arriba/pegar_arriba_03.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "caer_levantarse": {
+     "cuadros": [
+      "personajes/alessandro/caer_levantarse/caer_levantarse_00.png",
+      "personajes/alessandro/caer_levantarse/caer_levantarse_01.png",
+      "personajes/alessandro/caer_levantarse/caer_levantarse_02.png",
+      "personajes/alessandro/caer_levantarse/caer_levantarse_03.png",
+      "personajes/alessandro/caer_levantarse/caer_levantarse_04.png",
+      "personajes/alessandro/caer_levantarse/caer_levantarse_05.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": false
+    },
+    "festejo": {
+     "cuadros": [
+      "personajes/alessandro/festejo/festejo_00.png",
+      "personajes/alessandro/festejo/festejo_01.png",
+      "personajes/alessandro/festejo/festejo_02.png",
+      "personajes/alessandro/festejo/festejo_03.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "habilidad": {
+     "cuadros": [
+      "personajes/alessandro/habilidad/habilidad_00.png",
+      "personajes/alessandro/habilidad/habilidad_01.png",
+      "personajes/alessandro/habilidad/habilidad_02.png",
+      "personajes/alessandro/habilidad/habilidad_03.png",
+      "personajes/alessandro/habilidad/habilidad_04.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "especial": {
+     "cuadros": [
+      "personajes/alessandro/especial/especial_00.png",
+      "personajes/alessandro/especial/especial_01.png",
+      "personajes/alessandro/especial/especial_02.png",
+      "personajes/alessandro/especial/especial_03.png",
+      "personajes/alessandro/especial/especial_04.png"
+     ],
+     "lienzo": [
+      88,
+      105
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    88,
+    105
+   ],
+   "ancla": "bottom-center"
+  },
+  "efectos/alessandro": {
+   "categoria": "efectos",
+   "entidad": "alessandro",
+   "animaciones": {
+    "efecto_habilidad": {
+     "cuadros": [
+      "efectos/alessandro/efecto_habilidad/efecto_habilidad_00.png",
+      "efectos/alessandro/efecto_habilidad/efecto_habilidad_01.png",
+      "efectos/alessandro/efecto_habilidad/efecto_habilidad_02.png",
+      "efectos/alessandro/efecto_habilidad/efecto_habilidad_03.png"
+     ],
+     "lienzo": [
+      93,
+      100
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    },
+    "efecto_especial": {
+     "cuadros": [
+      "efectos/alessandro/efecto_especial/efecto_especial_00.png",
+      "efectos/alessandro/efecto_especial/efecto_especial_01.png",
+      "efectos/alessandro/efecto_especial/efecto_especial_02.png",
+      "efectos/alessandro/efecto_especial/efecto_especial_03.png"
+     ],
+     "lienzo": [
+      100,
+      99
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    }
+   },
+   "lienzo": [
+    100,
+    99
+   ],
+   "ancla": "center"
+  },
+  "personajes/gabo": {
+   "categoria": "personajes",
+   "entidad": "gabo",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "personajes/gabo/quieto/quieto_00.png",
+      "personajes/gabo/quieto/quieto_01.png",
+      "personajes/gabo/quieto/quieto_02.png",
+      "personajes/gabo/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "personajes/gabo/caminar_abajo/caminar_abajo_00.png",
+      "personajes/gabo/caminar_abajo/caminar_abajo_01.png",
+      "personajes/gabo/caminar_abajo/caminar_abajo_02.png",
+      "personajes/gabo/caminar_abajo/caminar_abajo_03.png",
+      "personajes/gabo/caminar_abajo/caminar_abajo_04.png",
+      "personajes/gabo/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "personajes/gabo/caminar_arriba/caminar_arriba_00.png",
+      "personajes/gabo/caminar_arriba/caminar_arriba_01.png",
+      "personajes/gabo/caminar_arriba/caminar_arriba_02.png",
+      "personajes/gabo/caminar_arriba/caminar_arriba_03.png",
+      "personajes/gabo/caminar_arriba/caminar_arriba_04.png",
+      "personajes/gabo/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "personajes/gabo/caminar_lado/caminar_lado_00.png",
+      "personajes/gabo/caminar_lado/caminar_lado_01.png",
+      "personajes/gabo/caminar_lado/caminar_lado_02.png",
+      "personajes/gabo/caminar_lado/caminar_lado_03.png",
+      "personajes/gabo/caminar_lado/caminar_lado_04.png",
+      "personajes/gabo/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "personajes/gabo/pegar_lado/pegar_lado_00.png",
+      "personajes/gabo/pegar_lado/pegar_lado_01.png",
+      "personajes/gabo/pegar_lado/pegar_lado_02.png",
+      "personajes/gabo/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_abajo": {
+     "cuadros": [
+      "personajes/gabo/pegar_abajo/pegar_abajo_00.png",
+      "personajes/gabo/pegar_abajo/pegar_abajo_01.png",
+      "personajes/gabo/pegar_abajo/pegar_abajo_02.png",
+      "personajes/gabo/pegar_abajo/pegar_abajo_03.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_arriba": {
+     "cuadros": [
+      "personajes/gabo/pegar_arriba/pegar_arriba_00.png",
+      "personajes/gabo/pegar_arriba/pegar_arriba_01.png",
+      "personajes/gabo/pegar_arriba/pegar_arriba_02.png",
+      "personajes/gabo/pegar_arriba/pegar_arriba_03.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "caer_levantarse": {
+     "cuadros": [
+      "personajes/gabo/caer_levantarse/caer_levantarse_00.png",
+      "personajes/gabo/caer_levantarse/caer_levantarse_01.png",
+      "personajes/gabo/caer_levantarse/caer_levantarse_02.png",
+      "personajes/gabo/caer_levantarse/caer_levantarse_03.png",
+      "personajes/gabo/caer_levantarse/caer_levantarse_04.png",
+      "personajes/gabo/caer_levantarse/caer_levantarse_05.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": false
+    },
+    "festejo": {
+     "cuadros": [
+      "personajes/gabo/festejo/festejo_00.png",
+      "personajes/gabo/festejo/festejo_01.png",
+      "personajes/gabo/festejo/festejo_02.png",
+      "personajes/gabo/festejo/festejo_03.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "habilidad": {
+     "cuadros": [
+      "personajes/gabo/habilidad/habilidad_00.png",
+      "personajes/gabo/habilidad/habilidad_01.png",
+      "personajes/gabo/habilidad/habilidad_02.png",
+      "personajes/gabo/habilidad/habilidad_03.png",
+      "personajes/gabo/habilidad/habilidad_04.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "especial": {
+     "cuadros": [
+      "personajes/gabo/especial/especial_00.png",
+      "personajes/gabo/especial/especial_01.png",
+      "personajes/gabo/especial/especial_02.png",
+      "personajes/gabo/especial/especial_03.png",
+      "personajes/gabo/especial/especial_04.png"
+     ],
+     "lienzo": [
+      88,
+      103
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    88,
+    103
+   ],
+   "ancla": "bottom-center"
+  },
+  "efectos/gabo": {
+   "categoria": "efectos",
+   "entidad": "gabo",
+   "animaciones": {
+    "efecto_habilidad": {
+     "cuadros": [
+      "efectos/gabo/efecto_habilidad/efecto_habilidad_00.png",
+      "efectos/gabo/efecto_habilidad/efecto_habilidad_01.png",
+      "efectos/gabo/efecto_habilidad/efecto_habilidad_02.png",
+      "efectos/gabo/efecto_habilidad/efecto_habilidad_03.png"
+     ],
+     "lienzo": [
+      100,
+      98
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    },
+    "efecto_especial": {
+     "cuadros": [
+      "efectos/gabo/efecto_especial/efecto_especial_00.png",
+      "efectos/gabo/efecto_especial/efecto_especial_01.png",
+      "efectos/gabo/efecto_especial/efecto_especial_02.png",
+      "efectos/gabo/efecto_especial/efecto_especial_03.png"
+     ],
+     "lienzo": [
+      90,
+      100
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    }
+   },
+   "lienzo": [
+    90,
+    100
+   ],
+   "ancla": "center"
+  },
+  "personajes/carlos": {
+   "categoria": "personajes",
+   "entidad": "carlos",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "personajes/carlos/quieto/quieto_00.png",
+      "personajes/carlos/quieto/quieto_01.png",
+      "personajes/carlos/quieto/quieto_02.png",
+      "personajes/carlos/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "personajes/carlos/caminar_abajo/caminar_abajo_00.png",
+      "personajes/carlos/caminar_abajo/caminar_abajo_01.png",
+      "personajes/carlos/caminar_abajo/caminar_abajo_02.png",
+      "personajes/carlos/caminar_abajo/caminar_abajo_03.png",
+      "personajes/carlos/caminar_abajo/caminar_abajo_04.png",
+      "personajes/carlos/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "personajes/carlos/caminar_arriba/caminar_arriba_00.png",
+      "personajes/carlos/caminar_arriba/caminar_arriba_01.png",
+      "personajes/carlos/caminar_arriba/caminar_arriba_02.png",
+      "personajes/carlos/caminar_arriba/caminar_arriba_03.png",
+      "personajes/carlos/caminar_arriba/caminar_arriba_04.png",
+      "personajes/carlos/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "personajes/carlos/caminar_lado/caminar_lado_00.png",
+      "personajes/carlos/caminar_lado/caminar_lado_01.png",
+      "personajes/carlos/caminar_lado/caminar_lado_02.png",
+      "personajes/carlos/caminar_lado/caminar_lado_03.png",
+      "personajes/carlos/caminar_lado/caminar_lado_04.png",
+      "personajes/carlos/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "personajes/carlos/pegar_lado/pegar_lado_00.png",
+      "personajes/carlos/pegar_lado/pegar_lado_01.png",
+      "personajes/carlos/pegar_lado/pegar_lado_02.png",
+      "personajes/carlos/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_abajo": {
+     "cuadros": [
+      "personajes/carlos/pegar_abajo/pegar_abajo_00.png",
+      "personajes/carlos/pegar_abajo/pegar_abajo_01.png",
+      "personajes/carlos/pegar_abajo/pegar_abajo_02.png",
+      "personajes/carlos/pegar_abajo/pegar_abajo_03.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_arriba": {
+     "cuadros": [
+      "personajes/carlos/pegar_arriba/pegar_arriba_00.png",
+      "personajes/carlos/pegar_arriba/pegar_arriba_01.png",
+      "personajes/carlos/pegar_arriba/pegar_arriba_02.png",
+      "personajes/carlos/pegar_arriba/pegar_arriba_03.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "caer_levantarse": {
+     "cuadros": [
+      "personajes/carlos/caer_levantarse/caer_levantarse_00.png",
+      "personajes/carlos/caer_levantarse/caer_levantarse_01.png",
+      "personajes/carlos/caer_levantarse/caer_levantarse_02.png",
+      "personajes/carlos/caer_levantarse/caer_levantarse_03.png",
+      "personajes/carlos/caer_levantarse/caer_levantarse_04.png",
+      "personajes/carlos/caer_levantarse/caer_levantarse_05.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": false
+    },
+    "festejo": {
+     "cuadros": [
+      "personajes/carlos/festejo/festejo_00.png",
+      "personajes/carlos/festejo/festejo_01.png",
+      "personajes/carlos/festejo/festejo_02.png",
+      "personajes/carlos/festejo/festejo_03.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "habilidad": {
+     "cuadros": [
+      "personajes/carlos/habilidad/habilidad_00.png",
+      "personajes/carlos/habilidad/habilidad_01.png",
+      "personajes/carlos/habilidad/habilidad_02.png",
+      "personajes/carlos/habilidad/habilidad_03.png",
+      "personajes/carlos/habilidad/habilidad_04.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "especial": {
+     "cuadros": [
+      "personajes/carlos/especial/especial_00.png",
+      "personajes/carlos/especial/especial_01.png",
+      "personajes/carlos/especial/especial_02.png",
+      "personajes/carlos/especial/especial_03.png",
+      "personajes/carlos/especial/especial_04.png"
+     ],
+     "lienzo": [
+      92,
+      104
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    92,
+    104
+   ],
+   "ancla": "bottom-center"
+  },
+  "efectos/carlos": {
+   "categoria": "efectos",
+   "entidad": "carlos",
+   "animaciones": {
+    "efecto_habilidad": {
+     "cuadros": [
+      "efectos/carlos/efecto_habilidad/efecto_habilidad_00.png",
+      "efectos/carlos/efecto_habilidad/efecto_habilidad_01.png",
+      "efectos/carlos/efecto_habilidad/efecto_habilidad_02.png",
+      "efectos/carlos/efecto_habilidad/efecto_habilidad_03.png"
+     ],
+     "lienzo": [
+      95,
+      100
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    },
+    "efecto_especial": {
+     "cuadros": [
+      "efectos/carlos/efecto_especial/efecto_especial_00.png",
+      "efectos/carlos/efecto_especial/efecto_especial_01.png",
+      "efectos/carlos/efecto_especial/efecto_especial_02.png",
+      "efectos/carlos/efecto_especial/efecto_especial_03.png"
+     ],
+     "lienzo": [
+      100,
+      98
+     ],
+     "ancla": "center",
+     "fps": 10,
+     "loop": true
+    }
+   },
+   "lienzo": [
+    100,
+    98
+   ],
+   "ancla": "center"
+  },
+  "personajes/tonyfuerte": {
+   "categoria": "personajes",
+   "entidad": "tonyfuerte",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "personajes/tonyfuerte/quieto/quieto_00.png",
+      "personajes/tonyfuerte/quieto/quieto_01.png",
+      "personajes/tonyfuerte/quieto/quieto_02.png",
+      "personajes/tonyfuerte/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      85,
+      100
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "personajes/tonyfuerte/caminar_abajo/caminar_abajo_00.png",
+      "personajes/tonyfuerte/caminar_abajo/caminar_abajo_01.png",
+      "personajes/tonyfuerte/caminar_abajo/caminar_abajo_02.png",
+      "personajes/tonyfuerte/caminar_abajo/caminar_abajo_03.png",
+      "personajes/tonyfuerte/caminar_abajo/caminar_abajo_04.png",
+      "personajes/tonyfuerte/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      85,
+      100
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "personajes/tonyfuerte/caminar_arriba/caminar_arriba_00.png",
+      "personajes/tonyfuerte/caminar_arriba/caminar_arriba_01.png",
+      "personajes/tonyfuerte/caminar_arriba/caminar_arriba_02.png",
+      "personajes/tonyfuerte/caminar_arriba/caminar_arriba_03.png",
+      "personajes/tonyfuerte/caminar_arriba/caminar_arriba_04.png",
+      "personajes/tonyfuerte/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      85,
+      100
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "personajes/tonyfuerte/caminar_lado/caminar_lado_00.png",
+      "personajes/tonyfuerte/caminar_lado/caminar_lado_01.png",
+      "personajes/tonyfuerte/caminar_lado/caminar_lado_02.png",
+      "personajes/tonyfuerte/caminar_lado/caminar_lado_03.png",
+      "personajes/tonyfuerte/caminar_lado/caminar_lado_04.png",
+      "personajes/tonyfuerte/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      85,
+      100
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "personajes/tonyfuerte/pegar_lado/pegar_lado_00.png",
+      "personajes/tonyfuerte/pegar_lado/pegar_lado_01.png",
+      "personajes/tonyfuerte/pegar_lado/pegar_lado_02.png",
+      "personajes/tonyfuerte/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      85,
+      100
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    85,
+    100
+   ],
+   "ancla": "bottom-center"
+  },
+  "profes/canepa": {
+   "categoria": "profes",
+   "entidad": "canepa",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "profes/canepa/quieto/quieto_00.png",
+      "profes/canepa/quieto/quieto_01.png",
+      "profes/canepa/quieto/quieto_02.png",
+      "profes/canepa/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      79,
+      108
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "profes/canepa/caminar_abajo/caminar_abajo_00.png",
+      "profes/canepa/caminar_abajo/caminar_abajo_01.png",
+      "profes/canepa/caminar_abajo/caminar_abajo_02.png",
+      "profes/canepa/caminar_abajo/caminar_abajo_03.png",
+      "profes/canepa/caminar_abajo/caminar_abajo_04.png",
+      "profes/canepa/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      79,
+      108
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "profes/canepa/caminar_arriba/caminar_arriba_00.png",
+      "profes/canepa/caminar_arriba/caminar_arriba_01.png",
+      "profes/canepa/caminar_arriba/caminar_arriba_02.png",
+      "profes/canepa/caminar_arriba/caminar_arriba_03.png",
+      "profes/canepa/caminar_arriba/caminar_arriba_04.png",
+      "profes/canepa/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      79,
+      108
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "profes/canepa/caminar_lado/caminar_lado_00.png",
+      "profes/canepa/caminar_lado/caminar_lado_01.png",
+      "profes/canepa/caminar_lado/caminar_lado_02.png",
+      "profes/canepa/caminar_lado/caminar_lado_03.png",
+      "profes/canepa/caminar_lado/caminar_lado_04.png",
+      "profes/canepa/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      79,
+      108
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "profes/canepa/pegar_lado/pegar_lado_00.png",
+      "profes/canepa/pegar_lado/pegar_lado_01.png",
+      "profes/canepa/pegar_lado/pegar_lado_02.png",
+      "profes/canepa/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      79,
+      108
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    },
+    "pegar_arriba": {
+     "cuadros": [
+      "profes/canepa/pegar_arriba/pegar_arriba_00.png",
+      "profes/canepa/pegar_arriba/pegar_arriba_01.png",
+      "profes/canepa/pegar_arriba/pegar_arriba_02.png",
+      "profes/canepa/pegar_arriba/pegar_arriba_03.png"
+     ],
+     "lienzo": [
+      79,
+      108
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    79,
+    108
+   ],
+   "ancla": "bottom-center"
+  },
+  "zombies/corredor": {
+   "categoria": "zombies",
+   "entidad": "corredor",
+   "animaciones": {
+    "caminar_abajo": {
+     "cuadros": [
+      "zombies/corredor/caminar_abajo/caminar_abajo_00.png",
+      "zombies/corredor/caminar_abajo/caminar_abajo_01.png",
+      "zombies/corredor/caminar_abajo/caminar_abajo_02.png",
+      "zombies/corredor/caminar_abajo/caminar_abajo_03.png",
+      "zombies/corredor/caminar_abajo/caminar_abajo_04.png",
+      "zombies/corredor/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      87,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "zombies/corredor/caminar_arriba/caminar_arriba_00.png",
+      "zombies/corredor/caminar_arriba/caminar_arriba_01.png",
+      "zombies/corredor/caminar_arriba/caminar_arriba_02.png",
+      "zombies/corredor/caminar_arriba/caminar_arriba_03.png",
+      "zombies/corredor/caminar_arriba/caminar_arriba_04.png",
+      "zombies/corredor/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      87,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "zombies/corredor/caminar_lado/caminar_lado_00.png",
+      "zombies/corredor/caminar_lado/caminar_lado_01.png",
+      "zombies/corredor/caminar_lado/caminar_lado_02.png",
+      "zombies/corredor/caminar_lado/caminar_lado_03.png",
+      "zombies/corredor/caminar_lado/caminar_lado_04.png",
+      "zombies/corredor/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      87,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": true
+    },
+    "atacar_lado": {
+     "cuadros": [
+      "zombies/corredor/atacar_lado/atacar_lado_00.png",
+      "zombies/corredor/atacar_lado/atacar_lado_01.png",
+      "zombies/corredor/atacar_lado/atacar_lado_02.png",
+      "zombies/corredor/atacar_lado/atacar_lado_03.png"
+     ],
+     "lienzo": [
+      87,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "atacar_abajo": {
+     "cuadros": [
+      "zombies/corredor/atacar_abajo/atacar_abajo_00.png",
+      "zombies/corredor/atacar_abajo/atacar_abajo_01.png",
+      "zombies/corredor/atacar_abajo/atacar_abajo_02.png",
+      "zombies/corredor/atacar_abajo/atacar_abajo_03.png"
+     ],
+     "lienzo": [
+      87,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "golpe_morir": {
+     "cuadros": [
+      "zombies/corredor/golpe_morir/golpe_morir_00.png",
+      "zombies/corredor/golpe_morir/golpe_morir_01.png",
+      "zombies/corredor/golpe_morir/golpe_morir_02.png",
+      "zombies/corredor/golpe_morir/golpe_morir_03.png",
+      "zombies/corredor/golpe_morir/golpe_morir_04.png",
+      "zombies/corredor/golpe_morir/golpe_morir_05.png"
+     ],
+     "lienzo": [
+      87,
+      102
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    87,
+    102
+   ],
+   "ancla": "bottom-center"
+  },
+  "zombies/griton": {
+   "categoria": "zombies",
+   "entidad": "griton",
+   "animaciones": {
+    "caminar_abajo": {
+     "cuadros": [
+      "zombies/griton/caminar_abajo/caminar_abajo_00.png",
+      "zombies/griton/caminar_abajo/caminar_abajo_01.png",
+      "zombies/griton/caminar_abajo/caminar_abajo_02.png",
+      "zombies/griton/caminar_abajo/caminar_abajo_03.png",
+      "zombies/griton/caminar_abajo/caminar_abajo_04.png",
+      "zombies/griton/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      80,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "zombies/griton/caminar_arriba/caminar_arriba_00.png",
+      "zombies/griton/caminar_arriba/caminar_arriba_01.png",
+      "zombies/griton/caminar_arriba/caminar_arriba_02.png",
+      "zombies/griton/caminar_arriba/caminar_arriba_03.png",
+      "zombies/griton/caminar_arriba/caminar_arriba_04.png",
+      "zombies/griton/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      80,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "zombies/griton/caminar_lado/caminar_lado_00.png",
+      "zombies/griton/caminar_lado/caminar_lado_01.png",
+      "zombies/griton/caminar_lado/caminar_lado_02.png",
+      "zombies/griton/caminar_lado/caminar_lado_03.png",
+      "zombies/griton/caminar_lado/caminar_lado_04.png",
+      "zombies/griton/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      80,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "atacar_lado": {
+     "cuadros": [
+      "zombies/griton/atacar_lado/atacar_lado_00.png",
+      "zombies/griton/atacar_lado/atacar_lado_01.png",
+      "zombies/griton/atacar_lado/atacar_lado_02.png",
+      "zombies/griton/atacar_lado/atacar_lado_03.png"
+     ],
+     "lienzo": [
+      80,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "atacar_abajo": {
+     "cuadros": [
+      "zombies/griton/atacar_abajo/atacar_abajo_00.png",
+      "zombies/griton/atacar_abajo/atacar_abajo_01.png",
+      "zombies/griton/atacar_abajo/atacar_abajo_02.png",
+      "zombies/griton/atacar_abajo/atacar_abajo_03.png"
+     ],
+     "lienzo": [
+      80,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "golpe_morir": {
+     "cuadros": [
+      "zombies/griton/golpe_morir/golpe_morir_00.png",
+      "zombies/griton/golpe_morir/golpe_morir_01.png",
+      "zombies/griton/golpe_morir/golpe_morir_02.png",
+      "zombies/griton/golpe_morir/golpe_morir_03.png",
+      "zombies/griton/golpe_morir/golpe_morir_04.png",
+      "zombies/griton/golpe_morir/golpe_morir_05.png"
+     ],
+     "lienzo": [
+      80,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "gritar": {
+     "cuadros": [
+      "zombies/griton/gritar/gritar_00.png",
+      "zombies/griton/gritar/gritar_01.png",
+      "zombies/griton/gritar/gritar_02.png",
+      "zombies/griton/gritar/gritar_03.png"
+     ],
+     "lienzo": [
+      80,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    80,
+    101
+   ],
+   "ancla": "bottom-center"
+  },
+  "zombies/gordo": {
+   "categoria": "zombies",
+   "entidad": "gordo",
+   "animaciones": {
+    "caminar_abajo": {
+     "cuadros": [
+      "zombies/gordo/caminar_abajo/caminar_abajo_00.png",
+      "zombies/gordo/caminar_abajo/caminar_abajo_01.png",
+      "zombies/gordo/caminar_abajo/caminar_abajo_02.png",
+      "zombies/gordo/caminar_abajo/caminar_abajo_03.png",
+      "zombies/gordo/caminar_abajo/caminar_abajo_04.png",
+      "zombies/gordo/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      93,
+      112
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "zombies/gordo/caminar_arriba/caminar_arriba_00.png",
+      "zombies/gordo/caminar_arriba/caminar_arriba_01.png",
+      "zombies/gordo/caminar_arriba/caminar_arriba_02.png",
+      "zombies/gordo/caminar_arriba/caminar_arriba_03.png",
+      "zombies/gordo/caminar_arriba/caminar_arriba_04.png",
+      "zombies/gordo/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      93,
+      112
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "zombies/gordo/caminar_lado/caminar_lado_00.png",
+      "zombies/gordo/caminar_lado/caminar_lado_01.png",
+      "zombies/gordo/caminar_lado/caminar_lado_02.png",
+      "zombies/gordo/caminar_lado/caminar_lado_03.png",
+      "zombies/gordo/caminar_lado/caminar_lado_04.png",
+      "zombies/gordo/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      93,
+      112
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "atacar_lado": {
+     "cuadros": [
+      "zombies/gordo/atacar_lado/atacar_lado_00.png",
+      "zombies/gordo/atacar_lado/atacar_lado_01.png",
+      "zombies/gordo/atacar_lado/atacar_lado_02.png",
+      "zombies/gordo/atacar_lado/atacar_lado_03.png"
+     ],
+     "lienzo": [
+      93,
+      112
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "atacar_abajo": {
+     "cuadros": [
+      "zombies/gordo/atacar_abajo/atacar_abajo_00.png",
+      "zombies/gordo/atacar_abajo/atacar_abajo_01.png",
+      "zombies/gordo/atacar_abajo/atacar_abajo_02.png",
+      "zombies/gordo/atacar_abajo/atacar_abajo_03.png"
+     ],
+     "lienzo": [
+      93,
+      112
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "golpe_morir": {
+     "cuadros": [
+      "zombies/gordo/golpe_morir/golpe_morir_00.png",
+      "zombies/gordo/golpe_morir/golpe_morir_01.png",
+      "zombies/gordo/golpe_morir/golpe_morir_02.png",
+      "zombies/gordo/golpe_morir/golpe_morir_03.png",
+      "zombies/gordo/golpe_morir/golpe_morir_04.png",
+      "zombies/gordo/golpe_morir/golpe_morir_05.png"
+     ],
+     "lienzo": [
+      93,
+      112
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    93,
+    112
+   ],
+   "ancla": "bottom-center"
+  },
+  "zombies/conserje": {
+   "categoria": "zombies",
+   "entidad": "conserje",
+   "animaciones": {
+    "caminar_abajo": {
+     "cuadros": [
+      "zombies/conserje/caminar_abajo/caminar_abajo_00.png",
+      "zombies/conserje/caminar_abajo/caminar_abajo_01.png",
+      "zombies/conserje/caminar_abajo/caminar_abajo_02.png",
+      "zombies/conserje/caminar_abajo/caminar_abajo_03.png",
+      "zombies/conserje/caminar_abajo/caminar_abajo_04.png",
+      "zombies/conserje/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      101,
+      110
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "zombies/conserje/caminar_arriba/caminar_arriba_00.png",
+      "zombies/conserje/caminar_arriba/caminar_arriba_01.png",
+      "zombies/conserje/caminar_arriba/caminar_arriba_02.png",
+      "zombies/conserje/caminar_arriba/caminar_arriba_03.png",
+      "zombies/conserje/caminar_arriba/caminar_arriba_04.png",
+      "zombies/conserje/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      101,
+      110
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "zombies/conserje/caminar_lado/caminar_lado_00.png",
+      "zombies/conserje/caminar_lado/caminar_lado_01.png",
+      "zombies/conserje/caminar_lado/caminar_lado_02.png",
+      "zombies/conserje/caminar_lado/caminar_lado_03.png",
+      "zombies/conserje/caminar_lado/caminar_lado_04.png",
+      "zombies/conserje/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      101,
+      110
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "atacar_lado": {
+     "cuadros": [
+      "zombies/conserje/atacar_lado/atacar_lado_00.png",
+      "zombies/conserje/atacar_lado/atacar_lado_01.png",
+      "zombies/conserje/atacar_lado/atacar_lado_02.png",
+      "zombies/conserje/atacar_lado/atacar_lado_03.png"
+     ],
+     "lienzo": [
+      101,
+      110
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "atacar_abajo": {
+     "cuadros": [
+      "zombies/conserje/atacar_abajo/atacar_abajo_00.png",
+      "zombies/conserje/atacar_abajo/atacar_abajo_01.png",
+      "zombies/conserje/atacar_abajo/atacar_abajo_02.png",
+      "zombies/conserje/atacar_abajo/atacar_abajo_03.png"
+     ],
+     "lienzo": [
+      101,
+      110
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    },
+    "golpe_morir": {
+     "cuadros": [
+      "zombies/conserje/golpe_morir/golpe_morir_00.png",
+      "zombies/conserje/golpe_morir/golpe_morir_01.png",
+      "zombies/conserje/golpe_morir/golpe_morir_02.png",
+      "zombies/conserje/golpe_morir/golpe_morir_03.png",
+      "zombies/conserje/golpe_morir/golpe_morir_04.png",
+      "zombies/conserje/golpe_morir/golpe_morir_05.png"
+     ],
+     "lienzo": [
+      101,
+      110
+     ],
+     "ancla": "bottom-center",
+     "fps": 10,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    101,
+    110
+   ],
+   "ancla": "bottom-center"
+  },
+  "zombies/curado": {
+   "categoria": "zombies",
+   "entidad": "curado",
+   "animaciones": {
+    "quieto": {
+     "cuadros": [
+      "zombies/curado/quieto/quieto_00.png",
+      "zombies/curado/quieto/quieto_01.png",
+      "zombies/curado/quieto/quieto_02.png",
+      "zombies/curado/quieto/quieto_03.png"
+     ],
+     "lienzo": [
+      83,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 6,
+     "loop": true
+    },
+    "caminar_abajo": {
+     "cuadros": [
+      "zombies/curado/caminar_abajo/caminar_abajo_00.png",
+      "zombies/curado/caminar_abajo/caminar_abajo_01.png",
+      "zombies/curado/caminar_abajo/caminar_abajo_02.png",
+      "zombies/curado/caminar_abajo/caminar_abajo_03.png",
+      "zombies/curado/caminar_abajo/caminar_abajo_04.png",
+      "zombies/curado/caminar_abajo/caminar_abajo_05.png"
+     ],
+     "lienzo": [
+      83,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_arriba": {
+     "cuadros": [
+      "zombies/curado/caminar_arriba/caminar_arriba_00.png",
+      "zombies/curado/caminar_arriba/caminar_arriba_01.png",
+      "zombies/curado/caminar_arriba/caminar_arriba_02.png",
+      "zombies/curado/caminar_arriba/caminar_arriba_03.png",
+      "zombies/curado/caminar_arriba/caminar_arriba_04.png",
+      "zombies/curado/caminar_arriba/caminar_arriba_05.png"
+     ],
+     "lienzo": [
+      83,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "caminar_lado": {
+     "cuadros": [
+      "zombies/curado/caminar_lado/caminar_lado_00.png",
+      "zombies/curado/caminar_lado/caminar_lado_01.png",
+      "zombies/curado/caminar_lado/caminar_lado_02.png",
+      "zombies/curado/caminar_lado/caminar_lado_03.png",
+      "zombies/curado/caminar_lado/caminar_lado_04.png",
+      "zombies/curado/caminar_lado/caminar_lado_05.png"
+     ],
+     "lienzo": [
+      83,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 8,
+     "loop": true
+    },
+    "pegar_lado": {
+     "cuadros": [
+      "zombies/curado/pegar_lado/pegar_lado_00.png",
+      "zombies/curado/pegar_lado/pegar_lado_01.png",
+      "zombies/curado/pegar_lado/pegar_lado_02.png",
+      "zombies/curado/pegar_lado/pegar_lado_03.png"
+     ],
+     "lienzo": [
+      83,
+      101
+     ],
+     "ancla": "bottom-center",
+     "fps": 14,
+     "loop": false
+    }
+   },
+   "lienzo": [
+    83,
+    101
+   ],
+   "ancla": "bottom-center"
+  }
+ },
+ "objetos": {
+  "armas": {
+   "escoba": {
+    "archivo": "objetos/armas/escoba.png",
+    "tamano": [
+     15,
+     32
+    ]
+   },
+   "silla": {
+    "archivo": "objetos/armas/silla.png",
+    "tamano": [
+     20,
+     32
+    ]
+   },
+   "regla": {
+    "archivo": "objetos/armas/regla.png",
+    "tamano": [
+     23,
+     32
+    ]
+   },
+   "bate": {
+    "archivo": "objetos/armas/bate.png",
+    "tamano": [
+     20,
+     32
+    ]
+   },
+   "extintor": {
+    "archivo": "objetos/armas/extintor.png",
+    "tamano": [
+     17,
+     32
+    ]
+   }
+  },
+  "lanzables": {
+   "balon": {
+    "archivo": "objetos/lanzables/balon.png",
+    "tamano": [
+     32,
+     32
+    ]
+   },
+   "engrapadora": {
+    "archivo": "objetos/lanzables/engrapadora.png",
+    "tamano": [
+     32,
+     28
+    ]
+   },
+   "libro": {
+    "archivo": "objetos/lanzables/libro.png",
+    "tamano": [
+     32,
+     28
+    ]
+   },
+   "grapa": {
+    "archivo": "objetos/lanzables/grapa.png",
+    "tamano": [
+     32,
+     21
+    ]
+   }
+  },
+  "comida": {
+   "hamburguesa": {
+    "archivo": "objetos/comida/hamburguesa.png",
+    "tamano": [
+     32,
+     31
+    ]
+   },
+   "torta": {
+    "archivo": "objetos/comida/torta.png",
+    "tamano": [
+     31,
+     26
+    ]
+   },
+   "jugo": {
+    "archivo": "objetos/comida/jugo.png",
+    "tamano": [
+     18,
+     32
+    ]
+   },
+   "galletas": {
+    "archivo": "objetos/comida/galletas.png",
+    "tamano": [
+     32,
+     19
+    ]
+   },
+   "bolsa_comida": {
+    "archivo": "objetos/comida/bolsa_comida.png",
+    "tamano": [
+     25,
+     32
+    ]
+   }
+  },
+  "objetivos": {
+   "bidon": {
+    "archivo": "objetos/objetivos/bidon.png",
+    "tamano": [
+     30,
+     32
+    ]
+   },
+   "llaves_conserjeria": {
+    "archivo": "objetos/objetivos/llaves_conserjeria.png",
+    "tamano": [
+     25,
+     32
+    ]
+   },
+   "tarjeta": {
+    "archivo": "objetos/objetivos/tarjeta.png",
+    "tamano": [
+     32,
+     23
+    ]
+   },
+   "llave_restringida": {
+    "archivo": "objetos/objetivos/llave_restringida.png",
+    "tamano": [
+     30,
+     32
+    ]
+   },
+   "moneda": {
+    "archivo": "objetos/objetivos/moneda.png",
+    "tamano": [
+     30,
+     32
+    ]
+   }
+  },
+  "contenedores": {
+   "locker_cerrado": {
+    "archivo": "objetos/contenedores/locker_cerrado.png",
+    "tamano": [
+     19,
+     48
+    ]
+   },
+   "locker_abierto": {
+    "archivo": "objetos/contenedores/locker_abierto.png",
+    "tamano": [
+     28,
+     48
+    ]
+   },
+   "maquina_cerrada": {
+    "archivo": "objetos/contenedores/maquina_cerrada.png",
+    "tamano": [
+     30,
+     48
+    ]
+   },
+   "maquina_abierta": {
+    "archivo": "objetos/contenedores/maquina_abierta.png",
+    "tamano": [
+     28,
+     48
+    ]
+   },
+   "mochila_cerrada": {
+    "archivo": "objetos/contenedores/mochila_cerrada.png",
+    "tamano": [
+     42,
+     48
+    ]
+   },
+   "mochila_abierta": {
+    "archivo": "objetos/contenedores/mochila_abierta.png",
+    "tamano": [
+     43,
+     48
+    ]
+   }
+  },
+  "props_especiales": {
+   "minigun": {
+    "archivo": "objetos/props_especiales/minigun.png",
+    "tamano": [
+     32,
+     16
+    ]
+   },
+   "laptop": {
+    "archivo": "objetos/props_especiales/laptop.png",
+    "tamano": [
+     31,
+     32
+    ]
+   },
+   "celular": {
+    "archivo": "objetos/props_especiales/celular.png",
+    "tamano": [
+     19,
+     32
+    ]
+   },
+   "audifonos": {
+    "archivo": "objetos/props_especiales/audifonos.png",
+    "tamano": [
+     29,
+     32
+    ]
+   },
+   "tablet": {
+    "archivo": "objetos/props_especiales/tablet.png",
+    "tamano": [
+     23,
+     32
+    ]
+   },
+   "cel_app_salud": {
+    "archivo": "objetos/props_especiales/cel_app_salud.png",
+    "tamano": [
+     18,
+     32
+    ]
+   }
+  },
+  "efectos_generales": {
+   "arco_golpe": {
+    "archivo": "objetos/efectos_generales/arco_golpe.png",
+    "tamano": [
+     32,
+     31
+    ]
+   },
+   "salpicadura_verde": {
+    "archivo": "objetos/efectos_generales/salpicadura_verde.png",
+    "tamano": [
+     32,
+     31
+    ]
+   },
+   "polvo": {
+    "archivo": "objetos/efectos_generales/polvo.png",
+    "tamano": [
+     32,
+     29
+    ]
+   },
+   "zzz": {
+    "archivo": "objetos/efectos_generales/zzz.png",
+    "tamano": [
+     31,
+     32
+    ]
+   },
+   "estrellas_mareo": {
+    "archivo": "objetos/efectos_generales/estrellas_mareo.png",
+    "tamano": [
+     32,
+     30
+    ]
+   },
+   "exclamacion": {
+    "archivo": "objetos/efectos_generales/exclamacion.png",
+    "tamano": [
+     10,
+     32
+    ]
+   }
+  },
+  "camion": {
+   "camion": {
+    "archivo": "objetos/camion/camion.png",
+    "tamano": [
+     50,
+     160
+    ]
+   }
+  }
+ }
+}

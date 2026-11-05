@@ -1,0 +1,23 @@
+{
+ "id": "castillo__efecto_habilidad",
+ "metodo": "partes_iguales",
+ "esperados": 4,
+ "segmentos_proyeccion": 10,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  238,
+  317,
+  330,
+  329
+ ],
+ "marcas": [
+  "REVISAR: cuadros"
+ ],
+ "factor": 0.24242424242424243,
+ "dist_paleta": null,
+ "lienzo": [
+  100,
+  84
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "id": "alessandro__pegar_arriba",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  571,
+  571,
+  571,
+  571
+ ],
+ "marcas": [],
+ "factor": 0.1681260945709282,
+ "dist_paleta": 8.60675311088562,
+ "lienzo": [
+  88,
+  105
+ ]
+}

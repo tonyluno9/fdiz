@@ -1,0 +1,21 @@
+{
+ "id": "alan__quieto",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  614,
+  602,
+  614,
+  596
+ ],
+ "marcas": [],
+ "factor": 0.15789473684210525,
+ "dist_paleta": 7.907589435577393,
+ "lienzo": [
+  86,
+  102
+ ]
+}

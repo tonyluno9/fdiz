@@ -1,0 +1,23 @@
+{
+ "id": "alessandro__caminar_lado",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  546,
+  533,
+  547,
+  545,
+  529,
+  547
+ ],
+ "marcas": [],
+ "factor": 0.1759853345554537,
+ "dist_paleta": 10.514501730600992,
+ "lienzo": [
+  88,
+  105
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "id": "conserje__atacar_lado",
+ "metodo": "valle",
+ "esperados": 4,
+ "segmentos_proyeccion": 2,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  567,
+  558,
+  560,
+  568
+ ],
+ "marcas": [],
+ "factor": 0.18456078083407276,
+ "dist_paleta": 10.857615232467651,
+ "lienzo": [
+  101,
+  110
+ ]
+}

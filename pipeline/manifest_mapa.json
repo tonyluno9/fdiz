@@ -1,0 +1,675 @@
+{
+ "proyecto": "FDI-Z",
+ "lote": "mapa",
+ "modelo": "google/nano-banana-2.1/edit",
+ "total": 14,
+ "limite_generaciones": 20,
+ "jobs": [
+  {
+   "id": "mapa__salon",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "salon",
+   "frames": 8,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_salon.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 8 separate game props arranged in two rows of 4 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a student desk-chair with a black plastic seat and a small black writing tablet arm, metal legs, seen from BEHIND (the student would face away from the camera, toward the top); 2) the same student desk-chair seen from the FRONT (facing the camera); 3) a teacher's desk with an orange-brown wooden top and dark metal frame, wide; 4) a black office chair for the teacher; 5) a wide white whiteboard with a thin aluminium frame and a marker tray, hanging on a wall, seen from the front; 6) a white wall-mounted split air conditioner unit, seen from the front; 7) a window with a beige roller blind half down and a white frame, seen from the front; 8) a white four-blade ceiling fan seen from directly below, flat, round; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/salon.png",
+   "nombres": [
+    "pupitre_espalda",
+    "pupitre_frente",
+    "escritorio_profesor",
+    "silla_profesor",
+    "pizarron",
+    "minisplit",
+    "ventana_persiana",
+    "ventilador_techo"
+   ],
+   "tamanos": {
+    "pupitre_espalda": {
+     "alto": 52
+    },
+    "pupitre_frente": {
+     "alto": 52
+    },
+    "escritorio_profesor": {
+     "ancho": 96
+    },
+    "silla_profesor": {
+     "alto": 46
+    },
+    "pizarron": {
+     "ancho": 160
+    },
+    "minisplit": {
+     "ancho": 72
+    },
+    "ventana_persiana": {
+     "ancho": 96
+    },
+    "ventilador_techo": {
+     "ancho": 72
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__laboratorio",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "laboratorio",
+   "frames": 6,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_laboratorio.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 6 separate game props arranged in two rows of 3 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a section of long white computer desk with a black PC tower and a black monitor seen from BEHIND (screen facing away from the camera), keyboard; 2) the same white computer desk section with the monitor screen FACING the camera (blue screen), keyboard, PC tower; 3) the same white computer desk section seen from the side, the monitor screen facing RIGHT; 4) a black office chair with wheels seen from behind; 5) the same black office chair seen from the front; 6) a small white teacher's table with a closed grey laptop on it; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/laboratorio.png",
+   "nombres": [
+    "pc_espalda",
+    "pc_frente",
+    "pc_lado",
+    "silla_oficina_espalda",
+    "silla_oficina_frente",
+    "mesa_maestro_lab"
+   ],
+   "tamanos": {
+    "pc_espalda": {
+     "ancho": 64
+    },
+    "pc_frente": {
+     "ancho": 64
+    },
+    "pc_lado": {
+     "alto": 64
+    },
+    "silla_oficina_espalda": {
+     "alto": 46
+    },
+    "silla_oficina_frente": {
+     "alto": 46
+    },
+    "mesa_maestro_lab": {
+     "ancho": 80
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__cic",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "cic",
+   "frames": 8,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_cic.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 8 separate game props arranged in two rows of 4 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a long curved white reception counter with a brown wooden edge on top, with a monitor and papers on it; 2) a beige metal four-drawer filing cabinet; 3) a large grey and white office photocopier; 4) a stack of three brown cardboard boxes; 5) a beige metal locker column with three closed doors with small vent slits and small white labels; 6) the same beige locker column with the middle door open, showing a backpack inside; 7) a grey metal shelf full of computer parts, keyboards and small boxes; 8) an office desk with a dark wooden top, a black monitor and papers; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/cic.png",
+   "nombres": [
+    "mostrador_curvo",
+    "archivero",
+    "copiadora",
+    "cajas_carton",
+    "lockers_cerrados",
+    "locker_abierto",
+    "estante_equipo",
+    "escritorio_oficina_pc"
+   ],
+   "tamanos": {
+    "mostrador_curvo": {
+     "ancho": 176
+    },
+    "archivero": {
+     "alto": 64
+    },
+    "copiadora": {
+     "alto": 60
+    },
+    "cajas_carton": {
+     "alto": 48
+    },
+    "lockers_cerrados": {
+     "alto": 100
+    },
+    "locker_abierto": {
+     "alto": 100
+    },
+    "estante_equipo": {
+     "alto": 96
+    },
+    "escritorio_oficina_pc": {
+     "ancho": 88
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__site",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "site",
+   "frames": 7,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_site.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 7 separate game props arranged in two rows of 4 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a tall black server rack with cables and all lights off; 2) the same tall black server rack with many green and blue lights on and bundles of white and blue network cables; 3) a black UPS battery box on the floor; 4) a grey wall-mounted telecom distribution box; 5) a big grey main electrical panel on the wall with a large lever DOWN and a red light; 6) the same main electrical panel with the large lever UP and a green light; 7) a messy bundle of blue and white network cables on the floor; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/site.png",
+   "nombres": [
+    "rack_apagado",
+    "rack_prendido",
+    "ups",
+    "caja_telecom",
+    "tablero_apagado",
+    "tablero_prendido",
+    "cables_piso"
+   ],
+   "tamanos": {
+    "rack_apagado": {
+     "alto": 116
+    },
+    "rack_prendido": {
+     "alto": 116
+    },
+    "ups": {
+     "alto": 40
+    },
+    "caja_telecom": {
+     "alto": 48
+    },
+    "tablero_apagado": {
+     "alto": 72
+    },
+    "tablero_prendido": {
+     "alto": 72
+    },
+    "cables_piso": {
+     "ancho": 64
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__neveria",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "neveria",
+   "frames": 8,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_neveria.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 8 separate game props arranged in two rows of 4 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a square white plastic table with four white plastic chairs around it; 2) a single white plastic chair; 3) a long serving counter with a white top and a front covered in dark green square tiles; 4) a tall red soda refrigerator with a glass door and bottles inside; 5) a white ice cream freezer with a glass top showing colorful ice cream tubs; 6) a framed menu board hanging on a wall, with colorful pictures of ice cream and lines instead of text; 7) a potted indoor plant with green leaves and pink flowers; 8) a small cash register; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/neveria.png",
+   "nombres": [
+    "mesa_sillas_blancas",
+    "silla_blanca",
+    "barra_verde",
+    "refri_refresco",
+    "congelador_helados",
+    "menu_pared",
+    "maceta_flores",
+    "caja_registradora"
+   ],
+   "tamanos": {
+    "mesa_sillas_blancas": {
+     "ancho": 104
+    },
+    "silla_blanca": {
+     "alto": 44
+    },
+    "barra_verde": {
+     "ancho": 176
+    },
+    "refri_refresco": {
+     "alto": 104
+    },
+    "congelador_helados": {
+     "ancho": 84
+    },
+    "menu_pared": {
+     "ancho": 64
+    },
+    "maceta_flores": {
+     "alto": 76
+    },
+    "caja_registradora": {
+     "ancho": 32
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__oficinas",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "oficinas",
+   "frames": 8,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_oficinas.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 8 separate game props arranged in two rows of 4 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) an L-shaped office desk with a wooden top, a monitor and folders; 2) a simple office visitor chair with dark blue fabric; 3) a three-seat waiting room bench with dark blue seats and a metal frame; 4) a long dark wooden conference table with black chairs around it; 5) a tall wooden bookshelf full of binders and folders; 6) a water dispenser with a big blue water jug on top; 7) a section of glass partition wall with an aluminium frame, seen from the front; 8) a tall potted office plant; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/oficinas.png",
+   "nombres": [
+    "escritorio_l",
+    "silla_visita",
+    "sillon_espera",
+    "mesa_juntas",
+    "librero",
+    "garrafon_agua",
+    "cancel_vidrio",
+    "planta_oficina"
+   ],
+   "tamanos": {
+    "escritorio_l": {
+     "ancho": 104
+    },
+    "silla_visita": {
+     "alto": 44
+    },
+    "sillon_espera": {
+     "ancho": 112
+    },
+    "mesa_juntas": {
+     "ancho": 200
+    },
+    "librero": {
+     "alto": 100
+    },
+    "garrafon_agua": {
+     "alto": 68
+    },
+    "cancel_vidrio": {
+     "ancho": 64
+    },
+    "planta_oficina": {
+     "alto": 68
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__banos",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "banos",
+   "frames": 6,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 6 separate game props arranged in two rows of 3 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a white toilet seen from the front; 2) a white urinal on a wall; 3) a white sink on a counter with a mirror above it; 4) a grey toilet stall partition with its door closed; 5) the same grey toilet stall with its door open; 6) a small white wall-mounted hand dryer; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/banos.png",
+   "nombres": [
+    "inodoro",
+    "mingitorio",
+    "lavabo_espejo",
+    "cubiculo_cerrado",
+    "cubiculo_abierto",
+    "secador_manos"
+   ],
+   "tamanos": {
+    "inodoro": {
+     "alto": 48
+    },
+    "mingitorio": {
+     "alto": 56
+    },
+    "lavabo_espejo": {
+     "ancho": 64
+    },
+    "cubiculo_cerrado": {
+     "alto": 100
+    },
+    "cubiculo_abierto": {
+     "alto": 100
+    },
+    "secador_manos": {
+     "alto": 30
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__exterior",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "exterior",
+   "frames": 8,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_exterior.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 8 separate game props arranged in two rows of 4 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a round grey metal picnic table with three curved grey metal benches around it; 2) a long grey metal bench with legs; 3) a tall modern white street lamp post with a round lamp head; 4) a grey outdoor trash can; 5) a tall navy blue and white information sign board standing on two legs, with blank lines instead of text; 6) an outdoor air conditioner condenser unit, white with a round fan grille; 7) a straight section of stainless steel railing with two horizontal bars; 8) a flat square metal drain cover on the ground; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/exterior.png",
+   "nombres": [
+    "mesa_redonda_bancas",
+    "banca_metal",
+    "poste_luz",
+    "bote_exterior",
+    "directorio",
+    "condensador_ac",
+    "barandal",
+    "tapa_registro"
+   ],
+   "tamanos": {
+    "mesa_redonda_bancas": {
+     "ancho": 132
+    },
+    "banca_metal": {
+     "ancho": 96
+    },
+    "poste_luz": {
+     "alto": 200
+    },
+    "bote_exterior": {
+     "alto": 48
+    },
+    "directorio": {
+     "alto": 116
+    },
+    "condensador_ac": {
+     "ancho": 56
+    },
+    "barandal": {
+     "ancho": 96
+    },
+    "tapa_registro": {
+     "ancho": 44
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__vegetacion",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "vegetacion",
+   "frames": 8,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_vegetacion.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 8 separate game props arranged in two rows of 4 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a tall royal palm tree with a smooth grey trunk and a green crown; 2) a shorter young royal palm tree; 3) a big round leafy tropical tree with a dense dark green crown; 4) a medium leafy tropical tree; 5) a round green bush; 6) a young thin tree tied to a wooden stake; 7) a low square planter made of rough grey-beige limestone rocks with grass inside; 8) a small plant with red flowers; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/vegetacion.png",
+   "nombres": [
+    "palma_alta",
+    "palma_baja",
+    "arbol_grande",
+    "arbol_mediano",
+    "arbusto",
+    "arbol_joven",
+    "jardinera_piedra",
+    "mata_flores"
+   ],
+   "tamanos": {
+    "palma_alta": {
+     "alto": 288
+    },
+    "palma_baja": {
+     "alto": 192
+    },
+    "arbol_grande": {
+     "ancho": 192
+    },
+    "arbol_mediano": {
+     "ancho": 128
+    },
+    "arbusto": {
+     "ancho": 64
+    },
+    "arbol_joven": {
+     "alto": 96
+    },
+    "jardinera_piedra": {
+     "ancho": 96
+    },
+    "mata_flores": {
+     "ancho": 44
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__hitos",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "hitos",
+   "frames": 4,
+   "escala": "mapa",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_hitos.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 4 separate game props arranged in one single row of 4, each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a big navy blue rectangular entrance arch with a small guard booth with a window on its left side, the sign band on top is plain navy blue and BLANK (no text), a white metal fence on each side; 2) a big heart-shaped metal mesh cage filled with colorful plastic bottle caps standing on a low round beige concrete platform; 3) a small navy blue pedestrian gate arch with an open grey metal gate; 4) a straight section of white metal picket fence; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/hitos.png",
+   "nombres": [
+    "arco_entrada",
+    "corazon_tapitas",
+    "arco_salida",
+    "reja_blanca"
+   ],
+   "tamanos": {
+    "arco_entrada": {
+     "ancho": 320
+    },
+    "corazon_tapitas": {
+     "ancho": 160
+    },
+    "arco_salida": {
+     "ancho": 160
+    },
+    "reja_blanca": {
+     "ancho": 128
+    }
+   },
+   "filas": 1,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__estacionamiento",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "estacionamiento",
+   "frames": 8,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_estacionamiento.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 8 separate game props arranged in two rows of 4 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a white pickup truck seen from above at a 3/4 angle, pointing UP (hood toward the top of the image); 2) a red sedan car seen from above at a 3/4 angle, pointing UP; 3) a grey SUV seen from above at a 3/4 angle, pointing UP; 4) a yellow and black striped speed bump, horizontal; 5) a wide sliding metal gate, closed, white bars; 6) the same sliding gate pushed open to the side (mostly hidden, only a short section visible); 7) an orange traffic cone with a white stripe; 8) a small white and navy blue guard booth with a window; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/estacionamiento.png",
+   "nombres": [
+    "pickup_blanca",
+    "sedan_rojo",
+    "suv_gris",
+    "tope",
+    "reja_cerrada",
+    "reja_abierta",
+    "cono",
+    "caseta_vigilancia"
+   ],
+   "tamanos": {
+    "pickup_blanca": {
+     "alto": 190
+    },
+    "sedan_rojo": {
+     "alto": 176
+    },
+    "suv_gris": {
+     "alto": 184
+    },
+    "tope": {
+     "ancho": 96
+    },
+    "reja_cerrada": {
+     "ancho": 192
+    },
+    "reja_abierta": {
+     "ancho": 80
+    },
+    "cono": {
+     "alto": 34
+    },
+    "caseta_vigilancia": {
+     "alto": 140
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__cancha",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "cancha",
+   "frames": 4,
+   "escala": "mapa",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_cancha.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 4 separate game props arranged in one single row of 4, each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a basketball hoop with a white backboard on a tall white steel post; 2) a tall white steel column that holds a roof; 3) a straight section of tall green chain-link fence; 4) a small white futsal goal with a net; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/cancha.png",
+   "nombres": [
+    "canasta_basquet",
+    "poste_techo",
+    "malla",
+    "porteria"
+   ],
+   "tamanos": {
+    "canasta_basquet": {
+     "alto": 200
+    },
+    "poste_techo": {
+     "alto": 200
+    },
+    "malla": {
+     "ancho": 96
+    },
+    "porteria": {
+     "ancho": 128
+    }
+   },
+   "filas": 1,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__senaletica",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "senaletica",
+   "frames": 6,
+   "escala": "mapa",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_senaletica.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Draw every object in 3/4 top-down view for a 2D top-down video game (camera above and in front, like Stardew Valley or classic Pokemon games: we see the top surface and the front face of each object), no perspective distortion. Create exactly 6 separate game props arranged in two rows of 3 (top row first, left to right, then bottom row left to right), each one centered in its own equal-size cell with wide clear empty space between them, nothing touching another object or the image edges, all at a consistent real-world scale relative to each other. Objects in order: 1) a cork bulletin board on a wall with colorful posters and papers (no readable text); 2) a green emergency exit sign with a white running figure pictogram and an arrow; 3) a round white wall clock; 4) a red fire extinguisher hanging on a wall under a small red sign; 5) a steel drinking fountain on a wall; 6) a white first aid box with a red cross on a wall; Flat solid magenta background (#FF00FF) filling the whole image, no floor, no floor shadow, no text, no letters, no numbers, no people, no characters, no borders, no grid lines.",
+   "salida_raw": "generado/raw/mapa/senaletica.png",
+   "nombres": [
+    "tablero_avisos",
+    "salida_emergencia",
+    "reloj_pared",
+    "extintor_pared",
+    "bebedero",
+    "botiquin"
+   ],
+   "tamanos": {
+    "tablero_avisos": {
+     "ancho": 72
+    },
+    "salida_emergencia": {
+     "ancho": 40
+    },
+    "reloj_pared": {
+     "ancho": 28
+    },
+    "extintor_pared": {
+     "alto": 56
+    },
+    "bebedero": {
+     "alto": 48
+    },
+    "botiquin": {
+     "ancho": 32
+    }
+   },
+   "filas": 2,
+   "fase": "M"
+  },
+  {
+   "id": "mapa__texturas",
+   "categoria": "mapa",
+   "entidad": "mapa",
+   "animacion": "texturas",
+   "frames": 4,
+   "escala": "textura",
+   "aspect_ratio": "1:1",
+   "resolution": "1k",
+   "referencias": [
+    "mapa/referencias/estilo_mapa.png",
+    "mapa/referencias/fotos_texturas.png"
+   ],
+   "prompt": "Use image 1 ONLY as the pixel art style reference: the same chunky pixel size, flat block shading, dark 1-pixel outlines and the same color saturation as those game objects. Use image 2 only as a reference of what the real objects look like (shapes, materials and colors); it is a photo of the real school, do not copy its perspective, lighting or background. Create a 2x2 grid of four square seamless TILEABLE ground textures for a 2D top-down pixel art game, seen straight from above (orthographic, no perspective), each texture filling its whole square, separated by thin magenta lines: top-left) beige-tan stamped concrete with an irregular flagstone pattern of thin darker joints; top-right) a wall face of rough grey-beige limestone rocks with dark mortar gaps; bottom-left) green grass with small darker blades and tiny light specks; bottom-right) brown dry dirt with a few small pebbles and dry leaves. Chunky pixels, flat colors, no text, no objects, no shadows from outside.",
+   "salida_raw": "generado/raw/mapa/texturas.png",
+   "nombres": [
+    "concreto_estampado",
+    "muro_piedra",
+    "pasto",
+    "tierra"
+   ],
+   "tamanos": {},
+   "filas": 2,
+   "fase": "T"
+  }
+ ]
+}

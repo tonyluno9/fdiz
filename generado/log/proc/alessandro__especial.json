@@ -1,0 +1,22 @@
+{
+ "id": "alessandro__especial",
+ "metodo": "componentes",
+ "esperados": 5,
+ "segmentos_proyeccion": 3,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  601,
+  601,
+  601,
+  601,
+  601
+ ],
+ "marcas": [],
+ "factor": 0.15973377703826955,
+ "dist_paleta": 11.367986106872559,
+ "lienzo": [
+  88,
+  105
+ ]
+}

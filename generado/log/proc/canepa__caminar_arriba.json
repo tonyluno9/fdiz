@@ -1,0 +1,23 @@
+{
+ "id": "canepa__caminar_arriba",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  530,
+  530,
+  530,
+  530,
+  530,
+  535
+ ],
+ "marcas": [],
+ "factor": 0.1811320754716981,
+ "dist_paleta": 8.250970363616943,
+ "lienzo": [
+  79,
+  108
+ ]
+}

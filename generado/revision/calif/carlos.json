@@ -1,0 +1,15 @@
+{
+  "carlos__quieto": {"calificacion": "OK", "razon": "Mismo personaje (lentes, sudadera verde), respiración y parpadeo correctos.", "correccion": null},
+  "carlos__caminar_abajo": {"calificacion": "OK", "razon": "Mismo personaje de frente, ciclo de 6 cuadros correcto aunque el braceo es sutil.", "correccion": null},
+  "carlos__caminar_arriba": {"calificacion": "OK", "razon": "De espaldas, mismo cabello y ropa, ciclo de 6 cuadros correcto.", "correccion": null},
+  "carlos__caminar_lado": {"calificacion": "REHACER", "razon": "Torso y cara de frente con ambos ojos y lentes visibles; solo las piernas caminan a la derecha, no es vista de perfil.", "correccion": "True side profile view facing right: head, face and body turned fully to the right, only one eye visible."},
+  "carlos__pegar_lado": {"calificacion": "REVISAR", "razon": "Mismo personaje y golpe hacia la derecha con arco, pero en vista 3/4 con la cara casi de frente en lugar de perfil.", "correccion": null},
+  "carlos__pegar_abajo": {"calificacion": "REHACER", "razon": "El puñetazo va hacia el lado derecho, igual que pegar_lado, no hacia la cámara.", "correccion": "Punch straight toward the camera, fist foreshortened in front of the body, not to the side."},
+  "carlos__pegar_arriba": {"calificacion": "OK", "razon": "De espaldas, golpe hacia arriba con arco blanco, mismo personaje.", "correccion": null},
+  "carlos__caer_levantarse": {"calificacion": "OK", "razon": "Mismo personaje, secuencia de caída, acostado y levantarse correcta en 6 cuadros.", "correccion": null},
+  "carlos__festejo": {"calificacion": "OK", "razon": "Puño, salto con brazos arriba, sonrisa y pulgar arriba; mismo personaje.", "correccion": null},
+  "carlos__habilidad": {"calificacion": "OK", "razon": "Mismo personaje, saca llavero, levanta y gira la llave dorada, sonrisa final.", "correccion": null},
+  "carlos__especial": {"calificacion": "REVISAR", "razon": "SEPARACIÓN: la imagen original está bien, pero el escudo del cuadro 5 quedó recortado en el borde (casi se toca con el cuadro 4); el cambio de color se debe al escudo, no al personaje.", "correccion": null},
+  "carlos__efecto_habilidad": {"calificacion": "OK", "razon": "Destello dorado con chispas en 4 cuadros, estilo pixel correcto.", "correccion": null},
+  "carlos__efecto_especial": {"calificacion": "REVISAR", "razon": "La burbuja original está bien, pero el recorte de magenta perforó el interior translúcido (hueco irregular en 3 de 4 cuadros) y dejó 2102 px con tinte magenta.", "correccion": null}
+}

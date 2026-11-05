@@ -1,0 +1,21 @@
+{
+ "id": "objetos__lanzables",
+ "metodo": "valle",
+ "esperados": 4,
+ "segmentos_proyeccion": 3,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  288,
+  218,
+  308,
+  58
+ ],
+ "marcas": [],
+ "factor": null,
+ "dist_paleta": null,
+ "lienzo": [
+  36,
+  36
+ ]
+}

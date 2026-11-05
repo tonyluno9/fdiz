@@ -1,0 +1,21 @@
+{
+ "id": "tonyfuerte__quieto",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  626,
+  624,
+  627,
+  617
+ ],
+ "marcas": [],
+ "factor": 0.1536,
+ "dist_paleta": 32.24644184112549,
+ "lienzo": [
+  85,
+  100
+ ]
+}

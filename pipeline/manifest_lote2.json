@@ -1,0 +1,1527 @@
+{
+ "proyecto": "FDI-Z",
+ "lote": 2,
+ "modelo": "google/nano-banana-2.1/edit",
+ "total": 78,
+ "limite_generaciones": 95,
+ "jobs": [
+  {
+   "id": "tony__giro",
+   "categoria": "giros",
+   "entidad": "tony",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/tony/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "tonyfuerte__giro",
+   "categoria": "giros",
+   "entidad": "tonyfuerte",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tonyfuerte.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Keep the bright golden anime-style aura around him in all three views. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/tonyfuerte/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "miranda__giro",
+   "categoria": "giros",
+   "entidad": "miranda",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/miranda.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/miranda/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "castillo__giro",
+   "categoria": "giros",
+   "entidad": "castillo",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/castillo.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/castillo/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "alessandro__giro",
+   "categoria": "giros",
+   "entidad": "alessandro",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/alessandro/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "gabo__giro",
+   "categoria": "giros",
+   "entidad": "gabo",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/gabo.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/gabo/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "carlos__giro",
+   "categoria": "giros",
+   "entidad": "carlos",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/carlos.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/carlos/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "normal__giro",
+   "categoria": "giros",
+   "entidad": "normal",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z1.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Zombie standing pose with arms stretched forward in all three views. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/normal/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "corredor__giro",
+   "categoria": "giros",
+   "entidad": "corredor",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z2.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Zombie standing pose with arms stretched forward in all three views. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/corredor/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "conserje__giro",
+   "categoria": "giros",
+   "entidad": "conserje",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z5.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. He holds his mop (with the mop head clearly visible) in all three views. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/conserje/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "curado__giro",
+   "categoria": "giros",
+   "entidad": "curado",
+   "animacion": "giro",
+   "frames": 3,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z0.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a character turnaround sheet for a 2D top-down pixel art game: the same character drawn three times in one single row, same size and scale, feet on the same baseline, wide empty space between them, nothing touching the image edges. Left: front view, exactly like image 1. Middle: true side profile facing RIGHT (only one eye visible, nose pointing right, body turned 90 degrees). Right: back view (we see the back of the head and the back of the body). Neutral standing pose. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/giros/curado/giro.png",
+   "fase": "A"
+  },
+  {
+   "id": "tonyfuerte__pegar_lado",
+   "categoria": "personajes",
+   "entidad": "tonyfuerte",
+   "animacion": "pegar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tonyfuerte.png",
+    "generado/raw/giros/tonyfuerte/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking to the right (side profile, facing right) with a strong punch, empty hands. Frame 1: wind-up, pulling the arm back. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc in front of the fist. Frame 4: recovering to the ready pose. Keep the bright golden anime-style aura around him in every frame. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera). Frame 1: fist pulled back at the waist. Frame 2: swinging forward. Frame 3: full punch to the right with a small white motion arc. Frame 4: side-view guard pose. Keep the golden aura in every frame.",
+   "salida_raw": "generado/raw/personajes/tonyfuerte/pegar_lado.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "tonyfuerte__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/tonyfuerte/pegar_lado.png"
+  },
+  {
+   "id": "normal__atacar_abajo",
+   "categoria": "zombies",
+   "entidad": "normal",
+   "animacion": "atacar_abajo",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z1.png",
+    "generado/raw/giros/normal/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie attacking toward the viewer (front view): Frame 1: leaning back. Frame 2: lunging forward. Frame 3: clawing at full reach with a small motion arc. Frame 4: recovering. Use image 2 only as a guide for the views: for this animation use the FRONT view from image 2 in every frame. Both arms reach straight toward the camera (hands in front of the chest, foreshortened), body symmetrical, never turned to the side.",
+   "salida_raw": "generado/raw/zombies/normal/atacar_abajo.png",
+   "fps": 10,
+   "loop": false,
+   "depende_de": "normal__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/normal/atacar_abajo.png"
+  },
+  {
+   "id": "normal__golpe_morir",
+   "categoria": "zombies",
+   "entidad": "normal",
+   "animacion": "golpe_morir",
+   "frames": 6,
+   "escala": "frame_1_standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z1.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie getting hit and defeated, front view, school-friendly (no blood, no gore). Frame 1: hit flinch. Frame 2: stagger backwards. Frame 3: falling. Frame 4: lying flat on the floor seen from above. Frame 5: body dissolving into green smoke. Frame 6: only a small green smoke puff left. The lying body in frame 4 is drawn small enough to fit completely inside its own cell and never touches frames 3 or 5.",
+   "salida_raw": "generado/raw/zombies/normal/golpe_morir.png",
+   "fps": 10,
+   "loop": false,
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/normal/golpe_morir.png"
+  },
+  {
+   "id": "conserje__caminar_lado",
+   "categoria": "zombies",
+   "entidad": "conserje",
+   "animacion": "caminar_lado",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z5.png",
+    "generado/raw/giros/conserje/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie walking to the right (side profile, facing right), shuffling zombie walk with arms stretched forward, 6-frame walk cycle. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera). He holds his mop with the mop head clearly visible in every frame.",
+   "salida_raw": "generado/raw/zombies/conserje/caminar_lado.png",
+   "fps": 8,
+   "loop": true,
+   "depende_de": "conserje__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/conserje/caminar_lado.png"
+  },
+  {
+   "id": "conserje__golpe_morir",
+   "categoria": "zombies",
+   "entidad": "conserje",
+   "animacion": "golpe_morir",
+   "frames": 6,
+   "escala": "frame_1_standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z5.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie getting hit and defeated, front view, school-friendly (no blood, no gore). Frame 1: hit flinch. Frame 2: stagger backwards. Frame 3: falling. Frame 4: lying flat on the floor seen from above. Frame 5: body dissolving into green smoke. Frame 6: only a small green smoke puff left. The lying body in frame 4 (with its mop) is drawn small enough to fit completely inside its own cell and never touches frames 3 or 5.",
+   "salida_raw": "generado/raw/zombies/conserje/golpe_morir.png",
+   "fps": 10,
+   "loop": false,
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/conserje/golpe_morir.png"
+  },
+  {
+   "id": "tony__pegar_lado",
+   "categoria": "personajes",
+   "entidad": "tony",
+   "animacion": "pegar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png",
+    "generado/raw/giros/tony/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking to the right (side profile, facing right) with a strong punch, empty hands. Frame 1: wind-up, pulling the arm back. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc in front of the fist. Frame 4: recovering to the ready pose. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/personajes/tony/pegar_lado.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "tony__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/tony/pegar_lado.png"
+  },
+  {
+   "id": "miranda__pegar_lado",
+   "categoria": "personajes",
+   "entidad": "miranda",
+   "animacion": "pegar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/miranda.png",
+    "generado/raw/giros/miranda/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking to the right (side profile, facing right) with a strong punch, empty hands. Frame 1: wind-up, pulling the arm back. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc in front of the fist. Frame 4: recovering to the ready pose. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/personajes/miranda/pegar_lado.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "miranda__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/miranda/pegar_lado.png"
+  },
+  {
+   "id": "miranda__caer_levantarse",
+   "categoria": "personajes",
+   "entidad": "miranda",
+   "animacion": "caer_levantarse",
+   "frames": 6,
+   "escala": "frames_1_6_standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/miranda.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Getting knocked down and getting back up, front view. Frame 1: hit flinch, leaning back. Frame 2: knees buckling. Frame 3: falling backwards. Frame 4: lying flat on the floor seen from above (body horizontal, eyes closed). Frame 5: pushing up from the floor. Frame 6: standing again. Frame 4 must show her WHOLE body (head, torso, legs) lying flat on the floor seen from above, inside its own cell. Do not add accessories that are not in image 1 (no hair bow).",
+   "salida_raw": "generado/raw/personajes/miranda/caer_levantarse.png",
+   "fps": 8,
+   "loop": false,
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/miranda/caer_levantarse.png"
+  },
+  {
+   "id": "miranda__especial",
+   "categoria": "personajes",
+   "entidad": "miranda",
+   "animacion": "especial",
+   "frames": 5,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/miranda.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 5 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Ability 'Minigun', side profile facing right: Frame 1: pulls out a huge gray six-barrel minigun. Frame 2: holds it with both hands, aiming right. Frame 3: firing with a bright yellow muzzle flash. Frame 4: firing, bullets flying right. Frame 5: firing with shell casings falling. Leave wide empty space at the right side of every frame so the minigun barrel and muzzle flash are fully visible; nothing touches the image edges.",
+   "salida_raw": "generado/raw/personajes/miranda/especial.png",
+   "fps": 10,
+   "loop": false,
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/miranda/especial.png"
+  },
+  {
+   "id": "cesar__efecto_habilidad",
+   "categoria": "efectos",
+   "entidad": "cesar",
+   "animacion": "efecto_habilidad",
+   "frames": 4,
+   "escala": "effect",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/cesar.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create a horizontal strip of exactly 4 animation frames of a visual effect only, with NO character: Glowing green lines of computer code and binary digits floating and fading, 4-frame loop. Frames in one single row, evenly spaced, equal size, clear empty space between them. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Use simple, sparse, chunky pixel code symbols (only 0, 1, <, >, / characters), not dense text; every frame has a similar amount of symbols and frame 4 is still clearly visible.",
+   "salida_raw": "generado/raw/efectos/cesar/efecto_habilidad.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "B",
+   "reemplaza": "generado/raw/efectos/cesar/efecto_habilidad.png"
+  },
+  {
+   "id": "cesar__efecto_especial",
+   "categoria": "efectos",
+   "entidad": "cesar",
+   "animacion": "efecto_especial",
+   "frames": 4,
+   "escala": "effect",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/cesar.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create a horizontal strip of exactly 4 animation frames of a visual effect only, with NO character: Electric blue light burst with expanding sound-wave rings, 4 frames expanding outward. Frames in one single row, evenly spaced, equal size, clear empty space between them. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Keep every ring small enough that nothing touches the image edges; wide empty margins around each frame.",
+   "salida_raw": "generado/raw/efectos/cesar/efecto_especial.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "B",
+   "reemplaza": "generado/raw/efectos/cesar/efecto_especial.png"
+  },
+  {
+   "id": "castillo__caminar_lado",
+   "categoria": "personajes",
+   "entidad": "castillo",
+   "animacion": "caminar_lado",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/castillo.png",
+    "generado/raw/giros/castillo/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Walking to the right (side profile view, facing right), same 6-frame walk cycle: right foot forward, lowest point, passing, left foot forward, lowest point, passing. Arms swing opposite to the legs. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/personajes/castillo/caminar_lado.png",
+   "fps": 10,
+   "loop": true,
+   "depende_de": "castillo__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/castillo/caminar_lado.png"
+  },
+  {
+   "id": "castillo__pegar_lado",
+   "categoria": "personajes",
+   "entidad": "castillo",
+   "animacion": "pegar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/castillo.png",
+    "generado/raw/giros/castillo/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking to the right (side profile, facing right) with a strong punch, empty hands. Frame 1: wind-up, pulling the arm back. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc in front of the fist. Frame 4: recovering to the ready pose. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/personajes/castillo/pegar_lado.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "castillo__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/castillo/pegar_lado.png"
+  },
+  {
+   "id": "castillo__pegar_arriba",
+   "categoria": "personajes",
+   "entidad": "castillo",
+   "animacion": "pegar_arriba",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/castillo.png",
+    "generado/raw/giros/castillo/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking away from the viewer (back view) with a strong punch, empty hands. Frame 1: wind-up. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc. Frame 4: recovering. Use image 2 only as a guide for the views: for this animation use the BACK view from image 2 in every frame. The punch goes straight up, away from the viewer (toward the top of the image), not to the side.",
+   "salida_raw": "generado/raw/personajes/castillo/pegar_arriba.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "castillo__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/castillo/pegar_arriba.png"
+  },
+  {
+   "id": "castillo__especial",
+   "categoria": "personajes",
+   "entidad": "castillo",
+   "animacion": "especial",
+   "frames": 5,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/castillo.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 5 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Ability 'Health app', front view: Frame 1: pulls out his phone. Frame 2: holds it up toward the front. Frame 3: a blue scanning beam comes out of the phone. Frame 4: the beam sweeps with small green plus symbols. Frame 5: satisfied smile looking at the phone. The scanning beam is solid opaque light BLUE pixel-art light (not purple, not translucent) and goes forward from the phone without covering his face or arm.",
+   "salida_raw": "generado/raw/personajes/castillo/especial.png",
+   "fps": 10,
+   "loop": false,
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/castillo/especial.png"
+  },
+  {
+   "id": "castillo__efecto_especial",
+   "categoria": "efectos",
+   "entidad": "castillo",
+   "animacion": "efecto_especial",
+   "frames": 4,
+   "escala": "effect",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/castillo.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create a horizontal strip of exactly 4 animation frames of a visual effect only, with NO character: A blue phone scanning beam sweeping forward with small green plus (+) health symbols, 4-frame loop. Frames in one single row, evenly spaced, equal size, clear empty space between them. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Solid opaque light BLUE beam (not purple or violet, not translucent), with the same beam shape in all 4 frames so it loops smoothly.",
+   "salida_raw": "generado/raw/efectos/castillo/efecto_especial.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "B",
+   "reemplaza": "generado/raw/efectos/castillo/efecto_especial.png"
+  },
+  {
+   "id": "alessandro__caminar_lado",
+   "categoria": "personajes",
+   "entidad": "alessandro",
+   "animacion": "caminar_lado",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png",
+    "generado/raw/giros/alessandro/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Walking to the right (side profile view, facing right), same 6-frame walk cycle: right foot forward, lowest point, passing, left foot forward, lowest point, passing. Arms swing opposite to the legs. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/personajes/alessandro/caminar_lado.png",
+   "fps": 10,
+   "loop": true,
+   "depende_de": "alessandro__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/alessandro/caminar_lado.png"
+  },
+  {
+   "id": "alessandro__pegar_lado",
+   "categoria": "personajes",
+   "entidad": "alessandro",
+   "animacion": "pegar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png",
+    "generado/raw/giros/alessandro/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking to the right (side profile, facing right) with a strong punch, empty hands. Frame 1: wind-up, pulling the arm back. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc in front of the fist. Frame 4: recovering to the ready pose. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/personajes/alessandro/pegar_lado.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "alessandro__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/alessandro/pegar_lado.png"
+  },
+  {
+   "id": "alessandro__pegar_arriba",
+   "categoria": "personajes",
+   "entidad": "alessandro",
+   "animacion": "pegar_arriba",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png",
+    "generado/raw/giros/alessandro/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking away from the viewer (back view) with a strong punch, empty hands. Frame 1: wind-up. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc. Frame 4: recovering. Use image 2 only as a guide for the views: for this animation use the BACK view from image 2 in every frame. The punch goes straight up, away from the viewer (toward the top of the image), not to the side.",
+   "salida_raw": "generado/raw/personajes/alessandro/pegar_arriba.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "alessandro__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/alessandro/pegar_arriba.png"
+  },
+  {
+   "id": "alessandro__efecto_habilidad",
+   "categoria": "efectos",
+   "entidad": "alessandro",
+   "animacion": "efecto_habilidad",
+   "frames": 4,
+   "escala": "effect",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create a horizontal strip of exactly 4 animation frames of a visual effect only, with NO character: Yellow comic laughter burst lines and small bouncing laugh symbols, 4 frames. Frames in one single row, evenly spaced, equal size, clear empty space between them. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Not an explosion: simple yellow comic laughter lines radiating like a sound burst, with small bouncing yellow laugh marks.",
+   "salida_raw": "generado/raw/efectos/alessandro/efecto_habilidad.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "B",
+   "reemplaza": "generado/raw/efectos/alessandro/efecto_habilidad.png"
+  },
+  {
+   "id": "gabo__caminar_lado",
+   "categoria": "personajes",
+   "entidad": "gabo",
+   "animacion": "caminar_lado",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/gabo.png",
+    "generado/raw/giros/gabo/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Walking to the right (side profile view, facing right), same 6-frame walk cycle: right foot forward, lowest point, passing, left foot forward, lowest point, passing. Arms swing opposite to the legs. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/personajes/gabo/caminar_lado.png",
+   "fps": 10,
+   "loop": true,
+   "depende_de": "gabo__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/gabo/caminar_lado.png"
+  },
+  {
+   "id": "gabo__pegar_lado",
+   "categoria": "personajes",
+   "entidad": "gabo",
+   "animacion": "pegar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/gabo.png",
+    "generado/raw/giros/gabo/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking to the right (side profile, facing right) with a strong punch, empty hands. Frame 1: wind-up, pulling the arm back. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc in front of the fist. Frame 4: recovering to the ready pose. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/personajes/gabo/pegar_lado.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "gabo__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/gabo/pegar_lado.png"
+  },
+  {
+   "id": "gabo__efecto_habilidad",
+   "categoria": "efectos",
+   "entidad": "gabo",
+   "animacion": "efecto_habilidad",
+   "frames": 4,
+   "escala": "effect",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/gabo.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create a horizontal strip of exactly 4 animation frames of a visual effect only, with NO character: Horizontal speed lines and a dust trail moving to the left, 4-frame loop. Frames in one single row, evenly spaced, equal size, clear empty space between them. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Exactly 4 frames in ONE single horizontal row (not a grid).",
+   "salida_raw": "generado/raw/efectos/gabo/efecto_habilidad.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "B",
+   "reemplaza": "generado/raw/efectos/gabo/efecto_habilidad.png",
+   "intentar_reprocesar_primero": true,
+   "nota": "El raw actual viene en cuadrícula 2x2: primero intenta separarlo como cuadrícula de 2x2 antes de regenerar."
+  },
+  {
+   "id": "carlos__pegar_lado",
+   "categoria": "personajes",
+   "entidad": "carlos",
+   "animacion": "pegar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/carlos.png",
+    "generado/raw/giros/carlos/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking to the right (side profile, facing right) with a strong punch, empty hands. Frame 1: wind-up, pulling the arm back. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc in front of the fist. Frame 4: recovering to the ready pose. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/personajes/carlos/pegar_lado.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "carlos__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/carlos/pegar_lado.png"
+  },
+  {
+   "id": "carlos__especial",
+   "categoria": "personajes",
+   "entidad": "carlos",
+   "animacion": "especial",
+   "frames": 5,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/carlos.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 5 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Ability 'Tank', front view: Frame 1: plants his feet firmly. Frame 2: crosses his arms in front. Frame 3: a translucent blue shield bubble appears around him. Frame 4: the shield glows stronger. Frame 5: confident pose inside the shield. The shield bubble in frames 3-5 stays fully inside its own frame cell, with clear empty space around it.",
+   "salida_raw": "generado/raw/personajes/carlos/especial.png",
+   "fps": 10,
+   "loop": false,
+   "fase": "B",
+   "reemplaza": "generado/raw/personajes/carlos/especial.png",
+   "intentar_reprocesar_primero": true
+  },
+  {
+   "id": "carlos__efecto_especial",
+   "categoria": "efectos",
+   "entidad": "carlos",
+   "animacion": "efecto_especial",
+   "frames": 4,
+   "escala": "effect",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/carlos.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create a horizontal strip of exactly 4 animation frames of a visual effect only, with NO character: A translucent blue protective shield bubble, empty inside, 4-frame pulsing loop. Frames in one single row, evenly spaced, equal size, clear empty space between them. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Draw the shield bubble as an OPAQUE light-blue pixel outline with a few opaque white highlight pixels, NOT translucent; the inside of the bubble is plain background.",
+   "salida_raw": "generado/raw/efectos/carlos/efecto_especial.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "B",
+   "reemplaza": "generado/raw/efectos/carlos/efecto_especial.png"
+  },
+  {
+   "id": "normal__caminar_lado",
+   "categoria": "zombies",
+   "entidad": "normal",
+   "animacion": "caminar_lado",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z1.png",
+    "generado/raw/giros/normal/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie walking to the right (side profile, facing right), shuffling zombie walk with arms stretched forward, 6-frame walk cycle. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera). His arms stay stretched forward in all 6 frames.",
+   "salida_raw": "generado/raw/zombies/normal/caminar_lado.png",
+   "fps": 8,
+   "loop": true,
+   "depende_de": "normal__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/normal/caminar_lado.png"
+  },
+  {
+   "id": "normal__atacar_lado",
+   "categoria": "zombies",
+   "entidad": "normal",
+   "animacion": "atacar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z1.png",
+    "generado/raw/giros/normal/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie attacking to the right (side profile): Frame 1: leaning back. Frame 2: lunging forward. Frame 3: clawing/biting at full reach with a small motion arc. Frame 4: recovering. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/zombies/normal/atacar_lado.png",
+   "fps": 10,
+   "loop": false,
+   "depende_de": "normal__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/normal/atacar_lado.png"
+  },
+  {
+   "id": "corredor__atacar_lado",
+   "categoria": "zombies",
+   "entidad": "corredor",
+   "animacion": "atacar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z2.png",
+    "generado/raw/giros/corredor/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie attacking to the right (side profile): Frame 1: leaning back. Frame 2: lunging forward. Frame 3: clawing/biting at full reach with a small motion arc. Frame 4: recovering. This is the fast runner zombie: keep his hunched running posture and make the movement fast and frantic. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera).",
+   "salida_raw": "generado/raw/zombies/corredor/atacar_lado.png",
+   "fps": 10,
+   "loop": false,
+   "depende_de": "corredor__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/corredor/atacar_lado.png"
+  },
+  {
+   "id": "griton__golpe_morir",
+   "categoria": "zombies",
+   "entidad": "griton",
+   "animacion": "golpe_morir",
+   "frames": 6,
+   "escala": "frame_1_standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z3.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie getting hit and defeated, front view, school-friendly (no blood, no gore). Frame 1: hit flinch. Frame 2: stagger backwards. Frame 3: falling. Frame 4: lying flat on the floor seen from above. Frame 5: body dissolving into green smoke. Frame 6: only a small green smoke puff left. The lying body in frame 4 is drawn small enough to fit completely inside its own cell and never touches frames 3 or 5. Frames 2 and 3 stay in front view.",
+   "salida_raw": "generado/raw/zombies/griton/golpe_morir.png",
+   "fps": 10,
+   "loop": false,
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/griton/golpe_morir.png"
+  },
+  {
+   "id": "gordo__golpe_morir",
+   "categoria": "zombies",
+   "entidad": "gordo",
+   "animacion": "golpe_morir",
+   "frames": 6,
+   "escala": "frame_1_standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z4.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie getting hit and defeated, front view, school-friendly (no blood, no gore). Frame 1: hit flinch. Frame 2: stagger backwards. Frame 3: falling. Frame 4: lying flat on the floor seen from above. Frame 5: body dissolving into green smoke. Frame 6: only a small green smoke puff left. This is the big heavy zombie: slow and heavy movement, keep his width. The lying body in frame 4 is drawn small enough to fit completely inside its own cell and never touches frames 3 or 5.",
+   "salida_raw": "generado/raw/zombies/gordo/golpe_morir.png",
+   "fps": 10,
+   "loop": false,
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/gordo/golpe_morir.png",
+   "intentar_reprocesar_primero": true
+  },
+  {
+   "id": "conserje__caminar_abajo",
+   "categoria": "zombies",
+   "entidad": "conserje",
+   "animacion": "caminar_abajo",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z5.png",
+    "generado/raw/giros/conserje/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie walking toward the viewer (front view) with a slow shuffling zombie walk, arms stretched forward, 6-frame walk cycle: right foot forward, lowest point, passing, left foot forward, lowest point, passing. Use image 2 only as a guide for the views: for this animation use the FRONT view from image 2 in every frame. He holds his mop in his right hand with the mop head visible in EVERY frame; arms do not point to the side.",
+   "salida_raw": "generado/raw/zombies/conserje/caminar_abajo.png",
+   "fps": 8,
+   "loop": true,
+   "depende_de": "conserje__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/conserje/caminar_abajo.png"
+  },
+  {
+   "id": "conserje__caminar_arriba",
+   "categoria": "zombies",
+   "entidad": "conserje",
+   "animacion": "caminar_arriba",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z5.png",
+    "generado/raw/giros/conserje/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie walking away from the viewer (back view), shuffling zombie walk, 6-frame walk cycle. Use image 2 only as a guide for the views: for this animation use the BACK view from image 2 in every frame. The mop (with its head) is visible in EVERY frame.",
+   "salida_raw": "generado/raw/zombies/conserje/caminar_arriba.png",
+   "fps": 8,
+   "loop": true,
+   "depende_de": "conserje__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/conserje/caminar_arriba.png"
+  },
+  {
+   "id": "conserje__atacar_lado",
+   "categoria": "zombies",
+   "entidad": "conserje",
+   "animacion": "atacar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z5.png",
+    "generado/raw/giros/conserje/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Zombie attacking to the right (side profile): Frame 1: leaning back. Frame 2: lunging forward. Frame 3: clawing/biting at full reach with a small motion arc. Frame 4: recovering. He attacks by swinging his mop like a weapon. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera). He swings his mop to the right; the mop head is visible in every frame.",
+   "salida_raw": "generado/raw/zombies/conserje/atacar_lado.png",
+   "fps": 10,
+   "loop": false,
+   "depende_de": "conserje__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/conserje/atacar_lado.png"
+  },
+  {
+   "id": "curado__pegar_lado",
+   "categoria": "zombies",
+   "entidad": "curado",
+   "animacion": "pegar_lado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z0.png",
+    "generado/raw/giros/curado/giro.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Attacking to the right (side profile, facing right) with a strong punch, empty hands. Frame 1: wind-up, pulling the arm back. Frame 2: swinging forward. Frame 3: full extension with a small white motion arc in front of the fist. Frame 4: recovering to the ready pose. Use image 2 only as a guide for the views: for this animation use the RIGHT SIDE PROFILE view from image 2 in every frame (only one eye visible, nose pointing right, body turned 90 degrees, never facing the camera). The white motion arc stays right in front of the fist inside frame 3.",
+   "salida_raw": "generado/raw/zombies/curado/pegar_lado.png",
+   "fps": 14,
+   "loop": false,
+   "depende_de": "curado__giro",
+   "fase": "B",
+   "reemplaza": "generado/raw/zombies/curado/pegar_lado.png"
+  },
+  {
+   "id": "canepa__reparar",
+   "categoria": "profes",
+   "entidad": "canepa",
+   "animacion": "reparar",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/canepa.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Repairing the engine of a school bus, side profile facing right, kneeling on one knee with a wrench (the bus itself is NOT drawn). Frame 1: reaching forward with the wrench. Frame 2: turning the wrench. Frame 3: turning the wrench harder with small yellow sparks. Frame 4: tapping with the wrench, sparks. Frame 5: wiping his forehead with his arm. Frame 6: back to working with the wrench.",
+   "salida_raw": "generado/raw/profes/canepa/reparar.png",
+   "fps": 6,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "joel__quieto_miedo",
+   "categoria": "profes",
+   "entidad": "joel",
+   "animacion": "quieto_miedo",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/joel.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Scared and cowering in a corner, front view: crouched down hugging his knees, trembling, eyes wide with fear, looking left and right. Frames 1-4: small trembling loop with the head turning nervously.",
+   "salida_raw": "generado/raw/profes/joel/quieto_miedo.png",
+   "fps": 5,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "joel__pedir_ayuda",
+   "categoria": "profes",
+   "entidad": "joel",
+   "animacion": "pedir_ayuda",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/joel.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Calling for help, front view, scared face: Frame 1: both arms up waving. Frame 2: arms waving to the other side, mouth open shouting. Frame 3: arms up waving. Frame 4: hands cupped around the mouth shouting.",
+   "salida_raw": "generado/raw/profes/joel/pedir_ayuda.png",
+   "fps": 6,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "joel__caminar_miedo_abajo",
+   "categoria": "profes",
+   "entidad": "joel",
+   "animacion": "caminar_miedo_abajo",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/joel.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Walking scared toward the viewer (front view): hunched shoulders, arms close to the body, nervous face looking around, quick short steps. 6-frame walk cycle: right foot forward, lowest point, passing, left foot forward, lowest point, passing.",
+   "salida_raw": "generado/raw/profes/joel/caminar_miedo_abajo.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "joel__caminar_miedo_arriba",
+   "categoria": "profes",
+   "entidad": "joel",
+   "animacion": "caminar_miedo_arriba",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/joel.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Walking scared away from the viewer (back view): hunched shoulders, arms close to the body, head turning nervously, quick short steps. 6-frame walk cycle.",
+   "salida_raw": "generado/raw/profes/joel/caminar_miedo_arriba.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "joel__caminar_miedo_lado",
+   "categoria": "profes",
+   "entidad": "joel",
+   "animacion": "caminar_miedo_lado",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/joel.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Walking scared to the right (true side profile facing right, only one eye visible): hunched shoulders, arms close to the body, nervous face, quick short steps. 6-frame walk cycle.",
+   "salida_raw": "generado/raw/profes/joel/caminar_miedo_lado.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "joel__rescatado",
+   "categoria": "profes",
+   "entidad": "joel",
+   "animacion": "rescatado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/joel.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Relieved after being rescued, front view: Frame 1: surprised. Frame 2: big sigh of relief. Frame 3: hands together thanking. Frame 4: thumbs up with a smile.",
+   "salida_raw": "generado/raw/profes/joel/rescatado.png",
+   "fps": 6,
+   "loop": false,
+   "fase": "C"
+  },
+  {
+   "id": "justino__quieto_miedo",
+   "categoria": "profes",
+   "entidad": "justino",
+   "animacion": "quieto_miedo",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/justino.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Scared and cowering in a corner, front view: crouched down hugging his knees, trembling, eyes wide with fear, looking left and right. Frames 1-4: small trembling loop with the head turning nervously.",
+   "salida_raw": "generado/raw/profes/justino/quieto_miedo.png",
+   "fps": 5,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "justino__pedir_ayuda",
+   "categoria": "profes",
+   "entidad": "justino",
+   "animacion": "pedir_ayuda",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/justino.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Calling for help, front view, scared face: Frame 1: both arms up waving. Frame 2: arms waving to the other side, mouth open shouting. Frame 3: arms up waving. Frame 4: hands cupped around the mouth shouting.",
+   "salida_raw": "generado/raw/profes/justino/pedir_ayuda.png",
+   "fps": 6,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "justino__caminar_miedo_abajo",
+   "categoria": "profes",
+   "entidad": "justino",
+   "animacion": "caminar_miedo_abajo",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/justino.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Walking scared toward the viewer (front view): hunched shoulders, arms close to the body, nervous face looking around, quick short steps. 6-frame walk cycle: right foot forward, lowest point, passing, left foot forward, lowest point, passing.",
+   "salida_raw": "generado/raw/profes/justino/caminar_miedo_abajo.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "justino__caminar_miedo_arriba",
+   "categoria": "profes",
+   "entidad": "justino",
+   "animacion": "caminar_miedo_arriba",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/justino.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Walking scared away from the viewer (back view): hunched shoulders, arms close to the body, head turning nervously, quick short steps. 6-frame walk cycle.",
+   "salida_raw": "generado/raw/profes/justino/caminar_miedo_arriba.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "justino__caminar_miedo_lado",
+   "categoria": "profes",
+   "entidad": "justino",
+   "animacion": "caminar_miedo_lado",
+   "frames": 6,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/justino.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 6 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Walking scared to the right (true side profile facing right, only one eye visible): hunched shoulders, arms close to the body, nervous face, quick short steps. 6-frame walk cycle.",
+   "salida_raw": "generado/raw/profes/justino/caminar_miedo_lado.png",
+   "fps": 10,
+   "loop": true,
+   "fase": "C"
+  },
+  {
+   "id": "justino__rescatado",
+   "categoria": "profes",
+   "entidad": "justino",
+   "animacion": "rescatado",
+   "frames": 4,
+   "escala": "standing",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/justino.png"
+   ],
+   "prompt": "Use image 1 as the exact character reference: keep the same face, hair, glasses, skin tone, outfit, colors, body proportions and chunky pixel art style. Do not redesign or change the character. Create a horizontal sprite strip for a 2D top-down pixel art video game: exactly 4 frames of this same character in one single row, left to right, each frame inside its own equal-width cell with wide clear empty space between cells, every frame the same size and scale, all feet on the same horizontal baseline, nothing touching the image edges. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters. Chunky pixel art with flat block shading and dark outlines, exactly like image 1. Animation: Relieved after being rescued, front view: Frame 1: surprised. Frame 2: big sigh of relief. Frame 3: hands together thanking. Frame 4: thumbs up with a smile.",
+   "salida_raw": "generado/raw/profes/justino/rescatado.png",
+   "fps": 6,
+   "loop": false,
+   "fase": "C"
+  },
+  {
+   "id": "iconos__iconos_1",
+   "categoria": "iconos",
+   "entidad": "iconos",
+   "animacion": "iconos_1",
+   "frames": 6,
+   "escala": "icons",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create exactly 6 square game ability icons in one single row, left to right, each one centered in its own equal-width cell with clear empty space between them, all the same size. Each icon is a rounded square tile with a dark navy background and a thick colored border, with one bold, simple, readable pixel art symbol centered inside. Border colors: ability = yellow border, special = red border, passive = cyan border. No text, no letters, no numbers. Flat solid magenta background (#FF00FF) outside the tiles. Icons in order: 1) yellow border: a juicy burger with a spatula; 2) red border: a flexed muscular bicep with a golden aura; 3) cyan border: a stack of gold coins with a green up arrow; 4) yellow border: a blue crescent moon with 'Zzz' shapes; 5) red border: a gray six-barrel minigun firing; 6) cyan border: a green heart with a plus sign and a circular arrow.",
+   "salida_raw": "generado/raw/iconos/iconos_1.png",
+   "nombres": [
+    "tony_habilidad",
+    "tony_especial",
+    "tony_pasiva",
+    "miranda_habilidad",
+    "miranda_especial",
+    "miranda_pasiva"
+   ],
+   "fase": "D"
+  },
+  {
+   "id": "iconos__iconos_2",
+   "categoria": "iconos",
+   "entidad": "iconos",
+   "animacion": "iconos_2",
+   "frames": 6,
+   "escala": "icons",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create exactly 6 square game ability icons in one single row, left to right, each one centered in its own equal-width cell with clear empty space between them, all the same size. Each icon is a rounded square tile with a dark navy background and a thick colored border, with one bold, simple, readable pixel art symbol centered inside. Border colors: ability = yellow border, special = red border, passive = cyan border. No text, no letters, no numbers. Flat solid magenta background (#FF00FF) outside the tiles. Icons in order: 1) yellow border: an open silver laptop with green code on the screen; 2) red border: a lightning bolt with speaker sound waves; 3) cyan border: a dotted path with an arrow ending at a map pin; 4) yellow border: a hand grabbing a snack with sparkles; 5) red border: a paper receipt with a circular return arrow; 6) cyan border: an eye with an X-ray glow and a small price tag.",
+   "salida_raw": "generado/raw/iconos/iconos_2.png",
+   "nombres": [
+    "cesar_habilidad",
+    "cesar_especial",
+    "cesar_pasiva",
+    "alan_habilidad",
+    "alan_especial",
+    "alan_pasiva"
+   ],
+   "fase": "D"
+  },
+  {
+   "id": "iconos__iconos_3",
+   "categoria": "iconos",
+   "entidad": "iconos",
+   "animacion": "iconos_3",
+   "frames": 6,
+   "escala": "icons",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create exactly 6 square game ability icons in one single row, left to right, each one centered in its own equal-width cell with clear empty space between them, all the same size. Each icon is a rounded square tile with a dark navy background and a thick colored border, with one bold, simple, readable pixel art symbol centered inside. Border colors: ability = yellow border, special = red border, passive = cyan border. No text, no letters, no numbers. Flat solid magenta background (#FF00FF) outside the tiles. Icons in order: 1) yellow border: a big cartoon open mouth chomping; 2) red border: a smartphone with a green cross on the screen and a blue scan beam; 3) cyan border: a fork and knife over a steel shield; 4) yellow border: a laughing face with tears of joy; 5) red border: a golden wristwatch glowing; 6) cyan border: two smiling faces with circular arrows around them.",
+   "salida_raw": "generado/raw/iconos/iconos_3.png",
+   "nombres": [
+    "castillo_habilidad",
+    "castillo_especial",
+    "castillo_pasiva",
+    "alessandro_habilidad",
+    "alessandro_especial",
+    "alessandro_pasiva"
+   ],
+   "fase": "D"
+  },
+  {
+   "id": "iconos__iconos_4",
+   "categoria": "iconos",
+   "entidad": "iconos",
+   "animacion": "iconos_4",
+   "frames": 6,
+   "escala": "icons",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create exactly 6 square game ability icons in one single row, left to right, each one centered in its own equal-width cell with clear empty space between them, all the same size. Each icon is a rounded square tile with a dark navy background and a thick colored border, with one bold, simple, readable pixel art symbol centered inside. Border colors: ability = yellow border, special = red border, passive = cyan border. No text, no letters, no numbers. Flat solid magenta background (#FF00FF) outside the tiles. Icons in order: 1) yellow border: a running sneaker with speed lines; 2) red border: a silver laptop, a phone and white earbuds flying with sparks (no logos); 3) cyan border: two phones with an arrow passing between them; 4) yellow border: a golden key glinting; 5) red border: a blue shield; 6) cyan border: a solid brick wall with a small downward arrow.",
+   "salida_raw": "generado/raw/iconos/iconos_4.png",
+   "nombres": [
+    "gabo_habilidad",
+    "gabo_especial",
+    "gabo_pasiva",
+    "carlos_habilidad",
+    "carlos_especial",
+    "carlos_pasiva"
+   ],
+   "fase": "D"
+  },
+  {
+   "id": "objetos__interruptores_servidor",
+   "categoria": "objetos",
+   "entidad": "objetos",
+   "animacion": "interruptores_servidor",
+   "frames": 4,
+   "escala": "items",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create exactly 4 separate game sprites in one single row, left to right, each one centered in its own equal-width cell with clear empty space between them, drawn front-facing as seen in a top-down 2D RPG, consistent scale: a wall breaker box switch with its lever DOWN and a red light; the same breaker box with its lever UP and a green light; a black server rack turned off with dark lights; the same server rack turned on with many green and blue blinking lights. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/objetos/objetos/interruptores_servidor.png",
+   "nombres": [
+    "interruptor_apagado",
+    "interruptor_prendido",
+    "servidor_apagado",
+    "servidor_prendido"
+   ],
+   "fase": "E"
+  },
+  {
+   "id": "objetos__computadoras_muebles",
+   "categoria": "objetos",
+   "entidad": "objetos",
+   "animacion": "computadoras_muebles",
+   "frames": 5,
+   "escala": "items",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create exactly 5 separate game sprites in one single row, left to right, each one centered in its own equal-width cell with clear empty space between them, drawn front-facing as seen in a top-down 2D RPG, consistent scale: a desk with a computer monitor showing a blue screen; the same desk and monitor with a flashing red alert screen; the same desk and monitor with a green screen showing a phone call icon; a wooden plank barricade with nails; a heavy tall wooden cabinet. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/objetos/objetos/computadoras_muebles.png",
+   "nombres": [
+    "computadora_normal",
+    "computadora_alerta",
+    "computadora_llamada",
+    "barricada",
+    "mueble_pesado"
+   ],
+   "fase": "E"
+  },
+  {
+   "id": "objetos__puertas_cofres",
+   "categoria": "objetos",
+   "entidad": "objetos",
+   "animacion": "puertas_cofres",
+   "frames": 6,
+   "escala": "items",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "Use image 1 ONLY as a pixel art style reference (same chunky pixel size, flat block shading, dark outlines). Create exactly 6 separate game sprites in one single row, left to right, each one centered in its own equal-width cell with clear empty space between them, drawn front-facing as seen in a top-down 2D RPG, consistent scale: a closed wooden school classroom door in its frame; the same door open; the same door closed with a big red padlock and red stripes (restricted); the same door broken off its hinges and lying in pieces; a closed wooden treasure chest; the same chest open and empty. Flat solid magenta background (#FF00FF) filling the whole image, no floor shadow, no text, no numbers, no borders, no extra characters.",
+   "salida_raw": "generado/raw/objetos/objetos/puertas_cofres.png",
+   "nombres": [
+    "puerta_cerrada",
+    "puerta_abierta",
+    "puerta_restringida",
+    "puerta_rota",
+    "cofre_cerrado",
+    "cofre_abierto"
+   ],
+   "fase": "E"
+  },
+  {
+   "id": "mockup__hud__opcion_a",
+   "categoria": "mockups",
+   "entidad": "hud",
+   "animacion": "opcion_a",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png",
+    "assetsimage/miranda.png",
+    "assetsimage/Z1.png",
+    "assetsimage/gabo.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. Clean dark style: semi-transparent dark navy panels with thin white borders. Show a gameplay screenshot of a school hallway seen from above with the 4 characters fighting zombies, and the full HUD: one panel in each corner per player (small face portrait, name, green health bar, three ability icons: yellow-border ability, red-border special, cyan-border passive, and small inventory slots for weapon, throwable and food), an infestation bar at the top center with 5 levels, an objective box under it, a timer, a small minimap in a corner, and a team money counter with a coin icon. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/hud/opcion_a.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__hud__opcion_b",
+   "categoria": "mockups",
+   "entidad": "hud",
+   "animacion": "opcion_b",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png",
+    "assetsimage/miranda.png",
+    "assetsimage/Z1.png",
+    "assetsimage/gabo.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. Bold retro arcade style: chunky bright colored frames (yellow, cyan, magenta, green per player), big pixel numbers, scanline feel. Same gameplay scene and the same full HUD elements: 4 corner player panels (portrait, name, health bar, ability, special and passive icons, inventory slots), infestation bar at top with 5 levels, objective box, timer, minimap, team money counter with a coin icon. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/hud/opcion_b.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__hud__opcion_c",
+   "categoria": "mockups",
+   "entidad": "hud",
+   "animacion": "opcion_c",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png",
+    "assetsimage/miranda.png",
+    "assetsimage/Z1.png",
+    "assetsimage/gabo.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. School notebook style: panels look like taped sticky notes and graph paper, hand-drawn pencil borders, red pen marks. Same gameplay scene and the same full HUD elements: 4 corner player panels (portrait, name, health bar, ability, special and passive icons, inventory slots), infestation bar at top with 5 levels, objective box, timer, minimap, team money counter with a coin icon. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/hud/opcion_c.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__hud_jefe__opcion_a",
+   "categoria": "mockups",
+   "entidad": "hud_jefe",
+   "animacion": "opcion_a",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z1.png",
+    "assetsimage/Z2.png",
+    "assetsimage/Z3.png",
+    "assetsimage/Z4.png",
+    "assetsimage/Z5.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. HUD for the 'Zombie Boss' player who controls the zombies with the mouse: a large minimap of the whole school on the right with red forbidden zones where the survivors can see, a gold counter with a coin icon, and a row of 7 purchasable cards at the bottom (runner zombie, screamer zombie, fat zombie, small horde, lock door, blackout, big horde), each with its price in gold and a cooldown overlay. Dark red and black evil theme. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/hud_jefe/opcion_a.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__hud_jefe__opcion_b",
+   "categoria": "mockups",
+   "entidad": "hud_jefe",
+   "animacion": "opcion_b",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/Z1.png",
+    "assetsimage/Z2.png",
+    "assetsimage/Z3.png",
+    "assetsimage/Z4.png",
+    "assetsimage/Z5.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. HUD for the 'Zombie Boss' player: same elements (large school minimap with red forbidden zones, gold counter with coin icon, row of 7 zombie and trick cards with prices and cooldowns) but styled like a toxic green lab computer terminal. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/hud_jefe/opcion_b.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__seleccion__opcion_a",
+   "categoria": "mockups",
+   "entidad": "seleccion",
+   "animacion": "opcion_a",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png",
+    "assetsimage/miranda.png",
+    "assetsimage/cesar.png",
+    "assetsimage/alan.png",
+    "assetsimage/castillo.png",
+    "assetsimage/alessandro.png",
+    "assetsimage/gabo.png",
+    "assetsimage/carlos.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. Character select screen: 8 character cards in a 4x2 grid, each card with the character sprite, the name (Tony, Miranda, César, Alan, Castillo, Alessandro, Gabo, Carlos), three small ability icons and small stat bars (health, speed, strength). Colored cursor frames for P1 (yellow) and P2 (cyan) on two of the cards, a 'BOT' tag on another. Dark purple background. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/seleccion/opcion_a.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__seleccion__opcion_b",
+   "categoria": "mockups",
+   "entidad": "seleccion",
+   "animacion": "opcion_b",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png",
+    "assetsimage/miranda.png",
+    "assetsimage/cesar.png",
+    "assetsimage/alan.png",
+    "assetsimage/castillo.png",
+    "assetsimage/alessandro.png",
+    "assetsimage/gabo.png",
+    "assetsimage/carlos.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. Character select screen styled like a school ID card / student credential: 8 characters (Tony, Miranda, César, Alan, Castillo, Alessandro, Gabo, Carlos) shown as student ID cards with photo, name and three small ability icons; the selected one is bigger in the center. Player cursors P1 yellow and P2 cyan. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/seleccion/opcion_b.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__titulo__opcion_a",
+   "categoria": "mockups",
+   "entidad": "titulo",
+   "animacion": "opcion_a",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png",
+    "assetsimage/miranda.png",
+    "assetsimage/Z1.png",
+    "assetsimage/Z5.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. Title screen: the big game logo 'FDI-Z' on top of a pixel art university building facade at night with a full moon, broken windows and zombies walking in front, the 8 heroes posing below, and 'Presiona A para empezar' blinking text. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/titulo/opcion_a.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__titulo__opcion_b",
+   "categoria": "mockups",
+   "entidad": "titulo",
+   "animacion": "opcion_b",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png",
+    "assetsimage/miranda.png",
+    "assetsimage/Z1.png",
+    "assetsimage/Z5.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. Title screen: close-up horror style, the logo 'FDI-Z' dripping green slime over a dark school hallway with lockers, zombie hands reaching from the bottom edge, and 'Presiona A para empezar' text. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/titulo/opcion_b.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__logo__opciones_1",
+   "categoria": "mockups",
+   "entidad": "logo",
+   "animacion": "opciones_1",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. A logo design sheet: 4 different logo options for the game title 'FDI-Z', side by side, each one complete and separate: 1) green slime dripping pixel letters, 2) bold arcade pixel letters with a yellow and black hazard stripe, 3) university crest/shield with a zombie hand, 4) letters made of school lockers. Dark background. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/logo/opciones_1.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__logo__opciones_2",
+   "categoria": "mockups",
+   "entidad": "logo",
+   "animacion": "opciones_2",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "21:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/alessandro.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. A logo design sheet: 4 more logo options for the game title 'FDI-Z', side by side: 1) cracked stone letters with blood-red 'Z' (no gore), 2) neon sign style in cyan and magenta, 3) chalkboard hand-written chalk letters with a zombie doodle, 4) minimal pixel letters with a bitten 'Z'. Dark background. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/logo/opciones_2.png",
+   "fase": "F"
+  },
+  {
+   "id": "mockup__resultados__opcion_a",
+   "categoria": "mockups",
+   "entidad": "resultados",
+   "animacion": "opcion_a",
+   "frames": 0,
+   "escala": "mockup",
+   "aspect_ratio": "16:9",
+   "resolution": "1k",
+   "referencias": [
+    "assetsimage/tony.png",
+    "assetsimage/miranda.png",
+    "assetsimage/cesar.png",
+    "assetsimage/gabo.png"
+   ],
+   "prompt": "FDI-Z is a local-multiplayer (up to 4 players) top-down 2D pixel art zombie survival game set in a Mexican university (Facultad de Ingeniería). The images attached are the real character sprites of the game: use them as the style and characters reference. Create a UI design MOCKUP image (concept, not final art) in pixel art style matching the attached sprites. End-of-game results screen: big title '¡ESCAPARON!', total time, 4 player cards with portrait, zombies defeated, times knocked down and revives, and a list of funny awards (MVP, Más zombies tumbados, El empresario, Mejor chiste) with small trophy icons. Celebratory confetti, dark background. Spanish text where text appears.",
+   "salida_raw": "generado/mockups/resultados/opcion_a.png",
+   "fase": "F"
+  }
+ ]
+}

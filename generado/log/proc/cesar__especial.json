@@ -1,0 +1,22 @@
+{
+ "id": "cesar__especial",
+ "metodo": "proyeccion",
+ "esperados": 5,
+ "segmentos_proyeccion": 5,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  548,
+  531,
+  531,
+  531,
+  531
+ ],
+ "marcas": [],
+ "factor": 0.1807909604519774,
+ "dist_paleta": 17.940868377685547,
+ "lienzo": [
+  95,
+  107
+ ]
+}

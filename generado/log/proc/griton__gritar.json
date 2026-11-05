@@ -1,0 +1,21 @@
+{
+ "id": "griton__gritar",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  607,
+  601,
+  601,
+  590
+ ],
+ "marcas": [],
+ "factor": 0.15973377703826955,
+ "dist_paleta": 10.646098375320435,
+ "lienzo": [
+  80,
+  101
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "id": "objetos__armas",
+ "metodo": "proyeccion",
+ "esperados": 5,
+ "segmentos_proyeccion": 5,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  462,
+  376,
+  277,
+  356,
+  264
+ ],
+ "marcas": [],
+ "factor": null,
+ "dist_paleta": null,
+ "lienzo": [
+  27,
+  36
+ ]
+}

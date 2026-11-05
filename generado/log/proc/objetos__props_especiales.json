@@ -1,0 +1,23 @@
+{
+ "id": "objetos__props_especiales",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  228,
+  253,
+  159,
+  95,
+  218,
+  183
+ ],
+ "marcas": [],
+ "factor": null,
+ "dist_paleta": null,
+ "lienzo": [
+  36,
+  36
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "reemplazos_genericos": [],
+ "correcciones": {
+  "alessandro__pegar_abajo": "Front view facing the camera, punching straight toward the viewer with the fist coming at the camera, not to the side.",
+  "carlos__caminar_lado": "True side profile view facing right: head, face and body turned fully to the right, only one eye visible.",
+  "carlos__pegar_abajo": "Punch straight toward the camera, fist foreshortened in front of the body, not to the side.",
+  "castillo__caminar_lado": "True side profile facing right: show only one eye and the side of the face and body, nose pointing right.",
+  "castillo__pegar_abajo": "The punch goes straight toward the camera, fist extended at the viewer, not to the side.",
+  "conserje__caminar_lado": "True side profile facing right, face and body turned fully to the right, holding his mop, with space at the right edge.",
+  "conserje__golpe_morir": "All 6 frames side by side in one single row, the lying body in its own separate frame 4.",
+  "corredor__caminar_lado": "Exactly 6 frames, side view facing right.",
+  "corredor__atacar_abajo": "Front view facing the camera, clawing straight toward the viewer, not to the side.",
+  "gabo__pegar_abajo": "Front view facing the camera, punching straight toward the viewer, not to the side.",
+  "gordo__caminar_lado": "True side profile view facing right: only one eye and one lens visible, body turned 90 degrees, walking to the right.",
+  "gordo__atacar_lado": "True side profile view facing right: head and body turned 90 degrees, only one eye visible, lunging to the right.",
+  "griton__atacar_abajo": "All 4 frames in front view facing the viewer; lunge and claw straight toward the camera, not to the side.",
+  "miranda__caminar_lado": "Strict side profile view facing right: we see only one eye and the side of her face, body turned fully to the right.",
+  "miranda__efecto_especial": "Exactly 4 frames in one single row, one muzzle flash per frame, nothing touching the image edges.",
+  "normal__atacar_abajo": "Keep the front view in all 4 frames; the zombie lunges and claws straight toward the viewer, not to the side.",
+  "normal__golpe_morir": "Keep clear empty space between all 6 frames; the falling and lying bodies must not overlap.",
+  "tony__caminar_lado": "Strict side profile view facing right: we see only one eye, one lens of the glasses and the side of the body.",
+  "tonyfuerte__caminar_lado": "Strict side profile facing right in all 6 frames (only one eye visible), same size and full golden aura in every frame.",
+  "tonyfuerte__pegar_lado": "All 4 frames in side profile facing right; frame 1 pulls the fist back to the waist, frame 4 is a side-view guard pose."
+ }
+}

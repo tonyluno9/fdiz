@@ -1,0 +1,21 @@
+{
+ "id": "curado__pegar_lado",
+ "metodo": "componentes",
+ "esperados": 4,
+ "segmentos_proyeccion": 3,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  579,
+  573,
+  575,
+  581
+ ],
+ "marcas": [],
+ "factor": 0.1663778162911612,
+ "dist_paleta": 10.200803995132446,
+ "lienzo": [
+  83,
+  101
+ ]
+}

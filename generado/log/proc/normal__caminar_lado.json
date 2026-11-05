@@ -1,0 +1,23 @@
+{
+ "id": "normal__caminar_lado",
+ "metodo": "componentes",
+ "esperados": 6,
+ "segmentos_proyeccion": 2,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  575,
+  575,
+  575,
+  551,
+  574,
+  574
+ ],
+ "marcas": [],
+ "factor": 0.1671018276762402,
+ "dist_paleta": 12.05638043085734,
+ "lienzo": [
+  79,
+  101
+ ]
+}

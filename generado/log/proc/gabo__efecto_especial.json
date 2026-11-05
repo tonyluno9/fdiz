@@ -1,0 +1,21 @@
+{
+ "id": "gabo__efecto_especial",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  264,
+  332,
+  423,
+  256
+ ],
+ "marcas": [],
+ "factor": 0.22695035460992907,
+ "dist_paleta": null,
+ "lienzo": [
+  90,
+  100
+ ]
+}

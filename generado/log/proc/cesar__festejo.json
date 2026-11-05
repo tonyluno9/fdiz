@@ -1,0 +1,21 @@
+{
+ "id": "cesar__festejo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  600,
+  574,
+  600,
+  600
+ ],
+ "marcas": [],
+ "factor": 0.16,
+ "dist_paleta": 13.027813196182251,
+ "lienzo": [
+  95,
+  107
+ ]
+}

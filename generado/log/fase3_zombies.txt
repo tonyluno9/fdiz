@@ -1,0 +1,13 @@
+== zombies/normal: 6 animaciones
+   hoja de contacto: normal
+== zombies/corredor: 6 animaciones
+   hoja de contacto: corredor
+== zombies/griton: 7 animaciones
+   hoja de contacto: griton
+== zombies/gordo: 6 animaciones
+   hoja de contacto: gordo
+== zombies/conserje: 6 animaciones
+   hoja de contacto: conserje
+== zombies/curado: 5 animaciones
+   hoja de contacto: curado
+listo

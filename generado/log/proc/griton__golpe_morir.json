@@ -1,0 +1,23 @@
+{
+ "id": "griton__golpe_morir",
+ "metodo": "valle",
+ "esperados": 6,
+ "segmentos_proyeccion": 3,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  491,
+  479,
+  452,
+  127,
+  324,
+  92
+ ],
+ "marcas": [],
+ "factor": 0.1955193482688391,
+ "dist_paleta": 14.199345588684082,
+ "lienzo": [
+  80,
+  101
+ ]
+}

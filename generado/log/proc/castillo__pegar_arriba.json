@@ -1,0 +1,21 @@
+{
+ "id": "castillo__pegar_arriba",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  548,
+  553,
+  557,
+  553
+ ],
+ "marcas": [],
+ "factor": 0.1735985533453888,
+ "dist_paleta": 7.127318382263184,
+ "lienzo": [
+  81,
+  102
+ ]
+}

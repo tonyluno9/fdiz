@@ -1,0 +1,21 @@
+{
+ "id": "tony__festejo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  598,
+  552,
+  563,
+  598
+ ],
+ "marcas": [],
+ "factor": 0.165374677002584,
+ "dist_paleta": 10.474318742752075,
+ "lienzo": [
+  80,
+  127
+ ]
+}

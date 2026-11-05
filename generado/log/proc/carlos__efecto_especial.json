@@ -1,0 +1,21 @@
+{
+ "id": "carlos__efecto_especial",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  327,
+  339,
+  347,
+  337
+ ],
+ "marcas": [],
+ "factor": 0.2696629213483146,
+ "dist_paleta": null,
+ "lienzo": [
+  100,
+  98
+ ]
+}

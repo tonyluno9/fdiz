@@ -1,0 +1,21 @@
+{
+ "id": "tony__pegar_abajo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  591,
+  585,
+  585,
+  591
+ ],
+ "marcas": [],
+ "factor": 0.16326530612244897,
+ "dist_paleta": 12.144129037857056,
+ "lienzo": [
+  80,
+  127
+ ]
+}

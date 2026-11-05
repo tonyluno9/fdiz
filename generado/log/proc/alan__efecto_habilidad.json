@@ -1,0 +1,23 @@
+{
+ "id": "alan__efecto_habilidad",
+ "metodo": "partes_iguales",
+ "esperados": 4,
+ "segmentos_proyeccion": 20,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  99,
+  277,
+  286,
+  283
+ ],
+ "marcas": [
+  "REVISAR: cuadros"
+ ],
+ "factor": 0.31788079470198677,
+ "dist_paleta": null,
+ "lienzo": [
+  100,
+  95
+ ]
+}

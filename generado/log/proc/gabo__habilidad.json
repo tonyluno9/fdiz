@@ -1,0 +1,22 @@
+{
+ "id": "gabo__habilidad",
+ "metodo": "componentes",
+ "esperados": 5,
+ "segmentos_proyeccion": 1,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  371,
+  449,
+  459,
+  459,
+  449
+ ],
+ "marcas": [],
+ "factor": 0.21380846325167038,
+ "dist_paleta": 14.796793556213379,
+ "lienzo": [
+  88,
+  103
+ ]
+}

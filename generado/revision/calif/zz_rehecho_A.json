@@ -1,0 +1,12 @@
+{
+  "alessandro__pegar_abajo": {"calificacion": "OK", "razon": "Corregido: vista frontal, puño escorzado hacia la cámara; mismo personaje con lentes, reloj y pantalón cargo.", "correccion": null},
+  "carlos__caminar_lado": {"calificacion": "OK", "razon": "Corregido: perfil real a la derecha con un solo ojo; misma sudadera verde y lentes, ciclo de 6 cuadros correcto.", "correccion": null},
+  "carlos__pegar_abajo": {"calificacion": "OK", "razon": "Corregido: frontal, el puño del cuadro 3 viene escorzado hacia la cámara; mismo personaje.", "correccion": null},
+  "castillo__caminar_lado": {"calificacion": "REVISAR", "razon": "Mejoró: la cabeza ya está de perfil a la derecha, pero el torso sigue en 3/4 (se ve la botonadura) y asoma el segundo lente; se puede usar, pero no es un perfil puro.", "correccion": null},
+  "castillo__pegar_abajo": {"calificacion": "OK", "razon": "Corregido: frontal, puño escorzado hacia la cámara en el cuadro 3; misma camisa blanca, lentes y reloj.", "correccion": null},
+  "conserje__caminar_lado": {"calificacion": "REHACER", "razon": "Sigue igual: la cara y el cuerpo miran de frente o en 3/4 a la cámara, no de perfil a la derecha; además, en los cuadros 2-6 sostiene el palo sin la cabeza del trapeador.", "correccion": null},
+  "conserje__golpe_morir": {"calificacion": "REHACER", "razon": "Sigue mal: en la imagen original de la IA, los cuadros 3 y 4 se superponen (la pierna que cae se cruza con el trapeador del cuerpo acostado), así que en la tira el cuadro 3 sale cortado y el 4 trae un pie ajeno; no hay espacio entre cuadros.", "correccion": null},
+  "corredor__caminar_lado": {"calificacion": "OK", "razon": "Corregido: exactamente 6 cuadros, de perfil a la derecha con los brazos al frente; mismo zombi (solo un píxel rosado en el lente).", "correccion": null},
+  "corredor__atacar_abajo": {"calificacion": "OK", "razon": "Corregido: vista frontal, araña hacia el espectador con arco de movimiento en el cuadro 3; mismo zombi, 4 cuadros.", "correccion": null},
+  "gabo__pegar_abajo": {"calificacion": "OK", "razon": "Corregido: frontal, puño escorzado hacia la cámara; mismo suéter negro, jeans y tenis rojos.", "correccion": null}
+}

@@ -1,0 +1,22 @@
+{
+ "id": "carlos__habilidad",
+ "metodo": "componentes",
+ "esperados": 5,
+ "segmentos_proyeccion": 3,
+ "detectados": 5,
+ "cortados": [],
+ "alturas_hd": [
+  573,
+  585,
+  585,
+  585,
+  585
+ ],
+ "marcas": [],
+ "factor": 0.1641025641025641,
+ "dist_paleta": 9.006076622009278,
+ "lienzo": [
+  92,
+  104
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "id": "carlos__caminar_abajo",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  532,
+  532,
+  537,
+  532,
+  532,
+  536
+ ],
+ "marcas": [],
+ "factor": 0.18045112781954886,
+ "dist_paleta": 9.108701229095459,
+ "lienzo": [
+  92,
+  104
+ ]
+}

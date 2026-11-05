@@ -1,0 +1,67 @@
+{
+ "tony__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, 4 cuadros de respiración con parpadeo, ciclo correcto",
+  "correccion": null
+ },
+ "tony__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "tony__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, mismo cabello y ropa, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "tony__caminar_lado": {
+  "calificacion": "REHACER",
+  "razon": "vista de frente/3/4 con la cara y el torso hacia la cámara; no es perfil mirando a la derecha",
+  "correccion": "Strict side profile view facing right: we see only one eye, one lens of the glasses and the side of the body."
+ },
+ "tony__pegar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "puñetazo hacia la derecha correcto, pero el cuerpo está en 3/4 de frente en vez de perfil puro",
+  "correccion": null
+ },
+ "tony__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, golpe con arco blanco, 4 cuadros",
+  "correccion": null
+ },
+ "tony__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, golpe hacia arriba/adelante con arco, 4 cuadros",
+  "correccion": null
+ },
+ "tony__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "El cuadro acostado quedaba encimado bajo el de caída; se corrigió la separación en el procesamiento (sin regenerar). Revisado: 6 cuadros correctos.",
+  "correccion": null
+ },
+ "tony__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, puño, salto, sonrisa y pulgar arriba en orden",
+  "correccion": null
+ },
+ "tony__habilidad": {
+  "calificacion": "OK",
+  "razon": "espátula, hamburguesa volando, plato y pulgar arriba en orden; mismo personaje",
+  "correccion": null
+ },
+ "tony__especial": {
+  "calificacion": "OK",
+  "razon": "transformación a Modo gym correcta (sin camisa, musculoso, aura dorada); la variación de estatura y color se debe al aura pedida",
+  "correccion": null
+ },
+ "tony__efecto_habilidad": {
+  "calificacion": "OK",
+  "razon": "hamburguesa en plato con vapor tenue en 4 cuadros, sin personaje",
+  "correccion": null
+ },
+ "tony__efecto_especial": {
+  "calificacion": "OK",
+  "razon": "aura dorada vacía con llamas, 4 cuadros en loop",
+  "correccion": null
+ }
+}

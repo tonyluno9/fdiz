@@ -1,0 +1,21 @@
+{
+ "id": "alessandro__efecto_especial",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  119,
+  252,
+  396,
+  445
+ ],
+ "marcas": [],
+ "factor": 0.21286031042128603,
+ "dist_paleta": null,
+ "lienzo": [
+  100,
+  99
+ ]
+}

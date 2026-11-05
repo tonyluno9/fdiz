@@ -1,0 +1,23 @@
+{
+ "id": "cesar__efecto_especial",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [
+  3
+ ],
+ "alturas_hd": [
+  128,
+  336,
+  392,
+  402
+ ],
+ "marcas": [],
+ "factor": 0.23880597014925373,
+ "dist_paleta": null,
+ "lienzo": [
+  98,
+  100
+ ]
+}

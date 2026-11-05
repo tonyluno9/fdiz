@@ -1,0 +1,21 @@
+{
+ "id": "miranda__pegar_abajo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  603,
+  603,
+  603,
+  614
+ ],
+ "marcas": [],
+ "factor": 0.15920398009950248,
+ "dist_paleta": 10.601608514785767,
+ "lienzo": [
+  89,
+  102
+ ]
+}

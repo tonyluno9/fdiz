@@ -1,0 +1,21 @@
+{
+ "id": "carlos__pegar_lado",
+ "metodo": "componentes",
+ "esperados": 4,
+ "segmentos_proyeccion": 3,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  580,
+  577,
+  580,
+  580
+ ],
+ "marcas": [],
+ "factor": 0.16551724137931034,
+ "dist_paleta": 8.777543544769287,
+ "lienzo": [
+  92,
+  104
+ ]
+}

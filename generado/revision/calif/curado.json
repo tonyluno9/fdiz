@@ -1,0 +1,7 @@
+{
+  "curado__quieto": {"calificacion": "OK", "razon": "mismo personaje (lentes, polo azul marino, jeans, tenis blancos), 4 cuadros con parpadeo, vista de frente", "correccion": null},
+  "curado__caminar_abajo": {"calificacion": "OK", "razon": "mismo personaje, de frente, ciclo de 6 cuadros correcto", "correccion": null},
+  "curado__caminar_arriba": {"calificacion": "OK", "razon": "mismo personaje de espaldas, ciclo de 6 cuadros correcto", "correccion": null},
+  "curado__caminar_lado": {"calificacion": "OK", "razon": "mismo personaje de perfil mirando a la derecha, ciclo de 6 cuadros correcto", "correccion": null},
+  "curado__pegar_lado": {"calificacion": "REVISAR", "razon": "SEPARACIÓN: en el raw el arco blanco está frente al puño del cuadro 3, pero tras separar quedó suelto a la izquierda del cuadro 4; además la pose es 3/4 y no un perfil puro (mira a la derecha)", "correccion": null}
+}

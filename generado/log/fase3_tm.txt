@@ -1,0 +1,7 @@
+== personajes/tony: 11 animaciones
+== efectos/tony: 2 animaciones
+   hoja de contacto: tony
+== personajes/miranda: 11 animaciones
+== efectos/miranda: 2 animaciones
+   hoja de contacto: miranda
+listo

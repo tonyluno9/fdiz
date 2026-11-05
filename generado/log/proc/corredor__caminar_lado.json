@@ -1,0 +1,23 @@
+{
+ "id": "corredor__caminar_lado",
+ "metodo": "componentes",
+ "esperados": 6,
+ "segmentos_proyeccion": 1,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  522,
+  515,
+  535,
+  528,
+  522,
+  522
+ ],
+ "marcas": [],
+ "factor": 0.1839080459770115,
+ "dist_paleta": 15.715508619944254,
+ "lienzo": [
+  87,
+  102
+ ]
+}

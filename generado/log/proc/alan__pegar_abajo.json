@@ -1,0 +1,21 @@
+{
+ "id": "alan__pegar_abajo",
+ "metodo": "proyeccion",
+ "esperados": 4,
+ "segmentos_proyeccion": 4,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  610,
+  610,
+  610,
+  614
+ ],
+ "marcas": [],
+ "factor": 0.15737704918032788,
+ "dist_paleta": 10.206221103668213,
+ "lienzo": [
+  86,
+  102
+ ]
+}

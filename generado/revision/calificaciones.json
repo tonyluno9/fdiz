@@ -1,0 +1,797 @@
+{
+ "alan__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, 4 cuadros de frente con parpadeo, ciclo correcto",
+  "correccion": null
+ },
+ "alan__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "alan__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "alan__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de perfil mirando a la derecha, ciclo correcto",
+  "correccion": null
+ },
+ "alan__pegar_lado": {
+  "calificacion": "OK",
+  "razon": "perfil a la derecha, puñetazo con arco blanco en cuadro 3, orden correcto",
+  "correccion": null
+ },
+ "alan__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "de frente, puñetazo algo diagonal hacia la derecha pero legible, arco en cuadro 3",
+  "correccion": null
+ },
+ "alan__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, puñetazo con arco en cuadro 3, mismo personaje",
+  "correccion": null
+ },
+ "alan__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "El cuadro acostado quedaba encimado bajo el de caída; se corrigió la separación en el procesamiento (sin regenerar). Revisado: 6 cuadros correctos.",
+  "correccion": null
+ },
+ "alan__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, puño, salto, sonrisa y pulgar arriba en orden",
+  "correccion": null
+ },
+ "alan__habilidad": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, aparece galleta con brillos y guiño; cuadro 1 poco 'sigiloso' pero aceptable",
+  "correccion": null
+ },
+ "alan__especial": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, saca recibo, lo agita, salen objetos y los lanza, pose final",
+  "correccion": null
+ },
+ "alan__efecto_habilidad": {
+  "calificacion": "OK",
+  "razon": "moneda con destello que crece y se desvanece en 4 cuadros; el último es solo partículas, intencional",
+  "correccion": null
+ },
+ "alan__efecto_especial": {
+  "calificacion": "OK",
+  "razon": "recibo volando con snack, lata y pelota alrededor, 4 cuadros, mismo estilo",
+  "correccion": null
+ },
+ "alessandro__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje (lentes, playera negra, cargo gris, reloj dorado), respiración y parpadeo correctos",
+  "correccion": null
+ },
+ "alessandro__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "alessandro__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "alessandro__caminar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "piernas caminan a la derecha, pero la cara y el torso están en vista 3/4 de frente, no de perfil; se ve como si caminara de lado mirando a cámara",
+  "correccion": null
+ },
+ "alessandro__pegar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "golpe a la derecha bien hecho y mismo personaje, pero el cuerpo y la cara están en 3/4 de frente en lugar de perfil",
+  "correccion": null
+ },
+ "alessandro__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "Corregido: vista frontal, puño escorzado hacia la cámara; mismo personaje con lentes, reloj y pantalón cargo.",
+  "correccion": null
+ },
+ "alessandro__pegar_arriba": {
+  "calificacion": "REVISAR",
+  "razon": "vista de espaldas correcta, pero el brazo se extiende hacia la derecha en lugar de hacia arriba/al frente; dirección ambigua",
+  "correccion": null
+ },
+ "alessandro__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, 6 cuadros en orden: retroceso, caída, acostado con ojos cerrados, se levanta",
+  "correccion": null
+ },
+ "alessandro__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje; puño, salto, aterrizaje y pulgar arriba; la variación de estatura es por el salto",
+  "correccion": null
+ },
+ "alessandro__habilidad": {
+  "calificacion": "OK",
+  "razon": "mismo personaje; dedo arriba, gestos, remate, risa y risa agarrándose la panza",
+  "correccion": null
+ },
+ "alessandro__especial": {
+  "calificacion": "OK",
+  "razon": "mismo personaje; muestra el reloj, lo toca, brilla, anillo de reloj dorado y pose final con entorno gris",
+  "correccion": null
+ },
+ "alessandro__efecto_habilidad": {
+  "calificacion": "REVISAR",
+  "razon": "4 cuadros con caritas riendo, pero el estallido central parece más una explosión que líneas de risa",
+  "correccion": null
+ },
+ "alessandro__efecto_especial": {
+  "calificacion": "OK",
+  "razon": "esfera de reloj dorada con manecillas que se expande en 4 cuadros, estilo coherente",
+  "correccion": null
+ },
+ "canepa__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje (gorra negra/verde, barba, polo verde, reloj), 4 cuadros con parpadeo en el 3, de frente",
+  "correccion": null
+ },
+ "canepa__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, 6 cuadros, ciclo de caminata sutil pero legible",
+  "correccion": null
+ },
+ "canepa__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, 6 cuadros, ciclo correcto",
+  "correccion": null
+ },
+ "canepa__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de perfil mirando a la derecha, 6 cuadros, ciclo correcto",
+  "correccion": null
+ },
+ "canepa__pegar_lado": {
+  "calificacion": "OK",
+  "razon": "mismo personaje mirando a la derecha, puñetazo con arco blanco en el cuadro 3, 4 cuadros",
+  "correccion": null
+ },
+ "canepa__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, puñetazo hacia arriba con arco en el cuadro 3; variación de estatura por el brazo alzado, aceptable",
+  "correccion": null
+ },
+ "carlos__quieto": {
+  "calificacion": "OK",
+  "razon": "Mismo personaje (lentes, sudadera verde), respiración y parpadeo correctos.",
+  "correccion": null
+ },
+ "carlos__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "Mismo personaje de frente, ciclo de 6 cuadros correcto aunque el braceo es sutil.",
+  "correccion": null
+ },
+ "carlos__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "De espaldas, mismo cabello y ropa, ciclo de 6 cuadros correcto.",
+  "correccion": null
+ },
+ "carlos__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "Corregido: perfil real a la derecha con un solo ojo; misma sudadera verde y lentes, ciclo de 6 cuadros correcto.",
+  "correccion": null
+ },
+ "carlos__pegar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "Mismo personaje y golpe hacia la derecha con arco, pero en vista 3/4 con la cara casi de frente en lugar de perfil.",
+  "correccion": null
+ },
+ "carlos__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "Corregido: frontal, el puño del cuadro 3 viene escorzado hacia la cámara; mismo personaje.",
+  "correccion": null
+ },
+ "carlos__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "De espaldas, golpe hacia arriba con arco blanco, mismo personaje.",
+  "correccion": null
+ },
+ "carlos__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "Mismo personaje, secuencia de caída, acostado y levantarse correcta en 6 cuadros.",
+  "correccion": null
+ },
+ "carlos__festejo": {
+  "calificacion": "OK",
+  "razon": "Puño, salto con brazos arriba, sonrisa y pulgar arriba; mismo personaje.",
+  "correccion": null
+ },
+ "carlos__habilidad": {
+  "calificacion": "OK",
+  "razon": "Mismo personaje, saca llavero, levanta y gira la llave dorada, sonrisa final.",
+  "correccion": null
+ },
+ "carlos__especial": {
+  "calificacion": "REVISAR",
+  "razon": "SEPARACIÓN: la imagen original está bien, pero el escudo del cuadro 5 quedó recortado en el borde (casi se toca con el cuadro 4); el cambio de color se debe al escudo, no al personaje.",
+  "correccion": null
+ },
+ "carlos__efecto_habilidad": {
+  "calificacion": "OK",
+  "razon": "Destello dorado con chispas en 4 cuadros, estilo pixel correcto.",
+  "correccion": null
+ },
+ "carlos__efecto_especial": {
+  "calificacion": "REVISAR",
+  "razon": "La burbuja original está bien, pero el recorte de magenta perforó el interior translúcido (hueco irregular en 3 de 4 cuadros) y dejó 2102 px con tinte magenta.",
+  "correccion": null
+ },
+ "castillo__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, 4 cuadros de respiración con parpadeo, loop correcto",
+  "correccion": null
+ },
+ "castillo__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "castillo__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "castillo__caminar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "Mejoró: la cabeza ya está de perfil a la derecha, pero el torso sigue en 3/4 (se ve la botonadura) y asoma el segundo lente; se puede usar, pero no es un perfil puro.",
+  "correccion": null
+ },
+ "castillo__pegar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "vista tres cuartos (cuadros 1 y 4 casi de frente) más que perfil; el golpe sí va a la derecha",
+  "correccion": null
+ },
+ "castillo__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "Corregido: frontal, puño escorzado hacia la cámara en el cuadro 3; misma camisa blanca, lentes y reloj.",
+  "correccion": null
+ },
+ "castillo__pegar_arriba": {
+  "calificacion": "REVISAR",
+  "razon": "de espaldas correcto, pero el golpe se desvía hacia arriba-derecha en lugar de ir al frente",
+  "correccion": null
+ },
+ "castillo__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, caída, acostado y levantarse en 6 cuadros en orden",
+  "correccion": null
+ },
+ "castillo__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje; puño, salto, sonrisa y pulgar arriba",
+  "correccion": null
+ },
+ "castillo__habilidad": {
+  "calificacion": "OK",
+  "razon": "mismo personaje; boca abierta, mordida, cachetes llenos, tragar y palmada a la panza",
+  "correccion": null
+ },
+ "castillo__especial": {
+  "calificacion": "REVISAR",
+  "razon": "el haz es violeta, no azul, y en cuadros 3-4 tapa la cara y el brazo de forma translúcida rara",
+  "correccion": null
+ },
+ "castillo__efecto_habilidad": {
+  "calificacion": "OK",
+  "razon": "mordida blanca con migajas en 4 cuadros, estilo correcto; la alerta de cuadros no se ve en la tira",
+  "correccion": null
+ },
+ "castillo__efecto_especial": {
+  "calificacion": "REVISAR",
+  "razon": "432 px magenta/violeta en bordes del haz; las formas del haz cambian mucho entre cuadros como loop",
+  "correccion": null
+ },
+ "cesar__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, respiración y parpadeo correctos",
+  "correccion": null
+ },
+ "cesar__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "cesar__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "cesar__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "perfil (3/4) mirando a la derecha, ciclo correcto",
+  "correccion": null
+ },
+ "cesar__pegar_lado": {
+  "calificacion": "OK",
+  "razon": "golpe a la derecha con arco blanco; último cuadro algo más frontal, aceptable",
+  "correccion": null
+ },
+ "cesar__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "golpe de frente con arco, mismo personaje",
+  "correccion": null
+ },
+ "cesar__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "golpe de espaldas con arco, mismo personaje",
+  "correccion": null
+ },
+ "cesar__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "El cuadro acostado quedaba encimado bajo el de caída; se corrigió la separación en el procesamiento (sin regenerar). Revisado: 6 cuadros correctos.",
+  "correccion": null
+ },
+ "cesar__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, festejo y pulgar arriba correctos",
+  "correccion": null
+ },
+ "cesar__habilidad": {
+  "calificacion": "OK",
+  "razon": "laptop plateada y código verde según el prompt",
+  "correccion": null
+ },
+ "cesar__especial": {
+  "calificacion": "OK",
+  "razon": "laptop en alto, destello azul y ondas; leve brillo morado (30 px magenta) en el cuadro 2",
+  "correccion": null
+ },
+ "cesar__efecto_habilidad": {
+  "calificacion": "REVISAR",
+  "razon": "código verde muy denso, con pseudotexto ilegible y bloques cortados en recto arriba; cuadro 4 casi vacío",
+  "correccion": null
+ },
+ "cesar__efecto_especial": {
+  "calificacion": "REVISAR",
+  "razon": "estallido y anillos correctos, pero el anillo del cuadro 4 toca el borde derecho y está cortado",
+  "correccion": null
+ },
+ "conserje__caminar_abajo": {
+  "calificacion": "REVISAR",
+  "razon": "Mismo conserje y ciclo de 6 cuadros correcto, pero sin el trapeador y los brazos apuntan a la derecha (vista 3/4) en vez de hacia el frente.",
+  "correccion": null
+ },
+ "conserje__caminar_arriba": {
+  "calificacion": "REVISAR",
+  "razon": "Vista de espaldas correcta y mismo personaje, pero el trapeador desaparece en el cuadro 4 y salta en el ciclo.",
+  "correccion": null
+ },
+ "conserje__caminar_lado": {
+  "calificacion": "REHACER",
+  "razon": "Sigue igual: la cara y el cuerpo miran de frente o en 3/4 a la cámara, no de perfil a la derecha; además, en los cuadros 2-6 sostiene el palo sin la cabeza del trapeador.",
+  "correccion": null
+ },
+ "conserje__atacar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "Mismo personaje y golpe con trapeador hacia la derecha en 4 cuadros, pero el cuerpo y la cara están en 3/4 de frente, no de perfil.",
+  "correccion": null
+ },
+ "conserje__atacar_abajo": {
+  "calificacion": "OK",
+  "razon": "Mismo personaje, 4 cuadros con golpe de trapeador de frente bien legible.",
+  "correccion": null
+ },
+ "conserje__golpe_morir": {
+  "calificacion": "REHACER",
+  "razon": "Sigue mal: en la imagen original de la IA, los cuadros 3 y 4 se superponen (la pierna que cae se cruza con el trapeador del cuerpo acostado), así que en la tira el cuadro 3 sale cortado y el 4 trae un pie ajeno; no hay espacio entre cuadros.",
+  "correccion": null
+ },
+ "corredor__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo zombi (lentes, ojos rojos, polo marino, jeans), vista de frente, 6 cuadros y ciclo correcto",
+  "correccion": null
+ },
+ "corredor__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo zombi de espaldas, 6 cuadros, ciclo de caminata correcto",
+  "correccion": null
+ },
+ "corredor__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "Corregido: exactamente 6 cuadros, de perfil a la derecha con los brazos al frente; mismo zombi (solo un píxel rosado en el lente).",
+  "correccion": null
+ },
+ "corredor__atacar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "mismo personaje y ataque hacia la derecha correcto, pero el cuerpo está en vista 3/4 en lugar de perfil puro, no coincide del todo con caminar_lado",
+  "correccion": null
+ },
+ "corredor__atacar_abajo": {
+  "calificacion": "OK",
+  "razon": "Corregido: vista frontal, araña hacia el espectador con arco de movimiento en el cuadro 3; mismo zombi, 4 cuadros.",
+  "correccion": null
+ },
+ "corredor__golpe_morir": {
+  "calificacion": "OK",
+  "razon": "El cuerpo acostado quedaba encimado; se corrigió la separación en el procesamiento (sin regenerar). Revisado: 6 cuadros correctos, sin gore.",
+  "correccion": null
+ },
+ "curado__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje (lentes, polo azul marino, jeans, tenis blancos), 4 cuadros con parpadeo, vista de frente",
+  "correccion": null
+ },
+ "curado__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "curado__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "curado__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de perfil mirando a la derecha, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "curado__pegar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "SEPARACIÓN: en el raw el arco blanco está frente al puño del cuadro 3, pero tras separar quedó suelto a la izquierda del cuadro 4; además la pose es 3/4 y no un perfil puro (mira a la derecha)",
+  "correccion": null
+ },
+ "gabo__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, 4 cuadros de respiración/parpadeo, ciclo correcto",
+  "correccion": null
+ },
+ "gabo__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, 6 cuadros, ciclo de caminata correcto",
+  "correccion": null
+ },
+ "gabo__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, 6 cuadros, ciclo correcto",
+  "correccion": null
+ },
+ "gabo__caminar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "piernas caminan a la derecha pero cara y torso quedan en vista 3/4 casi de frente, no de perfil",
+  "correccion": null
+ },
+ "gabo__pegar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "golpe a la derecha legible, pero en vista 3/4 con la cara hacia la cámara en lugar de perfil",
+  "correccion": null
+ },
+ "gabo__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "Corregido: frontal, puño escorzado hacia la cámara; mismo suéter negro, jeans y tenis rojos.",
+  "correccion": null
+ },
+ "gabo__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, 4 cuadros con arco de golpe",
+  "correccion": null
+ },
+ "gabo__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, 6 cuadros en orden: golpe, caída, acostado, se levanta",
+  "correccion": null
+ },
+ "gabo__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, puño, salto, aterrizaje y pulgar arriba",
+  "correccion": null
+ },
+ "gabo__habilidad": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, súper velocidad a la derecha con líneas e imágenes residuales; la variación de estatura es por la pose",
+  "correccion": null
+ },
+ "gabo__especial": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, saca laptop, teléfono, lanza gadgets y pose final con chispas",
+  "correccion": null
+ },
+ "gabo__efecto_habilidad": {
+  "calificacion": "REVISAR",
+  "razon": "SEPARACIÓN: la IA lo hizo en cuadrícula 2x2 (nubes de polvo con líneas de velocidad) y los cuadros quedaron mal cortados",
+  "correccion": null
+ },
+ "gabo__efecto_especial": {
+  "calificacion": "OK",
+  "razon": "laptop, teléfono, tablet y audífonos con chispas y ondas, 4 cuadros en loop",
+  "correccion": null
+ },
+ "gordo__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje (lentes, ojos rojos, camisa azul, jeans rotos), 6 cuadros de frente, ciclo lento correcto",
+  "correccion": null
+ },
+ "gordo__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, 6 cuadros, ciclo de caminata correcto",
+  "correccion": null
+ },
+ "gordo__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "Corregido: perfil real a la derecha con un solo ojo y un lente; mismo zombie gordo, 6 cuadros con brazos al frente.",
+  "correccion": null
+ },
+ "gordo__atacar_lado": {
+  "calificacion": "OK",
+  "razon": "Corregido: perfil real a la derecha en los 4 cuadros; retroceso, embestida, zarpazo con arco y recuperación; mismo personaje.",
+  "correccion": null
+ },
+ "gordo__atacar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, 4 cuadros: retroceso, embestida, zarpazo con arco y recuperación",
+  "correccion": null
+ },
+ "gordo__golpe_morir": {
+  "calificacion": "REVISAR",
+  "razon": "SEPARACIÓN: la punta de la mano del cuadro 3 quedó cortada y aparece como fragmento suelto en el cuadro 4; secuencia y personaje correctos, sin gore",
+  "correccion": null
+ },
+ "griton__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje (pelo gris, lentes, ojos rojos, polo marino), de frente con brazos al frente, ciclo de 6 correcto",
+  "correccion": null
+ },
+ "griton__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de espaldas, ropa y colores fieles, ciclo de 6 correcto",
+  "correccion": null
+ },
+ "griton__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de perfil mirando a la derecha, brazos estirados, ciclo de 6 correcto",
+  "correccion": null
+ },
+ "griton__atacar_lado": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, 4 cuadros hacia la derecha (preparación, embestida, zarpazo con chispas de movimiento, recuperación)",
+  "correccion": null
+ },
+ "griton__atacar_abajo": {
+  "calificacion": "OK",
+  "razon": "Corregido: los 4 cuadros de frente, garras hacia el espectador con arco de movimiento; mismo gritón (pelo gris, lentes, polo).",
+  "correccion": null
+ },
+ "griton__golpe_morir": {
+  "calificacion": "REVISAR",
+  "razon": "SEPARACIÓN: en el raw el cuadro 3 se encima con el cuerpo acostado y el cuadro 3 quedó con piernas del 4; además cuadros 2-3 en 3/4 y el cuadro 4 acostado de lado, sin sangre",
+  "correccion": null
+ },
+ "griton__gritar": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente; inhala, grita con líneas de sonido, manos en la cabeza y se recupera",
+  "correccion": null
+ },
+ "miranda__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, respiración y parpadeo correctos en 4 cuadros",
+  "correccion": null
+ },
+ "miranda__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "miranda__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, mismo cabello y ropa, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "miranda__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "Corregido: perfil estricto a la derecha con un solo ojo; misma Miranda (pelo, lentes, top negro, jeans), ciclo de 6 cuadros.",
+  "correccion": null
+ },
+ "miranda__pegar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "golpe claro hacia la derecha pero la cara queda casi de frente (3/4), no perfil puro",
+  "correccion": null
+ },
+ "miranda__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, preparación, golpe con arco y recuperación",
+  "correccion": null
+ },
+ "miranda__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, golpe con arco blanco, 4 cuadros correctos",
+  "correccion": null
+ },
+ "miranda__caer_levantarse": {
+  "calificacion": "REVISAR",
+  "razon": "cuadro 4 es solo cabeza/cabello con un moño azul inexistente y sin cuerpo; fragmentos sueltos en cuadros 3-4",
+  "correccion": null
+ },
+ "miranda__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, puño, salto, sonrisa y pulgar arriba",
+  "correccion": null
+ },
+ "miranda__habilidad": {
+  "calificacion": "OK",
+  "razon": "mismo personaje cantando con notas y onda azul; 'Zzz' poco visible pero aceptable",
+  "correccion": null
+ },
+ "miranda__especial": {
+  "calificacion": "REVISAR",
+  "razon": "perfil a la derecha con minigun correcta, pero el cuadro 5 tiene la boca del cañón cortada en el borde",
+  "correccion": null
+ },
+ "miranda__efecto_habilidad": {
+  "calificacion": "OK",
+  "razon": "onda azul expansiva con 'Zzz', 4 cuadros; algunos px tono magenta en el último anillo, menor",
+  "correccion": null
+ },
+ "miranda__efecto_especial": {
+  "calificacion": "OK",
+  "razon": "Corregido: 4 cuadros en una fila, un fogonazo por cuadro y balas a la derecha, sin tocar bordes; alguna bala suelta cae en el cuadro vecino (menor).",
+  "correccion": null
+ },
+ "normal__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo zombie (lentes, ojos rojos, polo marino, jeans rotos), vista de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "normal__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "mismo zombie de espaldas, ropa y cabello correctos, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "normal__caminar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "mismo personaje pero en vista 3/4 hacia la derecha, no perfil puro; el cuadro 4 baja los brazos y rompe el ciclo",
+  "correccion": null
+ },
+ "normal__atacar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "mismo personaje y ataque legible con arco, pero en vista 3/4 hacia la derecha en lugar de perfil",
+  "correccion": null
+ },
+ "normal__atacar_abajo": {
+  "calificacion": "REHACER",
+  "razon": "Sigue igual: vista 3/4 y en los cuadros 2-3 los brazos se estiran hacia el lado derecho, no hacia el espectador.",
+  "correccion": null
+ },
+ "normal__golpe_morir": {
+  "calificacion": "REHACER",
+  "razon": "Sigue igual: en el raw el cuerpo acostado (cuadro 4) toca el humo del cuadro 5; en la tira los pies quedan cortados y pasan al cuadro 5.",
+  "correccion": null
+ },
+ "objetos__armas": {
+  "calificacion": "OK",
+  "razon": "5 objetos en orden (escoba, silla, regla, bate, extintor), reconocibles, mismo estilo y recorte limpio",
+  "correccion": null
+ },
+ "objetos__lanzables": {
+  "calificacion": "OK",
+  "razon": "balón, engrapadora, libro rojo y grapa en orden; la grapa es pequeña pero se entiende",
+  "correccion": null
+ },
+ "objetos__comida": {
+  "calificacion": "OK",
+  "razon": "hamburguesa, torta, jugo, galletas y bolsa en orden, claros y en el mismo estilo",
+  "correccion": null
+ },
+ "objetos__objetivos": {
+  "calificacion": "OK",
+  "razon": "bidón, llavero, tarjeta, llave roja y moneda en orden, reconocibles y limpios",
+  "correccion": null
+ },
+ "objetos__contenedores": {
+  "calificacion": "OK",
+  "razon": "lockers, máquinas (llena y rota/abierta) y mochilas cerrada/abierta en orden, estados claros",
+  "correccion": null
+ },
+ "objetos__props_especiales": {
+  "calificacion": "OK",
+  "razon": "minigun, laptop, celular, estuche de audífonos, tablet y celular con cruz verde en orden; la minigun queda baja (16 px) pero legible",
+  "correccion": null
+ },
+ "objetos__efectos_generales": {
+  "calificacion": "OK",
+  "razon": "arco, salpicadura verde, polvo, Zzz, estrellas y exclamación en orden, sin sangre, estilo consistente",
+  "correccion": null
+ },
+ "objetos__camion": {
+  "calificacion": "OK",
+  "razon": "autobús escolar amarillo visto desde arriba, vertical con el frente hacia abajo, recorte limpio",
+  "correccion": null
+ },
+ "tony__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, 4 cuadros de respiración con parpadeo, ciclo correcto",
+  "correccion": null
+ },
+ "tony__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "tony__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, mismo cabello y ropa, ciclo de 6 cuadros correcto",
+  "correccion": null
+ },
+ "tony__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "Corregido: perfil a la derecha con un ojo y un lente; mismo Tony (rizos, playera blanca, cadena, arete), ciclo de 6 cuadros.",
+  "correccion": null
+ },
+ "tony__pegar_lado": {
+  "calificacion": "REVISAR",
+  "razon": "puñetazo hacia la derecha correcto, pero el cuerpo está en 3/4 de frente en vez de perfil puro",
+  "correccion": null
+ },
+ "tony__pegar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, golpe con arco blanco, 4 cuadros",
+  "correccion": null
+ },
+ "tony__pegar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, golpe hacia arriba/adelante con arco, 4 cuadros",
+  "correccion": null
+ },
+ "tony__caer_levantarse": {
+  "calificacion": "OK",
+  "razon": "El cuadro acostado quedaba encimado bajo el de caída; se corrigió la separación en el procesamiento (sin regenerar). Revisado: 6 cuadros correctos.",
+  "correccion": null
+ },
+ "tony__festejo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje, puño, salto, sonrisa y pulgar arriba en orden",
+  "correccion": null
+ },
+ "tony__habilidad": {
+  "calificacion": "OK",
+  "razon": "espátula, hamburguesa volando, plato y pulgar arriba en orden; mismo personaje",
+  "correccion": null
+ },
+ "tony__especial": {
+  "calificacion": "OK",
+  "razon": "transformación a Modo gym correcta (sin camisa, musculoso, aura dorada); la variación de estatura y color se debe al aura pedida",
+  "correccion": null
+ },
+ "tony__efecto_habilidad": {
+  "calificacion": "OK",
+  "razon": "hamburguesa en plato con vapor tenue en 4 cuadros, sin personaje",
+  "correccion": null
+ },
+ "tony__efecto_especial": {
+  "calificacion": "OK",
+  "razon": "aura dorada vacía con llamas, 4 cuadros en loop",
+  "correccion": null
+ },
+ "tonyfuerte__quieto": {
+  "calificacion": "OK",
+  "razon": "mismo Tony modo gym con aura dorada pedida, 4 cuadros con respiración y parpadeo; la alerta de color es el aura",
+  "correccion": null
+ },
+ "tonyfuerte__caminar_abajo": {
+  "calificacion": "OK",
+  "razon": "mismo personaje de frente, ciclo de 6 cuadros correcto; aura más delgada pero presente (alerta de color = aura)",
+  "correccion": null
+ },
+ "tonyfuerte__caminar_arriba": {
+  "calificacion": "OK",
+  "razon": "de espaldas, mismo cabello, jeans y tenis, ciclo de 6 cuadros con aura; alerta de color = aura",
+  "correccion": null
+ },
+ "tonyfuerte__caminar_lado": {
+  "calificacion": "OK",
+  "razon": "Corregido: perfil a la derecha en los 6 cuadros, mismo tamaño y aura dorada completa en todos; mismo Tony fuerte.",
+  "correccion": null
+ },
+ "tonyfuerte__pegar_lado": {
+  "calificacion": "REHACER",
+  "razon": "Sigue igual: cuadros 1 y 4 de frente en guardia (dos ojos) y cuadros 2-3 vistos de espaldas en 3/4; no es perfil a la derecha.",
+  "correccion": null
+ }
+}

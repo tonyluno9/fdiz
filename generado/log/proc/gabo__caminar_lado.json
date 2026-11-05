@@ -1,0 +1,23 @@
+{
+ "id": "gabo__caminar_lado",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  573,
+  579,
+  579,
+  574,
+  579,
+  579
+ ],
+ "marcas": [],
+ "factor": 0.16580310880829016,
+ "dist_paleta": 9.010677496592203,
+ "lienzo": [
+  88,
+  103
+ ]
+}

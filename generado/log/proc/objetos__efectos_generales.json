@@ -1,0 +1,23 @@
+{
+ "id": "objetos__efectos_generales",
+ "metodo": "proyeccion",
+ "esperados": 6,
+ "segmentos_proyeccion": 6,
+ "detectados": 6,
+ "cortados": [],
+ "alturas_hd": [
+  218,
+  218,
+  206,
+  197,
+  216,
+  218
+ ],
+ "marcas": [],
+ "factor": null,
+ "dist_paleta": null,
+ "lienzo": [
+  36,
+  36
+ ]
+}

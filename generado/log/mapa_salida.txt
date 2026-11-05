@@ -1,0 +1,31 @@
+  subida mapa/referencias/estilo_mapa.png
+  subida mapa/referencias/fotos_cancha.png
+  subida mapa/referencias/fotos_cic.png
+  subida mapa/referencias/fotos_estacionamiento.png
+  subida mapa/referencias/fotos_exterior.png
+  subida mapa/referencias/fotos_hitos.png
+  subida mapa/referencias/fotos_laboratorio.png
+  subida mapa/referencias/fotos_neveria.png
+  subida mapa/referencias/fotos_oficinas.png
+  subida mapa/referencias/fotos_salon.png
+  subida mapa/referencias/fotos_senaletica.png
+  subida mapa/referencias/fotos_site.png
+  subida mapa/referencias/fotos_texturas.png
+  subida mapa/referencias/fotos_vegetacion.png
+Generaciones usadas antes: 0/20
+OK  mapa__cic (47.7 s)
+OK  mapa__site (21.2 s)
+OK  mapa__salon (74.1 s)
+OK  mapa__laboratorio (80.9 s)
+OK  mapa__neveria (25.4 s)
+OK  mapa__oficinas (25.5 s)
+OK  mapa__exterior (25.5 s)
+OK  mapa__banos (58.6 s)
+OK  mapa__hitos (40.7 s)
+OK  mapa__vegetacion (63.1 s)
+OK  mapa__cancha (34.3 s)
+OK  mapa__senaletica (69.5 s)
+OK  mapa__texturas (56.3 s)
+OK  mapa__estacionamiento (178.4 s)
+Resumen: {'ok': 14}
+Generaciones usadas: 14/20

@@ -1,0 +1,21 @@
+{
+ "id": "griton__atacar_lado",
+ "metodo": "componentes",
+ "esperados": 4,
+ "segmentos_proyeccion": 3,
+ "detectados": 4,
+ "cortados": [],
+ "alturas_hd": [
+  596,
+  580,
+  578,
+  595
+ ],
+ "marcas": [],
+ "factor": 0.16340425531914893,
+ "dist_paleta": 11.642187595367432,
+ "lienzo": [
+  80,
+  101
+ ]
+}
