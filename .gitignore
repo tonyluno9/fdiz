@@ -1,0 +1,12 @@
+# Archivos que GDevelop y Python generan solos (no hace falta subirlos)
+*.autosave
+__pycache__/
+*.pyc
+
+# Respaldos locales con fecha (se quedan en tu compu; no se suben)
+gdevelop/respaldos/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
