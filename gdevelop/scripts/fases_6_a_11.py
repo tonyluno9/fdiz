@@ -144,7 +144,7 @@ p["resources"]["resources"] = list(recursos.values())
 NV = {"ZonasAbiertas": ",", "O1": "", "O2": "", "O3": "", "ObjNum": 1, "ObjTipo": "", "ObjIni": 0, "ObjX": 0, "ObjY": 0,
       "Paso": 0, "Bidones": 0, "Interruptores": 0, "TieneBolsa": 0, "FinalActivo": 0, "Banner": "", "BannerSeg": 0,
       "Dinero": 0, "ObjDentro": 0, "IntroPuerta": 0, "Rescatados": 0, "Tiempo": 0, "IntroPaso": 0, "Carta": 1, "Jefe": 0, "Apagon": 0, "Pres": 0,
-      "VidaInf": 0, "Luz": 1, "R3": 0, "Horda": 0, "Tarjeta": 0, "CartaTxt": "", "VidaInfTxt": "", "JefeTxt": "", "InfBar": "", "SegTxt": ""}
+      "VidaInf": 0, "Luz": 1, "R3": 0, "Horda": 0, "Tarjeta": 0, "CartaTxt": "", "VidaInfTxt": "", "JefeTxt": "", "InfBar": "", "SegTxt": "", "AyudaTec": 0, "AyudaPad": 0}
 for k in range(1, 5):
     NV[f"J{k}Txt"] = ""; NV[f"J{k}Kills"] = 0; NV[f"J{k}Caidas"] = 0
 esc["variables"] = [v for v in esc["variables"] if v["name"] not in NV] + [var(k, v) for k, v in NV.items()]
@@ -343,7 +343,7 @@ objs = [
        [a("Montre", "Flecha", ""), a("SetAngle", "Flecha", "=", "ToDeg(atan2(Variable(ObjY) - CameraY(), Variable(ObjX) - CameraX()))"),
         a("MettreXY", "Flecha", "=", "960 + cos(ToRad(Flecha.Angle())) * 860", "=", "540 + sin(ToRad(Flecha.Angle())) * 440")]),
     ev([o_(cvar("ObjX", "<", 0), cvar("ObjDentro", "=", 1))], [a("Cache", "Flecha")]),
-] + [ev([cvt("ObjTipo", f"\"{t}\"")], [texto("TxtObjetivo", f"\"Objetivo {{}}/3: {txt}\"".replace("{}", "\" + ToString(Variable(ObjNum)) + \""))])
+] + [ev([cvt("ObjTipo", f"\"{t}\"")], [texto("TxtObjetivo", f"\"Objetivo {{}}/3\" + NewLine() + \"{txt}\"".replace("{}", "\" + ToString(Variable(ObjNum)) + \""))])
      for t, txt in TXT.items()] + [
     ev([cvt("ObjTipo", "\"gasolina\"")], [texto("TxtObjetivo", "TxtObjetivo.String() + \"  (\" + ToString(Variable(Bidones)) + \"/3)\"")]),
     ev([cvt("ObjTipo", "\"luz\"")], [texto("TxtObjetivo", "TxtObjetivo.String() + \"  (\" + ToString(Variable(Interruptores)) + \"/3)\"")]),
@@ -406,7 +406,7 @@ G.append(grupo("Horda de la explanada", [
 # ===== Habilidades, especiales y pasivas =====
 CD = {"tony": (18, 50), "miranda": (18, 55), "cesar": (14, 55), "alan": (15, 45), "castillo": (16, 55),
       "alessandro": (20, 60), "gabo": (14, 50), "carlos": (12, 50)}
-hab = [comentario("E / Y = Habilidad (recarga corta). C / RB = Especial (recarga larga). Los bots usan la Habilidad con 3+ zombies "
+hab = [comentario("Q / Y = Habilidad (recarga corta). E / RB = Especial (recarga larga). Los bots usan la Habilidad con 3+ zombies "
                   "cerca y el Especial con 5+. Alessandro cerca: recargas 20% más rápido (pasiva).")]
 hab.append(ev([vnum("Sup", "Init", "=", 1), vnum("Sup", "CdOk", "=", 0)], [setn("Sup", "CdOk", "=", 1), reset_t("Sup", "hab"), reset_t("Sup", "esp")],
               sub=[ev([vtxt("Sup", "Personaje", pj)], [setn("Sup", "HabCD", "=", h), setn("Sup", "EspCD", "=", e)]) for pj, (h, e) in CD.items()]))
@@ -543,13 +543,10 @@ G.append(grupo("Zombies: dormidos, riendo, congelados, distraídos y curados", [
 ]))
 
 # ===== Luces, apagón, parpadeo y destrozos =====
-G.append(grupo("Ambiente: noche, luces que parpadean y apagón", [
-    comentario("Luz ambiente de noche. Parpadeo al azar. En el objetivo de la luz (o apagón del Jefe) todo se pone muy oscuro. "
+G.append(grupo("Ambiente: noche y apagón", [
+    comentario("Luz ambiente de noche fija (sin parpadeo). En el objetivo de la luz (o apagón del Jefe) todo se pone muy oscuro. "
                "Los marcadores 'destrozo' (40) indican dónde van los props de daño cuando existan."),
-    ev([cvar("Apagon", "=", 0), stimer("parpadeo", "Variable(Luz)")],
-       [sreset("parpadeo"), svar("Luz", "=", "RandomFloatInRange(0.08, 3)"),
-        a("SetLayerAmbientLightColor", "", "\"Luz\"", "\"60;62;90\"")]),
-    ev([cvar("Apagon", "=", 0), cmp("TimerElapsedTime(\"parpadeo\")", ">", "0.08")], [a("SetLayerAmbientLightColor", "", "\"Luz\"", "\"120;125;165\"")]),
+    ev([cvar("Apagon", "=", 0)], [a("SetLayerAmbientLightColor", "", "\"Luz\"", "\"120;125;165\"")]),   # luz fija (sin parpadeo)
     ev([cvar("Apagon", "=", 1)], [a("SetLayerAmbientLightColor", "", "\"Luz\"", "\"28;28;42\"")]),
     ev([cvar("Apagon", "=", 1), once()], [], sub=[sonido("efectos/eventos/apagon.ogg")]),
 ]))
@@ -589,8 +586,15 @@ hud += [
        [svar("InfVista", "=", "Variable(Infestacion)")] + banner("¡LA FDI SE ESTÁ LLENANDO!", 2.5),
        sub=[sonido("efectos/eventos/infestacion_sube.ogg", 100)]),
     # ayuda con la tecla correcta
-    ev([c("DepartScene", "")], [texto("TxtAyuda", "\"Teclado: WASD mover · clic pegar · F usar · E habilidad · C especial    Control: stick · X pegar · A usar · Y habilidad · RB especial\""),
-                                sreset("ayuda")]),
+    # Letrero según quién juega: con teclado (P1 = Control 0) se muestran solo las teclas; con mandos, los botones.
+    ev([c("DepartScene", "")], [texto("TxtAyuda", "\"Teclado: WASD mover · clic izq. pegar · F usar/revivir (mantener) · Q habilidad · E especial · R o clic der. lanzar · Shift caminar lento    Control: stick · X pegar · A usar · Y habilidad · RB especial · B lanzar\""),
+                                sreset("ayuda"), svar("AyudaTec", "=", 0), svar("AyudaPad", "=", 0)]),
+    ev([c("DepartScene", ""), vnum("Sup", "Control", "=", 0)], [svar("AyudaTec", "=", 1)]),
+    ev([c("DepartScene", ""), vnum("Sup", "Control", ">", 0)], [svar("AyudaPad", "=", 1)]),
+    ev([c("DepartScene", ""), cvar("AyudaTec", "=", 1), cvar("AyudaPad", "=", 0)],
+       [texto("TxtAyuda", "\"Teclado: WASD mover · clic izq. pegar · F usar/revivir (mantener) · Q habilidad · E especial · R o clic der. lanzar · Shift caminar lento\"")]),
+    ev([c("DepartScene", ""), cvar("AyudaTec", "=", 0), cvar("AyudaPad", "=", 1)],
+       [texto("TxtAyuda", "\"Control: stick mover · X pegar · A usar/revivir (mantener) · Y habilidad · RB especial · B lanzar\"")]),
 ]
 esc["variables"] = [v for v in esc["variables"] if v["name"] != "InfVista"] + [var("InfVista", 1)]
 G.append(grupo("HUD", hud))
@@ -629,7 +633,7 @@ intro += [
     ev([cvt("Estado", "\"intro\""), stimer("intro", 21)], [], sub=[
         ev([cmp("Variable(Tumbados)", ">=", "1")], [svar("IntroPaso", "=", 1)]),
         ev([stimer("intro", 40)], [svar("IntroPaso", "=", 1)])]),
-    ev([cvt("Estado", "\"intro\""), o_(suelta("Escape"), pad_suelta(1, "START"), pad_suelta(2, "START"), cvar("IntroPaso", "=", 1))],
+    ev([cvt("Estado", "\"intro\""), o_(suelta("Escape"), suelta("Return"), pad_suelta(1, "START"), pad_suelta(2, "START"), pad_suelta(3, "START"), pad_suelta(4, "START"), cvar("IntroPaso", "=", 1))],
        [svt("Estado", "\"juego\""), gset("VioIntro", "=", 1), texto("TxtDialogo", "\"\""), a("Montre", "TxtPanel", ""), sreset("partida"),
         sreset("infest")], sub=[
         ev([vnum("Sup", "Control", "=", -2)], [setn("Sup", "Control", "=", "Sup.Variable(CtlReal)")]),
@@ -770,13 +774,18 @@ DESC = {"tony": "Cocinar / Modo gym", "miranda": "Arrullo / Minigun", "cesar": "
         "castillo": "Tragar / App de salud", "alessandro": "Chiste / Reloj", "gabo": "Supervelocidad / Ecosistema", "carlos": "Llave maestra / Tanque"}
 CONTINUAR = lambda: o_(suelta("Return"), suelta("Space"), c("MouseButtonReleased", "", "Left"), *[pad_suelta(k, "A") for k in range(1, 5)], *[pad_suelta(k, "START") for k in range(1, 5)])
 
+# TECLADO: en el menú, F también acepta (igual que A en el control). En "equipo" F alterna LISTO, por eso allí no se usa.
+CONTINUAR_F = lambda: o_(suelta("Return"), suelta("Space"), suelta("f"), c("MouseButtonReleased", "", "Left"), *[pad_suelta(k, "A") for k in range(1, 5)], *[pad_suelta(k, "START") for k in range(1, 5)])
+# TECLADO: volver al paso anterior con Esc o Retroceso (en el control: B).
+ATRAS = lambda: o_(suelta("Escape"), suelta("Back"), *[pad_suelta(k, "B") for k in range(1, 5)])
+
 # --- Título ---
 tit_obj = [obj_texto("TxtTitulo", 160, "120;255;120", "center", "FDI-Z"), obj_texto("TxtSub", 40, "255;255;255", "center", ""),
            objeto_sprite("Fondo", [animacion("f", [img("extra/minimapa.png", EXTRA + "minimapa.png")], 1, False, (0, 0))])]
 tit_inst = [ti("Fondo", 0, 0, 0), ti("TxtTitulo", 960, 260), ti("TxtSub", 960, 620)]
 tit_inst[0].update({"customSize": True, "width": 1920, "height": 1080})
 tit_ev = [
-    ev([c("DepartScene", "")], [texto("TxtSub", "\"Presiona Enter, A o haz clic\" + NewLine() + NewLine() + \"La FDI se llenó de zombies. Escapen.\""),
+    ev([c("DepartScene", "")], [texto("TxtSub", "\"Presiona Enter, Espacio o haz clic  (control: A)\" + NewLine() + NewLine() + \"La FDI se llenó de zombies. Escapen.\""),
                                 sreset("demo"), gset("Demo", "=", 0), a("ChangeColor", "Fondo", "\"90;90;110\"")]),
     ev([CONTINUAR()], [a("Scene", "", "\"Menu\"", "")]),
     ev([stimer("demo", 25)], [gset("Demo", "=", 1), gset("Listo", "=", 1), gsett("Modo", "\"escape\""), gset("VioIntro", "=", 1)]
@@ -794,17 +803,17 @@ MV = MV_BASE + [var(f"S{k}Ctl", -1) for k in range(1, 5)] + [var(f"S{k}Pj", k - 
 def anterior(k): return o_(*([suelta("a"), suelta("Left")] if True else []))
 men_ev = [
     comentario("Orden corto para llegar a jugar en menos de 1 minuto: modo, unirse, elegir equipo, dificultad."),
-    ev([c("DepartScene", "")], [svt("Paso", "\"modo\""), svar("S1Ctl", "=", 0)]),
+    ev([c("DepartScene", "")], [svt("Paso", "\"modo\""), svar("S1Ctl", "=", 0), sreset("paso")]),
     # modo
     ev([], [svt("M0", "\"   \""), svt("M1", "\"   \""), svt("M2", "\"   \"")]),
     ev([cvar("Sel", "=", 0)], [svt("M0", "\">> \"")]), ev([cvar("Sel", "=", 1)], [svt("M1", "\">> \"")]), ev([cvar("Sel", "=", 2)], [svt("M2", "\">> \"")]),
     ev([cvt("Paso", "\"modo\"")], [texto("TxtMenu", "\"ELIGE EL MODO\" + NewLine() + NewLine() + VariableString(M0) + \"1  ESCAPE (1 a 4 jugadores + bots)\" + NewLine() + "
                                     "VariableString(M1) + \"2  JEFE DE ZOMBIES (1 a 3 contra el Jefe con ratón)\""),
-                                   texto("TxtPie", "\"↑↓ / stick para elegir · Enter / A para aceptar\"")]),
+                                   texto("TxtPie", "\"Teclado: W/S o ↑/↓ elegir (o 1/2) · Enter, F o Espacio aceptar · Esc volver al título     Control: stick/cruceta · A aceptar\"")]),
     ev([cvt("Paso", "\"modo\""), o_(suelta("Up"), suelta("w"), suelta("Down"), suelta("s"), *[pad_suelta(k, "Up") for k in range(1, 5)], *[pad_suelta(k, "Down") for k in range(1, 5)])],
        [svar("Sel", "=", "1 - Variable(Sel)")]),
     ev([cvt("Paso", "\"modo\""), suelta("Num1")], [svar("Sel", "=", 0)]), ev([cvt("Paso", "\"modo\""), suelta("Num2")], [svar("Sel", "=", 1)]),
-    ev([cvt("Paso", "\"modo\""), CONTINUAR(), once()], [svt("Paso", "\"unirse\""), sreset("paso")], sub=[
+    ev([cvt("Paso", "\"modo\""), stimer("paso", 0.3), CONTINUAR_F(), once()], [svt("Paso", "\"unirse\""), sreset("paso")], sub=[
         ev([cvar("Sel", "=", 0)], [gsett("Modo", "\"escape\""), svar("S1Ctl", "=", 0)]),
         ev([cvar("Sel", "=", 1)], [gsett("Modo", "\"jefe\""), svar("S1Ctl", "=", -1)])]),
 ]
@@ -815,19 +824,19 @@ for k in range(1, 5):
                ev([], [svt(f"OK{k}", "\"\"")]), ev([cvar(f"S{k}Ok", "=", 1)], [svt(f"OK{k}", "\"  LISTO\"")])]
     men_ev += [ev([cvar(f"S{k}Pj", "=", i)], [svt(f"N{k}", f"\"{NOMB[pj]} — {DESC[pj]}\"")]) for i, pj in enumerate(PJS)]
 men_ev += [ev([], [svt("JefeLinea", "\"\"")]), ev([gtxt("Modo", "\"jefe\"")], [svt("JefeLinea", "\"JEFE: ratón (los sobrevivientes juegan con control)\"")])]
-men_ev.append(ev([cvt("Paso", "\"unirse\"")], [texto("TxtMenu", "\"ÚNANSE\" + NewLine() + \"Presiona A en tu control para unirte\""),
+men_ev.append(ev([cvt("Paso", "\"unirse\"")], [texto("TxtMenu", "\"ÚNANSE\" + NewLine() + \"P1 ya está listo con teclado y ratón. Para sumar un control, presiona A en él.\""),
     texto("TxtSlots", " + ".join(f"\"P{k}: \" + VariableString(C{k}) + NewLine()" for k in range(1, 5)) + " + VariableString(JefeLinea)"),
-    texto("TxtPie", "\"Enter / Start para seguir\"")]))
+    texto("TxtPie", "\"Teclado: Enter, F o Espacio para seguir · Esc volver     Control: Start para seguir · B volver\"")]))
 for pad in range(1, 5):
     men_ev.append(ev([cvt("Paso", "\"unirse\""), pad_suelta(pad, "A")] + [cvar(f"S{k}Ctl", "!=", pad) for k in range(1, 5)], [], sub=[
         ev([cvar(f"S{k}Ctl", "=", -1), cvar("Hecho", "=", 0)] + ([cmp("1", "=", "1")] if True else []), [svar(f"S{k}Ctl", "=", pad), svar("Hecho", "=", 1)])
         for k in range(1, 5)] + [ev([], [svar("Hecho", "=", 0)])]))
-men_ev.append(ev([cvt("Paso", "\"unirse\""), stimer("paso", 0.3), o_(suelta("Return"), *[pad_suelta(k, "START") for k in range(1, 5)])],
+men_ev.append(ev([cvt("Paso", "\"unirse\""), stimer("paso", 0.3), o_(suelta("Return"), suelta("Space"), suelta("f"), *[pad_suelta(k, "START") for k in range(1, 5)])],
                  [svt("Paso", "\"equipo\""), sreset("paso")]))
 # equipo: cada humano cambia con izq/der y confirma
 men_ev.append(ev([cvt("Paso", "\"equipo\"")], [texto("TxtMenu", "\"ELIGEN SU PERSONAJE\""),
     texto("TxtSlots", " + ".join(f"\"P{k} (\" + VariableString(C{k}) + \"): \" + VariableString(N{k}) + VariableString(OK{k}) + NewLine() + NewLine()" for k in range(1, 5))),
-    texto("TxtPie", "\"Teclado: A/D cambiar, F aceptar · Control: ←/→ cambiar, A aceptar · Enter / Start: empezar (los bots se eligen solos)\"")]))
+    texto("TxtPie", "\"Teclado: A/D o ←/→ cambiar, F aceptar · Control: ←/→ cambiar, A aceptar · Enter / Start: seguir (los bots se eligen solos) · Esc volver\"")]))
 for k in range(1, 5):
     izq = o_(c("BuiltinCommonInstructions::And", ) if False else suelta("a"), suelta("Left"))
     men_ev += [
@@ -846,21 +855,28 @@ for k in range(2, 5):
     for j in range(1, k):
         men_ev.append(ev([cvt("Paso", "\"equipo\""), cmp(f"Variable(S{k}Pj)", "=", f"Variable(S{j}Pj)"), cvar(f"S{k}Ok", "=", 0)],
                          [svar(f"S{k}Pj", "=", f"mod(Variable(S{k}Pj) + 1, 8)")]))
-men_ev.append(ev([cvt("Paso", "\"equipo\""), stimer("paso", 0.3), o_(suelta("Return"), *[pad_suelta(k, "START") for k in range(1, 5)])],
+men_ev.append(ev([cvt("Paso", "\"equipo\""), stimer("paso", 0.3), o_(suelta("Return"), suelta("Space"), *[pad_suelta(k, "START") for k in range(1, 5)])],
                  [svt("Paso", "\"dificultad\""), sreset("paso"), svar("Sel", "=", 1)]))
 # dificultad
 men_ev += [
     ev([cvt("Paso", "\"dificultad\"")], [texto("TxtMenu", "\"DIFICULTAD\" + NewLine() + NewLine() + VariableString(M0) + \"FÁCIL\" + NewLine() + "
                                          "VariableString(M1) + \"NORMAL\" + NewLine() + VariableString(M2) + \"PESADILLA\""),
-                                         texto("TxtSlots", "\"\""), texto("TxtPie", "\"↑↓ elegir · Enter / A empezar\"")]),
+                                         texto("TxtSlots", "\"\""), texto("TxtPie", "\"Teclado: W/S o ↑/↓ elegir · Enter, F o Espacio empezar · Esc volver     Control: stick/cruceta · A empezar\"")]),
     ev([cvt("Paso", "\"dificultad\""), o_(suelta("Up"), suelta("w"), *[pad_suelta(k, "Up") for k in range(1, 5)])], [svar("Sel", "=", "mod(Variable(Sel) + 2, 3)")]),
     ev([cvt("Paso", "\"dificultad\""), o_(suelta("Down"), suelta("s"), *[pad_suelta(k, "Down") for k in range(1, 5)])], [svar("Sel", "=", "mod(Variable(Sel) + 1, 3)")]),
-    ev([cvt("Paso", "\"dificultad\""), stimer("paso", 0.3), CONTINUAR(), once()], [gset("Listo", "=", 1), gset("SinRecord", "=", 0)], sub=[
+    ev([cvt("Paso", "\"dificultad\""), stimer("paso", 0.3), CONTINUAR_F(), once()], [gset("Listo", "=", 1), gset("SinRecord", "=", 0)], sub=[
         ev([cvar("Sel", "=", 0)], [gsett("Dificultad", "\"facil\""), gset("DifInf", "=", 0.7), gset("DifVida", "=", 0.75), gset("DifDanio", "=", 0.7), gset("DifHorda", "=", 0.75)]),
         ev([cvar("Sel", "=", 1)], [gsett("Dificultad", "\"normal\""), gset("DifInf", "=", 1), gset("DifVida", "=", 1), gset("DifDanio", "=", 1), gset("DifHorda", "=", 1)]),
         ev([cvar("Sel", "=", 2)], [gsett("Dificultad", "\"pesadilla\""), gset("DifInf", "=", 1.45), gset("DifVida", "=", 1.3), gset("DifDanio", "=", 1.3), gset("DifHorda", "=", 1.35)]),
     ] + [ev([cvar(f"S{k}Pj", "=", i)], [gsett(f"P{k}Pj", f"\"{pj}\"")]) for k in range(1, 5) for i, pj in enumerate(PJS)]
       + [ev([], [gset(f"P{k}Ctl", "=", f"Variable(S{k}Ctl)") for k in range(1, 5)] + [a("Scene", "", "\"Juego\"", "")])]),
+]
+# Atrás (Esc / Retroceso / B): cada uno con el temporizador del paso, así un solo toque no retrocede dos pasos.
+men_ev += [
+    ev([cvt("Paso", "\"dificultad\""), stimer("paso", 0.3), ATRAS()], [svt("Paso", "\"equipo\""), sreset("paso")]),
+    ev([cvt("Paso", "\"equipo\""), stimer("paso", 0.3), ATRAS()], [svt("Paso", "\"unirse\""), sreset("paso")]),
+    ev([cvt("Paso", "\"unirse\""), stimer("paso", 0.3), ATRAS()], [svt("Paso", "\"modo\""), sreset("paso")]),
+    ev([cvt("Paso", "\"modo\""), stimer("paso", 0.3), o_(suelta("Escape"), suelta("Back"))], [a("Scene", "", "\"Titulo\"", "")]),
 ]
 # --- Resultados ---
 res_obj = [obj_texto("TxtRes", 96, "255;235;120", "center"), obj_texto("TxtDet", 34, "255;255;255", "center"), obj_texto("TxtPie", 26, "190;210;255", "center")]
@@ -872,7 +888,7 @@ res_ev = [
         texto("TxtDet", "\"Tiempo: \" + ToString(floor(GlobalVariable(TiempoFinal) / 60)) + \" min \" + ToString(floor(mod(GlobalVariable(TiempoFinal), 60))) + \" s\" + "
                         "\"   ·   Dificultad: \" + GlobalVariableString(Dificultad) + NewLine() + NewLine() + GlobalVariableString(Premios) + "
                         "NewLine() + VariableString(Rec)"),
-        texto("TxtPie", "\"Enter / A: volver al título\""), gset("Demo", "=", 0)], sub=[
+        texto("TxtPie", "\"Enter, Espacio o clic (control: A): volver al título\""), gset("Demo", "=", 0)], sub=[
         ev([gtxt("Resultado", "\"victoria\""), gnum("SinRecord", "=", 0), o_(gnum("MejorTiempo", "=", 0), c("VarGlobal", "MejorTiempo", ">", "GlobalVariable(TiempoFinal)"))],
            [gset("MejorTiempo", "=", "GlobalVariable(TiempoFinal)")]),
         sonido("efectos/eventos/" + "victoria.ogg")]),

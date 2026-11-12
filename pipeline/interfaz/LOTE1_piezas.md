@@ -1,0 +1,74 @@
+# Tarea: lote 1 de piezas de interfaz de FDI-Z (hojas de varios ítems por imagen)
+
+Eres el agente de la computadora del equipo (PowerShell, Windows) con acceso a la API de WaveSpeed. Ya generaste los mockups en `generado\interfaz\mockups\`. Ahora genera las piezas sueltas con la MISMA técnica, pero en HOJAS: varios ítems por imagen, para ahorrar generaciones. Luego recórtalas por script. Trabaja solo, sin pedir confirmación. Detente solo si la API falla, falta la API key o algo del repositorio no se entiende.
+
+RAIZ = C:\Users\Angel Perez\Downloads\fdiz
+
+## Reglas que no se rompen
+1. UN SOLO INTENTO por hoja. Nunca regeneres. Si una hoja sale mal, anótalo en el reporte y sigue.
+2. Resolución máxima 1k. Una imagen por llamada (nada de modelos "multi").
+3. Modelos: `google/nano-banana-2.1/edit` (con referencias) y `google/nano-banana-2.1/text-to-image` (solo si la hoja no tiene referencias). Usa Edit siempre que la hoja liste referencias.
+4. Todo en inglés en los prompts. Ninguna imagen lleva texto, letras ni números, salvo el logo "FDI-Z".
+5. API key: variable de entorno WAVESPEED_API_KEY (nunca la imprimas). Máx. 3 trabajos a la vez. Si la salida ya existe, no se regenera.
+6. Solo escribes en `RAIZ\generado\interfaz\` (hojas en `hojas\`, piezas recortadas en `piezas\`), en `RAIZ\gdevelop\FDI-Z\assets\interfaz\` (carpeta nueva con las piezas finales) y tus scripts en `RAIZ\pipeline\scripts\`. No toques `assetsimage\`, `FDI-Z.json` ni los scripts de gdevelop.
+7. Log: `generado\log\jobs_ui.jsonl` (id, request_id, estado, segundos, error).
+
+## Cómo se arma cada hoja
+Cada prompt final = BLOQUE_ESTILO + prompt de la hoja + BLOQUE_HOJA (los hojas de ítems; los fondos llevan BLOQUE_FONDO en vez de BLOQUE_HOJA).
+
+BLOQUE_ESTILO:
+"Chunky pixel art game UI for a 2D top-down zombie survival game set in a university engineering school at night. Flat shading with 2-3 tones per color, thick near-black outlines, no gradients, no smooth anti-aliased shading, consistent pixel size across the whole image. Palette: dark navy panels #1B1F3B, teal #2EC4B6, orange #FF9F1C, purple #9B5DE5, toxic slime green #7CFC00, warm yellow, red for health. Match the pixel style, outline weight and colors of the reference image(s) exactly."
+
+BLOQUE_HOJA:
+"Layout: arrange exactly the listed items as separate objects on a perfectly flat, solid pure magenta #FF00FF background, in a clean grid, with very wide empty gutters between items. Each item is fully inside its own cell, centered, large, not touching any other item or the image edges, all items at the same scale and pixel size. No cast shadows or glow spilling onto the background. No text, no letters, no numbers, no watermark. Do not use magenta inside any item."
+
+BLOQUE_FONDO:
+"Full-screen background illustration only. No UI panels, no frames, no buttons, no bars, no text, no letters, no watermark."
+
+## Manifiesto (23 hojas). Salida: hojas\<id>.png
+Referencias por defecto: `hud.png` = `generado\interfaz\mockups\hud.png` (referencia de estilo y de HUD; úsala en TODAS las hojas de ítems salvo que se indique otra cosa).
+
+### A. Fondos (16:9, BLOQUE_FONDO)
+1. bg_titulo. Refs: mockups\titulo.png + assetsimage\tony.png, miranda.png, cesar.png, alan.png. Prompt: "Recreate the scene of reference 1 as a clean full-screen background: the same school building facade with broken glass doors, palm tree, street lamps, bushes, moon, night, the group of zombies and the janitor zombie at the door. REMOVE the green frame, the panels, the buttons and the FDI-Z logo. Add the four heroes (references 2-5, keep their exact designs) standing in the left foreground, ready to fight. Keep the lower-center area uncluttered."
+2. bg_modos. Ref: mockups\modos.png. Prompt: "Dark empty school hallway with lockers and soft blue night light, wide uncluttered center. Remove the cards, buttons and title panel."
+3. bg_seleccion. Ref: mockups\seleccion.png. Prompt: "Dark night classroom with chalkboard full of diagrams, desks, moonlit window, tool wall on the left and computers on the right. No characters, no panels. Leave a soft spotlight circle on the floor at the left."
+4. bg_tienda. Ref: mockups\tienda.png. Prompt: "Dark school hallway with lockers and a door, blue night light. No characters, no panels, no coin counter, no items."
+5. bg_victoria. Refs: mockups\victoria.png + tony.png, miranda.png, cesar.png, alan.png. Prompt: "Keep the sunrise sky, the school silhouette, the parked yellow school bus (no lettering on the bus) and the four heroes celebrating at the left. Remove the title panel, the results panel and the buttons. Keep the right half calm and uncluttered."
+6. bg_derrota. Refs: mockups\derrota.png + assetsimage\Z5.png + tony.png, miranda.png, cesar.png, alan.png. Prompt: "Keep the dark red-vignette hallway, the scared heroes and the zombies with the janitor zombie in front. Remove the results panel and the buttons. Keep the right side calm."
+
+### B. Hojas de ítems (BLOQUE_HOJA; ratio indicado)
+7. ilus_modos (16:9, 2 ítems, izq→der). Refs: hud.png + mockups\modos.png + assetsimage\tony.png, miranda.png, cesar.png, alan.png, Z5.png. Prompt: "Two square-ish illustrations with no frame. 1) 'escape': the four heroes running through a parking lot at night toward a yellow school bus, zombies behind them, street lamps (no lettering on the bus). 2) 'jefe': the janitor zombie with a mop looming over a glowing green holographic map of the school with small green zombie figures on it."
+8. logo (21:9, 3 ítems en una fila). Ref: mockups\titulo.png. Prompt: "Three versions of the game logo 'FDI-Z' in big chunky slime-green pixel letters dripping slime with a near-black outline, spelled exactly F D I - Z. 1) plain logo. 2) the logo above a small dark navy shield emblem with a green zombie hand. 3) a compact square version of the logo." (Única hoja que lleva texto.)
+9. ui_botones (16:9, 4 ítems en columna, 1 por fila). Ref: hud.png + mockups\titulo.png. "Four wide empty menu buttons (no text) in different states, all same size: normal (dark navy, teal border), selected (orange border with a small orange arrow marker on the left), pressed (darker, inset), disabled (greyed out)."
+10. ui_paneles (16:9, 4 ítems en cuadrícula 2x2). Refs: mockups\pausa.png, victoria.png, seleccion.png, tienda.png. "Four large empty panel frames, no content, no text: pause menu panel (tall, teal and purple border, green corner accents), results panel (wide, teal border), character detail panel (wide, grey border), shop panel (large, teal frame with a flat solid light steel-blue inner area, no transparency, no reflections)."
+11. ui_dificultad (16:9, 4 ítems en cuadrícula 2x2). Ref: mockups\modos.png + hud.png. "Four empty buttons, no text: easy (green border), normal (orange fill, selected look, yellow border), hard (red border with a small pixel skull icon on the left), buy button (neon green border)."
+12. ui_ranuras (16:9, 4 ítems en una fila). Ref: mockups\tienda.png + mockups\seleccion.png. "Four empty slots, no content: shop item slot normal (square, teal border), shop item slot selected (square, orange glowing border), character portrait slot normal (square, dark border), character portrait slot selected (square, yellow border)."
+13. hud_paneles (16:9, 4 ítems en cuadrícula 2x2). Ref: hud.png (úsala como base exacta). "Four empty HUD player panels, one per color of border: yellow, blue, green, pink. Each panel (wide ~3:1) has: a square empty portrait slot at the left, an empty dark horizontal health-bar trough on the top right, and below it three empty square slots in a row with teal, orange and grey borders. No portrait, no icons, no bar fill, no text."
+14. hud_barras (16:9, 4 ítems en cuadrícula 2x2). Ref: hud.png. "Four empty HUD pieces: 1) objective banner (wide dark navy panel with a small yellow arrow marker at the left, otherwise empty); 2) infestation panel (zombie head emblem at the left and five empty dark segment slots in a row); 3) money panel (gold coin at the left and an empty dark field); 4) a large yellow arrow pointer for the screen edge."
+15. hud_cartas (16:9, 4 ítems en una fila). Ref: hud.png + mockups\pausa.png. "Four empty pieces: boss-mode card frame normal (vertical 2:3, teal border), boss-mode card frame selected (same with orange glowing border), minimap frame (square, navy with teal border, empty inside), round pause button (teal with a pause symbol of two vertical bars)."
+
+### C. Iconos de habilidad (4 hojas, 16:9, cuadrícula de 3 columnas x 2 filas = 6 iconos). Fila 1 = personaje A (Q, E, pasiva), fila 2 = personaje B (Q, E, pasiva). Iconos sobre fondo magenta, SIN marco (el marco de color lo pone GDevelop), legibles a 64 px: forma simple, gran silueta, 2-3 tonos. Ref: hud.png.
+16. iconos_tony_miranda. Tony: Q 'Cocinar' = a burger on a white plate with two small steam puffs, same design as the reference burger (referencia extra: `generado\raw\efectos\tony\efecto_habilidad.png`); E 'Modo gym' = glowing flexed muscular arm; pasiva = stack of gold coins. Miranda: Q 'Arrullo' = crescent moon with stars and a music note; E 'Minigun' = rotary minigun firing; pasiva = heart with a slow regeneration swirl.
+17. iconos_cesar_alan. César: Q 'Hackeo' = microchip with an open padlock; E 'Control de la escuela' = school building with radar signal waves; pasiva 'Rutas' = a dotted yellow path line curving across the ground and ending at a red map pin. Alan: Q 'Gorrear' = ruler with sparkles; E 'Reembolso' = three brooms with a circular refund arrow; pasiva 'Ojo de oferta' = eye with a price tag.
+18. iconos_castillo_alessandro. Castillo: Q 'Tragar' = wide open mouth biting; E 'App de salud' = smartphone with a green cross; pasiva (la comida le cura el doble) = a burger with two small bright green plus signs floating above it. Alessandro: Q 'Chiste' = laughing face in a speech bubble; E 'Reloj' = stopwatch frozen in ice crystals; pasiva = hourglass with a fast-forward arrow.
+19. iconos_gabo_carlos. Gabo: Q 'Supervelocidad' = lightning bolt with speed lines on a sneaker; E 'Ecosistema' = three small gadgets (drone, speaker, robot) with signal waves; pasiva 'AirDrop' = a broom flying along a curved arrow from one open hand to another open hand. Carlos: Q 'Llave maestra' = big ornate key; E 'Tanque' = heavy armor shield; pasiva = small armor plate with a down arrow.
+
+### D. Iconos de HUD y de armas (16:9, 8 iconos cada una en cuadrícula 4x2, sin marco). Ref: hud.png.
+20. iconos_hud. En orden: vida (red pixel heart), dinero (gold coin), infestación (green zombie head with red eyes), revivir (two hands clasping with a small green plus sign), objetivo (target/flag), mordido (green bite mark on an arm), comida guardada (burger in a paper bag), lanzable (soccer ball). Para comida y balón usa como referencia también `generado\sprites\objetos\comida\hamburguesa.png` y `lanzables\balon.png`.
+21. iconos_armas. En orden: puños (fists), escoba (broom), regla (ruler), bate (bat), silla (chair), extintor (fire extinguisher), pistola (pistol), escopeta (shotgun). Para los 6 primeros usa de referencia los sprites de `generado\sprites\objetos\armas\` (escoba, regla, bate, silla, extintor) y mantén su diseño.
+
+### E. Hojas añadidas (mismas reglas: BLOQUE_ESTILO + prompt + BLOQUE_HOJA, Edit, 1k, un intento)
+22. ui_placas (16:9, 4 ítems en cuadrícula 2x2). Refs: mockups\seleccion.png, mockups\victoria.png, mockups\derrota.png, mockups\hud.png. Prompt: "Four empty title plates and banners, no text: 1) wide screen title plate: dark navy with a steel-gray border and toxic green slime curls with small green skulls on both top corners; 2) victory banner: wide dark navy plate with a thick gold border, gold corner studs and small white pixel sparkles around it; 3) defeat banner: wide dark navy plate with a dark red border and toxic green slime dripping from the bottom corners; 4) name plate: small wide dark navy plate with a steel-gray border."
+Nombres: ui_placa_titulo, ui_banner_victoria, ui_banner_derrota, ui_placa_nombre.
+23. ui_marcos_icono (16:9, 8 ítems en cuadrícula 4x2). Refs: mockups\hud.png, mockups\seleccion.png, mockups\victoria.png, mockups\derrota.png. Prompt: "Eight items, no text. Top row: four empty square icon frames with a dark navy inside, same size, thick border: 1) teal border, 2) orange border, 3) purple border, 4) steel-gray border. Bottom row: 5) gold medal with a blue and red ribbon, 6) silver medal with a blue and red ribbon, 7) small white pixel skull, 8) solid black head-and-shoulders silhouette for an empty player slot."
+Nombres: ui_marco_icono_teal, ui_marco_icono_naranja, ui_marco_icono_morado, ui_marco_icono_gris, icono_medalla_oro, icono_medalla_plata, icono_calavera, retrato_vacio.
+
+## Post-proceso (sin generar nada)
+1. Recorte de hojas: por script (Python/PIL, reutiliza los de `pipeline\scripts\`). Quita el magenta con relleno desde los bordes (flood fill con tolerancia baja; NO borres rosa/magenta del interior de un ítem), separa por componentes conectados, recorta con 4 px de margen y ordena izquierda→derecha, arriba→abajo. Guarda cada pieza en `generado\interfaz\piezas\` y copia a `gdevelop\FDI-Z\assets\interfaz\` con nombres en minúsculas sin espacios ni tildes, p. ej. `hud_panel_p1_amarillo.png`, `ui_boton_normal.png`, `icono_tony_q.png`, `icono_arma_pistola.png`, `logo_fdiz_1.png`. Si una hoja no separa bien (ítems pegados o partidos), no regeneres: repórtalo y recorta a mano por coordenadas fijas si es posible.
+2. Retratos (cero generaciones): recorta busto cuadrado (cabeza y hombros) de `assetsimage\` para tony, tonyfuerte, miranda, cesar, alan, castillo, alessandro, gabo y carlos → `retrato_<nombre>.png`, 256x256, fondo transparente, sin suavizado (nearest). Haz también `retrato_silueta.png` (silueta negra de uno de ellos).
+3. Revisión (solo reporte, sin generar): (a) mira los 16 efectos existentes en `generado\sprites\efectos\` y haz una hoja de contacto `generado\interfaz\revision_efectos.png`; (b) hoja de contacto de las animaciones `caminar_lado` de los 9 jugables en `generado\interfaz\revision_caminar_lado.png`, marcando cuáles tienen las piernas mal.
+4. `generado\interfaz\INDICE.md`: tabla con archivo, hoja de origen y para qué pantalla es. Para cada panel, botón, placa, ranura y marco, anota además el grosor del borde en px (izq, arriba, der, abajo) medido en la pieza recortada: se usarán como Panel Sprite (9-slice) en GDevelop.
+5. Fondos: no los reescales; guárdalos al tamaño original de 1k.
+
+## Reporte final (corto)
+Generaciones hechas / fallidas (con motivo), piezas recortadas que salieron mal (merged, partidas, con borde magenta), celdas vacías de pasivas, rutas de las dos hojas de contacto y créditos gastados si la API los reporta. No imprimas prompts ni la API key.

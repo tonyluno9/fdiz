@@ -29,7 +29,7 @@ for pj in list(PERSONAJES) + ["tonyfuerte"]:
     e = atlas["entidades"][f"personajes/{pj}"]
     w, h = e["lienzo"]
     o = (w // 2, h - 2)
-    m = (o[0] - 14, o[1] - 16, o[0] + 14, o[1])
+    m = (o[0] - 20, o[1] - 16, o[0] + 20, o[1])
     for n, an in e["animaciones"].items():
         imgs = []
         for f in an["cuadros"]:
@@ -46,7 +46,10 @@ VARS_SUP = [var("Personaje", "tony"), var("Jugador", 1), var("Control", 0), var(
             var("Estado", "normal"), var("Arma", "puños"), var("Usos", 0), var("DanioArma", 7),
             var("Alcance", 1.0), var("Cadencia", 0.35), var("Atacando", 0), var("AimX", 0), var("AimY", 1),
             var("QuierePegar", 0), var("Usando", 0), var("Revivir", 0), var("MovX", 0), var("MovY", 0), var("UltX", 0), var("UltY", 0), var("Ayuda", 0), var("ResDanio", 1), var("Kills", 0), var("Golpeado", 0), var("HabCD", 15), var("EspCD", 50), var("PideHab", 0), var("PideEsp", 0), var("Rapidez", 1)]
-sup = objeto_sprite("Sup", anims, variables=VARS_SUP, comportamientos=[topdown])
+pathbot = {"name": "PathBot", "type": "PathfindingBehavior::PathfindingBehavior", "allowDiagonals": True, "acceleration": 900,
+           "maxSpeed": 0, "angularMaxSpeed": 180, "rotateObject": False, "angleOffset": 0, "cellWidth": 32, "cellHeight": 32,
+           "extraBorder": 0, "gridOffsetX": 0, "gridOffsetY": 0, "smoothingMaxCellGap": 1}
+sup = objeto_sprite("Sup", anims, variables=VARS_SUP, comportamientos=[topdown, pathbot])
 esc["objects"] = [o for o in esc["objects"] if o["name"] not in ("Tony", "Sup")]
 i_obj = next(k for k, o in enumerate(esc["objects"]) if o["name"] == "Mapa")
 esc["objects"].insert(i_obj, sup)
@@ -102,6 +105,11 @@ def foreach(obj, conds, acts, sub=None):
     return {"type": "BuiltinCommonInstructions::ForEach", "object": obj,
             "conditions": conds, "actions": acts, "events": sub or []}
 def tecla(k, inv=False): return c("KeyPressed", "", k, invertida=inv)
+def bloqueo(a_, b_):
+    """Deja Bloq = 1 si hay un muro o una puerta cerrada entre a_ y b_ (7 puntos sobre la línea que los une)."""
+    P = lambda t: (f"{a_}.X() + ({b_}.X() - {a_}.X()) * {t}", f"{a_}.Y() + ({b_}.Y() - {a_}.Y()) * {t}")
+    return [ev([], [svar("Bloq", "=", 0)])] + [ev([c("CollisionPoint", o, *P(t))], [svar("Bloq", "=", 1)])
+                                                for o in ("Muro", "Puerta") for t in (0.12, 0.25, 0.38, 0.5, 0.62, 0.75, 0.88)]
 def boton(pad, b): return c("Gamepads::C_Button_pressed", "", str(pad), f"\"{b}\"", "")
 def anim(o, nombre): return a("SetAnimationName", o, f"Sup.VariableString(Personaje) + \"_{nombre}\"" if o == "Sup"
                               else f"\"{nombre}\"")
@@ -151,7 +159,7 @@ EV.append(grupo("Unirse con control", union))
 TEC = vnum("Sup", "Control", "=", 0)
 entrada = [
     comentario("Cada cuadro: MovX/MovY, AimX/AimY, QuierePegar y Usando según el control de cada quien. "
-               "Teclado: WASD, ratón apunta, clic izq pegar, F usar/revivir, Shift caminar despacio. "
+               "Teclado: WASD, ratón apunta, clic izq pegar, F usar/revivir, Q habilidad, E especial, R o clic der lanzar, Shift caminar despacio. "
                "Control: stick izq, X pegar, A usar/revivir."),
     ev([], [setn("Sup", "MovX", "=", 0), setn("Sup", "MovY", "=", 0), setn("Sup", "QuierePegar", "=", 0),
             setn("Sup", "Usando", "=", 0), setn("Sup", "PideHab", "=", 0), setn("Sup", "PideEsp", "=", 0)]),
@@ -162,8 +170,8 @@ entrada = [
     ev([TEC], [setn("Sup", "AimX", "=", "CursorX() - Sup.X()"), setn("Sup", "AimY", "=", "CursorY() - (Sup.Y() - 40)")]),
     ev([TEC, c("MouseButtonPressed", "", "Left")], [setn("Sup", "QuierePegar", "=", 1)]),
     ev([TEC, tecla("f")], [setn("Sup", "Usando", "=", 1)]),
-    ev([TEC, c("KeyReleased", "", "e")], [setn("Sup", "PideHab", "=", 1)]),
-    ev([TEC, c("KeyReleased", "", "c")], [setn("Sup", "PideEsp", "=", 1)]),
+    ev([TEC, tecla("q")], [setn("Sup", "PideHab", "=", 1)]),
+    ev([TEC, tecla("e")], [setn("Sup", "PideEsp", "=", 1)]),
     # piloto de depuración (solo P1 de teclado)
     ev([TEC, cvt("Piloto", "\"izq\"")], [setn("Sup", "MovX", "=", -1)]),
     ev([TEC, cvt("Piloto", "\"der\"")], [setn("Sup", "MovX", "=", 1)]),
@@ -178,8 +186,8 @@ for k in range(1, 5):
         ev([P, cmp(f"abs({sx}) + abs({sy})", ">", "0.3")], [setn("Sup", "AimX", "=", sx), setn("Sup", "AimY", "=", sy)]),
         ev([P, boton(k, "X")], [setn("Sup", "QuierePegar", "=", 1)]),
         ev([P, boton(k, "A")], [setn("Sup", "Usando", "=", 1)]),
-        ev([P, c("Gamepads::C_Button_released", "", str(k), "\"Y\"", "")], [setn("Sup", "PideHab", "=", 1)]),
-        ev([P, c("Gamepads::C_Button_released", "", str(k), "\"RB\"", "")], [setn("Sup", "PideEsp", "=", 1)]),
+        ev([P, boton(k, "Y")], [setn("Sup", "PideHab", "=", 1)]),
+        ev([P, boton(k, "RB")], [setn("Sup", "PideEsp", "=", 1)]),
     ]
 EV.append(grupo("Entrada (teclado y controles)", entrada))
 
@@ -187,27 +195,28 @@ EV.append(grupo("Entrada (teclado y controles)", entrada))
 BOT = vnum("Sup", "Control", "=", -1)
 bots = [
     comentario("Bots: 1) reviven al caído más cercano, 2) pelean con el zombie más cercano a menos de 320 px, "
-               "3) siguen al humano más cercano. Si se quedan a más de 1100 px aparecen junto al jugador 1."),
+               "3) siguen al grupo caminando por ruta (no se teletransportan)."),
     foreach("Sup", [BOT, VIVO], [setn("Sup", "AimX", "=", "Sup.Variable(AimX)")], sub=[
-        # seguir al jugador humano 1 (o al primero vivo)
-        ev([cmp("DistanceBetweenPositions(Sup.X(), Sup.Y(), Variable(SegX), Variable(SegY))", ">", "160")],
-           [setn("Sup", "MovX", "=", "(Variable(SegX) - Sup.X()) / max(1, DistanceBetweenPositions(Sup.X(), Sup.Y(), Variable(SegX), Variable(SegY)))"),
-            setn("Sup", "MovY", "=", "(Variable(SegY) - Sup.Y()) / max(1, DistanceBetweenPositions(Sup.X(), Sup.Y(), Variable(SegX), Variable(SegY)))")]),
-        ev([timer_ok("Sup", "atasco", 1.5)], [reset_t("Sup", "atasco")], sub=[
-            ev([cmp("DistanceBetweenPositions(Sup.X(), Sup.Y(), Sup.Variable(UltX), Sup.Variable(UltY))", "<", "30"),
-                cmp("DistanceBetweenPositions(Sup.X(), Sup.Y(), Variable(SegX), Variable(SegY))", ">", "250")],
-               [a("MettreXY", "Sup", "=", "Variable(SegX) + RandomInRange(-50, 50)", "=", "Variable(SegY) + 48")]),
-            ev([], [setn("Sup", "UltX", "=", "Sup.X()"), setn("Sup", "UltY", "=", "Sup.Y()")])]),
-        ev([cmp("DistanceBetweenPositions(Sup.X(), Sup.Y(), Variable(SegX), Variable(SegY))", ">", "1100")],
-           [a("MettreXY", "Sup", "=", "Variable(SegX) + RandomInRange(-60, 60)", "=", "Variable(SegY) + 40")]),
+        # seguir al grupo por RUTA (Pathfinding: rodea paredes y muebles); nunca se teletransportan
+        ev([cmp("DistanceBetweenPositions(Sup.X(), Sup.Y(), Variable(SegX), Variable(SegY))", ">", "160")], [], sub=[
+            ev([timer_ok("Sup", "ruta", 0.2)], [reset_t("Sup", "ruta"),
+                a("PathfindingBehavior::SetDestination", "Sup", "PathBot", "", "Variable(SegX)", "Variable(SegY)")]),
+            # si hay ruta: ir al siguiente punto (al siguiente del siguiente si ya casi llegó); si no, directo
+            ev([c("PathfindingBehavior::PathFound", "Sup", "PathBot"), cmp("Sup.PathBot::NodeCount()", ">", "1")],
+               [setn("Sup", "MovX", "=", "(Sup.PathBot::NextNodeX() - Sup.X()) / max(1, DistanceBetweenPositions(Sup.X(), Sup.Y(), Sup.PathBot::NextNodeX(), Sup.PathBot::NextNodeY()))"),
+                setn("Sup", "MovY", "=", "(Sup.PathBot::NextNodeY() - Sup.Y()) / max(1, DistanceBetweenPositions(Sup.X(), Sup.Y(), Sup.PathBot::NextNodeX(), Sup.PathBot::NextNodeY()))")]),
+            ev([c("PathfindingBehavior::PathFound", "Sup", "PathBot", invertida=True)],
+               [setn("Sup", "MovX", "=", "(Variable(SegX) - Sup.X()) / max(1, DistanceBetweenPositions(Sup.X(), Sup.Y(), Variable(SegX), Variable(SegY)))"),
+                setn("Sup", "MovY", "=", "(Variable(SegY) - Sup.Y()) / max(1, DistanceBetweenPositions(Sup.X(), Sup.Y(), Variable(SegX), Variable(SegY)))")])]),
         # pelear
         ev([vtxt("Zombies", "Estado", "muerto", inv=True), c("PickNearest", "Zombies", "Sup.X()", "Sup.Y()", "")], [], sub=[
             ev([cmp("Sup.Distance(Zombies)", "<", "320")],
                [setn("Sup", "AimX", "=", "Zombies.X() - Sup.X()"), setn("Sup", "AimY", "=", "Zombies.Y() - Sup.Y()")], sub=[
-                ev([cmp("Sup.Distance(Zombies)", ">", "70")],
+                *bloqueo("Sup", "Zombies"),
+                ev([cvar("Bloq", "=", 0), cmp("Sup.Distance(Zombies)", ">", "70")],
                    [setn("Sup", "MovX", "=", "(Zombies.X() - Sup.X()) / max(1, Sup.Distance(Zombies))"),
                     setn("Sup", "MovY", "=", "(Zombies.Y() - Sup.Y()) / max(1, Sup.Distance(Zombies))")]),
-                ev([cmp("Sup.Distance(Zombies)", "<=", "95")], [setn("Sup", "QuierePegar", "=", 1)]),
+                ev([cvar("Bloq", "=", 0), cmp("Sup.Distance(Zombies)", "<=", "95")], [setn("Sup", "QuierePegar", "=", 1)]),
             ]),
         ]),
     ]),
@@ -242,6 +251,7 @@ EV.append(grupo("Movimiento y animación", [
 EV.append(grupo("Mapa: choques y puertas", [
     comentario("Choques con muros, muebles y puertas. Puerta: mantener Usar junto a ella (normal 1 s, electrónica 8 s). "
                "Restringidas: fase 6."),
+    ev([VIVO], [a("SeparateFromObjects", "Sup", "Sup", "")]),   # personajes de pie no se atraviesan ni se encimen
     ev([], [a("SeparateFromObjects", "Sup", "Solidos", "")]),
     ev([], [setn("Puerta", "Usada", "=", 0)]),
     foreach("Puerta", [vnum("Puerta", "TiempoAbrir", ">", 0)], [], sub=[
@@ -278,13 +288,14 @@ EV.append(grupo("Combate: pegar", [
             cmp("DistanceBetweenPositions(Zombies.X(), Zombies.Y() - 40, "
                 "Golpe.X() + cos(ToRad(Golpe.Angle())) * 50 * Sup.Variable(Alcance), "
                 "Golpe.Y() + sin(ToRad(Golpe.Angle())) * 50 * Sup.Variable(Alcance))", "<", "58 * Sup.Variable(Alcance)")],
+            [], sub=[*bloqueo("Sup", "Zombies"), ev([cvar("Bloq", "=", 0)],
             [setn("Zombies", "Vida", "-", "Golpe.Variable(Danio)"), a("ChangeColor", "Zombies", "\"255;90;90\""),
              reset_t("Zombies", "tinte"), a("AddForceVersPos", "Zombies", "Sup.X()", "Sup.Y()", "-280", "0"),
              sett("Zombies", "Estado", "\"persigue\""), setn("Zombies", "UltJugador", "=", "Sup.Variable(Jugador)"),
              a("Create", "", "Salpicadura", "Zombies.X()", "Zombies.Y() - 48", "\"Juego\""), reset_t("Salpicadura", "vida"),
              a("Create", "", "TxtDanio", "Zombies.X() + RandomInRange(-10, 10)", "Zombies.Y() - 110", "\"Juego\""),
              a("TextObject::String", "TxtDanio", "=", "ToString(round(Golpe.Variable(Danio)))"), reset_t("TxtDanio", "vida"),
-             svar("Temblor", "=", 0.12)]),
+             svar("Temblor", "=", 0.12)])]),
         ev([vtxt("Sup", "Arma", "puños", inv=True)], [setn("Sup", "Usos", "-", 1)]),
         ev([vtxt("Sup", "Arma", "puños", inv=True), vnum("Sup", "Usos", "<=", 0)], [sett("Sup", "Arma", "\"puños\"")]),
     ]),
@@ -363,18 +374,26 @@ zomb = [
             [setn("ZGriton", "Grito", "=", 1), a("SetAnimationName", "ZGriton", "\"gritar\""), reset_t("ZGriton", "ataque")],
             [ev([c("Distance", "Zombies", "ZGriton", "450"), vtxt("Zombies", "Estado", "muerto", inv=True)],
                 [sett("Zombies", "Estado", "\"persigue\"")])]),
+    # el zombie solo pega si no hay un muro ni una puerta cerrada entre él y el superviviente (7 puntos sobre la línea)
     foreach("Zombies", [vtxt("Zombies", "Estado", "persigue"), timer_ok("Zombies", "ataque", 1)], [], sub=[
         ev([VIVO, c("Distance", "Sup", "Zombies", "80"), c("PickNearest", "Sup", "Zombies.X()", "Zombies.Y()", "")],
-           [reset_t("Zombies", "ataque"), setn("Sup", "Vida", "-", "Zombies.Variable(Danio) * Sup.Variable(ResDanio) * GlobalVariable(DifDanio)"),
-            setn("Sup", "Golpeado", "=", 1),
-            a("ChangeColor", "Sup", "\"255;110;110\""), reset_t("Sup", "tinte")],
-           sub=anim_dir("Zombies", "(Sup.X() - Zombies.X())", "(Sup.Y() - Zombies.Y())", "atacar"))]),
+           [svar("Bloq", "=", 0)], sub=[
+            *[ev([c("CollisionPoint", o_, f"Zombies.X() + (Sup.X() - Zombies.X()) * {t}", f"Zombies.Y() + (Sup.Y() - Zombies.Y()) * {t}")],
+                 [svar("Bloq", "=", 1)])
+              for o_ in ("Muro", "Puerta") for t in (0.12, 0.25, 0.38, 0.5, 0.62, 0.75, 0.88)],
+            ev([cvar("Bloq", "=", 0)],
+               [reset_t("Zombies", "ataque"), setn("Sup", "Vida", "-", "Zombies.Variable(Danio) * Sup.Variable(ResDanio) * GlobalVariable(DifDanio)"),
+                setn("Sup", "Golpeado", "=", 1),
+                a("ChangeColor", "Sup", "\"255;110;110\""), reset_t("Sup", "tinte")],
+               sub=anim_dir("Zombies", "(Sup.X() - Zombies.X())", "(Sup.Y() - Zombies.Y())", "atacar"))])]),
     foreach("Zombies", [vtxt("Zombies", "Estado", "muerto", inv=True), timer_ok("Zombies", "ataque", 0.45),
                         cmp("Zombies.Pathfinding::Speed()", ">", "1")], [], anim_dir("Zombies", ZX, ZY, "caminar")),
-    ev([VIVO, c("CollisionNP", "Sup", "ZGordo", "", ""), vtxt("ZGordo", "Estado", "muerto", inv=True)],
-       [a("AddForceVersPos", "Sup", "ZGordo.X()", "ZGordo.Y()", "-220", "0")]),
-    ev([VIVO, c("CollisionNP", "Sup", "ZConserje", "", ""), vtxt("ZConserje", "Estado", "muerto", inv=True)],
-       [a("AddForceVersPos", "Sup", "ZConserje.X()", "ZConserje.Y()", "-220", "0")]),
+    foreach("Sup", [VIVO, c("CollisionNP", "Sup", "ZGordo", "", ""), vtxt("ZGordo", "Estado", "muerto", inv=True)], [], sub=[
+        *bloqueo("Sup", "ZGordo"),
+        ev([cvar("Bloq", "=", 0)], [a("AddForceVersPos", "Sup", "ZGordo.X()", "ZGordo.Y()", "-220", "0")])]),
+    foreach("Sup", [VIVO, c("CollisionNP", "Sup", "ZConserje", "", ""), vtxt("ZConserje", "Estado", "muerto", inv=True)], [], sub=[
+        *bloqueo("Sup", "ZConserje"),
+        ev([cvar("Bloq", "=", 0)], [a("AddForceVersPos", "Sup", "ZConserje.X()", "ZConserje.Y()", "-220", "0")])]),
     ev([vnum("Zombies", "Vida", "<=", 0), vtxt("Zombies", "Estado", "muerto", inv=True)],
        [sett("Zombies", "Estado", "\"muerto\""), a("SetAnimationName", "Zombies", "\"golpe_morir\""),
         a("ActivateBehavior", "Zombies", "Pathfinding", "no"), svar("Tumbados", "+", 1), 
@@ -411,7 +430,7 @@ EV.append(grupo("Infestación", inf))
 # ---------- cámara compartida ----------
 cam = [
     comentario("Centro = promedio de los humanos de pie (si no hay, de todos los de pie). Se aleja si se separan "
-               "(zoom 1 a 0.6) y nadie puede salirse de la pantalla."),
+               "(zoom 1.4 a 0.7) y nadie puede salirse de la pantalla."),
     ev([], [svar("CamN", "=", 0), svar("CamX", "=", 0), svar("CamY", "=", 0), svar("CamMinX", "=", 999999),
             svar("CamMaxX", "=", -999999), svar("CamMinY", "=", 999999), svar("CamMaxY", "=", -999999),
             svar("Humanos", "=", 0)]),
@@ -425,7 +444,7 @@ for filtro in ([vnum("Sup", "Control", ">=", 0)], []):
 cam += [
     ev([cvar("CamN", ">", 0)], [svar("CamX", "/", "Variable(CamN)"), svar("CamY", "/", "Variable(CamN)"),
         svar("CamZoom", "=", "clamp(min(1500 / max(1, Variable(CamMaxX) - Variable(CamMinX)), "
-                             "780 / max(1, Variable(CamMaxY) - Variable(CamMinY))), 0.6, 1)")], sub=[
+                             "780 / max(1, Variable(CamMaxY) - Variable(CamMinY))) * 1.4, 0.7, 1.4)")], sub=[
         ev([c("DepartScene", "")], [a("CameraX", "", "=", "Variable(CamX)", "", ""), a("CameraY", "", "=", "Variable(CamY)", "", "")]),
         ev([], [a("ZoomCamera", "", "CameraZoom() + (Variable(CamZoom) - CameraZoom()) * min(1, 3 * TimeDelta())", "", ""),
                 a("CameraX", "", "=", "CameraX() + (Variable(CamX) - CameraX()) * min(1, 6 * TimeDelta())", "", ""),
@@ -442,15 +461,16 @@ EV.append(grupo("Cámara compartida", cam))
 
 # ---------- depuración ----------
 dep = [
-    comentario("QUITAR ANTES DE PRESENTAR. I/J/K/L: P1 camina solo (O para). U: levantar a todos. H: tumbar a P1. N: subir infestación. "
+    comentario("QUITAR ANTES DE PRESENTAR. Solo con F3 activado: I/J/K/L: P1 camina solo (O para). U: levantar a todos. H: tumbar a P1. N: subir infestación. "
                "Texto amarillo: estado de cada jugador."),
-] + [ev([tecla(k), c("BuiltinCommonInstructions::Once")], [svt("Piloto", f"\"{d}\"")])
+] + [ev([cvar("VerDebug", "=", 1), tecla(k), c("BuiltinCommonInstructions::Once")], [svt("Piloto", f"\"{d}\"")])
      for k, d in {"i": "arriba", "j": "izq", "k": "abajo", "l": "der", "o": ""}.items()] + [
-    ev([tecla("u"), c("BuiltinCommonInstructions::Once")],
+    # TECLADO: las teclas de depuración (I/J/K/L/O/U/H/N) solo funcionan con F3 activado, para no estorbar al jugar con WASD+F
+    ev([cvar("VerDebug", "=", 1), tecla("u"), c("BuiltinCommonInstructions::Once")],
        [sett("Sup", "Estado", "\"normal\""), setn("Sup", "Vida", "=", "Sup.Variable(VidaMax)"), a("Montre", "Sup", ""),
         a("ActivateBehavior", "Sup", "TopDownMovement", "yes"), a("PlayAnimation", "Sup"), svt("Estado", "\"juego\"")]),
-    ev([tecla("h"), c("BuiltinCommonInstructions::Once"), vnum("Sup", "Jugador", "=", 1)], [setn("Sup", "Vida", "=", 0)]),
-    ev([tecla("n"), c("BuiltinCommonInstructions::Once"), cvar("Infestacion", "<", 5)],
+    ev([cvar("VerDebug", "=", 1), tecla("h"), c("BuiltinCommonInstructions::Once"), vnum("Sup", "Jugador", "=", 1)], [setn("Sup", "Vida", "=", 0)]),
+    ev([cvar("VerDebug", "=", 1), tecla("n"), c("BuiltinCommonInstructions::Once"), cvar("Infestacion", "<", 5)],
        [svar("Infestacion", "+", 1), a("ResetTimer", "", "\"infest\"")]),
     ev([], [a("TextObject::String", "TxtDebug", "=",
               "\"infestación \" + ToString(Variable(Infestacion)) + \"   zombies \" + ToString(SceneInstancesCount(Zombies)) + "

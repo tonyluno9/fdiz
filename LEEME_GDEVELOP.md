@@ -25,9 +25,9 @@ Usa rutas relativas, así que funciona en cualquier carpeta, siempre que se baje
 - **Moverse:** WASD.
 - **Pegar:** clic izquierdo.
 - **Usar, revivir, curar o revisar (mantener):** F.
-- **Habilidad:** E.
-- **Especial:** C.
-- **Lanzar:** Q o clic derecho.
+- **Habilidad:** Q.
+- **Especial:** E.
+- **Lanzar:** R o clic derecho.
 - **Caminar despacio:** Shift.
 - **Saltar la cinemática:** Esc.
 - **Modo presentación:** F1. Luego, con los números: 1 completar objetivo, 2 saltar al final, 3 vida infinita, 4 y 5 infestación, 6 reiniciar, 7 morder a P1, 8 dar $200, 9 engrapadora para P1.

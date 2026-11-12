@@ -1,0 +1,62 @@
+{
+  "proyecto": "FDI-Z",
+  "lote": "M (mockups de interfaz)",
+  "modelo": "google/nano-banana-2.1/edit",
+  "aspect_ratio": "16:9",
+  "resolution": "1k",
+  "output_format": "png",
+  "total": 8,
+  "limite_generaciones": 8,
+  "reglas": "Un solo intento por imagen, NO regenerar. Una imagen por llamada. Retomable: si la salida existe, no se genera. Guardar el PNG tal cual, sin procesar. Prompt final = bloque_estilo + ' ' + prompt.",
+  "bloque_estilo": "Copy exactly the pixel art style of the reference images: chunky pixel blocks, flat block shading with 2-3 tones per color, dark near-black outlines, limited color palette. Draw everything as chunky pixel art as if made at about 480x270 pixels and upscaled with nearest neighbor; crisp pixel grid, no smooth gradients, no painterly detail. Every character or zombie shown must match its reference image exactly (same face, hair, glasses, clothes, colors, proportions); do not redesign anyone. This is a full-screen UI mockup for a 2D top-down pixel art zombie survival game set in a university engineering school at night. UI style: dark navy blue panels (#1B1F3B) with thick near-black outlines and a thin light inner highlight, teal accents (#2EC4B6), orange accents (#FF9F1C), purple accents (#9B5DE5), toxic green (#7CFC00) for zombie-themed details. No readable text anywhere: every button, label, title bar and stat line is an empty plate or a row of blank light-gray placeholder bars. No letters, no numbers, no watermark, no blood.",
+  "jobs": [
+    {
+      "id": "M1_titulo",
+      "salida": "generado/interfaz/mockups/titulo.png",
+      "referencias": ["assetsimage/Z1.png", "assetsimage/Z5.png", "gdevelop/FDI-Z/assets/mapa/fondo/fondo_1_1.png", "assetsimage/tony.png"],
+      "prompt": "Title screen. Background: the front of a modern one-story university engineering building at night seen from a slightly elevated three-quarter front view, with the campus colors of image 3 (light gray stone pavement, green grass, dark navy walls, light blue windows, some broken), the glass entrance door wide open, dark navy night sky with a large pale full moon, two street lamps casting warm yellow light, a palm tree and round bushes. Five zombies exactly like image 1 shuffle out of the entrance, and the janitor zombie boss from image 2 stands slightly bigger behind them holding his mop. In the upper center, a big game logo that reads exactly \"FDI-Z\" in thick blocky pixel letters, toxic green with a dark near-black outline, a darker green drop shadow and a few small green drips; spell it exactly F, D, I, hyphen, Z and nothing else. Below the logo, in the lower center, three stacked empty rectangular navy buttons with teal borders; the top button is highlighted with an orange border and a small pixel arrow cursor at its left. This logo is the only text allowed in the image."
+    },
+    {
+      "id": "M2_modos",
+      "salida": "generado/interfaz/mockups/modos.png",
+      "referencias": ["assetsimage/tony.png", "assetsimage/miranda.png", "assetsimage/cesar.png", "assetsimage/alan.png", "assetsimage/Z5.png", "assetsimage/Z1.png", "generado/sprites/objetos/camion/camion.png"],
+      "prompt": "Game mode select screen. Background: a dark school hallway at night with navy walls and lockers, darkened so the UI stands out. At the top center, one wide empty title plate. In the middle, two big vertical cards side by side, each with a thick frame and an illustration inside, and an empty name plate at the bottom of each card. Left card (escape mode, teal frame, selected and slightly bigger with a glowing orange outline): the four students from images 1, 2, 3 and 4 running at night across a parking lot toward the vehicle from image 7, with zombies like image 6 chasing behind them. Right card (zombie boss mode, purple frame, not selected and slightly dimmer): the janitor zombie from image 5 looming large and grinning, one hand hovering over a small glowing green top-down school map with tiny zombie markers. Below the cards, one row of three empty difficulty buttons: the left one with a green border, the middle one with a yellow border and selected, the right one with a red border and a small skull."
+    },
+    {
+      "id": "M3_seleccion",
+      "salida": "generado/interfaz/mockups/seleccion.png",
+      "referencias": ["assetsimage/tony.png", "assetsimage/miranda.png", "assetsimage/cesar.png", "assetsimage/alan.png", "assetsimage/castillo.png", "assetsimage/alessandro.png", "assetsimage/gabo.png", "assetsimage/carlos.png"],
+      "prompt": "Character select screen. Background: a dark classroom at night with a chalkboard and desks, darkened. At the top center, one wide empty title plate. Left half: a large framed panel showing the selected character, the student from image 1, as a big full-body pixel sprite standing on a small round spotlight, with an empty name plate under him. Right half, top: a grid of 8 small square portrait tiles in two rows of four, each tile a head-and-shoulders portrait of one character, in this order: image 1, image 2, image 3, image 4 on the first row and image 5, image 6, image 7, image 8 on the second row; the image 1 tile has a thick glowing yellow border, the others have navy borders. Right half, bottom: an ability card panel with three rows, each row a square icon slot followed by blank gray text bars: the first icon slot has a teal frame and a burger inside, the second has an orange frame and a flexing arm inside, the third has a purple frame and a gold coin inside. Bottom edge: four small player slot plates side by side with colored borders: yellow, blue, green and pink."
+    },
+    {
+      "id": "M4_tienda",
+      "salida": "generado/interfaz/mockups/tienda.png",
+      "referencias": ["generado/sprites/objetos/objetivos/moneda.png", "generado/sprites/objetos/comida/hamburguesa.png", "generado/sprites/objetos/comida/galletas.png", "generado/sprites/objetos/comida/jugo.png", "generado/sprites/objetos/lanzables/balon.png", "generado/sprites/objetos/lanzables/libro.png", "generado/sprites/objetos/lanzables/engrapadora.png", "generado/sprites/objetos/armas/bate.png", "generado/sprites/objetos/armas/extintor.png", "assetsimage/tony.png"],
+      "prompt": "Money and shop screen styled like a school vending machine. Background: a dark school hallway at night with navy lockers. At the top center, one wide empty title plate. Top right corner: a money counter panel with a big gold coin exactly like image 1 and an empty number plate. Center: a big vending machine shaped panel with a glass front and a grid of 8 item slots in two rows of four, each slot a navy square with a teal border showing one item exactly like its reference: image 2, image 3, image 4, image 5 on the first row and image 6, image 7, image 8, image 9 on the second row; under each item a small empty price tag with a tiny gold coin. The bat slot (image 8) is selected with a thick orange border. Right side: a description panel with a large copy of the selected item, blank gray text bars and one empty buy button with a green border. Bottom left: the student from image 10 as a small full-body sprite looking at the machine."
+    },
+    {
+      "id": "M5_hud",
+      "salida": "generado/interfaz/mockups/hud.png",
+      "referencias": ["assetsimage/tony.png", "assetsimage/miranda.png", "assetsimage/cesar.png", "assetsimage/alan.png", "assetsimage/Z1.png", "assetsimage/Z3.png", "gdevelop/FDI-Z/assets/mapa/fondo/fondo_1_1.png", "generado/sprites/objetos/objetivos/moneda.png"],
+      "prompt": "In-game HUD over gameplay. Gameplay: a top-down view of a school courtyard at night using the floor and building style of image 7 (gray stone pavement, grass, navy walls, light blue windows), with a cool blue night tint and warm light under two street lamps. In the middle, the four students from images 1, 2, 3 and 4 as small full-body sprites fighting about eight zombies like images 5 and 6 that close in from the edges. HUD: one compact player panel in each corner of the screen, each with a small square portrait of its student, a red health bar, two small square ability slots (one teal-framed, one orange-framed, one of them grayed out with a cooldown sweep) and a small weapon slot; the panel borders are yellow (top left, image 1), blue (top right, image 2), green (bottom left, image 3) and pink (bottom right, image 4). Top center: a wide empty objective banner with a small yellow arrow icon at its left. Bottom center: a horizontal infestation bar split into 5 segments, the first two filled toxic green, with a small zombie head icon at its left, and next to it a gold coin like image 8 with an empty number plate. A small yellow pixel arrow on the ground points toward the right edge."
+    },
+    {
+      "id": "M6_pausa",
+      "salida": "generado/interfaz/mockups/pausa.png",
+      "referencias": ["assetsimage/tony.png", "assetsimage/Z1.png", "gdevelop/FDI-Z/assets/mapa/fondo/fondo_1_1.png"],
+      "prompt": "Pause screen. Behind: a frozen top-down gameplay scene in the style of image 3 with the student from image 1 and three zombies like image 2, covered by a dark translucent navy overlay so it is dim. Center: one tall navy panel with a thick teal border and small corner rivets, an empty title plate at its top, and four stacked empty buttons; the first button is highlighted with an orange border and a small pixel arrow cursor at its left. A small pause icon (two vertical bars) sits above the panel."
+    },
+    {
+      "id": "M7_victoria",
+      "salida": "generado/interfaz/mockups/victoria.png",
+      "referencias": ["assetsimage/tony.png", "assetsimage/miranda.png", "assetsimage/cesar.png", "assetsimage/alan.png", "generado/sprites/objetos/camion/camion.png"],
+      "prompt": "Victory results screen. Background: the school parking lot at dawn, orange and pink sky over the dark navy school building, the vehicle from image 5 with its doors open, and the four students from images 1, 2, 3 and 4 as full-body sprites celebrating next to it with raised arms. Top center: a big empty banner plate with a gold border and small pixel sparkles around it. Center right: a results panel with four rows; each row has a small square portrait of one student (images 1 to 4 in order), blank gray stat bars and two small medal icons; the panel border is teal. Bottom center: two empty buttons side by side, the left one highlighted with an orange border."
+    },
+    {
+      "id": "M8_derrota",
+      "salida": "generado/interfaz/mockups/derrota.png",
+      "referencias": ["assetsimage/tony.png", "assetsimage/miranda.png", "assetsimage/cesar.png", "assetsimage/alan.png", "assetsimage/Z1.png", "assetsimage/Z4.png", "assetsimage/Z5.png"],
+      "prompt": "Defeat results screen. Background: a dark school hallway at night with a red vignette around the edges; the four students from images 1, 2, 3 and 4, scared and back to back in the center, surrounded by a horde of zombies like images 5 and 6 with the janitor boss from image 7 in front, all with glowing red eyes. Top center: a big empty banner plate with a dark red border and small toxic green drips. Center right: a results panel with four rows; each row has a small square grayscale portrait of one student (images 1 to 4 in order), blank gray stat bars and one small skull icon; the panel border is dark red. Bottom center: two empty buttons side by side, the left one highlighted with an orange border."
+    }
+  ]
+}

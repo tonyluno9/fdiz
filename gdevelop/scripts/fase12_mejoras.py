@@ -1,7 +1,7 @@
 """Fase 12 de FDI-Z: mejoras de juego. Correr DESPUÉS de fases_6_a_11.py (con GDevelop cerrado):
     python fase12_mejoras.py <FDI-Z.json> <mapa_fdiz_datos.json> <mapa_fdiz_props.json>
 Agrega a la escena Juego:
-- Lanzables (balón, engrapadora, libro gordo): se recogen pasando encima; Q o clic derecho / B para lanzar.
+- Lanzables (balón, engrapadora, libro gordo): se recogen pasando encima; R o clic derecho / B para lanzar.
 - Lockers y mochilas que se revisan (mantener Usar) y máquinas expendedoras que venden con el dinero del equipo.
 - Monedas, galletas y jugo; cada zombie tumbado da $2; 1 comida guardada que se come sola bajo 30 % de vida.
 - Compañeros mordidos: salvar o no salvar (curarlo cuesta tiempo y vida; si no, se vuelve zombie).
@@ -93,7 +93,12 @@ sprite("Moneda", [("moneda", gen("objetos/objetivos/moneda.png", (12, 24)))], [v
 sprite("Ruta", [("punto", (img("extra/punto.png", EXTRA + "punto.png"), (32, 32)))])
 # zona roja del minimapa del Jefe: un cuadro rojo de 8x8 que se estira (assets/extra/rojo.png lo crea este script)
 sprite("ZonaRoja", [("rojo", (img("extra/rojo.png", EXTRA + "rojo.png"), (0, 0)))])
-txts = [obj_texto("TxtPrecio", 16, "120;255;140"), obj_texto("TxtMordido", 22, "140;255;120")]
+# oscuridad inicial (4 rectángulos negros alrededor del salón) y botón de omitir la cinemática
+NIEBLA_IMG = "mapa/provisional/niebla.png"
+sprite("OscuridadIni", [("rect", (NIEBLA_IMG, (0, 0)))], [var("Lado", 0)])
+sprite("BtnOmitir", [("rect", (img("extra/rojo.png", EXTRA + "rojo.png"), (0, 0)))])
+txts = [obj_texto("TxtPrecio", 16, "120;255;140"), obj_texto("TxtMordido", 22, "140;255;120"),
+        obj_texto("TxtOmitir", 24, "255;255;255", "left")]
 NOMBRES = {o["name"] for o in nuevos + txts}
 esc["objects"] = [o for o in esc["objects"] if o["name"] not in NOMBRES] + nuevos + txts
 
@@ -110,14 +115,14 @@ for z in ("ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZCurado"):
 agregar_vars("Niebla", [var("Vista", 0)])
 agregar_vars("Comida", [var("Cura", 40)])
 
-VARS = {"AirTipo": "", "AirX": 0, "AirY": 0, "DirFase": "", "DirAfloja": 0, "Temblor": 0, "DirMult": 1, "DirExtra": 0,
+VARS = {"Bloq": 0, "OscIni": 0, "OscX": 0, "OscY": 0, "OscW": 0, "OscH": 0, "AirTipo": "", "AirX": 0, "AirY": 0, "DirFase": "", "DirAfloja": 0, "Temblor": 0, "DirMult": 1, "DirExtra": 0,
         "MordTxt": "", "DbgM": 0, "Comprado": 0, "GuiaSinRuta": 0, "GuiaAlt": 0, "DistBot": 0, "DestX": 0, "DestY": 0, "UltObj": 0}
 for k in range(1, 5):
     VARS.update({f"M{k}": 0, f"M{k}Seg": 0, f"Salvo{k}": 0})
 esc["variables"] = [v for v in esc["variables"] if v["name"] not in VARS] + [var(n, v) for n, v in VARS.items()]
 
 # ---------------- instancias: lanzables, contenedores y máquinas ----------------
-QUITAR = {"LanzPiso", "Contenedor", "Moneda", "TxtPrecio", "TxtMordido", "ZonaRoja"}
+QUITAR = {"LanzPiso", "Contenedor", "Moneda", "TxtPrecio", "TxtMordido", "ZonaRoja", "OscuridadIni", "BtnOmitir", "TxtOmitir"}
 esc["instances"] = [i for i in esc["instances"] if i["name"] not in QUITAR]
 def de_tipo(nombre): return [x for x in props if x["sprite"].split("/")[-1] == nombre]
 def centro(x): return x["x"] + x["w"] // 2, x["y"] + x["h"]
@@ -146,16 +151,21 @@ for k, x in enumerate(de_tipo("refri_refresco")[:4], 1):
 for k in range(1, 5):
     inst.append(instancia("TxtMordido", 0, 0, "Juego", 60, variables=[var("Jugador", k)]))
 inst.append(instancia("ZonaRoja", -100, -100, "HUD", 30))
+for k_ in range(4):
+    inst.append(instancia("OscuridadIni", 0, 0, "Niebla", 5, w=64, h=64, variables=[var("Lado", k_)]))
+BX0, BY0, BW, BH = 1440, 990, 440, 64
+inst.append(instancia("BtnOmitir", BX0, BY0, "HUD", 40, w=BW, h=BH))
+inst.append(instancia("TxtOmitir", BX0 + 18, BY0 + 18, "HUD", 41))
 
 G = []
 # ======================= Lanzables =======================
 lz = [comentario("Lanzables: balón (empuja lejos, se recoge otra vez), engrapadora (8 grapas rápidas) y libro gordo (aturde 1 s, se "
-                 "recoge otra vez). Se recogen pasando encima si no traes otro. Lanzar: Q o clic derecho (teclado), B (control); "
+                 "recoge otra vez). Se recogen pasando encima si no traes otro. Lanzar: R o clic derecho (teclado), B (control); "
                  "los bots lanzan cuando tienen 2+ zombies cerca.")]
 lz += [
     ev([], [setn("Sup", "QuiereLanzar", "=", 0)]),
-    ev([vnum("Sup", "Control", "=", 0), o_(suelta("q"), c("MouseButtonReleased", "", "Right"))], [setn("Sup", "QuiereLanzar", "=", 1)]),
-] + [ev([vnum("Sup", "Control", "=", k), c("Gamepads::C_Button_released", "", str(k), "\"B\"", "")], [setn("Sup", "QuiereLanzar", "=", 1)])
+    ev([vnum("Sup", "Control", "=", 0), o_(c("KeyPressed", "", "r"), c("MouseButtonPressed", "", "Right"))], [setn("Sup", "QuiereLanzar", "=", 1)]),
+] + [ev([vnum("Sup", "Control", "=", k), c("Gamepads::C_Button_pressed", "", str(k), "\"B\"", "")], [setn("Sup", "QuiereLanzar", "=", 1)])
      for k in range(1, 5)] + [
     ev([vnum("Sup", "Control", "=", -1), vnum("Sup", "Cerca", ">=", 2), vtxt("Sup", "Lanz", "", inv=True), timer_ok("Sup", "lanz", 1.5)],
        [setn("Sup", "QuiereLanzar", "=", 1)]),
@@ -466,9 +476,7 @@ guia_ev = [comentario("Si no hay ningún humano de pie (demo del título, o Jefe
     ev([cvar("Humanos", "=", 0), cvt("Estado", "\"juego\"")], [svar("SegX", "=", "Guia.X()"), svar("SegY", "=", "Guia.Y()"),
                                                              svar("DistBot", "=", 99999)], sub=[
         # el guía avanza mientras el bot más cercano lo alcance; los rezagados (más de 450 px) aparecen junto a él
-        foreach("Sup", [VIVO], [svar("DistBot", "=", "min(Variable(DistBot), DistanceBetweenPositions(Sup.X(), Sup.Y(), Guia.X(), Guia.Y()))")], sub=[
-            ev([cmp("DistanceBetweenPositions(Sup.X(), Sup.Y(), Guia.X(), Guia.Y())", ">", "450")],
-               [a("MettreXY", "Sup", "=", "Guia.X() + RandomInRange(-20, 20)", "=", "Guia.Y() + RandomInRange(-20, 20)")])]),
+        foreach("Sup", [VIVO], [svar("DistBot", "=", "min(Variable(DistBot), DistanceBetweenPositions(Sup.X(), Sup.Y(), Guia.X(), Guia.Y()))")]),
         ev([cvar("DistBot", "<", "75")], [a("PathfindingBehavior::MaxSpeed", "Guia", "Pathfinding", "=", "150"), sreset("guiaespera")]),
         ev([cvar("DistBot", ">=", "75")], [a("PathfindingBehavior::MaxSpeed", "Guia", "Pathfinding", "=", "0")]),
         # si nadie lo alcanza en 2.5 s (un bot se atoró en una esquina), el guía regresa junto al bot más cercano
@@ -532,7 +540,7 @@ guia_ev = [comentario("Si no hay ningún humano de pie (demo del título, o Jefe
 guia_ev += [
     ev([c("BuiltinCommonInstructions::CompareNumbers", "Variable(ObjNum)", "!=", "Variable(UltObj)")], [svar("UltObj", "=", "Variable(ObjNum)"), sreset("objdemo")]),
     ev([gnum("Demo", "=", 1), stimer("partida", 240)], [a("ModVarGlobal", "Demo", "=", "0"), a("Scene", "", "\"Titulo\"", "")]),
-    ev([gnum("Demo", "=", 1)], [texto("TxtAyuda", "\"DEMOSTRACIÓN · presiona Enter, A o haz clic para jugar\""), sreset("ayuda")]),
+    ev([gnum("Demo", "=", 1)], [texto("TxtAyuda", "\"DEMOSTRACIÓN · presiona Enter, Espacio o haz clic para jugar (control: A)\""), sreset("ayuda")]),
     ev([gnum("Demo", "=", 1), cvar("Humanos", "=", 0), stimer("objdemo", 80), cvar("ObjNum", "<", 4)],
        [sreset("objdemo"), svar("Paso", "=", 99), a("Delete", "Objetivo", ""), a("Delete", "Bidon", ""), a("Delete", "Bolsa", ""), svar("Apagon", "=", 0)]),
 ]
@@ -600,6 +608,43 @@ temblor = grupo("Temblor de cámara", [
     ev([cvar("Temblor", ">", 0)], [svar("Temblor", "-", "TimeDelta()"),
                                     a("CameraX", "", "+", "RandomInRange(-5, 5)", "", ""), a("CameraY", "", "+", "RandomInRange(-4, 4)", "", "")]),
 ])
+
+# ======================= Oscuridad inicial y botón de omitir =======================
+MARGEN = 32   # deja iluminadas también las paredes del salón
+def zona(n): return next(z for z in datos["zonas"] if z["nombre"] == n)
+def ventana(n):
+    z = zona(n); return z["x"] - MARGEN, z["y"] - MARGEN, z["w"] + 2 * MARGEN, z["h"] + 2 * MARGEN
+def poner_oscuridad(n):
+    lx, ly, lw, lh = ventana(n); W, H = datos["ancho_px"], datos["alto_px"]
+    rects = [(0, 0, W, ly), (0, ly + lh, W, H - ly - lh), (0, ly, lx, lh), (lx + lw, ly, W - lx - lw, lh)]   # arriba, abajo, izq., der.
+    acc = [svar("OscIni", "=", 1), svar("OscX", "=", lx), svar("OscY", "=", ly), svar("OscW", "=", lw), svar("OscH", "=", lh)]
+    acc.append(a("Opacity", "OscuridadIni", "=", "255"))
+    sub = [ev([vnum("OscuridadIni", "Lado", "=", k_)],
+              [a("MettreXY", "OscuridadIni", "=", str(x), "=", str(y)), a("ChangeWidth", "OscuridadIni", "=", str(w)),
+               a("ChangeHeight", "OscuridadIni", "=", str(h))]) for k_, (x, y, w, h) in enumerate(rects)]
+    return acc, sub
+acc_b, sub_b = poner_oscuridad("B-01")     # primera partida: la cinemática ocurre en B-01
+acc_e, sub_e = poner_oscuridad("E-04")     # las demás: el equipo aparece en E-04
+FUERA = o_(cmp("Sup.X()", "<", "Variable(OscX) - 80"), cmp("Sup.X()", ">", "Variable(OscX) + Variable(OscW) + 80"),
+           cmp("Sup.Y()", "<", "Variable(OscY) - 80"), cmp("Sup.Y()", ">", "Variable(OscY) + Variable(OscH) + 80"))
+CX, CY = 'CursorX("HUD")', 'CursorY("HUD")'
+SOBRE_BTN = [cmp(CX, ">=", BX0), cmp(CX, "<=", BX0 + BW), cmp(CY, ">=", BY0), cmp(CY, "<=", BY0 + BH)]
+G.append(grupo("Oscuridad inicial y botón omitir", [
+    comentario("Al empezar todo el mapa está a oscuras menos el salón donde arranca el equipo (B-01 en la cinemática, E-04 si ya la vieron). "
+               "La oscuridad se desvanece cuando alguien sale del salón. Botón OMITIR abajo a la derecha durante la cinemática "
+               "(clic, Esc, Enter o Start)."),
+    ev([c("DepartScene", ""), gnum("VioIntro", "=", 0), gnum("Demo", "=", 0)], acc_b, sub=sub_b),
+    ev([c("DepartScene", ""), gnum("VioIntro", "=", 1)], acc_e, sub=sub_e),
+    foreach("Sup", [VIVO], [], sub=[ev([cvar("OscIni", "=", 1), cvt("Estado", "\"juego\""), FUERA], [svar("OscIni", "=", 0)])]),
+    ev([cvar("OscIni", "=", 0)], [a("Opacity", "OscuridadIni", "-", "200 * TimeDelta()")]),
+    ev([cvar("OscIni", "=", 0), c("Opacity", "OscuridadIni", "<=", "0")], [a("Delete", "OscuridadIni", "")]),
+    # botón de omitir
+    ev([c("DepartScene", "")], [texto("TxtOmitir", "\"OMITIR  >>   (clic / Esc / Start)\""), a("Opacity", "BtnOmitir", "=", "170")]),
+    ev([cvt("Estado", "\"intro\"")], [a("Montre", "BtnOmitir", ""), a("Montre", "TxtOmitir", "")]),
+    ev([cvt("Estado", "\"intro\"", "!=")], [a("Cache", "BtnOmitir"), a("Cache", "TxtOmitir")]),
+    ev([cvt("Estado", "\"intro\""), *SOBRE_BTN], [a("Opacity", "BtnOmitir", "=", "255")]),
+    ev([cvt("Estado", "\"intro\""), c("MouseButtonReleased", "", "Left"), *SOBRE_BTN], [svar("IntroPaso", "=", 1)]),
+]))
 
 # ---------------- insertar en los eventos ----------------
 EV = esc["events"]

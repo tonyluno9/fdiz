@@ -510,3 +510,49 @@ Script nuevo `gdevelop\scripts\fase12_mejoras.py`, que se corre **después** de 
   - Premios MVP, Gamer, Hacker, etc., con sus conteos propios.
   - El personaje Criollo (no tiene sprites).
 - **Sigue pendiente lo de las fases 6-11:** audios, destrozos, Canto, planta 1 de B, controles reales, partida completa de 8 a 12 min y rendimiento.
+
+## Cambio de controles (11 nov 2026)
+- **Teclado nuevo:** Habilidad = **Q**, Especial = **E**, Lanzar = **R** o clic derecho (antes: E, C y Q).
+- **Por qué respondían raro:** Habilidad, Especial y Lanzar se disparaban al *soltar* la tecla (`KeyReleased`), así que parecía que había retraso o que no pasaba nada. Ahora se disparan al *presionar*, también en el control de Xbox (Y, RB y B). La recarga evita que se repitan.
+- Cambiado en `fase5_jugadores.py`, `fase12_mejoras.py` y `fases_6_a_11.py` (incluido el texto de ayuda en pantalla). Respaldo previo: `respaldos\FDI-Z_respaldo_antes_de_controles_20261111.json`.
+- Probado en la vista previa: Q activa la Habilidad.
+
+## Oscuridad inicial y botón de omitir (11 nov 2026)
+- **Oscuridad:** antes solo los salones tenían niebla (12 % del mapa); pasillos, patios y estacionamiento siempre se veían con la luz de noche. Ahora 4 rectángulos negros (`OscuridadIni`, capa Niebla) tapan todo el mapa menos el salón donde arranca el equipo: **B-01** en la cinemática (primera partida) y **E-04** cuando ya se vio. Se desvanece en ~1 s cuando alguien sale del salón (más de 80 px fuera de la zona).
+- **Botón OMITIR:** abajo a la derecha durante la cinemática (`BtnOmitir` + `TxtOmitir`, capa HUD). Se omite con clic en el botón, Esc, Enter o Start de cualquier control.
+- Cambios en `fase12_mejoras.py` (grupo "Oscuridad inicial y botón omitir") y `fases_6_a_11.py` (Enter y Start 3-4 saltan la cinemática). Respaldo previo: `respaldos\FDI-Z_respaldo_antes_de_oscuridad_20261111.json`.
+- **Probado en la vista previa (11 nov):** la cinemática arranca con todo el mapa negro menos B-01; el clic en OMITIR salta a la partida; Q activa la Habilidad (recarga de 17 s). El botón ahora es rojo semitransparente (antes era negro y no se veía sobre la oscuridad). Pendiente: probar E y R con una pulsación real (las pulsaciones automáticas muy cortas no las detecta el juego) y suavizar el borde de la luz si se quiere.
+
+## Colisión entre personajes y zombies que atravesaban paredes (11 nov 2026)
+- **Personajes:** los supervivientes de pie (jugadores y bots) ahora se empujan entre sí (`SeparateFromObjects` Sup contra Sup, antes de la separación contra muros). Los caídos no estorban, para poder revivirlos. La caja de choque de los personajes pasó de 28 a 40 px de ancho, porque el dibujo es más ancho que la caja y se veían traslapados.
+- **Zombies:** antes golpeaban a cualquiera a menos de 80 px, aunque hubiera una pared en medio. Ahora, antes de pegar, revisan 7 puntos sobre la línea entre el zombie y el superviviente (condición `CollisionPoint`, "punto dentro del objeto"); si alguno cae dentro de un `Muro` o una `Puerta` cerrada, no hay golpe. Variable de escena `Bloq`.
+- Cambios en `fase5_jugadores.py` y `fase12_mejoras.py`. Respaldos en `respaldos\`.
+- **Probado:** los bots se ven separados y sin encimarse en la vista previa; el evento del zombie se lee bien en el editor (sin errores). **Sin probar en juego real:** que un zombie junto a una pared ya no golpee al otro lado.
+- Pendiente parecido: los golpes del jugador (arco de `Golpe`) y el empujón del Gordo/Conserje tampoco revisan paredes.
+
+## Bots y golpes no atraviesan paredes (11 nov)
+- Los golpes del jugador y de los bots contra zombis ahora comprueban linea de vision (7 puntos CollisionPoint contra Muro/Puerta, variable Bloq). Los bots tampoco avanzan para pegar si hay pared de por medio.
+- Probado en vista previa: el combate normal sigue funcionando. No probado a mano: bloqueo real contra una pared concreta. Gordo/Conserje (empuje) aun no comprueban paredes.
+- Empuje del Gordo y del Conserje: ahora tambien comprueba linea de vision (no empujan a traves de paredes). Regenerado, no probado en juego.
+- Quitado el parpadeo de la luz ambiente (cambiaba 120 a 60 al azar cada 0.08-3 s y se veia como parpadeo de toda la pantalla). Ahora la luz nocturna es fija. Respaldo: antes_de_parpadeo.
+- Camara mas cerca: zoom de 0.6-1 a 0.7-1.4 (x1.4). Si se separan mucho, se aleja hasta 0.7. Respaldo: antes_de_zoom.
+- Bots sin teletransporte: ahora siguen al grupo por ruta (comportamiento PathBot en Sup, ruta cada 0.2 s, rodea paredes y muebles). Quitados los saltos "aparecen junto al jugador" (>1100 px, atascados >250 px y rezagados >450 px del guia). Probado: abre sin errores; pruebas cortas sin saltos. Falta probar distancias largas y puertas. Respaldo: antes_de_teletransporte.
+
+## Pendientes planeados (anotados el 11 nov, no urgentes)
+Arte y pantallas (se pueden generar con WaveSpeed vía API; primero mockup y luego se arma en GDevelop con imágenes):
+1. Pantalla de inicio / título bonita (hoy no hay).
+2. Pantalla de modos de juego (va ANTES de la selección de personaje).
+3. Pantalla de selección de personaje: muestra los personajes, sus habilidades y permite escoger.
+4. Pantalla de dinero recolectado y tienda: gastar el dinero en artículos (definir qué artículos habrá).
+5. Corregir animaciones de caminar de lado de algunos personajes (las piernas se ven mal; WaveSpeed las generó mal).
+6. Animaciones en pantalla cuando un personaje usa una habilidad.
+7. Iconos de habilidades para que el menú/HUD no se vea feo.
+8. Poner la fuente descargada en todo el juego (hoy usa la fuente por defecto).
+Pendientes anteriores que siguen abiertos: audio, sprites faltantes, planta 1 B, prueba con controles, partida completa de principio a fin, rendimiento, y empuje del Gordo/Conserje y bots en puertas/distancias largas (probar).
+
+## Interfaz con las piezas de arte (2026-11-11)
+- Orden de scripts: fase5 -> fases_6_a_11 -> fase12 -> preparar_interfaz -> fase13_interfaz -> fase14_pantallas (GDevelop cerrado / recargar sin guardar). Respaldos: respaldos/antes_de_interfaz_*, antes_de_pantallas_*.
+- fase13: HUD con paneles por jugador, banner de objetivo (2 líneas), infestación, dinero. Resolución fija 1920x1080 (adaptGameResolutionAtRuntime=False) para que no se corten los paneles de la derecha.
+- fase14: Título (bg_titulo, logo, cartel), Menú (modo con 2 tarjetas, unirse y personaje con 4 cartas + iconos Q/E/pasiva, dificultad con 3 botones), Resultados (fondo/banner victoria o derrota + panel). La lógica de teclado/control no cambió. Los marcos de 9 cortes se arman como PNG exacto (assets/interfaz/hud/p9_*.png) porque PanelSprite salía magenta en la vista previa.
+- Pendiente de interfaz: pausa (no existía), tienda como pantalla (hoy son máquinas expendedoras con cartel de precio), cartas/minimapa del modo jefe, flecha nueva, fuente, textos de opacidad de TxtDif.
+- fase15_seleccion.py (corre después de fase14): la pantalla "ELIGEN SU PERSONAJE" ahora sigue el mockup `generado/interfaz/mockups/seleccion.png`: personaje grande de cuerpo completo con foco y placa, cuadrícula de 8 retratos, panel con las 3 habilidades, 4 barras de jugador. Clic en un retrato = elegir (primero P1, luego los bots en orden); clic derecho = quitar; W/S o arriba/abajo cambian de fila; A/D, F, pads y Enter siguen como antes. El marco de cada retrato toma el color del jugador (amarillo, azul, verde, rosa).
