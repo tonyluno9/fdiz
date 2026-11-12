@@ -1,0 +1,58 @@
+{
+  "format": {
+    "extension": ".ogg",
+    "codec": "Vorbis",
+    "sample_rates_hz": [
+      44100,
+      48000
+    ],
+    "bit_depth": 16
+  },
+  "effects": [
+    {"id": "SFX_COMBATE_CONVERTIDO", "path": "efectos/combate/convertido.ogg", "priority": "P1"},
+    {"id": "SFX_COMBATE_LANZAR", "path": "efectos/combate/lanzar.ogg", "priority": "P2"},
+    {"id": "SFX_COMBATE_MORDIDA", "path": "efectos/combate/mordida.ogg", "priority": "P1"},
+    {"id": "SFX_EVENTO_APAGON", "path": "efectos/eventos/apagon.ogg", "priority": "P1"},
+    {"id": "SFX_EVENTO_ESCAPE", "path": "efectos/eventos/escape.ogg", "priority": "P1"},
+    {"id": "SFX_EVENTO_FINAL_INICIO", "path": "efectos/eventos/final_inicio.ogg", "priority": "P1"},
+    {"id": "SFX_EVENTO_INFESTACION_SUBE", "path": "efectos/eventos/infestacion_sube.ogg", "priority": "P2"},
+    {"id": "SFX_EVENTO_OBJETIVO_CUMPLIDO", "path": "efectos/eventos/objetivo_cumplido.ogg", "priority": "P1"},
+    {"id": "SFX_EVENTO_OBJETIVO_NUEVO", "path": "efectos/eventos/objetivo_nuevo.ogg", "priority": "P1"},
+    {"id": "SFX_EVENTO_PASO_OBJETIVO", "path": "efectos/eventos/paso_objetivo.ogg", "priority": "P2"},
+    {"id": "SFX_EVENTO_RESCATE_LOGRADO", "path": "efectos/eventos/rescate_logrado.ogg", "priority": "P1"},
+    {"id": "SFX_EVENTO_VICTORIA", "path": "efectos/eventos/victoria.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_ALAN_ESPECIAL", "path": "efectos/habilidades/alan_especial.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_ALAN", "path": "efectos/habilidades/alan_habilidad.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_ALESSANDRO_ESPECIAL", "path": "efectos/habilidades/alessandro_especial.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_ALESSANDRO", "path": "efectos/habilidades/alessandro_habilidad.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_CARLOS_ESPECIAL", "path": "efectos/habilidades/carlos_especial.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_CARLOS", "path": "efectos/habilidades/carlos_habilidad.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_CASTILLO_ESPECIAL", "path": "efectos/habilidades/castillo_especial.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_CASTILLO", "path": "efectos/habilidades/castillo_habilidad.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_CESAR_ESPECIAL", "path": "efectos/habilidades/cesar_especial.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_CESAR", "path": "efectos/habilidades/cesar_habilidad.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_GABO_ESPECIAL", "path": "efectos/habilidades/gabo_especial.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_GABO", "path": "efectos/habilidades/gabo_habilidad.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_MIRANDA_ESPECIAL", "path": "efectos/habilidades/miranda_especial.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_MIRANDA", "path": "efectos/habilidades/miranda_habilidad.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_TONY_ESPECIAL", "path": "efectos/habilidades/tony_especial.ogg", "priority": "P1"},
+    {"id": "SFX_HABILIDAD_TONY", "path": "efectos/habilidades/tony_habilidad.ogg", "priority": "P1"},
+    {"id": "SFX_INTERFAZ_JEFE_INVOCAR", "path": "efectos/interfaz/jefe_invocar.ogg", "priority": "P1"},
+    {"id": "SFX_MOVIMIENTO_COMER", "path": "efectos/movimiento/comer.ogg", "priority": "P2"},
+    {"id": "SFX_MUNDO_BIDON", "path": "efectos/mundo/bidon.ogg", "priority": "P2"},
+    {"id": "SFX_MUNDO_INTERRUPTOR", "path": "efectos/mundo/interruptor.ogg", "priority": "P2"},
+    {"id": "SFX_MUNDO_LOCKER", "path": "efectos/mundo/locker.ogg", "priority": "P2"},
+    {"id": "SFX_MUNDO_MAQUINA", "path": "efectos/mundo/maquina.ogg", "priority": "P2"},
+    {"id": "SFX_MUNDO_MONEDA", "path": "efectos/mundo/moneda.ogg", "priority": "P2"},
+    {"id": "SFX_MUNDO_PUERTA_GOLPE", "path": "efectos/mundo/puerta_golpe.ogg", "priority": "P2"}
+  ],
+  "music": [
+    {"id": "MUSICA_DERROTA", "path": "musica/derrota.ogg", "loop": false, "priority": "P1"},
+    {"id": "MUSICA_FINAL_AGUANTEN", "path": "musica/final_aguanten.ogg", "loop": true, "priority": "P1"},
+    {"id": "MUSICA_MENU", "path": "musica/menu.ogg", "loop": true, "priority": "P1"},
+    {"id": "MUSICA_PARTIDA_1", "path": "musica/partida_1.ogg", "loop": true, "priority": "P1"},
+    {"id": "MUSICA_PARTIDA_2", "path": "musica/partida_2.ogg", "loop": true, "priority": "P1"},
+    {"id": "MUSICA_PARTIDA_3", "path": "musica/partida_3.ogg", "loop": true, "priority": "P1"},
+    {"id": "MUSICA_VICTORIA", "path": "musica/victoria.ogg", "loop": false, "priority": "P1"}
+  ]
+}
