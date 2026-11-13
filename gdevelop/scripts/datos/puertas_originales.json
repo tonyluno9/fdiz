@@ -1,0 +1,695 @@
+{
+ "Mapa: choques y puertas": [
+  {
+   "type": "BuiltinCommonInstructions::Comment",
+   "color": {
+    "b": 109,
+    "g": 230,
+    "r": 255,
+    "textB": 0,
+    "textG": 0,
+    "textR": 0
+   },
+   "comment": "Choques con muros, muebles y puertas. Puerta: mantener Usar junto a ella (normal 1 s, electrónica 8 s). Restringidas: fase 6.",
+   "comment2": ""
+  },
+  {
+   "type": "BuiltinCommonInstructions::Standard",
+   "conditions": [],
+   "actions": [
+    {
+     "type": {
+      "value": "SeparateFromObjects"
+     },
+     "parameters": [
+      "Sup",
+      "Solidos",
+      ""
+     ]
+    }
+   ]
+  },
+  {
+   "type": "BuiltinCommonInstructions::Standard",
+   "conditions": [],
+   "actions": [
+    {
+     "type": {
+      "value": "ModVarObjet"
+     },
+     "parameters": [
+      "Puerta",
+      "Usada",
+      "=",
+      "0"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "BuiltinCommonInstructions::ForEach",
+   "object": "Puerta",
+   "conditions": [
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarObjet"
+     },
+     "parameters": [
+      "Puerta",
+      "TiempoAbrir",
+      ">",
+      "0"
+     ]
+    }
+   ],
+   "actions": [],
+   "events": [
+    {
+     "type": "BuiltinCommonInstructions::Standard",
+     "conditions": [
+      {
+       "type": {
+        "inverted": false,
+        "value": "VarObjet"
+       },
+       "parameters": [
+        "Sup",
+        "Usando",
+        "=",
+        "1"
+       ]
+      },
+      {
+       "type": {
+        "inverted": false,
+        "value": "VarObjetTxt"
+       },
+       "parameters": [
+        "Sup",
+        "Estado",
+        "=",
+        "\"normal\""
+       ]
+      },
+      {
+       "type": {
+        "inverted": false,
+        "value": "Distance"
+       },
+       "parameters": [
+        "Sup",
+        "Puerta",
+        "110"
+       ]
+      }
+     ],
+     "actions": [
+      {
+       "type": {
+        "value": "ModVarObjet"
+       },
+       "parameters": [
+        "Puerta",
+        "Progreso",
+        "+",
+        "TimeDelta()"
+       ]
+      },
+      {
+       "type": {
+        "value": "ModVarObjet"
+       },
+       "parameters": [
+        "Puerta",
+        "Usada",
+        "=",
+        "1"
+       ]
+      }
+     ],
+     "events": [
+      {
+       "type": "BuiltinCommonInstructions::Standard",
+       "conditions": [
+        {
+         "type": {
+          "inverted": false,
+          "value": "BuiltinCommonInstructions::CompareNumbers"
+         },
+         "parameters": [
+          "Puerta.Variable(Progreso)",
+          ">=",
+          "Puerta.Variable(TiempoAbrir)"
+         ]
+        }
+       ],
+       "actions": [
+        {
+         "type": {
+          "value": "ModVarObjet"
+         },
+         "parameters": [
+          "Puerta",
+          "Usada",
+          "=",
+          "1"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "BuiltinCommonInstructions::Standard",
+   "conditions": [
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarObjet"
+     },
+     "parameters": [
+      "Puerta",
+      "Usada",
+      "=",
+      "0"
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "type": {
+      "value": "ModVarObjet"
+     },
+     "parameters": [
+      "Puerta",
+      "Progreso",
+      "=",
+      "0"
+     ]
+    }
+   ]
+  }
+ ],
+ "Puertas: tipos y golpes": [
+  {
+   "type": "BuiltinCommonInstructions::Comment",
+   "color": {
+    "b": 109,
+    "g": 230,
+    "r": 255,
+    "textB": 0,
+    "textG": 0,
+    "textR": 0
+   },
+   "comment": "Al abrirse una puerta se descubren sus zonas. Toda puerta se puede tumbar a golpes (normal 80, electrónica 100, restringida 150). Con la tarjeta, las electrónicas se abren en 1 s. Restringidas: Carlos (Llave maestra) o a golpes.",
+   "comment2": ""
+  },
+  {
+   "type": "BuiltinCommonInstructions::ForEach",
+   "object": "Golpe",
+   "conditions": [
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarObjet"
+     },
+     "parameters": [
+      "Golpe",
+      "Hecho",
+      "=",
+      "0"
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "type": {
+      "value": "ModVarObjet"
+     },
+     "parameters": [
+      "Golpe",
+      "Hecho",
+      "=",
+      "1"
+     ]
+    }
+   ],
+   "events": [
+    {
+     "type": "BuiltinCommonInstructions::ForEach",
+     "object": "Puerta",
+     "conditions": [
+      {
+       "type": {
+        "inverted": false,
+        "value": "BuiltinCommonInstructions::CompareNumbers"
+       },
+       "parameters": [
+        "DistanceBetweenPositions(Puerta.X() + Puerta.Width() / 2, Puerta.Y() + Puerta.Height() / 2, Golpe.X() + cos(ToRad(Golpe.Angle())) * 50, Golpe.Y() + sin(ToRad(Golpe.Angle())) * 50)",
+        "<",
+        "90"
+       ]
+      }
+     ],
+     "actions": [
+      {
+       "type": {
+        "value": "ModVarObjet"
+       },
+       "parameters": [
+        "Puerta",
+        "Vida",
+        "-",
+        "Golpe.Variable(Danio)"
+       ]
+      },
+      {
+       "type": {
+        "value": "ChangeColor"
+       },
+       "parameters": [
+        "Puerta",
+        "\"255;160;160\""
+       ]
+      }
+     ],
+     "events": [
+      {
+       "type": "BuiltinCommonInstructions::Standard",
+       "conditions": [
+        {
+         "type": {
+          "inverted": false,
+          "value": "VarGlobal"
+         },
+         "parameters": [
+          "SonidoActivo",
+          "=",
+          "1"
+         ]
+        }
+       ],
+       "actions": [
+        {
+         "type": {
+          "value": "PlaySound"
+         },
+         "parameters": [
+          "",
+          "\"efectos/mundo/puerta_golpe.ogg\"",
+          "",
+          "80",
+          "1"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "BuiltinCommonInstructions::ForEach",
+   "object": "Zombies",
+   "conditions": [
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarObjetTxt"
+     },
+     "parameters": [
+      "Zombies",
+      "Estado",
+      "=",
+      "\"persigue\""
+     ]
+    },
+    {
+     "type": {
+      "inverted": false,
+      "value": "CompareObjectTimer"
+     },
+     "parameters": [
+      "Zombies",
+      "\"ataque\"",
+      ">=",
+      "1"
+     ]
+    }
+   ],
+   "actions": [],
+   "events": [
+    {
+     "type": "BuiltinCommonInstructions::Standard",
+     "conditions": [
+      {
+       "type": {
+        "inverted": false,
+        "value": "Distance"
+       },
+       "parameters": [
+        "Puerta",
+        "Zombies",
+        "75"
+       ]
+      },
+      {
+       "type": {
+        "inverted": false,
+        "value": "PickNearest"
+       },
+       "parameters": [
+        "Puerta",
+        "Zombies.X()",
+        "Zombies.Y()",
+        ""
+       ]
+      }
+     ],
+     "actions": [
+      {
+       "type": {
+        "value": "ModVarObjet"
+       },
+       "parameters": [
+        "Puerta",
+        "Vida",
+        "-",
+        "Zombies.Variable(Danio)"
+       ]
+      },
+      {
+       "type": {
+        "value": "ChangeColor"
+       },
+       "parameters": [
+        "Puerta",
+        "\"255;160;160\""
+       ]
+      },
+      {
+       "type": {
+        "value": "ResetObjectTimer"
+       },
+       "parameters": [
+        "Zombies",
+        "\"ataque\""
+       ]
+      }
+     ],
+     "events": [
+      {
+       "type": "BuiltinCommonInstructions::Standard",
+       "conditions": [
+        {
+         "type": {
+          "inverted": false,
+          "value": "VarGlobal"
+         },
+         "parameters": [
+          "SonidoActivo",
+          "=",
+          "1"
+         ]
+        }
+       ],
+       "actions": [
+        {
+         "type": {
+          "value": "PlaySound"
+         },
+         "parameters": [
+          "",
+          "\"efectos/mundo/puerta_golpe.ogg\"",
+          "",
+          "80",
+          "1"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "BuiltinCommonInstructions::Standard",
+   "conditions": [
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarObjet"
+     },
+     "parameters": [
+      "Puerta",
+      "Vida",
+      "<=",
+      "0"
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "type": {
+      "value": "ModVarObjet"
+     },
+     "parameters": [
+      "Puerta",
+      "TiempoAbrir",
+      "=",
+      "0.001"
+     ]
+    },
+    {
+     "type": {
+      "value": "ModVarObjet"
+     },
+     "parameters": [
+      "Puerta",
+      "Progreso",
+      "=",
+      "1"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "BuiltinCommonInstructions::Standard",
+   "conditions": [
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarScene"
+     },
+     "parameters": [
+      "Tarjeta",
+      "=",
+      "1"
+     ]
+    },
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarObjetTxt"
+     },
+     "parameters": [
+      "Puerta",
+      "Tipo",
+      "=",
+      "\"electronica\""
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "type": {
+      "value": "ModVarObjet"
+     },
+     "parameters": [
+      "Puerta",
+      "TiempoAbrir",
+      "=",
+      "1"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "BuiltinCommonInstructions::ForEach",
+   "object": "Puerta",
+   "conditions": [
+    {
+     "type": {
+      "inverted": false,
+      "value": "BuiltinCommonInstructions::CompareNumbers"
+     },
+     "parameters": [
+      "Puerta.Variable(Progreso)",
+      ">=",
+      "Puerta.Variable(TiempoAbrir)"
+     ]
+    },
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarObjet"
+     },
+     "parameters": [
+      "Puerta",
+      "TiempoAbrir",
+      ">",
+      "0"
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "type": {
+      "value": "ModVarSceneTxt"
+     },
+     "parameters": [
+      "ZonasAbiertas",
+      "=",
+      "VariableString(ZonasAbiertas) + Puerta.VariableString(Zonas) + \",\""
+     ]
+    },
+    {
+     "type": {
+      "value": "Delete"
+     },
+     "parameters": [
+      "Puerta",
+      ""
+     ]
+    }
+   ],
+   "events": [
+    {
+     "type": "BuiltinCommonInstructions::Standard",
+     "conditions": [
+      {
+       "type": {
+        "inverted": false,
+        "value": "VarGlobal"
+       },
+       "parameters": [
+        "SonidoActivo",
+        "=",
+        "1"
+       ]
+      }
+     ],
+     "actions": [
+      {
+       "type": {
+        "value": "PlaySound"
+       },
+       "parameters": [
+        "",
+        "\"efectos/mundo/puerta_abrir.ogg\"",
+        "",
+        "80",
+        "1"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "BuiltinCommonInstructions::Standard",
+   "conditions": [
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarObjetTxt"
+     },
+     "parameters": [
+      "Marcador",
+      "Tipo",
+      "=",
+      "\"tarjeta_electronica\""
+     ]
+    },
+    {
+     "type": {
+      "inverted": false,
+      "value": "Distance"
+     },
+     "parameters": [
+      "Marcador",
+      "Sup",
+      "60"
+     ]
+    },
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarObjetTxt"
+     },
+     "parameters": [
+      "Sup",
+      "Estado",
+      "=",
+      "\"normal\""
+     ]
+    },
+    {
+     "type": {
+      "inverted": false,
+      "value": "VarScene"
+     },
+     "parameters": [
+      "Tarjeta",
+      "=",
+      "0"
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "type": {
+      "value": "ModVarScene"
+     },
+     "parameters": [
+      "Tarjeta",
+      "=",
+      "1"
+     ]
+    },
+    {
+     "type": {
+      "value": "ModVarSceneTxt"
+     },
+     "parameters": [
+      "Banner",
+      "=",
+      "\"¡Tarjeta! Las puertas electrónicas abren en 1 s\""
+     ]
+    },
+    {
+     "type": {
+      "value": "ResetTimer"
+     },
+     "parameters": [
+      "",
+      "\"banner\""
+     ]
+    },
+    {
+     "type": {
+      "value": "ModVarScene"
+     },
+     "parameters": [
+      "BannerSeg",
+      "=",
+      "2.5"
+     ]
+    }
+   ]
+  }
+ ]
+}

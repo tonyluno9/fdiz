@@ -8542,6 +8542,104 @@
         "metadata": "",
         "name": "01_titulo_v1_mejor.mp4",
         "userAdded": false
+      },
+      {
+        "file": "assets/interfaz/videos/12_fondo_modos.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidFondoModos",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/13_fondo_seleccion.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidFondoSel",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/02_modo_escape_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidIlusEscape",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/03_modo_jefe_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidIlusJefe",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/04_personaje_tony_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidPj_tony",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/05_personaje_miranda_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidPj_miranda",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/06_personaje_cesar_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidPj_cesar",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/07_personaje_alan_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidPj_alan",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/08_personaje_castillo_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidPj_castillo",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/09_personaje_alessandro_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidPj_alessandro",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/10_personaje_gabo_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidPj_gabo",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/11_personaje_carlos_recorte.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidPj_carlos",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/15_victoria.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidVictoria",
+        "userAdded": true
+      },
+      {
+        "file": "assets/interfaz/videos/16_derrota.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_VidDerrota",
+        "userAdded": true
       }
     ]
   },
@@ -9049,6 +9147,79 @@
         ]
       },
       "events": [
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Videos",
+          "source": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Video de fondo 01_titulo_v1_mejor.mp4 (objeto Fondo2, creado a mano). Se reproduce en bucle.",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "DepartScene"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "Fondo2"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "Fondo2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "Fondo2"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
         {
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
@@ -9978,6 +10149,16 @@
           "name": "Prev4",
           "type": "number",
           "value": -1
+        },
+        {
+          "name": "VBg",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "VPj",
+          "type": "string",
+          "value": ""
         }
       ],
       "instances": [
@@ -12551,6 +12732,222 @@
               "value": 3
             }
           ]
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 1080,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidFondoModos",
+          "persistentUuid": "4a3a6644-87c9-4280-8c87-770a22afed15",
+          "width": 1920,
+          "x": 0,
+          "y": 0,
+          "zOrder": -1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 1080,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidFondoSel",
+          "persistentUuid": "3e128d56-5a81-40bb-b62b-1b23a19ff360",
+          "width": 1920,
+          "x": 0,
+          "y": 0,
+          "zOrder": -1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 322,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidIlusEscape",
+          "persistentUuid": "f1a1e224-6251-4bd6-88d5-8c052abf5509",
+          "width": 340,
+          "x": 390,
+          "y": 288,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 322,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidIlusJefe",
+          "persistentUuid": "98208046-ec2c-4996-bc46-fc2b061a3908",
+          "width": 340,
+          "x": 1190,
+          "y": 288,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 650,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidPj_tony",
+          "persistentUuid": "6036093f-d5b9-4c1a-bb0d-cf01a71ace76",
+          "width": 630,
+          "x": 153,
+          "y": 216,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 650,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidPj_miranda",
+          "persistentUuid": "56e19945-de4b-4df3-a998-a13b03796e2c",
+          "width": 630,
+          "x": 153,
+          "y": 216,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 650,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidPj_cesar",
+          "persistentUuid": "63d80431-d28a-4839-95fb-f0993f769226",
+          "width": 630,
+          "x": 153,
+          "y": 216,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 650,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidPj_alan",
+          "persistentUuid": "0ea215bf-ca76-4be9-b32f-afd478f1b432",
+          "width": 630,
+          "x": 153,
+          "y": 216,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 650,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidPj_castillo",
+          "persistentUuid": "40788ec1-c176-445d-b1bb-4357ba8786fe",
+          "width": 630,
+          "x": 153,
+          "y": 216,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 650,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidPj_alessandro",
+          "persistentUuid": "239c1c7c-a927-4fa7-a6b7-e3c871d4da5d",
+          "width": 630,
+          "x": 153,
+          "y": 216,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 650,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidPj_gabo",
+          "persistentUuid": "ecd81be8-c0d1-4b1d-b7da-9993d1c07d3a",
+          "width": 630,
+          "x": 153,
+          "y": 216,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 650,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidPj_carlos",
+          "persistentUuid": "33a7a66f-8bca-481f-97fb-22a5a05436f7",
+          "width": 630,
+          "x": 153,
+          "y": 216,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
         }
       ],
       "objects": [
@@ -17418,6 +17815,174 @@
             "lineHeight": 0,
             "color": "190;230;255"
           }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidFondoModos",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 10,
+            "videoResource": "vid_VidFondoModos"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidFondoSel",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 10,
+            "videoResource": "vid_VidFondoSel"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidIlusEscape",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 10,
+            "videoResource": "vid_VidIlusEscape"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidIlusJefe",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 10,
+            "videoResource": "vid_VidIlusJefe"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidPj_tony",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 35,
+            "videoResource": "vid_VidPj_tony"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidPj_miranda",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 35,
+            "videoResource": "vid_VidPj_miranda"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidPj_cesar",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 35,
+            "videoResource": "vid_VidPj_cesar"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidPj_alan",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 35,
+            "videoResource": "vid_VidPj_alan"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidPj_castillo",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 35,
+            "videoResource": "vid_VidPj_castillo"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidPj_alessandro",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 35,
+            "videoResource": "vid_VidPj_alessandro"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidPj_gabo",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 35,
+            "videoResource": "vid_VidPj_gabo"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidPj_carlos",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 35,
+            "videoResource": "vid_VidPj_carlos"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -17557,6 +18122,42 @@
           },
           {
             "objectName": "EqBarEst"
+          },
+          {
+            "objectName": "VidFondoModos"
+          },
+          {
+            "objectName": "VidFondoSel"
+          },
+          {
+            "objectName": "VidIlusEscape"
+          },
+          {
+            "objectName": "VidIlusJefe"
+          },
+          {
+            "objectName": "VidPj_tony"
+          },
+          {
+            "objectName": "VidPj_miranda"
+          },
+          {
+            "objectName": "VidPj_cesar"
+          },
+          {
+            "objectName": "VidPj_alan"
+          },
+          {
+            "objectName": "VidPj_castillo"
+          },
+          {
+            "objectName": "VidPj_alessandro"
+          },
+          {
+            "objectName": "VidPj_gabo"
+          },
+          {
+            "objectName": "VidPj_carlos"
           }
         ]
       },
@@ -47873,6 +48474,1749 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Videos",
+          "source": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Videos de las pantallas del menú. Un objeto por video: se muestra solo el que toca (Opacity) y los demás se pausan. VBg = fondo según el paso; VPj = personaje en foco mientras se elige equipo. Los sprites originales solo se ocultan.",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "=",
+                    "\"modo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "=",
+                    "\"modo\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "=",
+                    "\"dificultad\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "=",
+                    "\"modo\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "=",
+                    "\"unirse\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "=",
+                    "\"sel\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "=",
+                    "\"equipo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "=",
+                    "\"sel\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "=",
+                    "\"equipo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "VariableString(KF)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "!=",
+                    "\"equipo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "Fondo"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "IlusModo"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "EqCuerpo"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "EqFoco"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "=",
+                    "\"modo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidFondoModos"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidFondoModos"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "=",
+                    "\"modo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidFondoModos",
+                    "=",
+                    "0"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "!=",
+                    "\"modo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidFondoModos",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "!=",
+                    "\"modo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidFondoModos"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidFondoModos"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "=",
+                    "\"sel\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidFondoSel"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidFondoSel"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "=",
+                    "\"sel\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidFondoSel",
+                    "=",
+                    "0"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "!=",
+                    "\"sel\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidFondoSel",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VBg",
+                    "!=",
+                    "\"sel\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidFondoSel"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidFondoSel"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "=",
+                    "\"modo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidIlusEscape"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidIlusEscape"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "=",
+                    "\"modo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidIlusEscape",
+                    "=",
+                    "390"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "!=",
+                    "\"modo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidIlusEscape",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "!=",
+                    "\"modo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidIlusEscape"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidIlusEscape"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "=",
+                    "\"modo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidIlusJefe"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidIlusJefe"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "=",
+                    "\"modo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidIlusJefe",
+                    "=",
+                    "1190"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "!=",
+                    "\"modo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidIlusJefe",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Paso",
+                    "!=",
+                    "\"modo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidIlusJefe"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidIlusJefe"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"tony\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_tony"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_tony"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"tony\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_tony",
+                    "=",
+                    "153"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"tony\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_tony",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"tony\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_tony"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidPj_tony"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"miranda\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_miranda"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_miranda"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"miranda\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_miranda",
+                    "=",
+                    "153"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"miranda\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_miranda",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"miranda\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_miranda"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidPj_miranda"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"cesar\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_cesar"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_cesar"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"cesar\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_cesar",
+                    "=",
+                    "153"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"cesar\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_cesar",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"cesar\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_cesar"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidPj_cesar"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"alan\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_alan"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_alan"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"alan\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_alan",
+                    "=",
+                    "153"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"alan\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_alan",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"alan\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_alan"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidPj_alan"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"castillo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_castillo"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_castillo"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"castillo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_castillo",
+                    "=",
+                    "153"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"castillo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_castillo",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"castillo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_castillo"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidPj_castillo"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"alessandro\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_alessandro"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_alessandro"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"alessandro\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_alessandro",
+                    "=",
+                    "153"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"alessandro\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_alessandro",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"alessandro\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_alessandro"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidPj_alessandro"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"gabo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_gabo"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_gabo"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"gabo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_gabo",
+                    "=",
+                    "153"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"gabo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_gabo",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"gabo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_gabo"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidPj_gabo"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"carlos\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_carlos"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_carlos"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "=",
+                    "\"carlos\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_carlos",
+                    "=",
+                    "153"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"carlos\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidPj_carlos",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "VPj",
+                    "!=",
+                    "\"carlos\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidPj_carlos"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidPj_carlos"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
         }
       ],
       "layers": [
@@ -125843,6 +128187,13 @@
       },
       "events": [
         {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "/*FDIZ-NAV*/\nif (!(gdjs.fdizNav && gdjs.fdizNav.ready)) {\n/* FDI-Z · navegación A* optimizada (reemplaza el buscador de rutas por defecto del behavior Pathfinding).\n * Se incrusta en un evento JavaScript de la escena Juego con scripts/fase17_navegacion.py. No editar el evento a mano.\n *\n * Por qué: el buscador original usa celdas de 32 px alineadas al origen, infla cada obstáculo con el tamaño COMPLETO del sprite\n * (80x127) y suaviza cortando esquinas. Resultado: sin ruta en pasillos angostos, zombis pegados a las paredes y bots que\n * retroceden (con maxSpeed 0 el behavior reponía la posición al inicio de la ruta en cada cuadro).\n *\n * Aquí: rejilla de 16 px con holgura R alrededor de muros/muebles; A* de 8 vecinos sin cortar esquinas, heap binario sobre\n * typed arrays con sellos de generación (sin limpiar memoria), heurística octil, ruta parcial si se agota el tope, suavizado\n * por línea de vista contra la misma rejilla, caché por celda destino y presupuesto de expansiones por cuadro.\n * Las puertas cerradas cuestan más pero se pueden cruzar (se abren o se tumban). */\n(function (gdjs) {\n  \"use strict\";\n  const NAV = (gdjs.fdizNav = gdjs.fdizNav || {});\n  const C = 16;              // tamaño de celda (px)\n  const R = 18;              // holgura al centro del personaje (px)\n  const DOOR_COST = 10;      // costo extra por celda de puerta cerrada\n  const HW = 1.15;           // peso de la heurística (leve, mucho más rápido)\n  const MAX_EXP = 25000;     // tope de expansiones por búsqueda\n  const FRAME_BUDGET = 90000;// tope de expansiones por cuadro (todos los agentes)\n  const SQ2 = Math.SQRT2;\n\n  NAV.cfg = { C, R };\n  NAV.stats = { searches: 0, expansions: 0, partial: 0, failed: 0, skipped: 0, maxMs: 0 };\n\n  // ---------- rejilla ----------\n  NAV.setup = function (rects, doorRects) {\n    let maxX = 0, maxY = 0;\n    for (const r of rects) { if (r[2] > maxX) maxX = r[2]; if (r[3] > maxY) maxY = r[3]; }\n    const W = Math.ceil(maxX / C) + 12, H = Math.ceil(maxY / C) + 12;\n    const g = { W, H, cls: new Uint8Array(W * H), wall: null, rects, doors: [] };\n    for (const r of rects) NAV._stamp(g, g.cls, r, 1);\n    g.wall = g.cls.slice();\n    NAV.grid = g;\n    NAV.setDoors(doorRects || []);\n    const n = W * H;\n    NAV._gs = new Float32Array(n); NAV._fs = new Float32Array(n);\n    NAV._par = new Int32Array(n); NAV._seen = new Uint32Array(n); NAV._closed = new Uint32Array(n);\n    NAV._gen = 0; NAV._heap = new Int32Array(1 << 16); NAV._hk = new Float32Array(1 << 16);\n    return g;\n  };\n  NAV._stamp = function (g, arr, r, val) {\n    const x0 = r[0] - R, y0 = r[1] - R, x1 = r[2] + R, y1 = r[3] + R;\n    const cx0 = Math.max(0, Math.floor(x0 / C - 0.5) ), cx1 = Math.min(g.W - 1, Math.ceil(x1 / C - 0.5));\n    const cy0 = Math.max(0, Math.floor(y0 / C - 0.5) ), cy1 = Math.min(g.H - 1, Math.ceil(y1 / C - 0.5));\n    for (let cy = cy0; cy <= cy1; cy++) {\n      const py = (cy + 0.5) * C; if (py <= y0 || py >= y1) continue;\n      for (let cx = cx0; cx <= cx1; cx++) {\n        const px = (cx + 0.5) * C; if (px <= x0 || px >= x1) continue;\n        if (val === 2) { if (arr[cy * g.W + cx] === 0) arr[cy * g.W + cx] = 2; } else arr[cy * g.W + cx] = val;\n      }\n    }\n  };\n  NAV.setDoors = function (doorRects) {\n    const g = NAV.grid; if (!g) return;\n    g.cls.set(g.wall);\n    g.doors = doorRects;\n    for (const r of doorRects) NAV._stamp(g, g.cls, r, 2);\n  };\n\n  // ---------- utilidades ----------\n  function cellOf(g, x, y) {\n    let cx = Math.floor(x / C), cy = Math.floor(y / C);\n    if (cx < 0) cx = 0; else if (cx >= g.W) cx = g.W - 1;\n    if (cy < 0) cy = 0; else if (cy >= g.H) cy = g.H - 1;\n    return cy * g.W + cx;\n  }\n  NAV.cellOf = function (x, y) { return cellOf(NAV.grid, x, y); };\n  // celda libre más cercana (anillos crecientes)\n  function nearestFree(g, c, maxRing) {\n    if (g.cls[c] !== 1) return c;\n    const W = g.W, H = g.H, cx = c % W, cy = (c / W) | 0;\n    for (let r = 1; r <= maxRing; r++) {\n      let best = -1, bd = 1e9;\n      for (let dy = -r; dy <= r; dy++) for (let dx = -r; dx <= r; dx++) {\n        if (Math.max(Math.abs(dx), Math.abs(dy)) !== r) continue;\n        const x = cx + dx, y = cy + dy; if (x < 0 || y < 0 || x >= W || y >= H) continue;\n        const i = y * W + x; if (g.cls[i] === 1) continue;\n        const d = dx * dx + dy * dy; if (d < bd) { bd = d; best = i; }\n      }\n      if (best >= 0) return best;\n    }\n    return -1;\n  }\n  NAV.nearestFree = function (x, y, ring) {\n    const g = NAV.grid; const c = nearestFree(g, cellOf(g, x, y), ring || 8);\n    return c < 0 ? null : [(c % g.W + 0.5) * C, (((c / g.W) | 0) + 0.5) * C];\n  };\n  // línea de vista: ninguna muestra cae en celda de muro ni de puerta (salvo la celda inicial/final)\n  function los(g, ax, ay, bx, by, strictDoors) {\n    const dx = bx - ax, dy = by - ay, len = Math.hypot(dx, dy);\n    const n = Math.max(1, Math.ceil(len / (C * 0.25)));\n    const c0 = cellOf(g, ax, ay), c1 = cellOf(g, bx, by);\n    for (let i = 0; i <= n; i++) {\n      const t = i / n, c = cellOf(g, ax + dx * t, ay + dy * t);\n      const v = g.cls[c];\n      if (v === 1) return false;\n      if (v === 2 && strictDoors && c !== c0 && c !== c1) return false;\n    }\n    return true;\n  }\n  NAV.los = function (ax, ay, bx, by) { return los(NAV.grid, ax, ay, bx, by, true); };\n\n  // ---------- heap binario (la clave se guarda junto al nodo: las entradas viejas no rompen el orden) ----------\n  function hpush(n, key) {\n    if (NAV._hn >= NAV._heap.length) {\n      const nh = new Int32Array(NAV._heap.length * 2); nh.set(NAV._heap); NAV._heap = nh;\n      const nk = new Float32Array(nh.length); nk.set(NAV._hk); NAV._hk = nk;\n    }\n    const h = NAV._heap, k = NAV._hk; let i = NAV._hn++;\n    while (i > 0) { const p = (i - 1) >> 1; if (k[p] <= key) break; h[i] = h[p]; k[i] = k[p]; i = p; }\n    h[i] = n; k[i] = key;\n  }\n  function hpop() {\n    const h = NAV._heap, k = NAV._hk; const top = h[0]; const n = --NAV._hn;\n    if (n > 0) {\n      const last = h[n], lk = k[n]; let i = 0;\n      for (;;) { let l = 2 * i + 1; if (l >= n) break; const r = l + 1; if (r < n && k[r] < k[l]) l = r; if (k[l] >= lk) break; h[i] = h[l]; k[i] = k[l]; i = l; }\n      h[i] = last; k[i] = lk;\n    }\n    return top;\n  }\n\n  // ---------- A* ----------\n  // devuelve {cells:[...índices], partial:bool, exp:n} o null\n  NAV.search = function (sx, sy, tx, ty, maxExp) {\n    const g = NAV.grid; if (!g) return null;\n    const W = g.W, H = g.H, cls = g.cls;\n    let s = nearestFree(g, cellOf(g, sx, sy), 8), t = nearestFree(g, cellOf(g, tx, ty), 10);\n    if (s < 0 || t < 0) return null;\n    if (s === t) return { cells: [s], partial: false, exp: 0 };\n    const gen = ++NAV._gen, gs = NAV._gs, fs = NAV._fs, par = NAV._par, seen = NAV._seen, closed = NAV._closed;\n    const tx0 = t % W, ty0 = (t / W) | 0;\n    const hf = (i) => { const dx = Math.abs((i % W) - tx0), dy = Math.abs(((i / W) | 0) - ty0); return HW * ((dx > dy ? dx : dy) + (SQ2 - 1) * (dx > dy ? dy : dx)); };\n    NAV._hn = 0; gs[s] = 0; fs[s] = hf(s); par[s] = -1; seen[s] = gen; hpush(s, fs[s]);\n    let exp = 0, best = s, bestH = fs[s];\n    const lim = maxExp || MAX_EXP;\n    while (NAV._hn > 0) {\n      const n = hpop(); if (closed[n] === gen) continue; closed[n] = gen;\n      if (n === t) { best = t; break; }\n      if (++exp > lim) break;\n      const nx = n % W, ny = (n / W) | 0, gn = gs[n];\n      const hn = fs[n] - gn; if (hn < bestH) { bestH = hn; best = n; }\n      for (let k = 0; k < 8; k++) {\n        const dx = k < 4 ? (k === 0 ? 1 : k === 1 ? -1 : 0) : (k === 4 || k === 6 ? 1 : -1);\n        const dy = k < 4 ? (k === 2 ? 1 : k === 3 ? -1 : 0) : (k === 4 || k === 5 ? 1 : -1);\n        const x = nx + dx, y = ny + dy; if (x < 0 || y < 0 || x >= W || y >= H) continue;\n        const m = y * W + x, v = cls[m]; if (v === 1 || closed[m] === gen) continue;\n        if (dx !== 0 && dy !== 0 && (cls[ny * W + x] === 1 || cls[y * W + nx] === 1)) continue; // sin cortar esquinas\n        const step = (dx !== 0 && dy !== 0 ? SQ2 : 1) * (v === 2 ? 1 + DOOR_COST : 1);\n        const ng = gn + step;\n        if (seen[m] !== gen || ng < gs[m]) { seen[m] = gen; gs[m] = ng; par[m] = n; fs[m] = ng + hf(m); hpush(m, fs[m]); }\n      }\n    }\n    const partial = best !== t;\n    const cells = []; for (let c = best; c !== -1; c = par[c]) cells.push(c);\n    cells.reverse();\n    return { cells, partial, exp };\n  };\n\n  // ruta de puntos suavizada. Devuelve {pts:[[x,y],...], found, partial} (pts[0] = posición de origen)\n  NAV.path = function (sx, sy, tx, ty, maxExp) {\n    const g = NAV.grid; if (!g) return null;\n    const t0 = (typeof performance !== \"undefined\" ? performance.now() : Date.now());\n    const r = NAV.search(sx, sy, tx, ty, maxExp);\n    NAV.stats.searches++;\n    if (!r) { NAV.stats.failed++; return { pts: [[sx, sy]], found: false, partial: false, exp: 0 }; }\n    NAV.stats.expansions += r.exp; if (r.partial) NAV.stats.partial++;\n    const W = g.W;\n    const cp = r.cells.map((c) => [(c % W + 0.5) * C, (((c / W) | 0) + 0.5) * C]);\n    // destino exacto si su celda es libre; si no, el centro de la celda libre más cercana\n    const tc = cellOf(g, tx, ty);\n    const endExact = !r.partial && g.cls[tc] !== 1;\n    const pts = [[sx, sy]];\n    for (let i = 0; i < cp.length; i++) pts.push(cp[i]);\n    if (endExact) pts[pts.length - 1] = [tx, ty];\n    // suavizado: desde cada punto, saltar al más lejano visible (ventana de 40 puntos)\n    const out = [pts[0]]; let i = 0;\n    while (i < pts.length - 1) {\n      let j = Math.min(pts.length - 1, i + 40);\n      while (j > i + 1 && !los(g, pts[i][0], pts[i][1], pts[j][0], pts[j][1], true)) j--;\n      out.push(pts[j]); i = j;\n    }\n    const ms = (typeof performance !== \"undefined\" ? performance.now() : Date.now()) - t0;\n    if (ms > NAV.stats.maxMs) NAV.stats.maxMs = ms;\n    return { pts: out, found: true, partial: r.partial, exp: r.exp };\n  };\n})(typeof gdjs !== \"undefined\" ? gdjs : (globalThis.gdjs = globalThis.gdjs || {}));\n\ngdjs.fdizNav.ready = true;\n}\n\nconst NAV = gdjs.fdizNav;\nconst scn = runtimeScene;\nconst rectsDe = (n) => { const l = scn.getObjects(n) || []; const r = []; for (const o of l) { const b = o.getAABB(); r.push([b.min[0], b.min[1], b.max[0], b.max[1]]); } return r; };\n// rejilla nueva al empezar la escena\nif (NAV.scene !== scn) {\n  NAV.scene = scn;\n  NAV.setup(rectsDe(\"Muro\").concat(rectsDe(\"ChoqueMueble\")), rectsDe(\"Puerta\"));\n  NAV.doorN = (scn.getObjects(\"Puerta\") || []).length; NAV.doorCheck = 0;\n}\n// presupuesto de expansiones A* por cuadro y puertas (cambian al abrirse)\nNAV.budget = 90000;\nNAV.doorCheck -= scn.getElapsedTime() / 1000;\nif (NAV.doorCheck <= 0) {\n  NAV.doorCheck = 0.4;\n  const n = (scn.getObjects(\"Puerta\") || []).length;\n  if (n !== NAV.doorN) { NAV.doorN = n; NAV.setDoors(rectsDe(\"Puerta\")); }\n}\n// parches al behavior Pathfinding (una sola vez)\nif (!NAV.patched) {\n  NAV.patched = true;\n  const P = gdjs.PathfindingRuntimeBehavior.prototype;\n  const origMove = P.moveTo, origStep = P.doStepPreEvents;\n  P.moveTo = function (container, x, y) {\n    const o = this.owner;\n    if (!NAV.grid || !NAV.scene) return origMove.call(this, container, x, y);\n    const now = NAV.scene.getTimeManager().getTimeFromStart() / 1000;\n    const gc = NAV.cellOf(x, y);\n    if (!this._navForce && this._navGoal === gc && this._path.length > 1 && !this._reachedEnd && now - this._navT < 0.35) return;\n    if (NAV.budget <= 0) { NAV.stats.skipped++; return; }\n    const r = NAV.path(o.getX(), o.getY(), x, y);\n    NAV.budget -= r.exp + 40;\n    this._navForce = false; this._navGoal = gc; this._navT = now;\n    if (!r.found || r.pts.length < 2) { this._pathFound = false; return; }\n    this._path = r.pts;\n    this._enterSegment(0);\n    this._pathFound = true;\n  };\n  P.doStepPreEvents = function (container) {\n    const o = this.owner, p = this._path;\n    if (p.length === 0 || this._reachedEnd) return;\n    if (this._maxSpeed <= 0) {\n      // movido por otro medio (bots con TopDown) o en espera: solo avanza los tramos por cercanía, no reubica al objeto\n      let guard = 0;\n      while (!this._reachedEnd && this._currentSegment < p.length - 1 && guard++ < 8) {\n        const q = p[this._currentSegment + 1];\n        if (Math.hypot(q[0] - o.getX(), q[1] - o.getY()) < 24) this._enterSegment(this._currentSegment + 1); else break;\n      }\n      return;\n    }\n    origStep.call(this, container);\n    // atoramiento: casi sin avanzar con velocidad -> forzar ruta nueva y sacar de una celda bloqueada\n    const now = NAV.scene ? NAV.scene.getTimeManager().getTimeFromStart() / 1000 : 0;\n    if (this._navPX === undefined) { this._navPX = o.getX(); this._navPY = o.getY(); this._navPT = now; }\n    if (now - this._navPT >= 0.6) {\n      const moved = Math.hypot(o.getX() - this._navPX, o.getY() - this._navPY);\n      if (this._speed > 20 && !this._reachedEnd && moved < 6 && NAV.grid) {\n        this._navForce = true;\n        const c = NAV.cellOf(o.getX(), o.getY());\n        if (NAV.grid.cls[c] === 1) { const f = NAV.nearestFree(o.getX(), o.getY(), 6); if (f) { o.setX(f[0]); o.setY(f[1]); } }\n      }\n      this._navPX = o.getX(); this._navPY = o.getY(); this._navPT = now;\n    }\n  };\n}\n",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        },
+        {
           "colorB": 228,
           "colorG": 176,
           "colorR": 74,
@@ -128523,6 +130874,15 @@
                   "parameters": [
                     "Sup",
                     "\"atasco\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Sup",
+                    "\"ruta\""
                   ]
                 }
               ],
@@ -134561,6 +136921,197 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::ForEach",
+              "object": "Sup",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Sup",
+                    "Control",
+                    "=",
+                    "-1"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Sup",
+                    "Estado",
+                    "=",
+                    "\"normal\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "PathfindingBehavior::PathFound"
+                  },
+                  "parameters": [
+                    "Sup",
+                    "PathBot"
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "PickNearest"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "Sup.X()",
+                        "Sup.Y()",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "DistanceBetweenPositions(Sup.X(), Sup.Y(), Puerta.X() + Puerta.Width() / 2, Puerta.Y() + Puerta.Height() / 2)",
+                        "<",
+                        "110"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "DistanceBetweenPositions(Sup.PathBot::NextNodeX(), Sup.PathBot::NextNodeY(), Puerta.X() + Puerta.Width() / 2, Puerta.Y() + Puerta.Height() / 2)",
+                        "<",
+                        "110"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "Usando",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "MovX",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "MovY",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "AimX",
+                        "=",
+                        "Puerta.X() + Puerta.Width() / 2 - Sup.X()"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "AimY",
+                        "=",
+                        "Puerta.Y() + Puerta.Height() / 2 - Sup.Y()"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "VarObjet"
+                              },
+                              "parameters": [
+                                "Puerta",
+                                "TiempoAbrir",
+                                ">",
+                                "2"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "VarObjet"
+                              },
+                              "parameters": [
+                                "Puerta",
+                                "TiempoAbrir",
+                                "<=",
+                                "0"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "QuierePegar",
+                            "=",
+                            "1"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ],
           "parameters": []
@@ -135619,7 +138170,8 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "Choques con muros, muebles y puertas. Puerta: mantener Usar junto a ella (normal 1 s, electrónica 8 s). Restringidas: fase 6."
+              "comment": "Choques con muros, muebles y puertas. Puerta: mantener Usar (F, A del control, o bots) o R en teclado junto a ella (normal 1 s, electrónica 8 s, a 130 px de los pies). Al abrirse se descubren sus zonas (grupo Puertas: tipos y golpes).",
+              "comment2": ""
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -135667,68 +138219,268 @@
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
+              "conditions": [],
+              "actions": [
                 {
                   "type": {
-                    "value": "VarObjet"
+                    "value": "ModVarObjet"
                   },
                   "parameters": [
-                    "Sup",
-                    "Control",
+                    "Puerta",
+                    "Usada",
                     "=",
                     "0"
                   ]
-                },
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::ForEach",
+              "object": "Puerta",
+              "conditions": [
                 {
                   "type": {
-                    "value": "VarObjetTxt"
+                    "inverted": false,
+                    "value": "VarObjet"
                   },
                   "parameters": [
-                    "Sup",
-                    "Estado",
+                    "Puerta",
+                    "TiempoAbrir",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "Usando",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "Estado",
+                        "=",
+                        "\"normal\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "DistanceBetweenPositions(Sup.X(), Sup.Y(), Puerta.X() + Puerta.Width() / 2, Puerta.Y() + Puerta.Height() / 2)",
+                        "<",
+                        "130"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "Progreso",
+                        "+",
+                        "TimeDelta()"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "Usada",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::CompareNumbers"
+                          },
+                          "parameters": [
+                            "Puerta.Variable(Progreso)",
+                            ">=",
+                            "Puerta.Variable(TiempoAbrir)"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarObjet"
+                          },
+                          "parameters": [
+                            "Puerta",
+                            "Usada",
+                            "=",
+                            "1"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "Estado",
+                        "=",
+                        "\"normal\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "DistanceBetweenPositions(Sup.X(), Sup.Y(), Puerta.X() + Puerta.Width() / 2, Puerta.Y() + Puerta.Height() / 2)",
+                        "<",
+                        "130"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "Control",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "KeyPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "r"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "Progreso",
+                        "+",
+                        "TimeDelta()"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "Usada",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::CompareNumbers"
+                          },
+                          "parameters": [
+                            "Puerta.Variable(Progreso)",
+                            ">=",
+                            "Puerta.Variable(TiempoAbrir)"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarObjet"
+                          },
+                          "parameters": [
+                            "Puerta",
+                            "Usada",
+                            "=",
+                            "1"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    "Usada",
                     "=",
-                    "\"normal\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "KeyPressed"
-                  },
-                  "parameters": [
-                    "",
-                    "r"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PickNearest"
-                  },
-                  "parameters": [
-                    "Puerta",
-                    "Sup.X()",
-                    "Sup.Y()",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Distance"
-                  },
-                  "parameters": [
-                    "Puerta",
-                    "Sup",
-                    "110"
+                    "0"
                   ]
                 }
               ],
               "actions": [
                 {
                   "type": {
-                    "value": "Delete"
+                    "value": "ModVarObjet"
                   },
                   "parameters": [
                     "Puerta",
-                    ""
+                    "Progreso",
+                    "=",
+                    "0"
                   ]
                 }
               ]
@@ -139066,7 +141818,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "disabled": true
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -142073,13 +144826,407 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "Al abrirse una puerta se descubren sus zonas. Toda puerta se puede tumbar a golpes (normal 80, electrónica 100, restringida 150). Con la tarjeta, las electrónicas se abren en 1 s. Restringidas: Carlos (Llave maestra) o a golpes."
+              "comment": "Al abrirse una puerta se descubren sus zonas. Toda puerta se puede tumbar a golpes (normal 80, electrónica 100, restringida 150). Con la tarjeta, las electrónicas se abren en 1 s. Restringidas: Carlos (Llave maestra) o a golpes.",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::ForEach",
+              "object": "Golpe",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Golpe",
+                    "Hecho",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Golpe",
+                    "Hecho",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::ForEach",
+                  "object": "Puerta",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "DistanceBetweenPositions(Puerta.X() + Puerta.Width() / 2, Puerta.Y() + Puerta.Height() / 2, Golpe.X() + cos(ToRad(Golpe.Angle())) * 50, Golpe.Y() + sin(ToRad(Golpe.Angle())) * 50)",
+                        "<",
+                        "90"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "Vida",
+                        "-",
+                        "Golpe.Variable(Danio)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeColor"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "\"255;160;160\""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarGlobal"
+                          },
+                          "parameters": [
+                            "SonidoActivo",
+                            "=",
+                            "1"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "PlaySound"
+                          },
+                          "parameters": [
+                            "",
+                            "\"efectos/mundo/puerta_golpe.ogg\"",
+                            "",
+                            "80",
+                            "1"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::ForEach",
+              "object": "Zombies",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Zombies",
+                    "Estado",
+                    "=",
+                    "\"persigue\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "CompareObjectTimer"
+                  },
+                  "parameters": [
+                    "Zombies",
+                    "\"ataque\"",
+                    ">=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Distance"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "Zombies",
+                        "75"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "PickNearest"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "Zombies.X()",
+                        "Zombies.Y()",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "Vida",
+                        "-",
+                        "Zombies.Variable(Danio)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeColor"
+                      },
+                      "parameters": [
+                        "Puerta",
+                        "\"255;160;160\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Zombies",
+                        "\"ataque\""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarGlobal"
+                          },
+                          "parameters": [
+                            "SonidoActivo",
+                            "=",
+                            "1"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "PlaySound"
+                          },
+                          "parameters": [
+                            "",
+                            "\"efectos/mundo/puerta_golpe.ogg\"",
+                            "",
+                            "80",
+                            "1"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
                   "type": {
+                    "inverted": false,
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    "Vida",
+                    "<=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    "TiempoAbrir",
+                    "=",
+                    "0.001"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    "Progreso",
+                    "=",
+                    "1"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "Tarjeta",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    "Tipo",
+                    "=",
+                    "\"electronica\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    "TiempoAbrir",
+                    "=",
+                    "1"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::ForEach",
+              "object": "Puerta",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "Puerta.Variable(Progreso)",
+                    ">=",
+                    "Puerta.Variable(TiempoAbrir)"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    "TiempoAbrir",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "ZonasAbiertas",
+                    "=",
+                    "VariableString(ZonasAbiertas) + Puerta.VariableString(Zonas) + \",\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "VarGlobal"
+                      },
+                      "parameters": [
+                        "SonidoActivo",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "PlaySound"
+                      },
+                      "parameters": [
+                        "",
+                        "\"efectos/mundo/puerta_abrir.ogg\"",
+                        "",
+                        "80",
+                        "1"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
                     "value": "VarObjetTxt"
                   },
                   "parameters": [
@@ -142091,6 +145238,7 @@
                 },
                 {
                   "type": {
+                    "inverted": false,
                     "value": "Distance"
                   },
                   "parameters": [
@@ -142101,6 +145249,7 @@
                 },
                 {
                   "type": {
+                    "inverted": false,
                     "value": "VarObjetTxt"
                   },
                   "parameters": [
@@ -142112,6 +145261,7 @@
                 },
                 {
                   "type": {
+                    "inverted": false,
                     "value": "VarScene"
                   },
                   "parameters": [
@@ -177133,6 +180283,42 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 1080,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidVictoria",
+          "persistentUuid": "71055279-45e2-42f1-adfb-8b5747fe77d6",
+          "width": 1920,
+          "x": 0,
+          "y": 0,
+          "zOrder": -1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 1080,
+          "keepRatio": false,
+          "layer": "",
+          "name": "VidDerrota",
+          "persistentUuid": "27af4b3e-715a-4f61-b1cc-741e00310d22",
+          "width": 1920,
+          "x": 0,
+          "y": 0,
+          "zOrder": -1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [],
+          "opacity": 255
         }
       ],
       "objects": [
@@ -177526,6 +180712,34 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidVictoria",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 10,
+            "videoResource": "vid_VidVictoria"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidDerrota",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": true,
+            "volume": 10,
+            "videoResource": "vid_VidDerrota"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -177551,6 +180765,12 @@
           },
           {
             "objectName": "BarraPieR"
+          },
+          {
+            "objectName": "VidVictoria"
+          },
+          {
+            "objectName": "VidDerrota"
           }
         ]
       },
@@ -178251,6 +181471,297 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Videos",
+          "source": "",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Video de fondo según el resultado. El sprite Fondo original solo se oculta.",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "Fondo"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobalTxt"
+                  },
+                  "parameters": [
+                    "Resultado",
+                    "=",
+                    "\"victoria\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidVictoria"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidVictoria"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobalTxt"
+                  },
+                  "parameters": [
+                    "Resultado",
+                    "=",
+                    "\"victoria\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidVictoria",
+                    "=",
+                    "0"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobalTxt"
+                  },
+                  "parameters": [
+                    "Resultado",
+                    "!=",
+                    "\"victoria\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidVictoria",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobalTxt"
+                  },
+                  "parameters": [
+                    "Resultado",
+                    "!=",
+                    "\"victoria\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidVictoria"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidVictoria"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobalTxt"
+                  },
+                  "parameters": [
+                    "Resultado",
+                    "!=",
+                    "\"victoria\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidDerrota"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidDerrota"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobalTxt"
+                  },
+                  "parameters": [
+                    "Resultado",
+                    "!=",
+                    "\"victoria\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidDerrota",
+                    "=",
+                    "0"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobalTxt"
+                  },
+                  "parameters": [
+                    "Resultado",
+                    "=",
+                    "\"victoria\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreX"
+                  },
+                  "parameters": [
+                    "VidDerrota",
+                    "=",
+                    "-6000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobalTxt"
+                  },
+                  "parameters": [
+                    "Resultado",
+                    "=",
+                    "\"victoria\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Video::Play"
+                  },
+                  "parameters": [
+                    "VidDerrota"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Video::Pause"
+                  },
+                  "parameters": [
+                    "VidDerrota"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
         }
       ],
       "layers": [
