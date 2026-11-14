@@ -44,6 +44,7 @@
     {"id": "SFX_MUNDO_LOCKER", "path": "efectos/mundo/locker.ogg", "priority": "P2"},
     {"id": "SFX_MUNDO_MAQUINA", "path": "efectos/mundo/maquina.ogg", "priority": "P2"},
     {"id": "SFX_MUNDO_MONEDA", "path": "efectos/mundo/moneda.ogg", "priority": "P2"},
+    {"id": "SFX_MUNDO_PUERTA_ABRIR", "path": "efectos/mundo/puerta_abrir.ogg", "priority": "P2"},
     {"id": "SFX_MUNDO_PUERTA_GOLPE", "path": "efectos/mundo/puerta_golpe.ogg", "priority": "P2"}
   ],
   "music": [

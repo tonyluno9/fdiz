@@ -563,3 +563,89 @@ Pendientes anteriores que siguen abiertos: audio, sprites faltantes, planta 1 B,
 - **Causas encontradas:** (1) el temporizador `ruta` de los bots nunca se iniciaba (`NaN >= 0.2` es falso), así que no pedían ruta jamás; (2) con `maxSpeed 0` el behavior devolvía al bot al inicio de su ruta en cada cuadro; (3) el buscador original inflaba los obstáculos con el sprite completo (80x127) y no hallaba ruta en pasillos angostos; los zombis sin ruta eran empujados contra la pared (evento desactivado).
 - **Puertas:** se restauró la lógica original (Usar junto a la puerta, golpes, zombis, tarjeta) y el descubrimiento de zonas (`ZonasAbiertas`), que dejó de funcionar al quitarla; sin eso las zonas se quedaban negras. R en teclado sigue abriendo. La distancia ahora se mide desde los pies (130 px), porque `Distance()` usa el centro del sprite, ~62 px más arriba. Los bots abren las puertas que cruza su ruta aunque haya humanos.
 - **Probado en Chromium sin pantalla:** los bots salen del salón inicial, abren la puerta, llegan al jugador y matan zombis; el jugador abre la puerta de E-04 con F y se descubre la zona; menú de modos, selección de personaje y dificultad se ven bien con sus videos. No probado con control de Xbox ni una partida completa.
+- **Fase 18 (correcciones, 2026-11-13):** `scripts/fase18_correcciones.py` parchea el JSON en sitio (idempotente; no regenerar con la cadena de fases, el JSON tiene ediciones manuales de GDevelop). (1) Se quitó la colisión Sup–Sup: los bots ya no empujan al jugador; entre bots y entre zombis sí hay separación (evento etiquetado `fdiz18`). (2) Golpe: el objeto `Golpe` queda como hitbox invisible y un nuevo `GolpeFx` se coloca en el puño según la dirección (der/izq/arr/aba) con rotación y escala por alcance. (3) Selector de personajes: marco amarillo `p9_EqMarcoVideo.png` sobre los videos. (4) Bugs de IA: los bots se detienen a distancias distintas del guía (90+45*Jugador) para no apilarse; los zombis quietos pausan la animación y miran al objetivo en vez de caminar en su lugar. `scripts/depuracion_ia.py` es un logger temporal (off por defecto). Pendiente: probar a fondo el golpe hacia la izquierda; zombis sin animación `atacar_arriba`; rectángulos grises tras los textos de dificultad.
+
+## Fase 19 (13 nov 2026): correcciones pedidas por Tony
+Todo se aplica en sitio sobre `FDI-Z.json` con `scripts/fase19_correcciones.py` (idempotente) y `scripts/fase19_botones.py` (imágenes de botones). No regenerar con la cadena de fases: el JSON tiene ediciones manuales de GDevelop. Probado en vista previa de GDevelop (no con control de Xbox).
+
+- **Botones de dificultad (Menú):** la placa gris estaba horneada en las imágenes `ui_boton_*.png`, no era un objeto. Se generaron `ui_boton_facil_p19.png`, `ui_boton_normal_dificultad_p19.png` y `ui_boton_dificil_p19.png` sin placa y con el mismo tamaño (480x168, instancias alineadas en x=720). El texto `TxtDif` ahora es crema con borde oscuro para leerse sobre botones azules y naranja.
+- **Zombis, `atacar_arriba`:** no existía el arte. Se generó con los cuadros de `caminar_arriba` desplazados hacia arriba (embestida) para los 5 tipos (carpetas `generado/sprites/zombies/<tipo>/atacar_arriba/`).
+- **Efecto de golpe:** estaba girado 180° (el arco "C" quedaba con la curva hacia el personaje). Se invirtieron los 4 ángulos (der 0, izq 180, arriba 270, abajo 90). Sigue pegado al puño. La dirección izquierda y arriba no se vieron en la prueba (el efecto dura 0.22 s).
+- **Zombis que no desaparecían:** causa real: la pausa de animación de la fase 18 dejaba en pausa la animación `golpe_morir`, y el evento que borra al zombi espera que termine. Ahora al morir se reanuda la animación y, por seguridad, se borran 1.2 s después (variable `MuerteIni`, temporizador `muerte`). Los 5 tipos tienen `golpe_morir`; no faltaba ninguna animación de muerte.
+- **Tony en modo Gym:** los cuadros `tonyfuerte` tenían el cuerpo ~9 % más chico que Tony (el resto del cuadro eran las llamas). Se escalaron x1.09 (`generado/sprites/personajes_p19/tonyfuerte/`, origen 46,107) y se añadieron las animaciones que faltaban (pegar arriba/abajo, caer, festejo, habilidad, especial) copiándolas de Tony. Comprobado en vista previa.
+- **Rutas de César:** ya no es una línea recta de 11 puntos. Un evento JS (marca `FDIZ19-RUTA`, dentro de "Pasivas: Ojo de oferta, Rutas y AirDrop") calcula el camino con el A* del juego (`gdjs.fdizNav.path`), que evita muros, muebles y salones; se recalcula cada 0.6 s durante 14 s para seguir a César. Los puntos son más grandes con borde oscuro y se dibujan en la capa `Niebla` con z alto, así se ven también dentro de las zonas negras. Comprobado: sale por la puerta del salón.
+- **Pantalla de derrota:** botones REINICIAR (naranja) y MENÚ (verde). Reiniciar (clic, R, Enter, Espacio o A/Start de control) vuelve a `Juego` con los mismos personajes y controles (variables globales `P1Pj..P4Ctl`); MENÚ (clic, Esc o M) va al título. En victoria sigue igual (cualquier tecla: título).
+- **Derrota inmediata:** si hay un solo humano (con 3 bots) y no está de pie, pasa directo a Game Over (variable de escena `HumTot`, eventos al final de "Cámara compartida"). Comprobado con una tecla de prueba temporal, ya retirada.
+- **Limpieza:** el registrador de depuración de IA quedó apagado (`depuracion_ia.py off`).
+- **Pendiente anotado:** los botones REINICIAR/MENÚ tapan un poco la ilustración de derrota (esquina inferior izquierda); el borde brillante del botón NORMAL seleccionado se ve ~4 % más grande por el brillo.
+
+## Fase 19b y 20 (13 nov 2026): segunda ronda de correcciones
+Scripts: `scripts/fase19_correcciones.py` (actualizado) y `scripts/fase20_pausa.py` (nuevo), ambos idempotentes y aplicados en sitio.
+- **Tony Gym al caminar:** el escalado único x1.09 no servía: cada animación de `tonyfuerte` tenía el cuerpo de distinto tamaño (las llamas cambian el cuadro). Ahora cada animación se escala para que el cuerpo (pelo a zapatos, medido por píxeles oscuros) mida lo mismo que el de Tony normal: quieto x1.089, caminar abajo x1.011, caminar arriba x1.116, caminar lado x1.116, pegar x1.066 (carpeta `generado/sprites/personajes_p19/`).
+- **Zombis "flotando":** causa: la pausa de animación de la fase 18 usaba `Pathfinding::Speed()`, que vale 0 cuando el zombi avanza por fuerzas (`AddForceVersPos`), así que la animación de caminar quedaba pausada mientras se movía. Ahora se mide el desplazamiento real por cuadro (variable `Mov`, promedio móvil; pausa si Mov <= 0.3).
+- **Rutas de César:** puntos 30 % más pequeños (0.4 y 0.56 de escala) y opacidad con parpadeo `110 + 68*sin(5t)` (máximo 178 de 255, un 30 % menos que antes). Se sigue recalculando al caminar.
+- **Menú de pausa (nuevo grupo "Menú de pausa" en Juego):** Esc o P pausa y reanuda (solo con Estado = "juego"). Congela todo con `ChangeTimeScale 0` y muestra un velo gris semitransparente (opacidad 150) con panel y botones CONTINUAR, REINICIAR y MENÚ (W/S o flechas + Enter/Espacio, o clic). 12 grupos de entrada (pegar, habilidades, lanzar, usar, etc.) quedaron envueltos en la condición `Pausa = 0` para no actuar en pausa. Comprobado en vista previa: pausa, selección con teclado y reanudar. No probados REINICIAR/MENÚ desde la pausa ni el uso con control de Xbox (no hay botón de pausa en el control: START ya sirve para unirse).
+
+## Fase 21 (13 nov 2026): audio estilo SNES (efectos + música)
+Scripts: `scripts/snes_synth.py` (motor: pulso, triángulo, ruido, cuantización 8 bits, filtro gaussiano y eco, 32 kHz nativo como el DSP de la SNES), `scripts/fase21_audio.py` (genera los 44 sonidos; `--solo ID` rehace uno) y `scripts/fase21_proyecto.py` (idempotente: aplica al proyecto). Respaldo: `respaldos/antes_de_fase21_20261113.json`.
+- **Sonidos creados (una sola versión de cada uno):** 21 efectos de combate/eventos/mundo/interfaz, 16 de habilidades y 7 músicas, todos en `.ogg` Vorbis 44.1 kHz mono dentro de `FDI-Z/efectos/<categoría>/` y `FDI-Z/musica/`. La validación `validar_audio.py --check` pasa (44 revisados, 0 problemas). No hizo falta WAV: ffmpeg tiene libvorbis.
+- **Temas:** habilidad de Miranda = mini nana; especial de Miranda = minigun; Alessandro = "ba-dum-tss" de tambores (chiste) y tic-tac de tiempo; Alan = caja registradora y lluvia de monedas; Castillo = trago y poción; César = hackeo y alarma; Gabo = velocidad y estampido; Carlos = llaves y armadura; Tony = sartén y banquete.
+- **Música:** menu, partida_1/2/3 y final_aguanten van en bucle sin corte (eco circular); victoria y derrota no repiten.
+- **`puerta_abrir.ogg`:** los eventos ya lo usaban pero no estaba en el manifiesto; se añadió (`SFX_MUNDO_PUERTA_ABRIR`).
+- **Recursos y volúmenes:** los 44 audios se registraron como recursos de audio del proyecto y se cambió el volumen de las 56 acciones PlaySound/PlayMusic. Todos < 100 (efectos 55-75, música 45-50; antes había efectos en 100).
+- **Videos:** volumen de fondos 10 → 3 % y de los videos de personajes del selector 35 → 12 %, para que no tapen la música ni los efectos.
+- **Catálogo:** `FDI-Z/efectos/CATALOGO_SONIDOS.md` (copia en `musica/`) con ID, cuándo suena, descripción, duración y volumen de cada sonido, para indicar cuáles rehacer.
+- **Sin probar en vista previa:** el audio se validó por formato y volumen; falta que Tony lo escuche en el juego.
+
+### Fase 21b (13 nov 2026): audio activado en el juego
+- **Causa de que no sonara nada:** la variable global `SonidoActivo` seguía en 0 desde la fase 10 (se dejó apagada porque no había audios) y todos los eventos de sonido y música exigen `SonidoActivo = 1`.
+- **Arreglo:** `scripts/fase21b_activar_sonido.py` (idempotente) la pone en 1. Comprobado que los 44 audios registrados están usados por algún evento (ninguno huérfano).
+- **Segunda causa (fase 21c):** aun con `SonidoActivo = 1` no sonaba nada. La consola de la vista previa daba `No codec support for selected audio sources` en todos los audios: los parámetros de archivo de PlaySound/PlayMusic son de tipo `soundfile` (nombre de recurso **sin comillas**) y los eventos los tenían entre comillas (`"musica/menu.ogg"`), así que GDevelop pedía un archivo cuyo nombre terminaba en `.ogg"`. `scripts/fase21c_rutas_audio.py` (idempotente) quitó las comillas de las 56 acciones. Tras recargar, la consola ya no muestra errores de audio.
+
+
+## Fase 22 · Modo Jefe de zombies funcional (2026-11-13)
+
+Respaldo: `respaldos/antes_de_fase22_20261113.json`. Script idempotente: `scripts/fase22_jefe.py` (lee `scripts/jefe_modo.js` y `scripts/bots_habilidades.js` y los incrusta en la escena Juego). Iconos: `scripts/fase22_iconos_jefe.py` → `assets/interfaz/jefe_icono_c1..c8.png`.
+
+**Qué cambió**
+- El grupo "Modo Jefe de zombies" se reescribió: toda la lógica e interfaz del Jefe está en un evento JavaScript (`jefe_modo.js`). Se eliminaron las condiciones/acciones antiguas (texto plano en `TxtJefe`, minimapa-solo-clic, etc.).
+- El Jefe juega solo con teclado y ratón: WASD/flechas mueven la cámara libre (Shift más rápido, Espacio = ir al grupo), clic en el minimapa mueve la cámara, teclas 1-8 o clic eligen carta, clic en el mapa invoca, clic derecho cancela la carta, H muestra/oculta la ayuda.
+- Interfaz nueva: panel "MISIÓN DEL JEFE", ayuda inicial de 3 pasos, 8 cartas con icono, coste, recarga (velo con barra) y bloqueo por oro/nivel, cuadro explicativo de la carta elegida, minimapa con puntos (sobrevivientes por color, zombis, objetivo, ventana de cámara, zona visible), barra del próximo oro, mensajes de error junto al cursor y cursor verde/rojo según si se puede invocar.
+- Regla de invocación: no se puede invocar dentro del círculo rojo (lo que ven los sobrevivientes) ni sobre paredes/muebles (rejilla de navegación).
+- Modo Jefe ahora usa los 4 sobrevivientes como bots (Control -1; ya no se borra al P4); sin cinemática ni oscuridad inicial, sin niebla de zonas, sin aparición automática de zombis (solo los que invoca el Jefe).
+- Cámara compartida desactivada con `Jefe=1`; `ZonaRoja` antigua oculta; el HUD de dinero muestra el oro del Jefe.
+- Fin de partida: si los 4 sobrevivientes caen → "¡GANÓ EL JEFE!"; si cumplen el objetivo → "¡ESCAPARON! EL JEFE PERDIÓ" (textos en Resultados).
+- Bots (todos los modos): `bots_habilidades.js` se ejecuta antes del grupo de habilidades y decide Q/E según el personaje (zombis cerca, gordos, vida baja, aliados heridos; Castillo cura, Carlos/Alessandro/Gabo se defienden, Miranda/César/Alan atacan en área).
+- Bug corregido durante las pruebas: `setCoordinatesAbsolute` no existe en esta versión del Drawer (se usa la propiedad del objeto).
+
+
+## Fase 22b · Corrección de bots y música (2026-11-13)
+
+- **Bots atorados (causa):** en modo Jefe bloqueé todo el evento "CamN > 0" de la cámara compartida, y ese mismo evento calcula `CamX/CamY` (promedio de los bots). Sin dividir, `CamX/CamY` quedaban enormes y la guía invisible de los bots se teletransportaba fuera del mapa, así que nadie avanzaba. Ahora el evento corre siempre y solo se bloquea el movimiento de cámara (sub-eventos con `Jefe=0`). Probado: los bots completan objetivos (1/3 → 2/3 …) en el modo Jefe.
+- **Música superpuesta:** todas las acciones `PlayMusic` (Título, Juego: partida_1/2/3 y final, Resultados: derrota/victoria) pasaron a `PlayMusicCanal` en el canal 1. Al arrancar una pista en ese canal reemplaza a la anterior, incluso al cambiar de escena. (Hecho dentro de `fase22_jefe.py`, idempotente.)
+- Apagón del Jefe: se deja para después (la carta sigue en el juego, sin tocar).
+- El Jefe actúa al soltar clic/tecla (`isMouseButtonReleased` / `wasKeyReleased`) para no perder pulsaciones cortas.
+
+
+## Fase 24 · Multijugador local (fase A del multijugador) (2026-11-13)
+
+Respaldo: `respaldos/antes_de_fase24_20261113.json`. Script idempotente: `scripts/fase24_local.py` (corre después de `fase22_jefe.py`).
+
+- **Pantalla Únanse:** cada hueco muestra un icono en vez de letras: teclado + ratón, mando, o mando con "+" (libre: presiona A en un mando; si nadie entra, ese hueco será bot). Iconos nuevos `assets/interfaz/slot_ico_*.png` (objeto `SlotIco`). Texto específico para el modo Jefe.
+- **Límite por máquina:** 4 personas como máximo. En Escape: teclado + 3 mandos. En Jefe: el Jefe usa teclado y ratón y solo se aceptan 3 mandos de sobrevivientes. Los huecos que nadie ocupa se rellenan con bots (ya existía).
+- **Mandos (auditoría y arreglos):** movimiento, atacar (X), usar (A), habilidad (Y) y especial (RB) ya estaban para los 4 mandos. Nuevo: apuntar con la palanca derecha; **pausa con mando** (Start pausa, cruceta arriba/abajo elige, A acepta; antes no se podía pausar con mando). El menú de Título/Únanse/Equipo/Dificultad ya funcionaba con mando.
+- **Modo Jefe con mandos:** ya no se fuerzan los 4 sobrevivientes a bot; los huecos con mando son humanos. Los humanos no pueden salir de lo que ve la pantalla del Jefe. El Jefe puede seguir al grupo con F (Espacio salta al grupo, WASD cámara libre).
+- **Pendiente (fase B, online):** conexión P2P (PeerJS, servidor público), sincronía de eventos, el Jefe como host con vista distinta a la de los sobrevivientes, y quitar el límite de pantalla cuando cada jugador tiene su propia PC. No se tocó en esta fase.
+- No hay mandos físicos en las pruebas: los cambios de mando se revisaron por eventos, no se probaron con hardware.
+
+## Fase 25 · Online por internet (PeerJS) + ajustes del modo Jefe
+- Modo Jefe: oro del Jefe por segundo según dificultad (fácil 2 · normal 4 · pesadilla 6). Dificultad (para los sobrevivientes) escala vida/daño de zombis: 0.7 / 1 / 1.6. En Jefe local los 4 sobrevivientes son siempre bots (ya no entran humanos).
+- Online: `scripts/net_core.js` + `peerjs.min.js` se incrustan en un JsCode al inicio de la escena Titulo (`fase25_online.py`, idempotente, respaldo `respaldos/antes_de_fase25_20261113.json`).
+- Menú > modo > tecla 3 = escena nueva **Online**: crear sala (código de 5 letras) o unirse con código. Cada PC elige sus jugadores (A/Enter entra, A/D cambia personaje, Enter confirma); host: M modo, N dificultad, Enter/Start empieza. Huecos libres = bots. En modo Jefe el host es el Jefe.
+- Arquitectura: el host corre todo el juego; clientes mandan entrada (30 Hz) y reciben instantáneas (solo cambios). Jugador remoto = Control -3 (mando virtual). En clientes se congelan todos los grupos de eventos salvo HUD, cámara, música, etc. Sin pausa ni cinemática en línea. Máquina con 2+ jugadores: el host los limita a lo que ve esa pantalla. Cliente desconectado → sus personajes pasan a bots. Esc sale.
+- ESTADO: código integrado y con sintaxis validada; NO probado aún con dos instancias reales (falta prueba de punta a punta).
+
+### Fase 25b · Sonidos en red y apagón
+- `net_core.js` envuelve `gdjs.evtTools.sound.playSound`: el host reenvía cada efecto a los clientes (que ignoran los suyos y solo reproducen lo del host, respetando su SonidoActivo). La música ya corría en los clientes por las variables sincronizadas.
+- Apagón: los clientes ejecutan los eventos de luz del grupo "Ambiente" (Apagon se sincroniza) y oscurecen su pantalla; con Jefe=1 el host/Jefe no se oscurece. Dura 15 s (carta del Jefe). Sin probar con dos máquinas.
+- (Fase 24 corregida en Fase 25) `fase24_local.py` ya no deja entrar mandos en modo Jefe local (límite 0) y el texto del paso "Únanse" indica que los sobrevivientes son bots; `jefe_modo.js` fija DifVida/DifDanio por dificultad al iniciar el Jefe.
