@@ -200,7 +200,7 @@ for pr in props:
         n_choques += 1
     if not pr.get("archivo"):
         continue
-    z = int(pr["y"]) + (64 if pr["capa"] == "encima" else 0)
+    z = pr.get("zOrder", int(pr["y"]) + (64 if pr["capa"] == "encima" else 0))
     i = instancia("Mueble", pr["x"], pr["y"], CAPA_JUEGO, z,
                   variables=[var("Sprite", pr["sprite"]), var("Capa", pr["capa"])])
     i["numberProperties"] = [{"name": "animation", "value": indice_anim[pr["sprite"]]}]

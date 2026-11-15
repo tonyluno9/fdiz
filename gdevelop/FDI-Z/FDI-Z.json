@@ -54720,9 +54720,9 @@
           "name": "Contenedor",
           "persistentUuid": "4e8979b6-eb58-4bee-8c0a-866c977cb6a7",
           "width": 0,
-          "x": 1597,
-          "y": 1390,
-          "zOrder": 6,
+          "x": 1568,
+          "y": 1280,
+          "zOrder": 1280,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": [
@@ -54751,9 +54751,9 @@
           "name": "TxtPrecio",
           "persistentUuid": "83405615-ed55-4bb6-8df5-4654fe96602b",
           "width": 0,
-          "x": 1537,
-          "y": 1274,
-          "zOrder": 50,
+          "x": 1508,
+          "y": 1144,
+          "zOrder": 1281,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": [
@@ -54772,9 +54772,9 @@
           "name": "Contenedor",
           "persistentUuid": "746178b7-cc17-48f9-8694-f6476893379b",
           "width": 0,
-          "x": 1661,
-          "y": 1390,
-          "zOrder": 6,
+          "x": 1632,
+          "y": 1280,
+          "zOrder": 1280,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": [
@@ -54803,9 +54803,9 @@
           "name": "TxtPrecio",
           "persistentUuid": "11b23b0e-391c-45af-89ea-34ca6821c5ad",
           "width": 0,
-          "x": 1601,
-          "y": 1274,
-          "zOrder": 50,
+          "x": 1572,
+          "y": 1144,
+          "zOrder": 1281,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": [
@@ -54824,9 +54824,9 @@
           "name": "Contenedor",
           "persistentUuid": "2f0a9327-6c29-454b-b925-83a112bec7ac",
           "width": 0,
-          "x": 1597,
-          "y": 1665,
-          "zOrder": 6,
+          "x": 1568,
+          "y": 1555,
+          "zOrder": 1555,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": [
@@ -54855,9 +54855,9 @@
           "name": "TxtPrecio",
           "persistentUuid": "eddf5312-f3a6-4f02-9816-2fb9f42fd385",
           "width": 0,
-          "x": 1537,
-          "y": 1549,
-          "zOrder": 50,
+          "x": 1508,
+          "y": 1419,
+          "zOrder": 1556,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": [
@@ -54876,9 +54876,9 @@
           "name": "Contenedor",
           "persistentUuid": "9c15f0ad-36df-4feb-9685-fe83d81d467e",
           "width": 0,
-          "x": 1661,
-          "y": 1665,
-          "zOrder": 6,
+          "x": 1632,
+          "y": 1555,
+          "zOrder": 1555,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": [
@@ -54907,9 +54907,9 @@
           "name": "TxtPrecio",
           "persistentUuid": "5f564fcf-7423-4003-adb6-06726052d4a6",
           "width": 0,
-          "x": 1601,
-          "y": 1549,
-          "zOrder": 50,
+          "x": 1572,
+          "y": 1419,
+          "zOrder": 1556,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": [
@@ -69212,13 +69212,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "5c138cc7-271f-4165-a132-b6a6c81a2e90",
-          "width": 62,
-          "x": 2113,
-          "y": 1480,
+          "width": 64,
+          "x": 2112,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69320,13 +69320,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "e923249b-d8c3-4330-9917-367d3c0685e1",
-          "width": 62,
-          "x": 2113,
-          "y": 1696,
+          "width": 64,
+          "x": 2112,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69366,13 +69366,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "922342f1-54d9-4327-9db9-2c0a87680349",
-          "width": 62,
-          "x": 2177,
-          "y": 1480,
+          "width": 64,
+          "x": 2176,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69474,13 +69474,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "9d175830-f98d-402c-b5ca-e0dbdb568571",
-          "width": 62,
-          "x": 2177,
-          "y": 1696,
+          "width": 64,
+          "x": 2176,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69520,13 +69520,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "0dcb1726-1229-4a11-a524-333c7df49f91",
-          "width": 62,
-          "x": 2241,
-          "y": 1480,
+          "width": 64,
+          "x": 2240,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69628,13 +69628,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "ea8bd281-d36a-4687-b6b7-ad52408155de",
-          "width": 62,
-          "x": 2241,
-          "y": 1696,
+          "width": 64,
+          "x": 2240,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69674,13 +69674,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "30159c3a-249d-461a-9cb7-2ce8ea1944bb",
-          "width": 62,
-          "x": 2305,
-          "y": 1480,
+          "width": 64,
+          "x": 2304,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69782,13 +69782,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "3c21bbcb-2682-4b10-b906-393b009b6197",
-          "width": 62,
-          "x": 2305,
-          "y": 1696,
+          "width": 64,
+          "x": 2304,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69828,13 +69828,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "52067913-5ceb-4de3-93af-3387d8e53470",
-          "width": 62,
-          "x": 2369,
-          "y": 1480,
+          "width": 64,
+          "x": 2368,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69936,13 +69936,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "96b7b7e5-2606-4fbb-9bde-4e79275b87df",
-          "width": 62,
-          "x": 2369,
-          "y": 1696,
+          "width": 64,
+          "x": 2368,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -69982,13 +69982,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "f7c7674a-3ca0-4541-a16e-a841463c2c97",
-          "width": 62,
-          "x": 2433,
-          "y": 1480,
+          "width": 64,
+          "x": 2432,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70090,13 +70090,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "cdd66d05-186c-47b8-9cbb-0720f8dc1ff9",
-          "width": 62,
-          "x": 2433,
-          "y": 1696,
+          "width": 64,
+          "x": 2432,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70136,13 +70136,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "94c7fd3e-6790-414b-83ec-145cc44e6d83",
-          "width": 62,
-          "x": 2497,
-          "y": 1480,
+          "width": 64,
+          "x": 2496,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70244,13 +70244,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "de941e85-b851-4d53-a8d9-9161631b09a5",
-          "width": 62,
-          "x": 2497,
-          "y": 1696,
+          "width": 64,
+          "x": 2496,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70290,13 +70290,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "4b13399a-c269-455d-9ac2-c22d64c86427",
-          "width": 62,
-          "x": 2561,
-          "y": 1480,
+          "width": 64,
+          "x": 2560,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70398,13 +70398,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 44,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "c5a7a80b-1d97-4503-bd33-a7cfe3cb3fcf",
-          "width": 76,
-          "x": 2538,
-          "y": 1589,
+          "width": 80,
+          "x": 2536,
+          "y": 1575,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70568,13 +70568,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "b6285bb3-60c6-4b4b-8501-95c1dabb304c",
-          "width": 62,
-          "x": 2113,
-          "y": 1832,
+          "width": 64,
+          "x": 2112,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70676,13 +70676,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "cd86a13b-7a2e-4d75-ade7-960cb81bfe1e",
-          "width": 62,
-          "x": 2113,
-          "y": 2048,
+          "width": 64,
+          "x": 2112,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70722,13 +70722,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "6fcf5134-ed8a-4fec-bc83-2a5d1856df1c",
-          "width": 62,
-          "x": 2177,
-          "y": 1832,
+          "width": 64,
+          "x": 2176,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70830,13 +70830,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "84b9f503-7c92-4ee9-b73d-e97a093a0119",
-          "width": 62,
-          "x": 2177,
-          "y": 2048,
+          "width": 64,
+          "x": 2176,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70876,13 +70876,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "f3975ac6-f2b2-4103-840d-569b2e4ac644",
-          "width": 62,
-          "x": 2241,
-          "y": 1832,
+          "width": 64,
+          "x": 2240,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -70984,13 +70984,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "882c83d2-035a-43ce-920c-d3be64c23714",
-          "width": 62,
-          "x": 2241,
-          "y": 2048,
+          "width": 64,
+          "x": 2240,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71030,13 +71030,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "824d38cc-8580-4e0f-966d-31ec5b9711f1",
-          "width": 62,
-          "x": 2305,
-          "y": 1832,
+          "width": 64,
+          "x": 2304,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71138,13 +71138,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "008f0817-60e6-4dcf-a130-4e4000af70ce",
-          "width": 62,
-          "x": 2305,
-          "y": 2048,
+          "width": 64,
+          "x": 2304,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71184,13 +71184,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "68cc3be7-6cb5-4b08-9fcc-76cca9059937",
-          "width": 62,
-          "x": 2369,
-          "y": 1832,
+          "width": 64,
+          "x": 2368,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71292,13 +71292,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "353fca15-564e-485c-966f-bc57d40ddf6e",
-          "width": 62,
-          "x": 2369,
-          "y": 2048,
+          "width": 64,
+          "x": 2368,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71338,13 +71338,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "aff87ad7-6534-47dc-889c-170664861b0e",
-          "width": 62,
-          "x": 2433,
-          "y": 1832,
+          "width": 64,
+          "x": 2432,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71446,13 +71446,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "57f3daeb-3ee4-4005-874a-2341100bcae2",
-          "width": 62,
-          "x": 2433,
-          "y": 2048,
+          "width": 64,
+          "x": 2432,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71492,13 +71492,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "cf1f858a-93f5-4f03-b8ee-40a24744bda6",
-          "width": 62,
-          "x": 2497,
-          "y": 1832,
+          "width": 64,
+          "x": 2496,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71600,13 +71600,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "d37a311b-b9d8-46fc-84d6-0c0b97a349dd",
-          "width": 62,
-          "x": 2497,
-          "y": 2048,
+          "width": 64,
+          "x": 2496,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71708,13 +71708,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "bb5314c6-ba64-4e84-8879-7a192ba403bb",
-          "width": 62,
-          "x": 2561,
-          "y": 2048,
+          "width": 64,
+          "x": 2560,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -71754,13 +71754,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 44,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "e34864b0-4bc6-4ad4-8b1c-b3c3a3f744f4",
-          "width": 76,
-          "x": 2538,
-          "y": 1941,
+          "width": 80,
+          "x": 2536,
+          "y": 1927,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -72663,13 +72663,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 56,
+          "height": 132,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "11ceffe6-644f-4ff8-b74d-895b5077de91",
           "width": 250,
           "x": 3091,
-          "y": 1848,
+          "y": 1772,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -72956,13 +72956,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 18,
+          "height": 34,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "3b323fef-d78e-4026-b0d6-63016f1e0f72",
-          "width": 36,
-          "x": 3684,
-          "y": 1486,
+          "width": 42,
+          "x": 3681,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73007,7 +73007,7 @@
           "name": "Mueble",
           "persistentUuid": "ae2459cd-c192-4862-a625-f710886da099",
           "width": 0,
-          "x": 3584,
+          "x": 3536,
           "y": 1590,
           "zOrder": 1590,
           "numberProperties": [
@@ -73187,13 +73187,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "4439511f-2b4a-4bb7-9617-f24a890de85e",
-          "width": 62,
-          "x": 3809,
-          "y": 1480,
+          "width": 64,
+          "x": 3808,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73295,13 +73295,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "1f9f4491-9a8c-439b-93bf-c25539c9f178",
-          "width": 62,
-          "x": 3873,
-          "y": 1480,
+          "width": 64,
+          "x": 3872,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73403,13 +73403,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "c13fe866-d175-496b-9033-925dda9b2467",
-          "width": 62,
-          "x": 3873,
-          "y": 1696,
+          "width": 64,
+          "x": 3872,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73449,13 +73449,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "bf804dc4-11f5-4035-9eb3-5da051b33f07",
-          "width": 62,
-          "x": 3937,
-          "y": 1480,
+          "width": 64,
+          "x": 3936,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73557,13 +73557,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "4c54db84-3409-4890-a322-0b4691e32dd7",
-          "width": 62,
-          "x": 3937,
-          "y": 1696,
+          "width": 64,
+          "x": 3936,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73603,13 +73603,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "ce4647c9-5b5b-47b7-a376-9b53c38c0612",
-          "width": 62,
-          "x": 4001,
-          "y": 1480,
+          "width": 64,
+          "x": 4000,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73711,13 +73711,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "b1965115-ffe6-4259-834a-c6e0734dabe0",
-          "width": 62,
-          "x": 4001,
-          "y": 1696,
+          "width": 64,
+          "x": 4000,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73757,13 +73757,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "a2915721-a246-4ad8-909c-cc295cbdc3a6",
-          "width": 62,
-          "x": 4065,
-          "y": 1480,
+          "width": 64,
+          "x": 4064,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73865,13 +73865,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "dfd7c86a-d5e6-4b43-abb5-426c12786e48",
-          "width": 62,
-          "x": 4065,
-          "y": 1696,
+          "width": 64,
+          "x": 4064,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -73911,13 +73911,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "73e861e1-36db-4442-a652-c4e8bcc32001",
-          "width": 62,
-          "x": 4129,
-          "y": 1480,
+          "width": 64,
+          "x": 4128,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74019,13 +74019,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "f083dcd9-8329-4343-9d95-3c92f422ee97",
-          "width": 62,
-          "x": 4129,
-          "y": 1696,
+          "width": 64,
+          "x": 4128,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74065,13 +74065,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "6c94ce09-28b6-456b-ade0-f2c7a6240407",
-          "width": 62,
-          "x": 4193,
-          "y": 1480,
+          "width": 64,
+          "x": 4192,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74173,13 +74173,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "8cac5753-6d2a-4b31-b524-965a95e04185",
-          "width": 62,
-          "x": 4193,
-          "y": 1696,
+          "width": 64,
+          "x": 4192,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74219,13 +74219,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "2e504246-3b76-4e8c-a721-aea193d08c1b",
-          "width": 62,
-          "x": 4257,
-          "y": 1480,
+          "width": 64,
+          "x": 4256,
+          "y": 1470,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74327,13 +74327,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "ccad858f-7dbc-4a24-a5e7-e6ae5cbe6d69",
-          "width": 62,
-          "x": 4257,
-          "y": 1696,
+          "width": 64,
+          "x": 4256,
+          "y": 1686,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74373,13 +74373,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 44,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "ea0379ce-a52d-4002-bd67-1f675daba6c9",
-          "width": 76,
-          "x": 3818,
-          "y": 1589,
+          "width": 80,
+          "x": 3816,
+          "y": 1575,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74605,13 +74605,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "d5065f82-74b4-4fd1-a772-8deec14923c2",
-          "width": 62,
-          "x": 3809,
-          "y": 2048,
+          "width": 64,
+          "x": 3808,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74651,13 +74651,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "4fcc5136-6134-4288-8e63-fc279c150290",
-          "width": 62,
-          "x": 3873,
-          "y": 1832,
+          "width": 64,
+          "x": 3872,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74759,13 +74759,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "ed925a1b-99c9-4d31-8cd8-9ac5bbcbe623",
-          "width": 62,
-          "x": 3873,
-          "y": 2048,
+          "width": 64,
+          "x": 3872,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74805,13 +74805,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "8e69ee59-c952-42c4-a397-1736c570a088",
-          "width": 62,
-          "x": 3937,
-          "y": 1832,
+          "width": 64,
+          "x": 3936,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74913,13 +74913,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "ab4d5e3f-d991-4f3b-a9f3-3f27fad08760",
-          "width": 62,
-          "x": 3937,
-          "y": 2048,
+          "width": 64,
+          "x": 3936,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -74959,13 +74959,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "3a98673d-58f3-472c-ba14-62995ebcb196",
-          "width": 62,
-          "x": 4001,
-          "y": 1832,
+          "width": 64,
+          "x": 4000,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75067,13 +75067,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "218c81f3-23a3-4659-a02e-8e4d00e308c9",
-          "width": 62,
-          "x": 4001,
-          "y": 2048,
+          "width": 64,
+          "x": 4000,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75113,13 +75113,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "1556dee0-0cc1-4636-a161-e1019e21f51a",
-          "width": 62,
-          "x": 4065,
-          "y": 1832,
+          "width": 64,
+          "x": 4064,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75221,13 +75221,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "9125e9a0-93d9-420d-9bb9-49e2f57aa66d",
-          "width": 62,
-          "x": 4065,
-          "y": 2048,
+          "width": 64,
+          "x": 4064,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75267,13 +75267,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "e27b64bf-d567-45c3-9bd3-4c7e9416edb9",
-          "width": 62,
-          "x": 4129,
-          "y": 1832,
+          "width": 64,
+          "x": 4128,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75375,13 +75375,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "e2938cb0-1483-4ee3-af57-93c2b49f4056",
-          "width": 62,
-          "x": 4129,
-          "y": 2048,
+          "width": 64,
+          "x": 4128,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75421,13 +75421,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "eaaf8207-a292-46e5-a3b1-64f0f3cb3890",
-          "width": 62,
-          "x": 4193,
-          "y": 1832,
+          "width": 64,
+          "x": 4192,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75529,13 +75529,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "fa7626be-ab74-4622-8d05-20cec9c0aef5",
-          "width": 62,
-          "x": 4193,
-          "y": 2048,
+          "width": 64,
+          "x": 4192,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75575,13 +75575,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "cec58c2a-e73c-468f-9e47-952c77c4f56d",
-          "width": 62,
-          "x": 4257,
-          "y": 1832,
+          "width": 64,
+          "x": 4256,
+          "y": 1822,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75683,13 +75683,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 40,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "f6d6abbb-2d44-4227-aa2b-1b5ab73737d5",
-          "width": 62,
-          "x": 4257,
-          "y": 2048,
+          "width": 64,
+          "x": 4256,
+          "y": 2038,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75729,13 +75729,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 30,
+          "height": 44,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "c91d1c1b-8529-4ad1-beba-98c70fc1b8cf",
-          "width": 76,
-          "x": 3818,
-          "y": 1941,
+          "width": 80,
+          "x": 3816,
+          "y": 1927,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -75868,94 +75868,32 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 41,
+          "height": 51,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "d661e15f-46a9-45f7-aba6-b4d57c791f4d",
-          "width": 49,
-          "x": 1543,
-          "y": 1239,
+          "width": 58,
+          "x": 1539,
+          "y": 1229,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "Juego",
-          "name": "Mueble",
-          "persistentUuid": "94b19a0f-4d0d-4c26-829f-9d4006599a2d",
-          "width": 0,
-          "x": 1568,
-          "y": 1280,
-          "zOrder": 1280,
-          "numberProperties": [
-            {
-              "name": "animation",
-              "value": 31
-            }
-          ],
-          "stringProperties": [],
-          "initialVariables": [
-            {
-              "name": "Sprite",
-              "type": "string",
-              "value": "neveria/refri_refresco"
-            },
-            {
-              "name": "Capa",
-              "type": "string",
-              "value": "piso"
-            }
-          ]
         },
         {
           "angle": 0,
           "customSize": true,
-          "height": 41,
+          "height": 51,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "78280188-74cd-4af5-9904-4d537b8e9cfc",
-          "width": 49,
-          "x": 1607,
-          "y": 1239,
+          "width": 58,
+          "x": 1603,
+          "y": 1229,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "Juego",
-          "name": "Mueble",
-          "persistentUuid": "ce871dad-75dd-4c7f-a54c-c269c2ecafdd",
-          "width": 0,
-          "x": 1632,
-          "y": 1280,
-          "zOrder": 1280,
-          "numberProperties": [
-            {
-              "name": "animation",
-              "value": 31
-            }
-          ],
-          "stringProperties": [],
-          "initialVariables": [
-            {
-              "name": "Sprite",
-              "type": "string",
-              "value": "neveria/refri_refresco"
-            },
-            {
-              "name": "Capa",
-              "type": "string",
-              "value": "piso"
-            }
-          ]
         },
         {
           "angle": 0,
@@ -76103,7 +76041,7 @@
           "name": "Mueble",
           "persistentUuid": "7025eadc-5aa6-4af8-8c88-82801e77614b",
           "width": 0,
-          "x": 1632,
+          "x": 1840,
           "y": 1498,
           "zOrder": 1498,
           "numberProperties": [
@@ -76129,13 +76067,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 41,
+          "height": 51,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "92f59e30-a355-4d1a-a4c5-ae20a052baa6",
-          "width": 49,
-          "x": 1543,
-          "y": 1514,
+          "width": 58,
+          "x": 1539,
+          "y": 1504,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -76143,45 +76081,14 @@
         },
         {
           "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "Juego",
-          "name": "Mueble",
-          "persistentUuid": "8f4f6925-dd58-4d3b-aa99-241893134592",
-          "width": 0,
-          "x": 1568,
-          "y": 1555,
-          "zOrder": 1555,
-          "numberProperties": [
-            {
-              "name": "animation",
-              "value": 31
-            }
-          ],
-          "stringProperties": [],
-          "initialVariables": [
-            {
-              "name": "Sprite",
-              "type": "string",
-              "value": "neveria/refri_refresco"
-            },
-            {
-              "name": "Capa",
-              "type": "string",
-              "value": "piso"
-            }
-          ]
-        },
-        {
-          "angle": 0,
           "customSize": true,
-          "height": 41,
+          "height": 51,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "0ad69293-62a9-400a-bf9a-d81077a37ee2",
-          "width": 49,
-          "x": 1607,
-          "y": 1514,
+          "width": 58,
+          "x": 1603,
+          "y": 1504,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -76189,45 +76096,14 @@
         },
         {
           "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "Juego",
-          "name": "Mueble",
-          "persistentUuid": "7918cba6-fb5e-4787-b8dd-ba1f82a4231f",
-          "width": 0,
-          "x": 1632,
-          "y": 1555,
-          "zOrder": 1555,
-          "numberProperties": [
-            {
-              "name": "animation",
-              "value": 31
-            }
-          ],
-          "stringProperties": [],
-          "initialVariables": [
-            {
-              "name": "Sprite",
-              "type": "string",
-              "value": "neveria/refri_refresco"
-            },
-            {
-              "name": "Capa",
-              "type": "string",
-              "value": "piso"
-            }
-          ]
-        },
-        {
-          "angle": 0,
           "customSize": true,
-          "height": 31,
+          "height": 35,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "1480ec72-9d21-42e8-9a54-fa6184117f08",
-          "width": 72,
-          "x": 1708,
-          "y": 1524,
+          "width": 80,
+          "x": 1900,
+          "y": 1509,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -76241,9 +76117,9 @@
           "name": "Mueble",
           "persistentUuid": "00853fe8-2b70-4fc6-b66f-707b5b88a0b1",
           "width": 0,
-          "x": 1744,
-          "y": 1555,
-          "zOrder": 1555,
+          "x": 1940,
+          "y": 1544,
+          "zOrder": 1544,
           "numberProperties": [
             {
               "name": "animation",
@@ -76267,7 +76143,7 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 58,
+          "height": 59,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "c6c889bc-216d-422a-a7b0-56fcf0e70590",
@@ -76289,7 +76165,7 @@
           "width": 0,
           "x": 1740,
           "y": 1776,
-          "zOrder": 1776,
+          "zOrder": 1627,
           "numberProperties": [
             {
               "name": "animation",
@@ -76313,13 +76189,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 208,
+          "height": 149,
           "layer": "Juego",
           "name": "ChoqueMueble",
           "persistentUuid": "13836ccd-1123-42b5-962f-00c00d1355b6",
-          "width": 30,
-          "x": 1870,
-          "y": 1568,
+          "width": 31,
+          "x": 1869,
+          "y": 1627,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -76335,7 +76211,7 @@
           "width": 0,
           "x": 1700,
           "y": 1586,
-          "zOrder": 1650,
+          "zOrder": 1628,
           "numberProperties": [
             {
               "name": "animation",
@@ -91405,7 +91281,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "35ad6d16-6c56-4da5-8ce1-3dfba072ecdf",
           "width": 448,
@@ -91431,7 +91307,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "ad85e613-cb4c-4dcd-8bd5-e56f18c404d5",
           "width": 448,
@@ -91457,7 +91333,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "4c0ff5ef-b831-4b8e-88a1-b51549cd4854",
           "width": 448,
@@ -91483,7 +91359,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "609e71d9-277e-416f-9bd4-aa67a4c6bf6c",
           "width": 448,
@@ -91509,7 +91385,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "c9c1d647-93d7-4754-95d4-39e810508ca4",
           "width": 192,
@@ -91535,7 +91411,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "1a5dc5ec-57b6-457a-89d6-a650cccadddb",
           "width": 192,
@@ -91561,7 +91437,7 @@
           "angle": 0,
           "customSize": true,
           "height": 480,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "589443db-9863-4100-8210-76fd3d829282",
           "width": 320,
@@ -91587,7 +91463,7 @@
           "angle": 0,
           "customSize": true,
           "height": 480,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "aec53cd9-0534-416c-9d14-78688b92ebc4",
           "width": 320,
@@ -91613,7 +91489,7 @@
           "angle": 0,
           "customSize": true,
           "height": 480,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "0e8c899a-8399-492a-b156-48646cad5c00",
           "width": 320,
@@ -91639,7 +91515,7 @@
           "angle": 0,
           "customSize": true,
           "height": 480,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "dd5742e7-ed09-43c1-a283-7db1f25650bc",
           "width": 320,
@@ -91665,7 +91541,7 @@
           "angle": 0,
           "customSize": true,
           "height": 480,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "436f8761-c289-4353-82b3-45fee3185de1",
           "width": 320,
@@ -91691,7 +91567,7 @@
           "angle": 0,
           "customSize": true,
           "height": 480,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "5d3777f9-6940-42fb-ba2c-a60cead9f066",
           "width": 320,
@@ -91717,7 +91593,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "c5e12ef6-4191-4d61-9d90-d4ad5828bfc4",
           "width": 416,
@@ -91743,7 +91619,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "61e9c208-d95e-4018-854f-af3891b27a42",
           "width": 416,
@@ -91769,7 +91645,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "43ef4513-7045-4dae-a5c7-511fa1a3475a",
           "width": 416,
@@ -91795,7 +91671,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "69095754-6c2b-4bdf-bf70-b1419f86c1c8",
           "width": 192,
@@ -91821,7 +91697,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "0d951207-5b53-44ac-9f3c-07b08bf4b04c",
           "width": 192,
@@ -91847,7 +91723,7 @@
           "angle": 0,
           "customSize": true,
           "height": 288,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "bee4a83a-85b1-4121-9c7f-befcaf6fd001",
           "width": 320,
@@ -91873,7 +91749,7 @@
           "angle": 0,
           "customSize": true,
           "height": 288,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "42a87be0-d24c-40a4-ad8c-8fdbca07a2c9",
           "width": 320,
@@ -91899,7 +91775,7 @@
           "angle": 0,
           "customSize": true,
           "height": 288,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "abc79680-2dc6-45ed-9453-28ba30a315da",
           "width": 320,
@@ -91925,7 +91801,7 @@
           "angle": 0,
           "customSize": true,
           "height": 288,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "1c42d067-92e8-4359-9804-c0ea2a47dd43",
           "width": 320,
@@ -91951,7 +91827,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "d99cbd1b-b142-4445-8c7b-f4f789ce408b",
           "width": 576,
@@ -91977,7 +91853,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "ff286c31-f5aa-452f-b9da-842168e5bf50",
           "width": 576,
@@ -92003,7 +91879,7 @@
           "angle": 0,
           "customSize": true,
           "height": 192,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "d2471c01-2fff-44a1-9226-3506c378c8b9",
           "width": 256,
@@ -92029,7 +91905,7 @@
           "angle": 0,
           "customSize": true,
           "height": 160,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "44708cb1-e6c8-4b27-90a1-bcb248de7515",
           "width": 256,
@@ -92055,7 +91931,7 @@
           "angle": 0,
           "customSize": true,
           "height": 256,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "be941fae-6499-4f23-9a3a-0c08c78bd7b1",
           "width": 256,
@@ -92081,7 +91957,7 @@
           "angle": 0,
           "customSize": true,
           "height": 192,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "3fe11c09-501d-4cbd-adb4-b2e1029379b2",
           "width": 192,
@@ -92107,7 +91983,7 @@
           "angle": 0,
           "customSize": true,
           "height": 192,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "40fdd3e7-27b4-41f2-a908-f4d3b7a43ae7",
           "width": 192,
@@ -92133,7 +92009,7 @@
           "angle": 0,
           "customSize": true,
           "height": 448,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "96651b98-d229-4f91-a3e2-ea49080a6aac",
           "width": 480,
@@ -92159,7 +92035,7 @@
           "angle": 0,
           "customSize": true,
           "height": 256,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "47aca377-57c8-480b-8063-6092e8d77657",
           "width": 256,
@@ -92185,7 +92061,7 @@
           "angle": 0,
           "customSize": true,
           "height": 192,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "9bc45247-243e-4de7-82e2-f9573d6304a7",
           "width": 256,
@@ -92211,7 +92087,7 @@
           "angle": 0,
           "customSize": true,
           "height": 160,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "57d03118-fb12-47f2-976c-70b343831125",
           "width": 256,
@@ -92237,7 +92113,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "0ec44fc3-44be-4168-81d1-b7a00dd11763",
           "width": 576,
@@ -92263,7 +92139,7 @@
           "angle": 0,
           "customSize": true,
           "height": 320,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "54f4a75f-1598-44df-8625-3e069a0d0869",
           "width": 576,
@@ -92289,7 +92165,7 @@
           "angle": 0,
           "customSize": true,
           "height": 224,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "481787b3-d1fe-4bc1-862c-7476d2c9d7f8",
           "width": 448,
@@ -92315,7 +92191,7 @@
           "angle": 0,
           "customSize": true,
           "height": 992,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "89fdd106-a672-462a-88e5-a63d29623eb0",
           "width": 448,
@@ -92341,7 +92217,7 @@
           "angle": 0,
           "customSize": true,
           "height": 960,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "93b6f6ad-f694-448f-9d08-e870d4418f16",
           "width": 320,
@@ -92367,7 +92243,7 @@
           "angle": 0,
           "customSize": true,
           "height": 288,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "dfac09a1-4b6f-4458-914b-53f0654e308f",
           "width": 256,
@@ -92393,7 +92269,7 @@
           "angle": 0,
           "customSize": true,
           "height": 288,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "9f1ef4d4-5820-434d-8ce0-bdc1d9e819c4",
           "width": 256,
@@ -92419,7 +92295,7 @@
           "angle": 0,
           "customSize": true,
           "height": 288,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "82d8e21f-9c83-4f64-acf1-0227efbe2e05",
           "width": 256,
@@ -92445,7 +92321,7 @@
           "angle": 0,
           "customSize": true,
           "height": 288,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "47d592cc-cfd5-47ff-88f6-d931c411db3b",
           "width": 256,
@@ -92471,7 +92347,7 @@
           "angle": 0,
           "customSize": true,
           "height": 512,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "f3f7ace2-e3ea-4706-9e59-5e63e35597e0",
           "width": 576,
@@ -92497,7 +92373,7 @@
           "angle": 0,
           "customSize": true,
           "height": 512,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "63684391-0fe0-4a58-ab80-d05cfebcbbe6",
           "width": 288,
@@ -92523,7 +92399,7 @@
           "angle": 0,
           "customSize": true,
           "height": 224,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "37e6ec4b-5f6d-4cc0-a85e-fe0e3f49b35b",
           "width": 224,
@@ -92549,7 +92425,7 @@
           "angle": 0,
           "customSize": true,
           "height": 256,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "ef0a12a2-843e-4919-9cdd-0ac6dcdb7ad4",
           "width": 224,
@@ -92575,7 +92451,7 @@
           "angle": 0,
           "customSize": true,
           "height": 256,
-          "layer": "Niebla",
+          "layer": "NieblaSalas",
           "name": "Niebla",
           "persistentUuid": "7a3807fa-c8bd-46f8-b2b7-f96e5d5d7fd5",
           "width": 320,
@@ -94875,6 +94751,21 @@
           "width": 0,
           "x": 0,
           "y": 0,
+          "zOrder": 0,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 26,
+          "layer": "Juego",
+          "name": "ChoqueMueble",
+          "persistentUuid": "7cd5cff0-2659-4c0b-96fc-98576b2b5d1c",
+          "width": 54,
+          "x": 3509,
+          "y": 1564,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -122731,7 +122622,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "extra/servidor.png",
                       "points": [],
                       "originPoint": {
@@ -122745,7 +122636,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 20
+                          },
+                          {
+                            "x": 45,
+                            "y": 20
+                          },
+                          {
+                            "x": 45,
+                            "y": 64
+                          },
+                          {
+                            "x": 4,
+                            "y": 64
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -122760,7 +122670,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "objetos/props_especiales/laptop.png",
                       "points": [],
                       "originPoint": {
@@ -122774,7 +122684,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 2,
+                            "y": 14
+                          },
+                          {
+                            "x": 29,
+                            "y": 14
+                          },
+                          {
+                            "x": 29,
+                            "y": 31
+                          },
+                          {
+                            "x": 2,
+                            "y": 31
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -122789,7 +122718,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "objetos/objetivos/llaves_conserjeria.png",
                       "points": [],
                       "originPoint": {
@@ -122818,7 +122747,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "extra/punto.png",
                       "points": [],
                       "originPoint": {
@@ -122847,7 +122776,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "extra/interruptor.png",
                       "points": [],
                       "originPoint": {
@@ -122861,7 +122790,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 2,
+                            "y": 19
+                          },
+                          {
+                            "x": 22,
+                            "y": 19
+                          },
+                          {
+                            "x": 22,
+                            "y": 39
+                          },
+                          {
+                            "x": 2,
+                            "y": 39
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -122876,7 +122824,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "extra/punto.png",
                       "points": [],
                       "originPoint": {
@@ -126045,7 +125993,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "objetos/contenedores/locker_cerrado.png",
                       "points": [],
                       "originPoint": {
@@ -126059,7 +126007,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 1,
+                            "y": 25
+                          },
+                          {
+                            "x": 18,
+                            "y": 25
+                          },
+                          {
+                            "x": 18,
+                            "y": 47
+                          },
+                          {
+                            "x": 1,
+                            "y": 47
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -126074,7 +126041,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "objetos/contenedores/locker_abierto.png",
                       "points": [],
                       "originPoint": {
@@ -126088,7 +126055,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 1,
+                            "y": 25
+                          },
+                          {
+                            "x": 18,
+                            "y": 25
+                          },
+                          {
+                            "x": 18,
+                            "y": 47
+                          },
+                          {
+                            "x": 1,
+                            "y": 47
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -126103,7 +126089,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "objetos/contenedores/mochila_cerrada.png",
                       "points": [],
                       "originPoint": {
@@ -126117,7 +126103,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 6,
+                            "y": 23
+                          },
+                          {
+                            "x": 36,
+                            "y": 23
+                          },
+                          {
+                            "x": 36,
+                            "y": 47
+                          },
+                          {
+                            "x": 6,
+                            "y": 47
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -126132,7 +126137,7 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "objetos/contenedores/mochila_abierta.png",
                       "points": [],
                       "originPoint": {
@@ -126146,7 +126151,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 6,
+                            "y": 23
+                          },
+                          {
+                            "x": 36,
+                            "y": 23
+                          },
+                          {
+                            "x": 36,
+                            "y": 47
+                          },
+                          {
+                            "x": 6,
+                            "y": 47
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -126161,13 +126185,13 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
-                      "image": "objetos/contenedores/maquina_cerrada.png",
+                      "hasCustomCollisionMask": true,
+                      "image": "mapa/muebles/mapa/neveria/refri_refresco.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 24,
-                        "y": 60
+                        "x": 29,
+                        "y": 104
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -126190,13 +126214,13 @@
                   "timeBetweenFrames": 1,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
-                      "image": "objetos/contenedores/maquina_abierta.png",
+                      "hasCustomCollisionMask": true,
+                      "image": "mapa/muebles/mapa/neveria/refri_refresco.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 24,
-                        "y": 60
+                        "x": 29,
+                        "y": 104
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -134404,7 +134428,7 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "En los dos modos: el salón B-01 (planta 1 de B pendiente: se usa el de planta baja). Relajo, alerta en el teléfono, brote, atrancan la puerta, un zombie la rompe y el jugador 1 pega con la regla. Esc o Start la salta. Solo se muestra completa la primera vez (VioIntro)."
+              "comment": "En B-01, los zombis esperan afuera durante el diálogo y rompen la puerta al final. El equipo recupera el control en ese momento. La intro se puede omitir."
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -134996,61 +135020,6 @@
                     "",
                     "\"intro\"",
                     ">=",
-                    "21"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "TextObject::String"
-                  },
-                  "parameters": [
-                    "TxtDialogo",
-                    "=",
-                    "\"¿Qué hacemos? ... ¡Agarra la regla! (CLIC para pegar / X en el control)\""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "VarGlobal"
-                  },
-                  "parameters": [
-                    "NetRol",
-                    "!=",
-                    "2"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "VarSceneTxt"
-                  },
-                  "parameters": [
-                    "Estado",
-                    "=",
-                    "\"intro\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "CompareTimer"
-                  },
-                  "parameters": [
-                    "",
-                    "\"intro\"",
-                    ">=",
                     "16"
                   ]
                 },
@@ -135365,13 +135334,14 @@
                   "conditions": [
                     {
                       "type": {
-                        "value": "PickNearest"
+                        "inverted": false,
+                        "value": "VarObjetTxt"
                       },
                       "parameters": [
                         "Puerta",
-                        "5808",
-                        "3008",
-                        ""
+                        "Id",
+                        "=",
+                        "\"P06\""
                       ]
                     }
                   ],
@@ -135385,6 +135355,51 @@
                         "Vida",
                         "=",
                         "0"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjetTxt"
+                          },
+                          "parameters": [
+                            "ZNormal",
+                            "Estado",
+                            "=",
+                            "\"cinematica\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "PickNearest"
+                          },
+                          "parameters": [
+                            "ZNormal",
+                            "Puerta.X()",
+                            "Puerta.Y() + Puerta.Height() / 2",
+                            ""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "MettreXY"
+                          },
+                          "parameters": [
+                            "ZNormal",
+                            "=",
+                            "Puerta.X() + Puerta.Width() + 18",
+                            "=",
+                            "Puerta.Y() + Puerta.Height() / 2"
+                          ]
+                        }
                       ]
                     }
                   ]
@@ -135414,190 +135429,6 @@
                         "Estado",
                         "=",
                         "\"persigue\""
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "VarGlobal"
-                  },
-                  "parameters": [
-                    "NetRol",
-                    "!=",
-                    "2"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "VarSceneTxt"
-                  },
-                  "parameters": [
-                    "Estado",
-                    "=",
-                    "\"intro\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "CompareTimer"
-                  },
-                  "parameters": [
-                    "",
-                    "\"intro\"",
-                    ">=",
-                    "21"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
-                },
-                {
-                  "type": {
-                    "value": "VarObjet"
-                  },
-                  "parameters": [
-                    "Sup",
-                    "Jugador",
-                    "=",
-                    "1"
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "ModVarObjetTxt"
-                  },
-                  "parameters": [
-                    "Sup",
-                    "Arma",
-                    "=",
-                    "\"regla\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarObjet"
-                  },
-                  "parameters": [
-                    "Sup",
-                    "Usos",
-                    "=",
-                    "30"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarObjet"
-                  },
-                  "parameters": [
-                    "Sup",
-                    "Control",
-                    "=",
-                    "Sup.Variable(CtlReal)"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "VarGlobal"
-                  },
-                  "parameters": [
-                    "NetRol",
-                    "!=",
-                    "2"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "VarSceneTxt"
-                  },
-                  "parameters": [
-                    "Estado",
-                    "=",
-                    "\"intro\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "CompareTimer"
-                  },
-                  "parameters": [
-                    "",
-                    "\"intro\"",
-                    ">=",
-                    "21"
-                  ]
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "BuiltinCommonInstructions::CompareNumbers"
-                      },
-                      "parameters": [
-                        "Variable(Tumbados)",
-                        ">=",
-                        "1"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ModVarScene"
-                      },
-                      "parameters": [
-                        "IntroPaso",
-                        "=",
-                        "1"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "CompareTimer"
-                      },
-                      "parameters": [
-                        "",
-                        "\"intro\"",
-                        ">=",
-                        "40"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ModVarScene"
-                      },
-                      "parameters": [
-                        "IntroPaso",
-                        "=",
-                        "1"
                       ]
                     }
                   ]
@@ -135705,6 +135536,18 @@
                         "=",
                         "1"
                       ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "CompareTimer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"intro\"",
+                        ">=",
+                        "19"
+                      ]
                     }
                   ]
                 }
@@ -135728,16 +135571,6 @@
                     "VioIntro",
                     "=",
                     "1"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "TextObject::String"
-                  },
-                  "parameters": [
-                    "TxtDialogo",
-                    "=",
-                    "\"\""
                   ]
                 },
                 {
@@ -135781,6 +135614,18 @@
                         "Control",
                         "=",
                         "-2"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "CtlReal",
+                        "!=",
+                        "-1"
                       ]
                     }
                   ],
@@ -135917,6 +135762,260 @@
                         "\"escoba\""
                       ]
                     }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "IntroPuerta",
+                        "=",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TextObject::String"
+                      },
+                      "parameters": [
+                        "TxtDialogo",
+                        "=",
+                        "\"\""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjetTxt"
+                          },
+                          "parameters": [
+                            "Puerta",
+                            "Id",
+                            "=",
+                            "\"P06\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ChangeColor"
+                          },
+                          "parameters": [
+                            "Puerta",
+                            "\"255;255;255\""
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjetTxt"
+                          },
+                          "parameters": [
+                            "ZNormal",
+                            "Estado",
+                            "=",
+                            "\"cinematica\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Delete"
+                          },
+                          "parameters": [
+                            "ZNormal",
+                            ""
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "IntroPuerta",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    "!=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "CompareTimer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"intro\"",
+                    ">=",
+                    "21"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "TxtDialogo",
+                    "=",
+                    "\"¿Qué hacemos? ... ¡Agarra la regla! (CLIC para pegar / X en el control)\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "IntroPuerta",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "CompareTimer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"intro\"",
+                    ">=",
+                    "26"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "TxtDialogo",
+                    "=",
+                    "\"\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "=",
+                    "\"juego\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "CompareTimer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"partida\"",
+                    ">=",
+                    "6"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Sup",
+                    "Control",
+                    "=",
+                    "-2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Sup",
+                    "CtlReal",
+                    "=",
+                    "-1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Sup",
+                    "Control",
+                    "=",
+                    "Sup.Variable(CtlReal)"
                   ]
                 }
               ]
@@ -136607,6 +136706,15 @@
                     "",
                     "\"Niebla\""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "HideLayer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"NieblaSalas\""
+                  ]
                 }
               ]
             }
@@ -136713,13 +136821,66 @@
                       "conditions": [
                         {
                           "type": {
-                            "value": "VarObjet"
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::Or"
                           },
-                          "parameters": [
-                            "Sup",
-                            "Control",
-                            "=",
-                            "-1"
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "VarObjet"
+                              },
+                              "parameters": [
+                                "Sup",
+                                "Control",
+                                "=",
+                                "-1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarSceneTxt"
+                                  },
+                                  "parameters": [
+                                    "Estado",
+                                    "=",
+                                    "\"juego\""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "Control",
+                                    "=",
+                                    "-2"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "CtlReal",
+                                    "=",
+                                    "-1"
+                                  ]
+                                }
+                              ]
+                            }
                           ]
                         },
                         {
@@ -136832,13 +136993,66 @@
                       "conditions": [
                         {
                           "type": {
-                            "value": "VarObjet"
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::Or"
                           },
-                          "parameters": [
-                            "Sup",
-                            "Control",
-                            "=",
-                            "-1"
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "VarObjet"
+                              },
+                              "parameters": [
+                                "Sup",
+                                "Control",
+                                "=",
+                                "-1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarSceneTxt"
+                                  },
+                                  "parameters": [
+                                    "Estado",
+                                    "=",
+                                    "\"juego\""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "Control",
+                                    "=",
+                                    "-2"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "CtlReal",
+                                    "=",
+                                    "-1"
+                                  ]
+                                }
+                              ]
+                            }
                           ]
                         },
                         {
@@ -136951,13 +137165,66 @@
                       "conditions": [
                         {
                           "type": {
-                            "value": "VarObjet"
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::Or"
                           },
-                          "parameters": [
-                            "Sup",
-                            "Control",
-                            "=",
-                            "-1"
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "VarObjet"
+                              },
+                              "parameters": [
+                                "Sup",
+                                "Control",
+                                "=",
+                                "-1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarSceneTxt"
+                                  },
+                                  "parameters": [
+                                    "Estado",
+                                    "=",
+                                    "\"juego\""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "Control",
+                                    "=",
+                                    "-2"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "CtlReal",
+                                    "=",
+                                    "-1"
+                                  ]
+                                }
+                              ]
+                            }
                           ]
                         },
                         {
@@ -137070,13 +137337,66 @@
                       "conditions": [
                         {
                           "type": {
-                            "value": "VarObjet"
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::Or"
                           },
-                          "parameters": [
-                            "Sup",
-                            "Control",
-                            "=",
-                            "-1"
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "VarObjet"
+                              },
+                              "parameters": [
+                                "Sup",
+                                "Control",
+                                "=",
+                                "-1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarSceneTxt"
+                                  },
+                                  "parameters": [
+                                    "Estado",
+                                    "=",
+                                    "\"juego\""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "Control",
+                                    "=",
+                                    "-2"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "CtlReal",
+                                    "=",
+                                    "-1"
+                                  ]
+                                }
+                              ]
+                            }
                           ]
                         },
                         {
@@ -144061,30 +144381,6 @@
                     "!=",
                     "2"
                   ]
-                },
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "VarObjet"
-                  },
-                  "parameters": [
-                    "Sup",
-                    "Control",
-                    "=",
-                    "-1"
-                  ]
-                },
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "VarObjetTxt"
-                  },
-                  "parameters": [
-                    "Sup",
-                    "Estado",
-                    "=",
-                    "\"normal\""
-                  ]
                 }
               ],
               "actions": [
@@ -144094,30 +144390,20 @@
                   },
                   "parameters": [
                     "Sup",
-                    "Sup",
+                    "Objetivo",
                     ""
                   ]
-                }
-              ],
-              "fdiz18": true,
-              "events": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
+                },
                 {
                   "type": {
-                    "inverted": false,
-                    "value": "VarGlobal"
+                    "value": "SeparateFromObjects"
                   },
                   "parameters": [
-                    "NetRol",
-                    "!=",
-                    "2"
+                    "Sup",
+                    "Contenedor",
+                    ""
                   ]
-                }
-              ],
-              "actions": [
+                },
                 {
                   "type": {
                     "value": "SeparateFromObjects"
@@ -148407,6 +148693,17 @@
                     "!=",
                     "2"
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [
@@ -148481,6 +148778,17 @@
                     "Init",
                     "=",
                     "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -148590,6 +148898,17 @@
                     "Sup",
                     "255"
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [
@@ -148651,6 +148970,17 @@
                     "Sup",
                     "255"
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [
@@ -148679,6 +149009,17 @@
                     "NetRol",
                     "!=",
                     "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -148780,6 +149121,17 @@
                     "NetRol",
                     "!=",
                     "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -148894,6 +149246,17 @@
                     ">=",
                     "4"
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [
@@ -148932,6 +149295,17 @@
                     "NetRol",
                     "!=",
                     "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -149052,6 +149426,17 @@
                     "NetRol",
                     "!=",
                     "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -149770,6 +150155,17 @@
                     "!=",
                     "2"
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [],
@@ -150000,6 +150396,17 @@
                     "NetRol",
                     "!=",
                     "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -150485,6 +150892,17 @@
                     "NetRol",
                     "!=",
                     "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -150994,6 +151412,17 @@
                     "=",
                     "\"muerto\""
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [
@@ -151089,6 +151518,17 @@
                   "parameters": [
                     "Zombies"
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [
@@ -151126,6 +151566,17 @@
                     "\"tinte\"",
                     ">=",
                     "0.12"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -151166,6 +151617,17 @@
                     "=",
                     "\"muerto\""
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [
@@ -151194,6 +151656,17 @@
                     "NetRol",
                     "!=",
                     "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -151255,6 +151728,17 @@
                     "Estado",
                     "=",
                     "\"muerto\""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -151354,6 +151838,17 @@
                     "Zombies.X()",
                     "Zombies.Y()",
                     ""
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -151598,6 +152093,17 @@
                     "=",
                     "0"
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [
@@ -151647,6 +152153,17 @@
                     "Zombies.Variable(Mov)",
                     ">",
                     "0.3"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -151699,6 +152216,17 @@
                     "<",
                     "0.45"
                   ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
+                  ]
                 }
               ],
               "actions": [
@@ -151749,6 +152277,17 @@
                     "MuerteIni",
                     "=",
                     "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -151832,6 +152371,17 @@
                     "\"muerte\"",
                     ">=",
                     "1.2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Estado",
+                    "!=",
+                    "\"intro\""
                   ]
                 }
               ],
@@ -152591,6 +153141,15 @@
                   "parameters": [
                     "",
                     "\"Niebla\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ShowLayer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"NieblaSalas\""
                   ]
                 }
               ]
@@ -155903,7 +156462,7 @@
                         "",
                         "Objetivo",
                         "3616.0",
-                        "1456.0",
+                        "1476",
                         "\"Juego\""
                       ]
                     },
@@ -159664,6 +160223,46 @@
                         "\"Usando... \" + ToString(round(100 * Objetivo.Variable(Progreso) / Objetivo.Variable(Tiempo))) + \"%\""
                       ]
                     }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    "!=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Objetivo",
+                    "Tipo",
+                    "=",
+                    "\"servidor\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Objetivo",
+                    "=",
+                    "Objetivo.Y()"
                   ]
                 }
               ]
@@ -167130,13 +167729,66 @@
                   "conditions": [
                     {
                       "type": {
-                        "value": "VarObjet"
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::Or"
                       },
-                      "parameters": [
-                        "Sup",
-                        "Control",
-                        "=",
-                        "-1"
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "Control",
+                            "=",
+                            "-1"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "BuiltinCommonInstructions::And"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "VarSceneTxt"
+                              },
+                              "parameters": [
+                                "Estado",
+                                "=",
+                                "\"juego\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "VarObjet"
+                              },
+                              "parameters": [
+                                "Sup",
+                                "Control",
+                                "=",
+                                "-2"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "VarObjet"
+                              },
+                              "parameters": [
+                                "Sup",
+                                "CtlReal",
+                                "=",
+                                "-1"
+                              ]
+                            }
+                          ]
+                        }
                       ]
                     }
                   ],
@@ -171697,8 +172349,8 @@
                                           "parameters": [
                                             "",
                                             "Comida",
-                                            "Contenedor.X() + 30",
-                                            "Contenedor.Y() + 50",
+                                            "Sup.X()",
+                                            "Sup.Y()",
                                             "\"Juego\""
                                           ]
                                         },
@@ -171781,8 +172433,8 @@
                                           "parameters": [
                                             "",
                                             "LanzPiso",
-                                            "Contenedor.X() + 30",
-                                            "Contenedor.Y() + 50",
+                                            "Sup.X()",
+                                            "Sup.Y()",
                                             "\"Juego\""
                                           ]
                                         },
@@ -171830,8 +172482,8 @@
                                           "parameters": [
                                             "",
                                             "LanzPiso",
-                                            "Contenedor.X() + 30",
-                                            "Contenedor.Y() + 50",
+                                            "Sup.X()",
+                                            "Sup.Y()",
                                             "\"Juego\""
                                           ]
                                         },
@@ -171914,8 +172566,8 @@
                                           "parameters": [
                                             "",
                                             "ArmaPiso",
-                                            "Contenedor.X() + 30",
-                                            "Contenedor.Y() + 50",
+                                            "Sup.X()",
+                                            "Sup.Y()",
                                             "\"Juego\""
                                           ]
                                         },
@@ -171963,8 +172615,8 @@
                                           "parameters": [
                                             "",
                                             "ArmaPiso",
-                                            "Contenedor.X() + 30",
-                                            "Contenedor.Y() + 50",
+                                            "Sup.X()",
+                                            "Sup.Y()",
                                             "\"Juego\""
                                           ]
                                         },
@@ -172012,8 +172664,8 @@
                                           "parameters": [
                                             "",
                                             "ArmaPiso",
-                                            "Contenedor.X() + 30",
-                                            "Contenedor.Y() + 50",
+                                            "Sup.X()",
+                                            "Sup.Y()",
                                             "\"Juego\""
                                           ]
                                         },
@@ -172096,8 +172748,8 @@
                                           "parameters": [
                                             "",
                                             "ArmaPiso",
-                                            "Contenedor.X() + 30",
-                                            "Contenedor.Y() + 50",
+                                            "Sup.X()",
+                                            "Sup.Y()",
                                             "\"Juego\""
                                           ]
                                         },
@@ -172145,8 +172797,8 @@
                                           "parameters": [
                                             "",
                                             "ArmaPiso",
-                                            "Contenedor.X() + 30",
-                                            "Contenedor.Y() + 50",
+                                            "Sup.X()",
+                                            "Sup.Y()",
                                             "\"Juego\""
                                           ]
                                         },
@@ -181651,13 +182303,66 @@
                 },
                 {
                   "type": {
-                    "value": "VarObjet"
+                    "inverted": false,
+                    "value": "BuiltinCommonInstructions::Or"
                   },
-                  "parameters": [
-                    "Sup",
-                    "Control",
-                    "=",
-                    "-1"
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "Control",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::And"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarSceneTxt"
+                          },
+                          "parameters": [
+                            "Estado",
+                            "=",
+                            "\"juego\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "Control",
+                            "=",
+                            "-2"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "CtlReal",
+                            "=",
+                            "-1"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 }
               ],
@@ -182849,13 +183554,66 @@
                 },
                 {
                   "type": {
-                    "value": "VarObjet"
+                    "inverted": false,
+                    "value": "BuiltinCommonInstructions::Or"
                   },
-                  "parameters": [
-                    "Sup",
-                    "Control",
-                    "=",
-                    "-1"
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "Control",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::And"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarSceneTxt"
+                          },
+                          "parameters": [
+                            "Estado",
+                            "=",
+                            "\"juego\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "Control",
+                            "=",
+                            "-2"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "CtlReal",
+                            "=",
+                            "-1"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 }
               ],
@@ -184047,13 +184805,66 @@
                 },
                 {
                   "type": {
-                    "value": "VarObjet"
+                    "inverted": false,
+                    "value": "BuiltinCommonInstructions::Or"
                   },
-                  "parameters": [
-                    "Sup",
-                    "Control",
-                    "=",
-                    "-1"
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "Control",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::And"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarSceneTxt"
+                          },
+                          "parameters": [
+                            "Estado",
+                            "=",
+                            "\"juego\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "Control",
+                            "=",
+                            "-2"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "CtlReal",
+                            "=",
+                            "-1"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 }
               ],
@@ -185245,13 +186056,66 @@
                 },
                 {
                   "type": {
-                    "value": "VarObjet"
+                    "inverted": false,
+                    "value": "BuiltinCommonInstructions::Or"
                   },
-                  "parameters": [
-                    "Sup",
-                    "Control",
-                    "=",
-                    "-1"
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Sup",
+                        "Control",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "BuiltinCommonInstructions::And"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarSceneTxt"
+                          },
+                          "parameters": [
+                            "Estado",
+                            "=",
+                            "\"juego\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "Control",
+                            "=",
+                            "-2"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Sup",
+                            "CtlReal",
+                            "=",
+                            "-1"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 }
               ],
@@ -188374,8 +189238,70 @@
           "fdiz20": true
         },
         {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "NetRol",
+                "!=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Sup",
+                "Objetivo",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Sup",
+                "Contenedor",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Sup",
+                "Solidos",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "/* FDIZ-FASE27 */\n// Los pies conservan su máscara del mapa. Entre supervivientes de pie se deja\n// más espacio en perspectiva para que sus cuerpos no se apilen en una fila.\nif (runtimeScene.getGame().getVariables().get(\"NetRol\").getAsNumber() === 2) return;\n\nconst jugadores = runtimeScene.getObjects(\"Sup\").filter(\n  jugador => jugador.getVariables().get(\"Estado\").getAsString() === \"normal\"\n);\nconst control = jugador => jugador.getVariables().get(\"Control\").getAsNumber();\nconst ancho = 46;\nconst fondo = 86;\nlet obstaculos;\n\nfunction desplazar(jugador, dx, dy) {\n  if (control(jugador) === -2) return false;\n  if (!obstaculos) {\n    obstaculos = [\"Muro\", \"ChoqueMueble\", \"Puerta\", \"Objetivo\", \"Contenedor\"]\n      .flatMap(nombre => runtimeScene.getObjects(nombre))\n      .map(objeto => ({ objeto, caja: objeto.getAABB() }));\n  }\n  const x = jugador.getX();\n  const y = jugador.getY();\n  jugador.setPosition(x + dx, y + dy);\n  const caja = jugador.getAABB();\n  const bloqueado = obstaculos.some(({ objeto, caja: limite }) =>\n    caja.min[0] < limite.max[0] && limite.min[0] < caja.max[0] &&\n    caja.min[1] < limite.max[1] && limite.min[1] < caja.max[1] &&\n    gdjs.RuntimeObject.collisionTest(jugador, objeto, true)\n  );\n  if (bloqueado) jugador.setPosition(x, y);\n  else jugador.setZOrder(jugador.getY());\n  return !bloqueado;\n}\n\nfor (let i = 0; i < jugadores.length; i++) {\n  for (let j = i + 1; j < jugadores.length; j++) {\n    let a = jugadores[i];\n    let b = jugadores[j];\n    // Los bots ceden primero, para que el jugador pueda pasar por un acceso.\n    if (control(a) === -1 && control(b) !== -1) [a, b] = [b, a];\n    const dx = b.getX() - a.getX();\n    const dy = b.getY() - a.getY();\n    const faltaX = ancho - Math.abs(dx);\n    const faltaY = fondo - Math.abs(dy);\n    if (faltaX <= 0 || faltaY <= 0) continue;\n\n    const x = Math.sign(dx || 1) * Math.min(faltaX, 10);\n    const y = Math.sign(dy || 1) * Math.min(faltaY, 10);\n    const ejes = faltaX < faltaY ? [[x, 0], [0, y]] : [[0, y], [x, 0]];\n    for (const [mx, my] of ejes) {\n      if (desplazar(b, mx, my) || desplazar(a, -mx, -my)) break;\n    }\n  }\n}\n",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        },
+        {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": "/*FDIZ-FASE25-END*/\nif (gdjs.fdizNet) gdjs.fdizNet.end(runtimeScene);",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "// El sprite puede pasar por delante del borde, aunque la sala siga tapada.\nconst nieblas = runtimeScene.getLayer(\"NieblaSalas\").isVisible()\n  ? runtimeScene.getObjects(\"Niebla\").filter(niebla => !niebla.isHidden() && niebla.getOpacity() > 0)\n  : [];\n\nfor (const superviviente of runtimeScene.getObjects(\"Sup\")) {\n  const piesX = superviviente.getX();\n  const piesY = superviviente.getY();\n  const izquierda = superviviente.getDrawableX();\n  const arriba = superviviente.getDrawableY();\n  const derecha = izquierda + superviviente.getWidth();\n  const abajo = arriba + superviviente.getHeight();\n  let cruzaBorde = false;\n\n  for (const niebla of nieblas) {\n    const x = niebla.getX();\n    const y = niebla.getY();\n    const finX = x + niebla.getWidth();\n    const finY = y + niebla.getHeight();\n    if (x <= piesX && piesX < finX && y <= piesY && piesY < finY) {\n      cruzaBorde = false;\n      break;\n    }\n    if (izquierda < finX && x < derecha && arriba < finY && y < abajo) {\n      cruzaBorde = true;\n    }\n  }\n\n  const capa = cruzaBorde ? \"SupervivientesBorde\" : \"Juego\";\n  if (superviviente.getLayer() !== capa) {\n    superviviente.setLayer(capa);\n  }\n}\n",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
@@ -188483,6 +189409,64 @@
           "isLocked": false,
           "name": "Techo",
           "renderingType": "2d",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        },
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera2DPlaneMaxDrawingDistance": 5000,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": true,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "NieblaSalas",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        },
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera2DPlaneMaxDrawingDistance": 5000,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": true,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "SupervivientesBorde",
+          "renderingType": "",
           "visibility": true,
           "cameras": [
             {
@@ -190116,15 +191100,62 @@
               ]
             }
           ],
-          "actions": [
+          "actions": [],
+          "events": [
             {
-              "type": {
-                "value": "Scene"
-              },
-              "parameters": [
-                "",
-                "if(GlobalVariable(NetRol) > 0, \"Online\", \"Titulo\")",
-                ""
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Titulo\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Online\"",
+                    ""
+                  ]
+                }
               ]
             }
           ]
@@ -190846,9 +191877,9 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "MouseX()",
+                "CursorX(\"\", 0)",
                 ">=",
-                "150"
+                "BtnMenuR.X()"
               ]
             },
             {
@@ -190857,9 +191888,9 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "MouseX()",
-                "<=",
-                "530"
+                "CursorX(\"\", 0)",
+                "<",
+                "BtnMenuR.X() + BtnMenuR.Width()"
               ]
             },
             {
@@ -190868,9 +191899,9 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "MouseY()",
+                "CursorY(\"\", 0)",
                 ">=",
-                "790"
+                "BtnMenuR.Y()"
               ]
             },
             {
@@ -190879,25 +191910,72 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "MouseY()",
-                "<=",
-                "922"
+                "CursorY(\"\", 0)",
+                "<",
+                "BtnMenuR.Y() + BtnMenuR.Height()"
               ]
             }
           ],
-          "actions": [
+          "actions": [],
+          "fdiz19": true,
+          "events": [
             {
-              "type": {
-                "value": "Scene"
-              },
-              "parameters": [
-                "",
-                "if(GlobalVariable(NetRol) > 0, \"Online\", \"Titulo\")",
-                ""
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Menu\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Online\"",
+                    ""
+                  ]
+                }
               ]
             }
-          ],
-          "fdiz19": true
+          ]
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
@@ -190954,19 +192032,66 @@
               ]
             }
           ],
-          "actions": [
+          "actions": [],
+          "fdiz19": true,
+          "events": [
             {
-              "type": {
-                "value": "Scene"
-              },
-              "parameters": [
-                "",
-                "if(GlobalVariable(NetRol) > 0, \"Online\", \"Titulo\")",
-                ""
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Menu\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Online\"",
+                    ""
+                  ]
+                }
               ]
             }
-          ],
-          "fdiz19": true
+          ]
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
@@ -191010,9 +192135,9 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "MouseX()",
+                "CursorX(\"\", 0)",
                 ">=",
-                "150"
+                "BtnRei.X()"
               ]
             },
             {
@@ -191021,9 +192146,9 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "MouseX()",
-                "<=",
-                "530"
+                "CursorX(\"\", 0)",
+                "<",
+                "BtnRei.X() + BtnRei.Width()"
               ]
             },
             {
@@ -191032,9 +192157,9 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "MouseY()",
+                "CursorY(\"\", 0)",
                 ">=",
-                "640"
+                "BtnRei.Y()"
               ]
             },
             {
@@ -191043,25 +192168,72 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "MouseY()",
-                "<=",
-                "772"
+                "CursorY(\"\", 0)",
+                "<",
+                "BtnRei.Y() + BtnRei.Height()"
               ]
             }
           ],
-          "actions": [
+          "actions": [],
+          "fdiz19": true,
+          "events": [
             {
-              "type": {
-                "value": "Scene"
-              },
-              "parameters": [
-                "",
-                "if(GlobalVariable(NetRol) > 0, \"Online\", \"Juego\")",
-                ""
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Juego\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Online\"",
+                    ""
+                  ]
+                }
               ]
             }
-          ],
-          "fdiz19": true
+          ]
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
@@ -191216,19 +192388,66 @@
               ]
             }
           ],
-          "actions": [
+          "actions": [],
+          "fdiz19": true,
+          "events": [
             {
-              "type": {
-                "value": "Scene"
-              },
-              "parameters": [
-                "",
-                "if(GlobalVariable(NetRol) > 0, \"Online\", \"Juego\")",
-                ""
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Juego\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "NetRol",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Online\"",
+                    ""
+                  ]
+                }
               ]
             }
-          ],
-          "fdiz19": true
+          ]
         }
       ],
       "layers": [
