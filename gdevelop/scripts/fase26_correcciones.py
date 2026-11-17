@@ -164,7 +164,11 @@ def corregir_niebla(juego, grupos):
             evento.update(ev(evento["conditions"], [a("Delete", "Niebla", "")]))
             del evento["object"], evento["events"]
 
+    codigo = (Path(__file__).with_name("niebla_borde.js")).read_text(encoding="utf-8")
     if any(l["name"] == "NieblaSalas" for l in juego["layers"]):
+        evento_borde = next(e for e in juego["events"]
+                            if e.get("inlineCode", "").startswith(codigo.splitlines()[0]))
+        evento_borde["inlineCode"] = codigo
         return
     indice = next(i for i, l in enumerate(juego["layers"]) if l["name"] == "Niebla")
     juego["layers"][indice:indice] = [capa("NieblaSalas"), capa("SupervivientesBorde")]
@@ -177,8 +181,7 @@ def corregir_niebla(juego, grupos):
                 evento["actions"].append(a(tipo(accion), "", '"NieblaSalas"'))
 
     # Los objetos de las salas quedan debajo de la niebla. Solo se eleva el sprite
-    # del superviviente que se proyecta sobre ella con los pies todavía fuera.
-    codigo = (Path(__file__).with_name("niebla_borde.js")).read_text(encoding="utf-8")
+    # del personaje que se proyecta sobre ella con los pies todavía fuera.
     juego["events"].append({
         "type": "BuiltinCommonInstructions::JsCode",
         "inlineCode": codigo,

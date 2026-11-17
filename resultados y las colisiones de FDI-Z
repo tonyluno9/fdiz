@@ -1,0 +1,8 @@
+ gdevelop/FDI-Z/FDI-Z.json                  | 3581 [32m+++++++++++++++++++[m[31m---------[m
+ gdevelop/scripts/fase26_correcciones.py    |  245 [32m++[m
+ gdevelop/scripts/fase27_colisiones.py      |  171 [32m++[m
+ gdevelop/scripts/importar_mapa.py          |    2 [32m+[m[31m-[m
+ gdevelop/scripts/niebla_borde.js           |   33 [32m+[m
+ gdevelop/scripts/separar_supervivientes.js |   53 [32m+[m
+ mapa/final/mapa_fdiz_props.json            |  595 [32m++[m[31m---[m
+ 7 files changed, 3204 insertions(+), 1476 deletions(-)
