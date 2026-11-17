@@ -20,6 +20,10 @@
   const rnd = (v) => Math.round(v * 10) / 10;
   const r3 = (v) => Math.round(v * 1000) / 1000;
   const PeerC = () => (window.peerjs && window.peerjs.Peer) || window.Peer;
+  /*FDIZ-F32*/ // Servidores para atravesar routers. STUN (gratis) basta en la mayoría de redes; si alguna red no deja conectar directo, agregar aquí un servidor TURN:
+  // { urls: "turn:tu-servidor:3478", username: "usuario", credential: "clave" }  (también se puede definir window.FDIZ_TURN = [...] antes de abrir Online)
+  const TURN = [];
+  const ICE = () => ({ iceServers: [{ urls: "stun:stun.l.google.com:19302" }, { urls: "stun:stun1.l.google.com:19302" }, { urls: "stun:stun.cloudflare.com:3478" }].concat(TURN, window.FDIZ_TURN || []) });
   const GV = (scn) => scn.getGame().getVariables();
   const REPLACE = () => (G.SceneChangeRequest ? G.SceneChangeRequest.REPLACE_SCENE : (G.RuntimeScene && G.RuntimeScene.REPLACE_SCENE !== undefined ? G.RuntimeScene.REPLACE_SCENE : 3));
   const syncRol = (scn) => { try { GV(scn).get("NetRol").setNumber(N.role); } catch (e) {} };
@@ -82,7 +86,7 @@
     const mk = () => {
       let code = ""; for (let i = 0; i < 5; i++) code += ALF[Math.floor(Math.random() * ALF.length)];
       const P = PeerC(); if (!P) { N.ui.st = "error"; N.ui.msg = "No se cargó la librería de red."; return; }
-      const peer = new P("fdiz-" + code, { debug: 1 });
+      const peer = new P("fdiz-" + code, { debug: 1, config: ICE() });
       N.peer = peer;
       peer.on("open", () => { N.code = code; N.myId = "host"; N.L = { m: [{ id: "host", name: (N.preJefe ? "JEFE (tú)" : "Host (tú)"), players: [] }], mode: (N.preJefe ? "jefe" : "escape"), dif: "normal" }; N.ui.st = "lobby"; N.ui.msg = ""; });
       peer.on("error", (e) => { if (e && e.type === "unavailable-id") { try { peer.destroy(); } catch (x) {} mk(); } else { N.ui.st = "error"; N.ui.msg = "Error de red: " + (e && e.type ? e.type : e); } });
@@ -103,8 +107,8 @@
   N.join = function (code) {
     N.shutdown(); N.role = 2; N.ui.st = "connecting"; N.ui.msg = "Conectando…";
     const P = PeerC(); if (!P) { N.ui.st = "error"; N.ui.msg = "No se cargó la librería de red."; return; }
-    const peer = new P({ debug: 1 }); N.peer = peer;
-    let to = setTimeout(() => { if (N.ui.st === "connecting") { N.ui.st = "error"; N.ui.msg = "No se pudo conectar (¿código correcto? ¿internet?)."; } }, 15000);
+    const peer = new P({ debug: 1, config: ICE() }); N.peer = peer;
+    let to = setTimeout(() => { if (N.ui.st === "connecting") { N.ui.st = "error"; N.ui.msg = "No se pudo conectar (¿código correcto? ¿internet? Algunas redes bloquean la conexión directa)."; } }, 15000);
     peer.on("error", (e) => { clearTimeout(to); N.ui.st = "error"; N.ui.msg = e && e.type === "peer-unavailable" ? "No existe esa sala." : "Error de red: " + (e && e.type ? e.type : e); });
     peer.on("open", (id) => {
       N.myId = id;
@@ -313,13 +317,23 @@
 
   // ---------------------------------------------------------------- escena Online: interfaz
   const poolOf = (scn) => { if (!scn._netT) scn._netT = { a: [], n: 0 }; return scn._netT; };
-  function T(scn, s, x, y, size, col, al, wrap) {
+  function T(scn, s, x, y, size, col, al, wrap, nobg) {
     const P = poolOf(scn); let o = P.a[P.n++];
     if (!o) { o = scn.createObject("TxtOn"); o.setZOrder(20); o._k = ""; P.a.push(o); }
     o.hide(false); if (o._k !== s) { o.setText(s); o._k = s; }
     o.setCharacterSize(size); o.setColor(col); o.setTextAlignment(al || "center"); o.setWrapping(!!wrap); if (wrap) o.setWrappingWidth(wrap);
     const w = o.getWidth(); o.setPosition(al === "left" ? x : (al === "right" ? x - (wrap || w) : x - (wrap || w) / 2), y);
+    /*FDIZ-F29*/ if (!nobg && N._bgOn !== false && String(s).trim()) {
+      const B = scn._netB || (scn._netB = { a: [], n: 0 }); let p = B.a[B.n++];
+      if (!p) { p = scn.createObject("FondoTxt"); p.setZOrder(19); B.a.push(p); }
+      p.hide(false); p.setPosition(o.getX() - 26, o.getY() - 10); p.setWidth(o.getWidth() + 52); p.setHeight(o.getHeight() + 20);
+    }
+    return { x: o.getX(), y: o.getY(), w: o.getWidth(), h: o.getHeight() };
   }
+  /*FDIZ-F34*/ // mouse: posicion, clic (al soltar) y botones de texto con resalte
+  const ms = (scn, I) => { const p = scn.getLayer("").convertCoords(I.getMouseX(), I.getMouseY(), 0); const mv = N._mx !== p[0] || N._my !== p[1]; N._mx = p[0]; N._my = p[1]; return { x: p[0], y: p[1], moved: mv, up: I.isMouseButtonReleased(0) }; };
+  const over = (m, r) => m.x >= r.x - 30 && m.x <= r.x + r.w + 30 && m.y >= r.y - 12 && m.y <= r.y + r.h + 12;
+  const B = (scn, m, s, x, y, size, col, al) => { const r = T(scn, s, x, y, size, col, al || "center"); const h = over(m, r); if (h) { N._ptr = true; const P = poolOf(scn); P.a[P.n - 1].setColor("255;240;150"); } return { hover: h, click: h && m.up }; };
   const keyDown = (e) => {
     const u = N.ui; if (u.st !== "code") return;
     if (e.key === "Backspace") u.code = u.code.slice(0, -1);
@@ -330,10 +344,12 @@
   };
   N.ui_tick = function (scn) {
     /*FDIZ-F27*/ if (!scn._oj) { scn._oj = 1; try { N.preJefe = scn.getGame().getVariables().get("OnlineJefe").getAsNumber() >= 1; } catch (e) { N.preJefe = false; } }
-    N.scn = scn; syncRol(scn); const I = im(scn); const u = N.ui; const P = poolOf(scn); P.n = 0;
+    N.scn = scn; syncRol(scn); const I = im(scn); const u = N.ui; const P = poolOf(scn); P.n = 0; { const B0 = scn._netB || (scn._netB = { a: [], n: 0 }); B0.n = 0; }
     if (N.role === 1 && N.L && !scn._lp) { scn._lp = 1; N.started = false; pushLobby(); if (N.ui.st !== "lobby") N.ui.st = "lobby"; }
     if (N.role === 2 && N.L && !scn._lp) { scn._lp = 1; N.started = false; N.ui.st = "lobby"; }
-    if (!window._fdizNetKd) { window._fdizNetKd = true; window.addEventListener("keydown", keyDown); }
+    if (!window._fdizNetKd) { window._fdizNetKd = true; window.addEventListener("keydown", keyDown);
+      // pegar el código funciona en navegadores donde el portapapeles no se puede leer por tecla (versión web)
+      window.addEventListener("paste", (e) => { const u2 = N.ui; if (u2.st !== "code") return; const t = (e.clipboardData && e.clipboardData.getData("text")) || ""; u2.code = t.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 8); }); }
     if (N.pend && N.pend.go) { const p = N.pend; N.pend = null; if (p.start) { N.slots = p.start.slots; N.started = true; applyGlobals(scn, p.start.modo, p.start.dif, p.start.slots, p.start.me); } go(scn, p.go); return; }
     const up = I.wasKeyReleased(87) || I.wasKeyReleased(38), dn = I.wasKeyReleased(83) || I.wasKeyReleased(40);
     const ok = I.wasKeyReleased(13) || I.wasKeyReleased(32), esc = I.wasKeyReleased(27);
@@ -343,27 +359,38 @@
     const pad = (i) => { for (let k = 0; k < 4; k++) if (pe[k](i)) return k + 1; return 0; };
     const IDX = { A: 0, B: 1, X: 2, Y: 3, ST: 9, UP: 12, DN: 13, L: 14, R: 15, SL: 16, SR: 17, SU: 18, SD: 19 };
     const W = 1920;
+    const M = ms(scn, I); N._ptr = false;
     const jf0 = N.role && N.L ? N.L.mode === "jefe" : !!N.preJefe;
-    T(scn, jf0 ? "JEFE DE ZOMBIES · EN LÍNEA" : "JUGAR EN LÍNEA", 960, 74, jf0 ? 44 : 54, "255;230;120", "center");
+    T(scn, jf0 ? "JEFE DE ZOMBIES · EN LÍNEA" : "JUGAR EN LÍNEA", 960, 74, jf0 ? 44 : 54, "255;230;120", "center", 0, true);
     if (u.st === "menu") {
       if (up || dn || pad(IDX.UP) || pad(IDX.DN)) u.sel = 1 - u.sel;
       const opts = N.preJefe ? ["Crear sala (soy el Jefe)", "Unirme a una sala (host secundario)"] : ["Crear sala (soy el host)", "Unirme a una sala con código"];
-      for (let i = 0; i < 2; i++) T(scn, (u.sel === i ? ">> " : "   ") + opts[i], 960, 350 + i * 90, 48, u.sel === i ? "255;255;255" : "190;190;190", "center");
-      if (ok || pad(IDX.A)) { if (u.sel === 0) N.host(); else { u.st = "code"; u.code = ""; } }
+      let mclk = false;
+      for (let i = 0; i < 2; i++) { const r = T(scn, (u.sel === i ? ">> " : "   ") + opts[i], 960, 350 + i * 90, 48, u.sel === i ? "255;255;255" : "190;190;190", "center"); if (over(M, r)) { N._ptr = true; if (M.moved) u.sel = i; if (M.up) { u.sel = i; mclk = true; } } }
+      if (B(scn, M, "Volver", 960, 600, 36, "190;190;190").click) go(scn, "Menu");
+      if (ok || pad(IDX.A) || mclk) { if (u.sel === 0) N.host(); else { u.st = "code"; u.code = ""; } }
       if (esc || pad(IDX.B)) go(scn, "Menu");
     } else if (u.st === "code") {
       T(scn, "Escribe el código de la sala", 960, 360, 44, "255;255;255", "center");
       T(scn, (u.code || "") + "_", 960, 450, 90, "140;255;160", "center");
+      if (B(scn, M, "Pegar código", 960, 580, 40, "190;220;255").click) { try { navigator.clipboard.readText().then((t) => { u.code = (t || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 8); }); } catch (x) {} }
+      if (B(scn, M, "Unirme a la sala", 960, 650, 40, u.code.length >= 3 ? "140;255;160" : "120;120;120").click && u.code.length >= 3) N.join(u.code);
+      if (B(scn, M, "Volver", 960, 720, 36, "190;190;190").click) u.st = "menu";
     } else if (u.st === "connecting") {
       T(scn, u.msg, 960, 480, 48, "255;255;255", "center");
-      if (esc) { N.shutdown(); }
+      const bcn = B(scn, M, "Cancelar", 960, 600, 36, "190;190;190");
+      if (esc || bcn.click) { N.shutdown(); }
     } else if (u.st === "error") {
       T(scn, u.msg || "Error", 960, 450, 44, "255;120;120", "center", 1500);
-      if (ok || esc || pad(IDX.A) || pad(IDX.B)) { N.shutdown(); }
+      const bac = B(scn, M, "Aceptar", 960, 620, 40, "190;220;255");
+      if (ok || esc || pad(IDX.A) || pad(IDX.B) || bac.click) { N.shutdown(); }
     } else if (u.st === "lobby" && N.L) {
-      lobbyUi(scn, I, { up, dn, ok, esc, pad, IDX, pe });
+      N._bgOn = false; lobbyUi(scn, I, { up, dn, ok, esc, pad, IDX, pe, M });
     }
     /*FDIZ-F28*/ { const bp = scn.getObjects("BarraPie"); if (bp && bp[0]) bp[0].hide(!(u.st === "lobby" && N.L)); }
+    if (u.st !== "lobby") N._bgOn = true;
+    /*FDIZ-F34*/ try { const cv = scn.getGame().getRenderer().getCanvas(); if (cv) cv.style.cursor = N._ptr ? "pointer" : "default"; } catch (e) {}
+    { const B1 = scn._netB; if (B1) for (let i = B1.n; i < B1.a.length; i++) B1.a[i].hide(true); }
     for (let i = P.n; i < P.a.length; i++) P.a[i].hide(true);
   };
 
@@ -423,5 +450,19 @@
     if (host) {
       T(scn, N.canStart() ? "¡TODOS LISTOS!" : (jf && totalPlayers(L) === 0 ? "Esperando a que se una al menos un sobreviviente…" : "Esperando a que todos confirmen…"), 960, 956, 32, N.canStart() ? "140;255;160" : "255;220;140", "center", 1700);
     } else T(scn, jf ? "Esperando a que el Jefe inicie la partida…" : "Esperando al host…", 960, 956, 32, "255;220;140", "center");
+    /*FDIZ-F34*/ { const M = k.M; const bx = 1640; let by = 400; const yo = mine.players.find((p) => p.ctl === 0);
+      T(scn, "CON EL RATÓN", bx, by - 50, 24, "190;210;255", "center", 0, true);
+      const lin = (s, col, fn) => { if (B(scn, M, s, bx, by, 30, col).click) fn(); by += 56; };
+      if (!yo) lin("Unirme", "255;255;255", () => act(0, "ok"));
+      else {
+        if (!yo.ok) { lin("◄ Personaje", "255;255;255", () => act(0, "l")); lin("Personaje ►", "255;255;255", () => act(0, "r")); lin("Listo ✔", "140;255;160", () => act(0, "ok")); }
+        lin("Cancelar", "190;190;190", () => act(0, "cancel"));
+      }
+      if (host) {
+        lin("Dificultad: " + L.dif.toUpperCase(), "255;230;120", () => { const o = ["facil", "normal", "pesadilla"]; L.dif = o[(o.indexOf(L.dif) + 1) % 3]; pushLobby(); });
+        if (N.canStart()) lin("INICIAR PARTIDA", "140;255;160", () => N.startGame(scn));
+      }
+      lin("Salir", "255;150;150", () => N.shutdown());
+    }
   }
 })();

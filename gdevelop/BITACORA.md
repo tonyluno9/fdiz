@@ -689,3 +689,85 @@ Script: `scripts/fase28_ui_jefe_tienda.py` (idempotente; respaldo `respaldos/ant
 - **Tienda eliminada**: máquinas, TxtPrecio, compra, `Dinero` del equipo, debug de dinero, línea de premios y "$" del HUD. Los lockers dan galletas en vez de monedas. Panel de dinero visible solo en Jefe (oro).
 - **Tony**: nuevo pasivo "Come mejor" (la comida le cura 50 % más), también para Tony fuerte.
 - Sin probar: nada se ejecutó en GDevelop; online sin probar con dos máquinas.
+
+## Fase 29 — Menús reparados, fondos de texto, fuente, IA del Jefe local, título con latido
+Script: `scripts/fase29_ui_ia.py` (idempotente; respaldo `respaldos/antes_de_fase29_20261117.json`; cadena fase25→29 con md5 estable). Nuevo asset `assets/interfaz/p29_fondo_texto.png`.
+- **Menús**: título del paso Jefe → "MODO JEFE" (ya cabe en la placa); leyendas LOCAL/EN LÍNEA vuelven a quedar bajo sus tarjetas (el parche de la Fase 28 las había movido).
+- **Fondo detrás de los textos**: objeto `FondoTxt` (PanelSprite de 9 cortes) y un motor en JS por escena que lo coloca detrás de: leyendas del menú de modos, lista de la sala, frase del título, TxtAyuda/TxtBanner/TxtDialogo del juego, etiquetas "ZONA VISIBLE/NO CABE" del Jefe, y todos los textos de la escena Online fuera de la sala (en la sala ya hay paneles).
+- **Fuente**: Pixelify Sans en todos los TextObject del proyecto, con contorno y sombra.
+- **Título**: "PRESIONA ENTER / A PARA INICIAR" dentro del cartel, con latido (tamaño, brillo y opacidad en doble pulso). Enter, Espacio, clic o A/Start siguen iniciando.
+- **IA zombis**: se elimina el choque rígido zombi↔zombi (formaba la masa inmóvil); separación suave en JS; cada zombi tiene su hueco alrededor del objetivo; rutas escalonadas (`RutaJit`); desatasco (si lleva 1.2 s sin moverse lejos del objetivo, toma un desvío aleatorio).
+- **IA bots (Jefe local)**: ya no se quedan quietos en un punto: patrullan hacia lockers lejanos del mapa, huyen de grupos de 4+ zombis (o 2+ con poca vida) hacia el punto abierto más lejano, y si quedan acorralados pelean 3 s. El bot que huye no corre hacia el zombi más cercano.
+- Sin probar: nada se ejecutó en GDevelop. La IA es ajuste por lectura de código; los valores (radios 240/420, 4 zombis, etc.) pueden requerir afinar.
+
+## Fase 30 — Solo ESCAPE y JEFE, zombis orientados, colisión de bots solo en Jefe local
+Script: `scripts/fase30_modo_ia.py` (va al final de la cadena; deshace la tercera tarjeta de la Fase 28 cada vez que corre la cadena).
+- **Menú de modos**: quitada la tarjeta EN LÍNEA; vuelven las dos tarjetas (marcos 340/1140, leyendas 560/1360, videos 390/1190), navegación y ratón de 2 opciones. Ya no hay acceso a En línea desde el modo Escape; el Jefe sigue ofreciendo Local/En línea.
+- **Zombis**: la animación de caminar se orienta por su movimiento real (JS `FDIZ-FASE30-DIR`), no por el destino; separación entre zombis más suave (tope 1.1 px/cuadro).
+- **Colisión entre supervivientes**: solo en Jefe local (Jefe=1 y NetRol=0), con `separar_supervivientes.js`; en el resto de modos sigue sin colisión. En Jefe se desactiva el empuje superviviente↔zombi (hacía vibrar a los bots contra paredes).
+- **Bots**: Conserje y Gordo pesan x3 al decidir huir y se evitan con margen mayor al elegir ruta de escape.
+- Sin probar en GDevelop.
+
+## Fase 31 — Escape también con pantalla Local / En línea
+Script: `scripts/fase31_escape_local_online.py` (al final de la cadena fase25→31; md5 estable en 3 corridas).
+- Flujo: Modos (Escape | Jefe) → pantalla Local / En línea de ese modo → Local: Escape va a "unirse" (jugadores con teclado/mando + bots), Jefe va a elegir los 4 bots; En línea: escena Online (crear sala con código / unirse con código). Variable de escena `JT` (0 Escape, 1 Jefe) y global `OnlineEsc` (análoga a `OnlineJefe`).
+- Esc retrocede un paso (unirse/equipo → Local/En línea → Modos → Título); al volver de la sala en línea el menú regresa a la pantalla Local/En línea del modo que se estaba usando, con En línea resaltado.
+- Textos por modo: título "ESCAPE" / "MODO JEFE"; leyendas Escape: "1 a 4 jugadores + bots" y "Hasta 4 jugadores · sala con código".
+- Quitados el atajo Num3 y la opción 3 del menú de modos.
+- Verificación: simulador de los eventos del menú (script temporal, no incluido) recorre Escape y Jefe: Enter/Esc/derecha, entrar a Online y volver. Resultado correcto en ambos. La escena Online y la partida en línea de Escape no se ejecutaron (solo lectura de `net_core.js`: lobby con código, host + PCs, hasta 4 jugadores, bots completan).
+
+## Fase 32 — Modo en línea también en la versión web
+Script: `scripts/fase32_online_web.py` (parchea `net_core.js`; correr la cadena fase25→32 dos veces, md5 estable).
+- El online ya era 100 % JavaScript de navegador (PeerJS/WebRTC dentro del motor de GDevelop), así que corre igual en la exportación HTML5 y en las versiones de escritorio; web y escritorio pueden jugar en la misma sala (mismo protocolo, misma versión del juego).
+- Añadido: lista de servidores STUN (Google y Cloudflare) y punto de configuración `TURN` (arreglo vacío en `net_core.js` o `window.FDIZ_TURN`) para redes que bloquean la conexión directa; pegar el código con el evento `paste` (el navegador no deja leer el portapapeles con Ctrl+V); mensaje de error de conexión más claro.
+- Cómo publicar la versión web: exportar HTML5 desde GDevelop y subir la carpeta a un hosting con HTTPS (itch.io, GitHub Pages, Netlify). Abrir `index.html` con doble clic (file://) no sirve para el juego ni para la red.
+- Límites conocidos: el host debe dejar su pestaña visible (los navegadores frenan pestañas en segundo plano); sin TURN, algunas redes móviles/corporativas no conectan; el servidor de señalización es el gratuito de PeerJS (solo para encontrar la sala; la partida va directa entre jugadores). Sin probar con dos máquinas ni en navegador real.
+
+## Fase 33 · Iconos Local / En línea y reacción al mouse
+- Causa del bug: `fase28`/`fase30` ponían `VidIlusEscape` (x 390) y `VidIlusJefe` (x 1190) en las tarjetas también fuera de la pantalla de modos, y los videos tapaban las animaciones `l` (computadora) y `o` (globo) de `IlusModo` en la pantalla Local / En línea de Escape y de Jefe.
+- Arreglo (`scripts/fase33_iconos_y_hover.py`, última de la cadena): en el grupo Videos, con `Paso != "modo"` esos videos van a x = -6000; con `Paso = "modo"` siguen en 390 / 1190.
+- Hover: un evento JS al final de Menu, Juego y Resultados. Los botones se iluminan y el cursor pasa a mano (sin cambiar tamaño ni posición: la primera versión escalaba y los videos crecían sin parar, se quitó). Menu: MarcoModo, SelMarco, DifBtn, EqCelda (ilustraciones y videos no se tocan). Juego: PausaBtn, BtnOmitir. Resultados: BtnRei, BtnMenuR.
+- Online (lobby): se maneja solo con teclado, no tiene botones de mouse, así que no hay hover ahí.
+- Cadena: fase25 → 26_multijugador → 27_jefe_y_controles → 28 → 29 → 30 → 31 → 32 → 33. Tres pasadas dan el mismo md5. Respaldo: `respaldos/antes_de_fase33_20261117.json`.
+- Sin probar dentro de GDevelop (solo revisión estática y node --check).
+
+## Fase 34 · Pantallas de jugar en línea con el mouse
+- `scripts/fase34_online_mouse.py` (parchea `net_core.js`; correr la cadena dos veces). `T()` ahora devuelve su rectángulo y hay botones de texto con resalte y cursor de mano.
+- Menú en línea: pasar el mouse selecciona la opción, clic la activa; botón Volver.
+- Código de sala: Pegar código (portapapeles), Unirme a la sala, Volver. Conectando: Cancelar. Error: Aceptar.
+- Sala: columna "CON EL RATÓN" con Unirme, ◄ / ► Personaje, Listo, Cancelar, Dificultad (host), INICIAR PARTIDA (host, cuando todos están listos) y Salir. El mouse entra como el jugador "TECLADO".
+- Límite: el código de sala solo se escribe con teclado o con Pegar (en web el navegador puede pedir permiso de portapapeles; Ctrl+V sigue funcionando).
+- Sin probar en GDevelop ni con dos máquinas; solo node --check y cadena estable (mismo md5).
+
+## Fase 35 · Hover en la pantalla de dificultad
+- `scripts/fase35_hover_dificultad.py`: tres eventos (FDIZ-FASE35-HOV-D0/D1/D2) antes de la actualización de PMX/PMY: al mover el mouse sobre FÁCIL / NORMAL / PESADILLA (x 720–1200) se cambia `Sel`, así la opción se ilumina igual que con el teclado (opacidad 255 + animación) y el resto se atenúa. El clic ya aceptaba la opción elegida. Además queda el tinte cálido de la Fase 33.
+- Sin probar en GDevelop; cadena estable (mismo md5 entre pasadas).
+
+## Fase 36 · Hover en el selector de personajes
+- `scripts/fase36_hover_personajes.py`: variable de escena `HV` (-1 sin vista previa, 0–7 = retrato bajo el mouse; orden tony, miranda, cesar, alan, castillo, alessandro, gabo, carlos).
+- Eventos FDIZ-FASE36-SET (antes de PMX/PMY): al mover el mouse sobre un retrato (rejilla x 1105+171·col, y 212+176·fila, 156×156) `HV` toma ese índice; se limpia al salir de la rejilla, al pulsar teclas de navegación/Enter o al salir del paso `equipo`.
+- FDIZ-FASE36-PREV (después de calcular KF/NMF): con `HV` activo, `KF` y `NMF` son los del personaje bajo el mouse, así cambian video, cuerpo, nombre, habilidades e iconos (todo se deriva de KF). El subtítulo conserva su texto por slot (P1/BOT 2/P2… · eligiendo / LISTO); el texto "VISTA PREVIA" se quitó.
+- Resalte ligero: `EqRet` se añade al motor de hover de la Fase 33 (tinte cálido). El clic sigue eligiendo como antes.
+- Sin probar en GDevelop; cadena estable (mismo md5 entre pasadas).
+
+## Fase 37 · Pantalla "Únanse": botones A / Y / P
+- `scripts/fase37_unirse_botones.py` genera tres iconos pixel art (144×108 como los `slot_ico_*`): `slot_ico_btn_a` (A verde de Xbox), `slot_ico_btn_y` (Y amarilla), `slot_ico_key_p` (tecla P). Se registran como recursos.
+- (a) La animación `libre` de `SlotIco` (slots vacíos) ahora usa la A de Xbox en lugar del mando con "+".
+- (b) Objeto nuevo `SlotAlt` (animaciones `y` y `p`), una instancia bajo el teclado del P1 (x 240, y 770, 120×90, dentro de la tarjeta; oculto fuera de la pantalla `unirse`).
+- Lógica (FDIZ-FASE37-CTL, después de los eventos de icono de slot): con `S1Ctl = 0` (teclado), Y en el mando n (1–4) → `S1Ctl = n` si ningún otro slot usa ese mando; el icono grande pasa a mando (evento existente `S1Ctl > 0`) y `SlotAlt` pasa a P. Con `S1Ctl > 0`, la tecla P → `S1Ctl = 0` (teclado y ratón), icono de teclado y `SlotAlt` vuelve a Y.
+- Las reglas existentes siguen: A en un mando nuevo ocupa el primer slot libre y el mando del P1 se excluye; `P1Ctl` se copia a la partida desde `S1Ctl`.
+- Sin probar en GDevelop ni con mandos reales; cadena estable (mismo md5 entre pasadas).
+
+## Fase 38 · Ajuste de la pantalla "Únanse"
+- `scripts/fase38_unirse_ajuste.py`: `SlotAlt` (Y/P) sube de y 770 a 745. Eventos FDIZ-FASE38-RETRATOS (antes de FASE37-CTL): en `unirse`, `SelRetrato` baja de y 275 a 300 y se corrige en x según la imagen (slots vacíos +15 px, con jugador +9 px, medidos en captura); fuera de `unirse` (selección de personaje) vuelve a x base / y 275, sin cambios.
+- Los 15/9 px salen de medir una captura, no de la geometría de los PNG (que sugiere que ya estaban casi centrados): si queda descentrado, ajustar esos dos números.
+- Sin probar en GDevelop; cadena estable (mismo md5).
+
+## Fase 39 · Navegación con mando en todo el juego
+- `scripts/fase39_mando_global.py` (parchea también `scripts/Gamepads.json`).
+- Stick izquierdo = cruceta: en la extensión Gamepads (`onFirstSceneLoaded`, tarea de inicio de cuadro) los botones 12–15 (Arriba/Abajo/Izquierda/Derecha) cuentan como pulsados si el stick pasa de 0.6 en esa dirección (eje dominante). Todo lo que ya leía la cruceta (menú de modos, tipo de jefe, selección de personajes, dificultad, pausa) responde también al joystick. El movimiento en partida no cambia (usa los ejes directamente).
+- Selección de personajes: eventos FDIZ-FASE39-START-EQ. Start del mando dueño del slot que tiene el turno confirma su personaje y, si ya no falta ningún humano por confirmar, pasa a dificultad (`Sel = 1`); si faltan, solo confirma. Con todos listos (`Turno = 5`) el Start de siempre sigue pasando.
+- Cinemática: Select (`BACK`) de los mandos 1–4 también la omite (junto a Start / Enter).
+- Resultados: variable de escena `Sel` (0 Reintentar, 1 Menú). Arriba/Abajo/Izquierda/Derecha (cruceta, joystick o flechas) alternan; la opción resaltada va a opacidad 255; A / Start / Enter / Espacio confirman la resaltada (con `Sel = 0` es lo de siempre). B / Esc / M siguen yendo al menú.
+- Pausa: los mandos 1–4 (antes 1–3 en algunos eventos) pausan y navegan.
+- Sin probar con mandos reales ni en GDevelop; cadena estable (mismo md5 entre pasadas). `BACK` es el nombre del botón Select en la extensión (mandos tipo Xbox; en PS4 es SHARE y la extensión lo mapea al mismo índice 8).

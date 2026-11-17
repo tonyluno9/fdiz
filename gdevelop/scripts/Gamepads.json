@@ -280,7 +280,7 @@
             "            for (let buttonId = 0; buttonId < Object.keys(gamepad.buttons).length; buttonId++) {\r",
             "                const buttonState = player.getButtonState(buttonId);\r",
             "                buttonState.wasPressed = buttonState.isPressed;\r",
-            "                buttonState.isPressed = gamepad.buttons[buttonId].pressed;\r",
+            "                buttonState.isPressed = gamepad.buttons[buttonId].pressed || (buttonId >= 12 && buttonId <= 15 && buttonId === ((ax, ay) => Math.abs(ax) >= Math.abs(ay) ? (ax > 0.6 ? 15 : (ax < -0.6 ? 14 : -1)) : (ay > 0.6 ? 13 : (ay < -0.6 ? 12 : -1)))(gamepad.axes[0] || 0, gamepad.axes[1] || 0)); /*FDIZ-F39*/\r",
             "                if (buttonState.isJustPressed()) {\r",
             "                    player.lastButtonUsed = buttonId;\r",
             "                }\r",

@@ -209,7 +209,7 @@
           if (!c.sp) { if (nearSurv(wx, wy) < VIS) { ok = false; why = "ZONA VISIBLE"; } else if (!walk(wx, wy)) { ok = false; why = "NO CABE"; } }
           dM.setFillColor(ok ? "90;255;120" : "255;80;80"); dM.setFillOpacity(70); dM.setOutlineColor(ok ? "200;255;200" : "255;180;180"); dM.setOutlineOpacity(255); dM.setOutlineSize(5);
           dM.drawCircle(wx, wy, c.cnt > 1 || c.mix ? 90 : 30);
-          if (why) txt(why, hx + 26, hy + 8, 22, "255;140;140", "left", 300);
+          if (why) { if (dB) { dB.setFillColor("14;18;44"); dB.setFillOpacity(235); dB.setOutlineColor("255;176;64"); dB.setOutlineOpacity(255); dB.setOutlineSize(3); dB.drawRectangle(hx + 18, hy, hx + 44 + why.length * 13, hy + 38); } txt(why, hx + 30, hy + 6, 22, "255;140;140", "left", 300); }
         }
       }
 
