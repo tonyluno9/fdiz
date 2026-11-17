@@ -41,7 +41,7 @@ TXT = {"TxtDanio", "TxtPrecio", "TxtMordido"}
 objs = []
 for n in TRACK:
     o = next(x for x in J["objects"] if x["name"] == n)
-    objs.append({"n": n, "t": 1 if n in TXT else 0, "v": [[v["name"], "s" if v["type"] == "string" else "n"] for v in o["variables"] if v["type"] in ("string", "number")]})
+    objs.append({"n": n, "t": 1 if n in TXT else 0, "v": [[v["name"], "s" if v["type"] == "string" else "n"] for v in o["variables"] if v["type"] in ("string", "number") and v["name"] not in ("BotX", "BotY")]})
 EXC = ("Cam", "Humanos", "HumTot", "Pausa", "Jefe", "AyudaTec", "AyudaPad", "InfVista", "Pres", "VerDebug", "Bloq", "OscIni")
 sv = [v["name"] for v in J["variables"] if v["type"] in ("string", "number") and not v["name"].startswith(EXC)]
 cfg = {"objs": objs, "sv": sv}

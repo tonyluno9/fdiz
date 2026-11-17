@@ -84,13 +84,13 @@
       const P = PeerC(); if (!P) { N.ui.st = "error"; N.ui.msg = "No se cargó la librería de red."; return; }
       const peer = new P("fdiz-" + code, { debug: 1 });
       N.peer = peer;
-      peer.on("open", () => { N.code = code; N.myId = "host"; N.L = { m: [{ id: "host", name: "Host (tú)", players: [] }], mode: "escape", dif: "normal" }; N.ui.st = "lobby"; N.ui.msg = ""; });
+      peer.on("open", () => { N.code = code; N.myId = "host"; N.L = { m: [{ id: "host", name: (N.preJefe ? "JEFE (tú)" : "Host (tú)"), players: [] }], mode: (N.preJefe ? "jefe" : "escape"), dif: "normal" }; N.ui.st = "lobby"; N.ui.msg = ""; });
       peer.on("error", (e) => { if (e && e.type === "unavailable-id") { try { peer.destroy(); } catch (x) {} mk(); } else { N.ui.st = "error"; N.ui.msg = "Error de red: " + (e && e.type ? e.type : e); } });
       peer.on("disconnected", () => { try { peer.reconnect(); } catch (e) {} });
       peer.on("connection", (c) => {
         c.on("open", () => {
           if (N.started || N.L.m.length >= 5) { send(c, { t: "bye", why: N.started ? "La partida ya empezó." : "Sala llena." }); setTimeout(() => { try { c.close(); } catch (e) {} }, 300); return; }
-          N.conns[c.peer] = c; N.L.m.push({ id: c.peer, name: "PC " + (N.L.m.length + 1), players: [] });
+          N.conns[c.peer] = c; N.L.m.push({ id: c.peer, name: (N.L.mode === "jefe" ? "Sub-host " + N.L.m.length : "PC " + (N.L.m.length + 1)), players: [] });
           send(c, { t: "hi", me: c.peer }); pushLobby();
         });
         c.on("data", (d) => onHostData(c, d));
@@ -329,6 +329,7 @@
     else if (e.key.length === 1 && /[a-zA-Z0-9]/.test(e.key) && u.code.length < 8) u.code += e.key.toUpperCase();
   };
   N.ui_tick = function (scn) {
+    /*FDIZ-F27*/ if (!scn._oj) { scn._oj = 1; try { N.preJefe = scn.getGame().getVariables().get("OnlineJefe").getAsNumber() >= 1; } catch (e) { N.preJefe = false; } }
     N.scn = scn; syncRol(scn); const I = im(scn); const u = N.ui; const P = poolOf(scn); P.n = 0;
     if (N.role === 1 && N.L && !scn._lp) { scn._lp = 1; N.started = false; pushLobby(); if (N.ui.st !== "lobby") N.ui.st = "lobby"; }
     if (N.role === 2 && N.L && !scn._lp) { scn._lp = 1; N.started = false; N.ui.st = "lobby"; }
@@ -342,30 +343,27 @@
     const pad = (i) => { for (let k = 0; k < 4; k++) if (pe[k](i)) return k + 1; return 0; };
     const IDX = { A: 0, B: 1, X: 2, Y: 3, ST: 9, UP: 12, DN: 13, L: 14, R: 15, SL: 16, SR: 17, SU: 18, SD: 19 };
     const W = 1920;
-    T(scn, "JUGAR EN LÍNEA", 960, 40, 64, "255;230;120", "center");
+    const jf0 = N.role && N.L ? N.L.mode === "jefe" : !!N.preJefe;
+    T(scn, jf0 ? "JEFE DE ZOMBIES · EN LÍNEA" : "JUGAR EN LÍNEA", 960, 74, jf0 ? 44 : 54, "255;230;120", "center");
     if (u.st === "menu") {
       if (up || dn || pad(IDX.UP) || pad(IDX.DN)) u.sel = 1 - u.sel;
-      const opts = ["Crear sala (soy el host)", "Unirme a una sala con código"];
-      for (let i = 0; i < 2; i++) T(scn, (u.sel === i ? ">> " : "   ") + opts[i], 960, 330 + i * 90, 48, u.sel === i ? "255;255;255" : "190;190;190", "center");
-      T(scn, "En modo Jefe, el host es el Jefe (teclado y ratón) y los sobrevivientes entran desde otras PCs.", 960, 600, 28, "190;210;255", "center", 1500);
-      T(scn, "Hace falta internet. Cada jugador usa su propia copia del juego.", 960, 650, 28, "190;210;255", "center", 1500);
-      T(scn, "W/S elegir · Enter aceptar · Esc volver       Mando: cruceta y A", 960, 980, 26, "255;210;190", "center");
+      const opts = N.preJefe ? ["Crear sala (soy el Jefe)", "Unirme a una sala (host secundario)"] : ["Crear sala (soy el host)", "Unirme a una sala con código"];
+      for (let i = 0; i < 2; i++) T(scn, (u.sel === i ? ">> " : "   ") + opts[i], 960, 350 + i * 90, 48, u.sel === i ? "255;255;255" : "190;190;190", "center");
       if (ok || pad(IDX.A)) { if (u.sel === 0) N.host(); else { u.st = "code"; u.code = ""; } }
       if (esc || pad(IDX.B)) go(scn, "Menu");
     } else if (u.st === "code") {
-      T(scn, "Escribe el código de la sala", 960, 300, 44, "255;255;255", "center");
-      T(scn, (u.code || "") + "_", 960, 400, 90, "140;255;160", "center");
-      T(scn, "Enter conectar · Ctrl+V pegar · Esc volver", 960, 980, 26, "255;210;190", "center");
+      T(scn, "Escribe el código de la sala", 960, 360, 44, "255;255;255", "center");
+      T(scn, (u.code || "") + "_", 960, 450, 90, "140;255;160", "center");
     } else if (u.st === "connecting") {
-      T(scn, u.msg, 960, 420, 48, "255;255;255", "center");
+      T(scn, u.msg, 960, 480, 48, "255;255;255", "center");
       if (esc) { N.shutdown(); }
     } else if (u.st === "error") {
-      T(scn, u.msg || "Error", 960, 400, 44, "255;120;120", "center", 1500);
-      T(scn, "Enter o Esc para volver", 960, 980, 26, "255;210;190", "center");
+      T(scn, u.msg || "Error", 960, 450, 44, "255;120;120", "center", 1500);
       if (ok || esc || pad(IDX.A) || pad(IDX.B)) { N.shutdown(); }
     } else if (u.st === "lobby" && N.L) {
       lobbyUi(scn, I, { up, dn, ok, esc, pad, IDX, pe });
     }
+    /*FDIZ-F28*/ { const bp = scn.getObjects("BarraPie"); if (bp && bp[0]) bp[0].hide(!(u.st === "lobby" && N.L)); }
     for (let i = P.n; i < P.a.length; i++) P.a[i].hide(true);
   };
 
@@ -376,7 +374,7 @@
     const act = (ctl, what) => {
       const i = mine.players.findIndex((p) => p.ctl === ctl);
       if (what === "ok") {
-        if (i < 0) { if (canJoin()) mut(() => { mine.players = mine.players.concat([{ ctl, pj: freePj(L), ok: false }]); }); else u.msg = "No hay lugar (máx. 4 jugadores)."; }
+        if (i < 0) { if (canJoin()) mut(() => { mine.players = mine.players.concat([{ ctl, pj: freePj(L), ok: false }]); }); else { u.msg = (host && L.mode === "jefe") ? "Eres el Jefe: no puedes unirte como sobreviviente." : "No hay lugar (máx. 4 jugadores)."; u.msgT = Date.now(); } }
         else if (!mine.players[i].ok) mut(() => { mine.players[i].ok = true; });
         else return false;
       } else if (what === "cancel" && i >= 0) { mut(() => { if (mine.players[i].ok) mine.players[i].ok = false; else mine.players.splice(i, 1); }); }
@@ -392,8 +390,7 @@
     if (k.ok) { const r = act(0, "ok"); if (r === false && host && N.canStart()) { N.startGame(scn); started = true; } }
     if (I.wasKeyReleased(8) || k.esc) { if (mine.players.some((p) => p.ctl === 0)) act(0, "cancel"); else if (k.esc) { N.shutdown(); return; } }
     if (I.wasKeyReleased(65) || I.wasKeyReleased(37)) act(0, "l"); if (I.wasKeyReleased(68) || I.wasKeyReleased(39)) act(0, "r");
-    if (host) { if (I.wasKeyReleased(77) && !N.started) { mut(() => { L.mode = L.mode === "jefe" ? "escape" : "jefe"; if (L.mode === "jefe") mine.players = []; }); }
-      if (I.wasKeyReleased(78)) { const o = ["facil", "normal", "pesadilla"]; L.dif = o[(o.indexOf(L.dif) + 1) % 3]; pushLobby(); } }
+    if (host) { if (I.wasKeyReleased(78)) { const o = ["facil", "normal", "pesadilla"]; L.dif = o[(o.indexOf(L.dif) + 1) % 3]; pushLobby(); } }
     // mandos
     for (let g = 1; g <= 4; g++) {
       const e = (i) => k.pe[g - 1](i);
@@ -401,28 +398,30 @@
       if (e(k.IDX.B)) act(g, "cancel");
       if (e(k.IDX.L) || e(k.IDX.SL)) act(g, "l"); if (e(k.IDX.R) || e(k.IDX.SR)) act(g, "r");
       if (host && e(k.IDX.ST) && N.canStart()) { N.startGame(scn); started = true; }
-      if (host && e(k.IDX.Y)) { mut(() => { L.mode = L.mode === "jefe" ? "escape" : "jefe"; if (L.mode === "jefe") mine.players = []; }); }
-      if (host && e(k.IDX.X)) { const o = ["facil", "normal", "pesadilla"]; L.dif = o[(o.indexOf(L.dif) + 1) % 3]; pushLobby(); }
+            if (host && e(k.IDX.X)) { const o = ["facil", "normal", "pesadilla"]; L.dif = o[(o.indexOf(L.dif) + 1) % 3]; pushLobby(); }
     }
-    // dibujo
-    T(scn, host ? "Código de la sala:  " + N.code : "Sala: " + N.code, 960, 120, 50, "140;255;160", "center");
-    T(scn, "Modo: " + (L.mode === "jefe" ? "JEFE DE ZOMBIES (el host es el Jefe)" : "ESCAPE") + "      Dificultad (para los sobrevivientes): " + L.dif.toUpperCase(), 960, 190, 30, "255;230;120", "center", 1800);
-    let y = 260;
+    // dibujo (Fase 27: código de sala arriba, host secundario, panel del juego)
+    const jf = L.mode === "jefe";
+    T(scn, "CÓDIGO DE LA SALA", 960, 192, 24, "190;210;255", "center");
+    T(scn, N.code || "-----", 960, 218, 80, "140;255;160", "center");
+    T(scn, "Modo: " + (jf ? "JEFE DE ZOMBIES" : "ESCAPE") + "   ·   Dificultad: " + L.dif.toUpperCase() + "   ·   Sobrevivientes: " + totalPlayers(L) + "/4", 960, 335, 28, "255;230;120", "center", 1600);
+    let y = 385;
     L.m.forEach((m) => {
-      T(scn, (m.id === me ? "► " : "") + m.name + (m.id === "host" && L.mode === "jefe" ? "  — es el Jefe" : ""), 120, y, 32, "190;220;255", "left"); y += 44;
-      if (!m.players.length) { T(scn, m.id === "host" && L.mode === "jefe" ? "(juega con teclado y ratón como Jefe)" : "(sin jugadores: pulsa A en un mando o Enter para entrar)", 160, y, 26, "170;170;170", "left"); y += 40; }
+      const esJefe = jf && m.id === "host";
+      const tag = esJefe ? "  —  JEFE (teclado y ratón)" : (jf ? "  —  host secundario (hasta 4 jugadores)" : "");
+      T(scn, (m.id === me ? "► " : "") + m.name + tag, 140, y, 30, "190;220;255", "left"); y += 36;
+      if (!m.players.length) { T(scn, esJefe ? "(no juega como sobreviviente)" : "(sin jugadores)", 180, y, 24, "170;170;170", "left"); y += 30; }
       m.players.forEach((p) => {
         const dev = p.ctl === 0 ? "TECLADO" : "MANDO " + p.ctl;
-        T(scn, "[" + dev + "]   " + (p.ok ? "" : "◄ ") + (PJN[p.pj] || "?") + (p.ok ? "" : " ►") + "   " + (PJD[p.pj] || "") + (p.ok ? "   ✔ LISTO" : ""), 160, y, 28, p.ok ? "140;255;160" : "255;255;255", "left"); y += 40;
+        T(scn, "[" + dev + "]   " + (p.ok ? "" : "◄ ") + (PJN[p.pj] || "?") + (p.ok ? "" : " ►") + "   " + (PJD[p.pj] || "") + (p.ok ? "   ✔ LISTO" : ""), 180, y, 26, p.ok ? "140;255;160" : "255;255;255", "left"); y += 32;
       });
-      y += 14;
+      y += 8;
     });
     const nb = 4 - totalPlayers(L);
-    T(scn, nb > 0 ? "Los " + nb + " lugares libres los ocuparán bots." : "Equipo completo.", 960, 900, 28, "190;210;255", "center");
-    if (u.msg) T(scn, u.msg, 960, 850, 28, "255;150;150", "center");
+    T(scn, nb > 0 ? "Los " + nb + " lugares libres los ocuparán bots." : "Equipo completo.", 960, 884, 24, "190;210;255", "center");
+    if (u.msg && Date.now() - (u.msgT || 0) < 5000) T(scn, u.msg, 960, 916, 24, "255;150;150", "center", 1600);
     if (host) {
-      T(scn, N.canStart() ? "Todos listos: Enter / Start para EMPEZAR" : "Esperando a que todos confirmen (Enter / A)", 960, 940, 34, N.canStart() ? "140;255;160" : "255;220;140", "center");
-      T(scn, "M modo (Escape/Jefe) · N dificultad · Mando: Y modo, X dificultad · Esc salir", 960, 1000, 24, "255;210;190", "center");
-    } else T(scn, "Esperando al host…   A/D cambiar personaje · Enter confirmar · Esc salir", 960, 960, 28, "255;210;190", "center");
+      T(scn, N.canStart() ? "¡TODOS LISTOS!" : (jf && totalPlayers(L) === 0 ? "Esperando a que se una al menos un sobreviviente…" : "Esperando a que todos confirmen…"), 960, 956, 32, N.canStart() ? "140;255;160" : "255;220;140", "center", 1700);
+    } else T(scn, jf ? "Esperando a que el Jefe inicie la partida…" : "Esperando al host…", 960, 956, 32, "255;220;140", "center");
   }
 })();

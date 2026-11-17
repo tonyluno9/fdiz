@@ -140,7 +140,7 @@ Texto original de las preguntas:
   - Solución: el fondo se dibuja con `MapaFondo`. El Tilemap se queda en el proyecto (lo usa el collision mask y sirve para el editor) y se oculta al empezar.
   - Si en otra versión de GDevelop se arregla, basta con quitar `MapaFondo` y la acción que oculta `Mapa`.
 - **`DistanceToObject` no existe** en las expresiones de GDevelop; la correcta es `Objeto.Distance(Otro)`. Ya está corregido; con el error se abrían todas las puertas a la vez.
-- **Sprite que falta:** `generado\sprites\mapa_extra\cic__mostrador_curvo_h180.png` no existe en la carpeta. El mostrador del CIC sale como rectángulo magenta.
+- **Sprite que faltaba (resuelto en la fase 26):** `generado\sprites\mapa_extra\cic__mostrador_curvo_h180.png` no existía y el mostrador del CIC salía como rectángulo magenta. Ya está dibujado y enlazado.
 - **Mesas redondas:** las 14 de `props_exteriores` no vienen en `mapa_fdiz_props.json`. Solo se colocan las mesas que ya trae ese archivo.
 - **Árboles:** son sprites completos sin copa aparte, así que van en la capa Juego ordenados por Y. La capa Techo queda vacía hasta que haya copas separadas.
 - **Rendimiento:** hay unas 800 instancias de obstáculo de Pathfinding. Si en la fase 4 el Pathfinding va lento, se juntan los choques de muebles vecinos.
@@ -386,7 +386,7 @@ Escenas: **Titulo** (primera) → **Menu** → **Juego** → **Resultados**.
 - **Sprites que faltan:**
   - Destrozos.
   - Profe Canto (no sale en la cinemática).
-  - `cic__mostrador_curvo_h180.png`: hoy hay un rectángulo magenta en su lugar.
+  - `cic__mostrador_curvo_h180.png`: resuelto en la fase 26 (ya existe el sprite).
 - **Planta 1 del edificio B:** la cinemática usa el salón de planta baja en la misma posición.
 - **"Salvar o no salvar" a compañeros mordidos:** falta la mecánica de mordida. Hoy solo caen y se reviven.
 - **Detalles de habilidades:**
@@ -649,3 +649,43 @@ Respaldo: `respaldos/antes_de_fase24_20261113.json`. Script idempotente: `script
 - `net_core.js` envuelve `gdjs.evtTools.sound.playSound`: el host reenvía cada efecto a los clientes (que ignoran los suyos y solo reproducen lo del host, respetando su SonidoActivo). La música ya corría en los clientes por las variables sincronizadas.
 - Apagón: los clientes ejecutan los eventos de luz del grupo "Ambiente" (Apagon se sincroniza) y oscurecen su pantalla; con Jefe=1 el host/Jefe no se oscurece. Dura 15 s (carta del Jefe). Sin probar con dos máquinas.
 - (Fase 24 corregida en Fase 25) `fase24_local.py` ya no deja entrar mandos en modo Jefe local (límite 0) y el texto del paso "Únanse" indica que los sobrevivientes son bots; `jefe_modo.js` fija DifVida/DifDanio por dificultad al iniciar el Jefe.
+
+
+## Fase 26 · Multijugador local, Jefe, controles, bots y texturas CIC (2026-11-17)
+
+Script: `gdevelop/scripts/fase26_multijugador.py` (idempotente; respaldo `respaldos/antes_de_fase26_20261117.json`). No confundir con `fase26_correcciones.py`, que es un script viejo de otra numeración. Si se vuelve a correr `fase25_online.py`, correr después `fase26_multijugador.py` (re-incrusta `net_core.js`; el script de la fase 26 limpia lo que fase25 envuelve).
+
+1. **P2 controlaba al bot de P3 (corregido).** Causa: el grupo "Unirse con control" daba el mando al primer superviviente de la lista (aunque fuera humano o el bot 3) y las asignaciones hechas en el menú nunca marcaban `Pad1..Pad4` como ocupados. Ahora al iniciar la escena `PadK = 1` si algún jugador ya usa ese mando, y la unión solo puede tomar a un superviviente con `Control = -1` (bot).
+2. **Modo Jefe: nadie se une al host.** En Juego el grupo de unión no corre en modo Jefe (además los 4 mandos quedan ocupados) y si alguien pulsa A sale el aviso "MODO JEFE: nadie puede unirse…". En el Menú, A en la pantalla "ÚNANSE" del Jefe muestra "NO PUEDES UNIRTE…". En el lobby en línea el host-Jefe que pulsa Enter/A recibe "Eres el Jefe: no puedes unirte como sobreviviente…" (antes decía "no hay lugar").
+3. **Salas por código (en línea).** Ya existían (fase 25: crear sala / unirme con código, lobby con código visible). Ahora la opción **3 EN LÍNEA** del menú de modos se puede elegir con flechas/W-S/cruceta y aceptar (antes solo con la tecla 3).
+4. **Pantalla de controles** desde la pausa: la pausa tiene 4 botones (CONTINUAR, CONTROLES, REINICIAR, MENÚ). CONTROLES muestra teclado/ratón y mando; Enter/Espacio/clic/A/B vuelven. Solo existe en modo offline (en línea no hay pausa).
+5. **Selección por turnos (local).** Variable `Turno` en el Menú: P1 elige y confirma mientras P2..P4 (humanos) ven "ESPERANDO TURNO…" y no pueden mover ni confirmar; luego P2, etc. Al confirmar el último humano (si hay 2 o más) pasa solo a la dificultad. Enter/Start solo avanzan cuando todos los humanos confirmaron.
+6. **Sin colisión entre compañeros y bots.** Era un evento JS ("Los pies conservan su máscara del mapa", `separar_supervivientes.js`) que empujaba a los supervivientes entre sí; se eliminó. Las colisiones con muros, muebles y puertas siguen igual.
+7. **Todos recogen objetos clave.** Bidón y bolsa ya los recogía cualquier superviviente por colisión; se añadió además recogida por cercanía (70 px) para cualquiera (humano o bot) porque la máscara de colisión podía no tocar el objeto.
+8. **Bots siguen a P1 y también a P2/P3.** Antes seguían el centro de la cámara. Ahora cada bot sigue a un humano vivo (reparto por turnos entre humanos; sin humanos, sigue a la guía como antes). Variables `BotX/BotY` en `Sup`.
+9. **Texturas CIC:** el mostrador curvo (era `falta.png` magenta) y la puerta restringida electrónica (era un cuadrado morado liso) ya tienen sprite. Las otras 3 puertas provisionales (normal, electrónica, restringida) siguen siendo colores lisos. Si se vuelve a correr `importar_mapa.py`, esa puerta vuelve a generarse lisa.
+10. **Verificación del modo en línea:** implementado (PeerJS, host con autoridad, 4 jugadores, sonidos y apagón). Revisado solo de forma estática (sintaxis de `net_core.js`, flujo menú → sala → lobby). **No se ha probado con dos máquinas reales**; falta esa prueba.
+
+## Fase 27 · Controles ilustrados, pantalla Local/En línea del Jefe y lobby en línea con estilo del juego (2026-11-17)
+Script: `scripts/fase27_jefe_y_controles.py` (idempotente; respaldo `respaldos/antes_de_fase27_20261117.json`). Orden: `fase25_online.py` → `fase26_multijugador.py` → `fase27_jefe_y_controles.py` (fase25 re-embebe `net_core.js`, que fase27 también parchea).
+1. **Pantalla de controles (Pausa → CONTROLES)**: ahora lleva una ilustración de teclado + ratón (`p27_ctl_teclado.png`) y otra de mando (`p27_ctl_mando.png`) en `assets/interfaz/`, con el texto resumido debajo de cada una. Objetos nuevos `CtlTeclado`/`CtlMando` (capa HUD); se ocultan fuera de esa vista.
+2. **Menú · modo Jefe → paso nuevo `jefetipo`** (LOCAL / EN LÍNEA) con las mismas tarjetas y el mismo fondo de escuela que la pantalla de modos (ilustraciones `ilus_modo_local.png` / `ilus_modo_online.png`, animaciones "l"/"o" de `IlusModo`). Se elige con ◄ ► / A D / ↑ ↓ / 1-2 / mando / clic en la tarjeta; Enter, F, Espacio o A aceptan; Esc vuelve.
+   - **Local**: va directo a la selección de personajes de los 4 bots (Esc desde ahí vuelve a `jefetipo`).
+   - **En línea**: pone `OnlineJefe=1` (variable global nueva) y abre la escena Online. Al salir de Online, el menú regresa a `jefetipo`.
+   - La opción 3 EN LÍNEA del menú de modos pone `OnlineJefe=0` (sala de modo Escape).
+3. **Escena Online con el estilo del resto**: fondo de escuela, placa de título, panel oscuro (`p27_panel_sala.png`) y barra inferior (`Placa`, `BarraPie`, `PanelOn`).
+   - **Sala del host**: arriba aparece "CÓDIGO DE LA SALA" y el código de 5 letras/números en grande, con la indicación de qué hacer en la otra PC.
+   - **Modo Jefe en línea**: el modo lo fija el menú (se quitaron las teclas M/Y que lo cambiaban). El host es el Jefe (no puede unirse como sobreviviente). Quien se une con el código es **host secundario** ("Sub-host N"): su PC aloja hasta 4 jugadores locales (él con teclado + mandos), siempre con un máximo de 4 sobrevivientes entre todas las PCs, y espera a que el Jefe inicie la partida (mensaje "Esperando a que el Jefe inicie la partida…").
+   - Lista de la sala rediseñada: contador de sobrevivientes x/4, etiquetas JEFE / host secundario, mensajes de estado.
+4. Detalle técnico: `fase25_online.py` añadía "3 EN LÍNEA" a cualquier título de `TxtMenu` que contuviera "JEFE DE ZOMBIES"; el título del paso nuevo es "MODO JEFE: ¿CÓMO QUIERES JUGAR?" para evitarlo (y fase27 corrige uno ya creado).
+**Verificado (estático)**: JSON carga, `node --check` en `net_core.js` y en el JS embebido, cadena fase25→26→27 ejecutada dos veces con el mismo md5. **NO probado**: nada se ha ejecutado en GDevelop (posición exacta de textos/tarjetas, z-order del panel) ni con dos máquinas reales; el modo en línea sigue sin prueba de extremo a extremo.
+
+## Fase 28 — UI de lanzamiento, Jefe, fuera la tienda
+Script: `scripts/fase28_ui_jefe_tienda.py` (idempotente; respaldo `respaldos/antes_de_fase28_20261117.json`; cadena fase25→26→27→28 con md5 estable).
+- **UI sin textos de guía**: eliminados pies/ayudas en Título, Menú, Juego (demo, controles, "mantén Usar", banners de mordido y de unirse en Jefe), Pausa, Resultados y Online (`net_core.js`: sin "W/S elegir", "Enter conectar", etc.). Menú: tercera tarjeta **EN LÍNEA** en la selección de modo (antes solo accesible por los textos), selección con ratón (hover) y con izquierda/derecha.
+- **Resultados**: fuente Pixelify Sans (`assets/interfaz/fuentes/`), ajuste automático del texto al cuadro, títulos de Jefe más cortos. Botones REINICIAR y MENÚ clicables con rectángulos fijos, resalte al pasar el ratón, teclado/mando (Enter/Espacio/A reinicia; Esc/M/B menú). La victoria también tiene los dos botones (se quitó el salto automático al título).
+- **Online**: fondo con video + velo, sin barra de pie.
+- **Jefe**: monedas 1 cada 2.5 s (fácil), 2 s (medio), 1.5 s (difícil). Quitado el panel de instrucciones y la ayuda en vivo; se conserva la barra de la próxima moneda.
+- **Tienda eliminada**: máquinas, TxtPrecio, compra, `Dinero` del equipo, debug de dinero, línea de premios y "$" del HUD. Los lockers dan galletas en vez de monedas. Panel de dinero visible solo en Jefe (oro).
+- **Tony**: nuevo pasivo "Come mejor" (la comida le cura 50 % más), también para Tony fuerte.
+- Sin probar: nada se ejecutó en GDevelop; online sin probar con dos máquinas.

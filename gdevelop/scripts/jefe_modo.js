@@ -35,7 +35,7 @@
     const im = scn.getGame().getInputManager();
     const base = scn.getLayer(""), hud = scn.getLayer("HUD");
     const st = { t: 0, sel: 0, cdEnd: new Array(8).fill(0), goldT: 0, prev: {}, mprev: [false, false], msg: null, fx: [],
-      help: true, helpT: 0, doors: [], apagonUntil: 0, tx: [], txn: 0, cards: [], icons: [], cam: null, firstSpawn: false, count: 0 };
+      help: false, helpT: 0, doors: [], apagonUntil: 0, tx: [], txn: 0, cards: [], icons: [], cam: null, firstSpawn: false, count: 0 };
 
     const first = (n) => { const a = scn.getObjects(n); return a && a.length ? a[0] : null; };
     const dB = first("JfDibB"), dO = first("JfDibO"), dM = first("JfDibM");
@@ -157,7 +157,7 @@
         if (keyDown(87) || keyDown(38)) dy -= 1; if (keyDown(83) || keyDown(40)) dy += 1;
         st.cam.x += dx * sp; st.cam.y += dy * sp;
         if (edge32) { const al = S.filter((s) => sv(s, "Estado").getAsString() !== "muerto"); if (al.length) { let ax = 0, ay = 0; for (const s of al) { ax += s.getX(); ay += s.getY(); } st.cam.x = ax / al.length; st.cam.y = ay / al.length; } }
-        if (edge72) st.help = !st.help;
+        
         for (let i = 0; i < 8; i++) if (nEdges[i]) st.sel = i;
         if (rclick) st.sel = -1;
       }
@@ -166,14 +166,14 @@
       let overCard = -1;
       for (let i = 0; i < 8; i++) if (hit(hx, hy, cardX(i), CD.y0 - 14, CD.w, CD.h + 14)) overCard = i;
       const overMini = hit(hx, hy, MM.x, MM.y, MM.w, MM.h);
-      const overPanel = hit(hx, hy, 20, 300, 400, 330) || hit(hx, hy, 0, 0, 1920, 190) && (hx < 440 || hx > 1480) || hit(hx, hy, 20, 880, 420, 190) || hit(hx, hy, 1482, 880, 420, 190) || hit(hx, hy, 430, 960, 1060, 120);
+      const overPanel = hit(hx, hy, 30, 578, 380, 38) || hit(hx, hy, 0, 0, 1920, 190) && (hx < 440 || hx > 1480) || hit(hx, hy, 20, 880, 420, 190) || hit(hx, hy, 1482, 880, 420, 190) || hit(hx, hy, 430, 960, 1060, 120);
       const overUI = overCard >= 0 || overMini || overPanel;
       if (active && click) {
         if (overCard >= 0) st.sel = overCard;
         else if (overMini) { st.cam.x = (hx - MM.x) / MM.w * WW; st.cam.y = (hy - MM.y) / MM.h * WH; }
         else if (!overUI) {
           if (st.help && st.helpT > 1) st.help = false;
-          else if (st.sel < 0) say("Primero elige una carta (teclas 1 a 8)", "255;225;120");
+          else if (st.sel < 0) { /* sin carta elegida: no pasa nada */ }
           else place(st.sel, wx, wy);
         }
       }
@@ -184,7 +184,7 @@
 
       // ------ oro, puertas, apagón ------
       if (active) {
-        const dif = scn.getGame().getVariables().get("Dificultad").getAsString(); st.rate = dif === "facil" ? 2 : (dif === "pesadilla" ? 6 : 4);
+        const dif = scn.getGame().getVariables().get("Dificultad").getAsString(); st.rate = dif === "facil" ? 1 / 2.5 : (dif === "pesadilla" ? 1 / 1.5 : 1 / 2);
         st.goldT += dt * st.rate;
         if (st.goldT >= 1) { const n = Math.floor(st.goldT); st.goldT -= n; V.get("OroJefe").setNumber(V.get("OroJefe").getAsNumber() + n); }
         st.helpT += dt; if (st.help && st.helpT > 22) st.help = false;
@@ -218,8 +218,7 @@
       const inf = V.get("Infestacion").getAsNumber(), oro = V.get("OroJefe").getAsNumber();
       if (dB) {
         const panel = (x, y, w, h, line) => { dB.setFillColor("14;18;44"); dB.setFillOpacity(222); dB.setOutlineColor(line || "70;190;170"); dB.setOutlineOpacity(255); dB.setOutlineSize(4); dB.drawRectangle(x, y, x + w, y + h); };
-        panel(20, 300, 400, 330);
-        dB.setFillColor("70;190;170"); dB.setOutlineSize(0); dB.setFillOpacity(255); dB.drawRectangle(20, 300, 420, 344);
+        panel(30, 578, 380, 38, "70;190;170");
         // barra de progreso del próximo oro
         dB.setFillColor("40;46;86"); dB.drawRectangle(40, 586, 400, 604);
         dB.setFillColor("255;215;80"); dB.drawRectangle(40, 586, 40 + 360 * st.goldT, 604);
@@ -229,14 +228,6 @@
         const tip = overCard >= 0 ? overCard : st.sel;
         if (tip >= 0) { panel(CD.x0, 640, 968, 148, "255;215;80"); }
       }
-      txt("MISIÓN DEL JEFE", 20, 306, 28, "20;24;50", "center", 400);
-      txt("Detén a los 4 sobrevivientes antes de que cumplan el objetivo y escapen.", 36, 354, 20, "255;255;255", "left", 370);
-      txt("1) Elige una carta (1-8 o clic).", 36, 428, 19, "170;230;255", "left", 370);
-      txt("2) Clic en el mapa FUERA de la zona roja (lo que ven ellos).", 36, 454, 19, "170;230;255", "left", 370);
-      txt("En pie: " + vivos + "/" + S.length + "    Zombis: " + Zs.length, 36, 500, 20, "255;225;120", "left", 380);
-      txt("Infestación " + inf + "/5" + (inf < 3 ? " (Horda grande: nivel 3)" : ""), 36, 528, 18, "255;190;120", "left", 380);
-      txt("Oro: +" + (st.rate || 4) + " por segundo", 36, 556, 16, "255;225;90", "left", 380);
-      txt("WASD cámara · Espacio: grupo · H: ayuda", 36, 612, 14, "190;190;210", "left", 380);
 
       // ------ cartas ------
       for (let i = 0; i < 8; i++) {
@@ -279,20 +270,10 @@
         const vw = 1920 / ZOOM, vh = 1080 / ZOOM;
         dO.drawRectangle(mmX(st.cam.x - vw / 2), mmY(st.cam.y - vh / 2), mmX(st.cam.x + vw / 2), mmY(st.cam.y + vh / 2));
       }
-      txt("MAPA · clic para mover la cámara", MM.x, MM.y - 34, 18, "255;255;255", "left", MM.w);
+      txt("MAPA", MM.x, MM.y - 34, 18, "255;255;255", "left", MM.w);
       txt("● sobrevivientes   ■ zombis   ■ objetivo", MM.x, MM.y + MM.h + 8, 15, "200;200;220", "left", MM.w);
 
       // ------ ayuda inicial y mensajes ------
-      if (st.help && active && dB) {
-        dB.setFillColor("8;10;30"); dB.setFillOpacity(236); dB.setOutlineColor("255;215;80"); dB.setOutlineOpacity(255); dB.setOutlineSize(6); dB.drawRectangle(500, 210, 1420, 556);
-        for (let k = 0; k < 3; k++) { dB.setFillColor("255;215;80"); dB.setOutlineSize(0); dB.drawCircle(556, 336 + k * 74, 22); }
-        txt("CÓMO JUGAR EL MODO JEFE", 500, 226, 36, "255;215;80", "center", 920);
-        txt("1", 540, 316, 30, "20;24;50", "center", 32); txt("2", 540, 390, 30, "20;24;50", "center", 32); txt("3", 540, 464, 30, "20;24;50", "center", 32);
-        txt("ELIGE una carta de abajo (teclas 1-8 o clic).", 600, 318, 26, "255;255;255", "left", 800);
-        txt("HAZ CLIC en el mapa FUERA de la zona roja para invocar zombis.", 600, 392, 26, "255;255;255", "left", 800);
-        txt("Sobrevivientes (bots o mandos): ¡deténlos antes de que escapen!", 600, 466, 26, "255;255;255", "left", 800);
-        txt("WASD mueve la cámara · H oculta esta ayuda", 500, 516, 18, "170;230;255", "center", 920);
-      }
       if (st.msg && st.t < st.msg.t && !overUI) txt(st.msg.text, hx + 24, hy - 40, 24, st.msg.color, "left", 520);
       else if (st.msg && st.t < st.msg.t) txt(st.msg.text, 560, 596, 26, st.msg.color, "left", 800);
       for (let i = st.txn; i < st.tx.length; i++) st.tx[i].hide(true);
