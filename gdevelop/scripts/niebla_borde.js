@@ -3,20 +3,23 @@ const nieblas = runtimeScene.getLayer("NieblaSalas").isVisible()
   ? runtimeScene.getObjects("Niebla").filter(niebla => !niebla.isHidden() && niebla.getOpacity() > 0)
   : [];
 
-for (const superviviente of runtimeScene.getObjects("Sup")) {
-  const piesX = superviviente.getX();
-  const piesY = superviviente.getY();
-  const izquierda = superviviente.getDrawableX();
-  const arriba = superviviente.getDrawableY();
-  const derecha = izquierda + superviviente.getWidth();
-  const abajo = arriba + superviviente.getHeight();
+const zonasTapadas = nieblas.map(niebla => {
+  const x = niebla.getX();
+  const y = niebla.getY();
+  return { x, y, finX: x + niebla.getWidth(), finY: y + niebla.getHeight() };
+});
+const nombres = ["Sup", "ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZCurado"];
+
+for (const personaje of nombres.flatMap(nombre => runtimeScene.getObjects(nombre))) {
+  const piesX = personaje.getX();
+  const piesY = personaje.getY();
+  const izquierda = personaje.getDrawableX();
+  const arriba = personaje.getDrawableY();
+  const derecha = izquierda + personaje.getWidth();
+  const abajo = arriba + personaje.getHeight();
   let cruzaBorde = false;
 
-  for (const niebla of nieblas) {
-    const x = niebla.getX();
-    const y = niebla.getY();
-    const finX = x + niebla.getWidth();
-    const finY = y + niebla.getHeight();
+  for (const { x, y, finX, finY } of zonasTapadas) {
     if (x <= piesX && piesX < finX && y <= piesY && piesY < finY) {
       cruzaBorde = false;
       break;
@@ -27,7 +30,7 @@ for (const superviviente of runtimeScene.getObjects("Sup")) {
   }
 
   const capa = cruzaBorde ? "SupervivientesBorde" : "Juego";
-  if (superviviente.getLayer() !== capa) {
-    superviviente.setLayer(capa);
+  if (personaje.getLayer() !== capa) {
+    personaje.setLayer(capa);
   }
 }
