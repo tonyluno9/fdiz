@@ -8,7 +8,7 @@ const zonasTapadas = nieblas.map(niebla => {
   const y = niebla.getY();
   return { x, y, finX: x + niebla.getWidth(), finY: y + niebla.getHeight() };
 });
-const nombres = ["Sup", "ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZCurado"];
+const nombres = ["Sup", "Profe", "ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZCurado", "ZJoel", "ZJustino", "ZCanepa"];
 
 for (const personaje of nombres.flatMap(nombre => runtimeScene.getObjects(nombre))) {
   const piesX = personaje.getX();

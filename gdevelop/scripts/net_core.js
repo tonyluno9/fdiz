@@ -33,6 +33,7 @@
   // ---------------------------------------------------------------- red básica
   const send = (c, o) => { try { if (c && c.open) c.send(o); } catch (e) {} };
   const bcast = (o) => { for (const id in N.conns) send(N.conns[id], o); };
+  /*FDIZ-F40*/ N.toHost = (o) => send(N.conn, o);
   N.shutdown = function () {
     try { for (const id in N.conns) N.conns[id].close(); if (N.conn) N.conn.close(); if (N.peer) N.peer.destroy(); } catch (e) {}
     N.role = 0; N.peer = null; N.conns = {}; N.conn = null; N.L = null; N.slots = []; N.inp = {}; N.started = false; N.pm = {}; N.seen = new Set(); N.code = "";
@@ -131,6 +132,7 @@
     if (!d || !d.t) return;
     if (d.t === "claim" && !N.started) { setPlayers(c.peer, d.players); pushLobby(); }
     else if (d.t === "in") { N.inp[c.peer] = { at: performance.now(), p: d.p || [], cam: d.cam || null }; }
+    /*FDIZ-F40*/ else if (d.t === "prof") { if (N.onProf && N.started) N.onProf(c.peer, d); }
   }
   function onClientData(d) {
     if (!d || !d.t) return;
@@ -279,7 +281,7 @@
     N.tickN = (N.tickN || 0) + 1;
     if (N.role === 2) {
       if (N.tickN % 2) return;
-      const p = []; N.slots.forEach((s, i) => { if (s.owner === N.myId) p.push(readLocal(scn, s.ctl, i)); });
+      const p = []; N.slots.forEach((s, i) => { if (s.owner === N.myId) p.push(readLocal(scn, s.ctl, i)); }); /*FDIZ-F40*/ if (N.onLocalInput) N.onLocalInput(scn, p);
       const L = scn.getLayer(""); const z = L.getCameraZoom() || 1, cx = L.getCameraX(0), cy = L.getCameraY(0);
       send(N.conn, { t: "in", p, cam: [cx - 960 / z, cy - 540 / z, cx + 960 / z, cy + 540 / z] });
       return;

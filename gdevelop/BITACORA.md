@@ -771,3 +771,78 @@ Script: `scripts/fase32_online_web.py` (parchea `net_core.js`; correr la cadena 
 - Resultados: variable de escena `Sel` (0 Reintentar, 1 Menú). Arriba/Abajo/Izquierda/Derecha (cruceta, joystick o flechas) alternan; la opción resaltada va a opacidad 255; A / Start / Enter / Espacio confirman la resaltada (con `Sel = 0` es lo de siempre). B / Esc / M siguen yendo al menú.
 - Pausa: los mandos 1–4 (antes 1–3 en algunos eventos) pausan y navegan.
 - Sin probar con mandos reales ni en GDevelop; cadena estable (mismo md5 entre pasadas). `BACK` es el nombre del botón Select en la extensión (mandos tipo Xbox; en PS4 es SHARE y la extensión lo mapea al mismo índice 8).
+
+## Fase 40 · Profesores reclutables: Joel, Justino y Canepa (2026-11-17)
+Scripts: `scripts/fase40_sprites_profes.py` (sprites) y `scripts/fase40_profesores.py` (proyecto; idempotente, va al final de la cadena, después de fase39; respaldo `respaldos/antes_de_fase40_20261117.json`). Lógica en `scripts/profes.js` (se incrusta como evento JS `FDIZ-FASE40-MOD`). Pruebas: `node gdevelop/scripts/prueba_profes.js`.
+Si se vuelve a correr `fase25_online.py` (o cualquier fase anterior), correr después `fase40_profesores.py`.
+
+**Cómo funciona**
+- Un solo objeto `Profe` (variable `Nombre`) para los tres mientras esperan; se quitó el objeto `Canepa`. Una instancia de cada uno.
+- Estados por profe (variables de escena `ProfJoel`, `ProfJustino`, `ProfCanepa`, sincronizadas en línea): `espera`, `conversacion`, `aliado`, `mordido`, `caido`, `rechazado`, `convertido`, `fuera`. `Prof<Nombre>Seg` = segundos que faltan (rechazo o mordida).
+- Esperando: quieto, animación de reposo, inmune (no es un `Sup`, así que los zombis no lo eligen ni lo muerden). Pide ayuda cuando un humano de esa máquina entra a 480 px (cada 10 s, máximo 4 veces por visita, un aviso a la vez). Acercarse, oírlo o irse no cuenta como rechazo.
+- Usar (F / A del mando) a menos de 115 px y con línea de vista: indicación según el dispositivo (`[F] Hablar con Joel` / `(A) Hablar con Joel`). El diálogo abre con un flanco de Usar y no confirma hasta soltar el botón. W/S, flechas, cruceta o stick eligen; F/Enter/Espacio/A aceptan; Retroceso/Esc/B cierran (cerrar = sigue esperando e inmune). El jugador de teclado también puede usar el clic. Mientras hay diálogo, Esc/P/Start no pausan (`ProfDlg`).
+- "Dejarlo aquí" pide confirmación y explica la consecuencia (30 s → zombi, sin vuelta atrás).
+- Aceptar: se crea un `Sup` bot (Jugador 5 = Joel, 6 = Justino, 7 = Canepa, Control −1) en el lugar del profe; usa toda la lógica de los bots (ruta A*, puertas, pelea, armas del piso, revivir, curar, niebla de bordes, orden de profundidad, choques con muros y muebles). `Rescatados` +1 una sola vez por profe.
+- Rechazar: pierde la inmunidad, se queda en su lugar, cuenta individual de 30 s de juego (se detiene con la pausa; alejarse no la cambia). Un zombi pegado a él le pega (vida mínima 1, tinte rojo), pero eso no reinicia, acumula ni adelanta la cuenta. Encima se ve `Joel · 23 s` y en el panel `ZOMBI EN 23 s`; el profe se va poniendo verde.
+- Conversión (rechazo o mordida sin curar): se borra el profe o aliado y se crea **un** `ZJoel` / `ZJustino` / `ZCanepa` en la misma posición, persiguiendo; etiqueta `JOEL (ZOMBI)`. Están en el grupo `Zombies`: navegación, colisiones, combate, muerte, premios, Oro y niebla de bordes iguales a los demás.
+- Panel compacto de profes a la izquierda (y 262–440, entre los paneles de P1 y P3): nombre, estado, barra de vida, cuenta de rechazo o barra de infección. Encima de cada aliado: nombre y `MORDIDO 20 s` / `¡AYÚDALO!`.
+- Salas oscuras: si el profe está bajo niebla, la petición sale arriba en el HUD (`Alguien pide ayuda desde LA NEVERÍA: «…»`) y no se dibuja nada sobre él; las etiquetas de profes y de su zombi también se ocultan bajo niebla.
+
+**Valores elegidos** (centralizados en `profes.js` → `PROFES` / `CFG`; los de los zombis en `fase40_profesores.py`)
+
+| Aliado | Vida | Velocidad | Fuerza (× daño del arma; puños 7) |
+|---|---|---|---|
+| Joel | 100 | 204 | 1.0 |
+| Justino | 110 | 198 | 1.1 |
+| Canepa | 120 | 192 | 1.15 |
+
+- Zombis de profe: vida base = la de `ZConserje` leída del proyecto (hoy 250); el evento `DifOk` le aplica `DifVida` una sola vez, igual que al conserje (el JS no escala nada). Daño 12 (normal 5, conserje 14) × `DifDanio`. Velocidad 84 (normal 99, conserje 72) + 8 % por nivel de infestación, como todos. Oro 5.
+- Mordida, caída y cura: mismas reglas que los alumnos (12 % por golpe; 35 s para curar manteniendo Usar 3 s a ≤ 95 px; caído 25 s, revivir manteniendo Usar 3 s a ≤ 80 px). Los auxilian los jugadores y los bots (un bot va a un profe caído o mordido a ≤ 600 px si no está ayudando a un alumno). Los profes aliados también reviven y curan a los alumnos.
+- Recompensa del rescate anterior: **se conserva** (+30 de vida al equipo principal de pie), una sola vez por profe, al reclutarlo.
+
+**Decisiones que cambian la experiencia (y conflictos con la propuesta)**
+1. *Justino "detrás de la barra"*: la franja entre la barra horizontal y los refrigeradores / congelador está cerrada en la rejilla de navegación (solo conecta con la cocina, que tampoco tiene salida); ahí no podría salir como aliado. Se colocó en el **lado interior de la pata de la barra en L** (1936, 1668): accesible por el pasillo de la puerta lateral P45 y por el salón, a ~120 px del congelador, lejos de los refrigeradores (x ≤ 1661) y de la caja (1700, 1586). Ver `capturas/fase40_ubicaciones_profes.jpg` (el PNG del mapa con props está desactualizado: el congelador real está arriba a la derecha, donde marca su colisión roja). Nota: el bidón o bolsa posible de "Cocina nevería" está en esa zona cerrada (problema anterior, no se tocó).
+2. *Sin red, el diálogo detiene la partida* (como la pausa) para que nadie reciba golpes mientras lee. En línea no se puede pausar: solo se congela la entrada de quien habla.
+3. *Derrota*: solo cuentan los 4 principales de pie (`Vivos` filtra Jugador ≤ 4). Un profe aliado no mantiene viva la partida.
+4. *Aliado caído 25 s sin ayuda* → `fuera` el resto de la partida (no reaparece con el siguiente objetivo como los alumnos).
+5. *Profe rechazado*: no es un `Sup`, así que no puede ser mordido; los golpes son visuales y no cambian la cuenta (como pide la propuesta).
+6. Si un profe cura a un alumno, al profe no se le cobra comida ni vida (el costo existente es entre alumnos). Si un alumno cura a un profe, sí se le cobra al alumno, igual que entre alumnos.
+7. Modo Jefe local: los sobrevivientes son bots y los bots no deciden, así que los profes se quedan esperando.
+8. *Final ¡Aguanten!*: la victoria nunca dependió de Canepa (60 s aguantando). Ahora el camión ya no anima a ningún objeto Canepa. Si Canepa es aliado y está de pie, en el final camina por ruta a su lugar junto al camión y, sin zombis encima, hace la animación de reparar (banner "¡AGUANTEN! Canepa repara el camión"). Si fue rechazado, se convirtió, cayó o quedó fuera: banner "¡AGUANTEN! Reparen el camión y resistan" y el final se completa igual. Nunca se crea otro Canepa ni se mueve desde otra parte del mapa, y su versión zombi no recibe animaciones del camión.
+9. Bots: la distancia a la que se detienen sigue siendo 90 + 45·Jugador para P2–P4; para los profes es 150 / 195 / 240 px (con la fórmula original serían 315–405).
+
+**Cambios en eventos** (todos con la marca `FDIZ-FASE40`): módulo JS al inicio; `input` después de `FASE25-INPUT`; `botsDestino` dentro de "Bots"; `bots` al final de "Bots: curar mordidos"; `ayuda` en "Vida, caída y revivir"; `mordidas` al inicio de "Compañeros mordidos" y `curaAlumno` dentro de los ciclos M1–M4; grupo **"Profesores reclutables"** en lugar de "Rescates: Joel y Justino" (sin compuerta de red: también dibuja en los clientes). Filtros `Jugador <= 4`: unirse con mando (un mando nunca toma a un profe), mordida genérica, conteo de `Vivos` y reaparición al cumplir objetivo. La pausa exige `ProfDlg = 0`. Listas de zombis del JS incrustado, `niebla_borde.js` (+ `Profe`) y `bots_habilidades.js` (los profes no usan habilidades).
+
+**En línea**: el host decide todo (estados, cuentas, daño, mordidas, conversión). El cliente manda `{t:"prof", k, d: abre|cierra|acepta|rechaza}` (`net_core.js`: `N.toHost`, `N.onProf`, `N.onLocalInput`). El host acepta una sola decisión por profe (la primera válida; quien abrió el diálogo tiene prioridad) y sincroniza `Prof*`, `Profe` y los zombis nuevos con la configuración de red. Reiniciar la escena devuelve los tres profes a su lugar, inmunes, con diálogos y contadores en cero (todo el estado vive en la escena).
+
+**Recursos gráficos**
+- Convertidos de los GIF: Joel y Justino (quieto, caminar abajo/arriba/lado, pegar lado/arriba) → `generado/sprites/profes/<profe>/`. No hacen falta `caminar_izquierda` ni `pegar_izquierda` (se voltea "lado"); `justino/pegar_izquierda.gif` está vacío.
+- **Provisionales** (faltan): `caer_levantarse` de los tres (el cuadro quieto que se inclina) y `pegar_abajo` de los tres (copia de pegar_lado).
+- **Zombis de profe: arte real** (sustituye a los provisionales verdes). Fuente: `animaciones_gif/profes_zombi/<profe>/<animacion>.gif` → `fase40_sprites_profes.py` → `generado/sprites/zombies/profe_<profe>/` (cada carpeta tiene un `LEEME.txt` con el origen de cada animación).
+  - Justino: GIF hechos a mano (caminar ×3, atacar_lado, atacar_abajo, golpe_morir). Venían con cuadros duplicados (7 → 4 poses) y `caminar_lado` grabado en video (79 cuadros, 40 distintos): se toma el ciclo de 4 poses que se repite. `caminar_izquierda` y `atacar_izquierda` no se usan (el juego voltea "lado"; además `atacar_izquierda` es otro golpe y trae manchas de sangre que no tiene el resto).
+  - Joel y Canepa: GIF generados por `scripts/fase40_hojas_zombi.py` desde sus hojas (`animaciones_gif/profes_zombi/hojas/<profe>_caminar.jpg` y `<profe>_ataque.jpg`): fila 1 de lado, 2 de espaldas, 3 de frente; en la de ataque, fila 1 ataque de lado, 2 golpe desde arriba (→ `atacar_abajo`), 3 golpe final con humo (→ `golpe_morir`).
+  - Inconsistencias revisadas en las hojas: de cada profe había dos versiones. Se descartaron (quedan en `hojas/descartadas/`): Joel caminar B (sin barba, otro peinado), Joel ataque B (ojos sin rojo en varios cuadros, sin barba, cuerpo final translúcido), Canepa caminar B (primer cuadro de lado sin pose de caminar; de espaldas gira la cabeza y se ve la visera) y Canepa ataque B (ojos color piel en el primer cuadro, humo blanco que tapa al personaje). Correcciones: Joel caminaba mirando a la izquierda (se volteó), restos de fondo blanco entre brazo y cuerpo y junto a la cara (se quitaron), halo claro del JPG alrededor del contorno (se quitó).
+  - **Derivado** (no hay arte): `atacar_arriba` de los tres = `caminar_arriba` que se encoge y se estira hacia adelante (como el ataque de espaldas del conserje). `atacar_abajo` de Joel y Canepa es el golpe desde arriba, que mira un poco a la derecha (el juego no voltea `atacar_abajo`); el de Justino sí es de frente.
+  - Escala: la estatura de pie queda en 96 px, igual que el profe humano. Tiempos (`ANIM_Z`): caminar 0.18 s por cuadro, ataques 0.12 s, golpe final 0.15 s (4 cuadros cada una).
+
+**Pruebas**: `prueba_profes.js` (16 casos, todos correctos) simula la escena y recorre: encontrar sin interactuar (posición, inmunidad, límite de peticiones), abrir y cerrar, mantener F no confirma, aceptar, los tres con 4 principales, rechazar con aviso, pausa / alejarse / golpes contra la cuenta, conversión única con vida 250, mordida curada, mordida → zombi, caído auxiliado por un bot, profe que revive a un alumno, aliado fuera, decisiones simultáneas en línea y cliente que manda su decisión, final con Canepa aliado o rechazado, reinicio, sala oscura y mando. Además: `node --check` de los 35 eventos JS del proyecto, `fase40_profesores.py` estable (mismo md5 en pasadas sucesivas) y las APIs usadas existen en el runtime GDJS 5.6.287 instalado.
+**Sin probar**: nada se ejecutó dentro de GDevelop (combate, rutas reales por puertas y muebles, colisiones, dibujo de la interfaz, sonido) ni con dos máquinas en línea.
+
+
+## Fase 41 · Pasillo de la nevería más ancho y monedas solo en modo Jefe (2026-11-17)
+Script: `scripts/fase41_pasillo_y_monedas.py` (idempotente; va después de `fase40_profesores.py`; respaldos `respaldos/antes_de_fase41_*`). Si se vuelve a importar el mapa, correrlo otra vez (también deja corregidos los datos fuente de `mapa/final`).
+
+**Pasillo de piedra entre la nevería (puerta P45) y las Salas 3 y 4**
+- Medía 32 px (1 casilla). El pie de un personaje mide 40 px y la navegación A* pide 18 px de holgura por lado, así que nadie podía pasar.
+- La pared izquierda de las Salas 3 y 4 se recorrió **2 casillas (64 px) a la derecha**. El pasillo queda de **96 px** (x 2016-2112, de y 1376 a 2112) y abierto arriba y abajo. Las salas quedan de 512 px de ancho (antes 576).
+- Cambios: muros (remate de arriba, pared de arriba de Sala 3, pared izquierda, muro entre salas y pared de abajo), fondo visible (`assets/mapa/fondo/fondo_0_1.png` y `fondo_1_1.png`: la piedra y la pared movida), Tilemap oculto (`mapa_fdiz_gdevelop.json` del proyecto) y niebla de Sala 3 y Sala 4.
+- Se quitó la primera columna de computadoras y sillas de cada sala (4 escritorios con su choque), porque quedaba dentro de la pared nueva. El letrero de salida de emergencia de la Sala 4 se recorrió con la pared.
+- Datos fuente actualizados igual: `mapa/final/mapa_fdiz_completo.png`, `mapa_fdiz_gdevelop.json`, `mapa_fdiz.tmj`, `mapa_fdiz_datos.json` (colisiones, zonas y cuartos) y `mapa_fdiz_props.json`. `fuente/construir_mapa.py` y `amueblar.py` **no** se tocaron: si se regenera el mapa desde ahí, hay que volver a correr esta fase.
+- Comprobado: rejilla A* de 16 px con holgura 18 sobre los Muro y ChoqueMueble del proyecto. Desde la nevería se llega por el pasillo a la salida de abajo y a la de arriba, con 4 celdas libres de ancho (antes 0).
+
+**Monedas**
+- Los lockers y mochilas soltaban una moneda (45 %) en todos los modos. La fase 28 quería cambiarla por galletas, pero el proyecto seguía creando la moneda, y ya no hay evento para recogerla (la tienda y el dinero se quitaron).
+- Ahora la moneda solo sale con `Jefe = 1`. En modo escape ese 45 % da galletas (Cura 30), como pretendía la fase 28. Marca `FDIZ-FASE41-MONEDAS`.
+- En modo Jefe la moneda aparece pero sigue sin poder recogerse (no hay evento de recoger); queda como estaba.
+
+**Sin probar** dentro de GDevelop: el recorrido real por el pasillo y cómo se ve la moneda o las galletas en cada modo.

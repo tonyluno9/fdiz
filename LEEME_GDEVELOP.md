@@ -24,7 +24,7 @@ Usa rutas relativas, así que funciona en cualquier carpeta, siempre que se baje
 ## Teclas
 - **Moverse:** WASD.
 - **Pegar:** clic izquierdo.
-- **Usar, revivir, curar o revisar (mantener):** F.
+- **Usar, revivir, curar o revisar (mantener):** F. Junto a un profe (Joel, Justino o Canepa), F o A abre el diálogo para reclutarlo.
 - **Habilidad:** Q.
 - **Especial:** E.
 - **Lanzar:** R o clic derecho.
@@ -53,6 +53,16 @@ python gdevelop/scripts/fases_6_a_11.py gdevelop/FDI-Z/FDI-Z.json mapa/final/map
 python gdevelop/scripts/fase12_mejoras.py gdevelop/FDI-Z/FDI-Z.json mapa/final/mapa_fdiz_datos.json mapa/final/mapa_fdiz_props.json
 ```
 `fase5` regenera los eventos de Juego, así que **siempre** se corren los tres, en ese orden.
+
+Los cambios posteriores (fases 13 a 41) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos son el de los profesores reclutables y el del pasillo de la nevería y las monedas:
+```
+python gdevelop/scripts/fase41_pasillo_y_monedas.py  # pasillo de la nevería de 3 casillas; monedas solo en modo Jefe
+python gdevelop/scripts/fase40_hojas_zombi.py      # (solo si cambian las hojas) hojas de Joel y Canepa zombi -> GIF
+python gdevelop/scripts/fase40_sprites_profes.py   # convierte los GIF de los profes y de los profes zombi a PNG
+python gdevelop/scripts/fase40_profesores.py       # aplica los profes al proyecto (idempotente)
+node gdevelop/scripts/prueba_profes.js             # pruebas de la lógica de los profes (sin GDevelop)
+```
+Arte de los profes zombis: un GIF por animación en `animaciones_gif/profes_zombi/<profe>/` (caminar_lado mirando a la derecha, caminar_arriba, caminar_abajo, atacar_lado, atacar_abajo, golpe_morir; atacar_arriba es opcional). Para cambiarlo, reemplaza el GIF y vuelve a correr los dos últimos scripts con GDevelop cerrado.
 En Windows basta con doble clic en `gdevelop\scripts\reconstruir.bat`: hace un respaldo con fecha y corre los tres. Antes de correrlos, haz una copia de `FDI-Z.json`.
 
 ## Subir tus cambios

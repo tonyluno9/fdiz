@@ -2844,56 +2844,6 @@
 {
 "sprite": "laboratorio/pc_frente",
 "archivo": "mapa/laboratorio/pc_frente.png",
-"x": 2144,
-"y": 1510,
-"capa": "piso",
-"colision": {
-"x": 2112,
-"y": 1470,
-"w": 64,
-"h": 40
-},
-"w": 64,
-"h": 48
-},
-{
-"sprite": "extra/silla_negra_espalda",
-"archivo": "mapa_extra/silla_negra_espalda.png",
-"x": 2144,
-"y": 1546,
-"capa": "piso",
-"colision": null,
-"w": 28,
-"h": 42
-},
-{
-"sprite": "extra/silla_negra_frente",
-"archivo": "mapa_extra/silla_negra_frente.png",
-"x": 2144,
-"y": 1694,
-"capa": "piso",
-"colision": null,
-"w": 29,
-"h": 44
-},
-{
-"sprite": "laboratorio/pc_espalda",
-"archivo": "mapa/laboratorio/pc_espalda.png",
-"x": 2144,
-"y": 1726,
-"capa": "piso",
-"colision": {
-"x": 2112,
-"y": 1686,
-"w": 64,
-"h": 40
-},
-"w": 64,
-"h": 47
-},
-{
-"sprite": "laboratorio/pc_frente",
-"archivo": "mapa/laboratorio/pc_frente.png",
 "x": 2208,
 "y": 1510,
 "capa": "piso",
@@ -3284,56 +3234,6 @@
 {
 "sprite": "laboratorio/pc_frente",
 "archivo": "mapa/laboratorio/pc_frente.png",
-"x": 2144,
-"y": 1862,
-"capa": "piso",
-"colision": {
-"x": 2112,
-"y": 1822,
-"w": 64,
-"h": 40
-},
-"w": 64,
-"h": 48
-},
-{
-"sprite": "extra/silla_negra_espalda",
-"archivo": "mapa_extra/silla_negra_espalda.png",
-"x": 2144,
-"y": 1898,
-"capa": "piso",
-"colision": null,
-"w": 28,
-"h": 42
-},
-{
-"sprite": "extra/silla_negra_frente",
-"archivo": "mapa_extra/silla_negra_frente.png",
-"x": 2144,
-"y": 2046,
-"capa": "piso",
-"colision": null,
-"w": 29,
-"h": 44
-},
-{
-"sprite": "laboratorio/pc_espalda",
-"archivo": "mapa/laboratorio/pc_espalda.png",
-"x": 2144,
-"y": 2078,
-"capa": "piso",
-"colision": {
-"x": 2112,
-"y": 2038,
-"w": 64,
-"h": 40
-},
-"w": 64,
-"h": 47
-},
-{
-"sprite": "laboratorio/pc_frente",
-"archivo": "mapa/laboratorio/pc_frente.png",
 "x": 2208,
 "y": 1862,
 "capa": "piso",
@@ -3704,7 +3604,7 @@
 {
 "sprite": "senaletica/salida_emergencia",
 "archivo": "mapa/senaletica/salida_emergencia.png",
-"x": 2112,
+"x": 2176,
 "y": 1818,
 "capa": "pared",
 "colision": null,

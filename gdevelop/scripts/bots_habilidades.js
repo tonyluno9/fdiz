@@ -7,13 +7,13 @@
   if (V.get("Pausa").getAsNumber() === 1 || V.get("Estado").getAsString() !== "juego") return;
   const sups = scn.getObjects("Sup") || [];
   if (!sups.length) return;
-  const ZN = ["ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZCurado"];
+  const ZN = ["ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZCurado", "ZJoel", "ZJustino", "ZCanepa"];
   const zs = [];
   for (const n of ZN) { const a = scn.getObjects(n); if (a) for (const z of a) { const st = z.getVariables().get("Estado").getAsString(); if (st === "persigue" || st === "ataca") zs.push(z); } }
   const g = (o, n) => o.getVariables().get(n);
   const hist = scn._fdizBotH || (scn._fdizBotH = {});
   for (const s of sups) {
-    if (g(s, "Control").getAsNumber() !== -1 || g(s, "Estado").getAsString() !== "normal") continue;
+    if (g(s, "Control").getAsNumber() !== -1 || g(s, "Estado").getAsString() !== "normal" || g(s, "Jugador").getAsNumber() > 4) continue;
     const sx = s.getX(), sy = s.getY(), who = g(s, "Personaje").getAsString();
     let n120 = 0, n220 = 0, n330 = 0, big = 0, bigNear = 0;
     for (const z of zs) {

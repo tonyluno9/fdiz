@@ -1,0 +1,14 @@
+Arte de Joel convertido en zombi (generado por fase40_sprites_profes.py; no editar a mano).
+Fuente: animaciones_gif/profes_zombi/joel/<animacion>.gif
+
+  caminar_abajo  <- caminar_abajo.gif (4 cuadros)
+  caminar_arriba <- caminar_arriba.gif (4 cuadros)
+  caminar_lado   <- caminar_lado.gif (4 cuadros)
+  atacar_lado    <- atacar_lado.gif (4 cuadros)
+  atacar_abajo   <- atacar_abajo.gif (4 cuadros)
+  golpe_morir    <- golpe_morir.gif (4 cuadros)
+  atacar_arriba  <- derivado de caminar_arriba (4 cuadros)
+
+Para cambiarlo: reemplaza el GIF y, con GDevelop cerrado, corre
+  python gdevelop/scripts/fase40_sprites_profes.py
+  python gdevelop/scripts/fase40_profesores.py

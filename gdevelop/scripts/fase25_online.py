@@ -34,8 +34,9 @@ for n in ("NetSp", "NetDr"):
         sup["variables"].append({"name": n, "type": "number", "value": 0})
 
 # ---- configuración de sincronización
+# Fase 40: el objeto Canepa ya no existe (los tres profes usan Profe); fase40_profesores.py agrega ZJoel/ZJustino/ZCanepa y Prof*.
 TRACK = ["Sup", "ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZCurado", "Golpe", "Salpicadura", "ArmaPiso", "Objetivo", "Bidon", "Bolsa", "Comida",
-         "Aparato", "EfectoPj", "Profe", "Efecto", "Canepa", "LanzPiso", "Proyectil", "Contenedor", "Moneda", "Ruta", "Puerta", "Niebla", "GolpeFx", "Flecha",
+         "Aparato", "EfectoPj", "Profe", "Efecto", "LanzPiso", "Proyectil", "Contenedor", "Moneda", "Ruta", "Puerta", "Niebla", "GolpeFx", "Flecha",
          "TxtDanio", "TxtPrecio", "TxtMordido"]
 TXT = {"TxtDanio", "TxtPrecio", "TxtMordido"}
 objs = []
@@ -55,7 +56,7 @@ quita(TI["events"], MK + "-NUCLEO")
 TI["events"].insert(0, js(codigo, MK + "-NUCLEO"))
 
 # ---- Juego: bloquear lógica en clientes
-LIBRES = {"HUD", "Textos centrados", "Música y sonido de fondo", "Inventario en el panel", "Zona roja del minimapa", "Cámara compartida", "Temblor de cámara", "Interfaz: HUD con paneles"}
+LIBRES = {"HUD", "Textos centrados", "Música y sonido de fondo", "Inventario en el panel", "Zona roja del minimapa", "Cámara compartida", "Temblor de cámara", "Interfaz: HUD con paneles", "Profesores reclutables"}
 NOCLI = c("VarGlobal", "NetRol", "!=", "2")
 SOLOOFF = c("VarGlobal", "NetRol", "=", "0")
 def compuerta(lst, cond):

@@ -374,6 +374,8 @@ G.append(grupo("Final ¡Aguanten!", [
 ]))
 
 # ===== Rescates y Canepa =====
+# NOTA Fase 40: este grupo y el objeto Canepa los reemplaza fase40_profesores.py (profesores reclutables).
+#   Si alguna vez se regenera Juego con esta cadena, correr después fase40_sprites_profes.py y fase40_profesores.py.
 G.append(grupo("Rescates: Joel y Justino", [
     comentario("Tienen miedo y piden ayuda. Salvarlos: mantener Usar 2 s junto a ellos. Costo: tiempo y van lento detrás del "
                "grupo. Recompensa: el equipo se cura 30 al rescatarlos y cuentan en los premios. A los profes no los muerden."),
