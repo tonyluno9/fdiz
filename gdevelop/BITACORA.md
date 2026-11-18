@@ -846,3 +846,18 @@ Script: `scripts/fase41_pasillo_y_monedas.py` (idempotente; va después de `fase
 - En modo Jefe la moneda aparece pero sigue sin poder recogerse (no hay evento de recoger); queda como estaba.
 
 **Sin probar** dentro de GDevelop: el recorrido real por el pasillo y cómo se ve la moneda o las galletas en cada modo.
+
+
+## Fase 42 · Correr con estamina (2026-11-17)
+Script: `scripts/fase42_correr.py` (idempotente; va después de `fase41`; respaldo `respaldos/antes_de_fase42_*.json`). Lógica en `scripts/correr.js` (evento JS `FDIZ-FASE42-MOD`). Pruebas: `node gdevelop/scripts/prueba_correr.js` (13 casos). Si se vuelve a correr `fase5_jugadores.py` o `fase25_online.py`, correr esta fase otra vez.
+
+- Antes, mantener Shift bajaba la velocidad a la mitad ("caminar despacio") y no servía para nada. Ahora **Shift** (izquierdo o derecho), o **LB / L3** en el mando, sirve para **correr**: la velocidad normal × 1.5 (ya con la `Rapidez` de pasivas y efectos). Las piernas se animan 1.35 veces más rápido.
+- **Estamina 15.** Correr gasta 3 por segundo (5 s con la barra llena). Al soltar, tras 0.8 s se recupera a 2.5 por segundo (de vacía a llena en unos 6.8 s). Solo gasta si el personaje se mueve; quieto con Shift no gasta.
+- **Agotado:** si se vacía, no puede volver a correr hasta juntar 5, aunque mantenga o toque el botón. Así no se puede spamear. Los toques cortos tampoco ayudan: cada toque gasta y la espera de 0.8 s vuelve a empezar.
+- **Barra:** en el HUD, pegada al panel de cada jugador y del mismo ancho: debajo de los paneles de arriba (P1 y P2) y encima de los de abajo (P3 y P4). Solo aparece si el panel está visible y se ve siempre, aunque esté llena. Es azul; anaranjada bajo 5; roja y parpadeando cuando está agotado, con una marca blanca en el 5. Tiene divisiones cada 5 de estamina. Se dibuja con el objeto `EstDib`, también en los clientes en línea. Para dejarle lugar, los 3 espacios de inventario (`HudInv`) se recorrieron: arriba de y 186 a 210, abajo de y 858 a 832. La medida de la barra está en `correr.js` → `BARRA` (alto, separación y margen).
+- Solo los 4 personajes principales de pie. Los bots y los profes aliados no corren. La pausa congela la estamina.
+- Valores en `correr.js` → `CFG` (max, gasto, regen, espera, umbral, factor, anim).
+- Variables nuevas en `Sup`: `Estamina`, `Agotado`, `Corre`, `EstPausa`. Las tres primeras se sincronizan en línea.
+- Se quitaron los dos eventos de caminar despacio de "Movimiento y animación" (Shift del teclado y `NetSp` del jugador remoto). El texto de controles del mando ahora dice "LB  correr"; el de teclado ya decía "Shift  correr".
+- **Corrección en línea:** el cliente preguntaba por la tecla 16 para mandar Shift, pero GDevelop la registra como 1016 (izquierda) o 2016 (derecha), así que nunca llegaba. Ahora manda Shift, LB o L3 (`net_core.js` y la copia incrustada en Titulo).
+- **Sin probar** dentro de GDevelop ni con dos máquinas: cómo se siente la velocidad, la barra del HUD con 2 a 4 jugadores y LB/L3 en mandos reales.

@@ -187,14 +187,14 @@
       const sup = slotSup(scn, slot);
       if (sup) { const p = scn.getLayer("").convertCoords(I.getMouseX(), I.getMouseY(), 0); o.ax = p[0] - sup.getX(); o.ay = p[1] - (sup.getY() - 40); o.aim = 1; }
       o.hit = I.isMouseButtonPressed(0) ? 1 : 0; o.use = I.isKeyPressed(70) ? 1 : 0; o.hab = I.isKeyPressed(81) ? 1 : 0; o.esp = I.isKeyPressed(69) ? 1 : 0;
-      o.lz = (I.isKeyPressed(82) || I.isMouseButtonPressed(1)) ? 1 : 0; o.dr = I.isKeyPressed(82) ? 1 : 0; o.sp = I.isKeyPressed(16) ? 1 : 0;
+      o.lz = (I.isKeyPressed(82) || I.isMouseButtonPressed(1)) ? 1 : 0; o.dr = I.isKeyPressed(82) ? 1 : 0; o.sp = (I.isKeyPressed(1016) || I.isKeyPressed(2016) || I.isKeyPressed(16)) ? 1 : 0;
     } else {
       const g = gp(ctl - 1); if (g) {
         const b = (i) => (g.buttons[i] && g.buttons[i].pressed ? 1 : 0);
         o.mx = dz(g.axes[0] || 0); o.my = dz(g.axes[1] || 0);
         const rx = g.axes[2] || 0, ry = g.axes[3] || 0;
         if (Math.abs(rx) + Math.abs(ry) > 0.3) { o.ax = rx; o.ay = ry; o.aim = 1; } else if (Math.abs(o.mx) + Math.abs(o.my) > 0.3) { o.ax = o.mx; o.ay = o.my; o.aim = 1; }
-        o.hit = b(2); o.use = b(0); o.hab = b(3); o.esp = b(5); o.lz = b(1);
+        o.hit = b(2); o.use = b(0); o.hab = b(3); o.esp = b(5); o.lz = b(1); o.sp = (b(4) || b(10)) ? 1 : 0;
       }
     }
     return o;

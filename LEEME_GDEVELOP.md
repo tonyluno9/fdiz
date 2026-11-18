@@ -54,9 +54,11 @@ python gdevelop/scripts/fase12_mejoras.py gdevelop/FDI-Z/FDI-Z.json mapa/final/m
 ```
 `fase5` regenera los eventos de Juego, así que **siempre** se corren los tres, en ese orden.
 
-Los cambios posteriores (fases 13 a 41) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos son el de los profesores reclutables y el del pasillo de la nevería y las monedas:
+Los cambios posteriores (fases 13 a 42) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos son el de los profesores reclutables, el del pasillo de la nevería y las monedas, y el de correr con estamina:
 ```
 python gdevelop/scripts/fase41_pasillo_y_monedas.py  # pasillo de la nevería de 3 casillas; monedas solo en modo Jefe
+python gdevelop/scripts/fase42_correr.py             # Shift / LB / L3 = correr con estamina (lógica en correr.js)
+node gdevelop/scripts/prueba_correr.js               # pruebas de la estamina (sin GDevelop)
 python gdevelop/scripts/fase40_hojas_zombi.py      # (solo si cambian las hojas) hojas de Joel y Canepa zombi -> GIF
 python gdevelop/scripts/fase40_sprites_profes.py   # convierte los GIF de los profes y de los profes zombi a PNG
 python gdevelop/scripts/fase40_profesores.py       # aplica los profes al proyecto (idempotente)
