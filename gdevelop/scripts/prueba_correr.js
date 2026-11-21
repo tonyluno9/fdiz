@@ -8,12 +8,13 @@ function variable(v) {
 }
 function sup(o) {
   const vars = {};
-  const def = { Jugador: 1, Control: 0, Estado: "normal", Estamina: 15, Agotado: 0, Corre: 0, EstPausa: 0, NetSp: 0, Velocidad: 200, Rapidez: 1 };
+  const def = { Jugador: 1, Control: 0, Estado: "normal", Estamina: 15, Agotado: 0, Corre: 0, EstPausa: 0, NetSp: 0, Velocidad: 200, Rapidez: 1, Huye: 0, BotX: 100, BotY: 100, Usando: 0, Atacando: 0 };
   for (const k in def) vars[k] = variable(o && k in o ? o[k] : def[k]);
   const td = { max: 200, moving: true, setMaxSpeed(v) { this.max = v; }, getMaxSpeed() { return this.max; }, isMoving() { return this.moving; } };
   return {
     vars, td, anim: 1, hidden: false,
-    getVariables: () => ({ get: (n) => vars[n] || (vars[n] = variable(0)) }),
+    getVariables: () => ({ get: (n) => vars[n] || (vars[n] = variable(0)), has: (n) => n in vars }),
+    getRuntimeScene() { return this.escena; },
     getBehavior: () => td, setAnimationSpeedScale(s) { this.anim = s; }, isHidden() { return this.hidden; },
     getX: () => 100, getY: () => 100,
     base() { td.max = vars.Velocidad.getAsNumber() * vars.Rapidez.getAsNumber(); },   // el evento de MaxSpeed base
@@ -33,11 +34,12 @@ function escena(sups, paneles) {
   const capa = { convertInverseCoords: (x, y) => [x, y], convertCoords: (x, y) => [x, y] };
   return {
     teclas, dib, setDt(ms) { dt = ms; },
-    getObjects: (n) => (n === "HudPanel" ? paneles : sups),
+    zombis: [],
+    getObjects(n) { return n === "HudPanel" ? paneles : n === "Sup" ? sups : (n.startsWith("Z") ? this.zombis : []); },
     getTimeManager: () => ({ getElapsedTime: () => dt, getTimeFromStart: () => t }),
     getGame: () => ({ getInputManager: () => ({ isKeyPressed: (k) => teclas.has(k) }) }),
     createObject: () => dib, getLayer: () => capa,
-    paso() { t += dt; for (const s of sups) s.base(); gdjs.fdizCorrer.mover(this); gdjs.fdizCorrer.dibujar(this); },
+    paso() { t += dt; for (const s of sups) s.escena = this; for (const s of sups) s.base(); gdjs.fdizCorrer.mover(this); gdjs.fdizCorrer.dibujar(this); },
   };
 }
 
@@ -110,10 +112,38 @@ prueba("Mando (Control 2, LB) corre; mando sin LB no", () => {
 prueba("Jugador remoto en el host (Control -3) corre con NetSp", () => {
   const a = sup({ Control: -3, NetSp: 1 }); const sc = escena([a]); seg(sc, 1); igual(a.vars.Corre.getAsNumber(), 1, "corre");
 });
-prueba("Bots y profes aliados no corren; caído tampoco", () => {
-  const bot = sup({ Control: -1 }), prof = sup({ Jugador: 5 }), caido = sup({ Estado: "caido" });
-  const sc = escena([bot, prof, caido]); sc.teclas.add(1016); seg(sc, 1);
-  for (const s of [bot, prof, caido]) igual(s.vars.Corre.getAsNumber(), 0, "no corre");
+prueba("Profes aliados (Jugador > 4) y caídos no corren", () => {
+  const prof = sup({ Jugador: 5, Control: -1, BotX: 900 }), caido = sup({ Estado: "caido" });
+  const sc = escena([prof, caido]); sc.teclas.add(1016); seg(sc, 1);
+  for (const s of [prof, caido]) igual(s.vars.Corre.getAsNumber(), 0, "no corre");
+});
+prueba("Bot lejos de su meta corre y gasta estamina; cerca no; al llegar se detiene", () => {
+  const lejos = sup({ Jugador: 2, Control: -1, BotX: 900 }), cerca = sup({ Jugador: 3, Control: -1, BotX: 150 });
+  const sc = escena([lejos, cerca]); seg(sc, 1);
+  igual(lejos.vars.Corre.getAsNumber(), 1, "lejos corre"); igual(cerca.vars.Corre.getAsNumber(), 0, "cerca camina");
+  if (!(lejos.vars.Estamina.getAsNumber() < 14)) throw new Error("no gastó estamina");
+  lejos.vars.BotX = variable(150); seg(sc, 0.2); igual(lejos.vars.Corre.getAsNumber(), 0, "llegó");
+});
+prueba("Cada bot (2, 3 y 4) corre al alejarse de SU distancia de parada y deja de correr al llegar a ella", () => {
+  // distancias de parada del evento "Bots": 180 / 225 / 270 px. Los bots empiezan en x=100 y la meta se mueve en X.
+  for (const [j, pare] of [[2, 180], [3, 225], [4, 270]]) {
+    const b = sup({ Jugador: j, Control: -1, BotX: 100 + pare + 100 }); const sc = escena([b]);   // 100 px de exceso: no corre
+    seg(sc, 0.3); igual(b.vars.Corre.getAsNumber(), 0, "bot " + j + " cerca no corre");
+    b.vars.BotX = variable(100 + pare + 400); seg(sc, 0.3); igual(b.vars.Corre.getAsNumber(), 1, "bot " + j + " lejos corre");
+    b.vars.BotX = variable(100 + pare + 10); seg(sc, 0.3); igual(b.vars.Corre.getAsNumber(), 0, "bot " + j + " llegó a su distancia y deja de correr");
+  }
+});
+prueba("Bot con zombi cerca pelea (no corre) salvo que huya", () => {
+  const b = sup({ Jugador: 2, Control: -1, BotX: 900 }); const sc = escena([b]);
+  sc.zombis = [{ getVariables: () => ({ get: () => variable("persigue") }), getX: () => 200, getY: () => 100 }];
+  seg(sc, 0.5); igual(b.vars.Corre.getAsNumber(), 0, "pelea");
+  b.vars.Huye = variable(1); seg(sc, 0.5); igual(b.vars.Corre.getAsNumber(), 1, "huye corre");
+});
+prueba("Bot que se agota no vuelve a correr hasta recuperar el umbral", () => {
+  const b = sup({ Jugador: 2, Control: -1, BotX: 99999, Estamina: 1 }); const sc = escena([b]);
+  seg(sc, 1); igual(b.vars.Corre.getAsNumber(), 0, "con 1 no arranca (mínimo de inicio)");
+  b.vars.Huye = variable(1); seg(sc, 1); igual(b.vars.Agotado.getAsNumber(), 1, "huyó hasta agotarse");
+  b.vars.Huye = variable(0); seg(sc, 1); igual(b.vars.Corre.getAsNumber(), 0, "agotado");
 });
 
 console.log(ok + " correctas, " + mal + " fallidas");

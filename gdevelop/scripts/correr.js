@@ -6,7 +6,7 @@
  *   Shift (izq. o der.) en teclado, LB o L3 (clic del stick izq.) en mando  ->  correr (x CFG.factor).
  *   Correr gasta estamina; al soltar se recupera después de una pausa corta. Si se vacía, el jugador queda "agotado" y
  *   no puede volver a correr hasta juntar CFG.umbral (así no se puede spamear tocando el botón).
- *   Solo gasta si de verdad se mueve. Solo los 4 personajes principales de pie (Jugador <= 4, Estado "normal").
+ *   Solo gasta si de verdad se mueve. Solo los 4 personajes principales de pie (Jugador <= 4, Estado "normal"); los bots corren solos (pideBot).
  *   La pausa congela todo (usa el tiempo de juego escalado).
  *
  * Variables de objeto en Sup (se sincronizan en línea): Estamina (0..CFG.max), Agotado (0/1), Corre (0/1),
@@ -15,8 +15,8 @@
  * El cliente manda Shift / LB en su entrada ("sp" en net_core.js -> NetSp en el host, Control -3). */
 (function (gdjs) {
   "use strict";
-  if (gdjs.fdizCorrer && gdjs.fdizCorrer.VER === 2) return;
-  const C = (gdjs.fdizCorrer = { VER: 2 });
+  if (gdjs.fdizCorrer && gdjs.fdizCorrer.VER === 4) return;
+  const C = (gdjs.fdizCorrer = { VER: 4 });
 
   // ------------------------------------------------------------------ valores (documentados en BITACORA, Fase 42)
   C.CFG = {
@@ -27,6 +27,11 @@
     umbral: 5,      // si se agotó, no vuelve a correr hasta tener esto
     factor: 1.5,    // velocidad corriendo = velocidad normal x factor (Tony: 204 -> 306 px/s)
     anim: 1.35,     // las piernas se mueven más rápido al correr
+    // bots (aliados de los 4 principales): corren solo cuando les conviene
+    botLejos: 150,  // px MÁS ALLÁ de su distancia de parada para empezar a correr y alcanzar al grupo
+    botCerca: 25,   // px más allá de su distancia de parada para dejar de correr (al llegar)
+    botInicio: 7,   // estamina mínima para empezar a correr por alcanzar (huir puede con cualquiera > 0)
+    botZombi: 320,  // con un zombi vivo más cerca que esto pelean: no corren hacia él (solo corren si huyen)
   };
   const LSHIFT = 1016, RSHIFT = 2016, SHIFT = 16;   // GDevelop distingue izquierda/derecha (1000 + código / 2000 + código)
   const PAD_LB = 4, PAD_L3 = 10;
@@ -41,7 +46,35 @@
     if (ctl === 0) { const I = scn.getGame().getInputManager(); return I.isKeyPressed(LSHIFT) || I.isKeyPressed(RSHIFT) || I.isKeyPressed(SHIFT); }
     if (ctl >= 1 && ctl <= 4) { const g = pad(ctl - 1); return boton(g, PAD_LB) || boton(g, PAD_L3); }
     if (ctl === -3) return V(s, "NetSp").getAsNumber() === 1;   // jugador remoto (en el host)
-    return false;                                                // bots y profes no corren
+    if (ctl === -1) return pideBot(s);
+    return false;                                                // los profes aliados (Jugador > 4) no corren
+  }
+
+  // Bots: corren si huyen (Huye = 1) o si van lejos de su meta y no hay un zombi cerca (pelean); histéresis para no parpadear.
+  const ZN = ["ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZCurado", "ZJoel", "ZJustino", "ZCanepa"];
+  function pideBot(s) {
+    const K = C.CFG, v = s.getVariables();
+    if (v.get("Usando").getAsNumber() === 1 || v.get("Atacando").getAsNumber() === 1 ||
+        (v.has("Curando") && v.get("Curando").getAsNumber() === 1) || (v.has("Revivir") && v.get("Revivir").getAsNumber() > 0)) { s.__corrBot = false; return false; }
+    if (v.get("Huye").getAsNumber() === 1) { s.__corrBot = true; return true; }
+    // Cada bot se detiene a una distancia distinta de su meta (evento "Bots": 90 + 45 x Jugador => 180 / 225 / 270 px). Con un
+    // umbral fijo, el bot 4 (el que se queda más lejos) nunca llegaba a dejar de correr ni a volver a empezar. Se mide el exceso.
+    const j = v.get("Jugador").getAsNumber();
+    const pare = j <= 4 ? 90 + 45 * j : 150;
+    const d = Math.hypot(v.get("BotX").getAsNumber() - s.getX(), v.get("BotY").getAsNumber() - s.getY()) - pare;
+    const e = v.get("Estamina").getAsNumber();
+    let on = !!s.__corrBot;
+    if (on && (d < K.botCerca || e <= 0.5)) on = false;
+    else if (!on && d > K.botLejos && e >= K.botInicio) on = true;
+    if (on) {   // peleando (zombi vivo cerca): no corre hacia él
+      const scn = s.getRuntimeScene();
+      for (const n of ZN) for (const z of (scn.getObjects(n) || [])) {
+        if (z.getVariables().get("Estado").getAsString() === "muerto") continue;
+        if (Math.hypot(z.getX() - s.getX(), z.getY() - s.getY()) < K.botZombi) { on = false; break; }
+      }
+    }
+    s.__corrBot = on;
+    return on;
   }
 
   // Host / sin red: después del evento que pone MaxSpeed = Velocidad x Rapidez.
