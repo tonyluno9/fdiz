@@ -863,7 +863,7 @@ Script: `scripts/fase42_correr.py` (idempotente; va después de `fase41`; respal
 - **Sin probar** dentro de GDevelop ni con dos máquinas: cómo se siente la velocidad, la barra del HUD con 2 a 4 jugadores y LB/L3 en mandos reales.
 
 
-## Fase 55 · Modo Historia: 5 objetivos fijos en orden (2026-11-20)
+## Fase 55 · Modo Historia: 5 objetivos fijos en orden (2026-11-20; desde la fase 61 son 6 misiones: ver abajo)
 Scripts: `scripts/fase55_ilus_historia.py` (ilustración provisional de la tarjeta, una vez) y `scripts/fase55_historia.py` (idempotente; va después de `fase54` de cesar; respaldo `respaldos/antes_de_fase55_*.json`). Pruebas: `python gdevelop/scripts/prueba_historia.py` (17 casos). Si se vuelve a correr una fase que regenere eventos del Menú o de Juego, correr esta fase otra vez.
 
 **Cómo se juega**
@@ -1057,7 +1057,7 @@ Sus WAV locales se borraron, y todas las referencias en los eventos, el JS incru
 **Sin probar:** escucharlos dentro de GDevelop.
 
 
-## Fase 59 · Revólver (tipo sheriff) y escopeta (2026-11-20)
+## Fase 59 · Revólver (tipo sheriff) y escopeta (2026-11-20; desde la fase 62: sheriff con 4 balas y en la Dirección, y pistola pequeña inicial: ver abajo)
 Scripts: `scripts/fase59_arte_armas.py` (arte y sonidos, solo Pillow) y `scripts/fase59_armas_fuego.py` (proyecto; idempotente; va después de `fase58`; respaldo `respaldos/antes_de_fase59_*.json`). Pruebas: `python gdevelop/scripts/prueba_armas_fuego.py` (7 casos).
 
 **Integración con el sistema de armas que ya existía**
@@ -1199,3 +1199,135 @@ Script: `scripts/fase60_sonidos2d.py`. Es idempotente; se corre con `python -I g
 - Las monedas del modo Jefe todavía no tienen evento para recogerlas; cuando lo tengan, sonarán solas.
 
 **Sin probar:** escucharlo dentro de GDevelop. Tampoco se probó que la vista previa y la exportación encuentren los archivos fuera de la carpeta del proyecto (`../../sonidos/`).
+
+
+## Fase 61 · Historia: hablar con Canepa en el camión antes de la gasolina (2026-11-22)
+Scripts, ambos idempotentes y en este orden:
+- `scripts/fase55_historia.py` (actualizado): el orden, el HUD, el letrero, el punto de la misión y el evento que abre la charla.
+- `scripts/fase61_canepa.py` (nuevo): la charla con burbujas, en `scripts/canepa.js`.
+
+Pruebas:
+- `node gdevelop/scripts/prueba_canepa.js` (18 casos).
+- `python gdevelop/scripts/prueba_historia.py` (21 casos).
+
+Respaldo: `respaldos/antes_de_fase61_*.json`.
+
+**Orden de Historia (6 misiones).** Las cuatro primeras no cambian.
+
+| # | Misión | Se cumple con |
+|---|---|---|
+| 1 | Llamar desde la computadora del CIC | Mantener F 20 s |
+| 2 | Activar los 3 interruptores del CIC | Los tres interruptores |
+| 3 | Llaves del conserje | Las toma un jugador |
+| 4 | Llevar comida a la nevería | Entregar la bolsa |
+| 5 | **Hablar con el profe Canepa en el camión** | Mantener F 0.6 s junto a Canepa (544, 3328); al terminar el diálogo se cumple |
+| 6 | Buscar la gasolina: 3 bidones al camión | Igual que antes |
+| — | Final ¡Aguanten! | Igual que antes |
+
+- **HUD:** «Objetivo 5/6 · Hablen con el profe Canepa en el camión».
+- **Letrero:** «OBJETIVO 5/6 · HABLAR CON CANEPA EN EL CAMIÓN».
+- **Indicación:** «Mantén F para hablar con Canepa».
+- **Menú:** la tarjeta dice «6 misiones».
+- **Una sola vez:** `CanepaCharla` pasa de 0 a 1 a 2 y nunca vuelve. El evento que abre la charla pide `CanepaCharla = 0`, y el punto de la misión se borra al usarlo. Volver a mantener F o repetir la interacción no hace nada.
+- **Misión cumplida:** `canepa.js` pone `Paso = 99` solo al pasar de 1 a 2. Después siguen el letrero de cumplido, la pausa de 2.5 s y la gasolina.
+
+**La charla (`canepa.js`)**
+- **Mundo congelado.** El host (o el juego sin red) pone `Estado = "dialogo"` y `TimeScale = 0`, así que zombis, bots, tiempos y profes se detienen. La pausa no se puede abrir porque pide `Estado = "juego"`.
+- **Sin control.** Los jugadores humanos, locales y remotos, quedan con `Control = -2`, como en la intro. Al terminar se devuelve todo como estaba.
+- **Saltar líneas.** Las líneas van en orden y cada una dura lo que tarda leerla: 2.4–6.5 s. F, Enter, Espacio, clic o A la adelantan después de 0.6 s. Mantener la tecla no salta más de una.
+- **En línea.** `CanepaCharla`, `CinLinea` y `CinHabla` viajan a los clientes, que dibujan la misma burbuja.
+- **Quién habla.** Las líneas de Canepa las dice el profe (instancia `Profe` «canepa»). Las de Tony y Miranda, ellos si están en el equipo. Si no, las dice otro del equipo, primero los que están de pie; la burbuja muestra el nombre de quien habla.
+- **Burbujas.** Tienen el estilo de las de los profes: `TxtProfe` sobre `ProfPanel`, nombre en amarillo y una colita (`DlgDib`, objeto nuevo copiado de `ProfDib`).
+  - Van encima de la cabeza de quien habla.
+  - Si ahí tapan el HUD (paneles, letrero, ayuda, minimapa), una cara o el letrero visible, se corren a un lado o bajan a los pies.
+  - Solo hay una a la vez y se retira al terminar.
+- **Reclutamiento.** Mientras `CanepaCharla < 2`, en Historia `usar.js` y `profes.js` no ofrecen a Canepa para reclutar. Así nadie lo rechaza ni lo vuelve zombi antes de la charla. Después se le puede reclutar como siempre, y en Escape y Jefe no cambia nada.
+
+**Diálogo (en este orden)**
+1. Canepa: «¡Llegaron! Necesito ayuda. El autobús no puede salir.»
+2. Tony: «¿Qué pasó?»
+3. Canepa: «No queda suficiente gasolina. Sin combustible no podremos alejarnos del campus.»
+4. Miranda: «Acabamos de distraer a la horda. Podemos buscar gasolina.»
+5. Canepa: «Gracias. Revisen el campus, pero tengan cuidado.»
+6. Tony: «De acuerdo. Vamos a encontrarla.»
+
+**Voces**
+- En el proyecto no hay voces: no hay ningún recurso de voz.
+- `audios_fish/` tiene 76 WAV de Alan, Castillo, César, Miranda y Tony, y cada carpeta trae una `lista.txt` con la frase de cada archivo. Ninguno dice estas líneas: son de otras situaciones (caer, revivir, escapar, abrir puertas…).
+- Canepa es profe y no tiene voz: sus líneas van solo con texto, como se pidió.
+- Ninguna línea quedó con audio. Las burbujas funcionan solas.
+
+| Línea | Personaje | Archivo |
+|---|---|---|
+| 1, 3, 5 | Canepa | — (profe, sin voz: omitido) |
+| 2 «¿Qué pasó?» | Tony | **falta** |
+| 4 «Acabamos de distraer a la horda…» | Miranda | **falta** |
+| 6 «De acuerdo. Vamos a encontrarla.» | Tony | **falta** |
+
+**Cuando lleguen las voces**
+- Se registran en `C.VOCES` de `canepa.js`, por ejemplo `C.VOCES[1] = { pj: "tony", archivo: "<recurso>" }`, después de importar el archivo como recurso.
+- Suenan en un solo canal (7), así que no se enciman. La línea espera a que termine la voz (máximo 10 s).
+- Si otro personaje dice esa línea, la voz no se usa.
+- Si el archivo falta o no carga, la línea sigue con texto.
+
+**Sin cambios:** Escape (tres semillas, igual que el respaldo anterior a la fase 55), Jefe, las misiones 1–4, el final y el resto de `profes.js` y `usar.js`. Los recursos no se tocaron.
+
+**Sin probar:** jugarlo dentro de GDevelop (posición real de las burbujas con la cámara y el texto de verdad) y en línea con dos máquinas.
+
+
+## Fase 62 · Uso de las armas: pistola pequeña inicial, mira, munición en el HUD y animación con pistola (2026-11-22)
+Todos los modos: Escape, Historia y Jefe; sin red, host y clientes. Scripts:
+- `scripts/fase59_armas_fuego.py` (actualizado): datos de las armas, disparo y lugar del sheriff. Ahora reescribe valores en cada corrida.
+- `scripts/fase62_arte_pistola.py` (nuevo, solo Pillow): mira y animaciones placeholder.
+- `scripts/fase62_armas_uso.py` (nuevo, idempotente): integración. La lógica está en `scripts/armas.js`.
+
+Pruebas:
+- `node gdevelop/scripts/prueba_armas.js` (11 casos).
+- `python gdevelop/scripts/prueba_armas_fuego.py` (7 casos; ahora revisa también al sheriff).
+
+Respaldo: `respaldos/antes_de_fase62_*.json`.
+
+**Munición.** Es la regla que ya existía: `Usos` = balas, 1 por disparo y al llegar a 0 vuelven los puños. **No hay recarga**, así que no se inventaron reservas.
+
+| Arma (`Sup.Arma`) | Balas | Daño | Alcance | Cadencia | Cómo se consigue |
+|---|---|---|---|---|---|
+| `pistolita` (pistola pequeña) | 9 | 12 por bala | 2.0 (~500 px) | 0.4 s | Inicial del **jugador 1** (solo él), en todos los modos |
+| `pistola` (revólver sheriff) | **4** (antes 6) | 24 por bala | 2.4 (~600 px) | 0.55 s | En el piso de la **Dirección**, en (3400, 4470), detrás de la puerta P47 (3296, 4544) |
+| `escopeta` | 6 | 9 × 5 perdigones | 1.2 (~270 px) | 0.95 s | Conserjería, en (5136, 650), sin cambios |
+
+- **Pistola pequeña:** dispara una bala con el mismo sonido del revólver, pero con pitch 1.3. Su ícono en el HUD es `ico128_arma_pistola.png`, que ya estaba en el repo sin usarse.
+- **Mientras tenga la pistola:** el jugador 1 no recoge otra arma, porque la regla de siempre solo deja recoger con los puños.
+- **En la intro:** el jugador 1 ya no recibe la regla, porque no tiene los puños. La silla y la escoba siguen en el piso, pero la línea «¡Agarra la regla!» del diálogo de la intro quedó igual.
+- **Sheriff:** queda dentro de la Dirección, sin encimarse con los muebles ni con el bate del botín raro, y un jugador puede llegar a él. La puerta P47 es restringida: se entra derribándola o con Carlos.
+
+**Mira (indicador de apuntado)**
+- Es una cruz hueca de 11 × 11 px (`generado/sprites/objetos/armas/mira.png`) con contorno oscuro. No tapa lo que hay debajo.
+- Va a 78 px del arma, hacia donde apunta el jugador (`AimX`, `AimY`).
+- Si queda sobre un personaje o un zombi se vuelve más transparente (opacidad 110 en vez de 210).
+- **Cuándo se ve:** solo para jugadores, no para bots, de pie, con arma de fuego y balas, en juego.
+- **Cuándo se esconde:** en pausa, en la intro y en la charla con Canepa. Cada máquina dibuja la suya y no viaja por la red.
+
+**Munición en el HUD**
+- En el panel de cada jugador aparece el número de balas a la derecha del ícono del arma (`TxtBalas`, mismo estilo que los tiempos de las habilidades). Se pone rojo con 2 o menos.
+- Debajo del ícono se ve el cargador completo con una marca por bala (`BalasDib`): las que quedan en dorado y las gastadas en gris.
+- Solo aparece con armas de fuego, y no en la intro ni si el panel del jugador está oculto.
+
+**Animaciones (placeholders)**
+- Al disparar con pistola, pequeña o sheriff, de lado o hacia abajo, se usa `<personaje>_pistola_lado` o `<personaje>_pistola_abajo`, en lugar de `_pegar_` (`armas.js` las cambia en el host y llegan a los clientes por la red).
+- Se hicieron para los 12 personajes de `Sup`: los 8 alumnos, Tony gym y los 3 profes.
+- **Cómo se hicieron:**
+  - De lado: el cuadro del brazo estirado de `pegar_lado`, con una pistola de 13 × 8 px en el puño.
+  - Hacia abajo: la guardia de frente de `pegar_abajo`, con la pistola de frente en el puño derecho.
+  - Tres cuadros en total; el del medio tiene retroceso de 1 px y fogonazo.
+- Tienen el mismo origen y la misma máscara de colisión que la base.
+- **Respaldo (fallback):**
+  - Hacia arriba no hay animación de pistola: se queda `pegar_arriba`.
+  - Con la escopeta sigue la de pegar.
+  - Si a un personaje le faltara la animación, GDevelop no la cambia y sigue la de pegar. Nunca queda invisible ni detenido.
+
+**Recursos**
+- Nuevos: `mira.png` y 72 cuadros `pistola_lado/abajo_00..02.png`, en la carpeta de cada personaje en `generado/sprites`.
+- Se generó `objetos/armas/pistolita.png` para un futuro sprite de piso, pero no se registró porque ningún objeto la usa.
+- No se borró ningún recurso.
+
+**Sin probar:** jugarlo dentro de GDevelop (cómo se ven la mira, el número y las animaciones en movimiento) y en línea.

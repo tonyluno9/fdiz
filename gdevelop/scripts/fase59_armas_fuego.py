@@ -1,4 +1,6 @@
-"""Fase 59 · Revólver (tipo sheriff) y escopeta como armas del piso. Idempotente.
+"""Fase 59 · Armas de fuego: pistola pequeña (inicial del jugador 1), revólver sheriff y escopeta. Idempotente.
+(2026-11-22: se agregó la pistola pequeña "pistolita", el sheriff pasó a 4 balas y se colocó en la Dirección; la fase
+vuelve a escribir valores, munición y disparos en cada corrida, así que actualiza un proyecto con la versión anterior.)
 
 Uso (desde la carpeta fdiz, con GDevelop CERRADO):
     python gdevelop/scripts/fase59_arte_armas.py      # (una vez) arte y sonidos
@@ -18,7 +20,8 @@ Usa el sistema de armas que ya existe (grupo "Armas del salón" y "Combate: pega
 
 | Arma | Usos (munición) | DanioArma | Alcance | Cadencia |
 |---|---|---|---|---|
-| pistola (revólver) | 6 | 24 por bala | 2.4 (~600 px) | 0.55 s |
+| pistolita (pistola pequeña, inicial del jugador 1: fase 62) | 9 | 12 por bala | 2.0 (~500 px) | 0.4 s |
+| pistola (revólver sheriff) | 4 | 24 por bala | 2.4 (~600 px) | 0.55 s |
 | escopeta | 6 | 9 por perdigón x 5 | 1.2 (~270 px) | 0.95 s |
 (para comparar: bate 21 / 1.25 / 0.5 s, 24 usos; minigun de Miranda 6 / 0.1 s)
 """
@@ -31,18 +34,22 @@ REL = "../../generado/sprites/"
 MK = "FDIZ-FASE59"
 
 ARMAS = {   # Tipo: (Usos, DanioArma, Alcance, Cadencia)
-    "pistola": (6, 24, 2.4, 0.55),
+    "pistolita": (9, 12, 2.0, 0.4),
+    "pistola": (4, 24, 2.4, 0.55),
     "escopeta": (6, 9, 1.2, 0.95),
 }
 DISPARO = {  # Tipo: (proyectil, velocidad px/s, ángulos de los proyectiles, sonido, empuje)
+    "pistolita": ("bala", 1000, [0], "efectos/combate/revolver.wav", -80),
     "pistola": ("bala", 1000, [0], "efectos/combate/revolver.wav", -120),
     "escopeta": ("perdigon", 900, [-12, -6, 0, 6, 12], "efectos/combate/escopeta.wav", -90),
 }
 # Dónde están (pies del arma: origen abajo al centro, como las demás ArmaPiso). None = falta ubicarla.
 POS = {
     "escopeta": (5136, 650),     # conserjería, a la derecha de las llaves (5056, 640) y antes del bote de basura
-    "pistola": None,             # sala de la imagen de referencia: pendiente
+    "pistola": (3400, 4470),     # sheriff: Dirección (puerta P47 en 3296, 4544), piso libre a la derecha de la silla de visitas
 }
+TONO = {"pistolita": "1.3"}      # pitch del disparo (la pistola pequeña suena más aguda con el mismo archivo)
+ICONO = {"pistolita": ("ui_hud/ico128_arma_pistola.png", "assets/interfaz/hud/ico128_arma_pistola.png")}   # HUD: recurso que ya existía
 
 
 def c(tipo, *p, inv=False):
@@ -122,6 +129,12 @@ def main():
     for x in ob["HudIcono"]["animations"]:
         if x["name"] == "pistola":
             x["directions"][0]["sprites"][0]["image"] = "p48_ico_revolver"
+    for tipo, (nombre, archivo) in ICONO.items():
+        recurso(d, nombre, archivo)
+        if not any(x["name"] == tipo for x in ob["HudIcono"]["animations"]):
+            n = copy.deepcopy(next(x for x in ob["HudIcono"]["animations"] if x["name"] == "pistola"))
+            n["name"] = tipo; n["directions"][0]["sprites"][0]["image"] = nombre
+            ob["HudIcono"]["animations"].append(n); hecho.append("HudIcono/" + tipo)
     for nombre in ("efectos/combate/revolver.wav", "efectos/combate/escopeta.wav"):
         if not any(r["name"] == nombre for r in d["resources"]["resources"]):
             d["resources"]["resources"].append({"file": nombre, "kind": "audio", "metadata": "", "name": nombre, "userAdded": True})
@@ -134,19 +147,26 @@ def main():
     raiz = GA["events"][0]["events"]                                   # dentro de "NetRol != 2 y Pausa = 0"
     recoge = next(e for e in recorrer(raiz) if es(e, "ModVarObjetTxt", ["Sup", "Arma", "=", "ArmaPiso.VariableString(Tipo)"]))
     for tipo, (usos, _, _, _) in ARMAS.items():
-        if not any(es(s, "VarObjetTxt", ["Sup", "Arma", "=", '"%s"' % tipo]) for s in recoge["events"]):
+        ya = next((s for s in recoge["events"] if es(s, "VarObjetTxt", ["Sup", "Arma", "=", '"%s"' % tipo])), None)
+        if ya is None:
             k = len(recoge["events"]) - 1                                   # antes del Delete ArmaPiso
             recoge["events"].insert(k, std([c("VarObjetTxt", "Sup", "Arma", "=", '"%s"' % tipo)], [a("ModVarObjet", "Sup", "Usos", "=", str(usos))]))
+        else:
+            ya["actions"] = [a("ModVarObjet", "Sup", "Usos", "=", str(usos))]
     if not marcado(raiz, "VALORES"):
         k = next(i for i, e in enumerate(raiz) if es(e, "VarObjetTxt", ["Sup", "Arma", "=", '"puños"']) and es(e, "ModVarObjet", ["Sup", "DanioArma"]))
         nuevos = [comentario(MK + "-VALORES · Armas de fuego: Usos = munición, DanioArma por proyectil, Alcance -> distancia del disparo, Cadencia entre disparos."),
                   std([], [a("ModVarObjet", "Sup", "ArmaFuego", "=", "0")])]
         raiz[k:k] = nuevos
-        for tipo, (_, danio, alcance, cad) in ARMAS.items():
-            raiz.append(std([c("VarObjetTxt", "Sup", "Arma", "=", '"%s"' % tipo)],
-                            [a("ModVarObjet", "Sup", "DanioArma", "=", str(danio)), a("ModVarObjet", "Sup", "Alcance", "=", str(alcance)),
-                             a("ModVarObjet", "Sup", "Cadencia", "=", str(cad)), a("ModVarObjet", "Sup", "ArmaFuego", "=", "1")]))
         hecho.append("valores")
+    for tipo, (_, danio, alcance, cad) in ARMAS.items():
+        acts = [a("ModVarObjet", "Sup", "DanioArma", "=", str(danio)), a("ModVarObjet", "Sup", "Alcance", "=", str(alcance)),
+                a("ModVarObjet", "Sup", "Cadencia", "=", str(cad)), a("ModVarObjet", "Sup", "ArmaFuego", "=", "1")]
+        ya = next((e for e in raiz if es(e, "VarObjetTxt", ["Sup", "Arma", "=", '"%s"' % tipo]) and es(e, "ModVarObjet", ["Sup", "ArmaFuego", "=", "1"])), None)
+        if ya is None:
+            raiz.append(std([c("VarObjetTxt", "Sup", "Arma", "=", '"%s"' % tipo)], acts))
+        else:
+            ya["actions"] = acts
 
     # ---------------- disparar (Combate: pegar)
     GC = next(e for e in ev if e.get("type", "").endswith("Group") and e.get("name") == "Combate: pegar")
@@ -156,7 +176,10 @@ def main():
     melee = next(e for e in sub if e.get("type", "").endswith("ForEach") and e.get("object") == "Zombies")
     if not es(melee, "VarObjet", ["Sup", "ArmaFuego"]):
         melee["conditions"].append(c("VarObjet", "Sup", "ArmaFuego", "=", "0")); hecho.append("sin golpe cuerpo a cuerpo con armas de fuego")
-    if not marcado(sub, "DISPARO"):
+    if True:                                                           # se rehace en cada corrida (valores al día)
+        if marcado(sub, "DISPARO"):
+            i = next(i for i, x in enumerate(sub) if x.get("type", "").endswith("Comment") and x.get("comment", "").startswith(MK + "-DISPARO"))
+            del sub[i:i + 2]
         k = next(i for i, e in enumerate(sub) if es(e, "ModVarObjet", ["Golpe", "Danio"])) + 1
         disparos = []
         for tipo, (proy, vel, angs, sonido, _) in DISPARO.items():
@@ -174,8 +197,8 @@ def main():
                          a("AddForceAL", "Proyectil", angulo, str(vel), "1"),
                          a("ResetObjectTimer", "Proyectil", '"vida"')]
             disparos.append(std([c("VarObjetTxt", "Sup", "Arma", "=", '"%s"' % tipo)], acts,
-                                [std([c("VarGlobal", "SonidoActivo", "=", "1")], [a("PlaySound", "", sonido, "", "70", "1")])]))
-        sub[k:k] = [comentario(MK + "-DISPARO · Revólver y escopeta: en vez del golpe, proyectiles (objeto Proyectil de los lanzables)."),
+                                [std([c("VarGlobal", "SonidoActivo", "=", "1")], [a("PlaySound", "", sonido, "", "70", TONO.get(tipo, "1"))])]))
+        sub[k:k] = [comentario(MK + "-DISPARO · Pistola pequeña, revólver y escopeta: en vez del golpe, proyectiles (objeto Proyectil de los lanzables)."),
                     std([c("VarObjet", "Sup", "ArmaFuego", "=", "1")], [a("Delete", "Golpe", ""), a("Delete", "GolpeFx", "")], disparos)]
         hecho.append("disparo")
 

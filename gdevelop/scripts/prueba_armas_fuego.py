@@ -70,9 +70,10 @@ def instancias(tipo):
 # ---------------- arte, íconos y sonido
 def t_recursos():
     for tipo in ARMAS:
-        an = next((a for a in ob["ArmaPiso"]["animations"] if a["name"] == tipo), None)
-        assert an, "ArmaPiso sin animación " + tipo
-        assert os.path.exists(archivo(an["directions"][0]["sprites"][0]["image"])), "falta el sprite de " + tipo
+        if tipo in POS:                     # las del piso (la pistola pequeña no: la trae el jugador 1 desde el inicio)
+            an = next((a for a in ob["ArmaPiso"]["animations"] if a["name"] == tipo), None)
+            assert an, "ArmaPiso sin animación " + tipo
+            assert os.path.exists(archivo(an["directions"][0]["sprites"][0]["image"])), "falta el sprite de " + tipo
         hud = next(a for a in ob["HudIcono"]["animations"] if a["name"] == tipo)
         assert os.path.exists(archivo(hud["directions"][0]["sprites"][0]["image"])), "falta el ícono " + tipo
     assert next(a for a in ob["HudIcono"]["animations"] if a["name"] == "pistola")["directions"][0]["sprites"][0]["image"] == "p48_ico_revolver"
@@ -81,6 +82,7 @@ def t_recursos():
         assert sonido in res and os.path.exists(os.path.join(PROY, *res[sonido]["file"].split("/"))), "falta " + sonido
 prueba("Sprites de piso, íconos del HUD (pistola = revólver), proyectiles y sonidos existen", t_recursos)
 
+DIRECCION = (3200, 4256, 3456, 4544)            # sala de la puerta P47 (3296, 4544)
 # ---------------- la escopeta junto a las llaves
 LLAVES = (5056, 640)
 CONSERJERIA = (4896, 544, 5216, 768)
@@ -103,7 +105,7 @@ def t_escopeta_lugar():
 prueba("Escopeta en la conserjería, junto a las llaves sin taparlas, fuera de muros, muebles y puertas", t_escopeta_lugar)
 
 
-def t_alcanzable():
+def alcanzable(tipo):
     """Pies del jugador (40 x 16) con la regla de choque real. Las puertas se abren con F o se derriban (la de la
     conserjería es restringida: a golpes o con Carlos), así que no cuentan como pared."""
     G, MX, MY = 8, 20, 16
@@ -122,13 +124,13 @@ def t_alcanzable():
         i = q.popleft()
         for j in (i - 1, i + 1, i - W, i + W):
             if 0 <= j < W * H and not seen[j] and not bl[j]: seen[j] = 1; q.append(j)
-    i = instancias("escopeta")[0]; r = rect_sprite("ArmaPiso", "escopeta", i["x"], i["y"])
+    i = instancias(tipo)[0]; r = rect_sprite("ArmaPiso", tipo, i["x"], i["y"])
     # se recoge al tocar el arma con la caja de los pies: algún lugar alcanzable cuya caja la toque
     toca = any(seen[cy * W + cx] for cy in range(int(r[1] // G), int((r[3] + MY) // G) + 1)
                for cx in range(int((r[0] - MX) // G), int((r[2] + MX) // G) + 1)
                if 0 <= cx < W and 0 <= cy < H and cruza(((cx + .5) * G - MX, (cy + .5) * G - MY, (cx + .5) * G + MX, (cy + .5) * G), r))
-    assert toca, "ningún lugar alcanzable toca la escopeta"
-prueba("Un jugador puede llegar a tocarla (se recoge pasando encima, como las demás)", t_alcanzable)
+    assert toca, "ningún lugar alcanzable toca " + tipo
+prueba("Un jugador puede llegar a tocarla (se recoge pasando encima, como las demás)", lambda: alcanzable("escopeta"))
 
 # ---------------- reglas del sistema de armas
 def t_recoger_y_valores():
@@ -186,9 +188,17 @@ def t_revolver():
         assert not instancias("pistola")
     else:
         i = instancias("pistola"); assert len(i) == 1
+        idx = next(p["value"] for p in i[0]["numberProperties"] if p["name"] == "animation")
+        assert ob["ArmaPiso"]["animations"][idx]["name"] == "pistola", "la instancia mostraría otra animación"
         r = rect_sprite("ArmaPiso", "pistola", i[0]["x"], i[0]["y"])
+        assert DIRECCION[0] <= r[0] and r[2] <= DIRECCION[2] and DIRECCION[1] <= r[1] and r[3] <= DIRECCION[3], "fuera de la Dirección: %s" % (r,)
         assert not [s for s in solidos if cruza(r, s)] and not [m for m in muebles if cruza(r, m[1])], "revólver encimado"
-prueba("Revólver: colocado (o pendiente de la imagen) sin encimarse", t_revolver)
+        otras = [x for x in J["instances"] if x["name"] == "ArmaPiso" and x is not i[0]]
+        for o in otras:
+            t = next(v["value"] for v in o["initialVariables"] if v["name"] == "Tipo")
+            assert not cruza(r, rect_sprite("ArmaPiso", t, o["x"], o["y"]), 8), "pegado a otra arma del piso (%s)" % t
+        alcanzable("pistola")
+prueba("Sheriff (revólver, 4 balas): en la Dirección (puerta P47), sin encimarse con muebles ni con el bate, y se puede alcanzar", t_revolver)
 
 print("%d correctas, %d fallidas" % (ok, mal))
 sys.exit(1 if mal else 0)

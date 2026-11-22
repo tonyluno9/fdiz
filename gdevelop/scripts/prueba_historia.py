@@ -41,7 +41,7 @@ class Sim:
         self.primero = True
         self.once = {}
         self.rnd = random.Random(semilla)
-        self.sonidos, self.creados, self.letreros = [], [], []
+        self.sonidos, self.creados, self.letreros, self.charlas = [], [], [], []
 
     # ---------------- expresiones
     CACHE = {}
@@ -241,12 +241,12 @@ def jugar(sim, max_s=240, doble_bidon=True):
     """Completa objetivos como lo haría un jugador: mantiene Usar en el objetivo activo (lo marca hecho) y recoge
     bidones y bolsas. Devuelve la lista de ObjTipo en el orden en que se activaron."""
     tipos = []
-    ultimo = None
+    ultimo = sim.V.get("_ultimo")
     tocar_par = doble_bidon
     while sim.t < max_s and sim.V.get("Estado") == "juego":
         sim.paso()
         if sim.V.get("ObjIni") == 1 and sim.V.get("ObjTipo") != ultimo:
-            ultimo = sim.V.get("ObjTipo"); tipos.append(ultimo)
+            ultimo = sim.V.get("ObjTipo"); tipos.append(ultimo); sim.V["_ultimo"] = ultimo
         if sim.V.get("ObjTipo") == "final":
             if sim.V.get("FinalActivo", 0) == 0 and any(o.n == "Objetivo" for o in sim.objs):
                 sim.V["FinalActivo"] = 1; sim.timers["final"] = sim.t       # alguien llega al camión
@@ -261,6 +261,11 @@ def jugar(sim, max_s=240, doble_bidon=True):
         bol = [o for o in sim.objs if o.n == "Bolsa"]
         if bol:
             bol[0].tocado = True
+            continue
+        if sim.V.get("CanepaCharla", 0) == 1:
+            # la charla con Canepa (canepa.js, que esta prueba no corre): al terminar el diálogo pone Paso = 99 y CanepaCharla = 2
+            sim.charlas.append(round(sim.t, 2))
+            sim.V["Paso"] = 99; sim.V["CanepaCharla"] = 2
             continue
         objetivo = [o for o in sim.objs if o.n == "Objetivo" and o.v.get("Hecho", 0) == 0]
         if objetivo and int(sim.t * 60) % 30 == 0:
@@ -286,7 +291,7 @@ def main():
     # ---------------- Historia
     sim = Sim(d["layouts"], "historia", 1)
     tipos = jugar(sim)
-    prueba("Historia: 5 objetivos en el orden pedido y luego el final", tipos == ["llamada", "luz", "llaves", "carnada", "gasolina", "final"], tipos)
+    prueba("Historia: 6 misiones en el orden pedido y luego el final", tipos == ["llamada", "luz", "llaves", "carnada", "canepa", "gasolina", "final"], tipos)
     prueba("Historia: termina en victoria", sim.V.get("Estado") == "victoria", sim.V.get("Estado"))
     servidor = [c for c in sim.creados if c[1] == "Objetivo" and (c[2], c[3]) == (3616.0, 1476.0)]
     compu = [c for c in sim.creados if c[1] == "Objetivo" and (c[2], c[3]) == (3136.0, 1760.0)]
@@ -302,18 +307,25 @@ def main():
     sim.letreros = sorted(vis.items())
     cumplidos = [l for l in sim.letreros if "CUMPLIDO" in l[1]]
     nuevos = [l for l in sim.letreros if l[1].startswith("OBJETIVO ")]
-    prueba("Señal al cumplir cada objetivo: ¡OBJETIVO n/5 CUMPLIDO! (5 veces, una por objetivo)",
-           [l[1] for l in cumplidos] == ["¡OBJETIVO %d/5 CUMPLIDO!" % n for n in range(1, 6)], [l[1] for l in cumplidos])
-    prueba("Señal al activar cada objetivo: OBJETIVO n/5 · ... (5 veces)", [l[1][:15] for l in nuevos] == ["OBJETIVO %d/5 · " % n for n in range(1, 6)], [l[1] for l in nuevos])
+    prueba("Señal al cumplir cada misión: ¡OBJETIVO n/6 CUMPLIDO! (6 veces, una por misión)",
+           [l[1] for l in cumplidos] == ["¡OBJETIVO %d/6 CUMPLIDO!" % n for n in range(1, 7)], [l[1] for l in cumplidos])
+    prueba("Señal al activar cada misión: OBJETIVO n/6 · ... (6 veces)", [l[1][:15] for l in nuevos] == ["OBJETIVO %d/6 · " % n for n in range(1, 7)], [l[1] for l in nuevos])
+    prueba("Misión 5: OBJETIVO 5/6 · HABLAR CON CANEPA EN EL CAMIÓN", any(l[1] == "OBJETIVO 5/6 · HABLAR CON CANEPA EN EL CAMIÓN" for l in nuevos), [l[1] for l in nuevos])
+    canepa = [c for c in sim.creados if c[1] == "Objetivo" and (c[2], c[3]) == (544.0, 3328.0)]
+    prueba("Canepa: un solo punto de misión, junto a él en el camión (544, 3328)", len(canepa) == 1, canepa)
+    t_comida = next((l[0] for l in cumplidos if l[1] == "¡OBJETIVO 4/6 CUMPLIDO!"), None)
+    t_gas = next((l[0] for l in nuevos if "GASOLINA" in l[1]), None)
+    prueba("La charla con Canepa va una sola vez, después de entregar la comida y antes de activar la gasolina",
+           len(sim.charlas) == 1 and t_comida is not None and t_gas is not None and t_comida < sim.charlas[0] < t_gas, (sim.charlas, t_comida, t_gas))
     pausas = []
     for t, txt in cumplidos:
         sig = [l for l in sim.letreros if l[0] > t and (l[1].startswith("OBJETIVO ") or l[1] == "¡AL ESTACIONAMIENTO!")]
         pausas.append(round(sig[0][0] - t, 2) if sig else None)
     prueba("El letrero de cumplido se ve 2.5 s antes de que empiece el siguiente", all(p is not None and 2.4 <= p <= 2.6 for p in pausas), pausas)
     sn = [os.path.splitext(s[1])[0] + ".ogg" for s in sim.sonidos]   # sin importar el formato (fase 47: algunos son .wav)
-    prueba("Sonidos: 5 de cumplido y 5 de nuevo objetivo", sn.count("objetivo_cumplido.ogg") == 5 and sn.count("objetivo_nuevo.ogg") == 5,
+    prueba("Sonidos: 6 de cumplido y 6 de nuevo objetivo", sn.count("objetivo_cumplido.ogg") == 6 and sn.count("objetivo_nuevo.ogg") == 6,
            (sn.count("objetivo_cumplido.ogg"), sn.count("objetivo_nuevo.ogg")))
-    prueba("Cada objetivo se cumple una sola vez (ObjNum termina en 6 = final)", sim.V.get("ObjNum") == 6, sim.V.get("ObjNum"))
+    prueba("Cada misión se cumple una sola vez (ObjNum termina en 7 = final)", sim.V.get("ObjNum") == 7, sim.V.get("ObjNum"))
 
     # HUD
     sim2 = Sim(d["layouts"], "historia", 2)
@@ -321,7 +333,16 @@ def main():
     for _ in range(int(60 * 0.5)):
         sim2.paso()
     textos["llamada"] = sim2.T["TxtObjetivo"]
-    prueba("HUD: «Objetivo 1/5» + texto de la llamada", textos["llamada"] == "Objetivo 1/5\nLlamen desde la computadora del CIC", repr(textos["llamada"]))
+    prueba("HUD: «Objetivo 1/6» + texto de la llamada", textos["llamada"] == "Objetivo 1/6\nLlamen desde la computadora del CIC", repr(textos["llamada"]))
+    # HUD de la misión de Canepa: se ve mientras está activa (también durante la charla)
+    sim3 = Sim(d["layouts"], "historia", 4)
+    hud = None
+    while sim3.t < 240 and hud is None and sim3.V.get("Estado") == "juego":
+        jugar_un_paso = [o for o in sim3.objs if o.n == "Objetivo" and o.v.get("Hecho", 0) == 0]
+        if sim3.V.get("ObjTipo") == "canepa" and sim3.V.get("ObjIni") == 1 and sim3.V.get("ObjEspera", 0) <= 0:
+            sim3.paso(); hud = sim3.T["TxtObjetivo"]; break
+        jugar(sim3, max_s=sim3.t + 0.6)
+    prueba("HUD: «Objetivo 5/6» + Hablen con el profe Canepa en el camión", hud == "Objetivo 5/6\nHablen con el profe Canepa en el camión", repr(hud))
     prueba("En línea: ObjTxt lleva el mismo texto para los clientes", sim2.V.get("ObjTxt") == textos["llamada"])
 
     # ---------------- Escape: igual que antes de la fase 43

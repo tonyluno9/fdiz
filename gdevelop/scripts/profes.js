@@ -310,6 +310,8 @@
     for (const k of ORDEN) {
       const npc = npcDe(scn, k); if (!npc) continue;
       const e = est(scn, k); if (!ESPERA(e)) continue;
+      // fase 61: en Historia, Canepa no se recluta hasta la charla del camión (misión 5); así nadie lo rechaza antes
+      if (gdjs.fdizCanepa && gdjs.fdizCanepa.reservado(scn, k)) continue;
       let mejor = null, md = 1e9;
       for (const h of hs) {
         // fase 56: si para ese jugador F es para otra cosa más cercana (puerta, salvar...), el profe no se ofrece

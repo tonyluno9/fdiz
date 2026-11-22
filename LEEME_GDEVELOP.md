@@ -60,7 +60,7 @@ python gdevelop/scripts/fase12_mejoras.py gdevelop/FDI-Z/FDI-Z.json mapa/final/m
 ```
 `fase5` regenera los eventos de Juego, así que **siempre** se corren los tres, en ese orden.
 
-Los cambios posteriores (fases 13 a 60) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos, en este orden:
+Los cambios posteriores (fases 13 a 62) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos, en este orden:
 ```
 python gdevelop/scripts/fase40_hojas_zombi.py        # (solo si cambian las hojas) hojas de Joel y Canepa zombi -> GIF
 python gdevelop/scripts/fase40_sprites_profes.py     # convierte los GIF de los profes y de los profes zombi a PNG
@@ -83,7 +83,7 @@ python gdevelop/scripts/fase52_lanzables.py          # (cesar) lanzables con dis
 python gdevelop/scripts/fase53_flechas.py            # (cesar) flechas de aliados fuera de pantalla
 python gdevelop/scripts/fase54_iconos_lanzables.py   # (cesar) ícono del lanzable en el panel
 python gdevelop/scripts/fase55_ilus_historia.py      # (una vez) ilustración provisional de la tarjeta HISTORIA
-python gdevelop/scripts/fase55_historia.py           # modo Historia: 5 objetivos fijos en orden
+python gdevelop/scripts/fase55_historia.py           # modo Historia: 6 misiones fijas en orden
 python gdevelop/scripts/prueba_historia.py           # simula los eventos de objetivos (sin GDevelop)
 python gdevelop/scripts/fase56_interaccion.py        # F / A: una acción a la vez, la más cercana (lógica en usar.js; re-incrusta profes.js y medios.js)
 node gdevelop/scripts/prueba_usar.js                 # pruebas de la interacción (sin GDevelop)
@@ -91,10 +91,15 @@ python gdevelop/scripts/fase57_volumen.py            # volumen de música y efec
 node gdevelop/scripts/prueba_audio.js                # pruebas del volumen (sin GDevelop)
 python -I gdevelop/scripts/fase58_sonidos.py         # efectos de sonidos_nuevos/ (WAV); ver efectos/CATALOGO_SONIDOS.md
 python gdevelop/scripts/fase59_arte_armas.py         # (una vez) arte y sonidos del revólver y la escopeta
-python gdevelop/scripts/fase59_armas_fuego.py        # revólver y escopeta como armas del piso (posiciones en POS)
+python gdevelop/scripts/fase59_armas_fuego.py        # pistola pequeña, sheriff y escopeta: balas, disparo y lugar en el mapa (POS)
 python gdevelop/scripts/prueba_armas_fuego.py        # pruebas de las armas de fuego (sin GDevelop)
 python -I gdevelop/scripts/fase60_sonidos2d.py     # efectos de sonidos/ (22 OGG; lógica en sfx.js); copia desde ..\sonidos 2d si hace falta
 node gdevelop/scripts/prueba_sfx.js                 # pruebas de los efectos de sonido (sin GDevelop)
+python gdevelop/scripts/fase61_canepa.py           # Historia: charla con Canepa en el camión (burbujas; lógica en canepa.js)
+node gdevelop/scripts/prueba_canepa.js              # pruebas de la charla con Canepa (sin GDevelop)
+python gdevelop/scripts/fase62_arte_pistola.py     # (si cambian los sprites) mira y animaciones placeholder de pistola
+python gdevelop/scripts/fase62_armas_uso.py        # pistola pequeña del jugador 1, mira, balas en el HUD (lógica en armas.js)
+node gdevelop/scripts/prueba_armas.js               # pruebas de la mira, el HUD de balas y las animaciones (sin GDevelop)
 ```
 Arte de los profes zombis: un GIF por animación en `animaciones_gif/profes_zombi/<profe>/` (caminar_lado mirando a la derecha, caminar_arriba, caminar_abajo, atacar_lado, atacar_abajo, golpe_morir; atacar_arriba es opcional). Para cambiarlo, reemplaza el GIF y vuelve a correr los dos últimos scripts con GDevelop cerrado.
 En Windows basta con doble clic en `gdevelop\scripts\reconstruir.bat`: hace un respaldo con fecha y corre los tres. Antes de correrlos, haz una copia de `FDI-Z.json`.

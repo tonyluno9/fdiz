@@ -30,7 +30,7 @@
   const BANDERAS = { revivir: "UsaRevivir", curar: "UsaCurar", puerta: "UsaPuerta", objetivo: "UsaObjetivo", cofre: "UsaCofre" };
   const OBJ_TXT = {   // qué se hace con cada objetivo
     servidor: "prender el servidor", computadora: "llamar", llaves: "tomar las llaves", interruptor: "activar el interruptor",
-    carnada: "dejar la comida", camion: "cargar la gasolina",
+    carnada: "dejar la comida", camion: "cargar la gasolina", canepa: "hablar con Canepa",
   };
 
   const V = (o, n) => o.getVariables().get(n);
@@ -68,6 +68,7 @@
     }
     for (const p of lista(scn, "Profe")) {
       const e = str(p, "Estado"); if (e !== "espera" && e !== "conversacion") continue;
+      if (gdjs.fdizCanepa && gdjs.fdizCanepa.reservado(scn, str(p, "Nombre"))) continue;   // fase 61: en Historia, primero la charla
       const d = dPos(p, s.getX(), s.getY()); if (d < A.profe) out.push({ t: "profe", o: p, d, r: A.profe });
     }
     return out;

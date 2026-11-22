@@ -1,4 +1,4 @@
-"""Fase 55 · Modo HISTORIA: 5 objetivos fijos en orden. Idempotente.
+"""Fase 55 · Modo HISTORIA: 6 misiones fijas en orden. Idempotente (también actualiza un proyecto con la versión de 5).
 
 Uso (desde la carpeta fdiz, con GDevelop CERRADO):
     python gdevelop/scripts/fase55_ilus_historia.py     # (una vez) ilustración provisional de la tarjeta
@@ -13,12 +13,15 @@ Orden de Historia (Modo global = "historia"):
     2 luz       Se va la luz y hay que activar los 3 interruptores, todos dentro del CIC.
     3 llaves    Las llaves del conserje (conserjería; su puerta es restringida: a golpes o con Carlos, como siempre).
     4 carnada   Llevar comida a la nevería para distraer a la horda.
-    5 gasolina  3 bidones al camión.
+    5 canepa    Hablar con el profe Canepa en el camión (fase 61, 2026-11-22): mantener F junto a él abre la conversación
+                (scripts/canepa.js, burbujas sobre quien habla); ahí descubren que falta gasolina. Al terminar el diálogo
+                se cumple la misión (Paso = 99, una sola vez: CanepaCharla 0 -> 1 -> 2) y empieza la gasolina.
+    6 gasolina  3 bidones al camión.
     y después el final del camión (igual que en Escape).
 Escape (3 al azar) y Jefe no cambian: con ObjTotal = 3 y ObjEspera = 0 sus eventos se comportan igual que antes.
 
 Qué cambia en Juego (grupo "Objetivos y flecha"):
-  * Variables de escena ObjTotal (3 / 5), O4, O5, ObjEspera, ObjTxt.
+  * Variables de escena ObjTotal (3 / 6), O4, O5, O6, ObjEspera, ObjTxt, CanepaCharla, CinLinea, CinHabla.
   * Los "/3" y "ObjNum = 4" fijos pasan a usar ObjTotal (también en "Guía de los bots" y "Modo presentación").
   * Señales: al cumplir, letrero "¡OBJETIVO n/5 CUMPLIDO!" + sonido; 2.5 s después se activa el siguiente con
     "OBJETIVO n/5 · ..." + sonido (antes el letrero de "cumplido" se borraba al cuadro siguiente).
@@ -35,7 +38,9 @@ PRY = os.path.join(AQUI, "..", "FDI-Z", "FDI-Z.json")
 NET = os.path.join(AQUI, "net_core.js")
 MK = "FDIZ-FASE55"
 
-ORDEN = ["llamada", "luz", "llaves", "carnada", "gasolina"]
+ORDEN = ["llamada", "luz", "llaves", "carnada", "canepa", "gasolina"]
+CANEPA = (544, 3328)                                   # donde espera Canepa, junto al camión (instancia Profe "canepa")
+HABLAR = 0.6                                           # s manteniendo F junto a Canepa para empezar la charla
 COMPU = (3136, 1760)                                   # computadora del CIC (zona "CIC")
 INTERRUPTORES = [(2736, 1640), (3336, 1760), (3696, 1640)]   # pasillo CIC oeste, salón del CIC, pasillo CIC este
 ESPERA = 2.5                                           # s entre "cumplido" y el siguiente objetivo
@@ -43,6 +48,7 @@ HUD = {  # texto del HUD en Historia (el de carnada es el mismo de Escape)
     "llamada": "Llamen desde la computadora del CIC",
     "luz": "Activen los 3 interruptores del CIC",
     "llaves": "Busquen las llaves del conserje en la conserjería",
+    "canepa": "Hablen con el profe Canepa en el camión",
     "gasolina": "Busquen la gasolina: 3 bidones al camión",
 }
 LETRERO = {  # letrero al activarse cada objetivo
@@ -50,8 +56,11 @@ LETRERO = {  # letrero al activarse cada objetivo
     "luz": "¡SE FUE LA LUZ! INTERRUPTORES DEL CIC",
     "llaves": "LAS LLAVES DEL CONSERJE",
     "carnada": "COMIDA A LA NEVERÍA",
+    "canepa": "HABLAR CON CANEPA EN EL CAMIÓN",
     "gasolina": "BUSCAR LA GASOLINA",
 }
+
+VARS = [("ObjTotal", 3)] + [("O%d" % n, "") for n in range(4, len(ORDEN) + 1)] +        [("ObjEspera", 0), ("ObjTxt", ""), ("CanepaCharla", 0), ("CinLinea", -1), ("CinHabla", "")]
 
 NOCLI = {"type": {"inverted": False, "value": "VarGlobal"}, "parameters": ["NetRol", "!=", "2"]}
 CLI = {"type": {"inverted": False, "value": "VarGlobal"}, "parameters": ["NetRol", "=", "2"]}
@@ -128,7 +137,7 @@ def crea_objetivo(x, y, tipo, tiempo, anim):
 
 # ================================================================== Juego
 def parchar_juego(J):
-    for n, v in (("ObjTotal", 3), ("O4", ""), ("O5", ""), ("ObjEspera", 0), ("ObjTxt", "")):
+    for n, v in VARS:
         asegura_var(J["variables"], n, v)
     ev = J["events"]
     G = grupo(ev, "Objetivos y flecha")["events"]
@@ -143,9 +152,14 @@ def parchar_juego(J):
     sel = buscar(G, lambda e: es(e, "DepartScene", [""]) and es(e, "ModVarScene", ["ObjNum", "=", "1"]), "elección de objetivos")[0]
     if not es(sel, "ModVarScene", ["ObjTotal"]):
         sel["actions"].append(a("ModVarScene", "ObjTotal", "=", "3"))
-    if not any(es(x, "ModVarSceneTxt", ["O5"]) for x in sel["events"]):
-        acts = [a("ModVarSceneTxt", "O%d" % (i + 1), "=", '"%s"' % t) for i, t in enumerate(ORDEN)]
-        sel["events"].append(std([copy.deepcopy(HIST)], acts + [a("ModVarScene", "ObjTotal", "=", "5")]))
+    acts = [a("ModVarSceneTxt", "O%d" % (i + 1), "=", '"%s"' % t) for i, t in enumerate(ORDEN)] + \
+           [a("ModVarScene", "ObjTotal", "=", str(len(ORDEN)))]
+    hist = next((x for x in sel["events"] if any(y["type"]["value"] == "VarGlobalTxt" and y["parameters"][:3] == HIST["parameters"]
+                                                 for y in x.get("conditions", []))), None)
+    if hist is None:
+        sel["events"].append(std([copy.deepcopy(HIST)], acts))
+    else:
+        hist["actions"] = acts                                  # se actualiza si cambia el orden (antes: 5 objetivos)
 
     # 2) ObjNum -> ObjTipo: O4, O5 y el final en ObjTotal + 1
     fin = buscar(G, lambda e: es(e, "ModVarSceneTxt", ["ObjTipo", "=", '"final"']), "ObjTipo final")[0]
@@ -153,10 +167,11 @@ def parchar_juego(J):
         if x["type"]["value"] == "VarScene" and x["parameters"][:3] == ["ObjNum", "=", "4"]:
             x.update(c("BuiltinCommonInstructions::CompareNumbers", "Variable(ObjNum)", "=", "Variable(ObjTotal) + 1"))
     lst = padre_de(G, fin)
-    if not any(es(e, "ModVarSceneTxt", ["ObjTipo", "=", "VariableString(O4)"]) for e in lst):
-        k = lst.index(fin)
-        lst[k:k] = [std([copy.deepcopy(NOCLI), c("VarScene", "ObjNum", "=", str(n)), c("VarScene", "ObjTotal", ">=", str(n))],
-                        [a("ModVarSceneTxt", "ObjTipo", "=", "VariableString(O%d)" % n)]) for n in (4, 5)]
+    for n in range(4, len(ORDEN) + 1):
+        if not any(es(e, "ModVarSceneTxt", ["ObjTipo", "=", "VariableString(O%d)" % n]) for e in lst):
+            k = lst.index(fin)
+            lst.insert(k, std([copy.deepcopy(NOCLI), c("VarScene", "ObjNum", "=", str(n)), c("VarScene", "ObjTotal", ">=", str(n))],
+                              [a("ModVarSceneTxt", "ObjTipo", "=", "VariableString(O%d)" % n)]))
 
     # 3) creación del objetivo
     crea = buscar(G, lambda e: es(e, "VarScene", ["ObjIni", "=", "0"]) and es(e, "VarSceneTxt", ["Estado", "=", '"juego"'])
@@ -188,6 +203,27 @@ def parchar_juego(J):
                               [a("ModVarSceneTxt", "Banner", "=", '"OBJETIVO " + ToString(Variable(ObjNum)) + "/" + ToString(Variable(ObjTotal)) + " · %s"' % LETRERO[t]),
                                a("ResetTimer", "", '"banner"'), a("ModVarScene", "BannerSeg", "=", "3")]))
         sub[k + 1:k + 1] = nuevos
+    # canepa (fase 61): el punto de la misión junto a Canepa; mantener F HABLAR s abre la conversación
+    if not any(es(e, "VarSceneTxt", ["ObjTipo", "=", '"canepa"']) and es(e, "Create", ["", "Objetivo"]) for e in sub):
+        k = next(i for i, e in enumerate(sub) if es(e, "ModVarSceneTxt", ["Banner", "=", '"NUEVO OBJETIVO"']))
+        sub.insert(k, std([c("VarSceneTxt", "ObjTipo", "=", '"canepa"'), copy.deepcopy(HIST)],
+                          crea_objetivo(CANEPA[0], CANEPA[1], "canepa", HABLAR, "camion")))
+    # letreros que falten (al agregar una misión al orden)
+    # solo los letreros de Historia ("OBJETIVO n/N · ..."); los eventos de Escape (p. ej. "¡SE FUE LA LUZ!") no se tocan
+    letrero = lambda e, t: es(e, "VarSceneTxt", ["ObjTipo", "=", '"%s"' % t]) and es(e, "VarGlobalTxt", ["Modo", "=", '"historia"']) and \
+        any(x["type"]["value"] == "ModVarSceneTxt" and x["parameters"][:1] == ["Banner"] and x["parameters"][2].startswith('"OBJETIVO "')
+            for x in e.get("actions", []))
+    for t in ORDEN:
+        if not any(letrero(e, t) for e in sub):
+            k = max(i for i, e in enumerate(sub) if any(letrero(e, u) for u in ORDEN))
+            sub.insert(k + 1, std([copy.deepcopy(HIST), c("VarSceneTxt", "ObjTipo", "=", '"%s"' % t)],
+                                  [a("ModVarSceneTxt", "Banner", "=", '"OBJETIVO " + ToString(Variable(ObjNum)) + "/" + ToString(Variable(ObjTotal)) + " · %s"' % LETRERO[t]),
+                                   a("ResetTimer", "", '"banner"'), a("ModVarScene", "BannerSeg", "=", "3")]))
+    # orden de los letreros = orden de las misiones (solo cosmético)
+    idx = [i for i, e in enumerate(sub) if any(letrero(e, u) for u in ORDEN)]
+    orden = sorted((sub[i] for i in idx), key=lambda e: next(n for n, u in enumerate(ORDEN) if letrero(e, u)))
+    for i, e in zip(idx, orden):
+        sub[i] = e
 
     # 4) final: en ObjTotal + 1 y después de la pausa
     fcrea = buscar(G, lambda e: es(e, "VarScene", ["ObjIni", "=", "0"]) and es(e, "ModVarObjetTxt", ["Objetivo", "Tipo", "=", '"camion"'])
@@ -214,6 +250,18 @@ def parchar_juego(J):
             e["actions"] = [a("ModVarScene", "Bidones", "+", "PickedInstancesCount(Bidon)")] + \
                            [x for x in acts if not (x["type"]["value"] == "ModVarScene" and x["parameters"][:1] == ["Bidones"])]
 
+    # 6b) canepa (fase 61): al terminar de mantener F empieza la conversación (canepa.js). La misión se cumple cuando
+    #     acaba el diálogo (canepa.js pone Paso = 99). CanepaCharla = 0 en la condición: una sola vez.
+    if not marcado(G, "CANEPA"):
+        ll = buscar(G, lambda e: es(e, "VarObjetTxt", ["Objetivo", "Tipo", "=", '"llaves"']) and es(e, "VarObjet", ["Objetivo", "Hecho", "=", "1"]),
+                    "llaves cumplidas")[0]
+        lst = padre_de(G, ll)
+        k = lst.index(ll) + 1
+        lst[k:k] = [comentario(MK + "-CANEPA · Historia: con Canepa se habla (scripts/canepa.js); la misión se cumple al terminar el diálogo."),
+                    std([copy.deepcopy(NOCLI), c("VarObjetTxt", "Objetivo", "Tipo", "=", '"canepa"'), c("VarObjet", "Objetivo", "Hecho", "=", "1"),
+                         c("VarScene", "CanepaCharla", "=", "0")],
+                        [a("Delete", "Objetivo", ""), a("ModVarScene", "CanepaCharla", "=", "1")])]
+
     # 7) textos del HUD
     for e in recorrer(G):
         for x in e.get("actions", []):
@@ -224,7 +272,14 @@ def parchar_juego(J):
         G[k + 1:k + 1] = [comentario(MK + "-TEXTO · Historia: textos propios (antes de sumar los contadores de bidones e interruptores).")] + [
             std([copy.deepcopy(NOCLI), copy.deepcopy(HIST), c("VarSceneTxt", "ObjTipo", "=", '"%s"' % t)],
                 [a("TextObject::String", "TxtObjetivo", "=", '"Objetivo " + ToString(Variable(ObjNum)) + "/" + ToString(Variable(ObjTotal)) + NewLine() + "%s"' % HUD[t])])
-            for t in ("llamada", "luz", "llaves", "gasolina")]
+            for t in ORDEN if t in HUD]
+    texto = lambda e, t: es(e, "VarGlobalTxt", ["Modo", "=", '"historia"']) and es(e, "VarSceneTxt", ["ObjTipo", "=", '"%s"' % t]) and \
+        es(e, "TextObject::String", ["TxtObjetivo"])
+    for t in ORDEN:
+        if t in HUD and not any(texto(e, t) for e in G):
+            k = max(i for i, e in enumerate(G) if any(texto(e, u) for u in HUD))
+            G.insert(k + 1, std([copy.deepcopy(NOCLI), copy.deepcopy(HIST), c("VarSceneTxt", "ObjTipo", "=", '"%s"' % t)],
+                                [a("TextObject::String", "TxtObjetivo", "=", '"Objetivo " + ToString(Variable(ObjNum)) + "/" + ToString(Variable(ObjTotal)) + NewLine() + "%s"' % HUD[t])]))
     if not marcado(G, "SYNC"):
         k = max(i for i, e in enumerate(G) if es(e, "TextObject::String", ["TxtObjetivo"]))
         G[k + 1:k + 1] = [
@@ -305,7 +360,7 @@ def parchar_menu(d, M):
                 if i_ == "2" and x["type"]["value"] == "TextObject::String" and p[0] == "TxtCapA":
                     p[2] = '"HISTORIA"'
                 if i_ == "2" and x["type"]["value"] == "TextObject::String" and p[0] == "TxtCapB":
-                    p[2] = '"5 objetivos en orden · 1 a 4 jugadores"'
+                    p[2] = '"%d misiones en orden · 1 a 4 jugadores"' % len(ORDEN)
                 if i_ == "2" and x["type"]["value"] == "SetAnimationName" and p[0] == "IlusModo" and p[1] == '"o"':
                     p[1] = '"h"'
 
@@ -364,12 +419,16 @@ def parchar_menu(d, M):
                     if x["type"]["value"] == "TextObject::String" and p[0] == "TxtMenu" and p[2] == '"ESCAPE"':
                         p[2] = '"HISTORIA"'
                     if x["type"]["value"] == "TextObject::String" and p[0] == "TxtCapB" and p[2] == '"1 a 4 jugadores + bots"':
-                        p[2] = '"1 a 4 jugadores + bots · 5 objetivos"'
+                        p[2] = '"1 a 4 jugadores + bots · %d misiones"' % len(ORDEN)
                 copias.append(n)
         ev.extend(copias)
         # la 3.a tarjeta no se ve en el paso Local / En línea
         ev.extend([std([c("VarSceneTxt", "Paso", "=", '"jefetipo"'), c("VarObjet", nm, "Idx", "=", "2")], [a("Cache", nm)])
                    for nm in ("TxtCapA", "TxtCapB")])
+    for x in recorrer_acciones({"events": ev}):
+        p = x["parameters"]
+        if x["type"]["value"] == "TextObject::String" and p[:1] == ["TxtCapB"] and re.fullmatch(r'"1 a 4 jugadores \+ bots · \d (objetivos|misiones)"', p[2]):
+            p[2] = '"1 a 4 jugadores + bots · %d misiones"' % len(ORDEN)
 
     # volver de la sala en línea: OnlineEsc 1 = Escape, 2 = Historia
     vol = next(e for e in ev if es(e, "DepartScene", [""]) and es(e, "VarGlobal", ["OnlineEsc"]))
@@ -431,7 +490,7 @@ def main():
     code = nucleo["inlineCode"]
     m = re.search(r"gdjs\.fdizNetCfg=", code)
     cfg, fin = json.JSONDecoder().raw_decode(code, m.end())
-    for n in ("ObjTotal", "O4", "O5", "ObjEspera", "ObjTxt"):
+    for n, _ in VARS:
         if n not in cfg["sv"]:
             cfg["sv"].append(n)
     code = code[:m.end()] + json.dumps(cfg, ensure_ascii=False) + code[fin:]
