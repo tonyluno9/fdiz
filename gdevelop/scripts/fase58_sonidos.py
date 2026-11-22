@@ -198,14 +198,16 @@ def main():
     man["format"]["extensions"] = [".ogg", ".wav"]
     man["format"]["wav"] = "PCM 16 bits mono, 44100 o 48000 Hz (fase 58)"
     for it in man["effects"]:
+        # solo los efectos de esta fase: los reemplazados pasan a su .wav y los revertidos vuelven a su .ogg.
+        # Los demás .wav del manifiesto (armas, voces de la fase 64...) no se tocan.
         ogg = it["path"][:-4] + ".ogg" if it["path"].endswith(".wav") else it["path"]
         if ogg in informe:
             it["path"] = informe[ogg]["nuevo"]
             it["origen"] = "sonidos_nuevos/" + informe[ogg]["origen"]
-        else:
+        elif ogg in REVERTIDOS:
             it["path"] = ogg
             it.pop("origen", None)
-    json.dump(man, open(man_ruta, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(man, open(man_ruta, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     json.dump(informe, open(os.path.join(PROY, "efectos", "fase58_informe.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     for viejo, inf in informe.items():
         print("%-42s -> %-44s %s" % (viejo, inf["origen"], inf["despues"]))

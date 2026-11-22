@@ -1,0 +1,8 @@
+archivo	situacion	dialogo
+cesar_01_el_equipo_duda.wav	El equipo duda	(confident) Sí se arma. Vamos.
+cesar_02_usa_hackeo_con_una_puerta_cerca.wav	Usa Hackeo con una puerta cerca	(confident) Ya abrí. Pásenle.
+cesar_03_aparece_su_ruta_al_objetivo.wav	Aparece su ruta al objetivo	(serious) Sigan los puntos. Es por ahí, güey.
+cesar_04_usa_control_de_la_escuela.wav	Usa Control de la escuela	(in a hurry tone) Ya los aturdí. Pasen, pasen.
+cesar_05_revive_a_un_companero.wav	Revive a un compañero	(serious) Ya estás, güey. Vente.
+cesar_06_lo_reviven.wav	Lo reviven	(grateful) Gracias, güey. Vamos por los demás.
+cesar_07_cae.wav	Cae	(painful) Tú sigue. No te regreses.

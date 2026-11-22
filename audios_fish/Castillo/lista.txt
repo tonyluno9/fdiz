@@ -1,0 +1,14 @@
+archivo	situacion	dialogo
+castillo_01_antes_de_la_alerta.wav	Antes de la alerta	(confident) Bro, si el profe me deja exponer primero, acabamos rápido.
+castillo_02_los_zombies_tumban_la_puerta.wav	Los zombies tumban la puerta	(astonished) ¡A la bestia, güey! ¡Sí la tiró!
+castillo_03_se_atoran_en_una_puerta_restringida.wav	Se atoran en una puerta restringida	(frustrated) No manches, bro. En Roblox esta puerta sí la hubiera hecho bien.
+castillo_04_encuentra_un_arma_en_el_piso.wav	Encuentra un arma en el piso	(impatient) Si tú no la vas a usar, men, pásala. Nomás la estás pisando.
+castillo_05_usa_tragar_y_se_cura.wav	Usa Tragar y se cura	(disgusted) No manches, bro. Sí me curó, pero sabía horrible.
+castillo_06_usa_app_de_salud_y_convierte_zombies_en_aliados.wav	Usa App de salud y convierte zombies en aliados	(proud) Éstos ya son de mi equipo, men. No les estés pegando.
+castillo_07_se_queda_cubriendo_la_entrada.wav	Se queda cubriendo la entrada	(confident) Men, tú abre. A este grandote me lo aviento yo.
+castillo_08_compra_un_arma.wav	Compra un arma	(astonished) A la bestia, güey. ¿Todo eso costaba? (painful) Hasta me dolió.
+castillo_09_revisa_la_computadora_del_site.wav	Revisa la computadora del SITE	(excited) Bro, si esto prende, yo sí lo meto a Informatrix.
+castillo_10_el_equipo_duda_durante_la_oleada.wav	El equipo duda durante la oleada	(worried) No se duerman, men. Ya vi uno detrás de nosotros.
+castillo_11_lo_reviven.wav	Lo reviven	(grateful) Gracias, bro. Justo ahorita que ya me estaba sintiendo fatal.
+castillo_12_cae.wav	Cae	(painful) Ya valí, men. Tú síguete.
+castillo_13_escapa.wav	Escapa	(excited) Bro, en mi juego a ese camión sí le pongo turbo.

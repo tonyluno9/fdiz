@@ -1,0 +1,18 @@
+archivo	situacion	dialogo
+tony_01_en_el_salon_antes_de_la_alerta.wav	En el salón antes de la alerta	(relaxed) Ya quiero regresar, dejé unas impresiones en mi casa.
+tony_02_a_media_conversacion.wav	A media conversación	(in a hurry tone) Ya me voy, me andan buscando.
+tony_03_antes_de_que_empiece_el_desmadre.wav	Antes de que empiece el desmadre	(confident) Y es que es así, hasta las zombies mueren por mí.
+tony_04_llega_la_alerta_al_celular.wav	Llega la alerta al celular	(frustrated) Ah, no manches. Ya le avisé a mi ma que ya iba para la casa.
+tony_05_el_equipo_se_toma_un_respiro.wav	El equipo se toma un respiro	(sighing) Yo estaba a dos mensajes de invitarla a salir, güey.
+tony_06_se_calma_el_pasillo.wav	Se calma el pasillo	(relaxed) Saquen la jotabe-ele. Ya me harté de oír puro gruñido.
+tony_07_cocinar_salen_dos_comidas.wav	Cocinar - Salen dos comidas	(amused) Órale, come. ¿Si te mueres quién me tira asistencia?
+tony_08_cocinar_se_arma_el_festin_en_la_neveria.wav	Cocinar - Se arma el festín en la nevería	(proud) Me quedó buenísimo, kei-o. Hasta los muertos lo olieron.
+tony_09_activa_modo_gym.wav	Activa Modo gym	(confident) A un lado, perros. Ya calenté.
+tony_10_termina_una_persecucion.wav	Termina una persecución	(panting) Ando en definición, güey. Ya hice cardio de toda la semana.
+tony_11_encuentra_la_puerta_electronica_cerrada.wav	Encuentra la puerta electrónica cerrada	(confused) La carcasa sí te la imprimo. Abrir esa cosa es otro rollo.
+tony_12_completa_un_objetivo.wav	Completa un objetivo	(impatient) ¿Ya le puedo mandar «ya salí» o falta otra misión?
+tony_13_el_equipo_revisa_un_locker.wav	El equipo revisa un locker	(sighing) Todo esto y yo ni sé cómo quedaron los Tigres, güey.
+tony_14_revive_a_un_companero.wav	Revive a un compañero	(excited) Ándale, párate, güey. Todavía nos faltan planes pa hoy.
+tony_15_lo_muerden.wav	Lo muerden	(painful) Si me hago zombie y me busca mi morra, dile que ando ocupado.
+tony_16_cae.wav	Cae	(scared) No me dejen aquí, chico. Soy joven para morir.
+tony_17_escapa_en_el_camion.wav	Escapa en el camión	(joyful) Ya salimos. (laughing) Ahora sí, a vivir la vida, perro.

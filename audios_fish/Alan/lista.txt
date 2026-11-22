@@ -1,0 +1,25 @@
+archivo	situacion	dialogo
+alan_01_espera_en_el_salon.wav	Espera en el salón	(impatient) ¿Ya nos vamos, banda? Se me hace tarde pa no hacer nada.
+alan_02_los_zombies_tumban_la_puerta_del_salon.wav	Los zombies tumban la puerta del salón	(sarcastic) ¿Quién dijo «sí aguanta»? (shouting) ¡Ven, díselo a ellos!
+alan_03_gorrear_aparece_una_regla.wav	Gorrear - Aparece una regla	(sarcastic) Ahí va una regla. A ver si de chiripa le pegan a algo.
+alan_04_gorrear_aparece_comida.wav	Gorrear - Aparece comida	(impatient) Salió comida. De uno en uno, no se amontonen.
+alan_05_reembolso_aparecen_escobas.wav	Reembolso - Aparecen escobas	(confident) Ahí sus escobas, banda. Me barren hasta el último zombie.
+alan_06_ojo_de_oferta_se_ve_una_zona_oscura.wav	Ojo de oferta - Se ve una zona oscura	(sarcastic) Ya se ve. El que se pierda de aquí sí se pasó.
+alan_07_levanta_una_silla.wav	Levanta una silla	(shouting) ¡No te sientes, güey! La silla es pa pegar.
+alan_08_lanza_una_engrapadora.wav	Lanza una engrapadora	(shouting) ¡Va la engrapadora! (amused) Agáchate o te engrapo la ceja.
+alan_09_revisa_un_locker.wav	Revisa un locker	(disdainful) Si hay tarea en este locker, ahí se queda.
+alan_10_no_alcanza_para_comida_en_la_maquina.wav	No alcanza para comida en la máquina	(frustrated) ¿Quién se gastó la lana? No nos alcanza ni pa una torta.
+alan_11_compra_un_arma_en_la_maquina.wav	Compra un arma en la máquina	(sarcastic) Compré el arma. De nada, gorrones. La pagamos entre todos.
+alan_12_recoge_la_tarjeta_electronica.wav	Recoge la tarjeta electrónica	(proud) Traigo tarjeta. Dejen la puerta en paz, cavernícolas.
+alan_13_recupera_las_llaves_de_conserjeria.wav	Recupera las llaves de conserjería	(sighing) Ahí están las llaves. Tanto desmadre pa un llavero.
+alan_14_va_a_llamar_desde_site_cic.wav	Va a llamar desde SITE CIC	(in a hurry tone) Diles que hay zombies, güey. No les leas todo el reporte.
+alan_15_recoge_un_bidon_de_gasolina.wav	Recoge un bidón de gasolina	(sarcastic) Ya recogí un bidón. Los demás nomás vienen de paseo.
+alan_16_restaura_la_luz_con_el_ultimo_interruptor.wav	Restaura la luz con el último interruptor	(sarcastic) Ya volvió la luz. Fue un gusto no verles la cara.
+alan_17_lleva_la_carnada_a_la_neveria.wav	Lleva la carnada a la nevería	(frustrated) Es carnada, banda. No les traje su lonche.
+alan_18_rescata_a_justino.wav	Rescata a Justino	(amused) Profe, si lo sacamos de aquí mínimo fírmeme las cuartillas.
+alan_19_cae_con_un_companero_cerca.wav	Cae con un compañero cerca	(shouting) ¡Levántame, güey! (frustrated) No me vengas a sacar la foto.
+alan_20_revive_a_un_companero.wav	Revive a un compañero	(impatient) Párate, güey. No vine hasta acá a hacerte el velorio.
+alan_21_lo_muerde_un_zombie.wav	Lo muerde un zombie	(panicked) ¡Me mordieron! ¡Cúrenme, no me estén haciendo bolita!
+alan_22_empieza_a_curar_a_un_companero_mordido.wav	Empieza a curar a un compañero mordido	(impatient) Quieto, güey. Ya bastante molestas sin andar mordiendo.
+alan_23_empieza_aguanten_junto_al_camion.wav	Empieza Aguanten junto al camión	(in a hurry tone) Profe, si prende esta cosa hasta le perdono la tarea.
+alan_24_escapan_en_el_camion.wav	Escapan en el camión	(relaxed) Ya salimos, banda. (amused) El que pregunte por la tarea se baja.

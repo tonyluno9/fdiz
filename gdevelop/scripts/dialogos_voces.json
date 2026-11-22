@@ -1,0 +1,308 @@
+{
+ "recursos": [
+  {
+   "nombre": "voces/alan/alan_01_espera_en_el_salon.wav",
+   "archivo": "../../audios_fish/Alan/alan_01_espera_en_el_salon.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_02_los_zombies_tumban_la_puerta_del_salon.wav",
+   "archivo": "../../audios_fish/Alan/alan_02_los_zombies_tumban_la_puerta_del_salon.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_03_gorrear_aparece_una_regla.wav",
+   "archivo": "../../audios_fish/Alan/alan_03_gorrear_aparece_una_regla.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_04_gorrear_aparece_comida.wav",
+   "archivo": "../../audios_fish/Alan/alan_04_gorrear_aparece_comida.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_05_reembolso_aparecen_escobas.wav",
+   "archivo": "../../audios_fish/Alan/alan_05_reembolso_aparecen_escobas.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_06_ojo_de_oferta_se_ve_una_zona_oscura.wav",
+   "archivo": "../../audios_fish/Alan/alan_06_ojo_de_oferta_se_ve_una_zona_oscura.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_07_levanta_una_silla.wav",
+   "archivo": "../../audios_fish/Alan/alan_07_levanta_una_silla.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_08_lanza_una_engrapadora.wav",
+   "archivo": "../../audios_fish/Alan/alan_08_lanza_una_engrapadora.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_09_revisa_un_locker.wav",
+   "archivo": "../../audios_fish/Alan/alan_09_revisa_un_locker.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_10_no_alcanza_para_comida_en_la_maquina.wav",
+   "archivo": "../../audios_fish/Alan/alan_10_no_alcanza_para_comida_en_la_maquina.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_11_compra_un_arma_en_la_maquina.wav",
+   "archivo": "../../audios_fish/Alan/alan_11_compra_un_arma_en_la_maquina.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_12_recoge_la_tarjeta_electronica.wav",
+   "archivo": "../../audios_fish/Alan/alan_12_recoge_la_tarjeta_electronica.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_13_recupera_las_llaves_de_conserjeria.wav",
+   "archivo": "../../audios_fish/Alan/alan_13_recupera_las_llaves_de_conserjeria.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_14_va_a_llamar_desde_site_cic.wav",
+   "archivo": "../../audios_fish/Alan/alan_14_va_a_llamar_desde_site_cic.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_15_recoge_un_bidon_de_gasolina.wav",
+   "archivo": "../../audios_fish/Alan/alan_15_recoge_un_bidon_de_gasolina.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_16_restaura_la_luz_con_el_ultimo_interruptor.wav",
+   "archivo": "../../audios_fish/Alan/alan_16_restaura_la_luz_con_el_ultimo_interruptor.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_17_lleva_la_carnada_a_la_neveria.wav",
+   "archivo": "../../audios_fish/Alan/alan_17_lleva_la_carnada_a_la_neveria.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_18_rescata_a_justino.wav",
+   "archivo": "../../audios_fish/Alan/alan_18_rescata_a_justino.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_19_cae_con_un_companero_cerca.wav",
+   "archivo": "../../audios_fish/Alan/alan_19_cae_con_un_companero_cerca.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_20_revive_a_un_companero.wav",
+   "archivo": "../../audios_fish/Alan/alan_20_revive_a_un_companero.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_21_lo_muerde_un_zombie.wav",
+   "archivo": "../../audios_fish/Alan/alan_21_lo_muerde_un_zombie.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_22_empieza_a_curar_a_un_companero_mordido.wav",
+   "archivo": "../../audios_fish/Alan/alan_22_empieza_a_curar_a_un_companero_mordido.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_23_empieza_aguanten_junto_al_camion.wav",
+   "archivo": "../../audios_fish/Alan/alan_23_empieza_aguanten_junto_al_camion.wav"
+  },
+  {
+   "nombre": "voces/alan/alan_24_escapan_en_el_camion.wav",
+   "archivo": "../../audios_fish/Alan/alan_24_escapan_en_el_camion.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_01_antes_de_la_alerta.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_01_antes_de_la_alerta.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_02_los_zombies_tumban_la_puerta.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_02_los_zombies_tumban_la_puerta.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_03_se_atoran_en_una_puerta_restringida.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_03_se_atoran_en_una_puerta_restringida.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_04_encuentra_un_arma_en_el_piso.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_04_encuentra_un_arma_en_el_piso.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_05_usa_tragar_y_se_cura.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_05_usa_tragar_y_se_cura.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_06_usa_app_de_salud_y_convierte_zombies_en_aliados.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_06_usa_app_de_salud_y_convierte_zombies_en_aliados.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_07_se_queda_cubriendo_la_entrada.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_07_se_queda_cubriendo_la_entrada.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_08_compra_un_arma.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_08_compra_un_arma.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_09_revisa_la_computadora_del_site.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_09_revisa_la_computadora_del_site.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_10_el_equipo_duda_durante_la_oleada.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_10_el_equipo_duda_durante_la_oleada.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_11_lo_reviven.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_11_lo_reviven.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_12_cae.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_12_cae.wav"
+  },
+  {
+   "nombre": "voces/castillo/castillo_13_escapa.wav",
+   "archivo": "../../audios_fish/Castillo/castillo_13_escapa.wav"
+  },
+  {
+   "nombre": "voces/cesar/cesar_01_el_equipo_duda.wav",
+   "archivo": "../../audios_fish/Cesar/cesar_01_el_equipo_duda.wav"
+  },
+  {
+   "nombre": "voces/cesar/cesar_02_usa_hackeo_con_una_puerta_cerca.wav",
+   "archivo": "../../audios_fish/Cesar/cesar_02_usa_hackeo_con_una_puerta_cerca.wav"
+  },
+  {
+   "nombre": "voces/cesar/cesar_03_aparece_su_ruta_al_objetivo.wav",
+   "archivo": "../../audios_fish/Cesar/cesar_03_aparece_su_ruta_al_objetivo.wav"
+  },
+  {
+   "nombre": "voces/cesar/cesar_04_usa_control_de_la_escuela.wav",
+   "archivo": "../../audios_fish/Cesar/cesar_04_usa_control_de_la_escuela.wav"
+  },
+  {
+   "nombre": "voces/cesar/cesar_05_revive_a_un_companero.wav",
+   "archivo": "../../audios_fish/Cesar/cesar_05_revive_a_un_companero.wav"
+  },
+  {
+   "nombre": "voces/cesar/cesar_06_lo_reviven.wav",
+   "archivo": "../../audios_fish/Cesar/cesar_06_lo_reviven.wav"
+  },
+  {
+   "nombre": "voces/cesar/cesar_07_cae.wav",
+   "archivo": "../../audios_fish/Cesar/cesar_07_cae.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_01_abre_una_puerta_sin_problema.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_01_abre_una_puerta_sin_problema.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_02_termina_una_pelea.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_02_termina_una_pelea.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_03_un_companero_se_acelera.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_03_un_companero_se_acelera.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_04_antes_del_brote.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_04_antes_del_brote.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_05_se_atoran_con_una_puerta.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_05_se_atoran_con_una_puerta.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_06_duerme_a_los_zombies_con_arrullo.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_06_duerme_a_los_zombies_con_arrullo.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_07_activa_minigun.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_07_activa_minigun.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_08_recupera_vida_con_su_pasiva.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_08_recupera_vida_con_su_pasiva.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_09_le_llegan_zombies_por_un_lado.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_09_le_llegan_zombies_por_un_lado.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_10_empieza_el_apagon.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_10_empieza_el_apagon.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_11_la_reviven.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_11_la_reviven.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_12_la_muerden_y_tiene_un_companero_cerca.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_12_la_muerden_y_tiene_un_companero_cerca.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_13_cae.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_13_cae.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_14_empieza_la_oleada_del_camion.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_14_empieza_la_oleada_del_camion.wav"
+  },
+  {
+   "nombre": "voces/miranda/miranda_15_escapa.wav",
+   "archivo": "../../audios_fish/Miranda/miranda_15_escapa.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_01_en_el_salon_antes_de_la_alerta.wav",
+   "archivo": "../../audios_fish/Tony/tony_01_en_el_salon_antes_de_la_alerta.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_02_a_media_conversacion.wav",
+   "archivo": "../../audios_fish/Tony/tony_02_a_media_conversacion.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_03_antes_de_que_empiece_el_desmadre.wav",
+   "archivo": "../../audios_fish/Tony/tony_03_antes_de_que_empiece_el_desmadre.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_04_llega_la_alerta_al_celular.wav",
+   "archivo": "../../audios_fish/Tony/tony_04_llega_la_alerta_al_celular.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_05_el_equipo_se_toma_un_respiro.wav",
+   "archivo": "../../audios_fish/Tony/tony_05_el_equipo_se_toma_un_respiro.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_06_se_calma_el_pasillo.wav",
+   "archivo": "../../audios_fish/Tony/tony_06_se_calma_el_pasillo.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_07_cocinar_salen_dos_comidas.wav",
+   "archivo": "../../audios_fish/Tony/tony_07_cocinar_salen_dos_comidas.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_08_cocinar_se_arma_el_festin_en_la_neveria.wav",
+   "archivo": "../../audios_fish/Tony/tony_08_cocinar_se_arma_el_festin_en_la_neveria.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_09_activa_modo_gym.wav",
+   "archivo": "../../audios_fish/Tony/tony_09_activa_modo_gym.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_10_termina_una_persecucion.wav",
+   "archivo": "../../audios_fish/Tony/tony_10_termina_una_persecucion.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_11_encuentra_la_puerta_electronica_cerrada.wav",
+   "archivo": "../../audios_fish/Tony/tony_11_encuentra_la_puerta_electronica_cerrada.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_12_completa_un_objetivo.wav",
+   "archivo": "../../audios_fish/Tony/tony_12_completa_un_objetivo.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_13_el_equipo_revisa_un_locker.wav",
+   "archivo": "../../audios_fish/Tony/tony_13_el_equipo_revisa_un_locker.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_14_revive_a_un_companero.wav",
+   "archivo": "../../audios_fish/Tony/tony_14_revive_a_un_companero.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_15_lo_muerden.wav",
+   "archivo": "../../audios_fish/Tony/tony_15_lo_muerden.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_16_cae.wav",
+   "archivo": "../../audios_fish/Tony/tony_16_cae.wav"
+  },
+  {
+   "nombre": "voces/tony/tony_17_escapa_en_el_camion.wav",
+   "archivo": "../../audios_fish/Tony/tony_17_escapa_en_el_camion.wav"
+  }
+ ]
+}

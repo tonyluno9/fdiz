@@ -1,0 +1,16 @@
+archivo	situacion	dialogo
+miranda_01_abre_una_puerta_sin_problema.wav	Abre una puerta sin problema	(indifferent) De chill.
+miranda_02_termina_una_pelea.wav	Termina una pelea	(indifferent) GG.
+miranda_03_un_companero_se_acelera.wav	Un compañero se acelera	(relaxed) Chillea, güey.
+miranda_04_antes_del_brote.wav	Antes del brote	(indifferent) Me tengo que ir, voy a jugar Valorant.
+miranda_05_se_atoran_con_una_puerta.wav	Se atoran con una puerta	(sighing) Ay, qué hueva. (impatient) Denle a la puerta, güeyes, no se queden viendo.
+miranda_06_duerme_a_los_zombies_con_arrullo.wav	Duerme a los zombies con Arrullo	(whispering) Ya los dormí. Ahora pasen en silencio, escandalosos.
+miranda_07_activa_minigun.wav	Activa Minigun	(confident) Va mi ulti, güey. Háganse pa un lado.
+miranda_08_recupera_vida_con_su_pasiva.wav	Recupera vida con su pasiva	(indifferent) De chill. Acá me curo sola. Tú ve a hacer algo, güey.
+miranda_09_le_llegan_zombies_por_un_lado.wav	Le llegan zombies por un lado	(shouting) Te están rusheando por la derecha, güey. ¡Voltea!
+miranda_10_empieza_el_apagon.wav	Empieza el apagón	(confused) ¿Quién apagó la luz? Güey, ni aire estoy viendo.
+miranda_11_la_reviven.wav	La reviven	(sarcastic) ¿Así de real? Pensé que te habías ido AFK, menso.
+miranda_12_la_muerden_y_tiene_un_companero_cerca.wav	La muerden y tiene un compañero cerca	(frustrated) Tas viendo que me mordieron y sigues parado, güey. (shouting) ¡Cúrame!
+miranda_13_cae.wav	Cae	(indifferent) GG, güey. Si me vas a levantar, hazlo antes de que me dé hueva.
+miranda_14_empieza_la_oleada_del_camion.wav	Empieza la oleada del camión	(sighing) ¿Otra ronda? Qué hueva. Denle al camión, güeyes.
+miranda_15_escapa.wav	Escapa	(relaxed) Va, ahora sí al Valo. (amused) El que trolee juega solo.

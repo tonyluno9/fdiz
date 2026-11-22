@@ -1361,3 +1361,61 @@ Por eso se corrigió en el único punto por donde pasan todos: donde se muestra 
 - También se prueban variaciones de acentos, mayúsculas, espacios y plurales, y que los textos son los mismos que antes de la fase.
 
 **Sin probar:** verlo dentro de GDevelop.
+
+
+## Fase 64 · Diálogos en burbujas con voz durante la partida (2026-11-22)
+Scripts:
+- `scripts/fase64_datos_dialogos.py` (`python -I`): lee el banco y las voces, y genera `scripts/dialogos_datos.js` y **`gdevelop/DIALOGOS.md`** (la tabla línea por línea).
+- `scripts/fase64_dialogos.py` (idempotente): integración. La lógica está en `scripts/dialogo.js`.
+
+Pruebas: `node gdevelop/scripts/prueba_dialogo.js` (15 casos). Respaldo: `respaldos/antes_de_fase64_*.json`. Todos los modos.
+
+**Fuentes**
+- **Texto:** `FDI-Z · Banco de diálogos (versión limpia).md`, en la raíz de fdiz. Tiene 132 frases individuales (Partes 2 y 4) y 38 conversaciones (Partes 1 y 3).
+- **Voces:** `audios_fish/<Personaje>/*.wav` (76: Alan 24, Castillo 13, César 7, Miranda 15, Tony 17), con su `lista.txt`.
+  - Formato: WAV PCM de 16 bits, mono, 44.1 kHz, de 0.65 a 5.4 s.
+  - Se registran como recursos `voces/<pj>/<archivo>`, con la ruta `../../audios_fish/…`. El validador revisa 142 audios sin problemas.
+- **Cómo se relaciona cada voz con su línea:** una línea tiene voz solo si el texto grabado en `lista.txt` (sin las etiquetas de tono, signos ni acentos) es **igual** al de la línea, del mismo personaje. Así quedaron las 76, sin sobrar ni repetirse; nada se asignó por parecido.
+- **Sin voz:** Gabo, Alessandro, Carlos y los profes. Sus líneas salen solo en texto.
+
+**Cómo funciona (`dialogo.js`)**
+- **Qué se dice:** el host, o el juego sin red, detecta los momentos del banco y elige una frase o, si están los dos personajes, a veces la conversación. Lo pone en una cola.
+- **Orden:** las líneas salen **de una en una y en orden**. Cada una dura lo que su voz más 0.35 s, o lo que tarda leerse (2.2–6 s) si no tiene voz. Al terminar se retira la burbuja.
+  - Entre líneas de una misma conversación o frase de dos cuadros hay una pausa de 0.35 s; entre diálogos distintos, de 2.5 s.
+- **Una sola voz:** todas suenan en un solo canal, el 7, el mismo de la charla de Canepa. Nunca suenan dos a la vez.
+- **Si falta la voz o no carga:** la línea sigue con su texto.
+- **Para no repetir:** cada frase espera 40 s antes de volver a salir y cada personaje 8 s. Algunos momentos frecuentes solo hablan a veces (`PROB`). La cola guarda hasta 3 diálogos, y uno que espera más de 5 s se descarta.
+- **En línea:** `DlgLinea`, `DlgHabla` y `DlgSeq` viajan a los clientes, que dibujan la burbuja y ponen la voz. Los clientes no deciden nada.
+- **Cuándo no hay diálogos:** en pausa, durante la charla con Canepa y fuera de la partida. Al pausar se retira la burbuja y se corta la voz.
+- **Burbujas:**
+  - Tienen el estilo de las de los profes: `ProfPanel` y `TxtProfe`, nombre en amarillo y colita `DlgDib`.
+  - Van encima de quien habla, en pantalla.
+  - Si ahí tapan el HUD, una cara, el letrero, la ayuda, el texto de la intro u otra burbuja (de los profes o de la charla), se corren a un lado o bajan a los pies. Siempre quedan dentro de la pantalla.
+- **Intro (sin red):**
+  - Las tres líneas de antes de la alerta las dicen, con su voz, tres personajes distintos del equipo que tengan frase de ese momento: Tony, Alan, Miranda, Castillo, Gabo o Alessandro.
+  - En ese caso se quitan del texto de la intro las líneas «Tony: …», «Alan: …» y «Miranda: …», que reemplazan.
+  - También se agrega la del celular (Tony) y la de la puerta tumbada (Alan o Castillo). La narración (alerta, «¡CRASH!») no cambia.
+
+**Momentos que se detectan (disparadores)**
+- **De quien actúa:**
+  - cae, cae con alguien cerca, lo muerden, revive (habla quien levanta) o lo reviven, empieza a curar;
+  - habilidad Q o E de cada personaje (Gorrear distingue regla o comida; Hackeo, con puerta cerca);
+  - levanta una silla, lanza la engrapadora, revisa un locker;
+  - recoge llaves, bidón o carnada, último interruptor, empieza la llamada;
+  - abre una puerta, se atora en una restringida, puerta electrónica, ve un arma en el piso, termina una pelea.
+- **Del equipo:**
+  - tarjeta, apagón, horda, festín, objetivo cumplido o nuevo (llaves), final ¡Aguanten! (y a los 5, 18, 32, 42 y 50 s), escape;
+  - rescate de Justino (inicio y fin), se calma el pasillo, respiro, el equipo duda;
+  - zombis golpeando o tumbando una puerta, un compañero se acelera, un compañero cae cerca.
+
+**Sin disparador** (ese momento no existe en el juego, así que la línea no se usa): 28 frases y 9 conversaciones, listadas en `DIALOGOS.md`. Ejemplos: comprar en la máquina, Ojo de oferta, AirDrop, «sube al camión».
+- Por eso no suenan 8 voces aunque están relacionadas: `alan_06`, `alan_10`, `alan_11`, `miranda_08`, `miranda_09`, `tony_10`, `castillo_07` y `castillo_08`.
+
+**Voces que faltan** (las líneas se ven en texto; detalle en `DIALOGOS.md`, marcadas **falta**):
+- Frases de **Gabo (9), Alessandro (13) y Carlos (9)**: no tienen carpeta en `audios_fish`.
+- Líneas de las 29 conversaciones que el juego usa: Alan 12, Miranda 6, Tony 7, César 4, Castillo 6, Alessandro 10, Gabo 9 y Carlos 5. Las grabaciones de `audios_fish` son de las frases individuales, no de las conversaciones (salvo `tony_02`, que sí coincide).
+- Justino y Canepa: sin voz por ser profes (omitidos).
+
+**Para que funcione en otra computadora:** `audios_fish/` y el banco de diálogos tienen que estar en el repo, porque las voces se cargan desde ahí y los datos se generan del banco.
+
+**Sin probar:** escucharlo y verlo dentro de GDevelop, y en línea.
