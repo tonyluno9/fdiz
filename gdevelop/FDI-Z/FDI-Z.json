@@ -157562,9 +157562,9 @@
           "textAlignment": "center",
           "characterSize": 72,
           "color": {
-            "b": 80,
-            "g": 80,
-            "r": 255
+            "r": 110,
+            "g": 230,
+            "b": 110
           },
           "content": {
             "bold": true,
@@ -157586,7 +157586,7 @@
             "verticalTextAlignment": "top",
             "characterSize": 72,
             "lineHeight": 0,
-            "color": "255;80;80"
+            "color": "110;230;110"
           }
         },
         {
@@ -169788,6 +169788,13 @@
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": "/*FDIZ-FASE62-TICK*/\nif (gdjs.fdizArmas) gdjs.fdizArmas.tick(runtimeScene);",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "/*FDIZ-FASE63-MOD*/\n/* FDI-Z · Fase 63 · Color de los letreros de eventos (TxtBanner) durante la partida. Todos los modos.\n * Se incrusta en la escena Juego con scripts/fase63_avisos.py (no editar el evento a mano): FDIZ-FASE63-MOD arriba de\n * todo y FDIZ-FASE63-COLOR dentro del evento del grupo \"HUD\" que muestra el letrero (corre en todas las máquinas).\n *\n * Todos los letreros pasan por la variable de escena Banner (eventos de objetivos, final, mordidos, habilidades, HUD,\n * puertas, y los módulos profes.js y medios.js) y se muestran con el objeto TxtBanner. Antes ese objeto era rojo fijo.\n * Regla:\n *   ROJO   solo si el mensaje dice que un personaje se infectó (mordido / mordida, infectado, se convirtió en zombi)\n *          o que la FDI se está llenando;\n *   VERDE  todo lo demás (objetivos, acciones cumplidas, avisos positivos, el final...).\n * El texto se compara normalizado (minúsculas, sin acentos ni signos, espacios simples), así que «¡P2 MORDIDO!»,\n * «Canepa mordida», «SE CONVIRTIÓ EN ZOMBIE» o «la fdi se esta llenando» se clasifican igual. El texto y el momento en\n * que aparece cada letrero no cambian: solo el color. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizAvisos && gdjs.fdizAvisos.VER === 1) return;\n  const A = (gdjs.fdizAvisos = { VER: 1 });\n  A.ROJO = \"255;80;80\";\n  A.VERDE = \"110;230;110\";\n\n  A.normalizar = function (s) {\n    return String(s || \"\").normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\").toLowerCase()\n      .replace(/[^a-z0-9]+/g, \" \").replace(/\\s+/g, \" \").trim();\n  };\n  const INFECCION = [/\\bmordid[oa]s?\\b/, /\\binfectad[oa]s?\\b/, /\\bse infect/, /\\bconvirti\\w* en zombi(e|s|es)?\\b/, /\\bzombificad/];\n  const LLENA = [/\\bfdi\\b.*\\bllen(ando|a|o|ndose)\\b/];\n  const POSITIVO = [/\\bsalvad[oa]s?\\b/, /\\bcurad[oa]s?\\b/, /\\bya no\\b/];   // «curado de la mordida» no es rojo\n  A.esRojo = function (texto) {\n    const t = A.normalizar(texto);\n    if (!t) return false;\n    if (LLENA.some((r) => r.test(t)) && !/\\bya no\\b/.test(t)) return true;\n    return INFECCION.some((r) => r.test(t)) && !POSITIVO.some((r) => r.test(t));\n  };\n  A.color = (texto) => (A.esRojo(texto) ? A.ROJO : A.VERDE);\n\n  // dentro del evento que muestra el letrero: pone el color que le toca al texto que se ve\n  A.aplicar = function (scn) {\n    for (const t of scn.getObjects(\"TxtBanner\") || []) {\n      const s = t.getString ? t.getString() : \"\";\n      if (t.__fdizAviso === s) continue;                         // solo cuando cambia el texto\n      t.__fdizAviso = s;\n      t.setColor(A.color(s));\n    }\n  };\n})(gdjs);\n",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
@@ -208446,6 +208453,15 @@
                     "TxtBanner",
                     ""
                   ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::JsCode",
+                  "inlineCode": "/*FDIZ-FASE63-COLOR*/\nif (gdjs.fdizAvisos) gdjs.fdizAvisos.aplicar(runtimeScene);",
+                  "parameterObjects": "",
+                  "useStrict": true,
+                  "eventsSheetExpanded": false
                 }
               ]
             },

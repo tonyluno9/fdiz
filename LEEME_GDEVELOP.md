@@ -60,7 +60,7 @@ python gdevelop/scripts/fase12_mejoras.py gdevelop/FDI-Z/FDI-Z.json mapa/final/m
 ```
 `fase5` regenera los eventos de Juego, así que **siempre** se corren los tres, en ese orden.
 
-Los cambios posteriores (fases 13 a 62) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos, en este orden:
+Los cambios posteriores (fases 13 a 63) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos, en este orden:
 ```
 python gdevelop/scripts/fase40_hojas_zombi.py        # (solo si cambian las hojas) hojas de Joel y Canepa zombi -> GIF
 python gdevelop/scripts/fase40_sprites_profes.py     # convierte los GIF de los profes y de los profes zombi a PNG
@@ -100,6 +100,8 @@ node gdevelop/scripts/prueba_canepa.js              # pruebas de la charla con C
 python gdevelop/scripts/fase62_arte_pistola.py     # (si cambian los sprites) mira y animaciones placeholder de pistola
 python gdevelop/scripts/fase62_armas_uso.py        # pistola pequeña del jugador 1, mira, balas en el HUD (lógica en armas.js)
 node gdevelop/scripts/prueba_armas.js               # pruebas de la mira, el HUD de balas y las animaciones (sin GDevelop)
+python gdevelop/scripts/fase63_avisos.py           # letreros: rojo solo infección y FDI llenándose, verde lo demás (avisos.js)
+node gdevelop/scripts/prueba_avisos.js              # pruebas del color de los letreros (sin GDevelop)
 ```
 Arte de los profes zombis: un GIF por animación en `animaciones_gif/profes_zombi/<profe>/` (caminar_lado mirando a la derecha, caminar_arriba, caminar_abajo, atacar_lado, atacar_abajo, golpe_morir; atacar_arriba es opcional). Para cambiarlo, reemplaza el GIF y vuelve a correr los dos últimos scripts con GDevelop cerrado.
 En Windows basta con doble clic en `gdevelop\scripts\reconstruir.bat`: hace un respaldo con fecha y corre los tres. Antes de correrlos, haz una copia de `FDI-Z.json`.

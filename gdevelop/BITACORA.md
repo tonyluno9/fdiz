@@ -1331,3 +1331,33 @@ Respaldo: `respaldos/antes_de_fase62_*.json`.
 - No se borró ningún recurso.
 
 **Sin probar:** jugarlo dentro de GDevelop (cómo se ven la mira, el número y las animaciones en movimiento) y en línea.
+
+
+## Fase 63 · Color de los letreros de eventos: rojo solo para infección y FDI llenándose (2026-11-22)
+Script: `scripts/fase63_avisos.py` (idempotente). Lógica: `scripts/avisos.js`. Pruebas: `node gdevelop/scripts/prueba_avisos.js` (6 casos). Respaldo: `respaldos/antes_de_fase63_*.json`. Todos los modos.
+
+**Por qué salían rojos.** Todos los letreros de la partida pasan por la variable `Banner` y se muestran con el objeto `TxtBanner`. Ese objeto tenía rojo fijo (255;80;80) y ningún evento lo cambiaba.
+
+Escriben en `Banner`:
+- eventos de los grupos «Objetivos y flecha», «Final ¡Aguanten!», «Compañeros mordidos», «Habilidades», «HUD», «Puertas» y «Unirse con control»;
+- `profes.js` y `medios.js`.
+
+Por eso se corrigió en el único punto por donde pasan todos: donde se muestra el letrero. Así ningún mensaje queda fuera.
+- `TxtBanner` ahora es verde por defecto (110;230;110).
+- `FDIZ-FASE63-COLOR`, dentro del evento del grupo «HUD» que pone el texto del letrero, aplica el color que corresponde al texto visible. Solo lo recalcula cuando el texto cambia.
+
+**Regla de color.** El texto se normaliza antes de clasificar: minúsculas, sin acentos ni signos, espacios simples.
+- **Rojo:** «mordido / mordida», «infectado / infectada», «se convirtió en zombi / zombie», «la FDI se está llenando».
+- **Excepciones a lo rojo:** «salvado», «curado» o «ya no» lo vuelven verde.
+- **Verde:** todo lo demás: objetivos nuevos y cumplidos, «¡AGUANTEN!», «¡ESCAPARON!», «salvado», profes que se unen, llaves, tarjeta, servidor, festín, «¡SE FUE LA LUZ!», «quedó fuera de combate», «se quedó atrás»…
+- **Letreros rojos de hoy:** «¡Pn MORDIDO!», «¡Pn SE CONVIRTIÓ EN ZOMBIE!», «¡<PROFE> MORDIDO!», «¡<PROFE> SE CONVIRTIÓ EN ZOMBI!» y «¡LA FDI SE ESTÁ LLENANDO!».
+
+**No cambian:** el texto de los letreros, cuándo aparecen ni cuánto duran.
+- **Mensajes de error del Jefe** («Te falta oro», «Recargando…», «Zona visible…»): siguen en su color, porque no son letreros de eventos sino avisos de acciones no válidas del jugador Jefe.
+- **Etiquetas de estado de los profes, número de balas bajas y colores del minimapa:** no son mensajes y no se tocaron.
+
+**Pruebas:**
+- Todos los letreros que hoy pone el proyecto están en una tabla con su color esperado. Si se agrega uno nuevo, la prueba falla hasta clasificarlo.
+- También se prueban variaciones de acentos, mayúsculas, espacios y plurales, y que los textos son los mismos que antes de la fase.
+
+**Sin probar:** verlo dentro de GDevelop.
