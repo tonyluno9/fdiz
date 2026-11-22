@@ -861,3 +861,341 @@ Script: `scripts/fase42_correr.py` (idempotente; va después de `fase41`; respal
 - Se quitaron los dos eventos de caminar despacio de "Movimiento y animación" (Shift del teclado y `NetSp` del jugador remoto). El texto de controles del mando ahora dice "LB  correr"; el de teclado ya decía "Shift  correr".
 - **Corrección en línea:** el cliente preguntaba por la tecla 16 para mandar Shift, pero GDevelop la registra como 1016 (izquierda) o 2016 (derecha), así que nunca llegaba. Ahora manda Shift, LB o L3 (`net_core.js` y la copia incrustada en Titulo).
 - **Sin probar** dentro de GDevelop ni con dos máquinas: cómo se siente la velocidad, la barra del HUD con 2 a 4 jugadores y LB/L3 en mandos reales.
+
+
+## Fase 55 · Modo Historia: 5 objetivos fijos en orden (2026-11-20)
+Scripts: `scripts/fase55_ilus_historia.py` (ilustración provisional de la tarjeta, una vez) y `scripts/fase55_historia.py` (idempotente; va después de `fase54` de cesar; respaldo `respaldos/antes_de_fase55_*.json`). Pruebas: `python gdevelop/scripts/prueba_historia.py` (17 casos). Si se vuelve a correr una fase que regenere eventos del Menú o de Juego, correr esta fase otra vez.
+
+**Cómo se juega**
+- Menú "ELIGE EL MODO": ahora hay tres tarjetas: ESCAPE | JEFE DE ZOMBIES | HISTORIA (Modo global `"historia"`). Después se elige LOCAL o EN LÍNEA, igual que en Escape. Historia se comporta como Escape en todo lo demás (bots, profes, final, resultados).
+- Orden fijo: 1) llamar desde la computadora del CIC → 2) se va la luz: activar los 3 interruptores del CIC → 3) llaves del conserje → 4) comida a la nevería → 5) 3 bidones de gasolina al camión → final del camión (60 s, como siempre).
+- HUD: "Objetivo n/5" con el texto propio de Historia (contadores de bidones e interruptores incluidos).
+- Señales: al cumplir, letrero "¡OBJETIVO n/5 CUMPLIDO!" con su sonido, y el HUD dice "¡Objetivo n/5 cumplido! Prepárense…". Pasados **2.5 s** se activa el siguiente, con el letrero "OBJETIVO n/5 · …" y el sonido de nuevo objetivo. Antes del final pasa lo mismo y luego sale "¡AL ESTACIONAMIENTO!".
+
+**Revisión de ubicaciones y condiciones (cambios)**
+- *Llamada:* en Escape primero hay que prender el servidor del SITE, y el SITE está tras la puerta P41 (restringida y electrónica: solo se abre a golpes, con 150 de vida, o con Carlos). Hoy se alcanzaba usándolo a través de la pared, porque la distancia de uso no toma en cuenta los muros. En Historia la llamada es directa en la computadora del CIC (3136, 1760; 20 s). Al CIC se entra por la puerta electrónica P43 (mantener F 8 s) o por las Salas 3 y 4 (puertas normales).
+- *Interruptores:* los de Escape están uno en el SITE, otro en la Sala 3 y otro en el CIC. En Historia los tres están en el CIC: pared del pasillo CIC oeste (2736, 1640), salón del CIC (3336, 1760; el mismo de antes) y pared del pasillo CIC este (3696, 1640). Escape conserva los suyos.
+- *Una sola vez:* cada objetivo se borra al cumplirse y `Paso = 99` avanza un solo número (lo comprueba la prueba manteniendo el objetivo hecho varios cuadros). **Corrección que también aplica a Escape:** si se recogían 2 bidones en el mismo cuadro contaba 1 y la gasolina quedaba imposible. Ahora suma `PickedInstancesCount(Bidon)`.
+- Los "/3" y "ObjNum = 4" fijos usan `ObjTotal` (3 en Escape y Jefe, 5 en Historia), también en "Guía de los bots" y "Modo presentación (F1)".
+- *En línea:* el texto del objetivo no llegaba a los clientes (sus eventos solo corren en el host). Ahora el host lo copia en `ObjTxt` (sincronizada) y los clientes lo muestran. Sirve para todos los modos. La sala se crea en modo `"historia"` (`net_core.js`: `N.preHist` con `OnlineEsc = 2`) y la sala muestra "Modo: HISTORIA".
+- Variables nuevas de Juego: `ObjTotal`, `O4`, `O5`, `ObjEspera`, `ObjTxt` (todas sincronizadas).
+
+**Menú**
+- Tarjetas de 440 px en x 160 / 740 / 1320; los videos de Escape y Jefe se movieron con su tarjeta. La 3.ª tarjeta era una "EN LÍNEA" vieja sin instancias: ahora es HISTORIA, con la ilustración provisional `assets/interfaz/ilus_modo_historia.png` (una lista de 5 pasos, en el estilo de LOCAL / EN LÍNEA).
+- Navegación: Izquierda/Arriba y Derecha/Abajo recorren las 3. Antes Derecha estaba en los dos eventos y se anulaba: no se movía. También tecla 3 y clic sobre cada tarjeta, que la elige y la confirma; antes el clic solo confirmaba la tarjeta ya seleccionada.
+- Paso LOCAL / EN LÍNEA de Historia: copia de los eventos de Escape con `JT = 2`. Al volver de la sala en línea, `OnlineEsc = 1` regresa a Escape y `OnlineEsc = 2` a Historia.
+
+**Pruebas** (`prueba_historia.py`, simula los eventos reales del proyecto)
+- Historia: orden de los 5 objetivos y el final, victoria, llamada sin servidor, 3 interruptores dentro del CIC, carnada en la nevería, 2 bidones a la vez, los 5 letreros de cumplido y los 5 de nuevo objetivo con 2.5 s entre ellos, 5 + 5 sonidos, cada objetivo una sola vez, texto del HUD y `ObjTxt`.
+- Escape: con tres semillas, mismos objetivos, objetos creados, letreros y resultado que el respaldo de antes de la fase 55, y el HUD sigue en "/3".
+- Además: alcance con la máscara real de los pies (todos los puntos de objetivo se alcanzan; las llaves y el bidón de la conserjería solo tras la puerta restringida P59), `node --check` de los 38 eventos JS, `net_core.js` y la fase idempotente (mismo md5).
+
+**Pendiente / sin cambiar**
+- Nada se ejecutó dentro de GDevelop ni con dos máquinas: el menú con 3 tarjetas, el clic y los letreros en pantalla.
+- La conserjería (llaves) sigue tras la puerta restringida P59: a golpes o con Carlos, igual que en Escape.
+- La entrada a su pasillo mide 32 px entre dos esquinas de muro: un jugador cabe (sus pies miden 16 px de alto), pero la navegación de los bots no la cruza.
+- `MejorTiempo` es uno solo para todos los modos: una victoria en Historia también puede guardarse como récord.
+- La ilustración de Historia es provisional.
+
+
+## Fase 56 · Interacción con F / A: una acción a la vez (2026-11-20)
+Script: `scripts/fase56_interaccion.py` (idempotente; va después de `fase55`; respaldo `respaldos/antes_de_fase56_*.json`). Lógica en `scripts/usar.js` (evento JS `FDIZ-FASE56-MOD`). Pruebas: `node gdevelop/scripts/prueba_usar.js` (22 casos). Si se vuelve a correr una fase que regenere eventos de Juego, correr esta fase otra vez.
+
+**Antes:** mantener F (A en el mando) hacía a la vez todo lo que estuviera al alcance: abrir una puerta, levantar a un caído, curar a un mordido, usar un objetivo y revisar un locker. R también abría puertas (y lanza objetos). Al soltar, el avance para levantar a alguien bajaba poco a poco.
+
+**Ahora** (`usar.js`, lo decide el host o la partida sin red):
+- Para cada jugador humano (teclado, mando o remoto) se elige **un** objetivo interactuable. Se usan los mismos alcances que los eventos:
+  - levantar a un caído: 80 px;
+  - curar a un mordido: 95 px;
+  - puerta: 130 px, de los pies al centro;
+  - objetivo: 140 px, centro a centro;
+  - locker o mochila: 95 px;
+  - profe esperando: 115 px.
+- Gana el de menor distancia relativa a su alcance. Salvar (levantar o curar) cuenta × 0.75, por ser urgente.
+- Mientras se mantiene F, se conserva el elegido aunque otro quede más cerca.
+- **Nunca dos acciones con la misma pulsación.** Solo el elegido avanza: su bandera (`UsaPuerta`, `UsaRevivir`, `UsaCurar`, `UsaObjetivo` o `UsaCofre`) y `Elegida` en la puerta u objetivo. Si lo que se mantenía termina o queda fuera de alcance, hay que soltar F antes de empezar otra cosa (indicación «Suelta F para la siguiente acción»).
+- **Cancelar:** al soltar o alejarse, el avance vuelve a 0:
+  - puertas y lockers: ya era así;
+  - curar: ya era así;
+  - levantar: **nuevo**; antes bajaba poco a poco.
+  - Los objetivos largos (la llamada de 20 s, interruptores...) conservan su avance como antes.
+- **Indicación** sobre cada jugador local: «Mantén F para abrir», «Mantén F para abrir (electrónica, 8 s)», «Mantén F para salvar a P2», «Mantén F para curar a P3», «Mantén F para llamar», «Mantén F para revisar»... Con mando dice A. Mientras se mantiene, aparece una barra de avance. Los clientes en línea la ven para su jugador (`Accion`, `UsarTxt`, `UsarProg` sincronizadas).
+- **Requisitos que se respetan:**
+  - Puertas restringidas sin derribar (`TiempoAbrir` 0): no se abren con F y avisan «Puerta restringida: derríbala a golpes». La llave maestra de Carlos (especial) y los golpes funcionan igual que antes.
+  - Electrónicas: 8 s, o 1 s con la tarjeta, como antes.
+  - El camión del final no se «usa».
+- **Profes:** el diálogo para reclutar solo se ofrece y abre si, para ese jugador, F es para el profe (`gdjs.fdizUsar.permite`). Curar a un profe mordido lee `UsaCurar`. `profes.js` se volvió a incrustar.
+- **Bots y profes aliados:** sin cambios. Todas sus banderas valen lo mismo que `Usando` y todas las puertas y objetivos a su alcance quedan elegidos.
+- **Eventos:**
+  - Se quitaron los dos de «R para abrir puertas»: el del teclado y el del jugador remoto (`NetDr`).
+  - Levantar usa `J<n>Rev` y curar usa `J<n>Cur`, en lugar de `J<n>Usa`, que se conserva para lo demás.
+- **Textos:** controles del menú de pausa («F (mantener)  abrir puertas, salvar, revisar y usar objetivos», igual con A) y su fuente `fase27_jefe_y_controles.py`, comentarios de los eventos y `fase17_navegacion.py`, y la sección de teclas del LEEME. Las imágenes de controles de la pausa no tienen texto de acciones, así que no cambian.
+
+**Pruebas:**
+- `prueba_usar.js` cubre:
+  - indicación sin mantener;
+  - puerta sola;
+  - puerta y caído (elige uno), y la puerta mucho más cerca;
+  - conservar lo elegido;
+  - soltar después de terminar;
+  - alejarse;
+  - puertas restringida y electrónica, con y sin tarjeta;
+  - curar;
+  - mando, remoto y bots;
+  - objetivo y camión del final;
+  - locker;
+  - profe;
+  - caído.
+- También revisa en el proyecto que los eventos de puertas, levantar, curar, objetivos, lockers, textos y `profes.js` quedaron conectados.
+- Siguen pasando `prueba_profes.js` (16), `prueba_correr.js` (13) y `prueba_historia.py` (17); los 41 eventos JS compilan y la fase es idempotente (mismo md5).
+- **Sin probar** dentro de GDevelop ni con mandos reales o dos máquinas: cómo se ve la indicación, la barra y el tacto de la elección.
+
+
+## Fase 57 · Volumen de música y efectos; música en «Elige el modo» (2026-11-20)
+Script: `scripts/fase57_volumen.py` (idempotente; va después de `fase56`; respaldo `respaldos/antes_de_fase57_*.json`). Lógica en `scripts/audio.js` (evento JS `FDIZ-FASE57-MOD` al inicio de **todas** las escenas). Pruebas: `node gdevelop/scripts/prueba_audio.js` (17 casos). Si se vuelve a correr una fase que regenere eventos (en especial `fase25_online.py`, que pone la compuerta de host a los eventos JS sueltos de Juego), correr esta fase otra vez.
+
+**Por qué no sonaba música en «Elige el modo»:** GDevelop detiene todos los sonidos al empezar una escena. El Título ponía `musica/menu.ogg`, pero al pasar a Menu se cortaba y Menu no tenía ningún evento de música. La sala en línea (Online) tampoco tenía. Ahora las dos ponen la música del menú al entrar (DepartScene, canal 1, 45 %, como el Título). Como cada escena detiene la anterior al empezar, y en el mismo canal la música nueva reemplaza a la vieja, nunca suenan dos a la vez.
+
+**Volumen:**
+- Variables globales `VolMusica` y `VolEfectos`, de 0 a 100 en pasos de 10. Por defecto valen 100, que es como sonaba antes.
+- `audio.js` las limita a ese rango en cada cuadro.
+- Se conservan al cambiar de escena, porque son globales, y además se guardan en el navegador (`localStorage` «fdiz_volumen») para la próxima vez que se abra el juego.
+
+**Cómo se aplica:**
+- `audio.js` envuelve `createHowlerSound` del gestor de sonido de GDevelop, que es la función por la que pasan todas las formas de reproducir: `playSound`, `playSoundOnChannel`, `playMusic` y `playMusicOnChannel`.
+  - Cada efecto nuevo sale con su volumen × `VolEfectos` / 100.
+  - Cada música nueva, × `VolMusica` / 100.
+  - No hubo que tocar las ~45 acciones de sonido del proyecto, y sus volúmenes de la fase 21 se respetan.
+- Al cambiar una barra se actualiza también lo que ya está sonando (la música de fondo baja o sube al instante).
+- El audio de los videos (fondos y personajes del menú, resultados) cuenta como música y conserva su volumen base (3 %, 12 %).
+- El módulo se aplica al inicio de cada escena, antes de su música, así que la música de cada pantalla ya empieza con el volumen elegido.
+
+**Pantalla:**
+- En el menú de pausa, el botón CONTROLES ahora dice **AJUSTES**. Su pantalla se llama «CONTROLES Y SONIDO»: los controles de siempre arriba y, abajo, un bloque SONIDO con dos filas, MÚSICA y EFECTOS (− / barra de 10 segmentos / + / porcentaje, o «SIN SONIDO» en 0), y VOLVER.
+- **Teclado:** W/S o ↑/↓ eligen la fila, A/D o ←/→ ajustan, y Enter o Espacio en VOLVER sale. Retroceso también sale.
+- **Mando:** la cruceta o el stick izquierdo ajustan y A en VOLVER sale. Un paso por pulsación: mantenerlo no repite.
+- **Ratón:** clic en − o +, clic sobre la barra (fija ese valor) y clic en VOLVER.
+- Al mover EFECTOS suena un efecto corto de prueba.
+- Antes esa pantalla se cerraba con cualquier Enter, Espacio, clic o A. Ahora no, para poder ajustar: se cierra con VOLVER, Retroceso o B del mando. Esc sigue quitando la pausa.
+
+**Límite conocido:** en línea no hay menú de pausa (ya era así), así que ahí no se puede ajustar el volumen. Sí se usa el que quedó guardado, y en los clientes el módulo corre igual: aplica su volumen local.
+
+**Pruebas:**
+- `prueba_audio.js` cubre:
+  - 100 % igual que antes;
+  - música y efectos por separado, incluida la música que ya suena;
+  - límites y pasos de 10;
+  - cambio de escena;
+  - guardado entre sesiones;
+  - una sola música por canal;
+  - videos;
+  - la pantalla con teclado, mando y ratón: Enter no cierra fuera de VOLVER y Retroceso sí;
+  - que no se dibuja fuera de esa pantalla.
+- En el proyecto revisa:
+  - que el módulo esté en las 5 escenas antes de su música;
+  - que la música del menú esté en Menu y Online, una sola vez;
+  - los textos de la pausa, que la pantalla solo se cierre con B, los objetos nuevos y las globales.
+- Siguen pasando `prueba_usar.js` (21), `prueba_profes.js` (16), `prueba_correr.js` (13) y `prueba_historia.py` (17); los 52 eventos JS compilan y la fase es idempotente (mismo md5).
+- **Sin probar** dentro de GDevelop: oírlo, el acomodo exacto del bloque SONIDO bajo los textos de controles y los mandos reales.
+
+
+## (Antes «Fase 46» local) · Conserje atravesando puertas: reemplazada por la fase 43 de cesar (2026-11-21)
+Esta corrección se hizo localmente como `fase46_zombi_puertas.py` + `zombi_puertas.js`, pero el pull del 2026-11-21 trajo `fase43_criticos.py` de cesar, que arregla lo mismo: máscara de pies del conserje y `criticos.js → puertas()`. Para no tener dos seguros que se pisen, se quitaron el script, el módulo y su prueba locales, y se quedó el de cesar. La máscara generada en `fase19_correcciones.py` (atacar_arriba con máscara de pies) se conserva porque no choca con la suya.
+
+
+## Fase 58 · Efectos de sonido del repositorio (`sonidos_nuevos/`) (2026-11-21)
+Script: `scripts/fase58_sonidos.py`. Es idempotente y solo usa la biblioteca estándar: `python -I gdevelop/scripts/fase58_sonidos.py`. Lee de `FDI-Z/sonidos_nuevos/` (subido por el equipo, que no se modifica) y escribe copias procesadas en `FDI-Z/efectos/<categoría>/<nombre>.wav`. Mediciones en `FDI-Z/efectos/fase58_informe.json`. Si se vuelve a correr `fase21_proyecto.py`, hay que correr esta fase otra vez.
+
+Antes del pull, esta fase local (llamada «fase 47») había reemplazado 13 efectos con archivos de la carpeta 2dsounds. El pull trajo `sonidos_nuevos/`: las mismas grabaciones de 2dsounds, renombradas por el equipo según el uso que les quiere dar, todavía sin conectar al proyecto. **Regla: manda el repositorio.**
+- Si el repositorio trae un archivo para un efecto, se usa ese archivo.
+- Si un archivo que yo había elegido el repositorio lo destinó a otra cosa, ese efecto vuelve a su `.ogg` original.
+- Una elección propia solo se mantiene cuando el repositorio no le da otro uso a ese archivo.
+
+**Ahora usan el archivo del repositorio (6)**
+
+| Efecto del juego | Archivo de `sonidos_nuevos/` | Duración |
+|---|---|---|
+| Golpe a la puerta (`mundo/puerta_golpe`) | door_punch.wav | 0.41 s |
+| Minigun de Miranda (`habilidades/miranda_especial`) | minigun.wav | 2.48 s |
+| Habilidad de Tony, cocinar (`habilidades/tony_habilidad`) | tony_cook_sound.wav | 0.39 s |
+| Especial de Tony (`habilidades/tony_especial`) | tony_powerup.wav | 1.14 s |
+| Especial de Castillo, poción (`habilidades/castillo_especial`) | powerup_generic_sound.wav | 0.39 s |
+| Moneda (`mundo/moneda`) | FNF_EBA_fx_misc_coin_collector.wav | 0.34 s |
+
+**Vuelven a su `.ogg` original (9)**, porque el repositorio le dio ese archivo a otro uso:
+- apagón: concierge_death_effect
+- interruptor: minigun_ednd_sound
+- objetivo nuevo: main_menu_start_sound
+- habilidad de Alan: item_collected
+- objetivo cumplido: tony_cook_sound
+- habilidad de Gabo: tony_powerup
+- habilidad de César: start_game_sound
+- mordida: kick_sound_effect
+- paso de objetivo: zombie_death
+
+Sus WAV locales se borraron, y todas las referencias en los eventos, el JS incrustado, `profes.js`, `audio.js` y el manifiesto volvieron al `.ogg`. El sonido de prueba del volumen vuelve a ser `mundo/interruptor.ogg`.
+
+**Sin conectar todavía**: se dejan para quien los subió, porque su uso no es un efecto que ya exista:
+- punch1-4
+- zombie_death_2/3
+- item_collected
+- start_game_sound
+- main_menu_start_sound
+- concierge_death_effect
+- minigun_ednd_sound
+- kick_sound_effect
+- los BULLYFINGER
+- las músicas `main_menu*.MP3`
+
+**Formato y volumen**
+- WAV PCM 16 bits mono, a 48 kHz (bajado desde 96 kHz con filtro) o a 44.1 kHz.
+- Sin silencio al inicio, y la cola no se corta.
+- Pico a −1 dBFS y promedio limitado a −16 dBFS.
+- Los volúmenes de cada evento no cambian.
+- `validar_audio.py --check` revisó 44 y no encontró problemas.
+
+**Sin probar:** escucharlos dentro de GDevelop.
+
+
+## Fase 59 · Revólver (tipo sheriff) y escopeta (2026-11-20)
+Scripts: `scripts/fase59_arte_armas.py` (arte y sonidos, solo Pillow) y `scripts/fase59_armas_fuego.py` (proyecto; idempotente; va después de `fase58`; respaldo `respaldos/antes_de_fase59_*.json`). Pruebas: `python gdevelop/scripts/prueba_armas_fuego.py` (7 casos).
+
+**Integración con el sistema de armas que ya existía**
+- Son `ArmaPiso` con `Tipo` `pistola` (el revólver) y `escopeta`, los nombres que ya usaban los íconos del HUD.
+- Se recogen igual que las demás: pasando encima con los puños.
+- `Usos` es la munición: se gasta 1 por disparo con la regla de siempre y, al llegar a 0, vuelven los puños.
+- `DanioArma`, `Alcance` y `Cadencia` se ponen en «Armas del salón», como las otras armas. El daño se multiplica por `Fuerza`.
+- Nueva variable `Sup.ArmaFuego` (1 con estas dos armas). Con ella el ataque no crea el golpe cuerpo a cuerpo: dispara con el objeto `Proyectil` de los lanzables, el mismo de la engrapadora. Ese proyectil:
+  - daña al primer zombi a 46 px;
+  - se detiene en muros y puertas;
+  - acredita la baja con `UltJugador`.
+- `Proyectil.Dura` = `Alcance` / 4 s. Los lanzables siguen en 0.9 s.
+- Las balas y los perdigones no quedan tirados como lanzables.
+
+| Arma | Usos (munición) | DanioArma | Alcance | Cadencia | Disparo |
+|---|---|---|---|---|---|
+| pistola (revólver) | 6 | 24 por bala | 2.4 → 0.6 s a 1000 px/s ≈ 600 px | 0.55 s | 1 bala, empuje -120 |
+| escopeta | 6 | 9 por perdigón (×5 = 45) | 1.2 → 0.3 s a 900 px/s ≈ 270 px | 0.95 s | 5 perdigones a -12/-6/0/6/12°, empuje -90 |
+Para comparar: el bate hace 21 de daño con alcance 1.25 y cadencia de 0.5 s (24 usos), y la engrapadora 9 por grapa.
+
+**Arte y sonido**
+- `generado/sprites/objetos/armas/pistola.png`: revólver de vaquero nuevo, 42 × 30 px, pixel art con el contorno del juego. Tiene tambor estriado, cañón largo, cacha de madera y remate dorado.
+- `generado/sprites/objetos/armas/escopeta.png`: 32 × 32 px, reducida del ícono que ya existía.
+- `generado/sprites/objetos/lanzables/bala.png` y `perdigon.png`.
+- HUD: `escopeta` usa su ícono de siempre. `pistola` ahora muestra `assets/interfaz/hud/ico128_arma_revolver.png`, el revólver ×3; el ícono de pistola semiautomática se queda en su carpeta, sin uso.
+- `efectos/combate/revolver.wav` y `escopeta.wav`: ruido más un golpe grave, en 8 bits como los demás, de 0.42 y 0.62 s. Suenan al 70 %.
+
+**En el mapa**
+- **Escopeta: (5136, 650)**, con el origen en los pies (abajo al centro), en la conserjería.
+  - Está a la derecha de las llaves del objetivo, en (5056, 640), a 80 px, y no las tapa (hay 55 px entre sus dibujos).
+  - Queda en piso libre, lejos de los estantes y del bote de basura.
+  - La conserjería tiene la puerta restringida P59: se entra derribándola o con Carlos, igual que para las llaves.
+- **Revólver: pendiente.** La sala de la imagen de referencia no se pudo identificar porque la imagen no llegó. Basta con poner su posición en `POS["pistola"]` de `fase59_armas_fuego.py` y volver a correrlo.
+
+**Pruebas** (`prueba_armas_fuego.py`):
+- que los recursos existan;
+- que la escopeta esté dentro de la conserjería, fuera de muros, muebles y puertas, sin encimarse con el dibujo de los muebles ni con las llaves, a 50-140 px de ellas;
+- que un jugador alcance a tocarla, con la caja real de sus pies;
+- que recogerla ponga los valores correctos;
+- el disparo: 1 bala o 5 perdigones, con el daño del arma por `Fuerza`, sonido, gasto de munición y sin golpe cuerpo a cuerpo;
+- los proyectiles: se detienen en muros, duran según su alcance y no quedan en el piso.
+
+Siguen pasando las demás pruebas y el validador de audio (44), y los 54 eventos JS compilan. **Sin probar** dentro de GDevelop.
+
+
+## Pull del 2026-11-21 · Compatibilidad de las fases locales con las 43-54 de cesar
+Las fases locales que no se habían subido se renumeraron después de las del repositorio:
+| Antes | Ahora |
+|---|---|
+| fase43_historia | fase55_historia |
+| fase44_interaccion | fase56_interaccion |
+| fase45_volumen | fase57_volumen |
+| fase46 | reemplazada por fase43_criticos de cesar |
+| fase47_sonidos | fase58_sonidos |
+| fase48_armas | fase59_armas |
+
+Todas se volvieron a aplicar sobre el `FDI-Z.json` del pull. La copia local de antes quedó en `respaldos/local_antes_del_pull_20261121/` y en el stash «local antes del pull 2026-11-21».
+
+**Ajustes para que convivan:**
+- `medios.js` (llaves, fase 46 de cesar): el texto «toma las llaves… %» solo cuenta a quien el árbitro de la F le dio ese objetivo (`UsaObjetivo` y `Elegida`). Así ya no se ve un progreso que no avanza cuando la F de ese jugador iba a otra cosa. Es un cambio de una línea; la fase 56 vuelve a incrustar `medios.js` en `FDIZ-FASE46-MOD`.
+- Pausa: cesar cambió los textos de controles por imágenes (fase 49, en y 300-700) y los vació. Las filas de volumen (y 832 y 882) quedan debajo, sin encimarse. La prueba de textos ahora acepta que estén vacíos.
+- Lanzables (fase 52 de cesar): el impacto en área y la distracción solo aplican a balón y libro, así que las balas y los perdigones no los activan. El aviso del primer lanzable usa `Sup.Lanz`, no las armas.
+
+**Pruebas sobre el proyecto final:**
+| Prueba | Resultado |
+|---|---|
+| audio | 17 |
+| interacción | 22 (una nueva: llaves con el árbitro) |
+| profes | 16 |
+| correr | 17 |
+| medios | 9 |
+| Historia | 17 |
+| armas de fuego | 7 |
+| `validar_audio --check` | 44, sin problemas |
+
+Además, los 67 eventos JS compilan, todas las marcas de cesar siguen (43, 46, 48-53), y volver a correr las fases 55-59 deja el mismo md5. **Sin probar** dentro de GDevelop.
+
+
+## Fase 60 · Efectos de sonido de «sonidos 2d» (2026-11-21)
+Script: `scripts/fase60_sonidos2d.py`. Es idempotente; se corre con `python -I gdevelop/scripts/fase60_sonidos2d.py`, va después de `fase59` y deja un respaldo en `respaldos/antes_de_fase60_*.json`.
+- Lógica en `scripts/sfx.js`, que se incrusta como `FDIZ-FASE60-MOD` y `-TICK` en **todas** las escenas, sin compuerta de host.
+- Pruebas: `node gdevelop/scripts/prueba_sfx.js` (17 casos).
+- Si se vuelve a correr una fase que regenere eventos (sobre todo `fase25_online.py`), hay que correr esta otra vez.
+
+**Archivos**
+- Los 22 `.ogg` de `Videojuego2D/sonidos 2d/sonidos 2d/ogg` se copiaron a `fdiz/sonidos/`.
+- Se registraron como recursos de audio con el mismo nombre del archivo (`ui_click.ogg`, …). La ruta es `../../sonidos/<nombre>.ogg`, relativa a `FDI-Z.json`.
+- También se agregaron al manifiesto de audio: `validar_audio.py` revisa 66, sin problemas.
+
+**Cómo suenan**
+- Casi todos los pone `sfx.js`, que compara cada cuadro lo que cambió: vida, estado y animación de jugadores y zombis, y las variables de escena.
+- Corre en cada máquina con los datos que ya se sincronizan. Reproduce con la función original de GDevelop, sin el reenvío por red de `net_core`, así que en línea los clientes oyen lo mismo sin duplicados. La interfaz suena solo en la máquina de quien la usa.
+- Volumen: efectos 70–100 e interfaz 50–60. La música queda en 40–50. Ajustes → Efectos (fase 57) escala todo.
+- Ninguno va en loop.
+- Pitch aleatorio ±0.1 en golpes, dolor y growl.
+- Zombis: normal 1.0, gordo y conserje 0.7, corredor 1.3. Gritón y profes zombi: 1.0.
+- Dolor: 0.8 para todos, Miranda 1.0.
+- Cooldown corto: golpes, mordida, dolor, monedas, ataques y muertes 0.1 s; aparición 0.25 s; hover 0.08 s.
+- Los sonidos de un zombi (aparición, golpe, ataque, muerte) solo suenan a menos de 1300 px del centro de la cámara.
+- El growl suena cada 0.8–2 s: un zombi cercano al azar, que repite entre 5 y 12 s después. Volumen 80 × (1 − d/1000)^1.3, y no suena si queda por debajo de 12. No gruñen los dormidos, congelados, muertos ni aliados.
+- En pausa no suena nada del mundo.
+
+| Sonido | Escena | Evento (qué lo dispara) |
+|---|---|---|
+| ui_click | Menu, Juego (pausa), Resultados, Online | Clic sobre un botón; cambiar de paso del menú; elegir personaje, control o dificultad; abrir o cerrar la pausa o cambiar su vista; elegir carta del Jefe; cambiar de pantalla en la sala en línea |
+| ui_hover (50) | Menu, Resultados, Juego, Online | El cursor entra a un botón (MarcoModo, SelMarco, DifBtn, EqCelda, EqRet, BtnSalir, BtnRei, BtnMenuR, PausaBtn, JfCarta); mover la selección con teclado o mando |
+| ui_confirm | Menu, Juego, Online | LISTO de un jugador; todos listos; empezar partida (al entrar a Juego); compra del Jefe con oro; entrar a la sala en línea |
+| ui_error | Juego, Online | Error del Jefe (falta oro, recargando, bloqueada, zona visible, no cabe); F en una puerta restringida; error de red |
+| golpe_impacto | Juego | A un jugador o a un zombi le baja la vida |
+| jugador_dolor | Juego | Un jugador recibe daño (pitch por personaje) |
+| cuerpo_caida | Juego | Un jugador cae (Estado «caido») o muere un zombi |
+| whoosh_esquivar | Menu, Online, Juego | Al entrar a Menu u Online (transición); el jugador ataca (animación «pegar», no con armas de fuego) |
+| zombie_growl | Juego | Zombi cerca de la cámara, intervalo aleatorio, volumen según la distancia |
+| zombie_ataque | Juego | Un zombi empieza la animación «atacar» |
+| zombie_mordida | Juego | Un zombi le conecta daño a un jugador |
+| zombie_muerte_01 / _02 | Juego | Un zombi pasa a «muerto» (uno al azar) |
+| zombie_spawn_braam | Juego | Aparece un zombi nuevo (infestación, horda, convertido, invocación del Jefe); los del mapa al empezar no |
+| oro_moneda | Juego | Se recoge una moneda; cambia el Dinero; el Jefe gana o gasta oro (solo en su máquina) |
+| objeto_recoger | Juego | Tomar un arma, un lanzable, comida guardada, la bolsa o las llaves; tomar y entregar el bidón (evento) |
+| puerta_casillero | Juego | Se abre una puerta o un locker/mochila/máquina, y se abre la salida (eventos) |
+| curar_powerup | Juego | Un jugador recupera 5 o más de vida de golpe (comida, pociones, habilidades); lo levantan |
+| oleada_riser | Juego | Sube la infestación (evento del HUD); llega una horda; empieza la cuenta regresiva del final |
+| evento_impacto_cinematico | Titulo, Juego | Al entrar al título; empieza el final (alarma, evento); el conserje (jefe) aparece o empieza a perseguir; empieza el modo Jefe |
+| game_over | Resultados | Al entrar si no fue victoria |
+| victoria | Resultados | Al entrar si fue victoria (escapar o ganar) |
+
+**Cambios en eventos de Juego:**
+- puerta_abrir, locker y bidón ahora usan los sonidos nuevos.
+- infestacion_sube pasó a oleada_riser y final_inicio a evento_impacto_cinematico.
+- La sirena de escape suma puerta_casillero.
+- Se quitaron comer, mordida, victoria.ogg (Resultados) y jefe_invocar (en `jefe_modo.js`), porque ahora los pone `sfx.js`.
+- Se conservan los sonidos propios que no estaban en la lista: habilidades y especiales, objetivos, interruptor, apagón, golpe a puerta, sirena de escape, convertido, lanzar y las armas de fuego.
+
+**Pendientes, preparados:**
+- `// TODO: footsteps`: evento desactivado en «Movimiento y animación» que usaría `pasos.ogg`.
+- `// TODO: música de partida / tensión`: evento desactivado en «Música y sonido de fondo» que usaría `musica_tension.ogg` (canal 1, 45, loop). Se dispara con `OleadaInicio`, que `sfx.js` pone en 1 durante un cuadro cuando empieza una oleada.
+- Para usarlos: importar el archivo y activar el evento. `fase58` ya no revisa los eventos desactivados.
+- El juego **no tiene** esquivar; el whoosh se usa en ataques y transiciones.
+- Las monedas del modo Jefe todavía no tienen evento para recogerlas; cuando lo tengan, sonarán solas.
+
+**Sin probar:** escucharlo dentro de GDevelop. Tampoco se probó que la vista previa y la exportación encuentren los archivos fuera de la carpeta del proyecto (`../../sonidos/`).

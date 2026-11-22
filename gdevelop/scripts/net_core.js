@@ -89,7 +89,7 @@
       const P = PeerC(); if (!P) { N.ui.st = "error"; N.ui.msg = "No se cargó la librería de red."; return; }
       const peer = new P("fdiz-" + code, { debug: 1, config: ICE() });
       N.peer = peer;
-      peer.on("open", () => { N.code = code; N.myId = "host"; N.L = { m: [{ id: "host", name: (N.preJefe ? "JEFE (tú)" : "Host (tú)"), players: [] }], mode: (N.preJefe ? "jefe" : "escape"), dif: "normal" }; N.ui.st = "lobby"; N.ui.msg = ""; });
+      peer.on("open", () => { N.code = code; N.myId = "host"; N.L = { m: [{ id: "host", name: (N.preJefe ? "JEFE (tú)" : "Host (tú)"), players: [] }], mode: (N.preJefe ? "jefe" : (N.preHist ? "historia" : "escape")), dif: "normal" }; N.ui.st = "lobby"; N.ui.msg = ""; });
       peer.on("error", (e) => { if (e && e.type === "unavailable-id") { try { peer.destroy(); } catch (x) {} mk(); } else { N.ui.st = "error"; N.ui.msg = "Error de red: " + (e && e.type ? e.type : e); } });
       peer.on("disconnected", () => { try { peer.reconnect(); } catch (e) {} });
       peer.on("connection", (c) => {
@@ -345,7 +345,7 @@
     else if (e.key.length === 1 && /[a-zA-Z0-9]/.test(e.key) && u.code.length < 8) u.code += e.key.toUpperCase();
   };
   N.ui_tick = function (scn) {
-    /*FDIZ-F27*/ if (!scn._oj) { scn._oj = 1; try { N.preJefe = scn.getGame().getVariables().get("OnlineJefe").getAsNumber() >= 1; } catch (e) { N.preJefe = false; } }
+    /*FDIZ-F27*/ if (!scn._oj) { scn._oj = 1; try { N.preJefe = scn.getGame().getVariables().get("OnlineJefe").getAsNumber() >= 1; } catch (e) { N.preJefe = false; } try { N.preHist = !N.preJefe && scn.getGame().getVariables().get("OnlineEsc").getAsNumber() === 2; } catch (e) { N.preHist = false; } }
     N.scn = scn; syncRol(scn); const I = im(scn); const u = N.ui; const P = poolOf(scn); P.n = 0; { const B0 = scn._netB || (scn._netB = { a: [], n: 0 }); B0.n = 0; }
     if (N.role === 1 && N.L && !scn._lp) { scn._lp = 1; N.started = false; pushLobby(); if (N.ui.st !== "lobby") N.ui.st = "lobby"; }
     if (N.role === 2 && N.L && !scn._lp) { scn._lp = 1; N.started = false; N.ui.st = "lobby"; }
@@ -433,7 +433,7 @@
     const jf = L.mode === "jefe";
     T(scn, "CÓDIGO DE LA SALA", 960, 192, 24, "190;210;255", "center");
     T(scn, N.code || "-----", 960, 218, 80, "140;255;160", "center");
-    T(scn, "Modo: " + (jf ? "JEFE DE ZOMBIES" : "ESCAPE") + "   ·   Dificultad: " + L.dif.toUpperCase() + "   ·   Sobrevivientes: " + totalPlayers(L) + "/4", 960, 335, 28, "255;230;120", "center", 1600);
+    T(scn, "Modo: " + (jf ? "JEFE DE ZOMBIES" : (L.mode === "historia" ? "HISTORIA" : "ESCAPE")) + "   ·   Dificultad: " + L.dif.toUpperCase() + "   ·   Sobrevivientes: " + totalPlayers(L) + "/4", 960, 335, 28, "255;230;120", "center", 1600);
     let y = 385;
     L.m.forEach((m) => {
       const esJefe = jf && m.id === "host";

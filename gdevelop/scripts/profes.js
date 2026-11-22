@@ -311,7 +311,11 @@
       const npc = npcDe(scn, k); if (!npc) continue;
       const e = est(scn, k); if (!ESPERA(e)) continue;
       let mejor = null, md = 1e9;
-      for (const h of hs) { const d = dist(h.s, npc); if (d < CFG.hablarRadio && d < md && libreVista(scn, h.s, npc)) { md = d; mejor = h; } }
+      for (const h of hs) {
+        // fase 56: si para ese jugador F es para otra cosa más cercana (puerta, salvar...), el profe no se ofrece
+        if (gdjs.fdizUsar && !gdjs.fdizUsar.permite(h.s, "profe")) continue;
+        const d = dist(h.s, npc); if (d < CFG.hablarRadio && d < md && libreVista(scn, h.s, npc)) { md = d; mejor = h; }
+      }
       if (!mejor) continue;
       if (e === "conversacion" && !st.dlg) { if (ui) burbuja(scn, st, "Alguien habla con " + PROFES[k].nombre + "…", npc.getX(), npc.getY() - 150, "200;200;220"); continue; }
       if (ui) burbuja(scn, st, btn(mejor.ctl, "usar") + " Hablar con " + PROFES[k].nombre, npc.getX(), npc.getY() - 150, "255;230;120");
@@ -386,7 +390,8 @@
         setSeg(scn, k, Math.max(0, Math.ceil(CFG.mordidaSeg - tm)));
         // cura: cualquier superviviente de pie (alumno, bot o profe) que mantenga Usar junto a él 3 s
         let quien = null;
-        for (const o of sups) if (o !== s && str(o, "Estado") === "normal" && num(o, "Usando") === 1 && dist(o, s) < CFG.curaRadio) { quien = o; break; }
+        const USA = gdjs.fdizUsar ? "UsaCurar" : "Usando";   // fase 56: solo quien eligió curar (bots: igual que Usando)
+        for (const o of sups) if (o !== s && str(o, "Estado") === "normal" && num(o, USA) === 1 && dist(o, s) < CFG.curaRadio) { quien = o; break; }
         if (quien && corre) {
           VS(s, "Cura").add(dt); st.cura[k] = num(s, "Cura");
           if (num(s, "Cura") >= CFG.curaSeg) {

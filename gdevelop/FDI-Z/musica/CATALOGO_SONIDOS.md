@@ -64,3 +64,116 @@ Para rehacer uno que no te guste: dime su **ID** y se regenera con `python3 gdev
 | MUSICA_DERROTA | derrota | Resultados: derrota | Melodía descendente triste en La menor | No | 12.9 s | 50 |
 
 Los bucles se renderizan con eco circular, así que el final empalma con el inicio sin corte.
+
+
+## Fase 58 (2026-11-21): efectos de `sonidos_nuevos/` del repositorio
+Script: `gdevelop/scripts/fase58_sonidos.py` (`python -I`). Lee de `FDI-Z/sonidos_nuevos/` (no se modifica) y escribe copias procesadas. Mediciones en `efectos/fase58_informe.json`.
+Regla: **manda el repositorio**. Si trae un archivo para un efecto, se usa ese archivo. Si yo había elegido un archivo de 2dsounds que el repositorio destinó a otra cosa, el efecto vuelve a su `.ogg` original. Los nuevos son **WAV PCM 16 bits mono** (48 kHz si venían a 96 kHz; si no, 44.1 kHz), con pico ≤ -1 dBFS y promedio ~-16 dBFS. Conservan su evento, su momento y su volumen de evento.
+
+| Efecto | Antes | Ahora ← archivo de `sonidos_nuevos/` | Dur. |
+|---|---|---|---:|
+| puerta_golpe | `efectos/mundo/puerta_golpe.ogg` | `efectos/mundo/puerta_golpe.wav` ← `door_punch.wav` | 0.41 s |
+| miranda_especial | `efectos/habilidades/miranda_especial.ogg` | `efectos/habilidades/miranda_especial.wav` ← `minigun.wav` | 2.48 s |
+| tony_habilidad | `efectos/habilidades/tony_habilidad.ogg` | `efectos/habilidades/tony_habilidad.wav` ← `tony_cook_sound.wav` | 0.39 s |
+| tony_especial | `efectos/habilidades/tony_especial.ogg` | `efectos/habilidades/tony_especial.wav` ← `tony_powerup.wav` | 1.14 s |
+| castillo_especial | `efectos/habilidades/castillo_especial.ogg` | `efectos/habilidades/castillo_especial.wav` ← `powerup_generic_sound.wav` | 0.39 s |
+| moneda | `efectos/mundo/moneda.ogg` | `efectos/mundo/moneda.wav` ← `FNF_EBA_fx_misc_coin_collector.wav` | 0.34 s |
+
+**Vuelven a su `.ogg` original** (el repositorio usa su archivo para otra cosa):
+- apagon (concierge_death_effect)
+- interruptor (minigun_ednd_sound)
+- objetivo_nuevo (main_menu_start_sound)
+- alan_habilidad (item_collected)
+- objetivo_cumplido (tony_cook_sound)
+- gabo_habilidad (tony_powerup)
+- cesar_habilidad (start_game_sound)
+- mordida (kick_sound_effect)
+- paso_objetivo (zombie_death)
+
+**En `sonidos_nuevos/` sin conectar todavía:**
+- punch1-4
+- zombie_death, _2 y _3
+- item_collected
+- start_game_sound
+- main_menu_start_sound
+- concierge_death_effect
+- minigun_ednd_sound
+- kick_sound_effect
+- BULLYFINGER (hihat 3, kick 4 y 16, percussion 17)
+- las músicas `main_menu*.MP3`
+
+**Siguen los sintetizados (sin archivo en el repositorio):**
+- combate: convertido, lanzar
+- eventos: escape, final_inicio, infestacion_sube, rescate_logrado, victoria
+- interfaz: jefe_invocar
+- movimiento: comer
+- mundo: bidon, locker, maquina, puerta_abrir
+- habilidades: miranda_habilidad, cesar_especial, alan_especial, castillo_habilidad, alessandro (las dos), gabo_especial, carlos (las dos)
+- las 7 músicas
+
+**Armas de fuego (fase 59):** `efectos/combate/revolver.wav` y `escopeta.wav`, sintetizados.
+
+
+## Fase 60 · Efectos de sonido de «sonidos 2d» (2026-11-21)
+Script: `scripts/fase60_sonidos2d.py`. Es idempotente; se corre con `python -I gdevelop/scripts/fase60_sonidos2d.py`, va después de `fase59` y deja un respaldo en `respaldos/antes_de_fase60_*.json`.
+- Lógica en `scripts/sfx.js`, que se incrusta como `FDIZ-FASE60-MOD` y `-TICK` en **todas** las escenas, sin compuerta de host.
+- Pruebas: `node gdevelop/scripts/prueba_sfx.js` (17 casos).
+- Si se vuelve a correr una fase que regenere eventos (sobre todo `fase25_online.py`), hay que correr esta otra vez.
+
+**Archivos**
+- Los 22 `.ogg` de `Videojuego2D/sonidos 2d/sonidos 2d/ogg` se copiaron a `fdiz/sonidos/`.
+- Se registraron como recursos de audio con el mismo nombre del archivo (`ui_click.ogg`, …). La ruta es `../../sonidos/<nombre>.ogg`, relativa a `FDI-Z.json`.
+- También se agregaron al manifiesto de audio: `validar_audio.py` revisa 66, sin problemas.
+
+**Cómo suenan**
+- Casi todos los pone `sfx.js`, que compara cada cuadro lo que cambió: vida, estado y animación de jugadores y zombis, y las variables de escena.
+- Corre en cada máquina con los datos que ya se sincronizan. Reproduce con la función original de GDevelop, sin el reenvío por red de `net_core`, así que en línea los clientes oyen lo mismo sin duplicados. La interfaz suena solo en la máquina de quien la usa.
+- Volumen: efectos 70–100 e interfaz 50–60. La música queda en 40–50. Ajustes → Efectos (fase 57) escala todo.
+- Ninguno va en loop.
+- Pitch aleatorio ±0.1 en golpes, dolor y growl.
+- Zombis: normal 1.0, gordo y conserje 0.7, corredor 1.3. Gritón y profes zombi: 1.0.
+- Dolor: 0.8 para todos, Miranda 1.0.
+- Cooldown corto: golpes, mordida, dolor, monedas, ataques y muertes 0.1 s; aparición 0.25 s; hover 0.08 s.
+- Los sonidos de un zombi (aparición, golpe, ataque, muerte) solo suenan a menos de 1300 px del centro de la cámara.
+- El growl suena cada 0.8–2 s: un zombi cercano al azar, que repite entre 5 y 12 s después. Volumen 80 × (1 − d/1000)^1.3, y no suena si queda por debajo de 12. No gruñen los dormidos, congelados, muertos ni aliados.
+- En pausa no suena nada del mundo.
+
+| Sonido | Escena | Evento (qué lo dispara) |
+|---|---|---|
+| ui_click | Menu, Juego (pausa), Resultados, Online | Clic sobre un botón; cambiar de paso del menú; elegir personaje, control o dificultad; abrir o cerrar la pausa o cambiar su vista; elegir carta del Jefe; cambiar de pantalla en la sala en línea |
+| ui_hover (50) | Menu, Resultados, Juego, Online | El cursor entra a un botón (MarcoModo, SelMarco, DifBtn, EqCelda, EqRet, BtnSalir, BtnRei, BtnMenuR, PausaBtn, JfCarta); mover la selección con teclado o mando |
+| ui_confirm | Menu, Juego, Online | LISTO de un jugador; todos listos; empezar partida (al entrar a Juego); compra del Jefe con oro; entrar a la sala en línea |
+| ui_error | Juego, Online | Error del Jefe (falta oro, recargando, bloqueada, zona visible, no cabe); F en una puerta restringida; error de red |
+| golpe_impacto | Juego | A un jugador o a un zombi le baja la vida |
+| jugador_dolor | Juego | Un jugador recibe daño (pitch por personaje) |
+| cuerpo_caida | Juego | Un jugador cae (Estado «caido») o muere un zombi |
+| whoosh_esquivar | Menu, Online, Juego | Al entrar a Menu u Online (transición); el jugador ataca (animación «pegar», no con armas de fuego) |
+| zombie_growl | Juego | Zombi cerca de la cámara, intervalo aleatorio, volumen según la distancia |
+| zombie_ataque | Juego | Un zombi empieza la animación «atacar» |
+| zombie_mordida | Juego | Un zombi le conecta daño a un jugador |
+| zombie_muerte_01 / _02 | Juego | Un zombi pasa a «muerto» (uno al azar) |
+| zombie_spawn_braam | Juego | Aparece un zombi nuevo (infestación, horda, convertido, invocación del Jefe); los del mapa al empezar no |
+| oro_moneda | Juego | Se recoge una moneda; cambia el Dinero; el Jefe gana o gasta oro (solo en su máquina) |
+| objeto_recoger | Juego | Tomar un arma, un lanzable, comida guardada, la bolsa o las llaves; tomar y entregar el bidón (evento) |
+| puerta_casillero | Juego | Se abre una puerta o un locker/mochila/máquina, y se abre la salida (eventos) |
+| curar_powerup | Juego | Un jugador recupera 5 o más de vida de golpe (comida, pociones, habilidades); lo levantan |
+| oleada_riser | Juego | Sube la infestación (evento del HUD); llega una horda; empieza la cuenta regresiva del final |
+| evento_impacto_cinematico | Titulo, Juego | Al entrar al título; empieza el final (alarma, evento); el conserje (jefe) aparece o empieza a perseguir; empieza el modo Jefe |
+| game_over | Resultados | Al entrar si no fue victoria |
+| victoria | Resultados | Al entrar si fue victoria (escapar o ganar) |
+
+**Cambios en eventos de Juego:**
+- puerta_abrir, locker y bidón ahora usan los sonidos nuevos.
+- infestacion_sube pasó a oleada_riser y final_inicio a evento_impacto_cinematico.
+- La sirena de escape suma puerta_casillero.
+- Se quitaron comer, mordida, victoria.ogg (Resultados) y jefe_invocar (en `jefe_modo.js`), porque ahora los pone `sfx.js`.
+- Se conservan los sonidos propios que no estaban en la lista: habilidades y especiales, objetivos, interruptor, apagón, golpe a puerta, sirena de escape, convertido, lanzar y las armas de fuego.
+
+**Pendientes, preparados:**
+- `// TODO: footsteps`: evento desactivado en «Movimiento y animación» que usaría `pasos.ogg`.
+- `// TODO: música de partida / tensión`: evento desactivado en «Música y sonido de fondo» que usaría `musica_tension.ogg` (canal 1, 45, loop). Se dispara con `OleadaInicio`, que `sfx.js` pone en 1 durante un cuadro cuando empieza una oleada.
+- Para usarlos: importar el archivo y activar el evento. `fase58` ya no revisa los eventos desactivados.
+- El juego **no tiene** esquivar; el whoosh se usa en ataques y transiciones.
+- Las monedas del modo Jefe todavía no tienen evento para recogerlas; cuando lo tengan, sonarán solas.
+
+**Sin probar:** escucharlo dentro de GDevelop. Tampoco se probó que la vista previa y la exportación encuentren los archivos fuera de la carpeta del proyecto (`../../sonidos/`).

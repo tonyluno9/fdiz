@@ -91,7 +91,11 @@ for onombre, t in TIPOS.items():
         clave = "zombies/%s/atacar_arriba/%s" % (t, nom)
         add_res(clave, "../../generado/sprites/zombies/%s/atacar_arriba/%s" % (t, nom))
         nombres.append(clave)
-    nueva = animacion("atacar_arriba", nombres, 1 / atq["directions"][0]["timeBetweenFrames"], False, (ox, oy + 14))
+    # con la máscara de los pies (mismo arreglo que fase43_criticos.py) (sin ella GDevelop usa el sprite entero y la separación lo saca a través de puertas)
+    mc = cam["directions"][0]["sprites"][0]["customCollisionMask"][0]
+    mx0, my0, mx1, my1 = min(p["x"] for p in mc), min(p["y"] for p in mc), max(p["x"] for p in mc), max(p["y"] for p in mc)
+    nueva = animacion("atacar_arriba", nombres, 1 / atq["directions"][0]["timeBetweenFrames"], False, (ox, oy + 14),
+                      (mx0, my0 + 14, mx1, my1 + 14))
     o["animations"].append(nueva)
 print("atacar_arriba: OK")
 

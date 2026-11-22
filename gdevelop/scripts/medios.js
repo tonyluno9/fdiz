@@ -113,7 +113,9 @@
       const V = o.getVariables(), prog = V.get("Progreso"), usada = V.get("Usada");
       const tiempo = Math.max(0.01, V.get("Tiempo").getAsNumber());
       const dist = (s) => Math.hypot(s.getX() - o.getX(), s.getY() - o.getY());
-      const toman = sups.filter((s) => humano(s) && num(s, "Usando") === 1 && dist(s) < C.llaveUsar);
+      // fase 56: con el árbitro de la F (gdjs.fdizUsar) solo cuenta quien tiene elegido este objetivo (UsaObjetivo + Elegida)
+      const elegido = (s) => !gdjs.fdizUsar || (num(s, "UsaObjetivo") === 1 && V.get("Elegida").getAsNumber() === 1);
+      const toman = sups.filter((s) => humano(s) && num(s, "Usando") === 1 && elegido(s) && dist(s) < C.llaveUsar);
       if (prog.getAsNumber() > st.prev && !toman.length) {         // el cuadro lo sumó alguien que no es humano: se deshace
         prog.setNumber(st.prev);
         usada.setNumber(0);

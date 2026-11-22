@@ -160,7 +160,7 @@ reset = [e for e in viejos if e.get("type", "").endswith("Standard") and any(
     x["type"]["value"] == "VarObjet" and x["parameters"][:2] == ["Puerta", "Usada"] for x in e.get("conditions", []))]
 g_mapa["events"] = [e for e in g_mapa["events"] if e.get("type", "").endswith("Comment")] + \
     [e for e in actuales if not e.get("type", "").endswith("Comment")] + resto[:1] + [fe] + reset
-g_mapa["events"].insert(0, comentario("Choques con muros, muebles y puertas. Puerta: mantener Usar (F, A del control, o bots) o R en teclado junto a ella "
+g_mapa["events"].insert(0, comentario("Choques con muros, muebles y puertas. Puerta: mantener Usar (F, A del control, o bots) junto a ella; con varias cosas cerca, usar.js (fase 56) elige una "
                                       "(normal 1 s, electrónica 8 s, a 130 px de los pies). Al abrirse se descubren sus zonas (grupo Puertas: tipos y golpes)."))
 # quita comentarios duplicados
 vistos = False; nuevo = []

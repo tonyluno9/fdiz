@@ -1,0 +1,104 @@
+{
+ "efectos/mundo/puerta_golpe.ogg": {
+  "nuevo": "efectos/mundo/puerta_golpe.wav",
+  "origen": "door_punch.wav",
+  "motivo": "el repositorio lo trae para el golpe a la puerta (golpe grave, 0.38 s)",
+  "antes": {
+   "dur": 0.468,
+   "pico_db": -8.8,
+   "rms_db": -14.3,
+   "sr": 96000
+  },
+  "despues": {
+   "dur": 0.408,
+   "pico_db": -10.2,
+   "rms_db": -15.7,
+   "sr": 48000
+  }
+ },
+ "efectos/habilidades/miranda_especial.ogg": {
+  "nuevo": "efectos/habilidades/miranda_especial.wav",
+  "origen": "minigun.wav",
+  "motivo": "el repositorio lo trae para la minigun (2.5 s; el especial dura 8 s)",
+  "antes": {
+   "dur": 2.5,
+   "pico_db": -1.0,
+   "rms_db": -16.3,
+   "sr": 44100
+  },
+  "despues": {
+   "dur": 2.483,
+   "pico_db": -1.0,
+   "rms_db": -16.3,
+   "sr": 44100
+  }
+ },
+ "efectos/habilidades/tony_habilidad.ogg": {
+  "nuevo": "efectos/habilidades/tony_habilidad.wav",
+  "origen": "tony_cook_sound.wav",
+  "motivo": "el repositorio lo trae para Tony cocinando",
+  "antes": {
+   "dur": 0.389,
+   "pico_db": -1.0,
+   "rms_db": -10.7,
+   "sr": 44100
+  },
+  "despues": {
+   "dur": 0.389,
+   "pico_db": -6.3,
+   "rms_db": -15.8,
+   "sr": 44100
+  }
+ },
+ "efectos/habilidades/tony_especial.ogg": {
+  "nuevo": "efectos/habilidades/tony_especial.wav",
+  "origen": "tony_powerup.wav",
+  "motivo": "el repositorio lo trae para el poder de Tony (sube 1.1 s)",
+  "antes": {
+   "dur": 1.143,
+   "pico_db": -1.0,
+   "rms_db": -14.3,
+   "sr": 44100
+  },
+  "despues": {
+   "dur": 1.143,
+   "pico_db": -2.7,
+   "rms_db": -15.9,
+   "sr": 44100
+  }
+ },
+ "efectos/habilidades/castillo_especial.ogg": {
+  "nuevo": "efectos/habilidades/castillo_especial.wav",
+  "origen": "powerup_generic_sound.wav",
+  "motivo": "power-up genérico del repositorio (0.39 s): poción curativa",
+  "antes": {
+   "dur": 0.391,
+   "pico_db": -1.0,
+   "rms_db": -10.9,
+   "sr": 44100
+  },
+  "despues": {
+   "dur": 0.391,
+   "pico_db": -6.1,
+   "rms_db": -15.8,
+   "sr": 44100
+  }
+ },
+ "efectos/mundo/moneda.ogg": {
+  "nuevo": "efectos/mundo/moneda.wav",
+  "origen": "FNF_EBA_fx_misc_coin_collector.wav",
+  "motivo": "moneda de dos notas 980 -> 1336 Hz; el repositorio la trae sin otro uso",
+  "antes": {
+   "dur": 0.337,
+   "pico_db": -1.1,
+   "rms_db": -5.3,
+   "sr": 44100
+  },
+  "despues": {
+   "dur": 0.337,
+   "pico_db": -11.8,
+   "rms_db": -15.9,
+   "sr": 44100
+  }
+ }
+}

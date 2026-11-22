@@ -19,7 +19,28 @@ def entries(manifest: dict) -> list[dict]:
     return [*manifest["effects"], *manifest["music"]]
 
 
+def probe_wav(path: Path) -> tuple[bool, str]:
+    """WAV (fase 58): PCM 16 bits, 44.1 o 48 kHz, con datos. Se lee la cabecera sin herramientas externas."""
+    import struct
+    b = path.read_bytes()
+    if b[:4] != b"RIFF" or b[8:12] != b"WAVE":
+        return False, "no es WAV"
+    i, fmt, datos = 12, None, 0
+    while i + 8 <= len(b):
+        cid, n = b[i:i + 4], struct.unpack("<I", b[i + 4:i + 8])[0]
+        if cid == b"fmt ":
+            fmt = struct.unpack("<HHIIHH", b[i + 8:i + 24])
+        elif cid == b"data":
+            datos = n
+        i += 8 + n + (n & 1)
+    if not fmt or fmt[0] != 1 or fmt[5] != 16 or fmt[2] not in (44100, 48000) or datos == 0:
+        return False, f"se requiere WAV PCM 16 bits a 44.1/48 kHz (fmt={fmt}, datos={datos})"
+    return True, f"WAV PCM 16 bits {fmt[2]} Hz, {datos / (fmt[2] * fmt[4]):.2f} s"
+
+
 def probe(path: Path) -> tuple[bool, str]:
+    if path.suffix.lower() == ".wav":
+        return probe_wav(path)
     ffprobe = shutil.which("ffprobe")
     if not ffprobe:
         return True, "ffprobe no está instalado; solo se validó la extensión"
@@ -47,7 +68,8 @@ def main() -> int:
     failures = 0
     for item in entries(manifest):
         path = PROJECT / item["path"]
-        if path.suffix.lower() != manifest["format"]["extension"] or not path.exists():
+        extensiones = manifest["format"].get("extensions", [manifest["format"]["extension"]])
+        if path.suffix.lower() not in extensiones or not path.exists():
             print(f"FALTA: {item['id']} -> {item['path']}")
             failures += 1
             continue

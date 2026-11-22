@@ -74,8 +74,8 @@ for nom, res in (("CtlTeclado", "p27_ctl_teclado"), ("CtlMando", "p27_ctl_mando"
 for nom in ("TxtPausaCtl1", "TxtPausaCtl2"):
     o = vid(J, nom); o["characterSize"] = 26; o["content"]["characterSize"] = 26
 
-CTL1 = ("TECLADO Y RATÓN\nW A S D  moverse  ·  Ratón  apuntar\nClic izq.  golpear / disparar\nClic der. o R  lanzar objeto\nF (mantener)  usar puertas, cofres,\n máquinas\nQ  habilidad  ·  E  especial\nShift  correr  ·  Esc o P  pausa")
-CTL2 = ("MANDO\nStick izq.  moverse  ·  Stick der.  apuntar\nX  golpear / disparar\nB  lanzar objeto\nA (mantener)  usar puertas, cofres,\n máquinas\nY  habilidad  ·  RB  especial\nStart  pausa")
+CTL1 = ("TECLADO Y RATÓN\nW A S D  moverse  ·  Ratón  apuntar\nClic izq.  golpear / disparar\nClic der. o R  lanzar objeto\nF (mantener)  abrir puertas, salvar,\n revisar y usar objetivos\nQ  habilidad  ·  E  especial\nShift  correr  ·  Esc o P  pausa")
+CTL2 = ("MANDO\nStick izq.  moverse  ·  Stick der.  apuntar\nX  golpear / disparar\nB  lanzar objeto\nA (mantener)  abrir puertas, salvar,\n revisar y usar objetivos\nY  habilidad  ·  RB  especial\nStart  pausa")
 def lit(t): return '"' + t.replace("\n", '" + NewLine() + "') + '"'
 GP = next(e for e in J["events"] if e.get("name") == "Menú de pausa")
 for e in GP["events"]:

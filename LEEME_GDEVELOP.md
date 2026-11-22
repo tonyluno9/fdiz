@@ -24,11 +24,17 @@ Usa rutas relativas, así que funciona en cualquier carpeta, siempre que se baje
 ## Teclas
 - **Moverse:** WASD.
 - **Pegar:** clic izquierdo.
-- **Usar, revivir, curar o revisar (mantener):** F. Junto a un profe (Joel, Justino o Canepa), F o A abre el diálogo para reclutarlo.
+- **Interactuar (mantener):** F (A en el mando). Sirve para abrir puertas, salvar a un caído, curar a un mordido, usar objetivos y revisar lockers.
+  - Si hay varias cosas cerca, se hace solo una, la más cercana (salvar a alguien tiene preferencia), y arriba del personaje sale qué hará: «Mantén F para abrir», «Mantén F para salvar a P2»...
+  - Si sueltas o te alejas antes de terminar, se pierde el avance de puertas, lockers y salvar o curar. Los objetivos largos, como la llamada, lo conservan como antes.
+  - Al terminar una acción hay que soltar F antes de empezar otra.
+  - Las puertas restringidas no se abren con F: hay que derribarlas a golpes o usar la llave maestra de Carlos.
+  - Junto a un profe (Joel, Justino o Canepa), F o A abre el diálogo para reclutarlo.
 - **Habilidad:** Q.
 - **Especial:** E.
-- **Lanzar:** R o clic derecho.
-- **Caminar despacio:** Shift.
+- **Lanzar:** R o clic derecho (B en el mando). R ya no abre puertas.
+- **Correr:** Shift (LB o L3 en el mando), mientras haya estamina.
+- **Volumen:** en la pausa (Esc, P o Start) → AJUSTES. Ahí se ajustan MÚSICA y EFECTOS por separado (de 0 a 100 %, en pasos de 10) con ← →, la cruceta o el ratón. Se conserva al cambiar de pantalla y la próxima vez que se abra el juego.
 - **Saltar la cinemática:** Esc.
 - **Modo presentación:** F1. Luego, con los números: 1 completar objetivo, 2 saltar al final, 3 vida infinita, 4 y 5 infestación, 6 reiniciar, 7 morder a P1, 8 dar $200, 9 engrapadora para P1.
 - **Texto de depuración:** F3. Con F3 visible: B convierte a P1 en bot y T lo lleva a la siguiente máquina expendedora.
@@ -54,15 +60,41 @@ python gdevelop/scripts/fase12_mejoras.py gdevelop/FDI-Z/FDI-Z.json mapa/final/m
 ```
 `fase5` regenera los eventos de Juego, así que **siempre** se corren los tres, en ese orden.
 
-Los cambios posteriores (fases 13 a 42) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos son el de los profesores reclutables, el del pasillo de la nevería y las monedas, y el de correr con estamina:
+Los cambios posteriores (fases 13 a 60) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos, en este orden:
 ```
+python gdevelop/scripts/fase40_hojas_zombi.py        # (solo si cambian las hojas) hojas de Joel y Canepa zombi -> GIF
+python gdevelop/scripts/fase40_sprites_profes.py     # convierte los GIF de los profes y de los profes zombi a PNG
+python gdevelop/scripts/fase40_profesores.py         # profesores reclutables (idempotente)
+node gdevelop/scripts/prueba_profes.js               # pruebas de la lógica de los profes (sin GDevelop)
 python gdevelop/scripts/fase41_pasillo_y_monedas.py  # pasillo de la nevería de 3 casillas; monedas solo en modo Jefe
 python gdevelop/scripts/fase42_correr.py             # Shift / LB / L3 = correr con estamina (lógica en correr.js)
 node gdevelop/scripts/prueba_correr.js               # pruebas de la estamina (sin GDevelop)
-python gdevelop/scripts/fase40_hojas_zombi.py      # (solo si cambian las hojas) hojas de Joel y Canepa zombi -> GIF
-python gdevelop/scripts/fase40_sprites_profes.py   # convierte los GIF de los profes y de los profes zombi a PNG
-python gdevelop/scripts/fase40_profesores.py       # aplica los profes al proyecto (idempotente)
-node gdevelop/scripts/prueba_profes.js             # pruebas de la lógica de los profes (sin GDevelop)
+python gdevelop/scripts/fase43_criticos.py           # (cesar) bloque Críticos: conserje y puertas, desatasco, etc.
+python gdevelop/scripts/fase44_valla_sur.py          # (cesar) vallas de la calle sur
+python gdevelop/scripts/fase45_quitar_arcos.py       # (cesar) quita los arcos de entrada/salida
+python gdevelop/scripts/fase46_medios.py             # (cesar) bloque Medios (lógica en medios.js)
+node gdevelop/scripts/prueba_medios.js               # (cesar) pruebas de medios.js
+python gdevelop/scripts/fase47_tope_100.py           # (cesar) porcentajes topados a 100
+python gdevelop/scripts/fase48_menores.py            # (cesar) bloque Menores
+python gdevelop/scripts/fase49_arte.py               # (cesar) arte e interfaz (imágenes de controles en la pausa)
+python gdevelop/scripts/fase50_minimapa.py           # (cesar) minimapa
+python gdevelop/scripts/fase51_aliados_hab.py        # (cesar) habilidades de aliados con clic
+python gdevelop/scripts/fase52_lanzables.py          # (cesar) lanzables con distracción y daño en área
+python gdevelop/scripts/fase53_flechas.py            # (cesar) flechas de aliados fuera de pantalla
+python gdevelop/scripts/fase54_iconos_lanzables.py   # (cesar) ícono del lanzable en el panel
+python gdevelop/scripts/fase55_ilus_historia.py      # (una vez) ilustración provisional de la tarjeta HISTORIA
+python gdevelop/scripts/fase55_historia.py           # modo Historia: 5 objetivos fijos en orden
+python gdevelop/scripts/prueba_historia.py           # simula los eventos de objetivos (sin GDevelop)
+python gdevelop/scripts/fase56_interaccion.py        # F / A: una acción a la vez, la más cercana (lógica en usar.js; re-incrusta profes.js y medios.js)
+node gdevelop/scripts/prueba_usar.js                 # pruebas de la interacción (sin GDevelop)
+python gdevelop/scripts/fase57_volumen.py            # volumen de música y efectos; música en «Elige el modo» (lógica en audio.js)
+node gdevelop/scripts/prueba_audio.js                # pruebas del volumen (sin GDevelop)
+python -I gdevelop/scripts/fase58_sonidos.py         # efectos de sonidos_nuevos/ (WAV); ver efectos/CATALOGO_SONIDOS.md
+python gdevelop/scripts/fase59_arte_armas.py         # (una vez) arte y sonidos del revólver y la escopeta
+python gdevelop/scripts/fase59_armas_fuego.py        # revólver y escopeta como armas del piso (posiciones en POS)
+python gdevelop/scripts/prueba_armas_fuego.py        # pruebas de las armas de fuego (sin GDevelop)
+python -I gdevelop/scripts/fase60_sonidos2d.py     # efectos de sonidos/ (22 OGG; lógica en sfx.js); copia desde ..\sonidos 2d si hace falta
+node gdevelop/scripts/prueba_sfx.js                 # pruebas de los efectos de sonido (sin GDevelop)
 ```
 Arte de los profes zombis: un GIF por animación en `animaciones_gif/profes_zombi/<profe>/` (caminar_lado mirando a la derecha, caminar_arriba, caminar_abajo, atacar_lado, atacar_abajo, golpe_morir; atacar_arriba es opcional). Para cambiarlo, reemplaza el GIF y vuelve a correr los dos últimos scripts con GDevelop cerrado.
 En Windows basta con doble clic en `gdevelop\scripts\reconstruir.bat`: hace un respaldo con fecha y corre los tres. Antes de correrlos, haz una copia de `FDI-Z.json`.

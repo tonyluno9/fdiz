@@ -79,7 +79,7 @@
       for (const s of sups()) { if (sv(s, "Estado").getAsString() === "muerto") continue; const d = Math.hypot(s.getX() - x, s.getY() - y); if (d < best) best = d; }
       return best;
     }
-    function say(text, color) { st.msg = { text, color: color || "255;120;120", t: st.t + 2.2 }; }
+    function say(text, color) { st.msg = { text, color: color || "255;120;120", t: st.t + 2.2 }; if (!color) { try { if (gdjs.fdizSfx) gdjs.fdizSfx.ui(scn, "error"); } catch (e) {} } /*FDIZ-FASE60: ui_error*/ }
     function card(i) { return CARTAS[i]; }
     function status(i) {
       const c = card(i), inf = V.get("Infestacion").getAsNumber(), oro = V.get("OroJefe").getAsNumber();
@@ -118,7 +118,7 @@
       }
       V.get("OroJefe").setNumber(V.get("OroJefe").getAsNumber() - c.cost);
       st.cdEnd[i] = st.t + c.cd; st.fx.push({ x: wx, y: wy, t: st.t, sp: !!c.sp }); st.firstSpawn = true; if (st.help) st.help = false;
-      scn.getGame().getSoundManager().playSound("efectos/interfaz/jefe_invocar.ogg", false, 75, 1);
+      /*FDIZ-FASE60: el gasto suena con oro_moneda + ui_confirm y cada zombi con zombie_spawn_braam (sfx.js)*/
       return true;
     }
 
