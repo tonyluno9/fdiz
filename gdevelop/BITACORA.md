@@ -1419,3 +1419,70 @@ Pruebas: `node gdevelop/scripts/prueba_dialogo.js` (15 casos). Respaldo: `respal
 **Para que funcione en otra computadora:** `audios_fish/` y el banco de diálogos tienen que estar en el repo, porque las voces se cargan desde ahí y los datos se generan del banco.
 
 **Sin probar:** escucharlo y verlo dentro de GDevelop, y en línea.
+
+
+## Fase 65 · Cinemáticas del modo Historia como videos (2026-11-22)
+Script: `scripts/fase65_cinematicas.py` (idempotente). Lógica: `scripts/cine.js`. Pruebas: `node gdevelop/scripts/prueba_cine.js` (16 casos). Respaldo: `respaldos/antes_de_fase65_*.json`. Solo Historia; Escape y Jefe no cambian.
+
+**Carpeta.** El proyecto ya guarda sus videos en `gdevelop/FDI-Z/assets/interfaz/videos/`, así que los de la historia van en la subcarpeta **`assets/interfaz/videos/historia/`**. Ahí quedó un `LEEME.txt` con lo que espera cada archivo.
+- Por cada archivo que exista, el script registra el recurso de video `vid_historia_0N`, con la ruta relativa `assets/interfaz/videos/historia/<archivo>`, y el objeto `VidHist0N` (Video, sin loop).
+- **Hoy no hay ninguno**, así que no se registró nada. Hay que volver a correr el script cada vez que se copie un video.
+
+| # | Archivo | Cuándo se reproduce (una vez por partida) | Si falta el archivo |
+|---|---|---|---|
+| 1 | `historia_01_inicio_aula.mp4` | Al empezar una partida de Historia, con el equipo en el salón B-01. Después, el interludio corto. | Tarjeta de texto y el interludio |
+| 2 | `historia_02_joel_cic.mp4` | Un jugador entra a los Cubículos del CIC (3488–3744, 1920–2080) y Joel sigue esperando ayuda | Tarjeta |
+| 3 | `historia_03_telefono_apagon.mp4` | Se completa la llamada en la computadora del CIC; después empieza la misión de la luz | Tarjeta |
+| 4 | `historia_04_zombi_conserje.mp4` | Se abre o se derriba la puerta de la conserjería (P59) | Tarjeta |
+| 5 | `historia_05_escopeta_casillero.mp4` | Se abre el casillero nuevo de la conserjería (5120, 596). Al terminar aparece la escopeta en (5136, 650). | Tarjeta |
+| 6 | `historia_06_justino_neveria.mp4` | Un jugador llega a la nevería a menos de 240 px de Justino (antes de abrir el diálogo de reclutarlo) | Tarjeta |
+| 7 | `historia_07_cajon_director.mp4` | Se revisa el cajón del escritorio del director (3328, 4436; F en el escritorio). Al terminar aparece el sheriff en (3400, 4470). | Tarjeta |
+| 8 | `historia_08_canepa_autobus.mp4` | Se habla con Canepa (misión 5, después de la comida). Al terminar se cumple la misión y empieza la gasolina. | La charla con burbujas de la fase 61 |
+
+**Cómo funciona**
+- **Durante el video, la tarjeta o el interludio** (host o sin red):
+  - `Estado = "cine"`: se detienen objetivos, cámara, bots, profes, diálogos y la pausa.
+  - `TimeScale` 0: no se mueven zombis ni tiempos.
+  - Los jugadores quedan sin control (`Control -2`) y sin entradas.
+  - La música del canal 1 se pausa en cada máquina.
+- **Saltar:** Enter, Espacio, Esc, clic, A o Start, a partir de 0.5 s. La tecla con la que se interactuó no salta el video.
+- **Al terminar o saltar:** todo vuelve como estaba (controles, tiempo, estado y música).
+- **Si un video no carga:** a los 4 s sigue la historia. Si el archivo no está, se muestra una tarjeta de 3.5 s con el título y lo que pasa.
+- **Una sola vez:** `HistVistos` guarda los videos ya vistos en la partida. Mantener una tecla, repetir la interacción o volver a entrar a la sala no los repite.
+- **En línea:** `CineModo`, `CineVid`, `CineSeq` y `HistVistos` viajan a los clientes. Cada máquina reproduce el video y el host decide cuándo termina.
+- **Interludio corto (después del video 1):**
+  - Aparecen dos zombis del otro lado de la puerta del salón (P06) y la golpean tres veces en 3.2 s: destello rojo, sonido, empujón y temblor. La puerta queda dañada (80 → 50), no rota.
+  - Luego los zombis la siguen golpeando como siempre, aparecen la silla y la escoba (las mismas que deja la intro de Escape) y vuelve el control.
+  - La intro de Escape no se tocó: solo se le agregó la condición `Modo != "historia"` para que no arranque en Historia.
+- **Objetos guardados:**
+  - En Historia, la escopeta y el sheriff ya no están en el piso: se guardan en el casillero (visible) y en el cajón.
+  - El cajón no se dibuja porque es parte del escritorio; al acercarse aparece «Mantén F para revisar».
+  - Al abrirlos se abren como cualquier casillero (con su objeto al azar), y al terminar el video aparece el arma.
+- **Canepa:** `canepa.js` pregunta a `cine.js` (`toma()`) antes de empezar la charla. Si está el video 8, lo reproduce `cine.js`; si no, siguen las burbujas.
+- **Objetos nuevos:** `CineDib` (velo) y `TxtCine` (textos de la tarjeta). Y en Historia, el casillero y el cajón (instancias de `Contenedor` creadas al empezar).
+
+**Archivos que faltan:** los 8 videos de la tabla, en `gdevelop/FDI-Z/assets/interfaz/videos/historia/`. Formato: MP4 (H.264), 16:9, con su audio.
+
+**Sin probar:** dentro de GDevelop. Sobre todo el interludio (posición de los zombis frente a la puerta) y la reproducción real de los videos cuando existan.
+
+## Fase 66 · Música nueva del menú y de la partida (2026-11-22)
+
+Script: `gdevelop/scripts/fase66_musica.py` (idempotente; con GDevelop cerrado). Originales en `fdiz/sonidosfdi/`.
+
+| Original | En el proyecto | Dónde suena |
+|---|---|---|
+| `SOUNDTRACK2D.MP3.mpeg` | `musica/soundtrack2d.mp3` (copia exacta, es un MP3) | Titulo, Menu y Online: canal 1, en bucle, volumen 45 (antes `musica/menu.ogg`) |
+| `ambiente juego.wav` | `musica/ambiente_juego.wav` | Juego, todos los modos: canal 1, en bucle, volumen 45 (antes `partida_1.ogg`) |
+| `va encima de ambiente de juego.wav` | `musica/ambiente_juego_capa.wav` | Juego: encima del ambiente, canal 2, en bucle, volumen 40 |
+
+- Los dos WAV se pasaron de PCM 24 bits a 16 bits (la regla de `audio_manifest.json`); no se recortaron ni se cambió nada más.
+- En Juego quedan **desactivados** los cambios de pista por infestación 3 y 5 (`partida_2`, `partida_3`) y del final (`final_aguanten`), para que el ambiente no se corte. Los `.ogg` viejos se conservan.
+- Al entrar a Titulo, Menu, Online y Resultados se detiene el canal 2. Resultados sigue con `victoria.ogg` / `derrota.ogg` en el canal 1.
+- `cine.js` pausa los canales 1 y 2 durante las cinemáticas de Historia.
+- `audio_manifest.json`: 3 pistas nuevas y la extensión `.mp3`. `validar_audio.py` acepta MP3.
+- Los 22 efectos de `sonidosfdi/sonidos 2d/ogg` son idénticos (md5) a los de `fdiz/sonidos/` de la fase 60; no se cambiaron.
+- No se usan (no estaban en el pedido): los loops BOS_* y NW_* de `sonidosfdi/`.
+
+Fase 65: el video 1 está en la carpeta como `historia_01_inicio_aula.mp4.mp4` (Windows oculta la extensión). `fase65_cinematicas.py` ahora acepta un nombre que empiece igual y termine en `.mp4`, sin renombrarlo.
+
+**Sin probar:** dentro de GDevelop (que las dos pistas de la partida suenen juntas sin saturar).

@@ -156,7 +156,8 @@ prueba("«Elige el modo» (Menu) y la sala en línea ponen la música del menú 
     const ev = [...rec(L.events)].filter((e) => (e.actions || []).some((a) => a.type.value === "PlayMusicCanal"));
     cierto(ev.length === 1, n + ": " + ev.length + " eventos de música");
     const c = ev[0].conditions.map((x) => x.type.value);
-    cierto(c.includes("DepartScene") && ev[0].actions[0].parameters[1] === "musica/menu.ogg", n + ": " + JSON.stringify(ev[0]));
+    const m = ev[0].actions.find((a) => a.type.value === "PlayMusicCanal");   // fase 66: soundtrack2d (y antes se apaga el canal 2)
+    cierto(c.includes("DepartScene") && m.parameters[1] === "musica/soundtrack2d.mp3" && m.parameters[2] === "1" && m.parameters[3] === "yes", n + ": " + JSON.stringify(ev[0]));
   }
 });
 prueba("Pausa: botón AJUSTES, pantalla CONTROLES Y SONIDO, que solo se cierra con B (o VOLVER / Retroceso)", () => {

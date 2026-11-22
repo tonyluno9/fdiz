@@ -1,0 +1,11 @@
+Videos de las cinemáticas del modo Historia (fase 65). Formato: MP4 (H.264), 1920x1080 o 16:9, con su audio.
+Después de copiar o cambiar un video, correr con GDevelop cerrado:  python gdevelop/scripts/fase65_cinematicas.py
+
+historia_01_inicio_aula.mp4  ->  Escenas 1, 2 y 3 del salón en un solo video (inicio de la partida)   [en la carpeta como historia_01_inicio_aula.mp4.mp4]
+historia_02_joel_cic.mp4  ->  Los estudiantes encuentran al profesor Joel (Cubículos del CIC)   [FALTA]
+historia_03_telefono_apagon.mp4  ->  El teléfono no tiene línea y se corta la energía en el CIC   [FALTA]
+historia_04_zombi_conserje.mp4  ->  Aparece el zombi conserje al abrir su puerta (P59)   [FALTA]
+historia_05_escopeta_casillero.mp4  ->  Encuentran el objeto del casillero (escopeta, conserjería)   [FALTA]
+historia_06_justino_neveria.mp4  ->  Encuentran al profesor Justino (nevería)   [FALTA]
+historia_07_cajon_director.mp4  ->  Encuentran el objeto en el cajón del director (revólver sheriff)   [FALTA]
+historia_08_canepa_autobus.mp4  ->  Hablan con Cánepa después de llevar la comida (luego, la gasolina)   [FALTA]

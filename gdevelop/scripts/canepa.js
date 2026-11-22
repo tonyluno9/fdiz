@@ -129,7 +129,8 @@
   }
   function host(scn, st) {
     if (!st.on) {
-      if (estado(scn) === 1) iniciar(scn, st);
+      // fase 65: si está el video de Canepa (historia_08), el video reemplaza esta charla (cine.js la cierra)
+      if (estado(scn) === 1 && !(gdjs.fdizCine && gdjs.fdizCine.toma(scn))) iniciar(scn, st);
       return;
     }
     const salto = leerEntrada(scn, st);

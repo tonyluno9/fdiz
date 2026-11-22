@@ -9,7 +9,8 @@
     "bit_depth": 16,
     "extensions": [
       ".ogg",
-      ".wav"
+      ".wav",
+      ".mp3"
     ],
     "wav": "PCM 16 bits mono, 44100 o 48000 Hz (fase 58)"
   },
@@ -737,6 +738,24 @@
       "id": "MUSICA_VICTORIA",
       "path": "musica/victoria.ogg",
       "loop": false,
+      "priority": "P1"
+    },
+    {
+      "id": "MUSICA_MENU_SOUNDTRACK2D",
+      "path": "musica/soundtrack2d.mp3",
+      "loop": true,
+      "priority": "P1"
+    },
+    {
+      "id": "MUSICA_PARTIDA_AMBIENTE",
+      "path": "musica/ambiente_juego.wav",
+      "loop": true,
+      "priority": "P1"
+    },
+    {
+      "id": "MUSICA_PARTIDA_AMBIENTE_CAPA",
+      "path": "musica/ambiente_juego_capa.wav",
+      "loop": true,
       "priority": "P1"
     }
   ]

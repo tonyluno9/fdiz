@@ -60,7 +60,7 @@ python gdevelop/scripts/fase12_mejoras.py gdevelop/FDI-Z/FDI-Z.json mapa/final/m
 ```
 `fase5` regenera los eventos de Juego, así que **siempre** se corren los tres, en ese orden.
 
-Los cambios posteriores (fases 13 a 64) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos, en este orden:
+Los cambios posteriores (fases 13 a 66) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos, en este orden:
 ```
 python gdevelop/scripts/fase40_hojas_zombi.py        # (solo si cambian las hojas) hojas de Joel y Canepa zombi -> GIF
 python gdevelop/scripts/fase40_sprites_profes.py     # convierte los GIF de los profes y de los profes zombi a PNG
@@ -105,6 +105,9 @@ node gdevelop/scripts/prueba_avisos.js              # pruebas del color de los l
 python -I gdevelop/scripts/fase64_datos_dialogos.py # (si cambia el banco o las voces) datos de los diálogos + gdevelop/DIALOGOS.md
 python gdevelop/scripts/fase64_dialogos.py         # diálogos en burbujas con voz (lógica en dialogo.js)
 node gdevelop/scripts/prueba_dialogo.js             # pruebas de los diálogos (sin GDevelop)
+python gdevelop/scripts/fase65_cinematicas.py      # cinemáticas de Historia (videos en assets/interfaz/videos/historia/; volver a correr al agregar uno)
+node gdevelop/scripts/prueba_cine.js                # pruebas de las cinemáticas (sin GDevelop)
+python gdevelop/scripts/fase66_musica.py           # música: soundtrack2d en el menú; ambiente de juego + su capa en la partida
 ```
 Arte de los profes zombis: un GIF por animación en `animaciones_gif/profes_zombi/<profe>/` (caminar_lado mirando a la derecha, caminar_arriba, caminar_abajo, atacar_lado, atacar_abajo, golpe_morir; atacar_arriba es opcional). Para cambiarlo, reemplaza el GIF y vuelve a correr los dos últimos scripts con GDevelop cerrado.
 En Windows basta con doble clic en `gdevelop\scripts\reconstruir.bat`: hace un respaldo con fecha y corre los tres. Antes de correrlos, haz una copia de `FDI-Z.json`.

@@ -237,7 +237,8 @@ prueba("Proyecto: datos y módulo arriba de Juego, el tick después de la cinem�
   const top = J.events.map((e) => (e.inlineCode || "").slice(0, 24));
   const da = top.findIndex((s) => s.startsWith("/*FDIZ-FASE64-DATOS")), mo = top.findIndex((s) => s.startsWith("/*FDIZ-FASE64-MOD"));
   const cin = J.events.findIndex((e) => (e.name || "").startsWith("Cinemática de inicio"));
-  si(da >= 0 && mo === da + 1 && top[cin + 1].startsWith("/*FDIZ-FASE64-TICK"), [da, mo, cin]);
+  let k = cin + 1; while (k < top.length && top[k].startsWith("/*FDIZ-") && !top[k].startsWith("/*FDIZ-FASE64-TICK")) k++;   // otros ticks (cine.js) pueden ir antes
+  si(da >= 0 && mo === da + 1 && k < top.length && top[k].startsWith("/*FDIZ-FASE64-TICK") && !(J.events[k].type || "").endsWith("Group"), [da, mo, cin, k]);
   const T = d.layouts.find((l) => l.name === "Titulo");
   const rec = function* (evs) { for (const e of evs || []) { yield e; yield* rec(e.events); } };
   const n = [...rec(T.events)].find((e) => (e.inlineCode || "").includes("gdjs.fdizNetCfg="));

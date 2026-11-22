@@ -55,6 +55,10 @@ def probe(path: Path) -> tuple[bool, str]:
     if result.returncode:
         return False, result.stderr.strip() or "archivo ilegible"
     details = result.stdout.lower()
+    if path.suffix.lower() == ".mp3":  # fase 66: la música del menú es MP3
+        if "mp3" not in details:
+            return False, "se requiere MP3"
+        return True, "MP3 válido"
     if "vorbis" not in details or not any(rate in details for rate in ("44100", "48000")):
         return False, "se requiere Vorbis a 44.1 kHz o 48 kHz"
     return True, "formato válido (la profundidad de 16 bits se verifica al exportar)"
