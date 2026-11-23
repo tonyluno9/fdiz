@@ -9,9 +9,9 @@ C02.mp4    OK
 C03.mp4    OK
 C04.mp4    FALTA
 C05.mp4    OK
-C06.mp4    FALTA
+C06.mp4    OK
 C065.mp4   OK
 C07.mp4    OK
 C08.mp4    OK
-C09.mp4    FALTA
-C10.mp4    (usa 15_victoria.mp4)
+C09.mp4    OK
+C10.mp4    OK

@@ -13093,69 +13093,6 @@
         "userAdded": true
       },
       {
-        "file": "assets/historia/video/C01_T1.mp4",
-        "kind": "video",
-        "metadata": "",
-        "name": "vid_hist_C01_T1",
-        "userAdded": true
-      },
-      {
-        "file": "assets/historia/video/C01_T2.mp4",
-        "kind": "video",
-        "metadata": "",
-        "name": "vid_hist_C01_T2",
-        "userAdded": true
-      },
-      {
-        "file": "assets/historia/video/C02.mp4",
-        "kind": "video",
-        "metadata": "",
-        "name": "vid_hist_C02",
-        "userAdded": true
-      },
-      {
-        "file": "assets/historia/video/C03.mp4",
-        "kind": "video",
-        "metadata": "",
-        "name": "vid_hist_C03",
-        "userAdded": true
-      },
-      {
-        "file": "assets/historia/video/C05.mp4",
-        "kind": "video",
-        "metadata": "",
-        "name": "vid_hist_C05",
-        "userAdded": true
-      },
-      {
-        "file": "assets/historia/video/C065.mp4",
-        "kind": "video",
-        "metadata": "",
-        "name": "vid_hist_C065",
-        "userAdded": true
-      },
-      {
-        "file": "assets/historia/video/C07.mp4",
-        "kind": "video",
-        "metadata": "",
-        "name": "vid_hist_C07",
-        "userAdded": true
-      },
-      {
-        "file": "assets/historia/video/C08.mp4",
-        "kind": "video",
-        "metadata": "",
-        "name": "vid_hist_C08",
-        "userAdded": true
-      },
-      {
-        "file": "assets/interfaz/videos/15_victoria.mp4",
-        "kind": "video",
-        "metadata": "",
-        "name": "vid_hist_C10",
-        "userAdded": true
-      },
-      {
         "file": "../../generado/sprites/objetos/armas/ak47.png",
         "kind": "image",
         "metadata": "",
@@ -13521,6 +13458,83 @@
         "metadata": "",
         "name": "personajes/cesar/escopeta_abajo/escopeta_abajo_02.png",
         "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C01_T1.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C01_T1",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C01_T2.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C01_T2",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C02.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C02",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C03.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C03",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C05.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C05",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C06.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C06",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C065.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C065",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C07.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C07",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C08.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C08",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C09.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C09",
+        "userAdded": true
+      },
+      {
+        "file": "assets/historia/video/C10.mp4",
+        "kind": "video",
+        "metadata": "",
+        "name": "vid_hist_C10",
         "userAdded": true
       }
     ]
@@ -175363,6 +175377,20 @@
         },
         {
           "assetStoreId": "",
+          "name": "VidC06",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": false,
+            "volume": 100,
+            "videoResource": "vid_hist_C06"
+          }
+        },
+        {
+          "assetStoreId": "",
           "name": "VidC065",
           "type": "Video::VideoObject",
           "variables": [],
@@ -175401,6 +175429,20 @@
             "loop": false,
             "volume": 100,
             "videoResource": "vid_hist_C08"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "VidC09",
+          "type": "Video::VideoObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "opacity": 255,
+            "loop": false,
+            "volume": 100,
+            "videoResource": "vid_hist_C09"
           }
         },
         {
@@ -175704,7 +175746,7 @@
         },
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "/*FDIZ-FASE68-DATOS*/\n/* GENERADO por scripts/fase68_historia.py desde gdevelop/historia/01_DIALOGOS_PARA_VOCES.md y los audios y videos de\n * gdevelop/FDI-Z/assets/historia/. No editar a mano. dur = segundos del audio. videos = objeto de video de cada cinemática\n * que existe (las que faltan usan pantalla negra 1 s). */\ngdjs.fdizHistoriaDatos = {\n \"lineas\": {\n  \"INT_01_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"Veinte minutos. Oficialmente ya nos podemos ir, eh. Está en el reglamento.\",\n   \"audio\": \"historia/audio/INT_01_cesar.mp3\",\n   \"dur\": 4.41\n  },\n  \"INT_02_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"No está en el reglamento.\",\n   \"audio\": \"historia/audio/INT_02_alan.mp3\",\n   \"dur\": 1.54\n  },\n  \"INT_03_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"Está en mi reglamento.\",\n   \"audio\": \"historia/audio/INT_03_cesar.mp3\",\n   \"dur\": 2.3\n  },\n  \"INT_04_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Él nunca falta. Nunca. Ni cuando llovió y se inundó el estacionamiento.\",\n   \"audio\": \"historia/audio/INT_04_miranda.mp3\",\n   \"dur\": 5.25\n  },\n  \"INT_05_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Pues dejó sus cosas. Ahí está su bolsa.\",\n   \"audio\": \"historia/audio/INT_05_tony.mp3\",\n   \"dur\": 2.64\n  },\n  \"INT_06_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"… Entonces sí vino. Y se fue. Sin su bolsa. Qué raro.\",\n   \"audio\": \"historia/audio/INT_06_alan.mp3\",\n   \"dur\": 3.87\n  },\n  \"C1_01_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"Le echamos un ojito. Uno nomás.\",\n   \"audio\": \"historia/audio/C1_01_alan.mp3\",\n   \"dur\": 2.48\n  },\n  \"C1_02_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"No. Es su bolsa, Alan.\",\n   \"audio\": \"historia/audio/C1_02_miranda.mp3\",\n   \"dur\": 2.14\n  },\n  \"C1_03_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¡Au! Ya, ya…\",\n   \"audio\": \"historia/audio/C1_03_alan.mp3\",\n   \"dur\": 1.99\n  },\n  \"C1_04_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"Técnicamente es evidencia. Si le pasó algo, hay que saber qué.\",\n   \"audio\": \"historia/audio/C1_04_cesar.mp3\",\n   \"dur\": 3.58\n  },\n  \"C1_05_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Votación. ¿Quién quiere abrirla?\",\n   \"audio\": \"historia/audio/C1_05_tony.mp3\",\n   \"dur\": 1.88\n  },\n  \"C2_01_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"… ¿Por qué el profe trae una pistola?\",\n   \"audio\": \"historia/audio/C2_01_alan.mp3\",\n   \"dur\": 2.8\n  },\n  \"C2_02_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Ciérrala. Ciérrala ya.\",\n   \"audio\": \"historia/audio/C2_02_miranda.mp3\",\n   \"dur\": 1.85\n  },\n  \"C2_03_altavoz\": {\n   \"pj\": \"altavoz\",\n   \"txt\": \"Alerta. Se reporta un brote infeccioso en el edificio. Permanezcan en sus salones. Repito: no salgan.\",\n   \"audio\": \"historia/audio/C2_03_altavoz.mp3\",\n   \"dur\": 8.57\n  },\n  \"C2_04_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"¿Brote… infeccioso?\",\n   \"audio\": \"historia/audio/C2_04_cesar.mp3\",\n   \"dur\": 1.75\n  },\n  \"C3_01_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Dijeron que no saliéramos…\",\n   \"audio\": \"historia/audio/C3_01_miranda.mp3\",\n   \"dur\": 1.72\n  },\n  \"C3_02_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Y ya entró uno. Cambio de plan. Nos vamos al CIC, ahí hay teléfono.\",\n   \"audio\": \"historia/audio/C3_02_tony.mp3\",\n   \"dur\": 4.26\n  },\n  \"C3_03_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"La puerta trasera da directo al pasillo. ¡Vamos!\",\n   \"audio\": \"historia/audio/C3_03_cesar.mp3\",\n   \"dur\": 2.98\n  },\n  \"J1_01_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"Esto es un simulacro bien hecho, ¿verdad?\",\n   \"audio\": \"historia/audio/J1_01_alan.mp3\",\n   \"dur\": 2.98\n  },\n  \"J1_02_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"No es simulacro, Alan.\",\n   \"audio\": \"historia/audio/J1_02_miranda.mp3\",\n   \"dur\": 1.49\n  },\n  \"C4_01_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"¡No me muerdan! ¡No me—! … Ah. Son alumnos. Gracias a Dios.\",\n   \"audio\": \"historia/audio/C4_01_joel.mp3\",\n   \"dur\": 3.71\n  },\n  \"C4_02_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Profe, ¿qué está pasando?\",\n   \"audio\": \"historia/audio/C4_02_tony.mp3\",\n   \"dur\": 1.54\n  },\n  \"C4_03_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"No sé. Empezó en el estacionamiento. Gente que… que no se moría.\",\n   \"audio\": \"historia/audio/C4_03_joel.mp3\",\n   \"dur\": 4.36\n  },\n  \"C4_04_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Se viene con nosotros.\",\n   \"audio\": \"historia/audio/C4_04_miranda.mp3\",\n   \"dur\": 1.54\n  },\n  \"C4_05_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¿Seguro? Grita más que los zombies.\",\n   \"audio\": \"historia/audio/C4_05_alan.mp3\",\n   \"dur\": 2.14\n  },\n  \"C4_06_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"¡Te estoy oyendo!\",\n   \"audio\": \"historia/audio/C4_06_joel.mp3\",\n   \"dur\": 1.2\n  },\n  \"C5_01_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"No hay línea. Cortaron todo… o se cayó todo.\",\n   \"audio\": \"historia/audio/C5_01_cesar.mp3\",\n   \"dur\": 2.8\n  },\n  \"C5_02_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"Hay radio en la oficina del director. Y llaves. Y—\",\n   \"audio\": \"historia/audio/C5_02_joel.mp3\",\n   \"dur\": 3.74\n  },\n  \"C5_03_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"… ¿Alguien más ve eso?\",\n   \"audio\": \"historia/audio/C5_03_miranda.mp3\",\n   \"dur\": 1.44\n  },\n  \"J2_01_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"La sala del conserje tiene el tablero de luz. Vamos para allá.\",\n   \"audio\": \"historia/audio/J2_01_tony.mp3\",\n   \"dur\": 3.42\n  },\n  \"C6_01_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"¡Atrás!\",\n   \"audio\": \"historia/audio/C6_01_tony.mp3\",\n   \"dur\": 0.76\n  },\n  \"C6_02_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¡Que no sea él, que no sea él…!\",\n   \"audio\": \"historia/audio/C6_02_alan.mp3\",\n   \"dur\": 2.19\n  },\n  \"C65_01_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"«Para cuando vuelvan». ¿Cuando vuelvan… quiénes?\",\n   \"audio\": \"historia/audio/C65_01_cesar.mp3\",\n   \"dur\": 1.23\n  },\n  \"C65_02_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"El conserje lo sabía. Lo dijo en la junta y nadie le creyó.\",\n   \"audio\": \"historia/audio/C65_02_joel.mp3\",\n   \"dur\": 3.74\n  },\n  \"C65_03_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Pues ahora le creemos. Nos la llevamos.\",\n   \"audio\": \"historia/audio/C65_03_tony.mp3\",\n   \"dur\": 2.53\n  },\n  \"C65_04_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"Yo me quedo aquí cuidando el tablero. Si se va la luz otra vez, nadie sale vivo.\",\n   \"audio\": \"historia/audio/C65_04_joel.mp3\",\n   \"dur\": 4.23\n  },\n  \"C65_05_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Ahorita volvemos por usted, profe.\",\n   \"audio\": \"historia/audio/C65_05_tony.mp3\",\n   \"dur\": 2.46\n  },\n  \"C7_01_justino\": {\n   \"pj\": \"justino\",\n   \"txt\": \"Si van a morir, mínimo que sea con nieve. ¿De cuál quieren?\",\n   \"audio\": \"historia/audio/C7_01_justino.mp3\",\n   \"dur\": 3.66\n  },\n  \"C7_02_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Profe, hay zombies afuera.\",\n   \"audio\": \"historia/audio/C7_02_miranda.mp3\",\n   \"dur\": 1.99\n  },\n  \"C7_03_justino\": {\n   \"pj\": \"justino\",\n   \"txt\": \"Ya sé. Por eso cerré. Escuchen: el autobús escolar está en el estacionamiento de atrás. El profe Canepa tiene las llaves.\",\n   \"audio\": \"historia/audio/C7_03_justino.mp3\",\n   \"dur\": 7.65\n  },\n  \"C7_04_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"¿Y por dónde salimos?\",\n   \"audio\": \"historia/audio/C7_04_tony.mp3\",\n   \"dur\": 1.28\n  },\n  \"C7_05_justino\": {\n   \"pj\": \"justino\",\n   \"txt\": \"Por dirección. El director tiene la llave de la reja trasera en su escritorio. Y algo más, si lo buscan bien.\",\n   \"audio\": \"historia/audio/C7_05_justino.mp3\",\n   \"dur\": 6.22\n  },\n  \"C7_06_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¿Usted no viene?\",\n   \"audio\": \"historia/audio/C7_06_alan.mp3\",\n   \"dur\": 1.25\n  },\n  \"C7_07_justino\": {\n   \"pj\": \"justino\",\n   \"txt\": \"Alguien tiene que cuidar la nieve.\",\n   \"audio\": \"historia/audio/C7_07_justino.mp3\",\n   \"dur\": 1.8\n  },\n  \"C8_01_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"La llave… y otra pistola.\",\n   \"audio\": \"historia/audio/C8_01_tony.mp3\",\n   \"dur\": 1.78\n  },\n  \"C8_02_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"¿Todos los profes de esta escuela andan armados o qué?\",\n   \"audio\": \"historia/audio/C8_02_cesar.mp3\",\n   \"dur\": 2.93\n  },\n  \"C8_03_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"No importa. Al autobús. Ya.\",\n   \"audio\": \"historia/audio/C8_03_miranda.mp3\",\n   \"dur\": 2.61\n  },\n  \"C9_01_canepa\": {\n   \"pj\": \"canepa\",\n   \"txt\": \"¡Por fin! No arranca. Necesito que alguien me cubra mientras lo conecto.\",\n   \"audio\": \"historia/audio/C9_01_canepa.mp3\",\n   \"dur\": 4.05\n  },\n  \"C9_02_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"¿Cuánto tiempo?\",\n   \"audio\": \"historia/audio/C9_02_tony.mp3\",\n   \"dur\": 0.99\n  },\n  \"C9_03_canepa\": {\n   \"pj\": \"canepa\",\n   \"txt\": \"¿Un minuto? ¿Dos? ¡Ya vienen!\",\n   \"audio\": \"historia/audio/C9_03_canepa.mp3\",\n   \"dur\": 2.32\n  },\n  \"C9_04_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"Siempre son dos.\",\n   \"audio\": \"historia/audio/C9_04_alan.mp3\",\n   \"dur\": 1.2\n  },\n  \"C9_05_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Todos en círculo. Nadie se separa.\",\n   \"audio\": \"historia/audio/C9_05_miranda.mp3\",\n   \"dur\": 2.82\n  },\n  \"C10_01_canepa\": {\n   \"pj\": \"canepa\",\n   \"txt\": \"¡Arrancó! ¡Súbanse, súbanse!\",\n   \"audio\": \"historia/audio/C10_01_canepa.mp3\",\n   \"dur\": 2.32\n  },\n  \"C10_02_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¡Acelérele, profe!\",\n   \"audio\": \"historia/audio/C10_02_alan.mp3\",\n   \"dur\": 1.31\n  },\n  \"C10_03_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"… Lo logramos.\",\n   \"audio\": \"historia/audio/C10_03_tony.mp3\",\n   \"dur\": 0.76\n  }\n },\n \"videos\": {\n  \"C01_T1\": \"VidC01_T1\",\n  \"C01_T2\": \"VidC01_T2\",\n  \"C02\": \"VidC02\",\n  \"C03\": \"VidC03\",\n  \"C05\": \"VidC05\",\n  \"C065\": \"VidC065\",\n  \"C07\": \"VidC07\",\n  \"C08\": \"VidC08\",\n  \"C10\": \"VidC10\"\n }\n};\n",
+          "inlineCode": "/*FDIZ-FASE68-DATOS*/\n/* GENERADO por scripts/fase68_historia.py desde gdevelop/historia/01_DIALOGOS_PARA_VOCES.md y los audios y videos de\n * gdevelop/FDI-Z/assets/historia/. No editar a mano. dur = segundos del audio. videos = objeto de video de cada cinemática\n * que existe (las que faltan usan pantalla negra 1 s). */\ngdjs.fdizHistoriaDatos = {\n \"lineas\": {\n  \"INT_01_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"Veinte minutos. Oficialmente ya nos podemos ir, eh. Está en el reglamento.\",\n   \"audio\": \"historia/audio/INT_01_cesar.mp3\",\n   \"dur\": 4.41\n  },\n  \"INT_02_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"No está en el reglamento.\",\n   \"audio\": \"historia/audio/INT_02_alan.mp3\",\n   \"dur\": 1.54\n  },\n  \"INT_03_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"Está en mi reglamento.\",\n   \"audio\": \"historia/audio/INT_03_cesar.mp3\",\n   \"dur\": 2.3\n  },\n  \"INT_04_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Él nunca falta. Nunca. Ni cuando llovió y se inundó el estacionamiento.\",\n   \"audio\": \"historia/audio/INT_04_miranda.mp3\",\n   \"dur\": 5.25\n  },\n  \"INT_05_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Pues dejó sus cosas. Ahí está su bolsa.\",\n   \"audio\": \"historia/audio/INT_05_tony.mp3\",\n   \"dur\": 2.64\n  },\n  \"INT_06_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"… Entonces sí vino. Y se fue. Sin su bolsa. Qué raro.\",\n   \"audio\": \"historia/audio/INT_06_alan.mp3\",\n   \"dur\": 3.87\n  },\n  \"C1_01_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"Le echamos un ojito. Uno nomás.\",\n   \"audio\": \"historia/audio/C1_01_alan.mp3\",\n   \"dur\": 2.48\n  },\n  \"C1_02_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"No. Es su bolsa, Alan.\",\n   \"audio\": \"historia/audio/C1_02_miranda.mp3\",\n   \"dur\": 2.14\n  },\n  \"C1_03_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¡Au! Ya, ya…\",\n   \"audio\": \"historia/audio/C1_03_alan.mp3\",\n   \"dur\": 1.99\n  },\n  \"C1_04_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"Técnicamente es evidencia. Si le pasó algo, hay que saber qué.\",\n   \"audio\": \"historia/audio/C1_04_cesar.mp3\",\n   \"dur\": 3.58\n  },\n  \"C1_05_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Votación. ¿Quién quiere abrirla?\",\n   \"audio\": \"historia/audio/C1_05_tony.mp3\",\n   \"dur\": 1.88\n  },\n  \"C2_01_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"… ¿Por qué el profe trae una pistola?\",\n   \"audio\": \"historia/audio/C2_01_alan.mp3\",\n   \"dur\": 2.8\n  },\n  \"C2_02_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Ciérrala. Ciérrala ya.\",\n   \"audio\": \"historia/audio/C2_02_miranda.mp3\",\n   \"dur\": 1.85\n  },\n  \"C2_03_altavoz\": {\n   \"pj\": \"altavoz\",\n   \"txt\": \"Alerta. Se reporta un brote infeccioso en el edificio. Permanezcan en sus salones. Repito: no salgan.\",\n   \"audio\": \"historia/audio/C2_03_altavoz.mp3\",\n   \"dur\": 8.57\n  },\n  \"C2_04_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"¿Brote… infeccioso?\",\n   \"audio\": \"historia/audio/C2_04_cesar.mp3\",\n   \"dur\": 1.75\n  },\n  \"C3_01_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Dijeron que no saliéramos…\",\n   \"audio\": \"historia/audio/C3_01_miranda.mp3\",\n   \"dur\": 1.72\n  },\n  \"C3_02_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Y ya entró uno. Cambio de plan. Nos vamos al CIC, ahí hay teléfono.\",\n   \"audio\": \"historia/audio/C3_02_tony.mp3\",\n   \"dur\": 4.26\n  },\n  \"C3_03_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"La puerta trasera da directo al pasillo. ¡Vamos!\",\n   \"audio\": \"historia/audio/C3_03_cesar.mp3\",\n   \"dur\": 2.98\n  },\n  \"J1_01_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"Esto es un simulacro bien hecho, ¿verdad?\",\n   \"audio\": \"historia/audio/J1_01_alan.mp3\",\n   \"dur\": 2.98\n  },\n  \"J1_02_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"No es simulacro, Alan.\",\n   \"audio\": \"historia/audio/J1_02_miranda.mp3\",\n   \"dur\": 1.49\n  },\n  \"C4_01_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"¡No me muerdan! ¡No me—! … Ah. Son alumnos. Gracias a Dios.\",\n   \"audio\": \"historia/audio/C4_01_joel.mp3\",\n   \"dur\": 3.71\n  },\n  \"C4_02_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Profe, ¿qué está pasando?\",\n   \"audio\": \"historia/audio/C4_02_tony.mp3\",\n   \"dur\": 1.54\n  },\n  \"C4_03_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"No sé. Empezó en el estacionamiento. Gente que… que no se moría.\",\n   \"audio\": \"historia/audio/C4_03_joel.mp3\",\n   \"dur\": 4.36\n  },\n  \"C4_04_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Se viene con nosotros.\",\n   \"audio\": \"historia/audio/C4_04_miranda.mp3\",\n   \"dur\": 1.54\n  },\n  \"C4_05_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¿Seguro? Grita más que los zombies.\",\n   \"audio\": \"historia/audio/C4_05_alan.mp3\",\n   \"dur\": 2.14\n  },\n  \"C4_06_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"¡Te estoy oyendo!\",\n   \"audio\": \"historia/audio/C4_06_joel.mp3\",\n   \"dur\": 1.2\n  },\n  \"C5_01_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"No hay línea. Cortaron todo… o se cayó todo.\",\n   \"audio\": \"historia/audio/C5_01_cesar.mp3\",\n   \"dur\": 2.8\n  },\n  \"C5_02_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"Hay radio en la oficina del director. Y llaves. Y—\",\n   \"audio\": \"historia/audio/C5_02_joel.mp3\",\n   \"dur\": 3.74\n  },\n  \"C5_03_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"… ¿Alguien más ve eso?\",\n   \"audio\": \"historia/audio/C5_03_miranda.mp3\",\n   \"dur\": 1.44\n  },\n  \"J2_01_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"La sala del conserje tiene el tablero de luz. Vamos para allá.\",\n   \"audio\": \"historia/audio/J2_01_tony.mp3\",\n   \"dur\": 3.42\n  },\n  \"C6_01_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"¡Atrás!\",\n   \"audio\": \"historia/audio/C6_01_tony.mp3\",\n   \"dur\": 0.76\n  },\n  \"C6_02_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¡Que no sea él, que no sea él…!\",\n   \"audio\": \"historia/audio/C6_02_alan.mp3\",\n   \"dur\": 2.19\n  },\n  \"C65_01_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"«Para cuando vuelvan». ¿Cuando vuelvan… quiénes?\",\n   \"audio\": \"historia/audio/C65_01_cesar.mp3\",\n   \"dur\": 1.23\n  },\n  \"C65_02_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"El conserje lo sabía. Lo dijo en la junta y nadie le creyó.\",\n   \"audio\": \"historia/audio/C65_02_joel.mp3\",\n   \"dur\": 3.74\n  },\n  \"C65_03_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Pues ahora le creemos. Nos la llevamos.\",\n   \"audio\": \"historia/audio/C65_03_tony.mp3\",\n   \"dur\": 2.53\n  },\n  \"C65_04_joel\": {\n   \"pj\": \"joel\",\n   \"txt\": \"Yo me quedo aquí cuidando el tablero. Si se va la luz otra vez, nadie sale vivo.\",\n   \"audio\": \"historia/audio/C65_04_joel.mp3\",\n   \"dur\": 4.23\n  },\n  \"C65_05_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"Ahorita volvemos por usted, profe.\",\n   \"audio\": \"historia/audio/C65_05_tony.mp3\",\n   \"dur\": 2.46\n  },\n  \"C7_01_justino\": {\n   \"pj\": \"justino\",\n   \"txt\": \"Si van a morir, mínimo que sea con nieve. ¿De cuál quieren?\",\n   \"audio\": \"historia/audio/C7_01_justino.mp3\",\n   \"dur\": 3.66\n  },\n  \"C7_02_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Profe, hay zombies afuera.\",\n   \"audio\": \"historia/audio/C7_02_miranda.mp3\",\n   \"dur\": 1.99\n  },\n  \"C7_03_justino\": {\n   \"pj\": \"justino\",\n   \"txt\": \"Ya sé. Por eso cerré. Escuchen: el autobús escolar está en el estacionamiento de atrás. El profe Canepa tiene las llaves.\",\n   \"audio\": \"historia/audio/C7_03_justino.mp3\",\n   \"dur\": 7.65\n  },\n  \"C7_04_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"¿Y por dónde salimos?\",\n   \"audio\": \"historia/audio/C7_04_tony.mp3\",\n   \"dur\": 1.28\n  },\n  \"C7_05_justino\": {\n   \"pj\": \"justino\",\n   \"txt\": \"Por dirección. El director tiene la llave de la reja trasera en su escritorio. Y algo más, si lo buscan bien.\",\n   \"audio\": \"historia/audio/C7_05_justino.mp3\",\n   \"dur\": 6.22\n  },\n  \"C7_06_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¿Usted no viene?\",\n   \"audio\": \"historia/audio/C7_06_alan.mp3\",\n   \"dur\": 1.25\n  },\n  \"C7_07_justino\": {\n   \"pj\": \"justino\",\n   \"txt\": \"Alguien tiene que cuidar la nieve.\",\n   \"audio\": \"historia/audio/C7_07_justino.mp3\",\n   \"dur\": 1.8\n  },\n  \"C8_01_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"La llave… y otra pistola.\",\n   \"audio\": \"historia/audio/C8_01_tony.mp3\",\n   \"dur\": 1.78\n  },\n  \"C8_02_cesar\": {\n   \"pj\": \"cesar\",\n   \"txt\": \"¿Todos los profes de esta escuela andan armados o qué?\",\n   \"audio\": \"historia/audio/C8_02_cesar.mp3\",\n   \"dur\": 2.93\n  },\n  \"C8_03_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"No importa. Al autobús. Ya.\",\n   \"audio\": \"historia/audio/C8_03_miranda.mp3\",\n   \"dur\": 2.61\n  },\n  \"C9_01_canepa\": {\n   \"pj\": \"canepa\",\n   \"txt\": \"¡Por fin! No arranca. Necesito que alguien me cubra mientras lo conecto.\",\n   \"audio\": \"historia/audio/C9_01_canepa.mp3\",\n   \"dur\": 4.05\n  },\n  \"C9_02_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"¿Cuánto tiempo?\",\n   \"audio\": \"historia/audio/C9_02_tony.mp3\",\n   \"dur\": 0.99\n  },\n  \"C9_03_canepa\": {\n   \"pj\": \"canepa\",\n   \"txt\": \"¿Un minuto? ¿Dos? ¡Ya vienen!\",\n   \"audio\": \"historia/audio/C9_03_canepa.mp3\",\n   \"dur\": 2.32\n  },\n  \"C9_04_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"Siempre son dos.\",\n   \"audio\": \"historia/audio/C9_04_alan.mp3\",\n   \"dur\": 1.2\n  },\n  \"C9_05_miranda\": {\n   \"pj\": \"miranda\",\n   \"txt\": \"Todos en círculo. Nadie se separa.\",\n   \"audio\": \"historia/audio/C9_05_miranda.mp3\",\n   \"dur\": 2.82\n  },\n  \"C10_01_canepa\": {\n   \"pj\": \"canepa\",\n   \"txt\": \"¡Arrancó! ¡Súbanse, súbanse!\",\n   \"audio\": \"historia/audio/C10_01_canepa.mp3\",\n   \"dur\": 2.32\n  },\n  \"C10_02_alan\": {\n   \"pj\": \"alan\",\n   \"txt\": \"¡Acelérele, profe!\",\n   \"audio\": \"historia/audio/C10_02_alan.mp3\",\n   \"dur\": 1.31\n  },\n  \"C10_03_tony\": {\n   \"pj\": \"tony\",\n   \"txt\": \"… Lo logramos.\",\n   \"audio\": \"historia/audio/C10_03_tony.mp3\",\n   \"dur\": 0.76\n  }\n },\n \"videos\": {\n  \"C01_T1\": \"VidC01_T1\",\n  \"C01_T2\": \"VidC01_T2\",\n  \"C02\": \"VidC02\",\n  \"C03\": \"VidC03\",\n  \"C05\": \"VidC05\",\n  \"C06\": \"VidC06\",\n  \"C065\": \"VidC065\",\n  \"C07\": \"VidC07\",\n  \"C08\": \"VidC08\",\n  \"C09\": \"VidC09\",\n  \"C10\": \"VidC10\"\n }\n};\n",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
