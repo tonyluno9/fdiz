@@ -167,7 +167,9 @@ prueba("Animaciones placeholder de pistola de lado y hacia abajo para los 12 per
       igual([s.originPoint, s.hasCustomCollisionMask, s.customCollisionMask], [b.originPoint, b.hasCustomCollisionMask, b.customCollisionMask], pj + " " + dir);
     }
   }
-  si(!S.animations.some((a) => a.name.endsWith("_pistola_arriba")), "hacia arriba no hay: se usa pegar_arriba");
+  // fase 73: placeholders de disparo hacia arriba (pistola y escopeta) y escopeta hacia abajo, solo para el equipo de Historia
+  for (const pj of ["tony", "miranda", "alan", "cesar"]) for (const n of ["pistola_arriba", "escopeta_arriba", "escopeta_abajo"])
+    si(an[pj + "_" + n] && an[pj + "_" + n].directions[0].sprites.every((s) => fs.existsSync(path.join(PROY, res[s.image]))), "falta " + pj + "_" + n);
 });
 prueba("Fase 69: Tony dispara con sus animaciones reales (pistola y escopeta de lado, 4 cuadros, pies en el mismo origen)", () => {
   const S = J.objects.find((o) => o.name === "Sup"), an = Object.fromEntries(S.animations.map((a) => [a.name, a]));

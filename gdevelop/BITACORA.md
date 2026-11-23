@@ -1649,3 +1649,11 @@ Script: `gdevelop/scripts/fase72_cambio_personaje.py` (después de la 68, 69 y 7
 - **Menú**: Escape (Local) va directo a la dificultad con el equipo fijo (Tony en P1; Miranda, Alan y César bots). Escape en línea no cambia. Esc en la dificultad vuelve a «Local / En línea».
 - Videos C05, C065, C07 y C08 renombrados (tenían `.mp4.mp4`) e incluidos al correr la fase 68.
 - Probado en una copia de la vista previa de GDevelop: el control pasa de personaje y el nuevo responde al teclado; armas por dueño correctas. Sin probar: el AK-47 disparando y el menú de Escape (requieren exportar de nuevo desde GDevelop).
+
+## Fase 73 · Cinemáticas congeladas, diálogos con movimiento y placeholders de disparo (2026-11-23)
+Script: `gdevelop/scripts/fase73_cine_y_placeholders.py` (después de la 72).
+- Durante los videos (y la pantalla negra de los que faltan) se congela todo con TimeScale 0; al terminar vuelve a 1. El video sigue corriendo.
+- En todos los diálogos los personajes se pueden mover (`H.DLG_LIBRE`).
+- Cambio de personaje: aviso pequeño en la línea de ayuda («Cambio de personaje: ahora controlas a X»), en lugar del letrero grande.
+- Inicio (pasos 1 a 3): quien dice su línea da unos pasos cortos (18 px en 0.5 s, alternando el lado). A los bots se les apaga la ruta mientras dura.
+- Placeholders de disparo para Tony, Miranda, Alan y César: `<pj>_pistola_arriba`, `<pj>_escopeta_arriba` y `<pj>_escopeta_abajo` en `generado/sprites/personajes/<pj>/<arma>_<dir>/` (copias de `pegar_arriba` y `pistola_abajo`). Para el arte final, reemplazar esos PNG con el mismo nombre. `armas.js` ya las usa al disparar hacia arriba o abajo.

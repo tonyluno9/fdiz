@@ -70,7 +70,7 @@
   };
   H.FINAL_SEG = 90;
   // fase 71: pasos en los que Tony se mueve libre durante los diálogos (inicio en el salón, Joel y la llamada del CIC)
-  H.DLG_LIBRE = { 1: true, 2: true, 3: true, 5: true, 6: true };
+  H.DLG_LIBRE = { 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true, 12: true };   // fase 73: todos
   // fase 71: en (5960, 2960) quedaba dentro del choque del escritorio y no se alcanzaba; ahora en el pasillo izquierdo del salón
   H.PISTOLA = { x: 5830, y: 3036 };
 
@@ -253,7 +253,8 @@
     for (const n of ["MovX", "MovY", "QuierePegar", "Usando", "PideHab", "PideEsp", "QuiereLanzar"]) { VS(viejo, n).setNumber(0); VS(nuevo, n).setNumber(0); }
     VS(viejo, "BotX").setNumber(viejo.getX()); VS(viejo, "BotY").setNumber(viejo.getY());
     try { GV(scn, "P" + num(viejo, "Jugador") + "Ctl").setNumber(-1); GV(scn, "P" + num(nuevo, "Jugador") + "Ctl").setNumber(c); } catch (e) { /* sin global */ }
-    if (!callado) { banner(scn, "Ahora controlas a " + (H.NOMBRES[p] || p).toUpperCase(), 2.5); sonido(scn, "efectos/eventos/rescate_logrado.ogg", 50); }
+    // fase 73: aviso pequeño (la línea de ayuda de abajo), no el letrero grande
+    if (!callado) { st.avisoCambio = { txt: "Cambio de personaje: ahora controlas a " + (H.NOMBRES[p] || p), hasta: H.now() + 3 }; sonido(scn, "efectos/eventos/rescate_logrado.ogg", 40); }
   };
   function armar(scn, tipo, p) {
     const s = H.equipo(scn).find((o) => pj(o) === p); if (!s) return null;
@@ -597,7 +598,41 @@
     const j = Number(id.slice(4));
     return objs(scn, "Sup").find((s) => num(s, "Jugador") === j) || null;
   };
+  // fase 73: en el inicio (pasos 1 a 3), quien dice su línea da unos pasos cortos (18 px en 0.5 s) si no se está moviendo
+  H.PASITO = { px: 18, seg: 0.5 };
+  function pasito(scn, st, id) {
+    if (st.paso > 3) return;
+    const L = datos().lineas[id]; if (!L) return;
+    const s = H.equipo(scn).find((o) => pj(o) === L.pj && str(o, "Estado") === "normal"); if (!s) return;
+    const mueve = (o) => num(o, "Control") !== -1 && (num(o, "MovX") !== 0 || num(o, "MovY") !== 0);   // el jugador ya se está moviendo
+    if (mueve(s)) return;
+    s.__fdizMueve = mueve;
+    const dir = s.__fdizDir = -(s.__fdizDir || (Math.random() < 0.5 ? 1 : -1));   // alterna: no se aleja del lugar
+    if (!s.__fdizAnimP) {
+      s.__fdizAnimP = s.setAnimationName.bind(s);
+      s.setAnimationName = function (n) { if (this.__fdizPaseo && n !== this.__fdizPaseo.an) return; return this.__fdizAnimP(n); };
+    }
+    s.__fdizPaseo = { x0: s.getX(), dir, t0: H.now(), an: pj(s) + "_caminar_lado" };
+    try { s.activateBehavior("PathBot", false); } catch (e) { /* sin ruta */ }    // la ruta de los bots lo regresaría cada cuadro
+    st.paseos = st.paseos || new Set(); st.paseos.add(s);
+  }
+  function paseos(scn, st) {
+    if (!st.paseos) return;
+    for (const s of [...st.paseos]) {
+      const P = s.__fdizPaseo;
+      const f = P ? (H.now() - P.t0) / H.PASITO.seg : 2;
+      if (!P || f >= 1 || !vivo(s) || str(s, "Estado") !== "normal" || s.__fdizMueve(s)) {
+        s.__fdizPaseo = null; st.paseos.delete(s);
+        try { s.activateBehavior("PathBot", true); } catch (e) { /* sin ruta */ }
+        try { s.__fdizAnimP(pj(s) + "_quieto"); } catch (e) { /* sin animación */ }
+        continue;
+      }
+      s.setX(P.x0 + P.dir * H.PASITO.px * f);
+      try { s.__fdizAnimP(P.an); s.flipX(P.dir < 0); } catch (e) { /* sin animación */ }
+    }
+  }
   function decir(scn, st, id, bloq) {
+    pasito(scn, st, id);
     const L = datos().lineas[id] || { pj: "", dur: 2.5 };
     const dur = L.dur > 0 ? L.dur : Math.max(2.2, Math.min(6, (L.txt || "").length * 0.06));
     st.lin = { id, t0: H.now(), fin: H.now() + dur + H.HUECO, bloq };
@@ -618,13 +653,23 @@
   // ------------------------------------------------------------------ cinemáticas (host)
   const objVideo = (v) => (datos().videos || {})[v] || "";
   H.hayVideo = (scn, v) => { const o = objVideo(v); if (!o) return false; try { return !!scn.getObjects(o); } catch (e) { return false; } };
+  // fase 73: durante la cinemática se congela todo el mundo (jugadores, bots y zombis): TimeScale 0 hasta que termina
+  function helar(scn, st, si) {
+    try {
+      const T = scn.getTimeManager();
+      if (si) { if (!st.helado) { st.helado = true; T.setTimeScale(0); } }
+      else if (st.helado) { st.helado = false; if (SV(scn, "Pausa").getAsNumber() !== 1) T.setTimeScale(1); }
+    } catch (e) { /* sin tiempo */ }
+  }
   function empezarCine(scn, st, v) {
+    helar(scn, st, true);
     const modo = H.hayVideo(scn, v) ? "v" : "n";
     st.cine = { v, modo, t0: H.now(), hold: 0, armado: false, tUlt: H.now() };
     marcarVista(scn, v);
     SV(scn, "HistCine").setString(modo + ":" + v); SV(scn, "HistCineSeq").add(1);
   }
   function terminarCine(scn, st) {
+    helar(scn, st, false);
     st.cine = null; st.local.salto = 0;
     SV(scn, "HistCine").setString(""); SV(scn, "HistCineSeq").add(1);
   }
@@ -778,6 +823,7 @@
     const inp = entrada(scn, st), pausa = SV(scn, "Pausa").getAsNumber() === 1;
     if (st.cong && st.cong.soltar && !inp.mantiene) devolver(scn, st, true);   // terminó la escena y ya soltó la tecla
     quietos(scn, st);
+    paseos(scn, st);
     if (!pausa) {
       if (st.run) {
         if (saltar && st.run.seq[st.run.i] && st.run.seq[st.run.i][0] === "w") {
@@ -795,6 +841,7 @@
     if (st.tutorial && H.now() < st.tutorial && st.intruso && !muerto(st.intruso) && p1 && deFuego(p1)) ayuda = "Clic izquierdo (o gatillo del mando) para disparar";
     if (!st.llave && st.reja && H.equipo(scn).some((s) => Math.hypot(s.getX() - (H.REJA.x + 16), s.getY() - (H.REJA.y + H.REJA.h / 2)) < 260))
       ayuda = "La reja trasera está cerrada con llave";
+    if (st.avisoCambio && H.now() < st.avisoCambio.hasta) ayuda = st.avisoCambio.txt;
     if (SV(scn, "HistAyuda").getAsString() !== ayuda) SV(scn, "HistAyuda").setString(ayuda);
     textoObjetivo(scn, st);
   }

@@ -56,7 +56,6 @@ const MODULOS = [
   ["¡JOEL MORDIDO!", R, "profes.js", " MORDIDO!"],
   // historia.js (fase 68)
   // fase 72: cambio de personaje y armas por dueño
-  ["Ahora controlas a TONY", V, "historia.js", "Ahora controlas a "],
   ["César le pasa la escopeta a Miranda", V, "historia.js", "César le pasa la escopeta a Miranda"],
   ["¡LLAVE DE LA REJA, PISTOLA PARA CÉSAR Y AK-47 PARA ALAN! El conserje los persigue", Y, "historia.js", "¡LLAVE DE LA REJA, PISTOLA PARA CÉSAR Y AK-47 PARA ALAN! El conserje los persigue"],
   ["¡ROMPIÓ LA PUERTA!", R, "historia.js", "¡ROMPIÓ LA PUERTA!"],

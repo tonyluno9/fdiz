@@ -47,7 +47,9 @@
       // fase 69: con escopeta, de lado, <personaje>_escopeta_lado (Tony la tiene; los demás siguen con la de pegar)
       const tipo = arma === "escopeta" ? "escopeta" : "pistola";
       if (an === pj + "_pegar_lado") s.setAnimationName(pj + "_" + tipo + "_lado");
-      else if (an === pj + "_pegar_abajo" && tipo === "pistola") s.setAnimationName(pj + "_pistola_abajo");
+      // fase 73: arriba y abajo con placeholders propios (<pj>_<arma>_arriba / _abajo) para pistola y escopeta
+      else if (an === pj + "_pegar_abajo") s.setAnimationName(pj + "_" + tipo + "_abajo");
+      else if (an === pj + "_pegar_arriba") s.setAnimationName(pj + "_" + tipo + "_arriba");
     }
   };
 
