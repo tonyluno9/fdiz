@@ -1636,3 +1636,52 @@ El detalle por fase, las pruebas ejecutadas y lo pendiente están en **`TRASPASO
 
 ## Fase 70 · Colores de los letreros (2026-11-22)
  script nuevo: cambia `scripts/avisos.js` (VER 2) y su copia incrustada FDIZ-FASE63-MOD en Juego (la incrusta `fase63_avisos.py`). Se agregó el amarillo (`255;240;150`) para los avisos de evento; rojo pasa a incluir «¡ROMPIÓ LA PUERTA!» y «… QUEDÓ FUERA DE COMBATE». Clasificación completa por letrero en **`gdevelop/ALERTAS.md`**. Prueba: `node gdevelop/scripts/prueba_avisos.js` (7/7). Solo cambia el color: texto, duración, posición y condiciones siguen igual.
+
+## Fase 71 · Correcciones (2026-11-23)
+Script: `gdevelop/scripts/fase71_correcciones.py` (después de la 68 y la 69). Diálogos libres al inicio, con Joel y tras la llamada del CIC; zombis quietos hasta la alerta; Joel arranca al abrir P37 o P38; zombi gordo en la conserjería; luz circular en el apagón; tinte rojo y reacción de daño (cuadros 0-1 de `golpe_morir`); mira también con lanzables; sin sonido en la ulti de Miranda; animaciones de disparo de Alan (AK-47), César y Miranda (escopeta); un checkpoint en un paso automático ya no queda en negro.
+
+## Fase 72 · Cambio de personaje en Historia, AK-47 y Escape sin selector (2026-11-23)
+Script: `gdevelop/scripts/fase72_cambio_personaje.py` (después de la 68, 69 y 71). Fuente: versión final de `gdevelop/historia/02_HISTORIA_PARA_GDEVELOP.md`.
+- **Personaje controlado** (`historia.js`, `H.controlar`, `Historia.Controlado`): Alan (pasos 1-4) → Tony (tras C03) → César (tras C065) → Miranda (tras C07) → Alan (tras C08). El control (Control y P<j>Ctl) pasa al nuevo y el anterior queda como bot. Aviso «Ahora controlas a X».
+- **Armas por dueño** (`H.DUENO`): pistola pequeña → Tony; escopeta → César y en C07 pasa a Miranda; pistola del director → César; AK-47 → Alan. En checkpoints vuelven a su dueño con cargador lleno. Ya no hay armas que recoger del piso en Historia.
+- **AK-47** (`ak47`): 30 balas, 12 de daño, cadencia 0.12 s (automática manteniendo el clic), 2 impactos por zombi. Icono y arma en el piso desde `generado/sprites/objetos/armas/ak47_original.png`.
+- **Diálogos nuevos de la versión final** (`H.EXTRA`): `C5_01_tony` (texto de C5_01_cesar, sin voz), `C8_03_alan` (texto provisional, sin voz) y `C8_04_miranda` (voz de C8_03_miranda). Faltan grabar esas voces.
+- **Menú**: Escape (Local) va directo a la dificultad con el equipo fijo (Tony en P1; Miranda, Alan y César bots). Escape en línea no cambia. Esc en la dificultad vuelve a «Local / En línea».
+- Videos C05, C065, C07 y C08 renombrados (tenían `.mp4.mp4`) e incluidos al correr la fase 68.
+- Probado en una copia de la vista previa de GDevelop: el control pasa de personaje y el nuevo responde al teclado; armas por dueño correctas. Sin probar: el AK-47 disparando y el menú de Escape (requieren exportar de nuevo desde GDevelop).
+
+## Fase 73 · Cinemáticas congeladas, diálogos con movimiento y placeholders de disparo (2026-11-23)
+Script: `gdevelop/scripts/fase73_cine_y_placeholders.py` (después de la 72).
+- Durante los videos (y la pantalla negra de los que faltan) se congela todo con TimeScale 0; al terminar vuelve a 1. El video sigue corriendo.
+- En todos los diálogos los personajes se pueden mover (`H.DLG_LIBRE`).
+- Cambio de personaje: aviso pequeño en la línea de ayuda («Cambio de personaje: ahora controlas a X»), en lugar del letrero grande.
+- Inicio (pasos 1 a 3): quien dice su línea da unos pasos cortos (18 px en 0.5 s, alternando el lado). A los bots se les apaga la ruta mientras dura.
+- Placeholders de disparo para Tony, Miranda, Alan y César: `<pj>_pistola_arriba`, `<pj>_escopeta_arriba` y `<pj>_escopeta_abajo` en `generado/sprites/personajes/<pj>/<arma>_<dir>/` (copias de `pegar_arriba` y `pistola_abajo`). Para el arte final, reemplazar esos PNG con el mismo nombre. `armas.js` ya las usa al disparar hacia arriba o abajo.
+
+## Fase 74 · Disparo hacia arriba y hacia abajo con arte real (2026-11-23)
+Script: `gdevelop/scripts/fase74_disparo_arriba_abajo.py` (después de la 73). Fuente: hojas de sprites `.jpg` de fondo verde en `animaciones_gif/personajes/<pj>/` (4 cuadros cada una).
+- Se quita el verde, se recorta y se escala igual que los disparos de lado (98 px de alto, pies en el origen). Cuadros en `generado/sprites/personajes/<pj>/disparo_<arma>_<dir>/`.
+- Reemplazadas: Tony, César y Alan `pistola_arriba` / `pistola_abajo` (Alan con el AK-47); Miranda `escopeta_arriba` / `escopeta_abajo`.
+- Siguen con placeholder (fase 73): César con escopeta (arriba y abajo), Tony y Alan con escopeta, Miranda con pistola.
+
+## Fase 75 · Fundido a negro antes y después de las cinemáticas (2026-11-23)
+`historia.js` (se incrusta con la fase 73): antes de cada video la pantalla se desvanece a negro en 0.35 s (`H.FUNDIDO`) y, al terminar, vuelve desde negro en otros 0.35 s mientras sigue la secuencia (diálogos). El mundo queda congelado desde que empieza el fundido de entrada. Los videos ya vistos no tienen fundido.
+
+## Fase 76 · Ajustes de Historia y balas más gruesas (2026-11-23)
+Script: `gdevelop/scripts/fase76_historia_ajustes.py` (después de la 74).
+- Inicio (hasta que termina la alerta): nadie ataca; Tony ya no pega al aire (`H.tras`, antes de «Combate: pegar»).
+- Paso 5: al llegar al CIC la misión cambia a «Checa de dónde viene el ruido», con la flecha a la puerta de la sala de Joel; al abrirla empieza su escena.
+- Paso 6: el apagón llega en cuanto termina el video de la llamada (C05).
+- Paso 10: la llave y el cambio a Alan ocurren en cuanto termina el video C08, antes de los diálogos.
+- Paso 11: con la cuenta del autobús activa, Alan recarga el AK-47 (30 balas) cada 24 s y dice «¡Encontré balas!» (globo sin voz).
+- Balas y perdigones: dibujo 1.6 veces más grande y radio de impacto de 62 px (antes 46). Los lanzables no cambian.
+- Se incluye el fundido a negro de la fase 75.
+
+## Fase 77 · La puerta de la conserjería se rompe sola (2026-11-23)
+`historia.js` (evento `rompePuerta`, se incrusta con la fase 76): en el paso 7, en cuanto termina el video C06, la puerta de la sala del conserje (P59) se rompe sola, con letrero y sonido de impacto. Después vienen los diálogos y el zombi gordo.
+
+## Fase 78 · Más balas, pausa al cambiar de personaje y hojas renombradas (2026-11-23)
+Script: `gdevelop/scripts/fase78_balas_y_cambio.py` (después de la 74 y la 76).
+- Balas: pistola pequeña 24, escopeta 16, sheriff 9 (AK-47 sigue con 30). Con más de 9 balas el cargador del HUD usa marcas delgadas en filas de 13.
+- Al cambiar de personaje todo se congela 1 s (`H.PAUSA_CAMBIO`) para leer el aviso.
+- Fase 74 actualizada con los nombres nuevos de las hojas (`ak47_disparar_*`, `escopeta disparar *`). Las de César también se usan para su escopeta (pasos 8 y 9).

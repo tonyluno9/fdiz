@@ -21,8 +21,11 @@ for (const linea of doc.split(/\r?\n/)) {
   const m = linea.match(/^### PASO (\d+)/); if (m) { n = +m[1]; pasosDoc[n] = []; continue; }
   if (/^### Derrota/.test(linea)) n = 0;
   if (!n) continue;
-  const v = linea.match(/\[V\]\s*`(C[0-9_T]+)\.mp4`/); if (v) pasosDoc[n].push("v:" + v[1].replace(/^C10$/, "C10"));
-  if (/\[[DG]\]/.test(linea)) for (const a of linea.matchAll(/`([A-Z0-9]+_[0-9]+_[a-z]+)`/g)) pasosDoc[n].push((/\[G\]/.test(linea) ? "g:" : "d:") + a[1]);
+  // fase 72: en la versión final una línea puede traer videos y diálogos mezclados ([V] C01_T1 → [D] ... → [V] C01_T2 → ...)
+  if (/\[[VDG]\]/.test(linea)) for (const a of linea.matchAll(/`(C[0-9_T]+)\.mp4`|`([A-Z0-9]+_[0-9]+_[a-z]+)`/g)) {
+    if (a[1]) { if (/\[V\]/.test(linea)) pasosDoc[n].push("v:" + a[1]); }
+    else pasosDoc[n].push((/\[G\]/.test(linea) ? "g:" : "d:") + a[2]);
+  }
 }
 for (let k = 1; k <= 12; k++) {
   const nuestro = [];
@@ -57,6 +60,9 @@ const usados = [];
 for (const k in H.PASOS) for (const it of H.PASOS[k].seq) if (it[0] === "d") usados.push(...it.slice(1));
 for (const c of H.CHARLAS) usados.push(...c.lineas);
 usados.push("C10_03_tony");   // se dice en Resultados, sobre la pantalla de victoria
+// fase 72: líneas de la versión final sin voz propia (H.EXTRA): cuentan como uso de la voz en que se basan
+for (const [id, e] of Object.entries(H.EXTRA || {})) { const k = usados.indexOf(id); if (k >= 0) usados.splice(k, 1, ...(e.de && !e.sinVoz ? [e.de] : [])); }
+for (const [, e] of Object.entries(H.EXTRA || {})) if (e.de && e.sinVoz) usados.push(e.de);   // C5_01_cesar: su texto lo dice Tony
 prueba("Cada audio se usa exactamente una vez", usados.length === 55 && new Set(usados).size === 55 && ids.every((i) => usados.includes(i)),
   ids.filter((i) => !usados.includes(i)).join(","));
 const proy = path.join(RAIZ, "gdevelop", "FDI-Z");

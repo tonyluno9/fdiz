@@ -22,8 +22,8 @@
   if (gdjs.fdizArmas && gdjs.fdizArmas.VER === 2) return;
   const A = (gdjs.fdizArmas = { VER: 2 });
 
-  A.CARGADOR = { pistolita: 9, pistola: 4, escopeta: 6 };
-  A.PISTOLAS = { pistolita: true, pistola: true };
+  A.CARGADOR = { pistolita: 24, pistola: 9, escopeta: 16, ak47: 30 };   // fase 78: más balas (AK-47 de Alan, fase 72: 30)
+  A.PISTOLAS = { pistolita: true, pistola: true, ak47: true };       // el AK-47 usa la animación de disparo de lado (<pj>_pistola_lado)
   A.RADIO = 78;                 // px del arma a la mira
   A.ALTO = 46;                  // el arma (y la salida de las balas) está 46 px arriba de los pies (fase 59)
   A.ICONO = { 1: [351, 94], 2: [1813, 94], 3: [351, 978], 4: [1813, 978] };   // ícono del arma (54 x 54) de cada panel
@@ -47,7 +47,9 @@
       // fase 69: con escopeta, de lado, <personaje>_escopeta_lado (Tony la tiene; los demás siguen con la de pegar)
       const tipo = arma === "escopeta" ? "escopeta" : "pistola";
       if (an === pj + "_pegar_lado") s.setAnimationName(pj + "_" + tipo + "_lado");
-      else if (an === pj + "_pegar_abajo" && tipo === "pistola") s.setAnimationName(pj + "_pistola_abajo");
+      // fase 73: arriba y abajo con placeholders propios (<pj>_<arma>_arriba / _abajo) para pistola y escopeta
+      else if (an === pj + "_pegar_abajo") s.setAnimationName(pj + "_" + tipo + "_abajo");
+      else if (an === pj + "_pegar_arriba") s.setAnimationName(pj + "_" + tipo + "_arriba");
     }
   };
 
@@ -113,11 +115,14 @@
       t.setPosition(xy[0] + 58, xy[1] + 10);
       if (!d) continue;
       // cargador: una marca por bala; las gastadas en gris (no hay reservas: solo lo que trae el arma)
-      const w = 4, g = 2, total = cap * (w + g) - g, x0 = Math.round(xy[0] + 27 - total / 2), y0 = xy[1] + 57;
-      d.setOutlineSize(1); d.setOutlineColor("20;20;30"); d.setOutlineOpacity(255); d.setFillOpacity(255);
+      // fase 78: con cargadores grandes (más de 9) las marcas son más delgadas y van en filas de 13, dentro del panel
+      const chico = cap <= 9, w = chico ? 4 : 3, g = chico ? 2 : 1, fila = chico ? cap : 13;
+      const total = Math.min(cap, fila) * (w + g) - g, x0 = Math.round(xy[0] + 27 - total / 2), y0 = xy[1] + 57;
+      d.setOutlineSize(chico ? 1 : 0); d.setOutlineColor("20;20;30"); d.setOutlineOpacity(255); d.setFillOpacity(255);
       for (let k = 0; k < cap; k++) {
+        const c = k % fila, f = Math.floor(k / fila);
         d.setFillColor(k < usos ? "232;190;90" : "70;70;84");
-        d.drawRectangle(x0 + k * (w + g), y0, x0 + k * (w + g) + w, y0 + 8);
+        d.drawRectangle(x0 + c * (w + g), y0 + f * 10, x0 + c * (w + g) + w, y0 + f * 10 + 8);
       }
     }
   }
