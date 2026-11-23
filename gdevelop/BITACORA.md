@@ -1632,3 +1632,7 @@ Respaldos: `respaldos/antes_de_fase68_historia_20261122_2215.json` (proyecto) y 
 Script: `scripts/fase69_correcciones.py` (idempotente; después de `fase68_historia.py`). Cambios también en `historia.js`, `usar.js` y `armas.js`. Respaldo: `respaldos/antes_de_fase69_20261122_2307.json`.
 
 El detalle por fase, las pruebas ejecutadas y lo pendiente están en **`TRASPASO_HISTORIA.md`** (raíz de fdiz). El inventario de letreros para clasificar colores está en **`gdevelop/ALERTAS.md`**; los colores aún no se cambian.
+
+
+## Fase 70 · Colores de los letreros (2026-11-22)
+ script nuevo: cambia `scripts/avisos.js` (VER 2) y su copia incrustada FDIZ-FASE63-MOD en Juego (la incrusta `fase63_avisos.py`). Se agregó el amarillo (`255;240;150`) para los avisos de evento; rojo pasa a incluir «¡ROMPIÓ LA PUERTA!» y «… QUEDÓ FUERA DE COMBATE». Clasificación completa por letrero en **`gdevelop/ALERTAS.md`**. Prueba: `node gdevelop/scripts/prueba_avisos.js` (7/7). Solo cambia el color: texto, duración, posición y condiciones siguen igual.

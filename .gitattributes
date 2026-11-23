@@ -1,0 +1,3 @@
+# Los .js se incrustan tal cual dentro de FDI-Z.json y las pruebas comparan el texto exacto:
+# deben quedar con saltos de línea Unix (LF) también en Windows.
+*.js text eol=lf
