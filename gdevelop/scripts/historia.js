@@ -87,7 +87,7 @@
     6: { spawn: "cic", obj: { txt: "Usa el teléfono del CIC", usar: "Telefono" },
       seq: [["v", "C05"], ["e", "apagon"], ["d", "C5_01_tony", "C5_02_joel", "C5_03_miranda"], ["e", "zombisPasillo"]] },
     7: { spawn: "cic", obj: { txt: "Encuentra la sala del conserje", zona: "Conserje" },
-      seq: [["v", "C06"], ["d", "C6_01_tony", "C6_02_alan"], ["e", "intendencia"], ["w", "intendencia"]] },
+      seq: [["v", "C06"], ["e", "rompePuerta"], ["d", "C6_01_tony", "C6_02_alan"], ["e", "intendencia"], ["w", "intendencia"]] },
     8: { spawn: "conserjeria", obj: { txt: "Revisa el casillero del conserje", usar: "Casillero" },
       seq: [["v", "C065"], ["d", "C65_01_cesar", "C65_02_joel", "C65_03_tony"], ["e", "escopeta"], ["e", "controla", "cesar"], ["d", "C65_04_joel", "C65_05_tony"], ["e", "joelSeQueda"]] },
     9: { spawn: "conserjeria", obj: { txt: "Busca a otro profesor: la nevería", zona: "Neveria" },
@@ -208,7 +208,7 @@
   }
 
   // ------------------------------------------------------------------ armas
-  const DE_FUEGO = { pistolita: 9, pistola: 4, escopeta: 6, ak47: 30 };
+  const DE_FUEGO = { pistolita: 24, pistola: 9, escopeta: 16, ak47: 30 };   // fase 78: más balas
   const deFuego = (s) => DE_FUEGO[str(s, "Arma")] !== undefined;
   // a quién le toca: el preferido si no trae arma de fuego, luego un humano sin arma de fuego, luego cualquiera
   function darArma(scn, tipo, pref, paraTony) {
@@ -255,7 +255,11 @@
     VS(viejo, "BotX").setNumber(viejo.getX()); VS(viejo, "BotY").setNumber(viejo.getY());
     try { GV(scn, "P" + num(viejo, "Jugador") + "Ctl").setNumber(-1); GV(scn, "P" + num(nuevo, "Jugador") + "Ctl").setNumber(c); } catch (e) { /* sin global */ }
     // fase 73: aviso pequeño (la línea de ayuda de abajo), no el letrero grande
-    if (!callado) { st.avisoCambio = { txt: "Cambio de personaje: ahora controlas a " + (H.NOMBRES[p] || p), hasta: H.now() + 3 }; sonido(scn, "efectos/eventos/rescate_logrado.ogg", 40); }
+    if (!callado) {
+      st.avisoCambio = { txt: "Cambio de personaje: ahora controlas a " + (H.NOMBRES[p] || p), hasta: H.now() + 3 };
+      sonido(scn, "efectos/eventos/rescate_logrado.ogg", 40);
+      st.pausaCambio = H.now() + H.PAUSA_CAMBIO; helar(scn, st, true);   // fase 78: todo se detiene 1 s para leer el aviso
+    }
   };
   function armar(scn, tipo, p) {
     const s = H.equipo(scn).find((o) => pj(o) === p); if (!s) return null;
@@ -505,6 +509,12 @@
       for (const a of objs(scn, "ArmaPiso").slice()) if (str(a, "Tipo") === "pistolita") a.deleteFromScene(scn);
     },
     controla(scn, st, p) { H.controlar(scn, st, p); },
+    rompePuerta(scn) {                                          // fase 77: al terminar C06 la puerta de la conserjería se rompe sola
+      if (!puerta(scn, H.LUGAR.puertaConserje)) return;
+      quitarPuerta(scn, H.LUGAR.puertaConserje);
+      banner(scn, "¡ROMPIERON LA PUERTA!", 2);
+      sonido(scn, "evento_impacto_cinematico.ogg", 90);
+    },
     pasaEscopeta(scn) {                                         // fase 72: César le pasa la escopeta a Miranda (C07)
       armar(scn, "puños", "cesar"); armar(scn, "escopeta", "miranda");
       banner(scn, "César le pasa la escopeta a Miranda", 2.5);
@@ -676,6 +686,7 @@
   }
   // fase 75: fundido a negro antes y después de cada cinemática (segundos de cada mitad)
   H.FUNDIDO = 0.35;
+  H.PAUSA_CAMBIO = 1;          // fase 78: segundos congelados al cambiar de personaje
   function salida(scn, st) {
     if (!st.salida) return;
     const f = (H.now() - st.salida) / H.FUNDIDO;
@@ -861,6 +872,7 @@
     quietos(scn, st);
     paseos(scn, st);
     salida(scn, st);
+    if (st.pausaCambio && H.now() >= st.pausaCambio) { st.pausaCambio = 0; if (!st.cine && !(st.run && st.run.it && st.run.it.entrada)) helar(scn, st, false); }
     balasAlan(scn, st);
     if (!pausa) {
       if (st.run) {

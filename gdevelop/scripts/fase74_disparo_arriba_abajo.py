@@ -6,10 +6,10 @@ Fuentes: animaciones_gif/personajes/<pj>/*.jpg (4 cuadros por hoja, en 4 columna
 Se quita el verde, se recorta cada cuadro, se escala como los disparos de lado (98 px de alto, pies en el origen) y se
 reemplaza la animación del Sup:
   tony     pistola_arriba (de espaldas)  · pistola_abajo (de frente)
-  cesar    pistola_arriba · pistola_abajo
+  cesar    pistola_arriba · pistola_abajo · escopeta_arriba · escopeta_abajo (misma hoja)
   miranda  escopeta_arriba · escopeta_abajo
   alan     pistola_arriba · pistola_abajo  (el AK-47 usa las animaciones de pistola)
-Las demás (por ejemplo César con escopeta) siguen con el placeholder de la fase 73.
+Las demás (Tony y Alan con escopeta, Miranda con pistola) siguen con el placeholder de la fase 73.
 Cuadros en generado/sprites/personajes/<pj>/disparo_<arma>_<dir>/. Idempotente.
 """
 import json
@@ -27,12 +27,15 @@ GIFS = os.path.join(RAIZ, "animaciones_gif", "personajes")
 HOJAS = {
     ("tony", "pistola", "arriba"): "tony/tony_disparar_adelante_pistola_hojasprite.jpg",
     ("tony", "pistola", "abajo"): "tony/tony_disparar_abajo_pistola_hojasprite.jpg",
-    ("cesar", "pistola", "arriba"): "cesar/Man_shooting_pixel_art_sprite_0a326839.jpg",
-    ("cesar", "pistola", "abajo"): "cesar/Crear_sprite_sheet_pixel_art_966c6061.jpg",
-    ("miranda", "escopeta", "arriba"): "miranda/Woman_shooting_shotgun_pixel_art_b3acdbda.jpg",
-    ("miranda", "escopeta", "abajo"): "miranda/Sprite_sheet_pixel_art_shooting_5da3b3d3.jpg",
-    ("alan", "pistola", "arriba"): "alan/Crear_hoja_de_sprites_pixel_8c565758.jpg",
-    ("alan", "pistola", "abajo"): "alan/Sprite_sheet_of_shooting_man_fbbbe42f.jpg",
+    # César: sus hojas «escopeta disparar …» sirven para la escopeta (pasos 8 y 9) y para la pistola del director
+    ("cesar", "escopeta", "arriba"): "cesar/escopeta disparar arriba.jpg",
+    ("cesar", "escopeta", "abajo"): "cesar/escopeta disparar abajo.jpg",
+    ("cesar", "pistola", "arriba"): "cesar/escopeta disparar arriba.jpg",
+    ("cesar", "pistola", "abajo"): "cesar/escopeta disparar abajo.jpg",
+    ("miranda", "escopeta", "arriba"): "miranda/escopeta disparar arriba.jpg",
+    ("miranda", "escopeta", "abajo"): "miranda/escopeta disparar abajo.jpg",
+    ("alan", "pistola", "arriba"): "alan/ak47_disparar_arriba.jpg",
+    ("alan", "pistola", "abajo"): "alan/ak47_disparar_abajo.jpg",
 }
 COLUMNAS = 4
 

@@ -55,10 +55,10 @@ const mira = (s) => s.__fdizMira;
 // ---------------------------------------------------------------- munición y armas
 prueba("Munición: pistola pequeña 9, escopeta 6, sheriff 4 (al recogerla) y el HUD usa los mismos números", () => {
   const A = cargar();
-  igual(A.CARGADOR, { pistolita: 9, pistola: 4, escopeta: 6, ak47: 30 });
+  igual(A.CARGADOR, { pistolita: 24, pistola: 9, escopeta: 16, ak47: 30 });
   const recoge = [...rec(grupo("Armas del salón").events)].find((e) => tiene(e, "ModVarObjetTxt", ["Sup", "Arma", "=", "ArmaPiso.VariableString(Tipo)"]));
   const usos = (t) => recoge.events.find((e) => tiene(e, "VarObjetTxt", ["Sup", "Arma", "=", '"' + t + '"'])).actions[0].parameters[3];
-  igual([usos("pistola"), usos("escopeta")], ["4", "6"]);
+  igual([usos("pistola"), usos("escopeta")], ["9", "16"]);
 });
 prueba("Nadie empieza con la pistola pequeña: ningún evento de inicio la equipa (fase 67)", () => {
   const ini = grupo("Inicio de supervivientes");
@@ -124,7 +124,7 @@ prueba("Se recoge con el sistema de siempre: con los puños, solo el jugador 1, 
   igual(o.subInstructions.map((c) => c.parameters.join("|")), ["ArmaPiso|Solo|=|0", "ArmaPiso|Solo|=|Sup.Variable(Jugador)"]);
   const recoge = [...rec(f.events)].find((e) => tiene(e, "ModVarObjetTxt", ["Sup", "Arma", "=", "ArmaPiso.VariableString(Tipo)"]));
   const usos = recoge.events.find((e) => tiene(e, "VarObjetTxt", ["Sup", "Arma", "=", '"pistolita"']));
-  si(usos && tiene(usos, "ModVarObjet", ["Sup", "Usos", "=", "9"]), "9 balas");
+  si(usos && tiene(usos, "ModVarObjet", ["Sup", "Usos", "=", "24"]), "24 balas");
   si(tiene(recoge.events[recoge.events.length - 1], "Delete", ["ArmaPiso"]), "se borra del piso");
   const val = [...rec(grupo("Armas del salón").events)].find((e) => tiene(e, "VarObjetTxt", ["Sup", "Arma", "=", '"pistolita"']) && tiene(e, "ModVarObjet", ["Sup", "ArmaFuego", "=", "1"]));
   si(val, "valores de arma de fuego al tenerla");
@@ -241,8 +241,8 @@ prueba("HUD: balas que quedan junto al ícono y el cargador debajo (gastadas en 
   const dib = sc.objs.find((o) => o.n === "BalasDib");
   const de = (x0, x1) => dib.rects.filter((r) => r[0] >= x0 && r[2] <= x1);
   const p1r = de(351, 405), p2r = de(1813, 1867);
-  igual([p1r.length, p1r.filter((r) => r[4] === "232;190;90").length], [9, 7], "pistola: 9 marcas, 7 llenas");
-  igual([p2r.length, p2r.filter((r) => r[4] === "232;190;90").length], [6, 2], "escopeta: 6 marcas, 2 llenas");
+  igual([p1r.length, p1r.filter((r) => r[4] === "232;190;90").length], [24, 7], "pistola: 24 marcas en filas, 7 llenas");
+  igual([p2r.length, p2r.filter((r) => r[4] === "232;190;90").length], [16, 2], "escopeta: 16 marcas en filas, 2 llenas");
   si(p1r.every((r) => r[1] >= 94 + 54 && r[3] <= 180), "debajo del ícono, dentro del panel");
   si(txt(sc, 1).x >= 405 && txt(sc, 1).x + 26 <= 438, "a la derecha del ícono, dentro del panel");
 });

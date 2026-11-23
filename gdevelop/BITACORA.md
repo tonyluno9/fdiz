@@ -1676,3 +1676,12 @@ Script: `gdevelop/scripts/fase76_historia_ajustes.py` (después de la 74).
 - Paso 11: con la cuenta del autobús activa, Alan recarga el AK-47 (30 balas) cada 24 s y dice «¡Encontré balas!» (globo sin voz).
 - Balas y perdigones: dibujo 1.6 veces más grande y radio de impacto de 62 px (antes 46). Los lanzables no cambian.
 - Se incluye el fundido a negro de la fase 75.
+
+## Fase 77 · La puerta de la conserjería se rompe sola (2026-11-23)
+`historia.js` (evento `rompePuerta`, se incrusta con la fase 76): en el paso 7, en cuanto termina el video C06, la puerta de la sala del conserje (P59) se rompe sola, con letrero y sonido de impacto. Después vienen los diálogos y el zombi gordo.
+
+## Fase 78 · Más balas, pausa al cambiar de personaje y hojas renombradas (2026-11-23)
+Script: `gdevelop/scripts/fase78_balas_y_cambio.py` (después de la 74 y la 76).
+- Balas: pistola pequeña 24, escopeta 16, sheriff 9 (AK-47 sigue con 30). Con más de 9 balas el cargador del HUD usa marcas delgadas en filas de 13.
+- Al cambiar de personaje todo se congela 1 s (`H.PAUSA_CAMBIO`) para leer el aviso.
+- Fase 74 actualizada con los nombres nuevos de las hojas (`ak47_disparar_*`, `escopeta disparar *`). Las de César también se usan para su escopeta (pasos 8 y 9).
