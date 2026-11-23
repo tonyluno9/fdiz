@@ -176089,7 +176089,7 @@
         },
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "/*FDIZ-FASE46-MOD*/\n/* FDI-Z · Fase 46 · Bloque Medios (reporte de pruebas de jugabilidad).\n * Se incrusta en un evento JavaScript de la escena Juego con scripts/fase46_medios.py. No editar el evento a mano.\n *\n *  4) M.borde(scn): qué personajes se dibujan por delante de la oscuridad de los salones (capa SupervivientesBorde). Antes usaba el\n *     tamaño del dibujo (cambia con cada cuadro de la animación y con el volteo), así que un personaje en el borde saltaba\n *     entre capas y parpadeaba. Ahora usa una caja fija a partir de los pies y espera 3 cuadros antes de cambiar de capa.\n *  5) M.anim(scn, objs): elige la animación de caminar (lado / arriba / abajo / quieto) y el volteo con histéresis. Antes\n *     comparaba |vx| con |vy| en cada cuadro: en diagonal o rozando una pared cambiaba de animación cada cuadro (reinicia la\n *     caminata) y volteaba al personaje por velocidades casi nulas.\n *  6) M.llaves(scn, objs): las llaves de la conserjería solo las toma un jugador humano (no los bots); se avisa con un texto cuando\n *     un humano está cerca, muestra el progreso con su nombre y al terminar sale el aviso \"¡<Nombre> tomó las llaves!\".\n */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizMedios && gdjs.fdizMedios.VER === 1) return;\n  const M = (gdjs.fdizMedios = { VER: 1 });\n\n  M.CFG = {\n    caja: { izq: 26, der: 26, arriba: 100, abajo: 6 },   // caja del personaje respecto de sus pies (px)\n    cuadros: 3,                                          // cuadros seguidos que debe pedirse otra capa para cambiar\n    histeresis: 1.3,                                     // |vx| debe superar a |vy| x 1.3 (o al revés) para cambiar de eje\n    vMin: 12,                                            // velocidad mínima (px/s) para cambiar el volteo / arriba-abajo\n    llaveCerca: 220, llaveUsar: 140,                     // px: aviso y alcance para tomar las llaves\n  };\n\n  const NOMBRES = { tony: \"Tony\", miranda: \"Miranda\", cesar: \"César\", alan: \"Alan\", castillo: \"Castillo\", alessandro: \"Alessandro\", gabo: \"Gabo\", carlos: \"Carlos\", tonyfuerte: \"Tony\" };\n  const NAMES = [\"Sup\", \"Profe\", \"ZNormal\", \"ZCorredor\", \"ZGriton\", \"ZGordo\", \"ZConserje\", \"ZCurado\", \"ZJoel\", \"ZJustino\", \"ZCanepa\"];\n  const num = (o, n) => o.getVariables().get(n).getAsNumber();\n  const str = (o, n) => o.getVariables().get(n).getAsString();\n\n  // ---------- 4) capa de los personajes junto a la oscuridad de los salones ----------\n  M.borde = function (scn) {\n    const K = M.CFG.caja;\n    const capa = scn.getLayer(\"NieblaSalas\");\n    const zonas = [];\n    if (capa && capa.isVisible()) {\n      for (const n of scn.getObjects(\"Niebla\") || []) {\n        if (n.isHidden() || n.getOpacity() <= 0) continue;\n        const x = n.getX(), y = n.getY();\n        zonas.push([x, y, x + n.getWidth(), y + n.getHeight()]);\n      }\n    }\n    for (const nombre of NAMES) {\n      for (const p of scn.getObjects(nombre) || []) {\n        const px = p.getX(), py = p.getY();\n        const izq = px - K.izq, der = px + K.der, arr = py - K.arriba, aba = py + K.abajo;\n        let cruza = false;\n        for (const z of zonas) {\n          if (z[0] <= px && px < z[2] && z[1] <= py && py < z[3]) { cruza = false; break; }   // con los pies dentro, la sala lo tapa\n          if (izq < z[2] && z[0] < der && arr < z[3] && z[1] < aba) cruza = true;\n        }\n        const quiere = cruza ? \"SupervivientesBorde\" : \"Juego\";\n        const st = p.__f46b || (p.__f46b = { n: 0 });\n        if (p.getLayer() === quiere) { st.n = 0; continue; }\n        if (++st.n >= M.CFG.cuadros) { p.setLayer(quiere); st.n = 0; }\n      }\n    }\n  };\n\n  // ---------- 5) animación de caminar ----------\n  M.anim = function (scn, objs) {\n    const C = M.CFG;\n    for (const s of objs) {\n      const td = s.getBehavior(\"TopDownMovement\");\n      if (!td) continue;\n      const pj = str(s, \"Personaje\");\n      const st = s.__f46a || (s.__f46a = { eje: null, vert: \"abajo\", flip: false });\n      let nombre, flip = st.flip;\n      if (td.isMoving()) {\n        const vx = td.getXVelocity(), vy = td.getYVelocity(), ax = Math.abs(vx), ay = Math.abs(vy);\n        if (st.eje === null) st.eje = ax > ay ? \"x\" : \"y\";\n        else if (st.eje === \"x\" && ay > ax * C.histeresis) st.eje = \"y\";\n        else if (st.eje === \"y\" && ax > ay * C.histeresis) st.eje = \"x\";\n        if (st.eje === \"x\") {\n          nombre = pj + \"_caminar_lado\";\n          if (vx < -C.vMin) st.flip = true; else if (vx > C.vMin) st.flip = false;\n          flip = st.flip;\n        } else {\n          if (vy < -C.vMin) st.vert = \"arriba\"; else if (vy > C.vMin) st.vert = \"abajo\";\n          nombre = pj + \"_caminar_\" + st.vert;\n          flip = false;\n        }\n      } else {\n        st.eje = null;\n        nombre = pj + \"_quieto\"; flip = false;\n      }\n      if (s.getAnimationName() !== nombre) s.setAnimationName(nombre);\n      if (s.isFlippedX() !== flip) s.flipX(flip);\n    }\n  };\n\n  // ---------- 6) llaves: solo las toma un humano, con aviso claro ----------\n  const humano = (s) => { const c = num(s, \"Control\"); return (c >= 0 || c === -3) && str(s, \"Estado\") === \"normal\"; };\n  function texto(scn, nombre, s) {\n    const t = (scn.getObjects(nombre) || [])[0];\n    if (t) t.setText(s);\n  }\n  function banner(scn, txt, seg) {\n    const V = scn.getVariables(); V.get(\"Banner\").setString(txt); V.get(\"BannerSeg\").setNumber(seg || 2.5);\n    try { gdjs.evtTools.runtimeScene.resetTimer(scn, \"banner\"); } catch (e) { /* sin temporizador: no pasa nada */ }\n  }\n  function ayuda(scn, txt) {\n    texto(scn, \"TxtAyuda\", txt);\n    try { gdjs.evtTools.runtimeScene.resetTimer(scn, \"ayuda\"); } catch (e) { /* ídem */ }\n  }\n  const quien = (s) => (NOMBRES[str(s, \"Personaje\")] || str(s, \"Personaje\")) + \" (P\" + num(s, \"Jugador\") + \")\";\n\n  M.llaves = function (scn, objs) {\n    const C = M.CFG, sups = scn.getObjects(\"Sup\") || [];\n    for (const o of objs) {\n      if (str(o, \"Tipo\") !== \"llaves\") continue;\n      const st = o.__f46k || (o.__f46k = { prev: 0, aviso: -9 });\n      const V = o.getVariables(), prog = V.get(\"Progreso\"), usada = V.get(\"Usada\");\n      const tiempo = Math.max(0.01, V.get(\"Tiempo\").getAsNumber());\n      const dist = (s) => Math.hypot(s.getX() - o.getX(), s.getY() - o.getY());\n      // fase 56: con el árbitro de la F (gdjs.fdizUsar) solo cuenta quien tiene elegido este objetivo (UsaObjetivo + Elegida)\n      const elegido = (s) => !gdjs.fdizUsar || (num(s, \"UsaObjetivo\") === 1 && V.get(\"Elegida\").getAsNumber() === 1);\n      const toman = sups.filter((s) => humano(s) && num(s, \"Usando\") === 1 && elegido(s) && dist(s) < C.llaveUsar);\n      if (prog.getAsNumber() > st.prev && !toman.length) {         // el cuadro lo sumó alguien que no es humano: se deshace\n        prog.setNumber(st.prev);\n        usada.setNumber(0);\n      } else if (toman.length) {\n        const p = Math.min(100, Math.round(100 * prog.getAsNumber() / tiempo));\n        ayuda(scn, quien(toman[0]) + \" toma las llaves... \" + p + \"%\");\n        if (prog.getAsNumber() >= tiempo && !st.dicho) {\n          st.dicho = true;\n          banner(scn, \"¡\" + quien(toman[0]) + \" tomó las llaves!\", 3);\n        }\n      }\n      st.prev = prog.getAsNumber();\n      // aviso de acercamiento (solo si nadie las está tomando)\n      if (!toman.length) {\n        const cerca = sups.filter((s) => humano(s) && dist(s) < C.llaveCerca).sort((a, b) => dist(a) - dist(b))[0];\n        if (cerca && scn.getVariables().get(\"Estado\").getAsString() === \"juego\") {\n          const tecla = num(cerca, \"Control\") === 0 || num(cerca, \"Control\") === -3 ? \"F\" : \"A\";\n          ayuda(scn, quien(cerca) + \": mantén \" + tecla + \" junto a las llaves para tomarlas (solo los jugadores pueden)\");\n        }\n      }\n    }\n  };\n})(gdjs);\n",
+          "inlineCode": "/*FDIZ-FASE46-MOD*/\n/* FDI-Z · Fase 46 · Bloque Medios (reporte de pruebas de jugabilidad).\n * Se incrusta en un evento JavaScript de la escena Juego con scripts/fase46_medios.py. No editar el evento a mano.\n *\n *  4) M.borde(scn): qué personajes se dibujan por delante de la oscuridad de los salones (capa SupervivientesBorde). Antes usaba el\n *     tamaño del dibujo (cambia con cada cuadro de la animación y con el volteo), así que un personaje en el borde saltaba\n *     entre capas y parpadeaba. Ahora usa una caja fija a partir de los pies y espera 3 cuadros antes de cambiar de capa.\n *  5) M.anim(scn, objs): elige la animación de caminar (lado / arriba / abajo / quieto) y el volteo con histéresis. Antes\n *     comparaba |vx| con |vy| en cada cuadro: en diagonal o rozando una pared cambiaba de animación cada cuadro (reinicia la\n *     caminata) y volteaba al personaje por velocidades casi nulas.\n *  6) M.llaves(scn, objs): las llaves de la conserjería solo las toma un jugador humano (no los bots); se avisa con un texto cuando\n *     un humano está cerca, muestra el progreso con su nombre y al terminar sale el aviso \"¡<Nombre> tomó las llaves!\".\n */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizMedios && gdjs.fdizMedios.VER === 1) return;\n  const M = (gdjs.fdizMedios = { VER: 1 });\n\n  M.CFG = {\n    caja: { izq: 26, der: 26, arriba: 100, abajo: 6 },   // caja del personaje respecto de sus pies (px)\n    cuadros: 3,                                          // cuadros seguidos que debe pedirse otra capa para cambiar\n    histeresis: 1.3,                                     // |vx| debe superar a |vy| x 1.3 (o al revés) para cambiar de eje\n    vMin: 12,                                            // velocidad mínima (px/s) para cambiar el volteo / arriba-abajo\n    llaveCerca: 220, llaveUsar: 140,                     // px: aviso y alcance para tomar las llaves\n  };\n\n  const NOMBRES = { tony: \"Tony\", miranda: \"Miranda\", cesar: \"César\", alan: \"Alan\", castillo: \"Castillo\", alessandro: \"Alessandro\", gabo: \"Gabo\", carlos: \"Carlos\", tonyfuerte: \"Tony\" };\n  const NAMES = [\"Sup\", \"Profe\", \"ZNormal\", \"ZCorredor\", \"ZGriton\", \"ZGordo\", \"ZConserje\", \"ZCurado\", \"ZJoel\", \"ZJustino\", \"ZCanepa\"];\n  const num = (o, n) => o.getVariables().get(n).getAsNumber();\n  const str = (o, n) => o.getVariables().get(n).getAsString();\n\n  // ---------- 4) capa de los personajes junto a la oscuridad de los salones ----------\n  M.borde = function (scn) {\n    const K = M.CFG.caja;\n    const capa = scn.getLayer(\"NieblaSalas\");\n    const zonas = [];\n    if (capa && capa.isVisible()) {\n      for (const n of scn.getObjects(\"Niebla\") || []) {\n        if (n.isHidden() || n.getOpacity() <= 0) continue;\n        const x = n.getX(), y = n.getY();\n        zonas.push([x, y, x + n.getWidth(), y + n.getHeight()]);\n      }\n    }\n    for (const nombre of NAMES) {\n      for (const p of scn.getObjects(nombre) || []) {\n        const px = p.getX(), py = p.getY();\n        const izq = px - K.izq, der = px + K.der, arr = py - K.arriba, aba = py + K.abajo;\n        let cruza = false;\n        for (const z of zonas) {\n          if (z[0] <= px && px < z[2] && z[1] <= py && py < z[3]) { cruza = false; break; }   // con los pies dentro, la sala lo tapa\n          if (izq < z[2] && z[0] < der && arr < z[3] && z[1] < aba) cruza = true;\n        }\n        const quiere = cruza ? \"SupervivientesBorde\" : \"Juego\";\n        const st = p.__f46b || (p.__f46b = { n: 0 });\n        if (p.getLayer() === quiere) { st.n = 0; continue; }\n        if (++st.n >= M.CFG.cuadros) { p.setLayer(quiere); st.n = 0; }\n      }\n    }\n  };\n\n  // ---------- 5) animación de caminar ----------\n  M.anim = function (scn, objs) {\n    const C = M.CFG;\n    for (const s of objs) {\n      const td = s.getBehavior(\"TopDownMovement\");\n      if (!td) continue;\n      const pj = str(s, \"Personaje\");\n      const st = s.__f46a || (s.__f46a = { eje: null, vert: \"abajo\", flip: false });\n      let nombre, flip = st.flip;\n      if (td.isMoving()) {\n        const vx = td.getXVelocity(), vy = td.getYVelocity(), ax = Math.abs(vx), ay = Math.abs(vy);\n        if (st.eje === null) st.eje = ax > ay ? \"x\" : \"y\";\n        else if (st.eje === \"x\" && ay > ax * C.histeresis) st.eje = \"y\";\n        else if (st.eje === \"y\" && ax > ay * C.histeresis) st.eje = \"x\";\n        if (st.eje === \"x\") {\n          nombre = pj + \"_caminar_lado\";\n          if (vx < -C.vMin) st.flip = true; else if (vx > C.vMin) st.flip = false;\n          flip = st.flip;\n        } else {\n          if (vy < -C.vMin) st.vert = \"arriba\"; else if (vy > C.vMin) st.vert = \"abajo\";\n          nombre = pj + \"_caminar_\" + st.vert;\n          flip = false;\n        }\n      } else {\n        st.eje = null;\n        nombre = pj + \"_quieto\"; flip = false;\n      }\n      if (s.getAnimationName() !== nombre) s.setAnimationName(nombre);\n      if (s.isFlippedX() !== flip) s.flipX(flip);\n    }\n  };\n\n  // ---------- 6) llaves: solo las toma un humano, con aviso claro ----------\n  const humano = (s) => { const c = num(s, \"Control\"); return (c >= 0 || c === -3) && str(s, \"Estado\") === \"normal\"; };\n  function texto(scn, nombre, s) {\n    const t = (scn.getObjects(nombre) || [])[0];\n    if (t) t.setText(s);\n  }\n  function banner(scn, txt, seg) {\n    const V = scn.getVariables(); V.get(\"Banner\").setString(txt); V.get(\"BannerSeg\").setNumber(seg || 2.5);\n    try { gdjs.evtTools.runtimeScene.resetTimer(scn, \"banner\"); } catch (e) { /* sin temporizador: no pasa nada */ }\n  }\n  function ayuda(scn, txt) {\n    texto(scn, \"TxtAyuda\", txt);\n    try { gdjs.evtTools.runtimeScene.resetTimer(scn, \"ayuda\"); } catch (e) { /* ídem */ }\n  }\n  const quien = (s) => (NOMBRES[str(s, \"Personaje\")] || str(s, \"Personaje\")) + \" (P\" + num(s, \"Jugador\") + \")\";\n\n  M.llaves = function (scn, objs) {\n    const C = M.CFG, sups = scn.getObjects(\"Sup\") || [];\n    for (const o of objs) {\n      if (str(o, \"Tipo\") !== \"llaves\") continue;\n      const st = o.__f46k || (o.__f46k = { prev: 0, aviso: -9 });\n      const V = o.getVariables(), prog = V.get(\"Progreso\"), usada = V.get(\"Usada\");\n      const tiempo = Math.max(0.01, V.get(\"Tiempo\").getAsNumber());\n      const dist = (s) => Math.hypot(s.getX() - o.getX(), s.getY() - o.getY());\n      // fase 56: con el árbitro de la F (gdjs.fdizUsar) solo cuenta quien tiene elegido este objetivo (UsaObjetivo + Elegida)\n      const elegido = (s) => !gdjs.fdizUsar || (num(s, \"UsaObjetivo\") === 1 && V.get(\"Elegida\").getAsNumber() === 1);\n      // fase 82: en el modo Jefe no hay humanos (los 4 son bots): ahí las toman los bots\n      const jefe = scn.getVariables().get(\"Jefe\").getAsNumber() === 1;\n      const puede = (s) => humano(s) || (jefe && num(s, \"Control\") === -1 && str(s, \"Estado\") === \"normal\");\n      const toman = sups.filter((s) => puede(s) && num(s, \"Usando\") === 1 && elegido(s) && dist(s) < C.llaveUsar);\n      if (prog.getAsNumber() > st.prev && !toman.length) {         // el cuadro lo sumó alguien que no es humano: se deshace\n        prog.setNumber(st.prev);\n        usada.setNumber(0);\n      } else if (toman.length) {\n        const p = Math.min(100, Math.round(100 * prog.getAsNumber() / tiempo));\n        ayuda(scn, quien(toman[0]) + \" toma las llaves... \" + p + \"%\");\n        if (prog.getAsNumber() >= tiempo && !st.dicho) {\n          st.dicho = true;\n          banner(scn, \"¡\" + quien(toman[0]) + \" tomó las llaves!\", 3);\n        }\n      }\n      st.prev = prog.getAsNumber();\n      // aviso de acercamiento (solo si nadie las está tomando)\n      if (!toman.length) {\n        const cerca = sups.filter((s) => humano(s) && dist(s) < C.llaveCerca).sort((a, b) => dist(a) - dist(b))[0];\n        if (cerca && scn.getVariables().get(\"Estado\").getAsString() === \"juego\") {\n          const tecla = num(cerca, \"Control\") === 0 || num(cerca, \"Control\") === -3 ? \"F\" : \"A\";\n          ayuda(scn, quien(cerca) + \": mantén \" + tecla + \" junto a las llaves para tomarlas (solo los jugadores pueden)\");\n        }\n      }\n    }\n  };\n})(gdjs);\n",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
@@ -185483,7 +185483,7 @@
                                   "parameters": [
                                     "Sup.Distance(Zombies)",
                                     ">",
-                                    "70"
+                                    "70 + 230 * Sup.Variable(ArmaFuego)"
                                   ]
                                 }
                               ],
@@ -185533,6 +185533,58 @@
                                     "Sup.Distance(Zombies)",
                                     "<=",
                                     "95"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ModVarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "QuierePegar",
+                                    "=",
+                                    "1"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarScene"
+                                  },
+                                  "parameters": [
+                                    "Bloq",
+                                    "=",
+                                    "0"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "VarObjet"
+                                  },
+                                  "parameters": [
+                                    "Sup",
+                                    "ArmaFuego",
+                                    "=",
+                                    "1"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "inverted": false,
+                                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                                  },
+                                  "parameters": [
+                                    "Sup.Distance(Zombies)",
+                                    "<=",
+                                    "Sup.Variable(Alcance) * 240"
                                   ]
                                 }
                               ],
@@ -186948,6 +187000,13 @@
             }
           ],
           "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "/*FDIZ-FASE82-BOTSJEFE*/\n/* FDI-Z · Fase 82 · Bots del modo Jefe: cada uno se mueve distinto, reacciona a lo que tiene cerca y no se atora.\n * Se incrusta en la escena Juego con scripts/fase82_armas_y_bots_jefe.py (no editar el evento a mano): evento\n * FDIZ-FASE82-BOTSJEFE entre «Bots: objetivos y puertas» y «Bots: curar mordidos» (curar sigue mandando sobre esto).\n *\n * Antes: sin humanos, los 4 bots iban en línea recta (sin ruta) hacia el mismo guía invisible; se formaban en fila, se\n * pegaban a las esquinas y no peleaban (el guía pisaba el combate) salvo con el zombi a 95 px.\n * Ahora (solo Jefe = 1, host / sin red, bots de pie):\n *   - Meta común: el objetivo actual (ObjX, ObjY) o, si no hay, el guía. Cada bot va a SU lugar alrededor de la meta\n *     (ángulo y distancia propios) por ruta A* (gdjs.fdizNav), recalculada cada ~0.7 s, así no se enciman ni hacen fila.\n *   - Personalidad (PERFIL): Tony va al frente y pelea de cerca; Miranda se queda atrás y cubre; César flanquea por un\n *     lado y deambula un poco; Alan explora y se desvía a casilleros cercanos. Distinto radio de reacción y ritmo.\n *   - Reacción: zombi cerca y a la vista -> con arma de fuego dispara a distancia (hasta su alcance) y retrocede si se\n *     le acerca demasiado; sin arma va por él y le pega. Si FASE29 marcó huir (Huye = 1) se aleja por ruta.\n *   - Puertas: con una puerta cerrada en su camino se detiene y la abre (Usando); si en 3 s no abre, la golpea.\n *   - Desatasco: si quiere moverse y en 0.8 s avanzó menos de 18 px, toma un rodeo a un punto libre cercano 1.2 s.\n *   - Misión: el bot más cercano al objetivo va a él y lo usa (Usando = 1, también las llaves); los demás lo cubren.\n *   - Junto al objetivo o a una puerta (Usando = 1, eventos de la fase de objetivos) no toca nada: ahí se cumple la misión. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizBotsJefe && gdjs.fdizBotsJefe.VER === 1) return;\n  const B = (gdjs.fdizBotsJefe = { VER: 1 });\n\n  // ang: lugar alrededor de la meta (rad); dist: px a la meta; react: px a los que reacciona a un zombi;\n  // repath: s entre rutas; vaga: px de deambular; explora: se desvía a casilleros a menos de esos px\n  B.PERFIL = {\n    tony: { ang: 0.0, dist: 70, react: 340, repath: 0.6, vaga: 20, explora: 0 },\n    miranda: { ang: Math.PI, dist: 150, react: 260, repath: 0.8, vaga: 30, explora: 0 },\n    cesar: { ang: Math.PI / 2, dist: 120, react: 300, repath: 0.7, vaga: 70, explora: 0 },\n    alan: { ang: -Math.PI / 2, dist: 120, react: 280, repath: 0.75, vaga: 40, explora: 420 },\n  };\n  B.DEF = { ang: 2.4, dist: 110, react: 300, repath: 0.7, vaga: 40, explora: 0 };\n  B.CERCA = 170;          // con arma de fuego, más cerca que esto retrocede\n  B.MELEE = 95;           // a esta distancia pega (igual que los bots normales)\n  B.PX_ALCANCE = 240;     // px de bala por punto de Alcance (bala ~1000 px/s x Alcance/4 s)\n  B.ZN = [\"ZNormal\", \"ZCorredor\", \"ZGriton\", \"ZGordo\", \"ZConserje\", \"ZCurado\", \"ZJoel\", \"ZJustino\", \"ZCanepa\"];\n\n  const VS = (o, n) => o.getVariables().get(n);\n  const num = (o, n) => VS(o, n).getAsNumber();\n  const str = (o, n) => VS(o, n).getAsString();\n  const objs = (scn, n) => { try { return scn.getObjects(n) || []; } catch (e) { return []; } };\n  const hyp = Math.hypot;\n\n  // línea de tiro libre de muros y puertas (los muebles no tapan las balas)\n  function tiroLibre(scn, ax, ay, bx, by) {\n    const d = hyp(bx - ax, by - ay), n = Math.max(1, Math.ceil(d / 28));\n    const cajas = scn._f82cajas;\n    for (let k = 1; k < n; k++) {\n      const x = ax + (bx - ax) * k / n, y = ay + (by - ay) * k / n;\n      for (const c of cajas) if (x >= c[0] && x <= c[2] && y >= c[1] && y <= c[3]) return false;\n    }\n    return true;\n  }\n  function cajas(scn) {\n    const out = [];\n    for (const n of [\"Muro\", \"Puerta\"]) for (const o of objs(scn, n)) {\n      if (!o.isVisible() && n === \"Puerta\") continue;\n      out.push([o.getX(), o.getY(), o.getX() + o.getWidth(), o.getY() + o.getHeight()]);\n    }\n    scn._f82cajas = out;\n  }\n  function dir(s, x, y, k) {\n    const dx = x - s.getX(), dy = y - s.getY(), d = Math.max(1, hyp(dx, dy));\n    VS(s, \"MovX\").setNumber(dx / d * (k || 1)); VS(s, \"MovY\").setNumber(dy / d * (k || 1));\n  }\n  function libre(x, y) {\n    const N = gdjs.fdizNav; if (!N || !N.grid) return true;\n    return N.grid.cls[N.cellOf(x, y)] !== 1;\n  }\n  // sigue una ruta A* hasta (tx, ty); la recalcula cada «cada» s o si cambió mucho el destino\n  function ir(s, m, tx, ty, cada) {\n    const N = gdjs.fdizNav;\n    if (!N || !N.grid || !N.path) { dir(s, tx, ty); return; }\n    const sx = s.getX(), sy = s.getY();\n    if (!m.ruta || m.tRuta <= 0 || hyp(tx - m.rx, ty - m.ry) > 90) {\n      const r = N.path(sx, sy, tx, ty);\n      m.ruta = r && r.pts && r.pts.length ? r.pts.slice(1) : [[tx, ty]]; m.rx = tx; m.ry = ty; m.tRuta = cada;\n    }\n    while (m.ruta.length > 1 && hyp(m.ruta[0][0] - sx, m.ruta[0][1] - sy) < 26) m.ruta.shift();\n    const p = m.ruta[0] || [tx, ty];\n    if (hyp(tx - sx, ty - sy) < 24) { VS(s, \"MovX\").setNumber(0); VS(s, \"MovY\").setNumber(0); return; }\n    if (abrir(s, m, p)) return;\n    dir(s, p[0], p[1]);\n  }\n  // puerta cerrada junto al bot y en su camino: se detiene, la abre (Usando) y, si tarda, la golpea\n  function abrir(s, m, p) {\n    const scn = s.getRuntimeScene ? s.getRuntimeScene() : null; if (!scn) return false;\n    const sx = s.getX(), sy = s.getY();\n    let pu = null, pd = 1e9;\n    for (const o of objs(scn, \"Puerta\")) {\n      if (!o.isVisible()) continue;\n      const cx = o.getX() + o.getWidth() / 2, cy = o.getY() + o.getHeight() / 2, d = hyp(cx - sx, cy - sy);\n      if (d < pd) { pd = d; pu = o; }\n    }\n    if (!pu || pd > 115) { m.tPuerta = 0; return false; }\n    const cx = pu.getX() + pu.getWidth() / 2, cy = pu.getY() + pu.getHeight() / 2;\n    // solo si el siguiente punto de la ruta queda del otro lado o junto a la puerta\n    if (hyp(p[0] - cx, p[1] - cy) > 130 && ((p[0] - sx) * (cx - sx) + (p[1] - sy) * (cy - sy)) <= 0) return false;\n    m.tPuerta = (m.tPuerta || 0) + Math.min(0.1, scn.getElapsedTime() / 1000);\n    VS(s, \"MovX\").setNumber(0); VS(s, \"MovY\").setNumber(0);\n    VS(s, \"AimX\").setNumber(cx - sx); VS(s, \"AimY\").setNumber(cy - sy);\n    VS(s, \"Usando\").setNumber(1);\n    if (m.tPuerta > 3) VS(s, \"QuierePegar\").setNumber(1);\n    if (m.tPuerta > 9) { m.tPuerta = 0; m.rodeo = 0; }\n    return true;\n  }\n\n  // quiere moverse pero en 0.8 s avanzó menos de 18 px: rodeo a un punto libre cercano 1.2 s\n  function desatasco(s, m, sx, sy) {\n    if (m.tChk < 0.8) return;\n    const quiere = Math.abs(num(s, \"MovX\")) + Math.abs(num(s, \"MovY\")) > 0.3;\n    if (quiere && hyp(sx - m.lx, sy - m.ly) < 18 && m.rodeo <= 0) {\n      for (let k = 0; k < 8; k++) {\n        const a = Math.random() * 6.283, r = 90 + Math.random() * 120, px = sx + Math.cos(a) * r, py = sy + Math.sin(a) * r;\n        if (libre(px, py)) { m.rx2 = px; m.ry2 = py; m.rodeo = 1.2; m.ruta = null; break; }\n      }\n    }\n    m.lx = sx; m.ly = sy; m.tChk = 0;\n  }\n\n  B.tick = function (scn) {\n    if (scn.getGame().getVariables().get(\"NetRol\").getAsNumber() === 2) return;\n    const SV = scn.getVariables();\n    if (SV.get(\"Jefe\").getAsNumber() !== 1 || SV.get(\"Estado\").getAsString() !== \"juego\" || SV.get(\"Pausa\").getAsNumber() === 1) return;\n    const dt = Math.min(0.1, scn.getElapsedTime() / 1000);\n    const bots = objs(scn, \"Sup\").filter((s) => num(s, \"Control\") === -1 && str(s, \"Estado\") === \"normal\");\n    if (!bots.length) return;\n    cajas(scn);\n    const Z = [];\n    for (const n of B.ZN) for (const z of objs(scn, n)) {\n      try { if (str(z, \"Estado\") !== \"muerto\" && num(z, \"Aliado\") === 0 && num(z, \"Vida\") > 0) Z.push(z); } catch (e) { /* sin variables */ }\n    }\n    let mx = SV.get(\"ObjX\").getAsNumber(), my = SV.get(\"ObjY\").getAsNumber();\n    if (!(mx >= 0)) { const g = objs(scn, \"Guia\")[0]; if (g) { mx = g.getX(); my = g.getY(); } else { mx = SV.get(\"SegX\").getAsNumber(); my = SV.get(\"SegY\").getAsNumber(); } }\n    const T = scn.getTimeManager().getTimeFromStart() / 1000;\n    // la misión: el objetivo sin hacer más cercano a la meta; lo trabaja el bot más cercano (los demás lo cubren)\n    let obj = null, od = 1e9;\n    for (const o of objs(scn, \"Objetivo\")) {\n      try { if (num(o, \"Hecho\") !== 0) continue; } catch (e) { continue; }\n      const d = hyp(o.getX() - mx, o.getY() - my); if (d < od) { od = d; obj = o; }\n    }\n    if (obj && od > 400) obj = null;\n    let obrero = null;\n    if (obj) { let bd = 1e9; for (const s of bots) { const d = hyp(s.getX() - obj.getX(), s.getY() - obj.getY()); if (d < bd) { bd = d; obrero = s; } } }\n\n    for (const s of bots) {\n      if (num(s, \"Usando\") === 1) continue;                 // junto al objetivo / puerta: lo maneja la fase de objetivos\n      const P = B.PERFIL[str(s, \"Personaje\")] || B.DEF;\n      const m = s.__f82 || (s.__f82 = { tRuta: 0, lx: s.getX(), ly: s.getY(), tChk: 0, rodeo: 0, rx: 0, ry: 0, ruta: null, fase: Math.random() * 6.28, desvio: null, tDesv: 0 });\n      m.tRuta -= dt; m.tChk += dt; m.rodeo -= dt; m.tDesv -= dt;\n      const sx = s.getX(), sy = s.getY();\n\n      // ---- el que trabaja la misión va al objetivo y lo usa (solo se defiende si un zombi se le echa encima)\n      if (s === obrero) {\n        const d = hyp(obj.getX() - sx, obj.getY() - sy);\n        let zc = null, zcd = 1e9;\n        for (const q of Z) { const dq = hyp(q.getX() - sx, q.getY() - sy); if (dq < zcd) { zcd = dq; zc = q; } }\n        if (zc && zcd < 110) { VS(s, \"AimX\").setNumber(zc.getX() - sx); VS(s, \"AimY\").setNumber(zc.getY() - sy); VS(s, \"QuierePegar\").setNumber(1); }\n        if (d > 110) { if (m.rodeo > 0) ir(s, m, m.rx2, m.ry2, 0.4); else ir(s, m, obj.getX(), obj.getY(), 0.5); }\n        else { VS(s, \"MovX\").setNumber(0); VS(s, \"MovY\").setNumber(0); VS(s, \"Usando\").setNumber(1); }\n        desatasco(s, m, sx, sy);\n        continue;\n      }\n\n      // ---- zombi más cercano a la vista\n      let z = null, zd = 1e9;\n      for (const q of Z) { const d = hyp(q.getX() - sx, q.getY() - sy); if (d < zd) { zd = d; z = q; } }\n      const fuego = num(s, \"ArmaFuego\") === 1;\n      const alcance = fuego ? Math.max(B.CERCA + 40, num(s, \"Alcance\") * B.PX_ALCANCE) : B.MELEE;\n      const vista = z && zd < Math.max(P.react, fuego ? alcance : 0) && tiroLibre(scn, sx, sy - 46, z.getX(), z.getY() - 40);\n\n      if (num(s, \"Huye\") === 1 && !(fuego && vista && zd > B.CERCA)) {\n        ir(s, m, num(s, \"BotX\"), num(s, \"BotY\"), 0.5);\n      } else if (vista) {\n        VS(s, \"AimX\").setNumber(z.getX() - sx); VS(s, \"AimY\").setNumber(z.getY() - sy);\n        if (fuego) {\n          if (zd <= alcance) VS(s, \"QuierePegar\").setNumber(1);\n          if (zd < B.CERCA) { dir(s, sx - (z.getX() - sx), sy - (z.getY() - sy), 0.9); m.ruta = null; }\n          else {                                              // se mueve de lado mientras dispara\n            const a = Math.atan2(z.getY() - sy, z.getX() - sx) + Math.PI / 2 * (Math.sin(T * 0.9 + m.fase) > 0 ? 1 : -1);\n            const px = sx + Math.cos(a) * 60, py = sy + Math.sin(a) * 60;\n            if (libre(px, py)) dir(s, px, py, 0.45); else { VS(s, \"MovX\").setNumber(0); VS(s, \"MovY\").setNumber(0); }\n          }\n        } else {\n          if (zd > 70) ir(s, m, z.getX(), z.getY(), 0.35);\n          else { VS(s, \"MovX\").setNumber(0); VS(s, \"MovY\").setNumber(0); }\n          if (zd <= B.MELEE) VS(s, \"QuierePegar\").setNumber(1);\n        }\n      } else {\n        // ---- a su lugar alrededor de la meta (con deambular y desvíos propios)\n        const aDir = Math.atan2(my - sy, mx - sx);\n        const a = aDir + Math.PI + P.ang + Math.sin(T * 0.35 + m.fase) * 0.35;\n        let tx = mx + Math.cos(a) * P.dist + Math.sin(T * 0.7 + m.fase) * P.vaga;\n        let ty = my + Math.sin(a) * P.dist + Math.cos(T * 0.6 + m.fase) * P.vaga;\n        if (P.explora && hyp(mx - sx, my - sy) > 300) {\n          if (m.tDesv <= 0) {\n            m.tDesv = 9 + Math.random() * 6; m.desvio = null;\n            for (const c of objs(scn, \"Contenedor\")) {\n              const d = hyp(c.getX() - sx, c.getY() - sy);\n              if (d > 120 && d < P.explora && libre(c.getX(), c.getY() + 60)) { m.desvio = [c.getX(), c.getY() + 60, T + 3]; break; }\n            }\n          }\n          if (m.desvio && T < m.desvio[2]) { tx = m.desvio[0]; ty = m.desvio[1]; }\n        }\n        if (!libre(tx, ty)) { const N = gdjs.fdizNav; const f = N && N.nearestFree ? N.nearestFree(tx, ty, 6) : null; if (f) { tx = f[0]; ty = f[1]; } else { tx = mx; ty = my; } }\n        if (m.rodeo > 0) ir(s, m, m.rx2, m.ry2, 0.4);\n        else ir(s, m, tx, ty, P.repath);\n      }\n\n      desatasco(s, m, sx, sy);\n    }\n  };\n})(gdjs);\n\nif (gdjs.fdizBotsJefe) gdjs.fdizBotsJefe.tick(runtimeScene);\n",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
         },
         {
           "colorB": 228,
@@ -218723,6 +218782,90 @@
                           "parameters": [
                             "Proyectil",
                             "Solidos",
+                            "",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "VarObjetTxt"
+                          },
+                          "parameters": [
+                            "Proyectil",
+                            "Tipo",
+                            "=",
+                            "\"bala\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "VarObjetTxt"
+                          },
+                          "parameters": [
+                            "Proyectil",
+                            "Tipo",
+                            "=",
+                            "\"perdigon\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarObjet"
+                          },
+                          "parameters": [
+                            "Proyectil",
+                            "Pego",
+                            "=",
+                            "1"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "CollisionNP"
+                          },
+                          "parameters": [
+                            "Proyectil",
+                            "Puerta",
+                            "",
+                            ""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarObjet"
+                          },
+                          "parameters": [
+                            "Proyectil",
+                            "Pego",
+                            "=",
+                            "1"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "CollisionNP"
+                          },
+                          "parameters": [
+                            "Proyectil",
+                            "Muro",
                             "",
                             ""
                           ]
