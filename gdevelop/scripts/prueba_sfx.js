@@ -181,7 +181,7 @@ prueba("Oro y objetos: monedas, llaves, compra del Jefe (solo en su máquina) y 
   paso(() => sc.S.get("OroJefe").setNumber(15));
   paso(() => sc.S.get("OroJefe").setNumber(8));
   paso(() => sc.S.get("TieneBolsa").setNumber(1));
-  igual(nombres(w), ["objeto_recoger", "oro_moneda", "oro_moneda", "oro_moneda", "ui_confirm", "objeto_recoger"]);
+  igual(nombres(w), ["objeto_recoger", "ui_confirm", "objeto_recoger"]);   // fase 80: las monedas ya no suenan
   const w2 = mundo(), sc2 = escena("Juego", [], { OroJefe: 10 }, { Modo: "jefe", NetRol: 2 });
   correr(w2, sc2, 1.5); w2.sonado.length = 0;
   sc2.S.get("OroJefe").setNumber(3); reloj += 0.5; w2.X.tick(sc2);

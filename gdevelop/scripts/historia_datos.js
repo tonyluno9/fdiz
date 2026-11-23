@@ -31,7 +31,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "Pues dejó sus cosas. Ahí está su bolsa.",
    "audio": "historia/audio/INT_05_tony.mp3",
-   "dur": 2.64
+   "dur": 2.25
   },
   "INT_06_alan": {
    "pj": "alan",
@@ -67,7 +67,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "Votación. ¿Quién quiere abrirla?",
    "audio": "historia/audio/C1_05_tony.mp3",
-   "dur": 1.88
+   "dur": 1.91
   },
   "C2_01_alan": {
    "pj": "alan",
@@ -103,7 +103,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "Y ya entró uno. Cambio de plan. Nos vamos al CIC, ahí hay teléfono.",
    "audio": "historia/audio/C3_02_tony.mp3",
-   "dur": 4.26
+   "dur": 4.18
   },
   "C3_03_cesar": {
    "pj": "cesar",
@@ -133,7 +133,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "Profe, ¿qué está pasando?",
    "audio": "historia/audio/C4_02_tony.mp3",
-   "dur": 1.54
+   "dur": 1.49
   },
   "C4_03_joel": {
    "pj": "joel",
@@ -181,13 +181,13 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "La sala del conserje tiene el tablero de luz. Vamos para allá.",
    "audio": "historia/audio/J2_01_tony.mp3",
-   "dur": 3.42
+   "dur": 3.55
   },
   "C6_01_tony": {
    "pj": "tony",
    "txt": "¡Atrás!",
    "audio": "historia/audio/C6_01_tony.mp3",
-   "dur": 0.76
+   "dur": 0.73
   },
   "C6_02_alan": {
    "pj": "alan",
@@ -211,7 +211,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "Pues ahora le creemos. Nos la llevamos.",
    "audio": "historia/audio/C65_03_tony.mp3",
-   "dur": 2.53
+   "dur": 2.32
   },
   "C65_04_joel": {
    "pj": "joel",
@@ -223,7 +223,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "Ahorita volvemos por usted, profe.",
    "audio": "historia/audio/C65_05_tony.mp3",
-   "dur": 2.46
+   "dur": 2.95
   },
   "C7_01_justino": {
    "pj": "justino",
@@ -247,7 +247,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "¿Y por dónde salimos?",
    "audio": "historia/audio/C7_04_tony.mp3",
-   "dur": 1.28
+   "dur": 1.07
   },
   "C7_05_justino": {
    "pj": "justino",
@@ -271,7 +271,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "La llave… y otra pistola.",
    "audio": "historia/audio/C8_01_tony.mp3",
-   "dur": 1.78
+   "dur": 1.93
   },
   "C8_02_cesar": {
    "pj": "cesar",
@@ -295,7 +295,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "¿Cuánto tiempo?",
    "audio": "historia/audio/C9_02_tony.mp3",
-   "dur": 0.99
+   "dur": 1.07
   },
   "C9_03_canepa": {
    "pj": "canepa",
@@ -331,7 +331,7 @@ gdjs.fdizHistoriaDatos = {
    "pj": "tony",
    "txt": "… Lo logramos.",
    "audio": "historia/audio/C10_03_tony.mp3",
-   "dur": 0.76
+   "dur": 1.78
   }
  },
  "videos": {
@@ -339,6 +339,7 @@ gdjs.fdizHistoriaDatos = {
   "C01_T2": "VidC01_T2",
   "C02": "VidC02",
   "C03": "VidC03",
+  "C04": "VidC04",
   "C05": "VidC05",
   "C06": "VidC06",
   "C065": "VidC065",

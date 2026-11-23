@@ -478,7 +478,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Ya quiero regresar, dejé unas impresiones en mi casa.",
      "voz": "voces/tony/tony_01_en_el_salon_antes_de_la_alerta.wav",
-     "dur": 3.3
+     "dur": 3.74
     }
    ]
   },
@@ -490,7 +490,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Ya me voy, me andan buscando.",
      "voz": "voces/tony/tony_02_a_media_conversacion.wav",
-     "dur": 2.04
+     "dur": 2.06
     }
    ]
   },
@@ -502,7 +502,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Y es que es así, hasta las zombies mueren por mí.",
      "voz": "voces/tony/tony_03_antes_de_que_empiece_el_desmadre.wav",
-     "dur": 2.83
+     "dur": 5.16
     }
    ]
   },
@@ -514,7 +514,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Ah, no manches. Ya le avisé a mi ma que ya iba para la casa.",
      "voz": "voces/tony/tony_04_llega_la_alerta_al_celular.wav",
-     "dur": 0.88
+     "dur": 4.23
     }
    ]
   },
@@ -526,7 +526,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Yo estaba a dos mensajes de invitarla a salir, güey.",
      "voz": "voces/tony/tony_05_el_equipo_se_toma_un_respiro.wav",
-     "dur": 2.83
+     "dur": 3.64
     }
    ]
   },
@@ -538,7 +538,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Saquen la jotabe-ele. Ya me harté de oír puro gruñido.",
      "voz": "voces/tony/tony_06_se_calma_el_pasillo.wav",
-     "dur": 3.62
+     "dur": 4.07
     }
    ]
   },
@@ -550,7 +550,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Órale, come. ¿Si te mueres quién me tira asistencia?",
      "voz": "voces/tony/tony_07_cocinar_salen_dos_comidas.wav",
-     "dur": 3.34
+     "dur": 4.74
     }
    ]
   },
@@ -562,7 +562,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Me quedó buenísimo, kei-o. Hasta los muertos lo olieron.",
      "voz": "voces/tony/tony_08_cocinar_se_arma_el_festin_en_la_neveria.wav",
-     "dur": 3.39
+     "dur": 4.32
     }
    ]
   },
@@ -574,7 +574,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "A un lado, perros. Ya calenté.",
      "voz": "voces/tony/tony_09_activa_modo_gym.wav",
-     "dur": 2.0
+     "dur": 2.85
     }
    ]
   },
@@ -586,7 +586,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Ando en definición, güey. Ya hice cardio de toda la semana.",
      "voz": "voces/tony/tony_10_termina_una_persecucion.wav",
-     "dur": 3.48
+     "dur": 3.95
     }
    ]
   },
@@ -598,7 +598,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "La carcasa sí te la imprimo. Abrir esa cosa es otro rollo.",
      "voz": "voces/tony/tony_11_encuentra_la_puerta_electronica_cerrada.wav",
-     "dur": 3.58
+     "dur": 5.41
     }
    ]
   },
@@ -610,7 +610,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "¿Ya le puedo mandar «ya salí» o falta otra misión?",
      "voz": "voces/tony/tony_12_completa_un_objetivo.wav",
-     "dur": 3.2
+     "dur": 4.19
     }
    ]
   },
@@ -622,7 +622,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Todo esto y yo ni sé cómo quedaron los Tigres, güey.",
      "voz": "voces/tony/tony_13_el_equipo_revisa_un_locker.wav",
-     "dur": 2.74
+     "dur": 4.23
     }
    ]
   },
@@ -634,7 +634,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Ándale, párate, güey. Todavía nos faltan planes pa hoy.",
      "voz": "voces/tony/tony_14_revive_a_un_companero.wav",
-     "dur": 3.53
+     "dur": 3.61
     }
    ]
   },
@@ -646,7 +646,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Si me hago zombie y me busca mi morra, dile que ando ocupado.",
      "voz": "voces/tony/tony_15_lo_muerden.wav",
-     "dur": 3.67
+     "dur": 4.03
     }
    ]
   },
@@ -658,7 +658,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "No me dejen aquí, chico. Soy joven para morir.",
      "voz": "voces/tony/tony_16_cae.wav",
-     "dur": 2.88
+     "dur": 3.69
     }
    ]
   },
@@ -670,7 +670,7 @@ gdjs.fdizDialogosDatos = {
     {
      "txt": "Ya salimos. Ahora sí, a vivir la vida, perro.",
      "voz": "voces/tony/tony_17_escapa_en_el_camion.wav",
-     "dur": 3.3
+     "dur": 5.09
     }
    ]
   },
@@ -1657,7 +1657,7 @@ gdjs.fdizDialogosDatos = {
      "pj": "tony",
      "txt": "Ya me voy, me andan buscando.",
      "voz": "voces/tony/tony_02_a_media_conversacion.wav",
-     "dur": 2.04
+     "dur": 2.06
     },
     {
      "pj": "alan",

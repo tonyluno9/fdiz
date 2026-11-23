@@ -119,7 +119,7 @@
   // fase 72: líneas de la versión final de la historia que aún no están en 01_DIALOGOS_PARA_VOCES.md (sin voz: el globo dura
   // según el largo del texto). C8_03_alan es un texto provisional; C8_04_miranda usa la voz de C8_03_miranda (misma frase).
   H.EXTRA = {
-    C5_01_tony: { de: "C5_01_cesar", pj: "tony", sinVoz: true },
+    C5_01_tony: { de: "C5_01_cesar", pj: "tony", audio: "historia/audio/C5_01_tony.mp3", dur: 3.08 },   // fase 79: voz nueva de Tony
     C8_03_alan: { pj: "alan", txt: "¡Y un AK-47! Este me lo quedo yo." },
     C8_04_miranda: { de: "C8_03_miranda" },
     G_balas_alan: { pj: "alan", txt: "¡Encontré balas!" },        // fase 76: defensa del autobús, cada 24 s
@@ -131,7 +131,7 @@
       for (const [id, e] of Object.entries(H.EXTRA)) {
         if (D.lineas[id]) continue;
         const b = e.de && D.lineas[e.de] ? D.lineas[e.de] : { pj: e.pj, txt: e.txt || "", audio: "", dur: 0 };
-        D.lineas[id] = { pj: e.pj || b.pj, txt: e.txt || b.txt, audio: e.sinVoz ? "" : b.audio, dur: e.sinVoz ? 0 : b.dur };
+        D.lineas[id] = { pj: e.pj || b.pj, txt: e.txt || b.txt, audio: e.audio || (e.sinVoz ? "" : b.audio), dur: e.audio ? e.dur : (e.sinVoz ? 0 : b.dur) };
       }
     }
     return D;
@@ -914,18 +914,21 @@
     if (P.ret) P.ret.hide(true);
     return P;
   }
+  // fase 79: durante el video la música de fondo (canales 1 y 2) sigue; se callan la alarma, las voces y los efectos sueltos
   function musica(scn, L, pausar) {
     if (L.musica === pausar) return;
     L.musica = pausar;
     const S_ = gdjs.evtTools.sound;
-    for (const ch of [1, 2]) { try { if (pausar) S_.pauseMusicOnChannel(scn, ch); else S_.continueMusicOnChannel(scn, ch); } catch (e) { /* nada en ese canal */ } }
     try { if (pausar) S_.pauseSoundOnChannel(scn, H.CANAL_ALARMA); else if (L.alarma) S_.continueSoundOnChannel(scn, H.CANAL_ALARMA); } catch (e) { /* sin alarma */ }
+    if (!pausar) return;
+    for (const ch of [H.CANAL, 7]) { try { S_.stopSoundOnChannel(scn, ch); } catch (e) { /* nada en ese canal */ } }
+    try { const sm = scn.getSoundManager(); for (const x of (sm._freeSounds || [])) { try { x.stop(); } catch (e) { /* ya terminó */ } } } catch (e) { /* sin efectos */ }
   }
   function quitarVideo(scn, L) { if (L.vid) { try { L.vid.pause(); L.vid.deleteFromScene(scn); } catch (e) { /* ya no está */ } L.vid = null; } }
   function cine(scn, st, L, P) {
     const c = SV(scn, "HistCine").getAsString(), seq = SV(scn, "HistCineSeq").getAsNumber();
     const modo = c.slice(0, 1), v = c.slice(2);
-    musica(scn, L, modo === "v");
+    musica(scn, L, modo === "v");   // fase 79: solo se callan efectos y voces, la música sigue
     if (modo !== "v" || L.cine !== c || L.cineSeq !== seq) quitarVideo(scn, L);
     if (modo === "v" && !L.vid) {
       const o = objVideo(v), vid = o ? scn.createObject(o) : null;
