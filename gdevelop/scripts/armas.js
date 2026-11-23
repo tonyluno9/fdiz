@@ -6,7 +6,7 @@
  * Munición: es la de siempre (Sup.Usos, se gasta 1 por disparo y al llegar a 0 vuelven los puños). No hay recarga ni
  * balas de reserva: el HUD muestra las balas que le quedan al arma y, debajo del ícono, el cargador completo con las
  * gastadas en gris. CARGADOR = las balas con que se recoge cada arma (fase 59).
- * Mira: una cruz hueca de 11 px a 78 px del arma, hacia donde apunta (AimX, AimY); más transparente si queda sobre un
+ * Mira (fase 83): con ratón va donde está el cursor, con cualquier arma, y se oculta la flecha del sistema. Con mando: una cruz hueca de 11 px a 78 px del arma, hacia donde apunta (AimX, AimY); más transparente si queda sobre un
  * personaje o un zombi. Solo para jugadores (no bots) con arma de fuego, de pie, en juego y sin pausa.
  * Animación: con pistola (pequeña o sheriff) el golpe de lado o hacia abajo usa <personaje>_pistola_lado / _abajo; con escopeta,
  * de lado, <personaje>_escopeta_lado (fase 69: Tony usa sus animaciones de disparo de animaciones_gif/personajes/tony/).
@@ -67,16 +67,40 @@
     ax /= n; ay /= n;
     return [s.getX() + ax * A.RADIO, s.getY() - A.ALTO + ay * A.RADIO];
   };
+  // posición del cursor en el mundo (misma capa que usa la puntería: CursorX() de la capa base)
+  A.posCursor = function (scn) {
+    try {
+      const I = scn.getGame().getInputManager();
+      const p = scn.getLayer("").convertCoords(I.getCursorX(), I.getCursorY());
+      return [p[0], p[1]];
+    } catch (e) { return null; }
+  };
+  // con la mira en el cursor se oculta la flecha del sistema (vuelve en menús, pausa y cuadros)
+  // (net_core.js la vuelve a poner en cada cuadro: el evento del tutorial, el último de la escena, la aplica otra vez con scn.__fdizSinFlecha)
+  function flecha(scn, ocultar) {
+    scn.__fdizSinFlecha = !!ocultar;
+    try {
+      const c = scn.getGame().getRenderer().getCanvas();
+      const v = ocultar ? "none" : "";
+      if (c && c.style.cursor !== v) c.style.cursor = v;
+    } catch (e) { /* sin lienzo */ }
+  }
   function miras(scn) {
-    const juego = SV(scn, "Estado").getAsString() === "juego" && SV(scn, "Pausa").getAsNumber() !== 1;
+    const juego = SV(scn, "Estado").getAsString() === "juego" && SV(scn, "Pausa").getAsNumber() !== 1 &&
+      !(scn._fdizLzUi && scn._fdizLzUi.open) && !(scn._fdizTuto && scn._fdizTuto.open);
+    let hayRaton = false;
     const sups = objs(scn, "Sup");
     const otros = sups.concat(...A.ZN.map((n) => objs(scn, n)));
     for (const s of sups) {
       const j = num(s, "Jugador");
       // fase 71: también con un lanzable en la mano (modo de lanzar). La mira solo indica hacia dónde apunta: el impacto lo decide la bala
       const lanza = (() => { try { const l = str(s, "Lanz"); return l !== "" && l !== "0"; } catch (e) { return false; } })();
-      const ver = juego && j >= 1 && j <= 4 && num(s, "Control") !== -1 && str(s, "Estado") === "normal" && ((A.deFuego(s) && num(s, "Usos") > 0) || lanza);
-      const p = ver ? A.posMira(s) : null;
+      // fase 83: el jugador con ratón (Control 0) siempre ve la mira donde está el cursor (ahí va la bala o el golpe);
+      // los de mando la siguen viendo a 78 px del arma, solo con arma de fuego o lanzable
+      const raton = juego && num(s, "Control") === 0 && str(s, "Estado") === "normal";
+      const ver = raton || (juego && j >= 1 && j <= 4 && num(s, "Control") !== -1 && str(s, "Estado") === "normal" && ((A.deFuego(s) && num(s, "Usos") > 0) || lanza));
+      const p = !ver ? null : raton ? A.posCursor(scn) : A.posMira(s);
+      if (raton) hayRaton = true;
       let m = s.__fdizMira;
       if (!p) { if (m) m.hide(true); continue; }
       if (!m) {
@@ -85,11 +109,13 @@
         m.setLayer("Juego");
       }
       m.hide(false);
+      try { const e = raton ? 2.2 : 1; if (m.getScaleX && Math.abs(m.getScaleX() - e) > 0.01) m.setScale(e); } catch (e) { /* sin escala */ }
       m.setPosition(Math.round(p[0] - m.getWidth() / 2), Math.round(p[1] - m.getHeight() / 2));
       m.setZOrder(100000);
       const tapa = otros.some((o) => o !== s && !(o.isHidden && o.isHidden()) && dentro(caja(o), p[0], p[1], 2));
-      m.setOpacity(tapa ? 110 : 210);
+      m.setOpacity(raton ? (tapa ? 200 : 255) : (tapa ? 110 : 210));
     }
+    flecha(scn, hayRaton);
     for (const m of objs(scn, "Mira")) {                            // miras de jugadores que ya no están
       if (!sups.some((s) => s.__fdizMira === m)) m.deleteFromScene(scn);
     }

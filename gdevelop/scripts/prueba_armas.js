@@ -35,7 +35,10 @@ function hudObj(n) {
 }
 function escena(objs, sv, gl) {
   const S = cont(Object.assign({ Estado: "juego", Pausa: 0 }, sv)), G = cont(Object.assign({ NetRol: 0 }, gl));
-  const sc = { objs, S, getVariables: () => S, getGame: () => ({ getVariables: () => G }),
+  const lienzo = { style: { cursor: "" } };
+  const sc = { objs, S, lienzo, cursor: [0, 0], getVariables: () => S,
+    getGame: () => ({ getVariables: () => G, getInputManager: () => ({ getCursorX: () => sc.cursor[0], getCursorY: () => sc.cursor[1] }), getRenderer: () => ({ getCanvas: () => lienzo }) }),
+    getLayer: () => ({ convertCoords: (x, y) => [x + 100, y + 50] }),
     getObjects: (n) => objs.filter((o) => (o.nombre || o.n) === n),
     createObject: (n) => { const h = hudObj(n); objs.push(h); return h; } };
   for (const [j, xy] of Object.entries({ 1: [351, 94], 2: [1813, 94], 3: [351, 978], 4: [1813, 978] })) {
@@ -201,9 +204,20 @@ prueba("Al disparar con pistola: de lado y abajo la animación de pistola; arrib
 });
 
 // ---------------------------------------------------------------- mira
-prueba("Mira: hacia donde apunta, a 78 px del arma, centrada; solo jugadores con arma de fuego y balas", () => {
+prueba("Mira con ratón (fase 83): va donde está el cursor con cualquier arma, oculta la flecha y la devuelve en pausa", () => {
   const A = cargar();
-  const p1 = sup(1, "tony", 1000, 1000, { Arma: "pistolita", Usos: 9, AimX: 0, AimY: 1 });
+  const p1 = sup(1, "tony", 1000, 1000, { Arma: "puños" });
+  const sc = escena([p1]); sc.cursor = [700, 400];
+  A.tick(sc);
+  const m = mira(p1);
+  igual([m.oculto, m.x + 5.5, m.y + 5.5, sc.lienzo.style.cursor], [false, 800.5, 450.5, "none"], "en el cursor (coordenadas del mundo), sin flecha");
+  p1.C.get("Arma").setString("pistola"); p1.C.get("Usos").setNumber(3); sc.cursor = [10, 20]; A.tick(sc);
+  igual([m.x + 5.5, m.y + 5.5], [110.5, 70.5], "con arma de fuego también");
+  sc.S.get("Pausa").setNumber(1); A.tick(sc); igual([m.oculto, sc.lienzo.style.cursor], [true, ""], "en pausa: sin mira y con flecha");
+});
+prueba("Mira con mando: hacia donde apunta, a 78 px del arma, centrada; solo jugadores con arma de fuego y balas", () => {
+  const A = cargar();
+  const p1 = sup(1, "tony", 1000, 1000, { Arma: "pistolita", Usos: 9, AimX: 0, AimY: 1, Control: 1 });
   const p2 = sup(2, "gabo", 2000, 1000, { Arma: "bate", Usos: 5 });
   const bot = sup(3, "alan", 3000, 1000, { Arma: "escopeta", Usos: 6, Control: -1 });
   const p4 = sup(4, "cesar", 4000, 1000, { Arma: "pistola", Usos: 0 });
@@ -215,9 +229,9 @@ prueba("Mira: hacia donde apunta, a 78 px del arma, centrada; solo jugadores con
   p1.C.get("AimX").setNumber(-3); p1.C.get("AimY").setNumber(4); A.tick(sc);
   si(Math.abs(m.x + 5.5 - (1000 - 0.6 * 78)) <= 1 && Math.abs(m.y + 5.5 - (954 + 0.8 * 78)) <= 1, "dirección normalizada (±1 px por el redondeo a píxel): " + [m.x, m.y]);
 });
-prueba("Mira: discreta sobre personajes y zombis (más transparente), y se esconde en pausa, diálogo, al caer o sin arma", () => {
+prueba("Mira con mando: discreta sobre personajes y zombis (más transparente), y se esconde en pausa, diálogo, al caer o sin arma", () => {
   const A = cargar();
-  const p1 = sup(1, "tony", 1000, 1000, { Arma: "pistolita", Usos: 9 });
+  const p1 = sup(1, "tony", 1000, 1000, { Arma: "pistolita", Usos: 9, Control: 1 });
   const z = obj("ZNormal", 1078, 1000, {}, 50, 120);
   const sc = escena([p1, z]);
   A.tick(sc); igual(mira(p1).op, 110, "sobre un zombi");
