@@ -175766,6 +175766,714 @@
             "volume": 100,
             "videoResource": "vid_hist_C04"
           }
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "TutoTony",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "tony_caminar_lado",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/caminar_lado/caminar_lado_00.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/caminar_lado/caminar_lado_01.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/caminar_lado/caminar_lado_02.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/caminar_lado/caminar_lado_03.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/caminar_lado/caminar_lado_04.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/caminar_lado/caminar_lado_05.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tony_quieto",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1667,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/quieto/quieto_00.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/quieto/quieto_01.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/quieto/quieto_02.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/quieto/quieto_03.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tony_pegar_lado",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.0714,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/pegar_lado/pegar_lado_00.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/pegar_lado/pegar_lado_01.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/pegar_lado/pegar_lado_02.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/pegar_lado/pegar_lado_03.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 40,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 20,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          },
+                          {
+                            "x": 20,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tony_pistola_lado",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.07,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/disparo_pistola_lado/disparo_pistola_lado_00.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 80,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 125
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/disparo_pistola_lado/disparo_pistola_lado_01.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 80,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 125
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/disparo_pistola_lado/disparo_pistola_lado_02.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 80,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 125
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/disparo_pistola_lado/disparo_pistola_lado_03.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 80,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 125
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -192053,6 +192761,13 @@
             }
           ],
           "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "/*FDIZ-FASE85-BALAS*/\nif (gdjs.fdizCineUi && gdjs.fdizCineUi.balas) gdjs.fdizCineUi.balas(runtimeScene);\n",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
         },
         {
           "type": "BuiltinCommonInstructions::Group",
@@ -237399,7 +238114,7 @@
         },
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "/*FDIZ-FASE83-TUTORIAL*/\n/* FDI-Z · Fase 83 · Tutorial de controles al empezar la partida.\n * Se incrusta en la escena Juego con scripts/fase83_impactos_mira_tutorial.py (no editar el evento a mano): evento\n * FDIZ-FASE83-TUTORIAL al final de la escena, cada cuadro.\n * La primera vez que empieza una partida en esta sesión del juego (Estado = \"juego\", sin cinemática en curso, sin red y\n * fuera del modo Jefe) sale un cuadro que detiene el juego (TimeScale 0) con lo básico: moverse, atacar con la mira,\n * correr, usar, habilidades, lanzar y pausa, más las imágenes de los controles (teclado y ratón / control de Xbox).\n * Se cierra con clic, Enter, Espacio, Esc o A; el clic que lo cierra no golpea (usa el mismo bloqueo de entrada que el\n * cuadro de los lanzables, scn._fdizLzUi.cierre). No vuelve a salir hasta que se recargue el juego. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizTuto && gdjs.fdizTuto.VER === 1) return;\n  const T = (gdjs.fdizTuto = { VER: 1, visto: false });\n\n  T.LINEAS = [\n    [\"MOVERSE\", \"W A S D\", \"Stick izquierdo\"],\n    [\"ATACAR\", \"Clic izquierdo: pega o dispara hacia la mira\", \"X\"],\n    [\"APUNTAR\", \"La mira sigue al ratón\", \"Stick derecho\"],\n    [\"CORRER\", \"Shift (gasta estamina)\", \"LB o L3\"],\n    [\"USAR / ABRIR / REVIVIR\", \"Mantén F\", \"Mantén A\"],\n    [\"HABILIDAD · ESPECIAL\", \"Q  ·  E\", \"Y  ·  RB\"],\n    [\"LANZAR OBJETO\", \"R o clic derecho\", \"B\"],\n    [\"PAUSA\", \"Esc o P\", \"Start\"],\n  ];\n  const ahora = () => Date.now() / 1000;\n  const SV = (scn, n) => scn.getVariables().get(n);\n  const str = (scn, n) => { try { return SV(scn, n).getAsString(); } catch (e) { return \"\"; } };\n\n  T.tick = function (scn) {\n    const rol = scn.getGame().getVariables().get(\"NetRol\").getAsNumber();\n    const U = scn._fdizTuto || (scn._fdizTuto = { open: false, tx: [], img: [], dib: null, prev: null, t0: 0 });\n    const I = scn.getGame().getInputManager();\n    const cine = (str(scn, \"CineModo\") !== \"\" && str(scn, \"CineModo\") !== \"0\") || (str(scn, \"HistCine\") !== \"\" && str(scn, \"HistCine\") !== \"0\");\n    if (!U.open && !T.visto && rol === 0 && str(scn, \"Estado\") === \"juego\" && SV(scn, \"Jefe\").getAsNumber() !== 1 &&\n        SV(scn, \"Pausa\").getAsNumber() !== 1 && !cine && !(scn._fdizLzUi && scn._fdizLzUi.open)) {\n      U.open = true; T.visto = true; U.t0 = ahora(); U.prev = null;\n      scn.getTimeManager().setTimeScale(0);\n    }\n    // flecha del sistema: oculta si armas.js puso la mira en el cursor (se aplica aquí, al final, porque otro módulo la\n    // vuelve a poner en cada cuadro)\n    try { const c = scn.getGame().getRenderer().getCanvas(); const v = scn.__fdizSinFlecha && !U.open ? \"none\" : \"\"; if (c && c.style.cursor !== v && (v === \"none\" || c.style.cursor === \"none\")) c.style.cursor = v; } catch (e) { /* sin lienzo */ }\n    if (!U.open) return;\n    SV(scn, \"ProfDlg\").setNumber(1);                               // bloquea la pausa mientras está abierto\n    const L = scn._fdizLzUi || (scn._fdizLzUi = { open: false, tx: [], prev: {}, t0: 0, cierre: 0 });\n    L.cierre = ahora() + 0.4;                                      // sin moverse ni pegar mientras está y 0.4 s después\n\n    // ---- dibujo\n    if (!U.dib) { U.dib = scn.createObject(\"LzInfo\"); if (U.dib) { U.dib.setLayer(\"HUD\"); U.dib.setZOrder(90000); } }\n    const d = U.dib; if (!d) return;\n    const W = 1920, H = 1080, px = 150, py = 70, pw = 1620, ph = 940;\n    d.clear();\n    d.setOutlineSize(0); d.setFillColor(\"0;0;0\"); d.setFillOpacity(190); d.drawRectangle(0, 0, W, H);\n    d.setFillColor(\"14;18;44\"); d.setFillOpacity(248); d.setOutlineColor(\"120;220;110\"); d.setOutlineOpacity(255); d.setOutlineSize(5);\n    d.drawRectangle(px, py, px + pw, py + ph);\n    const pulso = 0.5 + 0.5 * Math.sin(ahora() * 5);\n    d.setFillColor(\"120;220;110\"); d.setFillOpacity(Math.round(170 + 60 * pulso)); d.setOutlineColor(\"20;70;20\"); d.setOutlineSize(3);\n    d.drawRectangle(W / 2 - 190, py + ph - 98, W / 2 + 190, py + ph - 34);\n\n    let i = 0;\n    const txt = (s, x, y, size, color, align, w) => {\n      let o = U.tx[i];\n      if (!o) { o = scn.createObject(\"JfTexto\"); if (!o) return; o.setLayer(\"HUD\"); o.setZOrder(90002); o.setWrapping(true); U.tx[i] = o; o._k = \"\"; }\n      const key = s + \"|\" + size + \"|\" + color + \"|\" + align + \"|\" + w;\n      if (o._k !== key) { o._k = key; o.setText(s); o.setCharacterSize(size); o.setColor(color); o.setTextAlignment(align); o.setWrappingWidth(w); }\n      o.hide(false); o.setPosition(x, y); i++;\n    };\n    txt(\"CÓMO SE JUEGA\", px, py + 22, 54, \"120;220;110\", \"center\", pw);\n    txt(\"Objetivo: cumplan las misiones de arriba y escapen. Mantengan al equipo vivo.\", px, py + 92, 26, \"220;220;235\", \"center\", pw);\n    // tabla: acción · teclado y ratón · mando\n    const c1 = px + 70, c2 = px + 560, c3 = px + 1210, y0 = py + 150, dy = 44;\n    txt(\"ACCIÓN\", c1, y0, 22, \"150;160;190\", \"left\", 460);\n    txt(\"TECLADO Y RATÓN\", c2, y0, 22, \"150;160;190\", \"left\", 620);\n    txt(\"CONTROL\", c3, y0, 22, \"150;160;190\", \"left\", 360);\n    T.LINEAS.forEach((l, k) => {\n      const y = y0 + 38 + k * dy;\n      txt(l[0], c1, y, 26, \"255;215;80\", \"left\", 470);\n      txt(l[1], c2, y, 26, \"255;255;255\", \"left\", 630);\n      txt(l[2], c3, y, 26, \"170;230;255\", \"left\", 360);\n    });\n    // imágenes de los controles (las mismas de la pantalla de controles de la pausa)\n    const yi = y0 + 38 + T.LINEAS.length * dy + 14, hImg = py + ph - 120 - yi;\n    [[\"CtlTeclado\", px + 70], [\"CtlMando\", px + pw / 2 + 20]].forEach(([n, x], k) => {\n      let o = U.img[k];\n      if (!o) { o = scn.createObject(n); if (!o) return; o.setLayer(\"HUD\"); o.setZOrder(90001); U.img[k] = o; }\n      o.hide(false);\n      const esc = Math.min((pw / 2 - 90) / o.getWidth() * o.getScaleX(), hImg / o.getHeight() * o.getScaleY());\n      if (Math.abs(o.getScaleX() - esc) > 0.001) o.setScale(esc);\n      o.setPosition(x + (pw / 2 - 90 - o.getWidth()) / 2, yi);\n    });\n    txt(\"CONTINUAR\", W / 2 - 190, py + ph - 88, 38, \"10;40;10\", \"center\", 380);\n    txt(\"(clic, Enter, Espacio o A)\", px, py + ph - 28, 20, \"200;200;220\", \"center\", pw);\n    for (let k = i; k < U.tx.length; k++) if (U.tx[k]) U.tx[k].hide(true);\n\n    // ---- cerrar\n    const cur = { clic: I.isMouseButtonPressed(0), k: [13, 32, 27].some((c) => I.isKeyPressed(c)), a: false };\n    try { const gp = navigator.getGamepads ? navigator.getGamepads() : []; for (let g = 0; g < 4; g++) if (gp && gp[g] && gp[g].buttons[0] && gp[g].buttons[0].pressed) cur.a = true; } catch (e) { /* sin mandos */ }\n    // también al soltar (un clic rápido puede presionar y soltar dentro del mismo cuadro)\n    const solto = (() => { try { return I.isMouseButtonReleased(0) || [13, 32, 27].some((c) => I.wasKeyReleased(c)); } catch (e) { return false; } })();\n    const edge = U.prev ? ((cur.clic && !U.prev.clic) || (cur.k && !U.prev.k) || (cur.a && !U.prev.a) || solto) : false;\n    U.prev = cur;\n    if (edge && ahora() - U.t0 > 0.6) {\n      U.open = false;\n      for (const o of U.tx) if (o) o.hide(true);\n      for (const o of U.img) if (o) o.hide(true);\n      d.clear();\n      SV(scn, \"ProfDlg\").setNumber(2);\n      if (SV(scn, \"Pausa\").getAsNumber() === 0) scn.getTimeManager().setTimeScale(1);\n    }\n  };\n})(gdjs);\n\nif (gdjs.fdizTuto) gdjs.fdizTuto.tick(runtimeScene);\n",
+          "inlineCode": "/*FDIZ-FASE83-TUTORIAL*/\n/* FDI-Z · Fase 83 / 85 · Tutorial de controles al empezar la partida, por pasos.\n * Se incrusta en la escena Juego con scripts/fase83_impactos_mira_tutorial.py (evento FDIZ-FASE83-TUTORIAL, al final de la\n * escena; la fase 85 lo vuelve a incrustar).\n * La primera vez que empieza una partida en esta sesión (Estado = \"juego\", sin cinemática, sin red y fuera del modo Jefe)\n * se detiene el juego (TimeScale 0) y salen 3 cuadros, uno a la vez (fase 85: antes era una tabla con todo):\n *   1. MOVERSE: W A S D (o stick izquierdo), con Tony caminando de un lado a otro.\n *   2. ATACAR: con las manos o un arma cuerpo a cuerpo, clic izquierdo (X) y Tony pega; con pistola, apuntas con la mira\n *      (el ratón) y disparas igual, y Tony dispara a la mira.\n *   3. MÁS CONTROLES: correr, usar, habilidades, lanzar y pausa, con las imágenes de los controles.\n * Clic, Enter, Espacio o A pasan al siguiente; Retroceso / flecha izquierda regresa; Esc cierra. El clic que cierra no golpea\n * (usa el bloqueo de entrada del cuadro de los lanzables, scn._fdizLzUi.cierre). No vuelve a salir hasta recargar el juego.\n * Tony de muestra: objeto TutoTony (copia de las animaciones de Tony del objeto Sup, sin comportamientos ni variables). */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizTuto && gdjs.fdizTuto.VER === 2) return;\n  const T = (gdjs.fdizTuto = { VER: 2, visto: (gdjs.fdizTuto && gdjs.fdizTuto.visto) || false });\n\n  T.RESTO = [\n    [\"CORRER\", \"Shift (gasta estamina)\", \"LB o L3\"],\n    [\"USAR / ABRIR / REVIVIR\", \"Mantén F\", \"Mantén A\"],\n    [\"HABILIDAD · ESPECIAL\", \"Q  ·  E\", \"Y  ·  RB\"],\n    [\"LANZAR OBJETO\", \"R o clic derecho\", \"B\"],\n    [\"PAUSA\", \"Esc o P\", \"Start\"],\n  ];\n  const ahora = () => Date.now() / 1000;\n  const SV = (scn, n) => scn.getVariables().get(n);\n  const str = (scn, n) => { try { return SV(scn, n).getAsString(); } catch (e) { return \"\"; } };\n\n  T.tick = function (scn) {\n    const rol = scn.getGame().getVariables().get(\"NetRol\").getAsNumber();\n    const U = scn._fdizTuto || (scn._fdizTuto = { open: false, tx: [], img: {}, dib: null, prev: null, t0: 0, pag: 0, tp: 0 });\n    const I = scn.getGame().getInputManager();\n    const cine = (str(scn, \"CineModo\") !== \"\" && str(scn, \"CineModo\") !== \"0\") || (str(scn, \"HistCine\") !== \"\" && str(scn, \"HistCine\") !== \"0\");\n    // flecha del sistema: oculta si armas.js puso la mira en el cursor (se aplica aquí, al final, porque otro módulo la\n    // vuelve a poner en cada cuadro)\n    try { const c = scn.getGame().getRenderer().getCanvas(); const v = scn.__fdizSinFlecha && !U.open ? \"none\" : \"\"; if (c && c.style.cursor !== v && (v === \"none\" || c.style.cursor === \"none\")) c.style.cursor = v; } catch (e) { /* sin lienzo */ }\n    if (!U.open && !T.visto && rol === 0 && str(scn, \"Estado\") === \"juego\" && SV(scn, \"Jefe\").getAsNumber() !== 1 &&\n        SV(scn, \"Pausa\").getAsNumber() !== 1 && !cine && !(scn._fdizLzUi && scn._fdizLzUi.open)) {\n      U.open = true; T.visto = true; U.t0 = U.tp = ahora(); U.prev = null; U.pag = 0;\n      scn.getTimeManager().setTimeScale(0);\n    }\n    if (!U.open) return;\n    SV(scn, \"ProfDlg\").setNumber(1);                               // bloquea la pausa mientras está abierto\n    const L = scn._fdizLzUi || (scn._fdizLzUi = { open: false, tx: [], prev: {}, t0: 0, cierre: 0 });\n    L.cierre = ahora() + 0.4;                                      // sin moverse ni pegar mientras está y 0.4 s después\n\n    // ---- dibujo\n    if (!U.dib) { U.dib = scn.createObject(\"LzInfo\"); if (U.dib) { U.dib.setLayer(\"HUD\"); U.dib.setZOrder(90000); } }\n    const d = U.dib; if (!d) return;\n    const W = 1920, H = 1080, pw = 1180, ph = 760, px = (W - pw) / 2, py = (H - ph) / 2;\n    const t = ahora() - U.tp;\n    d.clear();\n    d.setOutlineSize(0); d.setFillColor(\"0;0;0\"); d.setFillOpacity(190); d.drawRectangle(0, 0, W, H);\n    d.setFillColor(\"14;18;44\"); d.setFillOpacity(248); d.setOutlineColor(\"120;220;110\"); d.setOutlineOpacity(255); d.setOutlineSize(5);\n    d.drawRectangle(px, py, px + pw, py + ph);\n    const pulso = 0.5 + 0.5 * Math.sin(ahora() * 5);\n    d.setFillColor(\"120;220;110\"); d.setFillOpacity(Math.round(170 + 60 * pulso)); d.setOutlineColor(\"20;70;20\"); d.setOutlineSize(3);\n    d.drawRectangle(W / 2 - 190, py + ph - 98, W / 2 + 190, py + ph - 34);\n    for (let k = 0; k < 3; k++) {                                  // puntitos de página\n      d.setOutlineSize(0); d.setFillOpacity(255); d.setFillColor(k === U.pag ? \"255;215;80\" : \"60;70;110\");\n      d.drawRectangle(W / 2 - 40 + k * 30, py + 30, W / 2 - 26 + k * 30, py + 44);\n    }\n\n    let i = 0;\n    function txt(s, x, y, size, color, align, w) {\n      let o = U.tx[i];\n      if (!o) { o = scn.createObject(\"JfTexto\"); if (!o) return; o.setLayer(\"HUD\"); o.setZOrder(90002); o.setWrapping(true); U.tx[i] = o; o._k = \"\"; }\n      const key = s + \"|\" + size + \"|\" + color + \"|\" + align + \"|\" + w;\n      if (o._k !== key) { o._k = key; o.setText(s); o.setCharacterSize(size); o.setColor(color); o.setTextAlignment(align); o.setWrappingWidth(w); }\n      o.hide(false); o.setPosition(x, y); i++;\n    }\n    // tecla dibujada (mismo estilo que los avisos de «usar»)\n    function tecla(x, y, s) {\n      const w = 64;\n      d.setOutlineSize(0); d.setFillOpacity(255);\n      d.setFillColor(\"10;12;20\"); d.drawRectangle(x, y + 5, x + w, y + 69);\n      d.setFillColor(\"236;236;242\"); d.drawRectangle(x, y, x + w, y + 64);\n      d.setFillColor(\"200;200;212\"); d.drawRectangle(x, y + 52, x + w, y + 64);\n      txt(s, x, y + 8, 36, \"20;22;34\", \"center\", w);\n    }\n    const usados = {};\n    function img(nombre, anim, x, y, escala, flip) {\n      const clave = nombre + \"|\" + anim;\n      let o = U.img[clave];\n      if (!o) { o = scn.createObject(nombre); if (!o) return null; o.setLayer(\"HUD\"); o.setZOrder(90001); U.img[clave] = o; if (anim) o.setAnimationName(anim); }\n      usados[clave] = true;\n      o.hide(false);\n      if (escala && Math.abs(o.getScaleX() - escala) > 0.001) o.setScale(escala);\n      if (flip !== undefined && o.flipX) o.flipX(flip);\n      o.setPosition(x, y);\n      // con TimeScale 0 las animaciones no avanzan solas: se avanzan a mano\n      try { if (anim && o.getAnimationFrameCount && o.getAnimationFrameCount() > 1) o.setAnimationFrame(Math.floor(t * 8) % o.getAnimationFrameCount()); } catch (e) { /* sin cuadros */ }\n      return o;\n    }\n\n    if (U.pag === 0) {\n      txt(\"1 / 3  ·  MUÉVETE\", px, py + 70, 54, \"120;220;110\", \"center\", pw);\n      txt(\"Camina con las teclas W A S D\", px, py + 150, 32, \"255;255;255\", \"center\", pw);\n      const kx = W / 2 - 32, ky = py + 215;\n      tecla(kx, ky, \"W\"); tecla(kx - 76, ky + 76, \"A\"); tecla(kx, ky + 76, \"S\"); tecla(kx + 76, ky + 76, \"D\");\n      const vaiven = Math.sin(t * 1.6), x = W / 2 + vaiven * 320;         // Tony camina de un lado a otro (origen en los pies)\n      img(\"TutoTony\", \"tony_caminar_lado\", x, py + 560, 2.4, Math.cos(t * 1.6) < 0);\n      txt(\"Con control: stick izquierdo\", px, py + 590, 26, \"170;230;255\", \"center\", pw);\n    } else if (U.pag === 1) {\n      txt(\"2 / 3  ·  ATACA\", px, py + 70, 54, \"120;220;110\", \"center\", pw);\n      txt(\"Apunta con el ratón (la mira) y ataca con CLIC IZQUIERDO\", px, py + 150, 30, \"255;255;255\", \"center\", pw);\n      const cx1 = px + pw * 0.27, cx2 = px + pw * 0.73, ty = py + 445;   // ty = pies de Tony\n      img(\"TutoTony\", \"tony_pegar_lado\", cx1, ty, 2.4, false);\n      txt(\"CON LAS MANOS O UN ARMA\", cx1 - 260, py + 465, 26, \"255;215;80\", \"center\", 520);\n      txt(\"Acércate y dale clic: Tony golpea hacia la mira\", cx1 - 260, py + 510, 22, \"220;220;235\", \"center\", 520);\n      img(\"TutoTony\", \"tony_pistola_lado\", cx2 - 120, ty, 2.4, false);\n      const fase = (t * 1.4) % 1, bx0 = cx2 - 20, by = ty - 110, mx = cx2 + 230;   // la bala va hacia la mira, en bucle\n      d.setOutlineSize(0); d.setFillOpacity(255); d.setFillColor(\"255;230;120\");\n      d.drawRectangle(bx0 + fase * (mx - bx0), by - 3, bx0 + fase * (mx - bx0) + 18, by + 3);\n      d.setFillColor(\"255;80;80\"); d.drawRectangle(mx - 2, by - 22, mx + 2, by + 22); d.drawRectangle(mx - 22, by - 2, mx + 22, by + 2);\n      txt(\"CON PISTOLA\", cx2 - 260, py + 470, 26, \"255;215;80\", \"center\", 520);\n      txt(\"Pon la mira sobre el zombi y dale clic: la bala va a la mira\", cx2 - 260, py + 510, 22, \"220;220;235\", \"center\", 520);\n      txt(\"Con control: apunta con el stick derecho y ataca con X\", px, py + 590, 26, \"170;230;255\", \"center\", pw);\n    } else {\n      txt(\"3 / 3  ·  MÁS CONTROLES\", px, py + 70, 50, \"120;220;110\", \"center\", pw);\n      const c1 = px + 60, c2 = px + 470, c3 = px + 880, y0 = py + 145, dy = 42;\n      txt(\"ACCIÓN\", c1, y0, 20, \"150;160;190\", \"left\", 400);\n      txt(\"TECLADO Y RATÓN\", c2, y0, 20, \"150;160;190\", \"left\", 400);\n      txt(\"CONTROL\", c3, y0, 20, \"150;160;190\", \"left\", 260);\n      T.RESTO.forEach((l, k) => {\n        const y = y0 + 34 + k * dy;\n        txt(l[0], c1, y, 24, \"255;215;80\", \"left\", 400);\n        txt(l[1], c2, y, 24, \"255;255;255\", \"left\", 400);\n        txt(l[2], c3, y, 24, \"170;230;255\", \"left\", 260);\n      });\n      const yi = y0 + 34 + T.RESTO.length * dy + 10, hImg = py + ph - 115 - yi;\n      [[\"CtlTeclado\", px + 40], [\"CtlMando\", px + pw / 2 + 20]].forEach(([n, x]) => {\n        const o = img(n, \"\", x, yi);\n        if (!o) return;\n        const esc = Math.min((pw / 2 - 60) / (o.getWidth() / o.getScaleX()), hImg / (o.getHeight() / o.getScaleY()));\n        if (Math.abs(o.getScaleX() - esc) > 0.001) o.setScale(esc);\n        o.setPosition(x + (pw / 2 - 60 - o.getWidth()) / 2, yi);\n      });\n    }\n    txt(U.pag < 2 ? \"SIGUIENTE\" : \"¡A JUGAR!\", W / 2 - 190, py + ph - 88, 38, \"10;40;10\", \"center\", 380);\n    txt(\"(clic, Enter, Espacio o A\" + (U.pag > 0 ? \" · Retroceso para regresar\" : \"\") + \")\", px, py + ph - 28, 20, \"200;200;220\", \"center\", pw);\n    for (let k = i; k < U.tx.length; k++) if (U.tx[k]) U.tx[k].hide(true);\n    for (const k in U.img) if (!usados[k] && U.img[k]) U.img[k].hide(true);\n\n    // ---- avanzar / regresar / cerrar\n    const cur = { clic: I.isMouseButtonPressed(0), k: [13, 32].some((c) => I.isKeyPressed(c)), a: false };\n    try { const gp = navigator.getGamepads ? navigator.getGamepads() : []; for (let g = 0; g < 4; g++) if (gp && gp[g] && gp[g].buttons[0] && gp[g].buttons[0].pressed) cur.a = true; } catch (e) { /* sin mandos */ }\n    const solto = (() => { try { return I.isMouseButtonReleased(0) || [13, 32].some((c) => I.wasKeyReleased(c)); } catch (e) { return false; } })();\n    const sig = U.prev ? ((cur.clic && !U.prev.clic) || (cur.k && !U.prev.k) || (cur.a && !U.prev.a) || solto) : false;\n    const atras = (() => { try { return I.wasKeyReleased(8) || I.wasKeyReleased(37); } catch (e) { return false; } })();\n    const salir = (() => { try { return I.wasKeyReleased(27); } catch (e) { return false; } })();\n    U.prev = cur;\n    if (ahora() - U.tp < 0.35) return;                             // un respiro entre páginas (el mismo clic no salta dos)\n    if (atras && U.pag > 0) { U.pag--; U.tp = ahora(); return; }\n    if (sig && U.pag < 2) { U.pag++; U.tp = ahora(); return; }\n    if ((sig && U.pag === 2) || salir) {\n      U.open = false;\n      for (const o of U.tx) if (o) o.hide(true);\n      for (const k in U.img) if (U.img[k]) U.img[k].hide(true);\n      d.clear();\n      SV(scn, \"ProfDlg\").setNumber(2);\n      if (SV(scn, \"Pausa\").getAsNumber() === 0) scn.getTimeManager().setTimeScale(1);\n    }\n  };\n})(gdjs);\n\nif (gdjs.fdizTuto) gdjs.fdizTuto.tick(runtimeScene);\n",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
@@ -237407,6 +238122,20 @@
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": "/*FDIZ-FASE84-TONY*/\n/* FDI-Z · Fase 84 · Tony se hace 20 % más grande mientras dura su especial (Modo gym: Personaje = \"tonyfuerte\").\n * Se incrusta en la escena Juego con scripts/fase84_teclas_tony_puertas_historia.py (evento FDIZ-FASE84-TONY, cada\n * cuadro, en todas las máquinas: la escala no viaja por la red, cada una la calcula con el Personaje que ya se sincroniza).\n * Crece y vuelve a su tamaño en ~0.25 s; el origen está en los pies, así que crece hacia arriba. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizTonyGym && gdjs.fdizTonyGym.VER === 1) return;\n  const T = (gdjs.fdizTonyGym = { VER: 1, FACTOR: 1.2, VEL: 4 });\n  T.tick = function (scn) {\n    const dt = Math.min(0.1, scn.getElapsedTime() / 1000);\n    for (const s of scn.getObjects(\"Sup\") || []) {\n      let p = \"\"; try { p = s.getVariables().get(\"Personaje\").getAsString(); } catch (e) { continue; }\n      const fuerte = p === \"tonyfuerte\";\n      if (s.__f84base === undefined || (!fuerte && !s.__f84activo)) s.__f84base = s.getScaleX();   // tamaño normal\n      const base = s.__f84base, meta = fuerte ? base * T.FACTOR : base;\n      const cur = s.getScaleX();\n      if (Math.abs(cur - meta) < 0.002) { if (cur !== meta) s.setScale(meta); s.__f84activo = fuerte; continue; }\n      s.__f84activo = true;\n      const paso = base * (T.FACTOR - 1) * T.VEL * dt;\n      s.setScale(cur < meta ? Math.min(meta, cur + paso) : Math.max(meta, cur - paso));\n    }\n  };\n})(gdjs);\n\nif (gdjs.fdizTonyGym) gdjs.fdizTonyGym.tick(runtimeScene);\n",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "/*FDIZ-FASE85-PAUSA*/\n/* FDI-Z · Fase 85 · Pausa total: al abrir el menú de pausa se detiene TODO el sonido (música, efectos, voces, alarma) y\n * los videos; al cerrarlo, cada cosa sigue justo donde se quedó.\n * Se incrusta en la escena Juego con scripts/fase85_pausa_ui_tutorial_escape.py (evento FDIZ-FASE85-PAUSA, cada cuadro).\n * Antes la pausa solo ponía el tiempo en 0 (ChangeTimeScale): lo que ya estaba sonando seguía sonando.\n * Cómo: con Pausa = 1 pausa cada sonido activo de Howler (música, canales y sonidos sueltos), y pausa los videos de la escena. Los anota y al quitar la pausa los reanuda (solo esos: lo que se haya\n * detenido a propósito no vuelve). Los sonidos nuevos durante la pausa (clics del menú) sí suenan. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizPausaTotal && gdjs.fdizPausaTotal.VER === 1) return;\n  const P = (gdjs.fdizPausaTotal = { VER: 1 });\n\n  // cada sonido activo de Howler (el motor de audio de GDevelop): [howl, id]. Se usa Howler directamente porque el pause()\n  // de los sonidos sueltos de GDevelop no siempre surte efecto (su id interno no coincide) y así se cubre todo lo que suena.\n  function activos() {\n    const out = [];\n    const H = (typeof Howler !== \"undefined\" && Howler) || (typeof window !== \"undefined\" && window.Howler);\n    for (const h of (H && H._howls) || []) for (const snd of h._sounds || []) if (!snd._paused && !snd._ended) out.push([h, snd._id]);\n    return out;\n  }\n  function videos(scn) {\n    const out = [];\n    try { for (const o of scn.getAdhocListOfAllInstances()) if (typeof o.isPlayed === \"function\" && typeof o.pause === \"function\") out.push(o); } catch (e) { /* sin lista */ }\n    return out;\n  }\n\n  P.tick = function (scn) {\n    const st = scn._fdizPausaTotal || (scn._fdizPausaTotal = { activa: false, s: [], v: [] });\n    let pausa = false; try { pausa = scn.getVariables().get(\"Pausa\").getAsNumber() === 1; } catch (e) { return; }\n    if (pausa && !st.activa) {\n      st.activa = true; st.s = []; st.v = [];\n      for (const [h, id] of activos()) { try { h.pause(id); st.s.push([h, id]); } catch (e) { /* ya terminó */ } }\n      for (const v of videos(scn)) { try { if (v.isPlayed()) { v.pause(); st.v.push(v); } } catch (e) { /* sin video */ } }\n    } else if (!pausa && st.activa) {\n      st.activa = false;\n      for (const [h, id] of st.s) { try { const snd = h._soundById ? h._soundById(id) : null; if (snd && snd._paused && !snd._ended) h.play(id); } catch (e) { /* ya no existe */ } }\n      for (const v of st.v) { try { if (v._livingOnScene !== false) v.play(); } catch (e) { /* ya no está */ } }\n      st.s = []; st.v = [];\n    }\n  };\n})(gdjs);\n\nif (gdjs.fdizPausaTotal) gdjs.fdizPausaTotal.tick(runtimeScene);\n",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "/*FDIZ-FASE85-CINEUI*/\n/* FDI-Z · Fase 85 · Interfaz oculta en las cinemáticas y modo Escape sin armas de fuego.\n * Se incrusta en la escena Juego con scripts/fase85_pausa_ui_tutorial_escape.py (evento FDIZ-FASE85-CINEUI, el último de\n * la escena: así decide después de que cada módulo dibujó lo suyo).\n *\n * Cinemáticas (video o tarjeta de cine.js con CineModo, o de la Historia con HistCine): se esconde todo lo de la capa HUD\n * (paneles, minimapa, flechas hacia el objetivo, letrero de objetivo, avisos, ayudas, globos) y la mira, salvo lo que usa\n * la propia cinemática (video, velo, subtítulos, botón OMITIR). Lo que se escondió aquí vuelve a verse al terminar.\n * Balas y perdigones rompen una puerta normal aunque salgan pegados a ella (revisión por tramo, ver balasPuertas). Corre\n * también en FDIZ-FASE85-BALAS, justo después de «Combate: pegar»: a quemarropa el perdigón nace sobre el marco (muro) y el\n * evento de proyectiles lo borra en ese mismo cuadro.\n * Escape: no hay pistolas, escopeta ni AK-47. Las armas de fuego del piso se quitan al aparecer (las del mapa, la pistola\n * pequeña inicial y las de las escenas del casillero y el cajón) y nadie las conserva en la mano. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizCineUi && gdjs.fdizCineUi.VER === 1) return;\n  const C = (gdjs.fdizCineUi = { VER: 1 });\n  C.DEJAR = { CineDib: 1, TxtCine: 1, HistDib: 1, HistRetrato: 1, ProfPanel: 1, TxtHist: 1, TxtProfe: 1, BtnOmitir: 1, TxtOmitir: 1,\n    PausaBtn: 1, PausaPanel: 1, PausaVelo: 1, TxtPausaB0: 1, TxtPausaB1: 1, TxtPausaB2: 1, TxtPausaB3: 1, TxtPausaTit: 1, TxtPausaCtl1: 1, TxtPausaCtl2: 1 };\n  C.FUEGO = { pistola: 1, pistolita: 1, escopeta: 1, ak47: 1 };\n  const str = (o, n) => { try { return o.getVariables().get(n).getAsString(); } catch (e) { return \"\"; } };\n\n  C.enCine = function (scn) {\n    const cm = str(scn, \"CineModo\"), hc = str(scn, \"HistCine\");\n    return (cm !== \"\" && cm !== \"0\") || (hc !== \"\" && hc !== \"0\");\n  };\n\n  function interfaz(scn) {\n    const st = scn._fdizCineUi || (scn._fdizCineUi = { ocultos: new Set() });\n    if (C.enCine(scn)) {\n      let lista = [];\n      try { lista = scn.getAdhocListOfAllInstances(); } catch (e) { return; }\n      for (const o of lista) {\n        const n = o.getName();\n        const ui = o.getLayer() === \"HUD\" || n === \"Mira\" || n === \"TxtMordido\";\n        if (!ui || C.DEJAR[n] || /^Vid/.test(n) || o.getType && o.getType() === \"Video::VideoObject\") continue;\n        if (!(o.isHidden && o.isHidden())) { o.hide(true); st.ocultos.add(o); }\n      }\n    } else if (st.ocultos.size) {\n      for (const o of st.ocultos) { try { if (o._livingOnScene !== false) o.hide(false); } catch (e) { /* ya no está */ } }\n      st.ocultos.clear();\n    }\n  }\n\n  function sinFuego(scn) {\n    if (scn.getGame().getVariables().get(\"Modo\").getAsString() !== \"escape\") return;\n    if (scn.getGame().getVariables().get(\"NetRol\").getAsNumber() === 2) return;   // el host decide\n    for (const a of (scn.getObjects(\"ArmaPiso\") || []).slice()) if (C.FUEGO[str(a, \"Tipo\")]) a.deleteFromScene(scn);\n    for (const s of scn.getObjects(\"Sup\") || []) {\n      if (!C.FUEGO[str(s, \"Arma\")]) continue;\n      s.getVariables().get(\"Arma\").setString(\"puños\"); s.getVariables().get(\"Usos\").setNumber(0);\n    }\n  }\n\n  // balas y perdigones contra puertas normales, por tramo: entre el cuadro anterior y este una bala avanza ~30 px y de\n  // cerca podía brincarse la puerta (la escopeta a quemarropa no la rompía). Se revisa el segmento recorrido.\n  function balasPuertas(scn) {\n    if (scn.getGame().getVariables().get(\"NetRol\").getAsNumber() === 2) return;\n    let puertas = null;\n    for (const p of scn.getObjects(\"Proyectil\") || []) {\n      const tipo = str(p, \"Tipo\");\n      if (tipo !== \"bala\" && tipo !== \"perdigon\") continue;\n      let x = p.getCenterXInScene(), y = p.getCenterYInScene();\n      let ax = p.__f85x, ay = p.__f85y;\n      const nueva = ax === undefined;\n      if (ax === undefined) {                                    // bala nueva: el tramo empieza en el arma de quien disparó\n        ax = x; ay = y;                                          // (sale 34 px adelante: a quemarropa ya nace del otro lado)\n        const j = p.getVariables().get(\"Jugador\").getAsNumber();\n        const s = (scn.getObjects(\"Sup\") || []).find((q) => q.getVariables().get(\"Jugador\").getAsNumber() === j);\n        if (s) { ax = s.getX(); ay = s.getY() - 46; }\n      }\n      p.__f85x = x; p.__f85y = y;\n      if (nueva) {                                               // y lo que avanzará en su primer cuadro (si nace sobre el\n        const r = p.getAngle() * Math.PI / 180;                  // marco de la puerta, el evento de proyectiles la borra antes)\n        x += Math.cos(r) * 32; y += Math.sin(r) * 32;\n      }\n      if (!puertas) puertas = (scn.getObjects(\"Puerta\") || []).filter((q) => q.isVisible() && str(q, \"Tipo\") === \"normal\" && q.getVariables().get(\"Vida\").getAsNumber() > 0);\n      for (const q of puertas) {\n        const x0 = q.getX() - 6, y0 = q.getY() - 6, x1 = q.getX() + q.getWidth() + 6, y1 = q.getY() + q.getHeight() + 6;\n        let toca = false;\n        const n = Math.max(6, Math.ceil(Math.hypot(x - ax, y - ay) / 8));\n        for (let k = 0; k <= n && !toca; k++) { const px = ax + (x - ax) * k / n, py = ay + (y - ay) * k / n; toca = px >= x0 && px <= x1 && py >= y0 && py <= y1; }\n        if (!toca) continue;\n        q.getVariables().get(\"Vida\").setNumber(0);\n        try { q.setColor(\"255;160;160\"); } catch (e) { /* sin color */ }\n        p.getVariables().get(\"Pego\").setNumber(1);\n        try { if (scn.getGame().getVariables().get(\"SonidoActivo\").getAsNumber() === 1) gdjs.evtTools.sound.playSound(scn, \"efectos/mundo/puerta_golpe.wav\", false, 70, 1); } catch (e) { /* sin sonido */ }\n        break;\n      }\n    }\n  }\n\n  C.balas = function (scn) { try { balasPuertas(scn); } catch (e) { /* sin puertas */ } };   // también justo después de disparar\n  C.tick = function (scn) {\n    try { sinFuego(scn); } catch (e) { /* sin armas */ }\n    try { balasPuertas(scn); } catch (e) { /* sin puertas */ }\n    interfaz(scn);\n  };\n})(gdjs);\n\nif (gdjs.fdizCineUi) gdjs.fdizCineUi.tick(runtimeScene);\n",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
