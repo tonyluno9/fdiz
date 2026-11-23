@@ -55,7 +55,7 @@ const mira = (s) => s.__fdizMira;
 // ---------------------------------------------------------------- munición y armas
 prueba("Munición: pistola pequeña 9, escopeta 6, sheriff 4 (al recogerla) y el HUD usa los mismos números", () => {
   const A = cargar();
-  igual(A.CARGADOR, { pistolita: 9, pistola: 4, escopeta: 6 });
+  igual(A.CARGADOR, { pistolita: 9, pistola: 4, escopeta: 6, ak47: 30 });
   const recoge = [...rec(grupo("Armas del salón").events)].find((e) => tiene(e, "ModVarObjetTxt", ["Sup", "Arma", "=", "ArmaPiso.VariableString(Tipo)"]));
   const usos = (t) => recoge.events.find((e) => tiene(e, "VarObjetTxt", ["Sup", "Arma", "=", '"' + t + '"'])).actions[0].parameters[3];
   igual([usos("pistola"), usos("escopeta")], ["4", "6"]);

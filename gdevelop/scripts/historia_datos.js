@@ -339,6 +339,10 @@ gdjs.fdizHistoriaDatos = {
   "C01_T2": "VidC01_T2",
   "C02": "VidC02",
   "C03": "VidC03",
+  "C05": "VidC05",
+  "C065": "VidC065",
+  "C07": "VidC07",
+  "C08": "VidC08",
   "C10": "VidC10"
  }
 };

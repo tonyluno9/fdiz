@@ -22,8 +22,8 @@
   if (gdjs.fdizArmas && gdjs.fdizArmas.VER === 2) return;
   const A = (gdjs.fdizArmas = { VER: 2 });
 
-  A.CARGADOR = { pistolita: 9, pistola: 4, escopeta: 6 };
-  A.PISTOLAS = { pistolita: true, pistola: true };
+  A.CARGADOR = { pistolita: 9, pistola: 4, escopeta: 6, ak47: 30 };   // fase 72: AK-47 (Alan), cargador de 30
+  A.PISTOLAS = { pistolita: true, pistola: true, ak47: true };       // el AK-47 usa la animación de disparo de lado (<pj>_pistola_lado)
   A.RADIO = 78;                 // px del arma a la mira
   A.ALTO = 46;                  // el arma (y la salida de las balas) está 46 px arriba de los pies (fase 59)
   A.ICONO = { 1: [351, 94], 2: [1813, 94], 3: [351, 978], 4: [1813, 978] };   // ícono del arma (54 x 54) de cada panel

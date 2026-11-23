@@ -80,20 +80,20 @@
     1: { spawn: "salon", auto: true, seq: [["fade"], ["d", "INT_01_cesar", "INT_02_alan", "INT_03_cesar", "INT_04_miranda", "INT_05_tony", "INT_06_alan"]] },
     2: { spawn: "salon", obj: { txt: "Revisa el escritorio del profe", zona: "Escritorio" },
       seq: [["v", "C01_T1"], ["d", "C1_01_alan", "C1_02_miranda"], ["v", "C01_T2"], ["d", "C1_03_alan", "C1_04_cesar", "C1_05_tony"]] },
-    3: { spawn: "salon", auto: true, seq: [["v", "C02"], ["d", "C2_01_alan", "C2_02_miranda"], ["e", "alarma"], ["d", "C2_03_altavoz", "C2_04_cesar"], ["e", "pistola"]] },
-    4: { spawn: "salon", auto: true, seq: [["v", "C03"], ["d", "C3_01_miranda", "C3_02_tony", "C3_03_cesar"], ["e", "irrumpe"], ["w", "intruso"]] },
+    3: { spawn: "salon", auto: true, seq: [["v", "C02"], ["d", "C2_01_alan", "C2_02_miranda"], ["e", "alarma"], ["d", "C2_03_altavoz", "C2_04_cesar"]] },
+    4: { spawn: "salon", auto: true, seq: [["v", "C03"], ["d", "C3_01_miranda", "C3_02_tony", "C3_03_cesar"], ["e", "pistola"], ["e", "controla", "tony"], ["e", "irrumpe"], ["w", "intruso"]] },
     5: { spawn: "salon", obj: { txt: "Llega al CIC", zona: "CIC", puerta: ["P37", "P38"] },
       seq: [["v", "C04"], ["d", "C4_01_joel", "C4_02_tony", "C4_03_joel", "C4_04_miranda", "C4_05_alan", "C4_06_joel"], ["e", "joel"]] },
     6: { spawn: "cic", obj: { txt: "Usa el teléfono del CIC", usar: "Telefono" },
-      seq: [["v", "C05"], ["d", "C5_01_cesar", "C5_02_joel"], ["e", "apagon"], ["d", "C5_03_miranda"], ["e", "zombisPasillo"]] },
+      seq: [["v", "C05"], ["d", "C5_01_tony", "C5_02_joel"], ["e", "apagon"], ["d", "C5_03_miranda"], ["e", "zombisPasillo"]] },
     7: { spawn: "cic", obj: { txt: "Encuentra la sala del conserje", zona: "Conserje" },
       seq: [["v", "C06"], ["d", "C6_01_tony", "C6_02_alan"], ["e", "intendencia"], ["w", "intendencia"]] },
     8: { spawn: "conserjeria", obj: { txt: "Revisa el casillero del conserje", usar: "Casillero" },
-      seq: [["v", "C065"], ["d", "C65_01_cesar", "C65_02_joel", "C65_03_tony"], ["e", "escopeta"], ["d", "C65_04_joel", "C65_05_tony"], ["e", "joelSeQueda"]] },
+      seq: [["v", "C065"], ["d", "C65_01_cesar", "C65_02_joel", "C65_03_tony"], ["e", "escopeta"], ["e", "controla", "cesar"], ["d", "C65_04_joel", "C65_05_tony"], ["e", "joelSeQueda"]] },
     9: { spawn: "conserjeria", obj: { txt: "Busca a otro profesor: la nevería", zona: "Neveria" },
-      seq: [["v", "C07"], ["d", "C7_01_justino", "C7_02_miranda", "C7_03_justino", "C7_04_tony", "C7_05_justino", "C7_06_alan", "C7_07_justino"], ["e", "justino"]] },
+      seq: [["v", "C07"], ["d", "C7_01_justino", "C7_02_miranda", "C7_03_justino", "C7_04_tony", "C7_05_justino", "C7_06_alan", "C7_07_justino"], ["e", "justino"], ["e", "pasaEscopeta"], ["e", "controla", "miranda"]] },
     10: { spawn: "neveria", obj: { txt: "Consigue la llave en la oficina del director", zona: "Direccion", usar: "CajonDirector", txt2: "Revisa el escritorio del director" },
-      seq: [["v", "C08"], ["d", "C8_01_tony", "C8_02_cesar", "C8_03_miranda"], ["e", "llave"]] },
+      seq: [["v", "C08"], ["d", "C8_01_tony", "C8_02_cesar", "C8_03_alan", "C8_04_miranda"], ["e", "llave"], ["e", "controla", "alan"]] },
     11: { spawn: "direccion", obj: { txt: "Llega al autobús", zona: "Autobus" },
       seq: [["v", "C09"], ["d", "C9_01_canepa", "C9_02_tony", "C9_03_canepa", "C9_04_alan", "C9_05_miranda"], ["e", "defensa"], ["w", "defensa"]] },
     12: { auto: true, seq: [["d", "C10_01_canepa", "C10_02_alan"], ["v", "C10"], ["e", "victoria"]] },
@@ -116,7 +116,25 @@
   const rol = (scn) => { try { return GV(scn, "NetRol").getAsNumber(); } catch (e) { return 0; } };
   const vivo = (o) => o && o._livingOnScene !== false;
   const dentro = (r, x, y) => x >= r[0] && x < r[2] && y >= r[1] && y < r[3];
-  const datos = () => gdjs.fdizHistoriaDatos || { lineas: {}, videos: {} };
+  // fase 72: líneas de la versión final de la historia que aún no están en 01_DIALOGOS_PARA_VOCES.md (sin voz: el globo dura
+  // según el largo del texto). C8_03_alan es un texto provisional; C8_04_miranda usa la voz de C8_03_miranda (misma frase).
+  H.EXTRA = {
+    C5_01_tony: { de: "C5_01_cesar", pj: "tony", sinVoz: true },
+    C8_03_alan: { pj: "alan", txt: "¡Y un AK-47! Este me lo quedo yo." },
+    C8_04_miranda: { de: "C8_03_miranda" },
+  };
+  const datos = () => {
+    const D = gdjs.fdizHistoriaDatos || { lineas: {}, videos: {} };
+    if (!D._extra) {
+      D._extra = true;
+      for (const [id, e] of Object.entries(H.EXTRA)) {
+        if (D.lineas[id]) continue;
+        const b = e.de && D.lineas[e.de] ? D.lineas[e.de] : { pj: e.pj, txt: e.txt || "", audio: "", dur: 0 };
+        D.lineas[id] = { pj: e.pj || b.pj, txt: e.txt || b.txt, audio: e.sinVoz ? "" : b.audio, dur: e.sinVoz ? 0 : b.dur };
+      }
+    }
+    return D;
+  };
   const ZN = ["ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZJoel", "ZJustino", "ZCanepa"];
   H.activo = (scn) => { try { return GV(scn, "Modo").getAsString() === "historia"; } catch (e) { return false; } };
   const S = (scn) => scn._fdizHist || (scn._fdizHist = {
@@ -189,7 +207,7 @@
   }
 
   // ------------------------------------------------------------------ armas
-  const DE_FUEGO = { pistolita: 9, pistola: 4, escopeta: 6 };
+  const DE_FUEGO = { pistolita: 9, pistola: 4, escopeta: 6, ak47: 30 };
   const deFuego = (s) => DE_FUEGO[str(s, "Arma")] !== undefined;
   // a quién le toca: el preferido si no trae arma de fuego, luego un humano sin arma de fuego, luego cualquiera
   function darArma(scn, tipo, pref, paraTony) {
@@ -214,6 +232,32 @@
     s = s || eq.slice().sort((a, b) => num(a, "Usos") - num(b, "Usos"))[0];
     if (!s) return null;
     VS(s, "Arma").setString(tipo); VS(s, "Usos").setNumber(DE_FUEGO[tipo]);
+    return s;
+  }
+  // ------------------------------------------------------------------ fase 72: personaje controlado y armas de cada quien
+  // (02_HISTORIA_PARA_GDEVELOP.md, 3.4 y 3.5). El jugador controla UN alumno; los otros tres son bots. Cambiar = pasar el
+  // control (Control y P<j>Ctl) del controlado al nuevo; el anterior queda como bot (-1). Cada alumno lleva una sola arma.
+  H.CONTROL_INICIO = { 1: "alan", 2: "alan", 3: "alan", 4: "alan", 5: "tony", 6: "tony", 7: "tony", 8: "tony", 9: "cesar", 10: "miranda", 11: "alan", 12: "alan" };
+  H.DUENO = (t, n) => ({ pistolita: "tony", pistola: "cesar", ak47: "alan", escopeta: n >= 10 ? "miranda" : "cesar" })[t];
+  const humanoCtl = (st, s) => { const c = st.cong && st.cong.ctl.has(s) ? st.cong.ctl.get(s) : num(s, "Control"); return c >= 0 || c === -3 ? c : null; };
+  H.controlado = (scn) => { const st = S(scn); return H.equipo(scn).find((s) => humanoCtl(st, s) !== null) || null; };
+  H.controlar = function (scn, st, p, callado) {
+    const eq = H.equipo(scn), nuevo = eq.find((s) => pj(s) === p); if (!nuevo) return;
+    HV(scn, "Controlado").setString(p);
+    const viejo = eq.find((s) => humanoCtl(st, s) !== null);
+    if (!viejo || viejo === nuevo) return;
+    const c = humanoCtl(st, viejo);
+    if (st.cong) { st.cong.ctl.delete(viejo); st.cong.ctl.set(nuevo, c); VS(nuevo, "Control").setNumber(-2); }
+    else VS(nuevo, "Control").setNumber(c);
+    VS(viejo, "Control").setNumber(-1);
+    for (const n of ["MovX", "MovY", "QuierePegar", "Usando", "PideHab", "PideEsp", "QuiereLanzar"]) { VS(viejo, n).setNumber(0); VS(nuevo, n).setNumber(0); }
+    VS(viejo, "BotX").setNumber(viejo.getX()); VS(viejo, "BotY").setNumber(viejo.getY());
+    try { GV(scn, "P" + num(viejo, "Jugador") + "Ctl").setNumber(-1); GV(scn, "P" + num(nuevo, "Jugador") + "Ctl").setNumber(c); } catch (e) { /* sin global */ }
+    if (!callado) { banner(scn, "Ahora controlas a " + (H.NOMBRES[p] || p).toUpperCase(), 2.5); sonido(scn, "efectos/eventos/rescate_logrado.ogg", 50); }
+  };
+  function armar(scn, tipo, p) {
+    const s = H.equipo(scn).find((o) => pj(o) === p); if (!s) return null;
+    VS(s, "Arma").setString(tipo); VS(s, "Usos").setNumber(tipo === "puños" ? 0 : DE_FUEGO[tipo]);
     return s;
   }
   const PREF = { pistolita: ["P1"], escopeta: ["tony"], pistola: ["cesar", "miranda", "alan", "tony"] };
@@ -359,11 +403,9 @@
   function restaurar(scn, st, n) {
     const L = H.LUGAR;
     // armas que ya tenían (con el cargador lleno)
-    for (const t of armas(scn)) darArma(scn, t, PREF[t], PARA_TONY[t]);
-    if (n >= 4 && !armas(scn).includes("pistolita")) {           // no la habían recogido: vuelve a estar en el piso, a la mano
-      const sp = H.SPAWN[H.PASOS[n].spawn] || [H.PISTOLA.x, H.PISTOLA.y];
-      ponerPistola(scn, n <= 5 ? H.PISTOLA.x : sp[0], n <= 5 ? H.PISTOLA.y : sp[1] + 70);
-    }
+    // fase 72: cada arma con su dueño del documento (cargador lleno) y el personaje controlado al inicio del paso
+    for (const t of armas(scn)) armar(scn, t, H.DUENO(t, n));
+    H.controlar(scn, st, H.CONTROL_INICIO[n] || "alan", true);
     if (n >= 4 && n <= 6) SV(scn, "HistAlarma").setNumber(1);
     if (n === 7 || n === 8) SV(scn, "Apagon").setNumber(1);
     if (n >= 5) quitarPuerta(scn, L.puertaSalon);
@@ -449,9 +491,14 @@
   }
   H.EVENTOS = {
     alarma(scn) { SV(scn, "HistAlarma").setNumber(1); },
-    pistola(scn) {                                              // fase 69: queda en el piso; se recoge pasando encima (sistema de siempre)
-      if (!armas(scn).includes("pistolita")) ponerPistola(scn, H.PISTOLA.x, H.PISTOLA.y);
-      banner(scn, "¡RECOGE LA PISTOLA DEL PROFE!", 3);
+    pistola(scn) {                                              // fase 72: Tony toma la pistola del profe (C03)
+      armar(scn, "pistolita", "tony"); if (!armas(scn).includes("pistolita")) anotarArma(scn, "pistolita");
+      for (const a of objs(scn, "ArmaPiso").slice()) if (str(a, "Tipo") === "pistolita") a.deleteFromScene(scn);
+    },
+    controla(scn, st, p) { H.controlar(scn, st, p); },
+    pasaEscopeta(scn) {                                         // fase 72: César le pasa la escopeta a Miranda (C07)
+      armar(scn, "puños", "cesar"); armar(scn, "escopeta", "miranda");
+      banner(scn, "César le pasa la escopeta a Miranda", 2.5);
     },
     irrumpe(scn, st) {
       for (const z of zombis(scn)) if (!muerto(z) && Math.hypot(z.getX() - 5984, z.getY() - 3024) < 1100) z.deleteFromScene(scn);
@@ -472,7 +519,7 @@
       st.intendencia = zombi(scn, "ZGordo", H.LUGAR.intendencia[0], H.LUGAR.intendencia[1], "persigue");
     },
     escopeta(scn) {
-      const s = darArma(scn, "escopeta", PREF.escopeta, true); anotarArma(scn, "escopeta");
+      const s = armar(scn, "escopeta", "cesar"); anotarArma(scn, "escopeta");   // fase 72: la escopeta es de César
       SV(scn, "Apagon").setNumber(0);
       banner(scn, "¡" + (s ? H.NOMBRES[pj(s)] || "" : "").toUpperCase() + " TIENE LA ESCOPETA! Volvió la luz", 3);
       sonido(scn, "efectos/mundo/interruptor.ogg", 60);
@@ -485,10 +532,11 @@
     },
     llave(scn, st) {
       st.llave = true; quitarReja(scn, st);
-      ponerSheriff(scn, st); const s = null;                     // fase 71: la sheriff queda en el piso; se recoge pasando encima
+      armar(scn, "pistola", "cesar"); armar(scn, "ak47", "alan");  // fase 72: pistola del director -> César, AK-47 -> Alan
+      anotarArma(scn, "pistola"); anotarArma(scn, "ak47");
       SV(scn, "ExtraZombies").setNumber(8);
       conserje(scn, st);
-      banner(scn, "¡LLAVE DE LA REJA" + (s ? "" : " Y UNA SHERIFF EN EL PISO") + "! El conserje los persigue", 3.5);
+      banner(scn, "¡LLAVE DE LA REJA, PISTOLA PARA CÉSAR Y AK-47 PARA ALAN! El conserje los persigue", 3.5);
       sonido(scn, "evento_impacto_cinematico.ogg", 90);
     },
     defensa(scn, st) {
@@ -616,7 +664,7 @@
           if (H.DLG_LIBRE[st.paso]) devolver(scn, st, true); else congelar(scn, st);
           callar(scn, st); st.gq = [];
         }
-        else if (tipo === "e") { try { H.EVENTOS[it[1]](scn, st); } catch (e) { console.error("historia: evento " + it[1], e); } R.i++; R.it = null; continue; }
+        else if (tipo === "e") { try { H.EVENTOS[it[1]](scn, st, it[2]); } catch (e) { console.error("historia: evento " + it[1], e); } R.i++; R.it = null; continue; }
         else if (tipo === "w") devolver(scn, st);
       }
       const t = H.now() - R.it.t0;
@@ -729,8 +777,6 @@
     if (st.conserje && muerto(st.conserje)) { st.conserjeMuerto = true; st.conserje = null; }
     const inp = entrada(scn, st), pausa = SV(scn, "Pausa").getAsNumber() === 1;
     if (st.cong && st.cong.soltar && !inp.mantiene) devolver(scn, st, true);   // terminó la escena y ya soltó la tecla
-    pistola(scn, st);
-    recogerSheriff(scn, st);
     quietos(scn, st);
     if (!pausa) {
       if (st.run) {
@@ -745,10 +791,8 @@
     }
     // ayudas en pantalla
     let ayuda = "";
-    const p1 = H.equipo(scn).find((s) => num(s, "Jugador") === 1);
-    const enPiso = objs(scn, "ArmaPiso").some((a) => str(a, "Tipo") === "pistolita");
-    if (st.paso >= 3 && st.paso <= 5 && enPiso && p1 && str(p1, "Arma") !== "pistolita" && !st.cong) ayuda = "Pasa sobre la pistola para recogerla";
-    else if (st.tutorial && H.now() < st.tutorial && st.intruso && !muerto(st.intruso) && p1 && str(p1, "Arma") === "pistolita") ayuda = "Clic izquierdo (o gatillo del mando) para disparar";
+    const p1 = H.controlado(scn);
+    if (st.tutorial && H.now() < st.tutorial && st.intruso && !muerto(st.intruso) && p1 && deFuego(p1)) ayuda = "Clic izquierdo (o gatillo del mando) para disparar";
     if (!st.llave && st.reja && H.equipo(scn).some((s) => Math.hypot(s.getX() - (H.REJA.x + 16), s.getY() - (H.REJA.y + H.REJA.h / 2)) < 260))
       ayuda = "La reja trasera está cerrada con llave";
     if (SV(scn, "HistAyuda").getAsString() !== ayuda) SV(scn, "HistAyuda").setString(ayuda);
@@ -901,7 +945,7 @@
   function linterna(scn, L) {
     let on = false;
     try { on = SV(scn, "Apagon").getAsNumber() === 1; } catch (e) { /* sin variable */ }
-    const t = on ? H.equipo(scn).find((s) => num(s, "Jugador") === 1 && str(s, "Estado") !== "fuera") : null;
+    const t = on ? (H.controlado(scn) || H.equipo(scn).find((s) => num(s, "Jugador") === 1)) : null;   // fase 72: sigue al controlado
     if (!t) { if (L.luz) L.luz.visible = false; return; }
     if (!L.luz) {
       try {
