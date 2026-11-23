@@ -1663,3 +1663,16 @@ Script: `gdevelop/scripts/fase74_disparo_arriba_abajo.py` (después de la 73). F
 - Se quita el verde, se recorta y se escala igual que los disparos de lado (98 px de alto, pies en el origen). Cuadros en `generado/sprites/personajes/<pj>/disparo_<arma>_<dir>/`.
 - Reemplazadas: Tony, César y Alan `pistola_arriba` / `pistola_abajo` (Alan con el AK-47); Miranda `escopeta_arriba` / `escopeta_abajo`.
 - Siguen con placeholder (fase 73): César con escopeta (arriba y abajo), Tony y Alan con escopeta, Miranda con pistola.
+
+## Fase 75 · Fundido a negro antes y después de las cinemáticas (2026-11-23)
+`historia.js` (se incrusta con la fase 73): antes de cada video la pantalla se desvanece a negro en 0.35 s (`H.FUNDIDO`) y, al terminar, vuelve desde negro en otros 0.35 s mientras sigue la secuencia (diálogos). El mundo queda congelado desde que empieza el fundido de entrada. Los videos ya vistos no tienen fundido.
+
+## Fase 76 · Ajustes de Historia y balas más gruesas (2026-11-23)
+Script: `gdevelop/scripts/fase76_historia_ajustes.py` (después de la 74).
+- Inicio (hasta que termina la alerta): nadie ataca; Tony ya no pega al aire (`H.tras`, antes de «Combate: pegar»).
+- Paso 5: al llegar al CIC la misión cambia a «Checa de dónde viene el ruido», con la flecha a la puerta de la sala de Joel; al abrirla empieza su escena.
+- Paso 6: el apagón llega en cuanto termina el video de la llamada (C05).
+- Paso 10: la llave y el cambio a Alan ocurren en cuanto termina el video C08, antes de los diálogos.
+- Paso 11: con la cuenta del autobús activa, Alan recarga el AK-47 (30 balas) cada 24 s y dice «¡Encontré balas!» (globo sin voz).
+- Balas y perdigones: dibujo 1.6 veces más grande y radio de impacto de 62 px (antes 46). Los lanzables no cambian.
+- Se incluye el fundido a negro de la fase 75.

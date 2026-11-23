@@ -82,10 +82,10 @@
       seq: [["v", "C01_T1"], ["d", "C1_01_alan", "C1_02_miranda"], ["v", "C01_T2"], ["d", "C1_03_alan", "C1_04_cesar", "C1_05_tony"]] },
     3: { spawn: "salon", auto: true, seq: [["v", "C02"], ["d", "C2_01_alan", "C2_02_miranda"], ["e", "alarma"], ["d", "C2_03_altavoz", "C2_04_cesar"]] },
     4: { spawn: "salon", auto: true, seq: [["v", "C03"], ["d", "C3_01_miranda", "C3_02_tony", "C3_03_cesar"], ["e", "pistola"], ["e", "controla", "tony"], ["e", "irrumpe"], ["w", "intruso"]] },
-    5: { spawn: "salon", obj: { txt: "Llega al CIC", zona: "CIC", puerta: ["P37", "P38"] },
+    5: { spawn: "salon", obj: { txt: "Llega al CIC", zona: "CIC", puerta: ["P37", "P38"], txt2: "Checa de dónde viene el ruido", flecha: [3760, 1824] },
       seq: [["v", "C04"], ["d", "C4_01_joel", "C4_02_tony", "C4_03_joel", "C4_04_miranda", "C4_05_alan", "C4_06_joel"], ["e", "joel"]] },
     6: { spawn: "cic", obj: { txt: "Usa el teléfono del CIC", usar: "Telefono" },
-      seq: [["v", "C05"], ["d", "C5_01_tony", "C5_02_joel"], ["e", "apagon"], ["d", "C5_03_miranda"], ["e", "zombisPasillo"]] },
+      seq: [["v", "C05"], ["e", "apagon"], ["d", "C5_01_tony", "C5_02_joel", "C5_03_miranda"], ["e", "zombisPasillo"]] },
     7: { spawn: "cic", obj: { txt: "Encuentra la sala del conserje", zona: "Conserje" },
       seq: [["v", "C06"], ["d", "C6_01_tony", "C6_02_alan"], ["e", "intendencia"], ["w", "intendencia"]] },
     8: { spawn: "conserjeria", obj: { txt: "Revisa el casillero del conserje", usar: "Casillero" },
@@ -93,7 +93,7 @@
     9: { spawn: "conserjeria", obj: { txt: "Busca a otro profesor: la nevería", zona: "Neveria" },
       seq: [["v", "C07"], ["d", "C7_01_justino", "C7_02_miranda", "C7_03_justino", "C7_04_tony", "C7_05_justino", "C7_06_alan", "C7_07_justino"], ["e", "justino"], ["e", "pasaEscopeta"], ["e", "controla", "miranda"]] },
     10: { spawn: "neveria", obj: { txt: "Consigue la llave en la oficina del director", zona: "Direccion", usar: "CajonDirector", txt2: "Revisa el escritorio del director" },
-      seq: [["v", "C08"], ["d", "C8_01_tony", "C8_02_cesar", "C8_03_alan", "C8_04_miranda"], ["e", "llave"], ["e", "controla", "alan"]] },
+      seq: [["v", "C08"], ["e", "llave"], ["e", "controla", "alan"], ["d", "C8_01_tony", "C8_02_cesar", "C8_03_alan", "C8_04_miranda"]] },
     11: { spawn: "direccion", obj: { txt: "Llega al autobús", zona: "Autobus" },
       seq: [["v", "C09"], ["d", "C9_01_canepa", "C9_02_tony", "C9_03_canepa", "C9_04_alan", "C9_05_miranda"], ["e", "defensa"], ["w", "defensa"]] },
     12: { auto: true, seq: [["d", "C10_01_canepa", "C10_02_alan"], ["v", "C10"], ["e", "victoria"]] },
@@ -122,6 +122,7 @@
     C5_01_tony: { de: "C5_01_cesar", pj: "tony", sinVoz: true },
     C8_03_alan: { pj: "alan", txt: "¡Y un AK-47! Este me lo quedo yo." },
     C8_04_miranda: { de: "C8_03_miranda" },
+    G_balas_alan: { pj: "alan", txt: "¡Encontré balas!" },        // fase 76: defensa del autobús, cada 24 s
   };
   const datos = () => {
     const D = gdjs.fdizHistoriaDatos || { lineas: {}, videos: {} };
@@ -386,6 +387,13 @@
         const U = H.USAR[o.usar]; x = U.x; y = U.y;
         if (o.zona && o.txt2 && enZona(scn, o.zona)) t = o.txt2;
       } else if (o.zona) [x, y] = centro(o.zona);
+      // fase 76: paso 5, ya en el CIC: la misión es abrir la sala de la derecha (Joel); la flecha va a su puerta
+      if (o.puerta && o.txt2) {
+        if (!st.hechos.cic && enZona(scn, o.zona, H.jugadores(scn))) {
+          st.hechos.cic = true; banner(scn, o.txt2.toUpperCase(), 3); sonido(scn, "efectos/eventos/objetivo_nuevo.ogg", 65);
+        }
+        if (st.hechos.cic) { t = o.txt2; [x, y] = o.flecha; }
+      }
     }
     if (st.defensa && st.paso === 11) {
       if (SV(scn, "FinalActivo").getAsNumber() === 1) {
@@ -653,6 +661,27 @@
   // ------------------------------------------------------------------ cinemáticas (host)
   const objVideo = (v) => (datos().videos || {})[v] || "";
   H.hayVideo = (scn, v) => { const o = objVideo(v); if (!o) return false; try { return !!scn.getObjects(o); } catch (e) { return false; } };
+  // fase 76: durante la cuenta del autobús, Alan recarga el AK-47 cada 24 s y lo dice (globo sin voz, no bloquea)
+  H.BALAS_SEG = 24;
+  function balasAlan(scn, st) {
+    if (st.balasLin && H.now() > st.balasLin) { st.balasLin = 0; if (st.lin && st.lin.id === "G_balas_alan") callar(scn, st); }
+    if (!(st.defensa && st.paso === 11 && SV(scn, "FinalActivo").getAsNumber() === 1)) { st.balasT = 0; return; }
+    if (!st.balasT) { st.balasT = H.now(); return; }
+    if (H.now() - st.balasT < H.BALAS_SEG) return;
+    st.balasT = H.now();
+    const a = H.equipo(scn).find((o) => pj(o) === "alan" && str(o, "Estado") !== "fuera"); if (!a) return;
+    armar(scn, "ak47", "alan");
+    if (!st.lin) { decir(scn, st, "G_balas_alan", false); st.balasLin = H.now() + 2.2; }
+    sonido(scn, "efectos/eventos/objetivo_nuevo.ogg", 45);
+  }
+  // fase 75: fundido a negro antes y después de cada cinemática (segundos de cada mitad)
+  H.FUNDIDO = 0.35;
+  function salida(scn, st) {
+    if (!st.salida) return;
+    const f = (H.now() - st.salida) / H.FUNDIDO;
+    if (f >= 1) { st.salida = 0; SV(scn, "HistVelo").setNumber(0); return; }
+    SV(scn, "HistVelo").setNumber(Math.round(255 * (1 - f)));
+  }
   // fase 73: durante la cinemática se congela todo el mundo (jugadores, bots y zombis): TimeScale 0 hasta que termina
   function helar(scn, st, si) {
     try {
@@ -699,11 +728,12 @@
       const tipo = it[0];
       if (!R.it) {                                              // empieza el elemento
         R.it = { t0: H.now(), k: 1 };
-        if (tipo !== "fade") SV(scn, "HistVelo").setNumber(0);   // fase 71: un checkpoint en un paso automático no se queda en negro
+        if (tipo !== "fade" && !st.salida) SV(scn, "HistVelo").setNumber(0);   // fase 71: un checkpoint en un paso automático no se queda en negro
         if (tipo === "fade") { congelar(scn, st); SV(scn, "HistVelo").setNumber(255); }
         else if (tipo === "v") {
           if (vista(scn, it[1])) { R.i++; R.it = null; continue; }     // ya se vio en esta partida: no se repite
-          congelar(scn, st); callar(scn, st); st.gq = []; empezarCine(scn, st, it[1]);
+          // fase 75: primero se desvanece a negro (H.FUNDIDO s) y luego empieza el video
+          congelar(scn, st); callar(scn, st); st.gq = []; helar(scn, st, true); st.salida = 0; R.it.entrada = true;
         } else if (tipo === "d") {
           // fase 71: en los diálogos del inicio (pasos 1 a 3, antes de la alerta) Tony se mueve libre dentro del salón
           if (H.DLG_LIBRE[st.paso]) devolver(scn, st, true); else congelar(scn, st);
@@ -718,8 +748,14 @@
         SV(scn, "HistVelo").setNumber(Math.round(255 * f));
         if (f > 0) return;
       } else if (tipo === "v") {
+        if (R.it.entrada) {                                       // fase 75: fundido a negro antes del video
+          SV(scn, "HistVelo").setNumber(Math.round(255 * Math.min(1, t / H.FUNDIDO)));
+          if (t < H.FUNDIDO) return;
+          R.it.entrada = false; empezarCine(scn, st, it[1]);
+        }
         if (!pasoCine(scn, st, inp)) return;
         terminarCine(scn, st);
+        SV(scn, "HistVelo").setNumber(255); st.salida = H.now();   // fase 75: y desde negro al terminar
       } else if (tipo === "d") {
         if (!st.lin) { if (R.it.k < it.length) { decir(scn, st, it[R.it.k], true); R.it.k++; } }
         else if (lineaLista(st, inp, true)) { callar(scn, st); if (R.it.k < it.length) { decir(scn, st, it[R.it.k], true); R.it.k++; } }
@@ -824,6 +860,8 @@
     if (st.cong && st.cong.soltar && !inp.mantiene) devolver(scn, st, true);   // terminó la escena y ya soltó la tecla
     quietos(scn, st);
     paseos(scn, st);
+    salida(scn, st);
+    balasAlan(scn, st);
     if (!pausa) {
       if (st.run) {
         if (saltar && st.run.seq[st.run.i] && st.run.seq[st.run.i][0] === "w") {
@@ -1038,6 +1076,9 @@
   // Antes de "Combate: pegar" (host): Joel acompaña pero no ataca; si cae se levanta a los 5 s.
   H.tras = function (scn) {
     if (!H.activo(scn) || rol(scn) === 2) return;
+    const st0 = S(scn);
+    if (st0.ini && (st0.paso < 3 || (st0.paso === 3 && st0.run)))       // fase 76: en el inicio nadie da golpes (Tony pegaba al aire)
+      for (const o of H.equipo(scn)) for (const n of ["QuierePegar", "PideHab", "PideEsp", "QuiereLanzar"]) VS(o, n).setNumber(0);
     const s = supJoel(scn); if (!s) return;
     for (const n of ["QuierePegar", "PideHab", "PideEsp", "QuiereLanzar"]) VS(s, n).setNumber(0);
     if (num(s, "Mordido") === 1) { VS(s, "Mordido").setNumber(0); s.setColor("255;255;255"); }
