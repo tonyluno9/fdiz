@@ -71,7 +71,9 @@
     const otros = sups.concat(...A.ZN.map((n) => objs(scn, n)));
     for (const s of sups) {
       const j = num(s, "Jugador");
-      const ver = juego && j >= 1 && j <= 4 && num(s, "Control") !== -1 && str(s, "Estado") === "normal" && A.deFuego(s) && num(s, "Usos") > 0;
+      // fase 71: también con un lanzable en la mano (modo de lanzar). La mira solo indica hacia dónde apunta: el impacto lo decide la bala
+      const lanza = (() => { try { const l = str(s, "Lanz"); return l !== "" && l !== "0"; } catch (e) { return false; } })();
+      const ver = juego && j >= 1 && j <= 4 && num(s, "Control") !== -1 && str(s, "Estado") === "normal" && ((A.deFuego(s) && num(s, "Usos") > 0) || lanza);
       const p = ver ? A.posMira(s) : null;
       let m = s.__fdizMira;
       if (!p) { if (m) m.hide(true); continue; }
@@ -175,8 +177,36 @@
     }
   };
 
+  // ------------------------------------------------------------------ fase 71: reacción de daño de los zombis
+  // Cuando un zombi pierde vida y sigue vivo, hace los 2 primeros cuadros de "golpe_morir" (el golpe) durante 0.22 s.
+  // Mientras dura, se ignoran los cambios de animación de la IA (caminar / atacar) en ese zombi. Host / sin red.
+  A.DOLOR_MS = 220;
+  A.ZOMBIS = ["ZNormal", "ZCorredor", "ZGriton", "ZGordo", "ZConserje", "ZJoel", "ZJustino", "ZCanepa"];
+  function dolor(scn) {
+    if (rol(scn) === 2) return;
+    const t = Date.now();
+    for (const n of A.ZOMBIS) for (const z of objs(scn, n)) {
+      let v; try { v = num(z, "Vida"); } catch (e) { continue; }
+      const prev = z.__fdizVida; z.__fdizVida = v;
+      if (prev === undefined || !(v < prev - 0.001) || v <= 0 || str(z, "Estado") === "muerto") continue;
+      if (!z.__fdizAnim) {
+        z.__fdizAnim = z.setAnimationName.bind(z);
+        z.setAnimationName = function (nom) { if (Date.now() < this.__fdizDolor && nom !== "golpe_morir") return; return this.__fdizAnim(nom); };
+      }
+      if (!(z.__fdizDolor && t < z.__fdizDolor)) z.__fdizPrev = z.getAnimationName();
+      z.__fdizDolor = t + A.DOLOR_MS;
+      try { z.__fdizAnim("golpe_morir"); z.setAnimationFrame(0); z.playAnimation && z.playAnimation(); } catch (e) { /* sin animación */ }
+    }
+    for (const n of A.ZOMBIS) for (const z of objs(scn, n)) {        // no pasar del cuadro 1 (el 2 ya es caer)
+      if (!z.__fdizDolor || str(z, "Estado") === "muerto" || z.getAnimationName() !== "golpe_morir") continue;
+      if (t < z.__fdizDolor) { if (z.getAnimationFrame() > 1) z.setAnimationFrame(1); }
+      else { z.__fdizDolor = 0; try { z.__fdizAnim(z.__fdizPrev && z.__fdizPrev !== "golpe_morir" ? z.__fdizPrev : "caminar_abajo"); } catch (e) { /* sin animación */ } }
+    }
+  }
+
   // ------------------------------------------------------------------ cada cuadro (todas las máquinas)
   A.tick = function (scn) {
+    try { dolor(scn); } catch (e) { /* sin zombis */ }
     try { A.ponerPistola(scn); } catch (e) { /* sin la pistola inicial */ }
     try { A.cambiarPorPistola(scn); } catch (e) { /* sin armas en el piso */ }
     miras(scn);
