@@ -159,6 +159,7 @@ prueba("Animaciones placeholder de pistola de lado y hacia abajo para los 12 per
   const S = J.objects.find((o) => o.name === "Sup"), an = Object.fromEntries(S.animations.map((a) => [a.name, a]));
   for (const pj of PJS) for (const [dir, base, idx] of [["lado", "pegar_lado", 1], ["abajo", "pegar_abajo", 0]]) {
     const a = an[pj + "_pistola_" + dir]; si(a, "falta " + pj + "_pistola_" + dir);
+    if (pj === "tony" && dir === "lado") continue;          // fase 69: Tony usa sus cuadros reales de disparo (prueba siguiente)
     const sp = a.directions[0].sprites, b = an[pj + "_" + base].directions[0].sprites[idx];
     igual(sp.length, 3, pj + " " + dir);
     for (const s of sp) {
@@ -167,6 +168,19 @@ prueba("Animaciones placeholder de pistola de lado y hacia abajo para los 12 per
     }
   }
   si(!S.animations.some((a) => a.name.endsWith("_pistola_arriba")), "hacia arriba no hay: se usa pegar_arriba");
+});
+prueba("Fase 69: Tony dispara con sus animaciones reales (pistola y escopeta de lado, 4 cuadros, pies en el mismo origen)", () => {
+  const S = J.objects.find((o) => o.name === "Sup"), an = Object.fromEntries(S.animations.map((a) => [a.name, a]));
+  for (const arma of ["pistola", "escopeta"]) {
+    const a = an["tony_" + arma + "_lado"]; si(a, "falta tony_" + arma + "_lado");
+    const sp = a.directions[0].sprites;
+    igual(sp.length, 4, arma);
+    for (const s of sp) {
+      si(fs.existsSync(path.join(PROY, res[s.image])), "falta el archivo " + res[s.image]);
+      si(/disparo_/.test(s.image), "usa los cuadros de animaciones_gif/personajes/tony: " + s.image);
+      igual([s.originPoint.x, s.originPoint.y], [80, 125], arma);
+    }
+  }
 });
 prueba("Al disparar con pistola: de lado y abajo la animación de pistola; arriba, escopeta o sin animación sigue la de pegar", () => {
   const A = cargar();

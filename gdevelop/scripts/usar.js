@@ -31,6 +31,7 @@
   const OBJ_TXT = {   // qué se hace con cada objetivo
     servidor: "prender el servidor", computadora: "llamar", llaves: "tomar las llaves", interruptor: "activar el interruptor",
     carnada: "dejar la comida", camion: "cargar la gasolina", canepa: "hablar con Canepa",
+    h_telefono: "usar el teléfono", h_casillero: "revisar el casillero", h_cajon: "revisar el escritorio",   // fase 68 (Historia)
   };
 
   const V = (o, n) => o.getVariables().get(n);
@@ -60,6 +61,7 @@
     }
     for (const g of lista(scn, "Objetivo")) {
       if (num(g, "Hecho") !== 0 || num(g, "Tiempo") >= 999) continue;        // el camión del final no se "usa"
+      if (gdjs.fdizHistoria && !gdjs.fdizHistoria.puedeUsar(scn, s, g)) continue;   // fase 69: Historia, solo desde dentro de la sala y con su puerta abierta
       const d = dCentro(s, g); if (d < A.objetivo) out.push({ t: "objetivo", o: g, d, r: A.objetivo });
     }
     for (const c of lista(scn, "Contenedor")) {
@@ -69,6 +71,7 @@
     for (const p of lista(scn, "Profe")) {
       const e = str(p, "Estado"); if (e !== "espera" && e !== "conversacion") continue;
       if (gdjs.fdizCanepa && gdjs.fdizCanepa.reservado(scn, str(p, "Nombre"))) continue;   // fase 61: en Historia, primero la charla
+      if (gdjs.fdizHistoria && gdjs.fdizHistoria.reservado(scn, str(p, "Nombre"))) continue;   // fase 68: los profes van por la historia
       const d = dPos(p, s.getX(), s.getY()); if (d < A.profe) out.push({ t: "profe", o: p, d, r: A.profe });
     }
     return out;
@@ -92,7 +95,7 @@
       case "puerta": return str(c.o, "Tipo") === "electronica" && num(c.o, "TiempoAbrir") > 1 ? "abrir (electrónica, " + Math.round(num(c.o, "TiempoAbrir")) + " s)" : "abrir";
       case "objetivo": return OBJ_TXT[str(c.o, "Tipo")] || "usar";
       case "cofre": return "revisar";
-      case "bloqueada": return "!Puerta restringida: derríbala a golpes";
+      case "bloqueada": { const v = c.o.getVariables(), q = v.has && v.has("Bloqueo") ? str(c.o, "Bloqueo") : ""; return q && q !== "0" ? q : "!Puerta restringida: derríbala a golpes"; }   // fase 68: Bloqueo = aviso propio (Historia)
       default: return "";
     }
   }
@@ -120,7 +123,7 @@
         for (const k in BANDERAS) V(s, BANDERAS[k]).setNumber(usa ? 1 : 0);
         if (usa) {
           for (const p of lista(scn, "Puerta")) if (dPos(s, p.getX() + p.getWidth() / 2, p.getY() + p.getHeight() / 2) < U.CFG.alcance.puerta) V(p, "Elegida").setNumber(1);
-          for (const g of lista(scn, "Objetivo")) if (dCentro(s, g) < U.CFG.alcance.objetivo) V(g, "Elegida").setNumber(1);
+          for (const g of lista(scn, "Objetivo")) if (dCentro(s, g) < U.CFG.alcance.objetivo && !(gdjs.fdizHistoria && !gdjs.fdizHistoria.puedeUsar(scn, s, g))) V(g, "Elegida").setNumber(1);
         }
         V(s, "Accion").setString(""); V(s, "UsarTxt").setString(""); V(s, "UsarProg").setNumber(0);
         continue;

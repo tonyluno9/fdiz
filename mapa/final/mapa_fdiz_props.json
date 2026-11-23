@@ -3855,7 +3855,7 @@
 "sprite": "senaletica/reloj_pared",
 "archivo": "mapa/senaletica/reloj_pared.png",
 "x": 3424,
-"y": 1690,
+"y": 1650,
 "capa": "pared",
 "colision": null,
 "w": 28,

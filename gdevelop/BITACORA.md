@@ -1497,3 +1497,138 @@ Script: `gdevelop/scripts/fase67_pistola_inicial.py` (después de volver a corre
 - Sprite de piso `generado/sprites/objetos/armas/pistolita_piso.png` (pistolita.png x3).
 - No hay partidas guardadas en el juego (solo el volumen).
 - Probado en una exportación HTML del proyecto: empieza a puños, la pistola está en B-01, al pisarla queda equipada (9 balas, ícono y mira). El disparo no se pudo comprobar con clics simulados.
+
+## Fase 68 · Modo Historia de 12 pasos: cinemáticas en video, diálogos con voz, objetivos y checkpoints (2026-11-22)
+
+Fuente: `gdevelop/historia/02_HISTORIA_PARA_GDEVELOP.md` (la secuencia, seguida al pie de la letra) y `gdevelop/historia/01_DIALOGOS_PARA_VOCES.md` (textos exactos de los globos). Copias de los archivos que estaban en Descargas.
+
+Scripts:
+- `scripts/fase68_historia.py` (idempotente; con GDevelop cerrado; va al final de la cadena, después de fase67).
+- Lógica en `scripts/historia.js` (`gdjs.fdizHistoria`).
+- Los datos de las líneas (personaje, texto, archivo y duración del audio) y los videos presentes se generan en `scripts/historia_datos.js`.
+
+Pruebas: `node gdevelop/scripts/prueba_historia2.js` (39 casos). Comprueba el orden de videos y audios de cada paso contra el documento, los 55 audios y lo incrustado en el proyecto.
+
+Respaldos: `respaldos/antes_de_fase68_historia_20261122_2215.json` (proyecto) y `respaldos/antes_de_fase68_<usar|profes|dialogo|cine>_20261122_2215.js`.
+
+### Archivos
+| Qué | Dónde |
+|---|---|
+| 55 voces `.mp3` (de `Videojuego2D/voces/voces`) | `FDI-Z/assets/historia/audio/` (recursos `historia/audio/<archivo>.mp3`) |
+| Videos `C01_T1.mp4`, `C01_T2.mp4`, `C02.mp4` y también `C03.mp4` (ya existía en `Videojuego2D/`) | `FDI-Z/assets/historia/video/` (recursos `vid_hist_<C..>`, objetos `Vid<C..>`; `LEEME.txt` dice cuáles faltan) |
+| Alarma en bucle (provisional, sintetizada por el script) | `FDI-Z/efectos/eventos/alarma_loop.wav` (también en `audio_manifest.json`) |
+
+- `voces_trabajo/voces_trabajo` solo tiene los WAV intermedios (`fish/`, `rvc/`). Se usaron los MP3 finales de `voces/voces`.
+- Los videos venían como `C01_t1.mp4`, `c01_t2.mp4` y `c02.mp4`. Se copiaron con el nombre exacto del documento.
+- **Para agregar un video nuevo (C04 … C10):** copiarlo con su nombre exacto a `assets/historia/video/` y correr `python gdevelop/scripts/fase68_historia.py`. No hay que tocar eventos.
+  - Mientras `C10.mp4` no exista, la escena final usa `assets/interfaz/videos/15_victoria.mp4`, como pide el documento.
+- **Aviso sobre una voz:** `C65_01_cesar.mp3` dura 1.2 s para una frase de 48 letras («Para cuando vuelvan». ¿Cuando vuelvan… quiénes?). Parece recortada; conviene regenerarla. Las demás voces duran entre 0.8 y 8.6 s, acorde con su texto.
+
+### Sistemas (sección 3 del documento)
+- **Cinemáticas:**
+  - Video a pantalla completa en la capa HUD (z 2000), encima del HUD.
+  - Mientras suena, el mundo se congela como en las fases 61 y 65: `Estado = "cine"`, `TimeScale 0`, jugadores con `Control -2`. Así se detienen los zombis, los bots y los tiempos.
+  - La música del juego (canales 1 y 2) y la alarma se pausan.
+  - **Mantener Espacio, Enter o A durante 1 s** salta el video; hay un indicador circular abajo a la derecha. Si la tecla ya venía apretada, primero hay que soltarla.
+  - Cada video se ve una vez por partida (`Historia.CinematicasVistas`, global: sobrevive al reintentar).
+  - Si falta el archivo: pantalla negra de 1 s con el título de la escena, y luego sus diálogos.
+  - Si un video no carga, a los 6 s la historia sigue.
+- **Diálogos:**
+  - Globo sobre quien habla, con el mismo estilo y la misma colocación que los de la fase 64: evita el HUD.
+  - Si quien habla no está en pantalla (o es el Altavoz), aparece un panel abajo al centro con el nombre y, para los cuatro alumnos, su retrato (objeto `HistRetrato`).
+  - Nombre del color del documento: Alan gris, Miranda café claro, Tony blanco, César azul, Joel verde, Justino rosa, Canepa naranja, Altavoz rojo.
+  - La voz suena en el canal 8 (el banco de la fase 64 usa el 7).
+  - La línea pasa al terminar el audio + 0.3 s (duración leída del MP3 por el script). **Espacio** adelanta.
+  - Bloqueantes [D]: mundo congelado. De gameplay [G]: J1 en el pasillo y J2 al salir del CIC, con el juego en marcha.
+  - Mientras habla la historia, el banco de la fase 64 se calla (gancho en `dialogo.js`).
+- **Objetivos:**
+  - Texto «Objetivo / <texto>» en el letrero de objetivos de siempre (`TxtObjetivo`) y la flecha amarilla de siempre hacia la zona (`HistObjX/Y` → `ObjX/Y`).
+  - Al empezar un objetivo: letrero grande y el sonido de nuevo objetivo.
+  - Zonas invisibles: se activan cuando entra cualquiera de los cuatro (humano o bot).
+  - Las de «usar» son un `Objetivo` (mantener F/A 1 s, con la misma indicación «Mantén F para…» de la fase 56).
+- **Checkpoints:**
+  - Al empezar cada paso se guarda `Historia.Paso` (y `Historia.Armas`).
+  - Si cae todo el equipo: la derrota de siempre (`16_derrota.mp4`) con el botón **REINTENTAR** y «Seguirán desde el paso N de 12».
+  - Al reintentar, la partida arranca en el lugar de ese paso con el mundo como debe estar: armas con cargador lleno, puertas ya abiertas, Joel con el grupo o en la conserjería, apagón, reja, conserje y dificultad.
+  - Elegir HISTORIA en el menú empieza siempre desde el paso 1. Al ganar también se reinicia.
+- **Elenco fijo:**
+  - Equipo Tony, Miranda, Alan y César. Quien eligió a uno de ellos lo conserva; los demás reciben los que falten (por ejemplo, Gabo → Miranda). También se corrige `P1Pj..P4Pj`.
+  - En Historia, Joel, Justino y Canepa no se reclutan con F ni piden ayuda (ganchos en `profes.js` y `usar.js`).
+
+### Los 12 pasos (como en el documento)
+| Paso | Disparador | Video | Evento |
+|---|---|---|---|
+| 1 | Inicio (negro → fundido) | — | INT_01–06; objetivo «Revisa el escritorio del profe» |
+| 2 | `Zona_Escritorio` | C01_T1, C01_T2 | — |
+| 3 | Sigue solo | C02 | Alarma (luz roja intermitente en el salón + bucle bajo, desde el Altavoz); **pistola pequeña** al jugador 1 |
+| 4 | Sigue solo | C03 | El zombi rompe P06 y entra; texto «Clic izquierdo (o gatillo) para disparar» hasta que lo tumban |
+| 5 | `Zona_CIC` (J1 en `Zona_Pasillo1`) | C04 | Joel se une (aliado bot; no ataca; si cae se levanta a los 5 s; no se infecta) |
+| 6 | Usar `Zona_Telefono` | C05 | **Apagón** (`Apagon = 1`, la mecánica de siempre; también se apaga la alarma); 3 zombis en los pasillos del CIC |
+| 7 | `Zona_Conserje` (J2 al salir del CIC) | C06 | Se abre P59 y sale el zombi de intendencia (normal) |
+| 8 | Usar `Zona_Casillero` (después de tumbarlo) | C065 | **Escopeta** (a Tony); termina el apagón; Joel se queda en la conserjería |
+| 9 | `Zona_Neveria` | C07 | Justino se queda; el equipo recupera toda la vida |
+| 10 | `Zona_Direccion` → usar `Zona_CajonDirector` | C08 | **Llave** (se abre la reja trasera) y **pistola** (a César, o a quien no tenga arma de fuego); `ExtraZombies = 8`; el conserje zombi aparece y persigue |
+| 11 | `Zona_Autobus` | C09 | Defensa con el final **¡Aguanten!** de siempre, ahora de **90 s** («Protege a Canepa: 1:30»), oleadas extra a los 30 y 60 s y el conserje |
+| 12 | Termina la cuenta con el equipo vivo | C10 (o `15_victoria.mp4`) | C10_01–02 antes del video; victoria; **C10_03** suena en Resultados, sobre la pantalla de victoria |
+
+### Zonas colocadas (no existían en el mapa: rectángulos en `historia.js → H.ZONAS / H.USAR`)
+| Zona | Dónde | Por qué |
+|---|---|---|
+| Escritorio | x 5904–6064, y 2884–2984 | Frente al escritorio del profe del salón B-01, donde empieza el equipo |
+| Pasillo1 | Franja x 4380–4460, y 2080–4300 | A mitad de camino entre B-01 y el CIC; cualquier ruta la cruza |
+| CIC | x 2688–3744, y 1632–2080 | El CIC con sus dos pasillos; se entra por P43 o por las salas 1 a 4. Joel espera en los Cubículos del CIC (3616, 2000) |
+| Telefono | (3136, 1760) | La computadora del CIC (`computadoras_llamada` del mapa), visible |
+| Conserje | x 4930–5190, y 792–884 | El pasillo frente a la puerta P59 de la conserjería |
+| Casillero | (5112, 622) | Un casillero nuevo (mueble `cic/lockers_cerrados`) contra la pared de la conserjería |
+| Neveria | La nevería completa (1536–1984, 1440–2432) | Justino espera en (1936, 1668) |
+| Direccion | La oficina del director (3200–3456, 4256–4544) | Adentro, el objetivo cambia a «Revisa el escritorio del director» |
+| CajonDirector | (3328, 4436) | Frente al escritorio del director |
+| Autobus | x 240–740, y 3080–3460 | Junto al autobús (400, 3264) y Canepa (544, 3328), dentro del radio de 380 px del final de siempre |
+
+### Decisiones donde el documento chocaba con el proyecto (se eligió no romper lo existente)
+- **El modo Historia anterior (6 misiones: fases 55, 61 y 65) queda reemplazado** en la misma tarjeta HISTORIA del menú (Modo `"historia"`), que ahora dice «12 pasos».
+  - Sus eventos siguen en el proyecto, pero quedan quietos: el evento nuevo `FDIZ-FASE68-OBJ` detiene los objetivos de Escape en Historia hasta la defensa, y `cine.js` ya no corre.
+  - Escape y Jefe no cambian: lo comprobé en el juego exportado y con las pruebas.
+  - `prueba_historia.py` (la Historia de 6 misiones) ya no aplica: sus casos de Historia fallan a propósito; los de Escape pasan.
+- **Puerta trasera del salón:** B-01 solo tiene una puerta (P06). No se abrió una nueva en el muro: el zombi rompe P06 y por ahí mismo salen. La línea de César que la menciona se dejó igual.
+  - Hasta el paso 4, P06 está cerrada y no se puede tumbar; dice «La puerta está cerrada».
+- **Objetivo «arriba a la izquierda»:** ahí está el panel del jugador 1. Se usa el letrero de objetivos de siempre (arriba al centro), con su flecha.
+- **«Reja trasera»:** no existía. Se puso en la única entrada del campus al estacionamiento (x 1504, y 3072–3552): un choque invisible y la valla blanca girada (arte provisional). Desaparece al tomar la llave; sin llave avisa «La reja trasera está cerrada con llave».
+- **Pistola de C8:** es el revólver «pistola» de 4 balas de la fase 59.
+  - La escopeta y el revólver ya no están en el piso en Historia.
+  - La pistola pequeña ya no se pone en el piso (fase 67): llega en el paso 3.
+- **Objetivos agregados** (el documento no los listaba, pero sus disparadores son de «usar»): «Usa el teléfono del CIC» y «Revisa el casillero del conserje».
+- **Canepa** es un NPC inmune (como los profes que esperan): durante la defensa no puede morir. El letrero dice «¡AGUANTEN! Canepa repara el autobús».
+- **Conserje zombi:** se quita del mapa al empezar (vigilaba la conserjería y habría peleado en C6). Aparece en el paso 10 persiguiendo, cerca de la Dirección. Si ya lo tumbaron, no vuelve en la defensa.
+- **«Luz parcial» al terminar el apagón:** el juego solo tiene dos niveles de luz, así que vuelve la luz de noche normal.
+- **Modo presentación (F1):** la tecla 1 completa lo que se esté esperando (zona, uso o combate). La tecla 2 (saltar al final) no hace nada en Historia.
+
+### Correcciones que también aplican a los demás modos
+- **REINICIAR de Resultados no funcionaba:** usaba `if(...)`, que GDevelop no tiene, y el código generado cambiaba a la escena `""`. Ahora va a `"Juego"` (estaba en la rama sin red, donde el valor siempre era ese).
+- El final ¡Aguanten! dura `FinalSeg` (60 por omisión: Escape y Jefe igual que antes).
+
+### Pruebas
+- Probado en una exportación HTML del proyecto con el exportador de GDevelop 5.6:
+  - El recorrido completo del paso 1 al 12 termina en Resultados con victoria y el checkpoint en 0. Las zonas se alcanzaron moviendo al equipo; el teléfono, el casillero y el escritorio, manteniendo F.
+  - Verificado en el recorrido: los 4 videos se ven a pantalla completa y se saltan con el indicador; las pantallas negras de los que faltan; globos con nombre y color; J1 y J2; tutorial de disparo.
+  - Verificado también: alarma roja, apagón y vuelta de la luz; Joel con el grupo, que se levanta a los 5 s; reja cerrada y abierta; armas; defensa de 90 s con oleadas; C10_03 en la victoria.
+  - Derrota → REINTENTAR → mismo paso, con el estado restaurado (pasos 7, 10 y 11).
+  - El menú real: la tecla 3 elige HISTORIA y reinicia el checkpoint.
+- Escape (intro, 3 objetivos, final de 60 s) y Jefe arrancan igual que antes. Los errores de exportación son los mismos 4 que antes de la fase (Canepa, StickAngle, dos textos del Menú).
+- `prueba_historia2.js` 39/39. Las pruebas de `usar`, `profes`, `dialogo`, `cine`, `canepa`, `armas`, `audio`, `avisos`, `correr`, `medios` y `sfx` siguen pasando.
+
+### Pendiente
+- **Videos C04, C05, C06, C065, C07, C08, C09 y C10:** copiar a `assets/historia/video/` y correr la fase 68.
+- Regenerar `C65_01_cesar.mp3` (parece recortado).
+- Arte: la reja trasera (valla girada) y una alarma grabada en lugar de la sintetizada.
+- **Sin probar:**
+  - Dentro del editor de GDevelop (se probó con su exportador y su runtime).
+  - Con mando físico.
+  - En línea con dos máquinas: las variables `Hist*` viajan y los clientes dibujan videos, globos y voces, pero solo el anfitrión puede saltar.
+  - Recorrer los caminos completos caminando: los bots y los humanos llegaron, pero en la prueba se movió al equipo entre zonas.
+
+## Fase 69 · Correcciones: pistola inicial, daño de armas, Historia solo con Tony, mundo sin congelar, menú de modos, CIC, Joel y casillero (2026-11-22)
+
+Script: `scripts/fase69_correcciones.py` (idempotente; después de `fase68_historia.py`). Cambios también en `historia.js`, `usar.js` y `armas.js`. Respaldo: `respaldos/antes_de_fase69_20261122_2307.json`.
+
+El detalle por fase, las pruebas ejecutadas y lo pendiente están en **`TRASPASO_HISTORIA.md`** (raíz de fdiz). El inventario de letreros para clasificar colores está en **`gdevelop/ALERTAS.md`**; los colores aún no se cambian.

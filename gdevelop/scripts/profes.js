@@ -312,6 +312,7 @@
       const e = est(scn, k); if (!ESPERA(e)) continue;
       // fase 61: en Historia, Canepa no se recluta hasta la charla del camión (misión 5); así nadie lo rechaza antes
       if (gdjs.fdizCanepa && gdjs.fdizCanepa.reservado(scn, k)) continue;
+      if (gdjs.fdizHistoria && gdjs.fdizHistoria.reservado(scn, k)) continue;   // fase 68: en Historia no se reclutan con F
       let mejor = null, md = 1e9;
       for (const h of hs) {
         // fase 56: si para ese jugador F es para otra cosa más cercana (puerta, salvar...), el profe no se ofrece
@@ -333,6 +334,7 @@
     for (const k of ORDEN) {
       const npc = npcDe(scn, k), G = st.grito[k] || (st.grito[k] = { sig: 0, n: 0 });
       if (!npc || est(scn, k) !== "espera") continue;
+      if (gdjs.fdizHistoria && gdjs.fdizHistoria.reservado(scn, k)) continue;   // fase 68: en Historia no piden ayuda
       let md = 1e9; for (const h of hs) md = Math.min(md, dist(h.s, npc));
       if (md > CFG.pedirRadio * 1.3) { G.n = 0; continue; }           // se fue: la próxima visita vuelve a oír
       if (md > CFG.pedirRadio || md < CFG.hablarRadio) continue;
@@ -419,7 +421,8 @@
     const fin = V.get("FinalActivo").getAsNumber();
     if (fin === 1 && st.finPrev === 0) {
       const c = supDe(scn, "canepa");
-      banner(scn, c && str(c, "Estado") === "normal" ? "¡AGUANTEN! Canepa repara el camión" : "¡AGUANTEN! Reparen el camión y resistan", 3);
+      if (gdjs.fdizHistoria && gdjs.fdizHistoria.activo(scn) && npcDe(scn, "canepa")) banner(scn, "¡AGUANTEN! Canepa repara el autobús", 3);   // fase 68
+      else banner(scn, c && str(c, "Estado") === "normal" ? "¡AGUANTEN! Canepa repara el camión" : "¡AGUANTEN! Reparen el camión y resistan", 3);
     }
     st.finPrev = fin;
   }
@@ -494,6 +497,8 @@
 
   // ------------------------------------------------------------------ API llamada desde los eventos
   const API = (gdjs.fdizProfes = { ver: VER, PROFES, CFG, ORDEN });
+  // fase 68 (Historia): un profe se une al equipo por la historia, sin diálogo (como al aceptar).
+  API.unir = function (scn, k) { if (rol(scn) === 2 || !PROFES[k]) return false; if (!ESPERA(est(scn, k))) setEst(scn, k, "espera"); return reclutar(scn, k); };
 
   // Después del grupo "Entrada": quien está en el diálogo no se mueve ni pega (host y sin red).
   API.input = function (scn) {
@@ -580,6 +585,7 @@
     if (rol(scn) === 2 || SV(scn).get("Estado").getAsString() !== "juego") return;
     for (const s of objs(scn, "Sup")) {
       if (num(s, "Jugador") < 5 || num(s, "Golpeado") !== 1 || num(s, "Mordido") !== 0 || str(s, "Estado") !== "normal") continue;
+      if (gdjs.fdizHistoria && gdjs.fdizHistoria.sinMordida(scn)) continue;   // fase 68: Joel no se infecta en la historia
       if (Math.random() >= CFG.probMordida) continue;
       VS(s, "Mordido").setNumber(1); VS(s, "Cura").setNumber(0); s.resetTimer("mordida");
       const k = str(s, "Personaje"); const P = PROFES[k];

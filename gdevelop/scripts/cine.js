@@ -205,7 +205,7 @@
     return false;
   }
   // Canepa (misión 5): con video, el video reemplaza la charla con burbujas (canepa.js pregunta aquí antes de empezar)
-  C.toma = (scn) => historia(scn) && C.hayVideo(scn, 8) && !C.visto(scn, 8) || !!(S(scn).activa && S(scn).activa.n === 8);
+  C.toma = (scn) => !gdjs.fdizHistoria && historia(scn) && C.hayVideo(scn, 8) && !C.visto(scn, 8) || !!(S(scn).activa && S(scn).activa.n === 8);
   function canepa(scn, st) {
     let c = 0; try { c = SV(scn, "CanepaCharla").getAsNumber(); } catch (e) { return; }
     if (c === 1 && C.hayVideo(scn, 8) && !C.visto(scn, 8) && !st.activa)
@@ -255,6 +255,7 @@
 
   // ------------------------------------------------------------------ cada cuadro
   C.tick = function (scn) {
+    if (gdjs.fdizHistoria) return;            // fase 68: la historia de 12 pasos (historia.js) reemplaza estas 8 cinemáticas
     if (!historia(scn)) return;
     const st = S(scn);
     if (rol(scn) !== 2) {

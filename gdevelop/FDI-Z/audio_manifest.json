@@ -695,6 +695,11 @@
       "id": "VOZ_TONY_TONY_17_ESCAPA_EN_EL_CAMION",
       "path": "../../audios_fish/Tony/tony_17_escapa_en_el_camion.wav",
       "priority": "P2"
+    },
+    {
+      "id": "SFX_EVENTO_ALARMA_LOOP",
+      "path": "efectos/eventos/alarma_loop.wav",
+      "priority": "P2"
     }
   ],
   "music": [

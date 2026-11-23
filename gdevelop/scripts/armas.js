@@ -8,7 +8,8 @@
  * gastadas en gris. CARGADOR = las balas con que se recoge cada arma (fase 59).
  * Mira: una cruz hueca de 11 px a 78 px del arma, hacia donde apunta (AimX, AimY); más transparente si queda sobre un
  * personaje o un zombi. Solo para jugadores (no bots) con arma de fuego, de pie, en juego y sin pausa.
- * Animación: con pistola (pequeña o sheriff) el golpe de lado o hacia abajo usa <personaje>_pistola_lado / _abajo.
+ * Animación: con pistola (pequeña o sheriff) el golpe de lado o hacia abajo usa <personaje>_pistola_lado / _abajo; con escopeta,
+ * de lado, <personaje>_escopeta_lado (fase 69: Tony usa sus animaciones de disparo de animaciones_gif/personajes/tony/).
  * Hacia arriba no hay animación de pistola: se queda la de pegar hacia arriba de siempre. Si un personaje no tiene la
  * animación de pistola, setAnimationName no cambia nada y sigue la de pegar (nunca queda invisible ni detenido).
  * Pistola inicial (fase 67): nadie empieza con ella. Al empezar la partida (host / sin red) se pone UNA pistola pequeña
@@ -40,10 +41,13 @@
   A.anim = function (scn) {
     if (rol(scn) === 2) return;
     for (const s of objs(scn, "Sup")) {
-      if (!A.PISTOLAS[str(s, "Arma")] || num(s, "Atacando") !== 1) continue;
+      const arma = str(s, "Arma");
+      if (num(s, "Atacando") !== 1 || !(A.PISTOLAS[arma] || arma === "escopeta")) continue;
       const pj = str(s, "Personaje"), an = s.getAnimationName();
-      if (an === pj + "_pegar_lado") s.setAnimationName(pj + "_pistola_lado");
-      else if (an === pj + "_pegar_abajo") s.setAnimationName(pj + "_pistola_abajo");
+      // fase 69: con escopeta, de lado, <personaje>_escopeta_lado (Tony la tiene; los demás siguen con la de pegar)
+      const tipo = arma === "escopeta" ? "escopeta" : "pistola";
+      if (an === pj + "_pegar_lado") s.setAnimationName(pj + "_" + tipo + "_lado");
+      else if (an === pj + "_pegar_abajo" && tipo === "pistola") s.setAnimationName(pj + "_pistola_abajo");
     }
   };
 
@@ -152,9 +156,29 @@
     V.setNumber(1);
   };
 
+  // Fase 69: la pistola pequeña siempre se puede recoger. El sistema de siempre ("Armas del salón") solo recoge con los
+  // puños; si el jugador trae un arma cuerpo a cuerpo (escoba, silla...) y pisa la pistola, esa arma se deja en el piso
+  // y en este mismo cuadro el evento de siempre le da la pistola (y borra la del piso). Las armas de fuego no se cambian.
+  A.cambiarPorPistola = function (scn) {
+    if (rol(scn) === 2) return;
+    for (const a of objs(scn, "ArmaPiso")) {
+      if (str(a, "Tipo") !== A.PISTOLA.tipo) continue;
+      const solo = num(a, "Solo");
+      for (const s of objs(scn, "Sup")) {
+        const arma = str(s, "Arma");
+        if (arma === "puños" || A.deFuego(s) || str(s, "Estado") !== "normal" || (solo && num(s, "Jugador") !== solo)) continue;
+        if (Math.hypot(s.getX() - a.getX(), s.getY() - a.getY()) > 40) continue;
+        const d = scn.createObject("ArmaPiso");
+        if (d) { d.setLayer("Juego"); d.setPosition(s.getX() - 56, s.getY() + 6); d.setZOrder(s.getY() + 6); VS(d, "Tipo").setString(arma); d.setAnimationName(arma); }
+        VS(s, "Arma").setString("puños"); VS(s, "Usos").setNumber(0);
+      }
+    }
+  };
+
   // ------------------------------------------------------------------ cada cuadro (todas las máquinas)
   A.tick = function (scn) {
     try { A.ponerPistola(scn); } catch (e) { /* sin la pistola inicial */ }
+    try { A.cambiarPorPistola(scn); } catch (e) { /* sin armas en el piso */ }
     miras(scn);
     hud(scn);
   };

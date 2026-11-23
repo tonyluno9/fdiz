@@ -1,5 +1,7 @@
 # FDI-Z en GDevelop: cómo abrirlo en otra computadora
 
+> Último trabajo (Modo Historia de 12 pasos y correcciones de la fase 69): lee **`TRASPASO_HISTORIA.md`**.
+
 El juego editable está en `gdevelop/FDI-Z/FDI-Z.json`. Todo lo que necesita viene en este repositorio.
 Usa rutas relativas, así que funciona en cualquier carpeta, siempre que se baje el repositorio **completo**.
 
@@ -35,7 +37,7 @@ Usa rutas relativas, así que funciona en cualquier carpeta, siempre que se baje
 - **Lanzar:** R o clic derecho (B en el mando). R ya no abre puertas.
 - **Correr:** Shift (LB o L3 en el mando), mientras haya estamina.
 - **Volumen:** en la pausa (Esc, P o Start) → AJUSTES. Ahí se ajustan MÚSICA y EFECTOS por separado (de 0 a 100 %, en pasos de 10) con ← →, la cruceta o el ratón. Se conserva al cambiar de pantalla y la próxima vez que se abra el juego.
-- **Saltar la cinemática:** Esc.
+- **Saltar la cinemática:** Esc. En el modo Historia: mantener Espacio, Enter o A 1 s (Espacio también adelanta los diálogos).
 - **Modo presentación:** F1. Luego, con los números: 1 completar objetivo, 2 saltar al final, 3 vida infinita, 4 y 5 infestación, 6 reiniciar, 7 morder a P1, 8 dar $200, 9 engrapadora para P1.
 - **Texto de depuración:** F3. Con F3 visible: B convierte a P1 en bot y T lo lleva a la siguiente máquina expendedora.
 
@@ -60,7 +62,7 @@ python gdevelop/scripts/fase12_mejoras.py gdevelop/FDI-Z/FDI-Z.json mapa/final/m
 ```
 `fase5` regenera los eventos de Juego, así que **siempre** se corren los tres, en ese orden.
 
-Los cambios posteriores (fases 13 a 67) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos, en este orden:
+Los cambios posteriores (fases 13 a 69) son parches que se aplican sobre el JSON, en orden (ver `gdevelop/BITACORA.md`). Los últimos, en este orden:
 ```
 python gdevelop/scripts/fase40_hojas_zombi.py        # (solo si cambian las hojas) hojas de Joel y Canepa zombi -> GIF
 python gdevelop/scripts/fase40_sprites_profes.py     # convierte los GIF de los profes y de los profes zombi a PNG
@@ -109,6 +111,10 @@ python gdevelop/scripts/fase65_cinematicas.py      # cinemáticas de Historia (v
 node gdevelop/scripts/prueba_cine.js                # pruebas de las cinemáticas (sin GDevelop)
 python gdevelop/scripts/fase66_musica.py           # música: soundtrack2d en el menú; ambiente de juego + su capa en la partida
 python gdevelop/scripts/fase67_pistola_inicial.py  # pistola inicial en el piso del salón (después de fase62_armas_uso.py)
+python gdevelop/scripts/fase68_historia.py        # MODO HISTORIA de 12 pasos (historia.js); volver a correr al agregar un video en FDI-Z/assets/historia/video/
+node gdevelop/scripts/prueba_historia2.js           # pruebas de la historia (orden contra el documento, audios y proyecto)
+python gdevelop/scripts/fase69_correcciones.py     # correcciones (daño de armas, Historia solo Tony, menú, CIC, Joel...); después de la 68
+node gdevelop/scripts/prueba_armas.js               # pruebas de las armas (incluye las animaciones de disparo de Tony)
 ```
 Arte de los profes zombis: un GIF por animación en `animaciones_gif/profes_zombi/<profe>/` (caminar_lado mirando a la derecha, caminar_arriba, caminar_abajo, atacar_lado, atacar_abajo, golpe_morir; atacar_arriba es opcional). Para cambiarlo, reemplaza el GIF y vuelve a correr los dos últimos scripts con GDevelop cerrado.
 En Windows basta con doble clic en `gdevelop\scripts\reconstruir.bat`: hace un respaldo con fecha y corre los tres. Antes de correrlos, haz una copia de `FDI-Z.json`.
