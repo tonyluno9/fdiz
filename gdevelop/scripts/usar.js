@@ -14,7 +14,7 @@
  * (Elegida = 1). Los eventos de cada acción leen su bandera en vez de Usando. Puertas restringidas sin derribar
  * (TiempoAbrir 0) no se pueden abrir con F: solo se avisa. Los bots (y los profes aliados) siguen como antes: todas sus
  * banderas = Usando y todas las puertas / objetivos a su alcance quedan elegidos.
- * Indicación: "Mantén F para abrir" (A en mando) sobre cada jugador local, con barra de progreso mientras lo mantiene.
+ * Indicación: [F] "Mantén para abrir" (fase 84: la tecla va dibujada como símbolo; A verde en mando) sobre cada jugador local, con barra de progreso mientras lo mantiene.
  * Autoridad: el host (o sin red) elige. Accion, UsarTxt y UsarProg se sincronizan; todos dibujan la indicación de sus
  * jugadores locales. */
 (function (gdjs) {
@@ -161,7 +161,8 @@
 
   // ------------------------------------------------------------------ todos: indicación sobre los jugadores locales
   U.dibujar = function (scn) {
-    const st = scn._fdizUsarUI || (scn._fdizUsarUI = { txt: [], dib: null });
+    const st = scn._fdizUsarUI || (scn._fdizUsarUI = { txt: [], tec: [], dib: null });
+    if (!st.tec) st.tec = [];
     if (!st.dib) {
       st.dib = scn.createObject("UsarDib");
       if (st.dib) { st.dib.setLayer("HUD"); st.dib.setPosition(0, 0); st.dib.setZOrder(404); }
@@ -175,17 +176,39 @@
       if (ctl < 0 || ctl > 4 || num(s, "Jugador") > 4 || s.isHidden() || str(s, "Estado") !== "normal") continue;   // solo jugadores de esta máquina
       const frase = str(s, "UsarTxt"); if (!frase) continue;
       const tecla = ctl === 0 ? "F" : "A";
-      const msg = (frase.charAt(0) === "!" ? frase.slice(1) : "Mantén {K} para " + frase).replace("{K}", tecla);
+      // fase 84: la tecla va en un símbolo (tecla dibujada con su letra) a la izquierda del texto
+      const msg = frase.charAt(0) === "!" ? frase.slice(1).replace("{K}", tecla) : "Mantén para " + frase;
+      const conTecla = frase.charAt(0) !== "!" || frase.indexOf("{K}") >= 0;   // avisos sin tecla (puerta restringida): sin símbolo
       const c = LJ.convertInverseCoords(s.getX(), s.getY() - 128, 0), p = LH.convertCoords(c[0], c[1], 0);
       let t = st.txt[n];
       if (!t) { t = st.txt[n] = scn.createObject("TxtUsar"); if (!t) break; t.setLayer("HUD"); }
+      let k = st.tec[n];
+      if (!k) { k = st.tec[n] = scn.createObject("TxtUsar"); if (k) k.setLayer("HUD"); }
       n++;
       t.hide(false);
       if (t._k !== msg) { t.setText(msg); t._k = msg; }
       if (t.setTextAlignment) t.setTextAlignment("center");
       t.setColor(frase.charAt(0) === "!" ? "255;150;120" : "255;240;170");
-      t.setPosition(Math.round(p[0] - t.getWidth() / 2), Math.round(p[1] - t.getHeight()));
+      const TAM = conTecla ? Math.max(30, Math.round(t.getHeight() + 6)) : 0, GAP = conTecla ? 10 : 0, total = TAM + GAP + t.getWidth();
+      const x0 = Math.round(p[0] - total / 2), yT = Math.round(p[1] - t.getHeight());
+      t.setPosition(x0 + TAM + GAP, yT);
       t.setZOrder(405);
+      const ky = Math.round(yT + t.getHeight() / 2 - TAM / 2);
+      if (D && conTecla) {                                         // tecla: sombra, cuerpo y borde
+        const raton = ctl === 0;
+        D.setFillOpacity(235); D.setFillColor("10;12;20"); D.drawRectangle(x0, ky + 3, x0 + TAM, ky + TAM + 3);
+        D.setFillColor(raton ? "236;236;242" : "70;180;90"); D.drawRectangle(x0, ky, x0 + TAM, ky + TAM);
+        D.setFillColor(raton ? "200;200;212" : "50;140;70"); D.drawRectangle(x0, ky + TAM - 6, x0 + TAM, ky + TAM);
+      }
+      if (k && !conTecla) k.hide(true);
+      else if (k) {
+        k.hide(false);
+        if (k._k !== tecla) { k.setText(tecla); k._k = tecla; }
+        if (k.setTextAlignment) k.setTextAlignment("center");
+        k.setColor(ctl === 0 ? "20;22;34" : "255;255;255");
+        k.setPosition(Math.round(x0 + TAM / 2 - k.getWidth() / 2), Math.round(ky + (TAM - 6) / 2 - k.getHeight() / 2 + 1));
+        k.setZOrder(406);
+      }
       const pr = num(s, "UsarProg");
       if (D && pr > 0) {
         const w = Math.max(90, t.getWidth()), x0 = Math.round(p[0] - w / 2), y0 = Math.round(p[1] + 4);
@@ -194,5 +217,6 @@
       }
     }
     for (let i = n; i < st.txt.length; i++) if (st.txt[i]) st.txt[i].hide(true);
+    for (let i = n; i < st.tec.length; i++) if (st.tec[i]) st.tec[i].hide(true);
   };
 })(gdjs);
