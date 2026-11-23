@@ -45,7 +45,16 @@ const banderas = (o) => ["UsaPuerta", "UsaRevivir", "UsaCurar", "UsaObjetivo", "
 let ok = 0, mal = 0;
 function prueba(nombre, f) { try { f(); ok++; console.log("  OK  ", nombre); } catch (e) { mal++; console.log("  MAL ", nombre, "->", e.message); } }
 const igual = (a, b, m) => { if (JSON.stringify(a) !== JSON.stringify(b)) throw new Error((m || "") + ": " + JSON.stringify(a) + " != " + JSON.stringify(b)); };
-const visibles = (sc) => sc.textos.filter((t) => !t.oculto).map((t) => t.txt);
+// fase 84: la tecla es un símbolo aparte (texto de una letra junto al aviso); se vuelve a juntar para comparar
+const visibles = (sc) => {
+  const v = sc.textos.filter((t) => !t.oculto).map((t) => t.txt), out = [];
+  for (let i = 0; i < v.length; i++) {
+    const k = v[i + 1];
+    if (k && /^[FA]$/.test(k)) { out.push(v[i].indexOf(" " + k + " ") >= 0 ? v[i] : v[i].replace("Mantén para", "Mantén " + k + " para")); i++; }
+    else out.push(v[i]);
+  }
+  return out;
+};
 
 prueba("Junto a una puerta sin mantener F: indicación «Mantén F para abrir», nada avanza", () => {
   const p1 = sup(1, 100, 200), pu = puerta(84, 140); const sc = escena([p1, pu]);

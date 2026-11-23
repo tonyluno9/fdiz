@@ -176,6 +176,16 @@
   H.ACOMPANAN = ["miranda", "alan", "cesar"];
   H.remap = function (scn) {
     const eq = H.equipo(scn).sort((a, b) => num(a, "Jugador") - num(b, "Jugador"));
+    // fase 84: al reintentar, el control humano pudo haber quedado en otro alumno (cambio de personaje, fase 72) y la
+    // escena lo carga desde P<j>Ctl; aquí todos salvo el 1 pasan a bot, así que antes se devuelve ese control al 1.
+    const humano = (c) => c >= 0 || c === -3;
+    if (eq.length && !humano(num(eq[0], "Control"))) {
+      let c = null;
+      for (const s of eq) { const v = num(s, "Control"); if (humano(v)) { c = v; break; } }
+      if (c === null) for (const s of eq) { try { const v = GV(scn, "P" + num(s, "Jugador") + "Ctl").getAsNumber(); if (humano(v)) { c = v; break; } } catch (e) { /* sin global */ } }
+      if (c === null && num(eq[0], "Control") !== -2) c = 0;    // nadie con control: el teclado y ratón
+      if (c !== null) { VS(eq[0], "Control").setNumber(c); try { GV(scn, "P" + num(eq[0], "Jugador") + "Ctl").setNumber(c); } catch (e) { /* sin global */ } }
+    }
     eq.forEach((s, k) => {
       const p = k === 0 ? "tony" : H.ACOMPANAN[(k - 1) % 3];
       if (str(s, "Personaje") !== p) { VS(s, "Personaje").setString(p); VS(s, "Init").setNumber(0); }
