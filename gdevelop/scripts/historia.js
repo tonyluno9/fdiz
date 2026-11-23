@@ -69,7 +69,10 @@
     olas: [[620, 2600], [620, 3900], [1300, 2700], [1300, 3800], [200, 2750], [200, 3750]],
   };
   H.FINAL_SEG = 90;
-  H.PISTOLA = { x: 5960, y: 2960 };          // la pistola del profe queda en el piso, frente al escritorio (fase 69)
+  // fase 71: pasos en los que Tony se mueve libre durante los diálogos (inicio en el salón, Joel y la llamada del CIC)
+  H.DLG_LIBRE = { 1: true, 2: true, 3: true, 5: true, 6: true };
+  // fase 71: en (5960, 2960) quedaba dentro del choque del escritorio y no se alcanzaba; ahora en el pasillo izquierdo del salón
+  H.PISTOLA = { x: 5830, y: 3036 };
 
   // Los 12 pasos. obj = objetivo que se muestra al empezar el paso (con su zona o "usar"); auto = empieza solo.
   // seq: ["fade"] · ["v", video] · ["d", líneas...] (bloqueante) · ["e", evento] · ["w", espera] (el juego sigue)
@@ -79,7 +82,7 @@
       seq: [["v", "C01_T1"], ["d", "C1_01_alan", "C1_02_miranda"], ["v", "C01_T2"], ["d", "C1_03_alan", "C1_04_cesar", "C1_05_tony"]] },
     3: { spawn: "salon", auto: true, seq: [["v", "C02"], ["d", "C2_01_alan", "C2_02_miranda"], ["e", "alarma"], ["d", "C2_03_altavoz", "C2_04_cesar"], ["e", "pistola"]] },
     4: { spawn: "salon", auto: true, seq: [["v", "C03"], ["d", "C3_01_miranda", "C3_02_tony", "C3_03_cesar"], ["e", "irrumpe"], ["w", "intruso"]] },
-    5: { spawn: "salon", obj: { txt: "Llega al CIC", zona: "CIC" },
+    5: { spawn: "salon", obj: { txt: "Llega al CIC", zona: "CIC", puerta: ["P37", "P38"] },
       seq: [["v", "C04"], ["d", "C4_01_joel", "C4_02_tony", "C4_03_joel", "C4_04_miranda", "C4_05_alan", "C4_06_joel"], ["e", "joel"]] },
     6: { spawn: "cic", obj: { txt: "Usa el teléfono del CIC", usar: "Telefono" },
       seq: [["v", "C05"], ["d", "C5_01_cesar", "C5_02_joel"], ["e", "apagon"], ["d", "C5_03_miranda"], ["e", "zombisPasillo"]] },
@@ -214,7 +217,26 @@
     return s;
   }
   const PREF = { pistolita: ["P1"], escopeta: ["tony"], pistola: ["cesar", "miranda", "alan", "tony"] };
-  const PARA_TONY = { escopeta: true };   // C65_03: Tony carga la escopeta
+  const PARA_TONY = { escopeta: true, pistola: true };   // C65_03: Tony carga la escopeta; fase 71: la sheriff la recoge Tony
+  H.SHERIFF = { x: 3350, y: 4510 };          // fase 71: la sheriff queda en el piso de la dirección, junto a la puerta (P47): Tony la recoge al pasar
+  function ponerSheriff(scn, st) {
+    if (st.sheriff && vivo(st.sheriff)) return;
+    const a = scn.createObject("ArmaPiso"); if (!a) return;
+    a.setLayer("Juego"); a.setPosition(H.SHERIFF.x, H.SHERIFF.y); a.setZOrder(H.SHERIFF.y);
+    VS(a, "Tipo").setString("pistola"); VS(a, "Solo").setNumber(1); try { a.setAnimationName("pistola"); } catch (e) { /* sin animación */ }
+    st.sheriff = a;
+  }
+  // el evento "Armas del salón" solo recoge con los puños: aquí Tony la toma aunque traiga otra arma (la anterior pasa a un compañero)
+  function recogerSheriff(scn, st) {
+    const a = st.sheriff; if (!a) return;
+    if (!vivo(a)) { st.sheriff = null; if (!armas(scn).includes("pistola")) anotarArma(scn, "pistola"); return; }
+    const t = H.equipo(scn).find((o) => pj(o) === "tony" && str(o, "Estado") === "normal"); if (!t) return;
+    const b = a.getAABB(), x = t.getX(), y = t.getY();
+    if (x + 20 < b.min[0] || x - 20 > b.max[0] || y < b.min[1] || y - 16 > b.max[1]) return;
+    darArma(scn, "pistola", PREF.pistola, true); anotarArma(scn, "pistola");
+    a.deleteFromScene(scn); st.sheriff = null;
+    banner(scn, "¡TONY TIENE LA SHERIFF!", 2.5);
+  }
   // pistola del profe en el piso (ArmaPiso "pistolita", Solo = 1: solo el jugador 1 la recoge, como en la fase 67)
   function ponerPistola(scn, x, y) {
     if (objs(scn, "ArmaPiso").some((a) => str(a, "Tipo") === "pistolita")) return;
@@ -447,7 +469,7 @@
     zombisPasillo(scn) { for (const [x, y] of H.LUGAR.pasilloCIC) zombi(scn, "ZNormal", x, y, "persigue"); },
     intendencia(scn, st) {
       quitarPuerta(scn, H.LUGAR.puertaConserje);
-      st.intendencia = zombi(scn, "ZNormal", H.LUGAR.intendencia[0], H.LUGAR.intendencia[1], "persigue");
+      st.intendencia = zombi(scn, "ZGordo", H.LUGAR.intendencia[0], H.LUGAR.intendencia[1], "persigue");
     },
     escopeta(scn) {
       const s = darArma(scn, "escopeta", PREF.escopeta, true); anotarArma(scn, "escopeta");
@@ -463,10 +485,10 @@
     },
     llave(scn, st) {
       st.llave = true; quitarReja(scn, st);
-      const s = darArma(scn, "pistola", PREF.pistola); anotarArma(scn, "pistola");
+      ponerSheriff(scn, st); const s = null;                     // fase 71: la sheriff queda en el piso; se recoge pasando encima
       SV(scn, "ExtraZombies").setNumber(8);
       conserje(scn, st);
-      banner(scn, "¡LLAVE DE LA REJA" + (s ? " Y PISTOLA PARA " + (H.NOMBRES[pj(s)] || "").toUpperCase() : "") + "! El conserje los persigue", 3.5);
+      banner(scn, "¡LLAVE DE LA REJA" + (s ? "" : " Y UNA SHERIFF EN EL PISO") + "! El conserje los persigue", 3.5);
       sonido(scn, "evento_impacto_cinematico.ogg", 90);
     },
     defensa(scn, st) {
@@ -584,11 +606,16 @@
       const tipo = it[0];
       if (!R.it) {                                              // empieza el elemento
         R.it = { t0: H.now(), k: 1 };
+        if (tipo !== "fade") SV(scn, "HistVelo").setNumber(0);   // fase 71: un checkpoint en un paso automático no se queda en negro
         if (tipo === "fade") { congelar(scn, st); SV(scn, "HistVelo").setNumber(255); }
         else if (tipo === "v") {
           if (vista(scn, it[1])) { R.i++; R.it = null; continue; }     // ya se vio en esta partida: no se repite
           congelar(scn, st); callar(scn, st); st.gq = []; empezarCine(scn, st, it[1]);
-        } else if (tipo === "d") { congelar(scn, st); callar(scn, st); st.gq = []; }
+        } else if (tipo === "d") {
+          // fase 71: en los diálogos del inicio (pasos 1 a 3, antes de la alerta) Tony se mueve libre dentro del salón
+          if (H.DLG_LIBRE[st.paso]) devolver(scn, st, true); else congelar(scn, st);
+          callar(scn, st); st.gq = [];
+        }
         else if (tipo === "e") { try { H.EVENTOS[it[1]](scn, st); } catch (e) { console.error("historia: evento " + it[1], e); } R.i++; R.it = null; continue; }
         else if (tipo === "w") devolver(scn, st);
       }
@@ -626,7 +653,8 @@
       const g = st.usarObj;
       if (!g || !vivo(g)) objetivo(scn, st, o);                 // alguien lo borró: vuelve a ponerse
       else if (num(g, "Hecho") === 1) ok = true;
-    } else if (!ok && o.zona) ok = enZona(scn, o.zona, H.jugadores(scn));
+    } else if (!ok && o.puerta) ok = o.puerta.some((id) => !puerta(scn, id));   // fase 71: Joel arranca al abrir la puerta de su sala
+    else if (!ok && o.zona) ok = enZona(scn, o.zona, H.jugadores(scn));
     if (!ok) return;
     if (st.usarObj && vivo(st.usarObj)) st.usarObj.deleteFromScene(scn);
     st.usarObj = null;
@@ -648,6 +676,26 @@
     if (st.run) return;
     if (st.lin && lineaLista(st, inp, false)) callar(scn, st);
     if (!st.lin && st.gq.length) decir(scn, st, st.gq.shift(), false);
+  }
+
+  // ------------------------------------------------------------------ fase 71: inicio
+  // Hasta que termina la alerta (fin de la secuencia del paso 3) los zombis no se mueven, y el equipo no sale del salón.
+  function quietos(scn, st) {
+    const frio = st.paso < 3 || (st.paso === 3 && !!st.run);
+    for (const z of zombis(scn)) {
+      if (frio) {
+        if (!z._fdizFrz) { z._fdizFrz = [z.getX(), z.getY()]; try { z.activateBehavior("Pathfinding", false); } catch (e) { /* sin ruta */ } }
+        z.setPosition(z._fdizFrz[0], z._fdizFrz[1]);
+        try { z.clearForces(); } catch (e) { /* sin fuerzas */ }
+      } else if (z._fdizFrz) { z._fdizFrz = null; try { z.activateBehavior("Pathfinding", true); } catch (e) { /* sin ruta */ } }
+    }
+    if (st.paso <= 3) {
+      const R = H.SALON;
+      for (const s of H.equipo(scn)) {
+        const x = Math.min(R[2] - 24, Math.max(R[0] + 24, s.getX())), y = Math.min(R[3] - 24, Math.max(R[1] + 24, s.getY()));
+        if (x !== s.getX() || y !== s.getY()) s.setPosition(x, y);
+      }
+    }
   }
 
   // ------------------------------------------------------------------ cada cuadro, host
@@ -682,6 +730,8 @@
     const inp = entrada(scn, st), pausa = SV(scn, "Pausa").getAsNumber() === 1;
     if (st.cong && st.cong.soltar && !inp.mantiene) devolver(scn, st, true);   // terminó la escena y ya soltó la tecla
     pistola(scn, st);
+    recogerSheriff(scn, st);
+    quietos(scn, st);
     if (!pausa) {
       if (st.run) {
         if (saltar && st.run.seq[st.run.i] && st.run.seq[st.run.i][0] === "w") {
@@ -847,8 +897,30 @@
     P.nom.hide(false); P.nom.setPosition(x + RW + PAD, y + PAD * 0.6);
     P.txt.hide(false); P.txt.setPosition(x + RW + PAD, y + PAD * 0.6 + P.nom.getHeight() + 4);
   }
+  // fase 71: durante el apagón, un círculo de luz pequeño sigue a Tony (capa de luz "Luz") hasta que vuelve la luz
+  function linterna(scn, L) {
+    let on = false;
+    try { on = SV(scn, "Apagon").getAsNumber() === 1; } catch (e) { /* sin variable */ }
+    const t = on ? H.equipo(scn).find((s) => num(s, "Jugador") === 1 && str(s, "Estado") !== "fuera") : null;
+    if (!t) { if (L.luz) L.luz.visible = false; return; }
+    if (!L.luz) {
+      try {
+        const cv = document.createElement("canvas"); cv.width = cv.height = 256;
+        const x = cv.getContext("2d"), g = x.createRadialGradient(128, 128, 0, 128, 128, 128);
+        g.addColorStop(0, "rgba(255,240,210,1)"); g.addColorStop(0.55, "rgba(255,240,210,0.85)"); g.addColorStop(1, "rgba(255,240,210,0)");
+        x.fillStyle = g; x.fillRect(0, 0, 256, 256);
+        const sp = new PIXI.Sprite(PIXI.Texture.from(cv));
+        sp.anchor.set(0.5); sp.blendMode = PIXI.BLEND_MODES.ADD; sp.width = sp.height = 260;
+        scn.getLayer("Luz").getRenderer().getRendererObject().addChild(sp);
+        L.luz = sp;
+      } catch (e) { L.luz = { visible: false, position: { set() {} } }; return; }   // sin PIXI: sin linterna
+    }
+    L.luz.visible = true;
+    L.luz.position.set(t.getX(), t.getY() - 48);
+  }
   function render(scn, st) {
     const L = st.local, P = pool(scn, L);
+    linterna(scn, L);
     cine(scn, st, L, P);
     alarma(scn, L, P);
     globo(scn, L, P);

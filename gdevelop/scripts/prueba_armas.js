@@ -159,7 +159,7 @@ prueba("Animaciones placeholder de pistola de lado y hacia abajo para los 12 per
   const S = J.objects.find((o) => o.name === "Sup"), an = Object.fromEntries(S.animations.map((a) => [a.name, a]));
   for (const pj of PJS) for (const [dir, base, idx] of [["lado", "pegar_lado", 1], ["abajo", "pegar_abajo", 0]]) {
     const a = an[pj + "_pistola_" + dir]; si(a, "falta " + pj + "_pistola_" + dir);
-    if (pj === "tony" && dir === "lado") continue;          // fase 69: Tony usa sus cuadros reales de disparo (prueba siguiente)
+    if ((pj === "tony" || pj === "alan") && dir === "lado") continue;   // fase 71: Alan usa su GIF de AK-47          // fase 69: Tony usa sus cuadros reales de disparo (prueba siguiente)
     const sp = a.directions[0].sprites, b = an[pj + "_" + base].directions[0].sprites[idx];
     igual(sp.length, 3, pj + " " + dir);
     for (const s of sp) {
@@ -185,7 +185,7 @@ prueba("Fase 69: Tony dispara con sus animaciones reales (pistola y escopeta de 
 prueba("Al disparar con pistola: de lado y abajo la animación de pistola; arriba, escopeta o sin animación sigue la de pegar", () => {
   const A = cargar();
   const casos = [["tony", "pistolita", "tony_pegar_lado", "tony_pistola_lado"], ["miranda", "pistola", "miranda_pegar_abajo", "miranda_pistola_abajo"],
-    ["gabo", "pistolita", "gabo_pegar_arriba", "gabo_pegar_arriba"], ["cesar", "escopeta", "cesar_pegar_lado", "cesar_pegar_lado"],
+    ["gabo", "pistolita", "gabo_pegar_arriba", "gabo_pegar_arriba"], ["cesar", "escopeta", "cesar_pegar_lado", "cesar_escopeta_lado"],
     ["tonyfuerte", "pistola", "tonyfuerte_pegar_lado", "tonyfuerte_pistola_lado"]];
   for (const [pj, arma, de, a] of casos) {
     const s = sup(1, pj, 0, 0, { Arma: arma, Usos: 3, Atacando: 1 }); s.an = de;
