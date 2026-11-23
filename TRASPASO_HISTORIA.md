@@ -11,13 +11,11 @@ Fecha: 2026-11-22. Escrito para seguir el trabajo en otra computadora.
 
 ## 1. Cómo ponerlo al día en la otra computadora
 
-1. Baja los cambios. Están en la rama **`historia-12-pasos`** (no en `main`):
+1. Baja los cambios (ya están en **`main`**; también quedó la rama `historia-12-pasos` con lo mismo):
    ```
-   git fetch origin
-   git checkout historia-12-pasos
+   git checkout main
    git pull
    ```
-   Para llevarlos a `main` cuando lo hayas revisado: `git checkout main`, `git merge historia-12-pasos` y `git push`.
 2. Abre en GDevelop (5.6.287 o más nuevo) `gdevelop/FDI-Z/FDI-Z.json` y arranca desde la escena **Titulo**, o desde **Menu**.
 3. **No edites a mano** los eventos que tienen comentarios `FDIZ-FASE68…` / `FDIZ-FASE69…` ni los bloques JS `FDIZ-FASE…-MOD`.
    - Salen de scripts. Para cambiarlos, edita el `.js` o el `.py` y vuelve a correr las fases con GDevelop cerrado:
