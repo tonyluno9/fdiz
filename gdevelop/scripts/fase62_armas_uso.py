@@ -7,9 +7,9 @@ Uso (desde la carpeta fdiz, con GDevelop CERRADO), después de fase59_armas_fueg
 Si se vuelve a correr fase25_online.py (compuerta de host en los eventos JS sueltos de Juego), correr esta fase otra vez.
 
 Qué hace en Juego (todos los modos: Escape, Historia y Jefe; sin red, host y clientes):
-  * El jugador 1 empieza con la pistola pequeña ("pistolita", 9 balas): grupo "Inicio de supervivientes", al iniciar
-    cada Sup (Init = 0). Mientras la tenga no recoge otra arma (regla de siempre: solo con los puños); al gastarla
-    vuelve a los puños. En la intro, como ya no tiene los puños, no recibe la regla.
+  * Pistola pequeña ("pistolita", 9 balas): desde la fase 67 NADIE empieza con ella. armas.js la pone en el piso del
+    salón donde empieza el jugador 1 y se recoge como las demás armas (ver fase67_pistola_inicial.py). Esta fase quita
+    el evento viejo que la equipaba en "Inicio de supervivientes".
   * Animaciones <personaje>_pistola_lado y _pistola_abajo (3 cuadros, placeholders de fase62_arte_pistola.py) con el
     mismo origen y máscara de colisión que la base (pegar_lado cuadro 1 / pegar_abajo cuadro 0).
   * Objetos: Mira (sprite de la mira), TxtBalas (texto como TxtCd) con 4 instancias junto al ícono del arma de cada
@@ -26,7 +26,7 @@ PRY = os.path.join(RAIZ, "gdevelop", "FDI-Z", "FDI-Z.json")
 GEN = os.path.join(RAIZ, "generado", "sprites")
 REL = "../../generado/sprites/"
 MK = "FDIZ-FASE62"
-INICIAL = ("pistolita", 9)                      # arma y balas con que empieza el jugador 1
+INICIAL = ("pistolita", 9)                      # pistola pequeña (ya no se equipa al empezar: fase 67)
 TXT_POS = {1: (409, 104), 2: (1871, 104), 3: (409, 988), 4: (1871, 988)}   # a la derecha del ícono del arma
 
 
@@ -129,7 +129,7 @@ def main():
     hecho.append("animaciones: %d" % n_anim)
 
     # ---------------- objetos
-    # (pistolita.png se genera para un futuro sprite de piso, pero ningún objeto la usa: no se registra)
+    # (pistolita.png no se registra: el sprite de piso es pistolita_piso.png, de la fase 67)
     d["resources"]["resources"] = [r for r in d["resources"]["resources"] if r["name"] != "objetos/armas/pistolita.png"]
     for nombre, archivo in (("objetos/armas/mira.png", "objetos/armas/mira.png"),):
         if not os.path.exists(os.path.join(GEN, *archivo.split("/"))):
@@ -156,13 +156,15 @@ def main():
         n["initialVariables"] = [{"name": "Jugador", "type": "number", "value": j}]
         J["instances"].append(n)
 
-    # ---------------- el jugador 1 empieza con la pistola pequeña (al iniciar cada Sup)
+    # ---------------- la pistola pequeña ya no se da al iniciar cada Sup (fase 67)
     ini = next(e for e in recorrer(grupo(J["events"], "Inicio de supervivientes")["events"])
                if es(e, "VarObjet", ["Sup", "Init", "=", "0"]) and es(e, "ModVarObjet", ["Sup", "Init", "=", "1"]))
+    # fase 67: ya NO se equipa al empezar; la pistola está en el piso del salón (armas.js la pone y se recoge como las demás).
+    # Se quita el evento que la daba (si un proyecto viejo lo tiene).
+    antes = len(ini["events"])
     ini["events"] = [e for e in ini["events"] if not es(e, "ModVarObjetTxt", ["Sup", "Arma", "=", '"%s"' % INICIAL[0]])]
-    ini["events"].append(std([c("VarObjet", "Sup", "Jugador", "=", "1")],
-                             [a("ModVarObjetTxt", "Sup", "Arma", "=", '"%s"' % INICIAL[0]), a("ModVarObjet", "Sup", "Usos", "=", str(INICIAL[1]))]))
-    hecho.append("jugador 1 con %s (%d)" % INICIAL)
+    if len(ini["events"]) != antes:
+        hecho.append("ya no empieza con %s" % INICIAL[0])
 
     # ---------------- armas.js
     ev = J["events"]

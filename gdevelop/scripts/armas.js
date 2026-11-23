@@ -10,11 +10,16 @@
  * personaje o un zombi. Solo para jugadores (no bots) con arma de fuego, de pie, en juego y sin pausa.
  * Animación: con pistola (pequeña o sheriff) el golpe de lado o hacia abajo usa <personaje>_pistola_lado / _abajo.
  * Hacia arriba no hay animación de pistola: se queda la de pegar hacia arriba de siempre. Si un personaje no tiene la
- * animación de pistola, setAnimationName no cambia nada y sigue la de pegar (nunca queda invisible ni detenido). */
+ * animación de pistola, setAnimationName no cambia nada y sigue la de pegar (nunca queda invisible ni detenido).
+ * Pistola inicial (fase 67): nadie empieza con ella. Al empezar la partida (host / sin red) se pone UNA pistola pequeña
+ * en el piso (ArmaPiso Tipo "pistolita", Solo = 1) del salón donde está el jugador 1: B-01 (intro de Escape e Historia)
+ * o E-04 (aparición normal: Jefe, en línea, Escape sin intro). Se recoge con el sistema de siempre ("Armas del salón":
+ * pasar encima con los puños; solo el jugador 1 por Solo = 1), que la equipa con 9 balas y borra la del piso.
+ * PistolaPuesta (variable de la escena) evita ponerla dos veces; se reinicia sola con la escena (partida nueva). */
 (function (gdjs) {
   "use strict";
-  if (gdjs.fdizArmas && gdjs.fdizArmas.VER === 1) return;
-  const A = (gdjs.fdizArmas = { VER: 1 });
+  if (gdjs.fdizArmas && gdjs.fdizArmas.VER === 2) return;
+  const A = (gdjs.fdizArmas = { VER: 2 });
 
   A.CARGADOR = { pistolita: 9, pistola: 4, escopeta: 6 };
   A.PISTOLAS = { pistolita: true, pistola: true };
@@ -111,8 +116,45 @@
     }
   }
 
+  // ------------------------------------------------------------------ pistola inicial en el piso (host / sin red)
+  A.PISTOLA = {
+    tipo: "pistolita",
+    espera: 40,                 // cuadros después de que todos los Sup tienen Init = 1 (Historia y la intro ya los movieron)
+    salones: [                  // muros del salón y dónde va la pistola (pies del arma), en el pasillo entre pupitres
+      { zona: "B-01", x0: 5824, y0: 2848, x1: 6144, y1: 3264, x: 6000, y: 3100 },
+      { zona: "E-04", x0: 4960, y0: 2368, x1: 5408, y1: 2624, x: 5200, y: 2570 },
+    ],
+  };
+  const espera = new WeakMap();
+  A.salonDe = function (x, y) {
+    const S = A.PISTOLA.salones;
+    const en = S.find((q) => x >= q.x0 && x <= q.x1 && y >= q.y0 && y <= q.y1);
+    if (en) return en;
+    const d = (q) => Math.hypot(x - (q.x0 + q.x1) / 2, y - (q.y0 + q.y1) / 2);
+    return S.slice().sort((a, b) => d(a) - d(b))[0];
+  };
+  A.ponerPistola = function (scn) {
+    if (rol(scn) === 2) return;
+    const V = SV(scn, "PistolaPuesta");
+    if (V.getAsNumber() !== 0) return;
+    const sups = objs(scn, "Sup");
+    if (!sups.length || sups.some((s) => num(s, "Init") !== 1)) return;
+    const n = (espera.get(scn) || 0) + 1;
+    espera.set(scn, n);
+    if (n < A.PISTOLA.espera) return;
+    const p1 = sups.find((s) => num(s, "Jugador") === 1) || sups[0];
+    const q = A.salonDe(p1.getX(), p1.getY());
+    const a = scn.createObject("ArmaPiso");
+    if (!a) return;
+    a.setLayer("Juego"); a.setPosition(q.x, q.y); a.setZOrder(q.y);
+    VS(a, "Tipo").setString(A.PISTOLA.tipo); VS(a, "Solo").setNumber(1);
+    a.setAnimationName(A.PISTOLA.tipo);
+    V.setNumber(1);
+  };
+
   // ------------------------------------------------------------------ cada cuadro (todas las máquinas)
   A.tick = function (scn) {
+    try { A.ponerPistola(scn); } catch (e) { /* sin la pistola inicial */ }
     miras(scn);
     hud(scn);
   };

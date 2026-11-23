@@ -12315,6 +12315,14 @@
         "metadata": "",
         "name": "vid_historia_01",
         "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/objetos/armas/pistolita_piso.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "objetos/armas/pistolita_piso.png",
+        "smoothed": false,
+        "userAdded": true
       }
     ]
   },
@@ -75058,6 +75066,11 @@
           "name": "HistVistos",
           "type": "string",
           "value": ""
+        },
+        {
+          "name": "PistolaPuesta",
+          "type": "number",
+          "value": 0
         }
       ],
       "instances": [
@@ -155167,6 +155180,11 @@
               "name": "Tipo",
               "type": "string",
               "value": "escoba"
+            },
+            {
+              "name": "Solo",
+              "type": "number",
+              "value": 0
             }
           ],
           "effects": [],
@@ -155362,6 +155380,35 @@
                         "name": "origine",
                         "x": 16,
                         "y": 32
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pistolita",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "objetos/armas/pistolita_piso.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 19,
+                        "y": 24
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -170480,20 +170527,6 @@
         },
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "/*FDIZ-FASE62-MOD*/\n/* FDI-Z · Fase 62 · Uso de las armas de fuego: mira, munición en el HUD y animación con pistola. Todos los modos.\n * Se incrusta en la escena Juego con scripts/fase62_armas_uso.py (no editar el evento a mano):\n *   FDIZ-FASE62-MOD y FDIZ-FASE62-TICK arriba de todo, sin compuerta de host (cada máquina dibuja su mira y su HUD);\n *   FDIZ-FASE62-ANIM al final de \"Combate: pegar\" (host / sin red; la animación llega a los clientes por la red).\n *\n * Munición: es la de siempre (Sup.Usos, se gasta 1 por disparo y al llegar a 0 vuelven los puños). No hay recarga ni\n * balas de reserva: el HUD muestra las balas que le quedan al arma y, debajo del ícono, el cargador completo con las\n * gastadas en gris. CARGADOR = las balas con que se recoge cada arma (fase 59).\n * Mira: una cruz hueca de 11 px a 78 px del arma, hacia donde apunta (AimX, AimY); más transparente si queda sobre un\n * personaje o un zombi. Solo para jugadores (no bots) con arma de fuego, de pie, en juego y sin pausa.\n * Animación: con pistola (pequeña o sheriff) el golpe de lado o hacia abajo usa <personaje>_pistola_lado / _abajo.\n * Hacia arriba no hay animación de pistola: se queda la de pegar hacia arriba de siempre. Si un personaje no tiene la\n * animación de pistola, setAnimationName no cambia nada y sigue la de pegar (nunca queda invisible ni detenido). */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizArmas && gdjs.fdizArmas.VER === 1) return;\n  const A = (gdjs.fdizArmas = { VER: 1 });\n\n  A.CARGADOR = { pistolita: 9, pistola: 4, escopeta: 6 };\n  A.PISTOLAS = { pistolita: true, pistola: true };\n  A.RADIO = 78;                 // px del arma a la mira\n  A.ALTO = 46;                  // el arma (y la salida de las balas) está 46 px arriba de los pies (fase 59)\n  A.ICONO = { 1: [351, 94], 2: [1813, 94], 3: [351, 978], 4: [1813, 978] };   // ícono del arma (54 x 54) de cada panel\n  A.BAJAS = 2;                  // con estas balas o menos, el número se pone rojo\n\n  const VS = (o, n) => o.getVariables().get(n);\n  const num = (o, n) => VS(o, n).getAsNumber();\n  const str = (o, n) => VS(o, n).getAsString();\n  const objs = (scn, n) => { try { return scn.getObjects(n) || []; } catch (e) { return []; } };\n  const rol = (scn) => { try { return scn.getGame().getVariables().get(\"NetRol\").getAsNumber(); } catch (e) { return 0; } };\n  const SV = (scn, n) => scn.getVariables().get(n);\n  A.deFuego = (s) => A.CARGADOR[str(s, \"Arma\")] !== undefined;\n\n  // ------------------------------------------------------------------ animación (host / sin red)\n  A.anim = function (scn) {\n    if (rol(scn) === 2) return;\n    for (const s of objs(scn, \"Sup\")) {\n      if (!A.PISTOLAS[str(s, \"Arma\")] || num(s, \"Atacando\") !== 1) continue;\n      const pj = str(s, \"Personaje\"), an = s.getAnimationName();\n      if (an === pj + \"_pegar_lado\") s.setAnimationName(pj + \"_pistola_lado\");\n      else if (an === pj + \"_pegar_abajo\") s.setAnimationName(pj + \"_pistola_abajo\");\n    }\n  };\n\n  // ------------------------------------------------------------------ mira\n  const caja = (o) => {\n    const x = o.getDrawableX ? o.getDrawableX() : o.getX(), y = o.getDrawableY ? o.getDrawableY() : o.getY();\n    return [x, y, x + o.getWidth(), y + o.getHeight()];\n  };\n  const dentro = (b, x, y, m) => x >= b[0] - m && x <= b[2] + m && y >= b[1] - m && y <= b[3] + m;\n  A.ZN = [\"ZNormal\", \"ZCorredor\", \"ZGriton\", \"ZGordo\", \"ZConserje\", \"ZJoel\", \"ZJustino\", \"ZCanepa\", \"Profe\"];\n  A.posMira = function (s) {\n    let ax = num(s, \"AimX\"), ay = num(s, \"AimY\");\n    const n = Math.hypot(ax, ay);\n    if (n < 0.01) return null;\n    ax /= n; ay /= n;\n    return [s.getX() + ax * A.RADIO, s.getY() - A.ALTO + ay * A.RADIO];\n  };\n  function miras(scn) {\n    const juego = SV(scn, \"Estado\").getAsString() === \"juego\" && SV(scn, \"Pausa\").getAsNumber() !== 1;\n    const sups = objs(scn, \"Sup\");\n    const otros = sups.concat(...A.ZN.map((n) => objs(scn, n)));\n    for (const s of sups) {\n      const j = num(s, \"Jugador\");\n      const ver = juego && j >= 1 && j <= 4 && num(s, \"Control\") !== -1 && str(s, \"Estado\") === \"normal\" && A.deFuego(s) && num(s, \"Usos\") > 0;\n      const p = ver ? A.posMira(s) : null;\n      let m = s.__fdizMira;\n      if (!p) { if (m) m.hide(true); continue; }\n      if (!m) {\n        m = s.__fdizMira = scn.createObject(\"Mira\");\n        if (!m) continue;\n        m.setLayer(\"Juego\");\n      }\n      m.hide(false);\n      m.setPosition(Math.round(p[0] - m.getWidth() / 2), Math.round(p[1] - m.getHeight() / 2));\n      m.setZOrder(100000);\n      const tapa = otros.some((o) => o !== s && !(o.isHidden && o.isHidden()) && dentro(caja(o), p[0], p[1], 2));\n      m.setOpacity(tapa ? 110 : 210);\n    }\n    for (const m of objs(scn, \"Mira\")) {                            // miras de jugadores que ya no están\n      if (!sups.some((s) => s.__fdizMira === m)) m.deleteFromScene(scn);\n    }\n  }\n\n  // ------------------------------------------------------------------ munición en el HUD\n  function hud(scn) {\n    const st = scn.__fdizArmas || (scn.__fdizArmas = {});\n    if (!st.dib) { st.dib = scn.createObject(\"BalasDib\"); if (st.dib) { st.dib.setLayer(\"HUD\"); st.dib.setPosition(0, 0); st.dib.setZOrder(60); } }\n    const d = st.dib;\n    if (d) d.clear();\n    const intro = SV(scn, \"Estado\").getAsString() === \"intro\";\n    for (const t of objs(scn, \"TxtBalas\")) {\n      const j = num(t, \"Jugador\"), s = objs(scn, \"Sup\").find((o) => num(o, \"Jugador\") === j);\n      const icono = objs(scn, \"HudIcono\").find((o) => num(o, \"Jugador\") === j && num(o, \"Slot\") === 3);\n      const ver = !intro && s && A.deFuego(s) && num(s, \"Usos\") > 0 && (!icono || (icono.isVisible ? icono.isVisible() : !icono.isHidden()));\n      if (!ver) { t.hide(true); continue; }\n      const usos = Math.max(0, Math.round(num(s, \"Usos\"))), cap = Math.max(usos, A.CARGADOR[str(s, \"Arma\")]);\n      const xy = A.ICONO[j] || [icono.getX(), icono.getY()];\n      t.hide(false);\n      if (t.getString() !== String(usos)) t.setText(String(usos));\n      t.setColor(usos <= A.BAJAS ? \"255;110;90\" : \"255;255;255\");\n      t.setPosition(xy[0] + 58, xy[1] + 10);\n      if (!d) continue;\n      // cargador: una marca por bala; las gastadas en gris (no hay reservas: solo lo que trae el arma)\n      const w = 4, g = 2, total = cap * (w + g) - g, x0 = Math.round(xy[0] + 27 - total / 2), y0 = xy[1] + 57;\n      d.setOutlineSize(1); d.setOutlineColor(\"20;20;30\"); d.setOutlineOpacity(255); d.setFillOpacity(255);\n      for (let k = 0; k < cap; k++) {\n        d.setFillColor(k < usos ? \"232;190;90\" : \"70;70;84\");\n        d.drawRectangle(x0 + k * (w + g), y0, x0 + k * (w + g) + w, y0 + 8);\n      }\n    }\n  }\n\n  // ------------------------------------------------------------------ cada cuadro (todas las máquinas)\n  A.tick = function (scn) {\n    miras(scn);\n    hud(scn);\n  };\n})(gdjs);\n",
-          "parameterObjects": "",
-          "useStrict": true,
-          "eventsSheetExpanded": false
-        },
-        {
-          "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "/*FDIZ-FASE62-TICK*/\nif (gdjs.fdizArmas) gdjs.fdizArmas.tick(runtimeScene);",
-          "parameterObjects": "",
-          "useStrict": true,
-          "eventsSheetExpanded": false
-        },
-        {
-          "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": "/*FDIZ-FASE63-MOD*/\n/* FDI-Z · Fase 63 · Color de los letreros de eventos (TxtBanner) durante la partida. Todos los modos.\n * Se incrusta en la escena Juego con scripts/fase63_avisos.py (no editar el evento a mano): FDIZ-FASE63-MOD arriba de\n * todo y FDIZ-FASE63-COLOR dentro del evento del grupo \"HUD\" que muestra el letrero (corre en todas las máquinas).\n *\n * Todos los letreros pasan por la variable de escena Banner (eventos de objetivos, final, mordidos, habilidades, HUD,\n * puertas, y los módulos profes.js y medios.js) y se muestran con el objeto TxtBanner. Antes ese objeto era rojo fijo.\n * Regla:\n *   ROJO   solo si el mensaje dice que un personaje se infectó (mordido / mordida, infectado, se convirtió en zombi)\n *          o que la FDI se está llenando;\n *   VERDE  todo lo demás (objetivos, acciones cumplidas, avisos positivos, el final...).\n * El texto se compara normalizado (minúsculas, sin acentos ni signos, espacios simples), así que «¡P2 MORDIDO!»,\n * «Canepa mordida», «SE CONVIRTIÓ EN ZOMBIE» o «la fdi se esta llenando» se clasifican igual. El texto y el momento en\n * que aparece cada letrero no cambian: solo el color. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizAvisos && gdjs.fdizAvisos.VER === 1) return;\n  const A = (gdjs.fdizAvisos = { VER: 1 });\n  A.ROJO = \"255;80;80\";\n  A.VERDE = \"110;230;110\";\n\n  A.normalizar = function (s) {\n    return String(s || \"\").normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\").toLowerCase()\n      .replace(/[^a-z0-9]+/g, \" \").replace(/\\s+/g, \" \").trim();\n  };\n  const INFECCION = [/\\bmordid[oa]s?\\b/, /\\binfectad[oa]s?\\b/, /\\bse infect/, /\\bconvirti\\w* en zombi(e|s|es)?\\b/, /\\bzombificad/];\n  const LLENA = [/\\bfdi\\b.*\\bllen(ando|a|o|ndose)\\b/];\n  const POSITIVO = [/\\bsalvad[oa]s?\\b/, /\\bcurad[oa]s?\\b/, /\\bya no\\b/];   // «curado de la mordida» no es rojo\n  A.esRojo = function (texto) {\n    const t = A.normalizar(texto);\n    if (!t) return false;\n    if (LLENA.some((r) => r.test(t)) && !/\\bya no\\b/.test(t)) return true;\n    return INFECCION.some((r) => r.test(t)) && !POSITIVO.some((r) => r.test(t));\n  };\n  A.color = (texto) => (A.esRojo(texto) ? A.ROJO : A.VERDE);\n\n  // dentro del evento que muestra el letrero: pone el color que le toca al texto que se ve\n  A.aplicar = function (scn) {\n    for (const t of scn.getObjects(\"TxtBanner\") || []) {\n      const s = t.getString ? t.getString() : \"\";\n      if (t.__fdizAviso === s) continue;                         // solo cuando cambia el texto\n      t.__fdizAviso = s;\n      t.setColor(A.color(s));\n    }\n  };\n})(gdjs);\n",
           "parameterObjects": "",
           "useStrict": true,
@@ -170516,6 +170549,20 @@
         {
           "type": "BuiltinCommonInstructions::JsCode",
           "inlineCode": "/*FDIZ-FASE65-MOD*/\n/* FDI-Z · Fase 65 · Cinemáticas del modo Historia como videos (8). Solo en Historia; Escape y Jefe no cambian.\n * Se incrusta en la escena Juego con scripts/fase65_cinematicas.py (FDIZ-FASE65-MOD y -TICK, sin compuerta de host).\n * No editar el evento a mano: editar este archivo y volver a correr el script.\n *\n * Videos: gdevelop/FDI-Z/assets/interfaz/videos/historia/<archivo> (VIDEOS, abajo). El script crea el objeto VidHist0N\n * solo si el archivo existe. Si falta, se muestra una tarjeta de texto breve con lo que pasa (alternativa segura) y la\n * historia sigue; para el 8 (Canepa) la alternativa es la charla con burbujas de la fase 61.\n *\n * Cuándo (una sola vez por partida: HistVistos, sincronizada en línea):\n *   1 al empezar una partida de Historia, en el salón; después, un interludio corto: la puerta empieza a romperse.\n *   2 un jugador entra a los Cubículos del CIC y Joel sigue esperando ayuda.\n *   3 se completa la llamada en la computadora del CIC (el teléfono no tiene línea y se va la luz: sigue la misión 2).\n *   4 se abre (o se derriba) la puerta de la conserjería (P59).\n *   5 se abre el casillero de la conserjería, que guarda la escopeta (aparece al terminar).\n *   6 un jugador llega a la nevería, junto a Justino, que sigue esperando.\n *   7 se abre el cajón del escritorio del director, que guarda el revólver sheriff (aparece al terminar).\n *   8 se habla con Canepa (misión 5): al terminar se cumple la misión y empieza la gasolina.\n * Durante el video, la tarjeta o el interludio (host / sin red): Estado = \"cine\", TimeScale 0, los jugadores sin control\n * (Control -2) y sin entradas; la música del canal 1 en pausa en cada máquina. Al terminar o saltar (Enter, Espacio, Esc,\n * clic, A o Start; 0.5 s después de empezar) todo vuelve a como estaba. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizCine && gdjs.fdizCine.VER === 1) return;\n  const C = (gdjs.fdizCine = { VER: 1 });\n\n  C.VIDEOS = {\n    1: { archivo: \"historia_01_inicio_aula.mp4\", titulo: \"EL SALÓN\", texto: \"El grupo espera al profe… hasta que llega la alerta: hay zombis en la escuela.\" },\n    2: { archivo: \"historia_02_joel_cic.mp4\", titulo: \"JOEL\", texto: \"En los cubículos del CIC encuentran al profe Joel. Necesita ayuda.\" },\n    3: { archivo: \"historia_03_telefono_apagon.mp4\", titulo: \"EL TELÉFONO\", texto: \"El teléfono del CIC no tiene línea… y se corta la energía.\" },\n    4: { archivo: \"historia_04_zombi_conserje.mp4\", titulo: \"LA CONSERJERÍA\", texto: \"Al abrir la puerta aparece el conserje… convertido en zombi.\" },\n    5: { archivo: \"historia_05_escopeta_casillero.mp4\", titulo: \"EL CASILLERO\", texto: \"En el casillero de la conserjería hay una escopeta.\" },\n    6: { archivo: \"historia_06_justino_neveria.mp4\", titulo: \"JUSTINO\", texto: \"En la nevería encuentran al profe Justino.\" },\n    7: { archivo: \"historia_07_cajon_director.mp4\", titulo: \"EL CAJÓN DEL DIRECTOR\", texto: \"En el cajón del escritorio del director hay un revólver.\" },\n    8: { archivo: \"historia_08_canepa_autobus.mp4\", titulo: \"CANEPA\", texto: \"\" },\n  };\n  C.CFG = { carta: 3.5, saltar: 0.5, falla: 4, inter: 3.2, golpes: [0.5, 1.4, 2.3] };\n  C.LUGAR = {\n    salon: { x: 5984, y: 3024 }, puerta: \"P06\", zombis: [[5748, 3010], [5716, 2988]],\n    armasSalon: [[\"silla\", 5904, 3064], [\"escoba\", 6064, 3064]],\n    cubiculos: [3488, 1920, 3744, 2080], neveria: [1536, 1440, 1984, 2432], conserjeria: \"P59\",\n    casillero: { x: 5120, y: 596, arma: \"escopeta\", ax: 5136, ay: 650 },\n    cajon: { x: 3328, y: 4436, arma: \"pistola\", ax: 3400, ay: 4470 },\n  };\n  C.now = () => Date.now() / 1000;\n\n  const VS = (o, n) => o.getVariables().get(n);\n  const num = (o, n) => VS(o, n).getAsNumber();\n  const str = (o, n) => VS(o, n).getAsString();\n  const SV = (scn, n) => scn.getVariables().get(n);\n  const GV = (scn, n) => scn.getGame().getVariables().get(n);\n  const objs = (scn, n) => { try { return scn.getObjects(n) || []; } catch (e) { return []; } };\n  const rol = (scn) => { try { return GV(scn, \"NetRol\").getAsNumber(); } catch (e) { return 0; } };\n  const historia = (scn) => { try { return GV(scn, \"Modo\").getAsString() === \"historia\"; } catch (e) { return false; } };\n  const S = (scn) => scn._fdizCine || (scn._fdizCine = { prev: {}, ctl: new Map(), kb: {}, ini: false, local: { vid: null, n: 0, seq: -1, musica: false } });\n  C.objeto = (n) => \"VidHist0\" + n;\n  C.hayVideo = (scn, n) => { try { return scn.getObjects(C.objeto(n)) !== undefined && scn.getObjects(C.objeto(n)) !== null; } catch (e) { return false; } };\n  C.visto = (scn, n) => (\",\" + SV(scn, \"HistVistos\").getAsString() + \",\").includes(\",\" + n + \",\");\n  function marcar(scn, n) { const v = SV(scn, \"HistVistos\").getAsString(); SV(scn, \"HistVistos\").setString(v ? v + \",\" + n : String(n)); }\n  const humano = (s) => { const c = num(s, \"Control\"); return (c >= 0 || c === -3 || c === -2) && num(s, \"Jugador\") <= 4; };\n  const dentro = (r, x, y) => x >= r[0] && x < r[2] && y >= r[1] && y < r[3];\n\n  // ------------------------------------------------------------------ congelar / devolver (host)\n  function congelar(scn, st) {\n    if (st.congelado) return;\n    st.congelado = true;\n    st.estadoPrev = SV(scn, \"Estado\").getAsString();\n    SV(scn, \"Estado\").setString(\"cine\");\n    try { st.escala = scn.getTimeManager().getTimeScale(); scn.getTimeManager().setTimeScale(0); } catch (e) { st.escala = 1; }\n    st.ctl.clear();\n    for (const s of objs(scn, \"Sup\")) {\n      const c = num(s, \"Control\");\n      if (c >= 0 || c === -3) { st.ctl.set(s, c); VS(s, \"Control\").setNumber(-2); }\n      for (const n of [\"MovX\", \"MovY\", \"QuierePegar\", \"Usando\", \"PideHab\", \"PideEsp\", \"QuiereLanzar\"]) VS(s, n).setNumber(0);\n    }\n  }\n  function devolver(scn, st) {\n    if (!st.congelado) return;\n    st.congelado = false;\n    for (const [s, c] of st.ctl) { try { VS(s, \"Control\").setNumber(c); } catch (e) { /* ya no está */ } }\n    st.ctl.clear();\n    SV(scn, \"Estado\").setString(!st.estadoPrev || st.estadoPrev === \"cine\" ? \"juego\" : st.estadoPrev);\n    try { scn.getTimeManager().setTimeScale(st.escala > 0 ? st.escala : 1); } catch (e) { /* sin gestor */ }\n  }\n  function publicar(scn, modo, n) {\n    SV(scn, \"CineModo\").setString(modo); SV(scn, \"CineVid\").setNumber(n || 0);\n    SV(scn, \"CineSeq\").setNumber(SV(scn, \"CineSeq\").getAsNumber() + 1);\n  }\n\n  // ------------------------------------------------------------------ empezar / terminar una cinemática (host)\n  C.empezar = function (scn, n, despues) {\n    const st = S(scn);\n    if (st.activa || C.visto(scn, n)) return false;\n    marcar(scn, n);\n    congelar(scn, st);\n    st.activa = { n, t0: C.now(), despues, modo: C.hayVideo(scn, n) ? \"video\" : \"tarjeta\" };\n    publicar(scn, st.activa.modo, n);\n    leerSalto(scn, st);                                    // la tecla con la que se interactuó no cuenta para saltar\n    return true;\n  };\n  function terminar(scn, st) {\n    const A = st.activa; st.activa = null;\n    publicar(scn, \"\", 0);\n    if (A && A.despues) A.despues(scn, st);\n    if (!st.activa && !st.inter) devolver(scn, st);\n  }\n  function leerSalto(scn, st) {\n    const I = gdjs.evtTools && gdjs.evtTools.input;\n    let k = false;\n    try { k = [\"Return\", \"Space\", \"Escape\"].some((t) => I.isKeyPressed(scn, t)) || I.isMouseButtonPressed(scn, \"Left\"); } catch (e) { /* sin entrada */ }\n    let p = false;\n    try { for (const g of (typeof navigator !== \"undefined\" && navigator.getGamepads ? navigator.getGamepads() : []) || []) if (g && g.buttons && ((g.buttons[0] && g.buttons[0].pressed) || (g.buttons[9] && g.buttons[9].pressed))) p = true; } catch (e) { /* sin mandos */ }\n    const f = (k && !st.kb.k) || (p && !st.kb.p);\n    st.kb.k = k; st.kb.p = p;\n    return f;\n  }\n\n  // ------------------------------------------------------------------ interludio corto tras el video 1 (host)\n  function interludio(scn, st) {\n    const L = C.LUGAR;\n    st.inter = { t0: C.now(), golpe: 0, zombis: [] };\n    publicar(scn, \"interludio\", 1);\n    for (const [x, y] of L.zombis) {\n      const z = scn.createObject(\"ZNormal\"); if (!z) continue;\n      z.setLayer(\"Juego\"); z.setPosition(x, y); VS(z, \"Estado\").setString(\"cinematica\");\n      st.inter.zombis.push({ z, x, y });\n    }\n    try { const Lj = scn.getLayer(\"Juego\"); st.inter.cam = [Lj.getCameraX(), Lj.getCameraY()]; } catch (e) { /* sin capa */ }\n  }\n  function puerta(scn, id) { return objs(scn, \"Puerta\").find((p) => str(p, \"Id\") === id) || null; }\n  function pasoInterludio(scn, st) {\n    const I = st.inter, t = C.now() - I.t0, L = C.LUGAR, p = puerta(scn, L.puerta);\n    while (I.golpe < C.CFG.golpes.length && t >= C.CFG.golpes[I.golpe]) {\n      I.golpe++; I.golpeT = t;\n      if (p) { p.setColor(\"255;150;150\"); VS(p, \"Vida\").setNumber(Math.max(1, num(p, \"Vida\") - 10)); }\n      try { if (GV(scn, \"SonidoActivo\").getAsNumber() === 1) gdjs.evtTools.sound.playSound(scn, \"efectos/mundo/puerta_golpe.wav\", false, 60, 1); } catch (e) { /* sin sonido */ }\n    }\n    const f = I.golpeT !== undefined ? Math.max(0, 1 - (t - I.golpeT) / 0.18) : 0;   // empujón y temblor de cada golpe\n    for (const q of I.zombis) q.z.setPosition(q.x + 7 * f, q.y);\n    if (p && f === 0) p.setColor(\"255;255;255\");\n    try { if (I.cam) { const Lj = scn.getLayer(\"Juego\"); Lj.setCameraX(I.cam[0] + (f ? (Math.random() * 2 - 1) * 4 * f : 0)); Lj.setCameraY(I.cam[1]); } } catch (e) { /* sin capa */ }\n    if (t < C.CFG.inter && !(t >= C.CFG.saltar && leerSalto(scn, st))) return;\n    // fin: la puerta queda dañada, los zombis la siguen golpeando como siempre y el equipo recupera el control\n    if (p) p.setColor(\"255;255;255\");\n    for (const q of I.zombis) { q.z.setPosition(q.x, q.y); VS(q.z, \"Estado\").setString(\"persigue\"); }\n    try { if (I.cam) { scn.getLayer(\"Juego\").setCameraX(I.cam[0]); scn.getLayer(\"Juego\").setCameraY(I.cam[1]); } } catch (e) { /* sin capa */ }\n    for (const [tipo, x, y] of L.armasSalon) {                 // las mismas armas que deja la intro de Escape\n      const a = scn.createObject(\"ArmaPiso\"); if (!a) continue;\n      a.setLayer(\"Juego\"); a.setPosition(x, y); VS(a, \"Tipo\").setString(tipo); a.setAnimationName(tipo);\n    }\n    st.inter = null;\n    publicar(scn, \"\", 0);\n    devolver(scn, st);\n  }\n\n  // ------------------------------------------------------------------ preparar la partida de Historia (host, una vez)\n  function preparar(scn, st) {\n    st.ini = true;\n    const L = C.LUGAR;\n    // el equipo empieza en el salón (como en la intro de Escape)\n    for (const s of objs(scn, \"Sup\")) {\n      const j = num(s, \"Jugador\"); if (j < 1 || j > 4) continue;\n      s.setPosition(L.salon.x + (j - 2.5) * 60, L.salon.y);\n    }\n    try { SV(scn, \"CamX\").setNumber(L.salon.x); SV(scn, \"CamY\").setNumber(L.salon.y); const Lj = scn.getLayer(\"Juego\"); Lj.setCameraX(L.salon.x); Lj.setCameraY(L.salon.y); } catch (e) { /* sin capa */ }\n    // la escopeta y el revólver van guardados (casillero de la conserjería y cajón del director)\n    for (const a of objs(scn, \"ArmaPiso\").slice()) {\n      const t = str(a, \"Tipo\");\n      if ((t === L.casillero.arma && Math.hypot(a.getX() - L.casillero.ax, a.getY() - L.casillero.ay) < 40) ||\n          (t === L.cajon.arma && Math.hypot(a.getX() - L.cajon.ax, a.getY() - L.cajon.ay) < 40)) a.deleteFromScene(scn);\n    }\n    const mk = (q, visible) => {\n      const c = scn.createObject(\"Contenedor\"); if (!c) return null;\n      c.setLayer(\"Juego\"); c.setPosition(q.x, q.y); c.setZOrder(q.y);\n      VS(c, \"Tipo\").setString(\"locker\"); VS(c, \"Abierto\").setNumber(0);\n      try { c.setAnimationName(\"locker_cerrado\"); } catch (e) { /* sin animación */ }\n      if (!visible) c.hide(true);\n      return c;\n    };\n    st.casillero = mk(L.casillero, true);\n    st.cajon = mk(L.cajon, false);                             // el cajón es parte del escritorio: no se dibuja\n    C.empezar(scn, 1, (sc, s) => interludio(sc, s));\n  }\n  function arma(scn, q) {\n    const a = scn.createObject(\"ArmaPiso\"); if (!a) return;\n    a.setLayer(\"Juego\"); a.setPosition(q.ax, q.ay); a.setZOrder(q.ay); VS(a, \"Tipo\").setString(q.arma); a.setAnimationName(q.arma);\n  }\n\n  // ------------------------------------------------------------------ momentos de la historia (host)\n  function detectar(scn, st) {\n    const L = C.LUGAR, hs = objs(scn, \"Sup\").filter((s) => humano(s) && str(s, \"Estado\") === \"normal\");\n    const est = (k) => { try { return SV(scn, \"Prof\" + k).getAsString(); } catch (e) { return \"\"; } };\n    if (!C.visto(scn, 2) && est(\"Joel\") === \"espera\" && hs.some((s) => dentro(L.cubiculos, s.getX(), s.getY()))) return C.empezar(scn, 2);\n    const jus = objs(scn, \"Profe\").find((p) => str(p, \"Nombre\") === \"justino\");\n    if (!C.visto(scn, 6) && jus && est(\"Justino\") === \"espera\" && hs.some((s) => dentro(L.neveria, s.getX(), s.getY()) && Math.hypot(s.getX() - jus.getX(), s.getY() - jus.getY()) < 240))\n      return C.empezar(scn, 6);\n    // la computadora del CIC se borra en el mismo cuadro en que se cumple la llamada: se detecta que ya no está\n    const compu = objs(scn, \"Objetivo\").some((o) => str(o, \"Tipo\") === \"computadora\");\n    if (st.vioCompu && !compu && !C.visto(scn, 3)) { st.vioCompu = false; return C.empezar(scn, 3); }\n    st.vioCompu = compu;\n    const p59 = puerta(scn, L.conserjeria);\n    if (st.vioP59 && !p59 && !C.visto(scn, 4)) { st.vioP59 = false; return C.empezar(scn, 4); }\n    if (p59) st.vioP59 = true;\n    if (st.casillero && num(st.casillero, \"Abierto\") === 1 && !C.visto(scn, 5)) return C.empezar(scn, 5, (sc) => arma(sc, L.casillero));\n    if (st.cajon && num(st.cajon, \"Abierto\") === 1 && !C.visto(scn, 7)) return C.empezar(scn, 7, (sc) => arma(sc, L.cajon));\n    return false;\n  }\n  // Canepa (misión 5): con video, el video reemplaza la charla con burbujas (canepa.js pregunta aquí antes de empezar)\n  C.toma = (scn) => historia(scn) && C.hayVideo(scn, 8) && !C.visto(scn, 8) || !!(S(scn).activa && S(scn).activa.n === 8);\n  function canepa(scn, st) {\n    let c = 0; try { c = SV(scn, \"CanepaCharla\").getAsNumber(); } catch (e) { return; }\n    if (c === 1 && C.hayVideo(scn, 8) && !C.visto(scn, 8) && !st.activa)\n      C.empezar(scn, 8, (sc) => { SV(sc, \"CanepaCharla\").setNumber(2); SV(sc, \"Paso\").setNumber(99); });\n  }\n\n  // ------------------------------------------------------------------ cada máquina: video o tarjeta en pantalla\n  function musica(scn, L, pausar) {\n    if (L.musica === pausar) return;\n    L.musica = pausar;\n    // canal 1: música de partida; canal 2: la capa que va encima (fase 66)\n    for (const ch of [1, 2]) {\n      try { const S_ = gdjs.evtTools.sound; if (pausar) S_.pauseMusicOnChannel(scn, ch); else S_.continueMusicOnChannel(scn, ch); } catch (e) { /* sin música en ese canal */ }\n    }\n  }\n  function quitarVideo(L, scn) { if (L.vid) { try { L.vid.pause(); L.vid.deleteFromScene(scn); } catch (e) { /* ya no está */ } L.vid = null; L.n = 0; } }\n  function pantalla(scn, st) {\n    const L = st.local, modo = SV(scn, \"CineModo\").getAsString(), n = SV(scn, \"CineVid\").getAsNumber(), seq = SV(scn, \"CineSeq\").getAsNumber();\n    musica(scn, L, modo !== \"\");\n    if (modo !== \"video\" || L.n !== n) quitarVideo(L, scn);\n    if (modo === \"video\" && !L.vid) {\n      const v = scn.createObject(C.objeto(n));\n      if (v) {\n        v.setLayer(\"HUD\"); v.setPosition(0, 0); v.setZOrder(2000);\n        try { v.setWidth(1920); v.setHeight(1080); } catch (e) { /* tamaño del objeto */ }\n        try { v.setLoop(false); v.setCurrentTime(0); v.setVolume(Math.max(0, Math.min(100, GV(scn, \"VolEfectos\").getAsNumber() || 100))); } catch (e) { /* video sin cargar */ }\n        try { v.play(); } catch (e) { /* video sin cargar */ }\n        L.vid = v; L.n = n; L.t0 = C.now();\n      }\n    }\n    // tarjeta (si falta el video): velo y texto\n    let veil = L.veil;\n    if (!veil) { veil = L.veil = scn.createObject(\"CineDib\"); if (veil) { veil.setLayer(\"HUD\"); veil.setPosition(0, 0); veil.setZOrder(1990); } }\n    if (!L.tit) { for (const k of [\"tit\", \"txt\", \"pie\"]) { const t = scn.createObject(\"TxtCine\"); if (t) { t.setLayer(\"HUD\"); t.setZOrder(k === \"pie\" ? 2005 : 1995); } L[k] = t; } }\n    if (veil) veil.clear();\n    const carta = modo === \"tarjeta\" && C.VIDEOS[n];\n    if (carta && veil) {\n      veil.setFillColor(\"6;8;18\"); veil.setFillOpacity(235); veil.setOutlineSize(0); veil.drawRectangle(0, 0, 1920, 1080);\n    }\n    const pon = (t, s, y, size, col) => { if (!t) return; t.hide(!s); if (!s) return; if (t.getString() !== s) t.setText(s); t.setCharacterSize(size); t.setColor(col);\n      if (t.setWrapping) { t.setWrapping(true); t.setWrappingWidth(1300); } t.setPosition(960 - Math.min(1300, t.getWidth()) / 2, y); };\n    pon(L.tit, carta ? C.VIDEOS[n].titulo : \"\", 420, 44, \"255;230;120\");\n    pon(L.txt, carta ? C.VIDEOS[n].texto : \"\", 500, 30, \"235;235;235\");\n    pon(L.pie, carta || modo === \"video\" ? (rol(scn) === 2 ? \"\" : \"Enter / A: continuar\") : \"\", 1000, 20, \"170;170;190\");\n    L.seq = seq;\n  }\n\n  // ------------------------------------------------------------------ cada cuadro\n  C.tick = function (scn) {\n    if (!historia(scn)) return;\n    const st = S(scn);\n    if (rol(scn) !== 2) {\n      // se prepara cuando cada jugador ya tiene su control y sus datos (Init), para devolverle después el mismo\n      if (!st.ini && SV(scn, \"Estado\").getAsString() === \"juego\" &&\n          objs(scn, \"Sup\").filter((s) => num(s, \"Jugador\") <= 4).every((s) => num(s, \"Init\") === 1) && objs(scn, \"Sup\").length) {\n        st.listo = st.listo || C.now();\n        if (C.now() - st.listo >= 0.2) preparar(scn, st);\n      }\n      if (st.inter) pasoInterludio(scn, st);\n      else if (st.activa) {\n        const A = st.activa, t = C.now() - A.t0, v = st.local.vid;\n        let fin = t >= C.CFG.saltar && leerSalto(scn, st);\n        if (A.modo === \"tarjeta\" && t >= C.CFG.carta) fin = true;\n        if (A.modo === \"video\") {\n          try {\n            if (v && (v.isEnded() || (v.getDuration() > 0 && v.getCurrentTime() >= v.getDuration() - 0.05))) fin = true;\n            if (t > C.CFG.falla && (!v || !(v.getDuration() > 0))) fin = true;              // no cargó: no se queda trabado\n            if (v && v.getDuration() > 0 && t > v.getDuration() + 3) fin = true;\n          } catch (e) { if (t > C.CFG.falla) fin = true; }\n        }\n        if (fin) terminar(scn, st);\n      } else if (SV(scn, \"Estado\").getAsString() === \"juego\" && SV(scn, \"Pausa\").getAsNumber() !== 1) {\n        canepa(scn, st);\n        if (!st.activa) detectar(scn, st);\n      }\n    }\n    pantalla(scn, st);\n  };\n})(gdjs);\n",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "/*FDIZ-FASE62-MOD*/\n/* FDI-Z · Fase 62 · Uso de las armas de fuego: mira, munición en el HUD y animación con pistola. Todos los modos.\n * Se incrusta en la escena Juego con scripts/fase62_armas_uso.py (no editar el evento a mano):\n *   FDIZ-FASE62-MOD y FDIZ-FASE62-TICK arriba de todo, sin compuerta de host (cada máquina dibuja su mira y su HUD);\n *   FDIZ-FASE62-ANIM al final de \"Combate: pegar\" (host / sin red; la animación llega a los clientes por la red).\n *\n * Munición: es la de siempre (Sup.Usos, se gasta 1 por disparo y al llegar a 0 vuelven los puños). No hay recarga ni\n * balas de reserva: el HUD muestra las balas que le quedan al arma y, debajo del ícono, el cargador completo con las\n * gastadas en gris. CARGADOR = las balas con que se recoge cada arma (fase 59).\n * Mira: una cruz hueca de 11 px a 78 px del arma, hacia donde apunta (AimX, AimY); más transparente si queda sobre un\n * personaje o un zombi. Solo para jugadores (no bots) con arma de fuego, de pie, en juego y sin pausa.\n * Animación: con pistola (pequeña o sheriff) el golpe de lado o hacia abajo usa <personaje>_pistola_lado / _abajo.\n * Hacia arriba no hay animación de pistola: se queda la de pegar hacia arriba de siempre. Si un personaje no tiene la\n * animación de pistola, setAnimationName no cambia nada y sigue la de pegar (nunca queda invisible ni detenido).\n * Pistola inicial (fase 67): nadie empieza con ella. Al empezar la partida (host / sin red) se pone UNA pistola pequeña\n * en el piso (ArmaPiso Tipo \"pistolita\", Solo = 1) del salón donde está el jugador 1: B-01 (intro de Escape e Historia)\n * o E-04 (aparición normal: Jefe, en línea, Escape sin intro). Se recoge con el sistema de siempre (\"Armas del salón\":\n * pasar encima con los puños; solo el jugador 1 por Solo = 1), que la equipa con 9 balas y borra la del piso.\n * PistolaPuesta (variable de la escena) evita ponerla dos veces; se reinicia sola con la escena (partida nueva). */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizArmas && gdjs.fdizArmas.VER === 2) return;\n  const A = (gdjs.fdizArmas = { VER: 2 });\n\n  A.CARGADOR = { pistolita: 9, pistola: 4, escopeta: 6 };\n  A.PISTOLAS = { pistolita: true, pistola: true };\n  A.RADIO = 78;                 // px del arma a la mira\n  A.ALTO = 46;                  // el arma (y la salida de las balas) está 46 px arriba de los pies (fase 59)\n  A.ICONO = { 1: [351, 94], 2: [1813, 94], 3: [351, 978], 4: [1813, 978] };   // ícono del arma (54 x 54) de cada panel\n  A.BAJAS = 2;                  // con estas balas o menos, el número se pone rojo\n\n  const VS = (o, n) => o.getVariables().get(n);\n  const num = (o, n) => VS(o, n).getAsNumber();\n  const str = (o, n) => VS(o, n).getAsString();\n  const objs = (scn, n) => { try { return scn.getObjects(n) || []; } catch (e) { return []; } };\n  const rol = (scn) => { try { return scn.getGame().getVariables().get(\"NetRol\").getAsNumber(); } catch (e) { return 0; } };\n  const SV = (scn, n) => scn.getVariables().get(n);\n  A.deFuego = (s) => A.CARGADOR[str(s, \"Arma\")] !== undefined;\n\n  // ------------------------------------------------------------------ animación (host / sin red)\n  A.anim = function (scn) {\n    if (rol(scn) === 2) return;\n    for (const s of objs(scn, \"Sup\")) {\n      if (!A.PISTOLAS[str(s, \"Arma\")] || num(s, \"Atacando\") !== 1) continue;\n      const pj = str(s, \"Personaje\"), an = s.getAnimationName();\n      if (an === pj + \"_pegar_lado\") s.setAnimationName(pj + \"_pistola_lado\");\n      else if (an === pj + \"_pegar_abajo\") s.setAnimationName(pj + \"_pistola_abajo\");\n    }\n  };\n\n  // ------------------------------------------------------------------ mira\n  const caja = (o) => {\n    const x = o.getDrawableX ? o.getDrawableX() : o.getX(), y = o.getDrawableY ? o.getDrawableY() : o.getY();\n    return [x, y, x + o.getWidth(), y + o.getHeight()];\n  };\n  const dentro = (b, x, y, m) => x >= b[0] - m && x <= b[2] + m && y >= b[1] - m && y <= b[3] + m;\n  A.ZN = [\"ZNormal\", \"ZCorredor\", \"ZGriton\", \"ZGordo\", \"ZConserje\", \"ZJoel\", \"ZJustino\", \"ZCanepa\", \"Profe\"];\n  A.posMira = function (s) {\n    let ax = num(s, \"AimX\"), ay = num(s, \"AimY\");\n    const n = Math.hypot(ax, ay);\n    if (n < 0.01) return null;\n    ax /= n; ay /= n;\n    return [s.getX() + ax * A.RADIO, s.getY() - A.ALTO + ay * A.RADIO];\n  };\n  function miras(scn) {\n    const juego = SV(scn, \"Estado\").getAsString() === \"juego\" && SV(scn, \"Pausa\").getAsNumber() !== 1;\n    const sups = objs(scn, \"Sup\");\n    const otros = sups.concat(...A.ZN.map((n) => objs(scn, n)));\n    for (const s of sups) {\n      const j = num(s, \"Jugador\");\n      const ver = juego && j >= 1 && j <= 4 && num(s, \"Control\") !== -1 && str(s, \"Estado\") === \"normal\" && A.deFuego(s) && num(s, \"Usos\") > 0;\n      const p = ver ? A.posMira(s) : null;\n      let m = s.__fdizMira;\n      if (!p) { if (m) m.hide(true); continue; }\n      if (!m) {\n        m = s.__fdizMira = scn.createObject(\"Mira\");\n        if (!m) continue;\n        m.setLayer(\"Juego\");\n      }\n      m.hide(false);\n      m.setPosition(Math.round(p[0] - m.getWidth() / 2), Math.round(p[1] - m.getHeight() / 2));\n      m.setZOrder(100000);\n      const tapa = otros.some((o) => o !== s && !(o.isHidden && o.isHidden()) && dentro(caja(o), p[0], p[1], 2));\n      m.setOpacity(tapa ? 110 : 210);\n    }\n    for (const m of objs(scn, \"Mira\")) {                            // miras de jugadores que ya no están\n      if (!sups.some((s) => s.__fdizMira === m)) m.deleteFromScene(scn);\n    }\n  }\n\n  // ------------------------------------------------------------------ munición en el HUD\n  function hud(scn) {\n    const st = scn.__fdizArmas || (scn.__fdizArmas = {});\n    if (!st.dib) { st.dib = scn.createObject(\"BalasDib\"); if (st.dib) { st.dib.setLayer(\"HUD\"); st.dib.setPosition(0, 0); st.dib.setZOrder(60); } }\n    const d = st.dib;\n    if (d) d.clear();\n    const intro = SV(scn, \"Estado\").getAsString() === \"intro\";\n    for (const t of objs(scn, \"TxtBalas\")) {\n      const j = num(t, \"Jugador\"), s = objs(scn, \"Sup\").find((o) => num(o, \"Jugador\") === j);\n      const icono = objs(scn, \"HudIcono\").find((o) => num(o, \"Jugador\") === j && num(o, \"Slot\") === 3);\n      const ver = !intro && s && A.deFuego(s) && num(s, \"Usos\") > 0 && (!icono || (icono.isVisible ? icono.isVisible() : !icono.isHidden()));\n      if (!ver) { t.hide(true); continue; }\n      const usos = Math.max(0, Math.round(num(s, \"Usos\"))), cap = Math.max(usos, A.CARGADOR[str(s, \"Arma\")]);\n      const xy = A.ICONO[j] || [icono.getX(), icono.getY()];\n      t.hide(false);\n      if (t.getString() !== String(usos)) t.setText(String(usos));\n      t.setColor(usos <= A.BAJAS ? \"255;110;90\" : \"255;255;255\");\n      t.setPosition(xy[0] + 58, xy[1] + 10);\n      if (!d) continue;\n      // cargador: una marca por bala; las gastadas en gris (no hay reservas: solo lo que trae el arma)\n      const w = 4, g = 2, total = cap * (w + g) - g, x0 = Math.round(xy[0] + 27 - total / 2), y0 = xy[1] + 57;\n      d.setOutlineSize(1); d.setOutlineColor(\"20;20;30\"); d.setOutlineOpacity(255); d.setFillOpacity(255);\n      for (let k = 0; k < cap; k++) {\n        d.setFillColor(k < usos ? \"232;190;90\" : \"70;70;84\");\n        d.drawRectangle(x0 + k * (w + g), y0, x0 + k * (w + g) + w, y0 + 8);\n      }\n    }\n  }\n\n  // ------------------------------------------------------------------ pistola inicial en el piso (host / sin red)\n  A.PISTOLA = {\n    tipo: \"pistolita\",\n    espera: 40,                 // cuadros después de que todos los Sup tienen Init = 1 (Historia y la intro ya los movieron)\n    salones: [                  // muros del salón y dónde va la pistola (pies del arma), en el pasillo entre pupitres\n      { zona: \"B-01\", x0: 5824, y0: 2848, x1: 6144, y1: 3264, x: 6000, y: 3100 },\n      { zona: \"E-04\", x0: 4960, y0: 2368, x1: 5408, y1: 2624, x: 5200, y: 2570 },\n    ],\n  };\n  const espera = new WeakMap();\n  A.salonDe = function (x, y) {\n    const S = A.PISTOLA.salones;\n    const en = S.find((q) => x >= q.x0 && x <= q.x1 && y >= q.y0 && y <= q.y1);\n    if (en) return en;\n    const d = (q) => Math.hypot(x - (q.x0 + q.x1) / 2, y - (q.y0 + q.y1) / 2);\n    return S.slice().sort((a, b) => d(a) - d(b))[0];\n  };\n  A.ponerPistola = function (scn) {\n    if (rol(scn) === 2) return;\n    const V = SV(scn, \"PistolaPuesta\");\n    if (V.getAsNumber() !== 0) return;\n    const sups = objs(scn, \"Sup\");\n    if (!sups.length || sups.some((s) => num(s, \"Init\") !== 1)) return;\n    const n = (espera.get(scn) || 0) + 1;\n    espera.set(scn, n);\n    if (n < A.PISTOLA.espera) return;\n    const p1 = sups.find((s) => num(s, \"Jugador\") === 1) || sups[0];\n    const q = A.salonDe(p1.getX(), p1.getY());\n    const a = scn.createObject(\"ArmaPiso\");\n    if (!a) return;\n    a.setLayer(\"Juego\"); a.setPosition(q.x, q.y); a.setZOrder(q.y);\n    VS(a, \"Tipo\").setString(A.PISTOLA.tipo); VS(a, \"Solo\").setNumber(1);\n    a.setAnimationName(A.PISTOLA.tipo);\n    V.setNumber(1);\n  };\n\n  // ------------------------------------------------------------------ cada cuadro (todas las máquinas)\n  A.tick = function (scn) {\n    try { A.ponerPistola(scn); } catch (e) { /* sin la pistola inicial */ }\n    miras(scn);\n    hud(scn);\n  };\n})(gdjs);\n",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "/*FDIZ-FASE62-TICK*/\nif (gdjs.fdizArmas) gdjs.fdizArmas.tick(runtimeScene);",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
@@ -172105,7 +172152,8 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "En B-01, los zombis esperan afuera durante el diálogo y rompen la puerta al final. El equipo recupera el control en ese momento. La intro se puede omitir."
+              "comment": "En B-01, los zombis esperan afuera durante el diálogo y rompen la puerta al final. El equipo recupera el control en ese momento. La intro se puede omitir.",
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172289,7 +172337,8 @@
                     ""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172344,7 +172393,8 @@
                     "\"Tony: ¿Por qué no llega el profe?\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172399,7 +172449,8 @@
                     "\"Alan: ¿Ya nos vamos o qué?\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172454,7 +172505,8 @@
                     "\"Miranda: Ya van 20 minutos...\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172509,7 +172561,8 @@
                     "\"📱 ALERTA DE EMERGENCIA: infección zombie en la escuela. NO SALGAN DE LOS SALONES.\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172564,7 +172617,8 @@
                     "\"¡¿Qué?! ¡Miren por la ventana!\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172619,7 +172673,8 @@
                     "\"¡Atranquen la puerta!\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172674,7 +172729,8 @@
                     "\"*¡CRASH!* ¡Un zombie rompió la puerta!\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172765,7 +172821,8 @@
                     "\"cinematica\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172833,7 +172890,8 @@
                     "3008"
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -172929,7 +172987,8 @@
                         "\"255;150;150\""
                       ]
                     }
-                  ]
+                  ],
+                  "events": []
                 },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -172958,7 +173017,8 @@
                         "1"
                       ]
                     }
-                  ]
+                  ],
+                  "events": []
                 }
               ]
             },
@@ -173088,7 +173148,8 @@
                             "Puerta.Y() + Puerta.Height() / 2"
                           ]
                         }
-                      ]
+                      ],
+                      "events": []
                     }
                   ]
                 },
@@ -173119,7 +173180,8 @@
                         "\"persigue\""
                       ]
                     }
-                  ]
+                  ],
+                  "events": []
                 }
               ]
             },
@@ -173377,58 +173439,8 @@
                         "Sup.Variable(CtlReal)"
                       ]
                     }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "VarObjet"
-                      },
-                      "parameters": [
-                        "Sup",
-                        "Jugador",
-                        "=",
-                        "1"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "VarObjetTxt"
-                      },
-                      "parameters": [
-                        "Sup",
-                        "Arma",
-                        "=",
-                        "\"puños\""
-                      ]
-                    }
                   ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ModVarObjetTxt"
-                      },
-                      "parameters": [
-                        "Sup",
-                        "Arma",
-                        "=",
-                        "\"regla\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ModVarObjet"
-                      },
-                      "parameters": [
-                        "Sup",
-                        "Usos",
-                        "=",
-                        "30"
-                      ]
-                    }
-                  ]
+                  "events": []
                 },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -173498,7 +173510,8 @@
                         "\"escoba\""
                       ]
                     }
-                  ]
+                  ],
+                  "events": []
                 },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -173554,7 +173567,8 @@
                             "\"255;255;255\""
                           ]
                         }
-                      ]
+                      ],
+                      "events": []
                     },
                     {
                       "type": "BuiltinCommonInstructions::Standard",
@@ -173582,7 +173596,8 @@
                             ""
                           ]
                         }
-                      ]
+                      ],
+                      "events": []
                     }
                   ]
                 }
@@ -173639,10 +173654,11 @@
                   "parameters": [
                     "TxtDialogo",
                     "=",
-                    "\"¿Qué hacemos? ... ¡Agarra la regla!\""
+                    "\"¿Qué hacemos? ... ¡Agarra la pistola!\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -173700,7 +173716,8 @@
                     "\"\""
                   ]
                 }
-              ]
+              ],
+              "events": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -173776,7 +173793,8 @@
                     "Sup.Variable(CtlReal)"
                   ]
                 }
-              ]
+              ],
+              "events": []
             }
           ],
           "parameters": []
@@ -174411,48 +174429,6 @@
                       ]
                     }
                   ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "VarObjet"
-                      },
-                      "parameters": [
-                        "Sup",
-                        "Jugador",
-                        "=",
-                        "1"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ModVarObjetTxt"
-                      },
-                      "parameters": [
-                        "Sup",
-                        "Arma",
-                        "=",
-                        "\"pistolita\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ModVarObjet"
-                      },
-                      "parameters": [
-                        "Sup",
-                        "Usos",
-                        "=",
-                        "9"
-                      ]
-                    }
-                  ],
-                  "events": []
                 }
               ]
             },
@@ -182912,6 +182888,38 @@
                         "ArmaPiso",
                         "",
                         ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::Or"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "ArmaPiso",
+                            "Solo",
+                            "=",
+                            "0"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "ArmaPiso",
+                            "Solo",
+                            "=",
+                            "Sup.Variable(Jugador)"
+                          ]
+                        }
                       ]
                     }
                   ],

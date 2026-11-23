@@ -60,13 +60,89 @@ prueba("Munición: pistola pequeña 9, escopeta 6, sheriff 4 (al recogerla) y el
   const usos = (t) => recoge.events.find((e) => tiene(e, "VarObjetTxt", ["Sup", "Arma", "=", '"' + t + '"'])).actions[0].parameters[3];
   igual([usos("pistola"), usos("escopeta")], ["4", "6"]);
 });
-prueba("El jugador 1 (y solo él) empieza con la pistola pequeña y 9 balas, en todos los modos", () => {
-  const ini = [...rec(grupo("Inicio de supervivientes").events)].find((e) => tiene(e, "VarObjet", ["Sup", "Init", "=", "0"]));
-  const ev = ini.events.filter((e) => tiene(e, "ModVarObjetTxt", ["Sup", "Arma", "=", '"pistolita"']));
-  igual(ev.length, 1);
-  igual(ev[0].conditions.map((c) => c.type.value + "|" + c.parameters.join("|")), ["VarObjet|Sup|Jugador|=|1"]);
-  si(tiene(ev[0], "ModVarObjet", ["Sup", "Usos", "=", "9"]));
-  si(!JSON.stringify(ini.conditions).includes("Modo"), "no depende del modo");
+prueba("Nadie empieza con la pistola pequeña: ningún evento de inicio la equipa (fase 67)", () => {
+  const ini = grupo("Inicio de supervivientes");
+  si(![...rec(ini.events)].some((e) => tiene(e, "ModVarObjetTxt", ["Sup", "Arma", "=", '"pistolita"'])), "inicio");
+  // ningún evento fuera de recoger un arma del piso pone Arma = pistolita
+  const pone = [...rec(J.events)].filter((e) => tiene(e, "ModVarObjetTxt", ["Sup", "Arma", "=", '"pistolita"']));
+  igual(pone.length, 0, "eventos que equipan la pistolita directamente");
+  const js = [...rec(J.events)].filter((e) => (e.inlineCode || "").includes('"pistolita"') && /Arma"\)\.setString\("pistolita/.test(e.inlineCode));
+  igual(js.length, 0, "código que la equipe");
+  const cin = J.events.find((e) => (e.name || "").startsWith("Cinemática de inicio"));
+  si(![...rec(cin.events)].some((e) => tiene(e, "VarObjet", ["Sup", "Jugador", "=", "1"]) && tiene(e, "ModVarObjetTxt", ["Sup", "Arma", "=", '"regla"'])),
+    "al terminar la intro de Escape el jugador 1 ya no recibe la regla (así puede recoger la pistola)");
+  si(JSON.stringify(cin.events).includes("Agarra la pistola") && !JSON.stringify(cin.events).includes("Agarra la regla"), "consejo de la intro");
+});
+function escenaPistola(sups, gl) {
+  const sc = escena(sups, {}, gl);
+  const crear = sc.createObject;
+  sc.createObject = (n) => {
+    if (n !== "ArmaPiso") return crear(n);
+    const a = obj("ArmaPiso", 0, 0, { Tipo: "", Solo: 0 });
+    Object.assign(a, { setLayer(l) { this.capa = l; }, setPosition(x, y) { this.x = x; this.y = y; }, setZOrder(z) { this.z = z; } });
+    sc.objs.push(a); return a;
+  };
+  return sc;
+}
+const pistolas = (sc) => sc.getObjects("ArmaPiso").filter((a) => a.getVariables().get("Tipo").getAsString() === "pistolita");
+const cuadros = (A, sc, n) => { for (let k = 0; k < n; k++) A.ponerPistola(sc); };
+prueba("La pistola aparece en el piso del salón donde empieza el jugador 1 (B-01 con la intro o Historia; E-04 si no)", () => {
+  const A = cargar();
+  const b01 = escenaPistola([sup(1, "tony", 5894, 3024, { Init: 1 }), sup(2, "gabo", 5954, 3024, { Init: 1 })]);
+  cuadros(A, b01, 60);
+  igual(pistolas(b01).map((a) => [a.x, a.y, a.z, a.capa, a.an, a.getVariables().get("Solo").getAsNumber()]), [[6000, 3100, 3100, "Juego", "pistolita", 1]]);
+  const e04 = escenaPistola([sup(1, "tony", 5088, 2528, { Init: 1 })]);
+  cuadros(A, e04, 60);
+  igual(pistolas(e04).map((a) => [a.x, a.y]), [[5200, 2570]]);
+  const lejos = escenaPistola([sup(1, "tony", 5300, 2900, { Init: 1 })]);
+  cuadros(A, lejos, 60);
+  igual(pistolas(lejos).length, 1, "fuera de los dos salones: el más cercano");
+});
+prueba("Una sola vez: no aparece antes de colocar al equipo, ni dos veces, ni en un cliente en línea", () => {
+  const A = cargar();
+  const sc = escenaPistola([sup(1, "tony", 5088, 2528, { Init: 1 }), sup(2, "gabo", 5152, 2528, { Init: 0 })]);
+  cuadros(A, sc, 100);
+  igual(pistolas(sc).length, 0, "un Sup sin Init");
+  sc.getObjects("Sup")[1].getVariables().get("Init").setNumber(1);
+  cuadros(A, sc, 20);
+  igual(pistolas(sc).length, 0, "todavía no (espera a que Historia o la intro muevan al equipo)");
+  sc.getObjects("Sup")[0].x = 5894; sc.getObjects("Sup")[0].y = 3024;   // la intro / Historia lo pasó a B-01
+  cuadros(A, sc, 40);
+  igual(pistolas(sc).map((a) => [a.x, a.y]), [[6000, 3100]], "en el salón final del jugador 1");
+  const p = pistolas(sc)[0]; sc.objs.splice(sc.objs.indexOf(p), 1);    // la recogió
+  cuadros(A, sc, 200);
+  igual(pistolas(sc).length, 0, "recogida: no vuelve a aparecer");
+  igual(sc.S.get("PistolaPuesta").getAsNumber(), 1);
+  const cli = escenaPistola([sup(1, "tony", 5894, 3024, { Init: 1 })], { NetRol: 2 });
+  cuadros(A, cli, 100);
+  igual(pistolas(cli).length, 0, "el cliente no la crea (le llega la del host)");
+});
+prueba("Se recoge con el sistema de siempre: con los puños, solo el jugador 1, se equipa con 9 balas y se borra del piso", () => {
+  const f = [...rec(grupo("Armas del salón").events)].find((e) => (e.type || "").endsWith("ForEach") && e.object === "Sup" && tiene(e, "CollisionNP", ["Sup", "ArmaPiso"]));
+  si(tiene(f, "VarObjetTxt", ["Sup", "Arma", "=", '"puños"']), "solo con los puños");
+  const o = f.conditions.find((c) => c.type.value.endsWith("Or"));
+  igual(o.subInstructions.map((c) => c.parameters.join("|")), ["ArmaPiso|Solo|=|0", "ArmaPiso|Solo|=|Sup.Variable(Jugador)"]);
+  const recoge = [...rec(f.events)].find((e) => tiene(e, "ModVarObjetTxt", ["Sup", "Arma", "=", "ArmaPiso.VariableString(Tipo)"]));
+  const usos = recoge.events.find((e) => tiene(e, "VarObjetTxt", ["Sup", "Arma", "=", '"pistolita"']));
+  si(usos && tiene(usos, "ModVarObjet", ["Sup", "Usos", "=", "9"]), "9 balas");
+  si(tiene(recoge.events[recoge.events.length - 1], "Delete", ["ArmaPiso"]), "se borra del piso");
+  const val = [...rec(grupo("Armas del salón").events)].find((e) => tiene(e, "VarObjetTxt", ["Sup", "Arma", "=", '"pistolita"']) && tiene(e, "ModVarObjet", ["Sup", "ArmaFuego", "=", "1"]));
+  si(val, "valores de arma de fuego al tenerla");
+  const ap = J.objects.find((x) => x.name === "ArmaPiso");
+  si(ap.variables.some((v) => v.name === "Solo" && v.value === 0), "Solo = 0 por defecto (las demás armas, cualquiera)");
+  si(J.variables.some((v) => v.name === "PistolaPuesta"), "PistolaPuesta");
+  const an = ap.animations.find((a) => a.name === "pistolita").directions[0].sprites[0];
+  si(fs.existsSync(path.join(PROY, res[an.image])), "sprite de piso");
+});
+prueba("El lugar de la pistola está libre (sin muros ni muebles) y dentro de su salón", () => {
+  const A = cargar();
+  const solidos = J.instances.filter((i) => i.name === "Muro" || i.name === "ChoqueMueble");
+  for (const q of A.PISTOLA.salones) {
+    si(q.x > q.x0 && q.x < q.x1 && q.y > q.y0 && q.y < q.y1, q.zona + " dentro");
+    const caja = [q.x - 20, q.y - 24, q.x + 20, q.y];   // 39 x 24, pies abajo al centro
+    const choca = solidos.filter((m) => caja[0] < m.x + m.width && caja[2] > m.x && caja[1] < m.y + m.height && caja[3] > m.y);
+    igual(choca.map((m) => [m.name, m.x, m.y]), [], q.zona + " libre");
+  }
 });
 prueba("La pistola pequeña dispara una bala (12 de daño, más aguda) y se gasta con la regla de siempre", () => {
   const sub = [...rec(grupo("Combate: pegar").events)].find((e) => tiene(e, "VarObjetTxt", ["Sup", "Arma", "=", '"pistolita"']) && tiene(e, "Create", ["", "Proyectil"]));

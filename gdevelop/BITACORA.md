@@ -1486,3 +1486,14 @@ Script: `gdevelop/scripts/fase66_musica.py` (idempotente; con GDevelop cerrado).
 Fase 65: el video 1 está en la carpeta como `historia_01_inicio_aula.mp4.mp4` (Windows oculta la extensión). `fase65_cinematicas.py` ahora acepta un nombre que empiece igual y termine en `.mp4`, sin renombrarlo.
 
 **Sin probar:** dentro de GDevelop (que las dos pistas de la partida suenen juntas sin saturar).
+
+## Fase 67 · La pistola inicial se recoge del piso del salón (2026-11-22)
+
+Script: `gdevelop/scripts/fase67_pistola_inicial.py` (después de volver a correr `fase62_armas_uso.py`). Lógica en `armas.js` (`ponerPistola`).
+- Nadie empieza con la pistola pequeña: `fase62_armas_uso.py` ya no la da en "Inicio de supervivientes".
+- Al empezar, el host pone UNA `ArmaPiso` Tipo `pistolita` (Solo = 1) en el salón del jugador 1: B-01 (6000, 3100) en la intro de Escape e Historia; E-04 (5200, 2570) en los demás casos. `PistolaPuesta` evita repetirla.
+- Se recoge con el evento de siempre (puños, pasar encima): Arma = pistolita, 9 balas, valores de arma de fuego, y se borra del piso. Solo el jugador 1 (condición `Solo = 0 o Solo = Sup.Jugador`).
+- Escape: al terminar o saltar la intro el jugador 1 ya no recibe la regla (decisión del usuario); el consejo dice "¡Agarra la pistola!".
+- Sprite de piso `generado/sprites/objetos/armas/pistolita_piso.png` (pistolita.png x3).
+- No hay partidas guardadas en el juego (solo el volumen).
+- Probado en una exportación HTML del proyecto: empieza a puños, la pistola está en B-01, al pisarla queda equipada (9 balas, ícono y mira). El disparo no se pudo comprobar con clics simulados.
