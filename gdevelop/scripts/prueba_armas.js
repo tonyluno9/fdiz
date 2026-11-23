@@ -159,7 +159,8 @@ prueba("Animaciones placeholder de pistola de lado y hacia abajo para los 12 per
   const S = J.objects.find((o) => o.name === "Sup"), an = Object.fromEntries(S.animations.map((a) => [a.name, a]));
   for (const pj of PJS) for (const [dir, base, idx] of [["lado", "pegar_lado", 1], ["abajo", "pegar_abajo", 0]]) {
     const a = an[pj + "_pistola_" + dir]; si(a, "falta " + pj + "_pistola_" + dir);
-    if ((pj === "tony" || pj === "alan") && dir === "lado") continue;   // fase 71: Alan usa su GIF de AK-47          // fase 69: Tony usa sus cuadros reales de disparo (prueba siguiente)
+    if ((pj === "tony" || pj === "alan") && dir === "lado") continue;   // fase 71: Alan usa su GIF de AK-47
+    if (["tony", "alan", "cesar"].includes(pj) && dir === "abajo") continue;   // fase 74: arte real desde sus hojas de sprites          // fase 69: Tony usa sus cuadros reales de disparo (prueba siguiente)
     const sp = a.directions[0].sprites, b = an[pj + "_" + base].directions[0].sprites[idx];
     igual(sp.length, 3, pj + " " + dir);
     for (const s of sp) {

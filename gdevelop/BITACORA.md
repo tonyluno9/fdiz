@@ -1657,3 +1657,9 @@ Script: `gdevelop/scripts/fase73_cine_y_placeholders.py` (después de la 72).
 - Cambio de personaje: aviso pequeño en la línea de ayuda («Cambio de personaje: ahora controlas a X»), en lugar del letrero grande.
 - Inicio (pasos 1 a 3): quien dice su línea da unos pasos cortos (18 px en 0.5 s, alternando el lado). A los bots se les apaga la ruta mientras dura.
 - Placeholders de disparo para Tony, Miranda, Alan y César: `<pj>_pistola_arriba`, `<pj>_escopeta_arriba` y `<pj>_escopeta_abajo` en `generado/sprites/personajes/<pj>/<arma>_<dir>/` (copias de `pegar_arriba` y `pistola_abajo`). Para el arte final, reemplazar esos PNG con el mismo nombre. `armas.js` ya las usa al disparar hacia arriba o abajo.
+
+## Fase 74 · Disparo hacia arriba y hacia abajo con arte real (2026-11-23)
+Script: `gdevelop/scripts/fase74_disparo_arriba_abajo.py` (después de la 73). Fuente: hojas de sprites `.jpg` de fondo verde en `animaciones_gif/personajes/<pj>/` (4 cuadros cada una).
+- Se quita el verde, se recorta y se escala igual que los disparos de lado (98 px de alto, pies en el origen). Cuadros en `generado/sprites/personajes/<pj>/disparo_<arma>_<dir>/`.
+- Reemplazadas: Tony, César y Alan `pistola_arriba` / `pistola_abajo` (Alan con el AK-47); Miranda `escopeta_arriba` / `escopeta_abajo`.
+- Siguen con placeholder (fase 73): César con escopeta (arriba y abajo), Tony y Alan con escopeta, Miranda con pistola.

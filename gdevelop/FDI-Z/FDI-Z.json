@@ -13536,6 +13536,262 @@
         "metadata": "",
         "name": "vid_hist_C10",
         "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_00.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_00.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_01.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_01.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_02.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_02.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_03.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_03.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_00.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_00.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_01.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_01.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_02.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_02.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_03.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_03.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_00.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_00.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_01.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_01.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_02.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_02.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_03.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_03.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_00.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_00.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_01.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_01.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_02.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_02.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_03.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_03.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_00.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_00.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_01.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_01.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_02.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_02.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_03.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_03.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_00.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_00.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_01.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_01.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_02.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_02.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_03.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_03.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_00.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_00.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_01.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_01.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_02.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_02.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_03.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_03.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_00.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_00.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_01.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_01.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_02.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_02.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "../../generado/sprites/personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_03.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_03.png",
+        "smoothed": false,
+        "userAdded": true
       }
     ]
   },
@@ -145456,12 +145712,12 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/alan/pistola_abajo/pistola_abajo_00.png",
+                      "image": "personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_00.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 43,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -145472,32 +145728,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 23,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 23,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/alan/pistola_abajo/pistola_abajo_01.png",
+                      "image": "personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_01.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 43,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -145508,32 +145764,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 23,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 23,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/alan/pistola_abajo/pistola_abajo_02.png",
+                      "image": "personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_02.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 43,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -145544,20 +145800,56 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 23,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 23,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/alan/disparo_pistola_abajo/disparo_pistola_abajo_03.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 80,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 125
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
@@ -146656,12 +146948,12 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/cesar/pistola_abajo/pistola_abajo_00.png",
+                      "image": "personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_00.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 47,
-                        "y": 105
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -146672,32 +146964,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 27,
-                            "y": 89
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 89
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 105
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 27,
-                            "y": 105
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/cesar/pistola_abajo/pistola_abajo_01.png",
+                      "image": "personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_01.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 47,
-                        "y": 105
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -146708,32 +147000,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 27,
-                            "y": 89
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 89
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 105
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 27,
-                            "y": 105
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/cesar/pistola_abajo/pistola_abajo_02.png",
+                      "image": "personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_02.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 47,
-                        "y": 105
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -146744,20 +147036,56 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 27,
-                            "y": 89
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 89
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 105
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 27,
-                            "y": 105
+                            "x": 60,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/cesar/disparo_pistola_abajo/disparo_pistola_abajo_03.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 80,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 125
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
@@ -147892,11 +148220,11 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/tony/pistola_abajo/pistola_abajo_00.png",
+                      "image": "personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_00.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 40,
+                        "x": 80,
                         "y": 125
                       },
                       "centerPoint": {
@@ -147908,19 +148236,19 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 20,
-                            "y": 109
-                          },
-                          {
                             "x": 60,
                             "y": 109
                           },
                           {
-                            "x": 60,
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
                             "y": 125
                           },
                           {
-                            "x": 20,
+                            "x": 60,
                             "y": 125
                           }
                         ]
@@ -147928,11 +148256,11 @@
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/tony/pistola_abajo/pistola_abajo_01.png",
+                      "image": "personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_01.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 40,
+                        "x": 80,
                         "y": 125
                       },
                       "centerPoint": {
@@ -147944,19 +148272,19 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 20,
-                            "y": 109
-                          },
-                          {
                             "x": 60,
                             "y": 109
                           },
                           {
-                            "x": 60,
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
                             "y": 125
                           },
                           {
-                            "x": 20,
+                            "x": 60,
                             "y": 125
                           }
                         ]
@@ -147964,11 +148292,11 @@
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/tony/pistola_abajo/pistola_abajo_02.png",
+                      "image": "personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_02.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 40,
+                        "x": 80,
                         "y": 125
                       },
                       "centerPoint": {
@@ -147980,19 +148308,55 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 20,
+                            "x": 60,
                             "y": 109
                           },
                           {
-                            "x": 60,
+                            "x": 100,
                             "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 125
                           },
                           {
                             "x": 60,
                             "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/tony/disparo_pistola_abajo/disparo_pistola_abajo_03.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 80,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 20,
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 125
+                          },
+                          {
+                            "x": 60,
                             "y": 125
                           }
                         ]
@@ -148944,15 +149308,15 @@
               "directions": [
                 {
                   "looping": false,
-                  "timeBetweenFrames": 0.0714,
+                  "timeBetweenFrames": 0.07,
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/tony/pistola_arriba/pistola_arriba_00.png",
+                      "image": "personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_00.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 40,
+                        "x": 80,
                         "y": 125
                       },
                       "centerPoint": {
@@ -148964,19 +149328,19 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 20,
-                            "y": 109
-                          },
-                          {
                             "x": 60,
                             "y": 109
                           },
                           {
-                            "x": 60,
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
                             "y": 125
                           },
                           {
-                            "x": 20,
+                            "x": 60,
                             "y": 125
                           }
                         ]
@@ -148984,11 +149348,11 @@
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/tony/pistola_arriba/pistola_arriba_01.png",
+                      "image": "personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_01.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 40,
+                        "x": 80,
                         "y": 125
                       },
                       "centerPoint": {
@@ -149000,19 +149364,19 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 20,
-                            "y": 109
-                          },
-                          {
                             "x": 60,
                             "y": 109
                           },
                           {
-                            "x": 60,
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
                             "y": 125
                           },
                           {
-                            "x": 20,
+                            "x": 60,
                             "y": 125
                           }
                         ]
@@ -149020,11 +149384,11 @@
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/tony/pistola_arriba/pistola_arriba_02.png",
+                      "image": "personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_02.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 40,
+                        "x": 80,
                         "y": 125
                       },
                       "centerPoint": {
@@ -149036,19 +149400,19 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 20,
-                            "y": 109
-                          },
-                          {
                             "x": 60,
                             "y": 109
                           },
                           {
-                            "x": 60,
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
                             "y": 125
                           },
                           {
-                            "x": 20,
+                            "x": 60,
                             "y": 125
                           }
                         ]
@@ -149056,11 +149420,11 @@
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/tony/pistola_arriba/pistola_arriba_03.png",
+                      "image": "personajes/tony/disparo_pistola_arriba/disparo_pistola_arriba_03.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 40,
+                        "x": 80,
                         "y": 125
                       },
                       "centerPoint": {
@@ -149072,19 +149436,19 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 20,
-                            "y": 109
-                          },
-                          {
                             "x": 60,
                             "y": 109
                           },
                           {
-                            "x": 60,
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
                             "y": 125
                           },
                           {
-                            "x": 20,
+                            "x": 60,
                             "y": 125
                           }
                         ]
@@ -149532,16 +149896,16 @@
               "directions": [
                 {
                   "looping": false,
-                  "timeBetweenFrames": 0.0714,
+                  "timeBetweenFrames": 0.07,
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/miranda/escopeta_arriba/escopeta_arriba_00.png",
+                      "image": "personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_00.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 44,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149552,32 +149916,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 24,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 24,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/miranda/escopeta_arriba/escopeta_arriba_01.png",
+                      "image": "personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_01.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 44,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149588,32 +149952,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 24,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 24,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/miranda/escopeta_arriba/escopeta_arriba_02.png",
+                      "image": "personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_02.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 44,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149624,32 +149988,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 24,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 24,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/miranda/escopeta_arriba/escopeta_arriba_03.png",
+                      "image": "personajes/miranda/disparo_escopeta_arriba/disparo_escopeta_arriba_03.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 44,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149660,20 +150024,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 24,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 24,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
@@ -149692,12 +150056,12 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/miranda/escopeta_abajo/escopeta_abajo_00.png",
+                      "image": "personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_00.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 44,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149708,32 +150072,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 24,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 24,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/miranda/escopeta_abajo/escopeta_abajo_01.png",
+                      "image": "personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_01.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 44,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149744,32 +150108,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 24,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 24,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/miranda/escopeta_abajo/escopeta_abajo_02.png",
+                      "image": "personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_02.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 44,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149780,20 +150144,56 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 24,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 64,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 24,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "personajes/miranda/disparo_escopeta_abajo/disparo_escopeta_abajo_03.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 80,
+                        "y": 125
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 60,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 109
+                          },
+                          {
+                            "x": 100,
+                            "y": 125
+                          },
+                          {
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
@@ -149808,16 +150208,16 @@
               "directions": [
                 {
                   "looping": false,
-                  "timeBetweenFrames": 0.0714,
+                  "timeBetweenFrames": 0.07,
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/alan/pistola_arriba/pistola_arriba_00.png",
+                      "image": "personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_00.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 43,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149828,32 +150228,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 23,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 23,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/alan/pistola_arriba/pistola_arriba_01.png",
+                      "image": "personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_01.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 43,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149864,32 +150264,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 23,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 23,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/alan/pistola_arriba/pistola_arriba_02.png",
+                      "image": "personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_02.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 43,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149900,32 +150300,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 23,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 23,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/alan/pistola_arriba/pistola_arriba_03.png",
+                      "image": "personajes/alan/disparo_pistola_arriba/disparo_pistola_arriba_03.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 43,
-                        "y": 100
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -149936,20 +150336,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 23,
-                            "y": 84
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 84
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 63,
-                            "y": 100
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 23,
-                            "y": 100
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
@@ -150240,16 +150640,16 @@
               "directions": [
                 {
                   "looping": false,
-                  "timeBetweenFrames": 0.0714,
+                  "timeBetweenFrames": 0.07,
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/cesar/pistola_arriba/pistola_arriba_00.png",
+                      "image": "personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_00.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 47,
-                        "y": 105
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -150260,32 +150660,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 27,
-                            "y": 89
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 89
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 105
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 27,
-                            "y": 105
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/cesar/pistola_arriba/pistola_arriba_01.png",
+                      "image": "personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_01.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 47,
-                        "y": 105
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -150296,32 +150696,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 27,
-                            "y": 89
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 89
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 105
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 27,
-                            "y": 105
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/cesar/pistola_arriba/pistola_arriba_02.png",
+                      "image": "personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_02.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 47,
-                        "y": 105
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -150332,32 +150732,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 27,
-                            "y": 89
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 89
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 105
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 27,
-                            "y": 105
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "personajes/cesar/pistola_arriba/pistola_arriba_03.png",
+                      "image": "personajes/cesar/disparo_pistola_arriba/disparo_pistola_arriba_03.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 47,
-                        "y": 105
+                        "x": 80,
+                        "y": 125
                       },
                       "centerPoint": {
                         "automatic": true,
@@ -150368,20 +150768,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 27,
-                            "y": 89
+                            "x": 60,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 89
+                            "x": 100,
+                            "y": 109
                           },
                           {
-                            "x": 67,
-                            "y": 105
+                            "x": 100,
+                            "y": 125
                           },
                           {
-                            "x": 27,
-                            "y": 105
+                            "x": 60,
+                            "y": 125
                           }
                         ]
                       ]
