@@ -127,7 +127,12 @@ esc["instances"] = [i for i in esc["instances"] if i["name"] not in QUITAR]
 def de_tipo(nombre): return [x for x in props if x["sprite"].split("/")[-1] == nombre]
 def centro(x): return x["x"] + x["w"] // 2, x["y"] + x["h"]
 pupitres = de_tipo("pupitre_espalda"); random.shuffle(pupitres)
-escritorios = de_tipo("escritorio_profesor") + de_tipo("escritorio_oficina_pc"); random.shuffle(escritorios)
+escritorios = de_tipo("escritorio_profesor") + de_tipo("escritorio_oficina_pc")
+# fase 70: el escritorio del CIC deja la engrapadora flotando sobre el muro (2936, 1625); la fase 69 la quitaba,
+# pero al volver a correr esta fase reaparecía. Ese escritorio ya no recibe engrapadora.
+ENGRAPADORA_EN_MURO = (2936, 1625)
+escritorios = [x for x in escritorios if (round(centro(x)[0]), round(centro(x)[1] + 30)) != ENGRAPADORA_EN_MURO]
+random.shuffle(escritorios)
 canastas = de_tipo("canasta_basquet") + de_tipo("cancha__canasta_basquet_espejo")
 inst = esc["instances"]
 for x in pupitres[:7]:

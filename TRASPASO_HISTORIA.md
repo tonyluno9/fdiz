@@ -122,7 +122,7 @@ Script: `gdevelop/scripts/fase69_correcciones.py`, más cambios en `historia.js`
 6. **Voz `C65_01_cesar.mp3`:** dura 1.2 s para una frase larga; parece recortada.
 7. **Arte provisional:** la reja trasera (valla girada) y la alarma sintetizada.
 8. **Tony hacia abajo con pistola:** sigue el cuadro provisional de la fase 62. No hay GIF de disparo hacia abajo ni hacia arriba, ni de escopeta hacia abajo.
-9. **Si se vuelve a correr la cadena completa:** el generador viejo `fase12_mejoras.py` vuelve a sembrar engrapadoras al azar. En ese caso hay que correr otra vez la fase 69.
+9. ~~**Si se vuelve a correr la cadena completa:** el generador viejo `fase12_mejoras.py` vuelve a sembrar engrapadoras al azar.~~ Corregido en la fase 70: `fase12_mejoras.py` ya no pone engrapadora en el escritorio del CIC que la dejaba sobre el muro. Además, `.gitattributes` mantiene los `.js` con saltos de línea Unix, así las pruebas pasan también en Windows.
 
 ## 5. Archivos tocados en esta sesión
 
