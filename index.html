@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>FDI-Z · Presentación</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+@font-face{font-family:Pix;src:url(img/PixelifySans.ttf)}
+:root{--bg:#070b1c;--panel:#0f1736;--panel2:#16214a;--line:#2c3c7a;--red:#ff3b3b;--green:#7dff6a;--amber:#ffcc33;--txt:#e8ecff;--dim:#8c97c7;
+--c-tony:#ffffff;--c-cesar:#4d8dff;--c-miranda:#d9a56b;--c-alan:#9aa0b5;--c-joel:#7dff6a;--c-justino:#ff8fd0;--c-canepa:#ff9b3b;--c-altavoz:#ff3b3b}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font-family:Pix,monospace;overflow:hidden}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 2px,transparent 2px 4px);z-index:999}
+button{font-family:Pix,monospace;cursor:pointer}
+.px{border:4px solid var(--line);box-shadow:0 0 0 4px #000,6px 6px 0 4px #000;background:var(--panel)}
+.btn{background:var(--panel2);color:var(--txt);border:3px solid var(--line);padding:.55em 1em;font-size:16px;box-shadow:4px 4px 0 #000;transition:transform .05s}
+.btn:hover{border-color:var(--amber);color:var(--amber)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #000}
+.btn.red{border-color:var(--red)} .btn.green{border-color:var(--green)}
+.btn.on{background:var(--red);color:#fff;border-color:#fff;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{filter:brightness(1.5)}}
+.screen{position:fixed;inset:0;display:none}
+.screen.show{display:block}
+kbd{background:#000;border:2px solid var(--line);padding:0 .35em;font-family:Pix;color:var(--amber)}
+
+/* ---------- MENU ---------- */
+#menu{background:#000 url(img/bg_titulo.png) center/cover no-repeat;image-rendering:pixelated}
+#menu .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,11,28,.2),rgba(7,11,28,.85) 70%)}
+#menu .box{position:absolute;left:50%;bottom:8vh;transform:translateX(-50%);text-align:center}
+#menu h1{font-size:clamp(64px,10vw,150px);margin:0;color:var(--green);text-shadow:6px 6px 0 #000,0 0 30px rgba(125,255,106,.4);letter-spacing:.05em}
+#menu h1 span{color:var(--red)}
+#menu p{color:var(--amber);font-size:22px;margin:.2em 0 1.2em;text-shadow:3px 3px 0 #000}
+#menu .opts{display:flex;gap:24px;justify-content:center}
+#menu .opts .btn{font-size:26px;padding:.6em 1.4em}
+#menu .hint{margin-top:18px;color:var(--dim);font-size:14px}
+
+/* ---------- JURADO ---------- */
+#jurado{background:radial-gradient(ellipse at 70% 30%,#1a1240 0,#070b1c 60%)}
+#jurado .slide{position:absolute;inset:6vh 7vw 12vh;display:none;gap:4vw;align-items:center}
+#jurado .slide.show{display:flex;animation:in .35s steps(5)}
+@keyframes in{from{opacity:0;transform:translateY(20px)}to{opacity:1}}
+#jurado .txt{flex:1.3}
+#jurado .tag{display:inline-block;background:var(--red);color:#fff;padding:.2em .6em;font-size:18px;box-shadow:4px 4px 0 #000}
+#jurado h2{font-size:clamp(30px,3.6vw,56px);margin:.4em 0 .5em;color:var(--amber);text-shadow:4px 4px 0 #000;line-height:1.1}
+#jurado ul{list-style:none;padding:0;margin:0;font-size:clamp(17px,1.6vw,25px);line-height:1.45}
+#jurado li{padding-left:1.4em;position:relative;margin:.35em 0}
+#jurado li:before{content:"▶";position:absolute;left:0;color:var(--green);font-size:.8em;top:.15em}
+#jurado li b{color:var(--green);font-weight:normal}
+#jurado .vis{flex:1;display:flex;align-items:center;justify-content:center}
+#jurado .vis img,#jurado .vis video{max-width:100%;max-height:62vh;image-rendering:pixelated}
+#jurado .vis .px{padding:6px;background:#000}
+#jurado .pipe{display:flex;flex-direction:column;gap:10px;width:100%}
+#jurado .pipe div{padding:.55em .8em;font-size:clamp(14px,1.25vw,20px);border-left:8px solid var(--green)}
+#jurado .pipe div:nth-child(2n){border-left-color:var(--amber)}
+#jurado .pipe div span{color:var(--dim)}
+#jurado .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+#jurado .grid figure{margin:0;text-align:center;font-size:15px;color:var(--dim)}
+#jurado .grid img{width:100%;image-rendering:pixelated;background:#000}
+#jurado .big{font-size:clamp(40px,5vw,84px);color:var(--green);text-shadow:5px 5px 0 #000;line-height:1.05}
+.nav{position:absolute;left:0;right:0;bottom:2.5vh;display:flex;justify-content:center;align-items:center;gap:18px;color:var(--dim);font-size:16px}
+.dots{display:flex;gap:6px}.dots i{width:12px;height:12px;background:var(--line);display:block}.dots i.on{background:var(--amber)}
+
+/* ---------- CINE ---------- */
+#cine{display:none;grid-template-columns:250px 1fr 300px;grid-template-rows:auto 1fr;gap:14px;padding:14px;background:var(--bg)}
+#cine.show{display:grid}
+#cine header{grid-column:1/-1;display:flex;align-items:center;gap:12px}
+#cine header h3{margin:0 auto 0 0;color:var(--green);font-size:26px;text-shadow:3px 3px 0 #000}
+#lista{overflow:auto;padding:8px}
+#lista .it{display:flex;gap:8px;align-items:center;padding:8px;margin-bottom:6px;border:3px solid transparent;cursor:pointer;font-size:15px}
+#lista .it:hover{border-color:var(--line)}
+#lista .it.on{border-color:var(--amber);background:var(--panel2)}
+#lista .it .n{color:var(--amber);min-width:44px}
+#lista .it .d{width:10px;height:10px;flex:none}
+#lista h4{margin:12px 4px 6px;font-size:13px;color:var(--dim);font-weight:normal;letter-spacing:.1em}
+#centro{display:flex;flex-direction:column;gap:12px;min-height:0}
+#marco{position:relative;flex:1;min-height:0;background:#000;display:flex;align-items:center;justify-content:center}
+#marco video{width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+#narra{position:absolute;top:12px;left:12px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.75);padding:6px 10px 6px 6px;border:3px solid var(--line);font-size:16px}
+#narra img{width:44px;height:44px;image-rendering:pixelated;background:#111}
+#escena{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;padding:4px 10px;font-size:16px;box-shadow:3px 3px 0 #000}
+#cap{padding:14px 18px;font-size:clamp(17px,1.5vw,24px);line-height:1.35;min-height:88px}
+#cap b{color:var(--amber);font-weight:normal}
+#ctrl{display:flex;gap:10px;flex-wrap:wrap}
+#sfx{overflow:auto;padding:10px}
+#sfx h4{margin:4px 0 8px;color:var(--amber);font-size:15px;font-weight:normal}
+#sfx .g{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+#sfx .g .btn{font-size:14px;padding:.6em .4em;text-align:left}
+#sfx .g .btn small{color:var(--dim)}
+#sfx .sug .btn{border-color:var(--green)}
+
+/* ---------- PANTALLA COMPLETA + DIALOGO ---------- */
+#full{position:fixed;inset:0;background:#000;display:none;z-index:500}
+#full.show{display:block}
+#full video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+#dlg{position:absolute;left:5vw;right:5vw;bottom:4vh;display:none;gap:18px;align-items:flex-end}
+#dlg.show{display:flex;animation:in .25s steps(4)}
+#dlg img{width:150px;height:150px;image-rendering:pixelated;background:#0b1026;object-fit:cover;object-position:top}
+#dlg .caja{flex:1;padding:18px 24px;min-height:150px;background:rgba(10,15,40,.94)}
+#dlg .quien{font-size:28px;margin-bottom:8px;text-shadow:3px 3px 0 #000}
+#dlg .dice{font-size:clamp(22px,2.2vw,34px);line-height:1.3}
+#full .ayuda{position:absolute;top:14px;right:18px;color:var(--dim);font-size:14px;background:rgba(0,0,0,.6);padding:4px 8px}
+</style>
+</head>
+<body>
+
+<!-- MENU -->
+<section id="menu" class="screen show">
+  <div class="shade"></div>
+  <div class="box">
+    <h1>FDI<span>-</span>Z</h1>
+    <p>Facultad de Ingeniería · Modo Historia</p>
+    <div class="opts">
+      <button class="btn green" onclick="ir('cine')">▶ MODO CINE</button>
+      <button class="btn red" onclick="ir('jurado')">? PREGUNTAS DEL JURADO</button>
+    </div>
+    <div class="hint"><kbd>C</kbd> cine · <kbd>J</kbd> jurado · <kbd>M</kbd> menú · <kbd>F11</kbd> pantalla completa del navegador</div>
+  </div>
+</section>
+
+<!-- JURADO -->
+<section id="jurado" class="screen">
+  <div id="slides"></div>
+  <div class="nav"><button class="btn" onclick="sl(-1)">◀</button><div class="dots" id="dots"></div><span id="cnt"></span><button class="btn" onclick="sl(1)">▶</button><button class="btn" onclick="ir('menu')">MENÚ</button><button class="btn green" onclick="ir('cine')">MODO CINE</button></div>
+</section>
+
+<!-- CINE -->
+<section id="cine" class="screen">
+  <header class="px" style="padding:8px 14px">
+    <h3>▶ MODO CINE</h3>
+    <span style="color:var(--dim);font-size:14px"><kbd>←</kbd><kbd>→</kbd> escena · <kbd>R</kbd> reiniciar · <kbd>Enter</kbd> pantalla completa + diálogo · <kbd>1-9</kbd> efectos · <kbd>S</kbd> silenciar efectos</span>
+    <button class="btn" onclick="ir('jurado')">JURADO</button><button class="btn" onclick="ir('menu')">MENÚ</button>
+  </header>
+  <aside id="lista" class="px"></aside>
+  <main id="centro">
+    <div id="marco" class="px">
+      <video id="vid" muted loop playsinline autoplay></video>
+      <div id="narra"><img id="narraImg" alt=""><span>NARRA: <b id="narraN"></b></span></div>
+      <div id="escena"></div>
+    </div>
+    <div id="cap" class="px"></div>
+    <div id="ctrl">
+      <button class="btn" onclick="esc(cur-1)">◀ Anterior</button>
+      <button class="btn" onclick="reiniciar()">⟲ Reiniciar <kbd>R</kbd></button>
+      <button class="btn green" onclick="abrirFull()">⛶ Pantalla completa + diálogo <kbd>Enter</kbd></button>
+      <button class="btn" onclick="esc(cur+1)">Siguiente ▶</button>
+      <button class="btn red" onclick="pararTodo()">■ Silenciar efectos <kbd>S</kbd></button>
+    </div>
+  </main>
+  <aside id="sfx" class="px"></aside>
+</section>
+
+<!-- FULL -->
+<div id="full">
+  <video id="fvid" playsinline></video>
+  <div class="ayuda"><kbd>Espacio</kbd> siguiente línea · <kbd>R</kbd> repetir · <kbd>Esc</kbd> salir</div>
+  <div id="dlg"><img id="dImg" alt=""><div class="caja px"><div class="quien" id="dQuien"></div><div class="dice" id="dDice"></div></div></div>
+</div>
+
+<script>
+/* ================== DATOS ================== */
+const PJ={tony:['TONY','var(--c-tony)'],cesar:['CÉSAR','var(--c-cesar)'],miranda:['MIRANDA','var(--c-miranda)'],alan:['ALAN','var(--c-alan)'],
+joel:['PROFE JOEL','var(--c-joel)'],justino:['PROFE JUSTINO','var(--c-justino)'],canepa:['PROFE CANEPA','var(--c-canepa)'],altavoz:['ALTAVOZ','var(--c-altavoz)']};
+const L=(a,p,t)=>({a:a?'voces/'+a+'.mp3':null,p,t});
+
+const SFX={
+ sirena:{n:'Sirena de alerta',f:'sfx/sirena.wav',loop:1},
+ ambiente:{n:'Ambiente nocturno',f:'sfx/ambiente.wav',loop:1},
+ aguanten:{n:'Música ¡Aguanten!',f:'sfx/aguanten.ogg',loop:1},
+ tension:{n:'Tensión (riser)',f:'sfx/tension.ogg'},
+ zombie:{n:'Zombie gruñe',f:'sfx/zombie.ogg'},
+ horda:{n:'Llega la horda',f:'sfx/horda.ogg'},
+ mordida:{n:'Mordida',f:'sfx/mordida.ogg'},
+ puerta:{n:'Golpes en la puerta',f:'sfx/puerta.ogg'},
+ pistola:{n:'Disparo pistola',f:'sfx/pistola.wav'},
+ escopeta:{n:'Escopeta',f:'sfx/escopeta.wav'},
+ rafaga:{n:'Ráfaga AK-47',f:'sfx/rafaga.wav'},
+ apagon:{n:'Apagón',f:'sfx/apagon.ogg'},
+ luz:{n:'Regresa la luz',f:'sfx/luz.ogg'},
+ casillero:{n:'Casillero',f:'sfx/casillero.ogg'},
+ impacto:{n:'Golpe dramático',f:'sfx/impacto.ogg'},
+ objetivo:{n:'Nuevo objetivo',f:'sfx/objetivo.ogg'},
+ escape:{n:'¡Escapamos!',f:'sfx/escape.ogg'},
+ victoria:{n:'Victoria',f:'sfx/victoria.ogg'}
+};
+
+const ESC=[
+{id:'C1 · T1',v:'C01_T1',nar:'tony',t:'El profe no llega',
+ cap:'<b>7 de la noche.</b> El profe lleva 20 minutos sin llegar… pero su bolsa sigue sobre el escritorio. Nos acercamos a ver.',
+ sfx:['ambiente','tension','objetivo'],
+ dlg:[L('INT_01_cesar','cesar','Veinte minutos. Oficialmente ya nos podemos ir, eh. Está en el reglamento.'),L('INT_02_alan','alan','No está en el reglamento.'),L('INT_03_cesar','cesar','Está en MI reglamento.'),L('INT_04_miranda','miranda','Él nunca falta. Nunca. Ni cuando llovió y se inundó el estacionamiento.'),L('INT_05_tony','tony','Pues dejó sus cosas. Ahí está su bolsa.'),L('INT_06_alan','alan','… Entonces sí vino. Y se fue. Sin su bolsa. Qué raro.'),L('C1_01_alan','alan','Le echamos un ojito. Uno nomás.'),L('C1_02_miranda','miranda','No. Es su bolsa, Alan.')]},
+{id:'C1 · T2',v:'C01_T2',nar:'tony',t:'El manotazo',
+ cap:'Alan no aguantó la curiosidad… y Miranda apareció de la nada con un <b>manotazo</b>.',
+ sfx:['tension','impacto'],
+ dlg:[L('C1_03_alan','alan','¡Au! Ya, ya…'),L('C1_04_cesar','cesar','Técnicamente es evidencia. Si le pasó algo, hay que saber qué.'),L('C1_05_tony','tony','Votación. ¿Quién quiere abrirla?')]},
+{id:'C2',v:'C02',nar:'tony',t:'La pistola y la alarma',
+ cap:'Abrimos la bolsa: cuadernos, un termo… y <b>una pistola</b>. No alcanzamos a reaccionar: todo se pintó de rojo y sonó la <b>alerta</b>.',
+ sfx:['impacto','sirena','tension'],
+ dlg:[L('C2_01_alan','alan','… ¿Por qué el profe trae una pistola?'),L('C2_02_miranda','miranda','Ciérrala. Ciérrala ya.'),L('C2_03_altavoz','altavoz','Alerta. Se reporta un brote infeccioso en el edificio. Permanezcan en sus salones. Repito: no salgan.'),L('C2_04_cesar','cesar','¿Brote… infeccioso?')]},
+{id:'C3',v:'C03',nar:'tony',t:'Golpes en la puerta',
+ cap:'Golpes en la puerta. Detrás del vidrio, unos <b>ojos rojos</b>. El vidrio se estrelló… y yo tomé la pistola.',
+ sfx:['puerta','zombie','pistola','sirena'],
+ dlg:[L('C3_01_miranda','miranda','Dijeron que no saliéramos…'),L('C3_02_tony','tony','Y ya entró uno. Cambio de plan. Nos vamos al CIC, ahí hay teléfono.'),L('C3_03_cesar','cesar','La puerta trasera da directo al pasillo. ¡Vamos!')]},
+{id:'C4',v:'C04',nar:'tony',t:'El profe Joel',
+ cap:'Llegamos al <b>CIC</b> y algo se movía detrás del escritorio… era el <b>profe Joel</b>, muerto de miedo.',
+ sfx:['tension','impacto'],
+ dlg:[L('C4_01_joel','joel','¡No me muerdan! ¡No me—! … Ah. Son alumnos. Gracias a Dios.'),L('C4_02_tony','tony','Profe, ¿qué está pasando?'),L('C4_03_joel','joel','No sé. Empezó en el estacionamiento. Gente que… que no se moría.'),L('C4_04_miranda','miranda','Se viene con nosotros.'),L('C4_05_alan','alan','¿Seguro? Grita más que los zombies.'),L('C4_06_joel','joel','¡Te estoy oyendo!')]},
+{id:'C5',v:'C05',nar:'tony',t:'Sin línea · Apagón',
+ cap:'Levanté el teléfono para pedir ayuda… <b>no había línea</b>. Y en ese momento se fue la luz en toda la escuela.',
+ sfx:['apagon','tension','zombie'],
+ dlg:[L('C5_01_cesar','tony','No hay línea. Cortaron todo… o se cayó todo.'),L('C5_02_joel','joel','Hay radio en la oficina del director. Y llaves. Y—'),L('C5_03_miranda','miranda','… ¿Alguien más ve eso?')]},
+{id:'C6',v:'C06',nar:'tony',t:'La sala del conserje',
+ cap:'A oscuras, solo con las linternas de los celulares. Abrimos la sala del conserje y un <b>zombie</b> se nos echó encima. Al fondo del pasillo… pasó <b>el conserje</b>.',
+ sfx:['zombie','pistola','mordida','tension'],
+ dlg:[L('C6_01_tony','tony','¡Atrás!'),L('C6_02_alan','alan','¡Que no sea él, que no sea él…!')]},
+{id:'C6.5',v:'C065',nar:'cesar',t:'La escopeta',
+ cap:'En un casillero encontré una <b>escopeta</b> con una nota: <b>«Para cuando vuelvan»</b>. Alguien sabía que esto iba a pasar. Joel subió el tablero y regresó la luz.',
+ sfx:['casillero','impacto','luz','escopeta'],
+ dlg:[L('C65_01_cesar','cesar','«Para cuando vuelvan». ¿Cuando vuelvan… quiénes?'),L('C65_02_joel','joel','El conserje lo sabía. Lo dijo en la junta y nadie le creyó.'),L('C65_03_tony','tony','Pues ahora le creemos. Nos la llevamos.'),L('C65_04_joel','joel','Yo me quedo aquí cuidando el tablero. Si se va la luz otra vez, nadie sale vivo.'),L('C65_05_tony','tony','Ahorita volvemos por usted, profe.')]},
+{id:'C7',v:'C07',nar:'miranda',t:'Justino en la nevería',
+ cap:'En la nevería estaba el <b>profe Justino</b>… comiendo helado como si nada. Nos dijo dónde estaba el autobús y que la llave estaba en <b>dirección</b>, «y algo más».',
+ sfx:['ambiente','objetivo','tension'],
+ dlg:[L('C7_01_justino','justino','Si van a morir, mínimo que sea con nieve. ¿De cuál quieren?'),L('C7_02_miranda','miranda','Profe, hay zombies afuera.'),L('C7_03_justino','justino','Ya sé. Por eso cerré. Escuchen: el autobús escolar está en el estacionamiento de atrás. El profe Canepa tiene las llaves.'),L('C7_04_tony','tony','¿Y por dónde salimos?'),L('C7_05_justino','justino','Por dirección. El director tiene la llave de la reja trasera en su escritorio. Y algo más, si lo buscan bien.'),L('C7_06_alan','alan','¿Usted no viene?'),L('C7_07_justino','justino','Alguien tiene que cuidar la nieve.')]},
+{id:'C8',v:'C08',nar:'miranda',t:'La oficina del director',
+ cap:'En el cajón: la <b>llave</b> y otra <b>pistola</b>. Con la llave abrimos el armario… y Alan sacó un <b>AK-47</b>.',
+ sfx:['casillero','victoria','rafaga'],
+ dlg:[L('C8_01_tony','tony','La llave… y otra pistola.'),L('C8_02_cesar','cesar','¿Todos los profes de esta escuela andan armados o qué?'),L(null,'alan','… ¿Y esto también es del director?'),L('C8_03_miranda','miranda','No importa. Al autobús. Ya.')]},
+{id:'C9',v:'C09',nar:'alan',t:'El autobús y Canepa',
+ cap:'El <b>profe Canepa</b> intentaba arrancar el autobús. El motor tronó… y el ruido atrajo a <b>la horda</b> y al conserje.',
+ sfx:['horda','zombie','aguanten','rafaga','escopeta'],
+ dlg:[L('C9_01_canepa','canepa','¡Por fin! No arranca. Necesito que alguien me cubra mientras lo conecto.'),L('C9_02_tony','tony','¿Cuánto tiempo?'),L('C9_03_canepa','canepa','¿Un minuto? ¿Dos? ¡Ya vienen!'),L('C9_04_alan','alan','Siempre son dos.'),L('C9_05_miranda','miranda','Todos en círculo. Nadie se separa.')]},
+{id:'C10',v:'C10',nar:'alan',t:'El escape',
+ cap:'El motor arrancó, rompimos la cerca y escapamos justo cuando amanecía. <b>Lo logramos.</b> Pero nadie supo nunca por qué los profes tenían armas…',
+ sfx:['escape','impacto','victoria'],
+ dlg:[L('C10_01_canepa','canepa','¡Arrancó! ¡Súbanse, súbanse!'),L('C10_02_alan','alan','¡Acelérele, profe!'),L('C10_03_tony','tony','… Lo logramos.')]}
+];
+
+const SLIDES=[
+{tag:'PREGUNTA 01',q:'¿De dónde salió la idea?',a:['En <b>3er semestre</b> salíamos de clases a las <b>7 de la noche</b>.','La escuela se quedaba <b>vacía, oscura, en silencio</b>… parecía que en cualquier momento iba a sonar la <b>alerta roja</b>.','Ese sentimiento lo convertimos en un juego: <b>nuestra facultad, nuestros salones, nuestros profes</b>, de noche y con zombies.'],vis:'<video src="video/C02.mp4" muted loop autoplay class="px"></video>'},
+{tag:'PREGUNTA 02',q:'¿Cómo construyeron la historia?',a:['Estudiamos cómo cuentan sus historias <b>los mejores juegos del mundo</b> y lo trasladamos a algo único y nuestro:','<b>Left 4 Dead</b>: un grupo pequeño donde cada personaje tiene su personalidad y su frase.','<b>The Last of Us</b>: cinemáticas cortas justo después de lograr algo, siempre con un objetivo claro.','<b>Resident Evil</b>: llaves, armarios y objetos que abren el siguiente paso.','<b>Undertale / Celeste</b>: diálogos cortos que cuentan la historia mientras juegas.'],vis:'<img src="img/bg_titulo.png" class="px">'},
+{tag:'PREGUNTA 03',q:'¿Quiénes son los personajes?',a:['Somos <b>nosotros</b>: cada uno se diseñó a partir de su persona real y su personalidad.','<b>Alan</b> el bromista · <b>Miranda</b> la sensata · <b>Tony</b> el líder · <b>César</b> el listo y sarcástico.','Y nuestros profes: <b>Joel</b> el miedoso, <b>Justino</b> el tranquilo y <b>Canepa</b> el apurado.'],vis:'<div class="grid"><figure><img src="img/retrato_tony.png">Tony</figure><figure><img src="img/retrato_cesar.png">César</figure><figure><img src="img/retrato_miranda.png">Miranda</figure><figure><img src="img/retrato_alan.png">Alan</figure><figure><img src="img/retrato_joel.png">Joel</figure><figure><img src="img/retrato_justino.png">Justino</figure><figure><img src="img/retrato_canepa.png">Canepa</figure><figure><img src="img/zombie.png">Zombie</figure></div>'},
+{tag:'PREGUNTA 04',q:'¿Usaron inteligencia artificial?',a:['Sí, y lo decimos con orgullo: usamos <b>Claude</b> como asistente de guion, dirección y producción.','Pero la <b>idea, la historia, los personajes y cada decisión</b> fueron nuestras: la IA no sabía nada de nuestra facultad.','<b>Revisamos cada imagen a mano</b>: si un personaje salía distinto, lo corregíamos. La IA fue la herramienta; la dirección fue del equipo.'],vis:'<div class="big">IDEA<br><span style="color:var(--amber)">+ IA</span><br><span style="color:var(--red)">= FDI-Z</span></div>'},
+{tag:'PREGUNTA 05',q:'¿Qué herramientas usaron?',a:['<b>GDevelop</b>: motor del juego (eventos, escenas, HUD, IA de zombies).','<b>Claude</b>: guion, diálogos, prompts, scripts y documentación.','<b>GPT Image 2</b> (vía API de WaveSpeed): fondos y cuadros clave en pixel art.','<b>Seedance 2.5</b>: convierte los cuadros clave en animación con música y efectos.','<b>IA de voz</b>: las voces de cada personaje · <b>GitHub</b>: trabajo en equipo y respaldos.'],vis:'<video src="video/C08.mp4" muted loop autoplay class="px"></video>'},
+{tag:'PREGUNTA 06',q:'¿Cómo hicieron las animaciones?',a:['No le pedimos un video «al azar» a la IA: hicimos un <b>storyboard</b> como en el cine.','Primero <b>fotos reales</b> de la escuela (salón, CIC, nevería, estacionamiento) → convertidas a <b>pixel art de noche</b>.','Luego los <b>cuadros clave</b> de cada toma, uno por uno, y al final Seedance los anima en orden.'],vis:'<div class="pipe"><div class="px">1. Foto real <span>→ salón, CIC, nevería…</span></div><div class="px">2. Fondo en pixel art <span>→ de noche, sin personas</span></div><div class="px">3. Hojas de personaje <span>→ 4 vistas + 6 gestos</span></div><div class="px">4. Cuadros clave en cadena <span>→ cada uno basado en el anterior</span></div><div class="px">5. Video con Seedance 2.5 <span>→ 4 a 7 s, 720p</span></div><div class="px">6. Al juego en GDevelop <span>→ entre gameplay y diálogos</span></div></div>'},
+{tag:'PREGUNTA 07',q:'¿Cómo lograron que los personajes no cambien?',a:['Hicimos una <b>hoja de personaje</b> para cada uno, basada en los sprites del juego.','Cada imagen nueva se generaba <b>a partir de la anterior + las hojas</b>: así la puerta, la luz y la ropa se mantienen.','Cuando algo salía mal (un peinado, un arma en la mano equivocada) <b>editábamos solo ese detalle</b>, sin rehacer todo.','Regla de equipo: <b>un solo intento por imagen</b> y revisión humana antes de seguir.'],vis:'<img src="img/retrato_alan.png" class="px" style="width:70%">'},
+{tag:'PREGUNTA 08',q:'¿Cómo fue su flujo de trabajo?',a:['<b>Guion</b> → <b>diálogos</b> (56 voces) → <b>imágenes</b> → <b>videos</b> → <b>sonido</b> → <b>GDevelop</b>.','Las imágenes se generaban con <b>scripts de PowerShell</b> que llaman a la API y guardan todo ordenado por escena.','Cada escena tiene su carpeta con sus cuadros y su prompt: cualquiera del equipo puede rehacerla.','Todo vive en el <b>repositorio de GitHub</b> para trabajar desde varias computadoras.'],vis:'<video src="video/C03.mp4" muted loop autoplay class="px"></video>'},
+{tag:'PREGUNTA 09',q:'¿Cómo hicieron los cambios en el juego?',a:['Escribimos una <b>guía de implementación</b>: los 12 pasos de la historia, qué video va, qué audio suena y qué objetivo aparece.','Con esa guía se programaron los <b>eventos en GDevelop</b>: zonas, cinemáticas, diálogos y checkpoints.','Antes de cada cambio, <b>respaldo</b>; después, <b>bitácora</b> de qué se hizo; y todo subido a GitHub.'],vis:'<video src="video/C05.mp4" muted loop autoplay class="px"></video>'},
+{tag:'PREGUNTA 10',q:'¿Por qué cambia el personaje que controlas?',a:['Para que <b>cada uno tenga su momento</b> en la historia:','<b>Alan</b> abre la historia · <b>Tony</b> toma la pistola · <b>César</b> encuentra la escopeta · <b>Miranda</b> toma el mando en la nevería · <b>Alan</b> cierra con el AK-47.','Así también la <b>contamos nosotros</b>: cada quien narra la parte que vivió su personaje.'],vis:'<div class="grid" style="grid-template-columns:repeat(4,1fr)"><figure><img src="img/retrato_alan.png">1 · Alan</figure><figure><img src="img/retrato_tony.png">2 · Tony</figure><figure><img src="img/retrato_cesar.png">3 · César</figure><figure><img src="img/retrato_miranda.png">4 · Miranda</figure></div>'},
+{tag:'PREGUNTA 11',q:'¿Por qué pixel art y de noche?',a:['El <b>pixel art</b> es el estilo de nuestro juego: claro, retro y fácil de reconocer.','La <b>noche</b> es la experiencia real: la escuela a las 7 PM, pasillos vacíos y solo las lámparas encendidas.','La <b>luz roja</b> de la alarma, el apagón y las linternas del celular cuentan la tensión sin palabras.'],vis:'<video src="video/C06.mp4" muted loop autoplay class="px"></video>'},
+{tag:'PREGUNTA 12',q:'¿Qué aprendimos?',a:['Que la IA <b>acelera</b>, pero sin dirección no cuenta nada: la historia y el criterio son humanos.','A trabajar como un <b>estudio</b>: guion, arte, sonido, programación y control de versiones.','Y que la escuela de noche… <b>sí da miedo</b>.'],vis:'<video src="video/C10.mp4" muted loop autoplay class="px"></video>'}
+];
+
+/* ================== NAVEGACION ================== */
+let pantalla='menu';
+function ir(p){pantalla=p;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));document.getElementById(p).classList.add('show');
+ document.querySelectorAll('#jurado video').forEach(v=>v.pause());
+ if(p==='cine'){vid.play()}else{vid.pause()}
+ if(p==='jurado'){sl(0,true)}}
+
+/* ================== JURADO ================== */
+const sw=document.getElementById('slides'),dots=document.getElementById('dots');let si=0;
+SLIDES.forEach((s,i)=>{const d=document.createElement('div');d.className='slide';d.innerHTML=`<div class="txt"><span class="tag">${s.tag}</span><h2>${s.q}</h2><ul>${s.a.map(x=>'<li>'+x+'</li>').join('')}</ul></div><div class="vis">${s.vis}</div>`;sw.appendChild(d);dots.appendChild(document.createElement('i'))});
+function sl(d,abs){const n=abs?d:si+d;if(n<0||n>=SLIDES.length)return;si=n;
+ [...sw.children].forEach((c,i)=>{c.classList.toggle('show',i===si);c.querySelectorAll('video').forEach(v=>i===si?v.play():v.pause())});
+ [...dots.children].forEach((c,i)=>c.classList.toggle('on',i===si));document.getElementById('cnt').textContent=(si+1)+' / '+SLIDES.length}
+
+/* ================== CINE ================== */
+const vid=document.getElementById('vid'),lista=document.getElementById('lista'),cap=document.getElementById('cap'),sfxBox=document.getElementById('sfx');let cur=0;
+const NARR_ORDEN=[['tony','TONY'],['cesar','CÉSAR'],['miranda','MIRANDA'],['alan','ALAN']];
+NARR_ORDEN.forEach(([k,n])=>{const h=document.createElement('h4');h.textContent='NARRA '+n;lista.appendChild(h);
+ ESC.forEach((e,i)=>{if(e.nar!==k)return;const d=document.createElement('div');d.className='it';d.dataset.i=i;d.innerHTML=`<span class="d" style="background:${PJ[e.nar][1]}"></span><span class="n">${e.id}</span><span>${e.t}</span>`;d.onclick=()=>esc(i);lista.appendChild(d)})});
+function esc(i){if(i<0||i>=ESC.length)return;cur=i;const e=ESC[i];vid.src='video/'+e.v+'.mp4';vid.play();
+ document.querySelectorAll('#lista .it').forEach(d=>d.classList.toggle('on',+d.dataset.i===i));
+ document.getElementById('escena').textContent=e.id+' · '+e.t;
+ document.getElementById('narraN').textContent=PJ[e.nar][0];document.getElementById('narraN').style.color=PJ[e.nar][1];
+ document.getElementById('narraImg').src='img/retrato_'+e.nar+'.png';
+ cap.innerHTML=e.cap;pintarSfx()}
+function reiniciar(){vid.currentTime=0;vid.play()}
+
+/* ================== EFECTOS ================== */
+const audios={};
+function sfx(k){const s=SFX[k];let a=audios[k];
+ if(s.loop){if(a&&!a.paused){a.pause();a.currentTime=0}else{a=audios[k]=a||new Audio(s.f);a.loop=true;a.volume=.8;a.play()}pintarSfx();return}
+ const b=new Audio(s.f);b.volume=.9;b.play()}
+function pararTodo(){Object.values(audios).forEach(a=>{a.pause();a.currentTime=0});pintarSfx()}
+function boton(k,num){const s=SFX[k],on=audios[k]&&!audios[k].paused;return `<button class="btn${on?' on':''}" onclick="sfx('${k}')">${num?'<kbd>'+num+'</kbd> ':''}${s.n}${s.loop?' <small>(bucle)</small>':''}</button>`}
+function pintarSfx(){const e=ESC[cur];
+ sfxBox.innerHTML=`<h4>★ PARA ESTA ESCENA</h4><div class="g sug">${e.sfx.map((k,i)=>boton(k,i+1)).join('')}</div><h4>TODOS LOS EFECTOS</h4><div class="g">${Object.keys(SFX).map(k=>boton(k)).join('')}</div><button class="btn red" style="width:100%" onclick="pararTodo()">■ Silenciar todo</button>`}
+
+/* ================== PANTALLA COMPLETA + DIALOGO ================== */
+const full=document.getElementById('full'),fvid=document.getElementById('fvid'),dlg=document.getElementById('dlg');let li=-1,voz=null,tw=null;
+function abrirFull(){const e=ESC[cur];full.classList.add('show');dlg.classList.remove('show');li=-1;
+ fvid.src='video/'+e.v+'.mp4';fvid.loop=false;fvid.muted=false;fvid.currentTime=0;fvid.play();
+ if(full.requestFullscreen)full.requestFullscreen().catch(()=>{})}
+fvid.onended=()=>sigLinea();
+function sigLinea(){const e=ESC[cur];if(voz){voz.pause();voz=null}clearInterval(tw);li++;
+ if(li>=e.dlg.length){dlg.classList.remove('show');return}
+ const l=e.dlg[li];dlg.classList.add('show');
+ document.getElementById('dImg').src='img/retrato_'+(l.p==='altavoz'?'tony':l.p)+'.png';document.getElementById('dImg').style.visibility=l.p==='altavoz'?'hidden':'visible';
+ const q=document.getElementById('dQuien');q.textContent=PJ[l.p][0];q.style.color=PJ[l.p][1];
+ const d=document.getElementById('dDice');d.textContent='';let c=0;tw=setInterval(()=>{d.textContent=l.t.slice(0,++c);if(c>=l.t.length)clearInterval(tw)},28);
+ if(l.a){voz=new Audio(l.a);voz.play().catch(()=>{});voz.onended=()=>setTimeout(()=>{if(voz)sigLinea()},450)}
+ else{voz={pause(){} };setTimeout(()=>{if(li>=0&&ESC[cur].dlg[li]===l)sigLinea()},Math.max(2200,l.t.length*70))}}
+function cerrarFull(){full.classList.remove('show');fvid.pause();if(voz){voz.pause();voz=null}clearInterval(tw);if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})}
+function repetirFull(){if(voz){voz.pause();voz=null}clearInterval(tw);abrirFull()}
+
+/* ================== TECLADO ================== */
+document.addEventListener('keydown',e=>{const k=e.key;
+ if(full.classList.contains('show')){
+  if(k==='Escape'){cerrarFull()}else if(k===' '||k==='ArrowRight'||k==='Enter'){e.preventDefault();if(!fvid.ended&&li<0){fvid.pause();sigLinea()}else sigLinea()}
+  else if(k==='r'||k==='R'){repetirFull()}else if(/^[1-9]$/.test(k)){const s=ESC[cur].sfx[+k-1];if(s)sfx(s)}else if(k==='s'||k==='S'){pararTodo()}
+  return}
+ if(k==='c'||k==='C'){ir('cine');return} if(k==='j'||k==='J'){ir('jurado');return} if(k==='m'||k==='M'){ir('menu');return}
+ if(pantalla==='jurado'){if(['ArrowRight',' ','PageDown','Enter'].includes(k)){e.preventDefault();sl(1)}if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();sl(-1)}}
+ if(pantalla==='cine'){
+  if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'){e.preventDefault();esc(cur+1)}
+  else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'){e.preventDefault();esc(cur-1)}
+  else if(k==='r'||k==='R'){reiniciar()}
+  else if(k==='Enter'){e.preventDefault();abrirFull()}
+  else if(k==='s'||k==='S'){pararTodo()}
+  else if(/^[1-9]$/.test(k)){const s=ESC[cur].sfx[+k-1];if(s)sfx(s)}}
+});
+esc(0);
+</script>
+</body>
+</html>
