@@ -4,7 +4,7 @@ Fecha: 2026-11-22. Escrito para seguir el trabajo en otra computadora.
 
 **Resumen rápido**
 - Todo lo de este documento ya está aplicado en `gdevelop/FDI-Z/FDI-Z.json`. Basta con bajar el repositorio y abrir el proyecto en GDevelop: no hay que correr ningún script.
-- Lo único que espera una respuesta tuya es la **clasificación de colores de las alertas** (`gdevelop/ALERTAS.md`).
+- **Fase 70 (hecha):** los colores de las alertas ya están clasificados y aplicados (`gdevelop/ALERTAS.md`).
 - Abajo, en «Lo que falta», está lo que quedó sin probar.
 
 ---
@@ -111,7 +111,7 @@ Script: `gdevelop/scripts/fase69_correcciones.py`, más cambios en `historia.js`
 
 ## 4. Lo que falta / sin probar
 
-1. **Fase 10:** clasificar colores en `gdevelop/ALERTAS.md` y luego aplicarlos.
+1. ~~**Fase 10:** clasificar colores en `gdevelop/ALERTAS.md` y luego aplicarlos.~~ Hecho en la fase 70: verde = positivo, amarillo = aviso de evento, rojo = peligro. Falta verlo en el juego.
 2. **Recorrido completo de Historia DESPUÉS de la fase 69.**
    - La pausa me llegó a mitad de esa prueba: se probaron el menú, la intro y que los bots no disparan zonas.
    - Falta: recoger la pistola en el paso 3, el combate del paso 4, J1 y J2, el resto de pasos y la defensa final, ahora con el mundo sin congelar.
