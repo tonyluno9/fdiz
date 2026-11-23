@@ -111,9 +111,10 @@ kbd{background:#000;border:2px solid var(--line);padding:0 .35em;font-family:Pix
     <p>Facultad de Ingeniería · Modo Historia</p>
     <div class="opts">
       <button class="btn green" onclick="ir('cine')">▶ MODO CINE</button>
-      <button class="btn red" onclick="ir('jurado')">? PREGUNTAS DEL JURADO</button>
+      <button class="btn red" onclick="ir('jurado')">✦ CONOCE EL PROCESO CREATIVO</button>
     </div>
-    <div class="hint"><kbd>C</kbd> cine · <kbd>J</kbd> jurado · <kbd>M</kbd> menú · <kbd>F11</kbd> pantalla completa del navegador</div>
+    <div class="opts" style="margin-top:22px"><button class="btn red" id="btnAtaque" onclick="alarma()">⚠ NOS ESTÁN ATACANDO</button></div>
+    <div class="hint"><kbd>C</kbd> cine · <kbd>P</kbd> proceso creativo · <kbd>A</kbd> alarma · <kbd>M</kbd> menú · <kbd>F</kbd> pantalla completa</div>
   </div>
 </section>
 
@@ -128,7 +129,7 @@ kbd{background:#000;border:2px solid var(--line);padding:0 .35em;font-family:Pix
   <header class="px" style="padding:8px 14px">
     <h3>▶ MODO CINE</h3>
     <span style="color:var(--dim);font-size:14px"><kbd>←</kbd><kbd>→</kbd> escena · <kbd>R</kbd> reiniciar · <kbd>Enter</kbd> pantalla completa + diálogo · <kbd>1-9</kbd> efectos · <kbd>S</kbd> silenciar efectos</span>
-    <button class="btn" onclick="ir('jurado')">JURADO</button><button class="btn" onclick="ir('menu')">MENÚ</button>
+    <button class="btn" onclick="ir('jurado')">PROCESO CREATIVO</button><button class="btn" onclick="ir('menu')">MENÚ</button>
   </header>
   <aside id="lista" class="px"></aside>
   <main id="centro">
@@ -251,7 +252,18 @@ const SLIDES=[
 
 /* ================== NAVEGACION ================== */
 let pantalla='menu';
-function ir(p){pantalla=p;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));document.getElementById(p).classList.add('show');
+/* ---- pantalla completa: los navegadores solo la permiten tras un clic o una tecla, así que se pide al cargar y,
+   si no la dejan, con el primer clic o tecla. F la activa o la quita. ---- */
+function completa(){const d=document.documentElement;if(!document.fullscreenElement&&d.requestFullscreen)d.requestFullscreen().catch(()=>{})}
+function alternarCompleta(){if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});else completa()}
+completa();
+['pointerdown','keydown'].forEach(ev=>document.addEventListener(ev,function f(e){if(e.key==='f'||e.key==='F')return;completa();document.removeEventListener(ev,f,true)},true));
+/* ---- NOS ESTÁN ATACANDO: la alarma suena en bucle hasta frenarla (otro clic, A) o elegir un modo ---- */
+const sirena=new Audio('sfx/sirena.wav');sirena.loop=true;sirena.volume=.9;
+function alarma(on){if(on===undefined)on=sirena.paused;const b=document.getElementById('btnAtaque');
+ if(on){sirena.currentTime=0;sirena.play().catch(()=>{});b.classList.add('on');b.textContent='■ FRENAR LA ALARMA'}
+ else{sirena.pause();sirena.currentTime=0;b.classList.remove('on');b.textContent='⚠ NOS ESTÁN ATACANDO'}}
+function ir(p){if(p!=='menu')alarma(false);pantalla=p;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));document.getElementById(p).classList.add('show');
  document.querySelectorAll('#jurado video').forEach(v=>v.pause());
  if(p==='cine'){vid.play()}else{vid.pause()}
  if(p==='jurado'){sl(0,true)}}
@@ -309,7 +321,9 @@ document.addEventListener('keydown',e=>{const k=e.key;
   if(k==='Escape'){cerrarFull()}else if(k===' '||k==='ArrowRight'||k==='Enter'){e.preventDefault();if(!fvid.ended&&li<0){fvid.pause();sigLinea()}else sigLinea()}
   else if(k==='r'||k==='R'){repetirFull()}else if(/^[1-9]$/.test(k)){const s=ESC[cur].sfx[+k-1];if(s)sfx(s)}else if(k==='s'||k==='S'){pararTodo()}
   return}
- if(k==='c'||k==='C'){ir('cine');return} if(k==='j'||k==='J'){ir('jurado');return} if(k==='m'||k==='M'){ir('menu');return}
+ if(k==='f'||k==='F'){alternarCompleta();return}
+ if(k==='c'||k==='C'){ir('cine');return} if(k==='p'||k==='P'||k==='j'||k==='J'){ir('jurado');return} if(k==='m'||k==='M'){ir('menu');return}
+ if(pantalla==='menu'&&(k==='a'||k==='A')){alarma();return}
  if(pantalla==='jurado'){if(['ArrowRight',' ','PageDown','Enter'].includes(k)){e.preventDefault();sl(1)}if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();sl(-1)}}
  if(pantalla==='cine'){
   if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'){e.preventDefault();esc(cur+1)}
