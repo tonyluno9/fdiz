@@ -55,7 +55,9 @@ const MODULOS = [
   ["¡AGUANTEN! Reparen el camión y resistan", Y, "profes.js", "¡AGUANTEN! Reparen el camión y resistan"],
   ["¡JOEL MORDIDO!", R, "profes.js", " MORDIDO!"],
   // historia.js (fase 68)
-  ["¡RECOGE LA PISTOLA DEL PROFE!", Y, "historia.js", "¡RECOGE LA PISTOLA DEL PROFE!"],
+  // fase 72: cambio de personaje y armas por dueño
+  ["César le pasa la escopeta a Miranda", V, "historia.js", "César le pasa la escopeta a Miranda"],
+  ["¡LLAVE DE LA REJA, PISTOLA PARA CÉSAR Y AK-47 PARA ALAN! El conserje los persigue", Y, "historia.js", "¡LLAVE DE LA REJA, PISTOLA PARA CÉSAR Y AK-47 PARA ALAN! El conserje los persigue"],
   ["¡ROMPIÓ LA PUERTA!", R, "historia.js", "¡ROMPIÓ LA PUERTA!"],
   ["¡SE FUE LA LUZ!", Y, "historia.js", "¡SE FUE LA LUZ!"],
   ["¡TONY TIENE LA ESCOPETA! Volvió la luz", V, "historia.js", " TIENE LA ESCOPETA! Volvió la luz"],
