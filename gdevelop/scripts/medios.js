@@ -115,7 +115,10 @@
       const dist = (s) => Math.hypot(s.getX() - o.getX(), s.getY() - o.getY());
       // fase 56: con el árbitro de la F (gdjs.fdizUsar) solo cuenta quien tiene elegido este objetivo (UsaObjetivo + Elegida)
       const elegido = (s) => !gdjs.fdizUsar || (num(s, "UsaObjetivo") === 1 && V.get("Elegida").getAsNumber() === 1);
-      const toman = sups.filter((s) => humano(s) && num(s, "Usando") === 1 && elegido(s) && dist(s) < C.llaveUsar);
+      // fase 82: en el modo Jefe no hay humanos (los 4 son bots): ahí las toman los bots
+      const jefe = scn.getVariables().get("Jefe").getAsNumber() === 1;
+      const puede = (s) => humano(s) || (jefe && num(s, "Control") === -1 && str(s, "Estado") === "normal");
+      const toman = sups.filter((s) => puede(s) && num(s, "Usando") === 1 && elegido(s) && dist(s) < C.llaveUsar);
       if (prog.getAsNumber() > st.prev && !toman.length) {         // el cuadro lo sumó alguien que no es humano: se deshace
         prog.setNumber(st.prev);
         usada.setNumber(0);
