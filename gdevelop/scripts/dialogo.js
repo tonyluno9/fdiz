@@ -405,7 +405,8 @@
     let charla = 0; try { charla = SV(scn, "CanepaCharla").getAsNumber(); } catch (e) { /* sin Historia */ }
     const pausa = SV(scn, "Pausa").getAsNumber() === 1;
     const activo = !pausa && charla !== 1 && (estado === "juego" || estado === "intro" || estado === "victoria") &&
-      !(gdjs.fdizHistoria && gdjs.fdizHistoria.ocupado(scn));   // fase 68: callado mientras habla la historia
+      !(gdjs.fdizHistoria && gdjs.fdizHistoria.ocupado(scn)) &&
+      (function () { try { const m = scn.getVariables().has("CineModo") ? SV(scn, "CineModo").getAsString() : ""; return m !== "video" && m !== "tarjeta"; } catch (e) { return true; } })();   // callado durante las cinemáticas   // fase 68: callado mientras habla la historia
     if (rol(scn) !== 2) {
       if (!activo) { if (st.actual || st.cola.length) D.limpiar(scn); }
       else {

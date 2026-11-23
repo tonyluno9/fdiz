@@ -213,18 +213,18 @@
   }
 
   // ------------------------------------------------------------------ cada máquina: video o tarjeta en pantalla
+  // fase 79: durante el video la música de fondo (canales 1 y 2) sigue; se cortan voces y efectos sueltos
   function musica(scn, L, pausar) {
     if (L.musica === pausar) return;
     L.musica = pausar;
-    // canal 1: música de partida; canal 2: la capa que va encima (fase 66)
-    for (const ch of [1, 2]) {
-      try { const S_ = gdjs.evtTools.sound; if (pausar) S_.pauseMusicOnChannel(scn, ch); else S_.continueMusicOnChannel(scn, ch); } catch (e) { /* sin música en ese canal */ }
-    }
+    if (!pausar) return;
+    try { gdjs.evtTools.sound.stopSoundOnChannel(scn, 7); } catch (e) { /* sin voz */ }
+    try { const sm = scn.getSoundManager(); for (const x of (sm._freeSounds || [])) { try { x.stop(); } catch (e) { /* ya terminó */ } } } catch (e) { /* sin efectos */ }
   }
   function quitarVideo(L, scn) { if (L.vid) { try { L.vid.pause(); L.vid.deleteFromScene(scn); } catch (e) { /* ya no está */ } L.vid = null; L.n = 0; } }
   function pantalla(scn, st) {
     const L = st.local, modo = SV(scn, "CineModo").getAsString(), n = SV(scn, "CineVid").getAsNumber(), seq = SV(scn, "CineSeq").getAsNumber();
-    musica(scn, L, modo !== "");
+    musica(scn, L, modo === "video");   // fase 79: solo se cortan efectos y voces, la música sigue
     if (modo !== "video" || L.n !== n) quitarVideo(L, scn);
     if (modo === "video" && !L.vid) {
       const v = scn.createObject(C.objeto(n));

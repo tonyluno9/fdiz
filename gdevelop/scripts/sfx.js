@@ -229,10 +229,8 @@
     let oleada = false;
     if (p && activo) {
       if (sv.bolsa === 1 && p.bolsa !== 1) X.play(scn, "objeto_recoger");
-      if (sv.monedas < p.monedas) X.play(scn, "oro_moneda");                                 // se recogió una moneda
-      if (sv.dinero !== p.dinero) X.play(scn, "oro_moneda");
       if (jefe && r !== 2 && sv.oro !== p.oro) {                    // solo en la máquina del Jefe
-        X.play(scn, "oro_moneda");
+        // fase 80: las monedas ya no suenan
         if (sv.oro < p.oro) X.ui(scn, "confirm");                     // compra con oro hecha
       }
       if (sv.horda === 1 && p.horda !== 1) { X.play(scn, "oleada_riser"); oleada = true; }

@@ -84,8 +84,8 @@ prueba("Inicio de Historia sin el video 1: el equipo en el salón, todo congelad
   igual([p1.x, p1.y], [5984 - 1.5 * 60, 3024], "en el salón");
   const t = de(sc, "TxtCine").map((x) => x.txt);
   si(t.includes("EL SALÓN") && t.some((s) => s.includes("alerta")), JSON.stringify(t));
-  igual(w.musica, ["pausa"], "la música se pausa");
-  igual(w.capa, ["pausa"], "la capa de la música (canal 2) también");
+  igual(w.musica, [], "la música de fondo sigue sonando (fase 79)");
+  igual(w.capa, [], "y su capa (canal 2)");
 });
 prueba("Después del video 1: interludio corto (la puerta empieza a romperse) y el control vuelve; armas guardadas", () => {
   const w = mundo(), sc = escena(base());
@@ -103,8 +103,8 @@ prueba("Después del video 1: interludio corto (la puerta empieza a romperse) y 
   igual(de(sc, "ArmaPiso").map((a) => a.C.get("Tipo").getAsString()).sort(), ["bate", "escoba", "silla"], "escopeta y sheriff guardados; silla y escoba como en la intro");
   const [cas, caj] = de(sc, "Contenedor");
   igual([cas.x, cas.y, cas.oculto, caj.x, caj.y, caj.oculto], [5120, 596, false, 3328, 4436, true]);
-  igual(w.musica, ["pausa", "sigue"], "la música vuelve");
-  igual(w.capa, ["pausa", "sigue"], "y su capa");
+  igual(w.musica, [], "la música nunca se pausó");
+  igual(w.capa, [], "ni su capa");
 });
 prueba("Espera a que los jugadores tengan su control (Init) antes de congelar", () => {
   const w = mundo(), objs = base(); objs[0].C.get("Init").setNumber(0);
@@ -202,13 +202,13 @@ prueba("Fuera de Historia no hace nada (Escape, Jefe)", () => {
   correr(w, sc, 2);
   igual([modo(sc), sc.S.get("Estado").getAsString(), de(sc, "ArmaPiso").length, de(sc, "Contenedor").length], ["", "juego", 3, 0]);
 });
-prueba("En línea: el cliente no decide, pero muestra el video o la tarjeta que manda el host y pausa su música", () => {
+prueba("En línea: el cliente no decide, pero muestra el video o la tarjeta que manda el host sin pausar su música", () => {
   const w = mundo(), sc = escena(base(), { CineModo: "video", CineVid: 2, CineSeq: 4, Estado: "cine" }, { NetRol: 2 }, { VidHist02: 9 });
   correr(w, sc, 1);
   si(de(sc, "VidHist02").length === 1 && de(sc, "VidHist02")[0].jugando, "video");
-  igual([de(sc, "Contenedor").length, w.musica], [0, ["pausa"]]);
+  igual([de(sc, "Contenedor").length, w.musica], [0, []]);
   sc.S.get("CineModo").setString(""); sc.S.get("CineVid").setNumber(0); cuadro(w, sc);
-  igual([de(sc, "VidHist02").length, w.musica], [0, ["pausa", "sigue"]]);
+  igual([de(sc, "VidHist02").length, w.musica], [0, []]);
 });
 
 // ---------------------------------------------------------------- proyecto
