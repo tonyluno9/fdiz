@@ -219621,14 +219621,34 @@
                         },
                         {
                           "type": {
-                            "inverted": false,
-                            "value": "VarObjetTxt"
+                            "value": "BuiltinCommonInstructions::Or"
                           },
-                          "parameters": [
-                            "Puerta",
-                            "Tipo",
-                            "=",
-                            "\"normal\""
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Puerta",
+                                "Tipo",
+                                "=",
+                                "\"normal\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": false,
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Puerta",
+                                "Tipo",
+                                "=",
+                                "\"restringida\""
+                              ]
+                            }
                           ]
                         },
                         {
@@ -219641,6 +219661,18 @@
                             "Vida",
                             ">",
                             "0"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": false,
+                            "value": "VarObjet"
+                          },
+                          "parameters": [
+                            "Puerta",
+                            "Vida",
+                            "<",
+                            "9999"
                           ]
                         }
                       ],
@@ -238128,14 +238160,14 @@
         },
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "/*FDIZ-FASE85-PAUSA*/\n/* FDI-Z · Fase 85 · Pausa total: al abrir el menú de pausa se detiene TODO el sonido (música, efectos, voces, alarma) y\n * los videos; al cerrarlo, cada cosa sigue justo donde se quedó.\n * Se incrusta en la escena Juego con scripts/fase85_pausa_ui_tutorial_escape.py (evento FDIZ-FASE85-PAUSA, cada cuadro).\n * Antes la pausa solo ponía el tiempo en 0 (ChangeTimeScale): lo que ya estaba sonando seguía sonando.\n * Cómo: con Pausa = 1 pausa cada sonido activo de Howler (música, canales y sonidos sueltos), y pausa los videos de la escena. Los anota y al quitar la pausa los reanuda (solo esos: lo que se haya\n * detenido a propósito no vuelve). Los sonidos nuevos durante la pausa (clics del menú) sí suenan. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizPausaTotal && gdjs.fdizPausaTotal.VER === 1) return;\n  const P = (gdjs.fdizPausaTotal = { VER: 1 });\n\n  // cada sonido activo de Howler (el motor de audio de GDevelop): [howl, id]. Se usa Howler directamente porque el pause()\n  // de los sonidos sueltos de GDevelop no siempre surte efecto (su id interno no coincide) y así se cubre todo lo que suena.\n  function activos() {\n    const out = [];\n    const H = (typeof Howler !== \"undefined\" && Howler) || (typeof window !== \"undefined\" && window.Howler);\n    for (const h of (H && H._howls) || []) for (const snd of h._sounds || []) if (!snd._paused && !snd._ended) out.push([h, snd._id]);\n    return out;\n  }\n  function videos(scn) {\n    const out = [];\n    try { for (const o of scn.getAdhocListOfAllInstances()) if (typeof o.isPlayed === \"function\" && typeof o.pause === \"function\") out.push(o); } catch (e) { /* sin lista */ }\n    return out;\n  }\n\n  P.tick = function (scn) {\n    const st = scn._fdizPausaTotal || (scn._fdizPausaTotal = { activa: false, s: [], v: [] });\n    let pausa = false; try { pausa = scn.getVariables().get(\"Pausa\").getAsNumber() === 1; } catch (e) { return; }\n    if (pausa && !st.activa) {\n      st.activa = true; st.s = []; st.v = [];\n      for (const [h, id] of activos()) { try { h.pause(id); st.s.push([h, id]); } catch (e) { /* ya terminó */ } }\n      for (const v of videos(scn)) { try { if (v.isPlayed()) { v.pause(); st.v.push(v); } } catch (e) { /* sin video */ } }\n    } else if (!pausa && st.activa) {\n      st.activa = false;\n      for (const [h, id] of st.s) { try { const snd = h._soundById ? h._soundById(id) : null; if (snd && snd._paused && !snd._ended) h.play(id); } catch (e) { /* ya no existe */ } }\n      for (const v of st.v) { try { if (v._livingOnScene !== false) v.play(); } catch (e) { /* ya no está */ } }\n      st.s = []; st.v = [];\n    }\n  };\n})(gdjs);\n\nif (gdjs.fdizPausaTotal) gdjs.fdizPausaTotal.tick(runtimeScene);\n",
+          "inlineCode": "/*FDIZ-FASE85-PAUSA*/\n/* FDI-Z · Fase 85 / 86 · Pausa total: con el menú de pausa o con el tutorial abierto se detiene TODO —sonido (música,\n * efectos, voces, alarma), videos y el reloj de los diálogos, la historia y las cinemáticas— y al cerrarlo cada cosa sigue\n * justo donde se quedó.\n * Se incrusta en la escena Juego con scripts/fase85_pausa_ui_tutorial_escape.py (evento FDIZ-FASE85-PAUSA, al final).\n * Antes la pausa solo ponía el tiempo del juego en 0 (ChangeTimeScale): lo que ya sonaba seguía sonando y los diálogos\n * (dialogo.js, historia.js, cine.js miden con el reloj real) seguían avanzando: con el tutorial abierto se oían las voces.\n * Cómo:\n *   - Sonido: pausa cada sonido activo de Howler (el motor de audio de GDevelop) y lo reanuda al salir. Se usa Howler\n *     directamente porque el pause() de los sonidos sueltos de GDevelop no siempre surte efecto.\n *   - Videos: los de la escena que estén corriendo.\n *   - Reloj: D.now, H.now y C.now (diálogos, historia, cinemáticas) pasan a P.ahora, un reloj que se congela mientras dura\n *     la pausa y al salir sigue sin saltarse el tiempo que estuvo detenido.\n * Motivos: \"menu\" (Pausa = 1) y \"tuto\" (tutorial abierto, scn._fdizTuto.open). Se reanuda cuando ya no queda ninguno.\n * Los sonidos nuevos durante la pausa (clics del menú) sí suenan. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizPausaTotal && gdjs.fdizPausaTotal.VER === 2) return;\n  const P = (gdjs.fdizPausaTotal = { VER: 2, offset: 0, congelado: null });\n\n  P.ahora = () => (P.congelado !== null ? P.congelado : Date.now() / 1000 - P.offset);\n  function relojes() {\n    for (const m of [gdjs.fdizDialogo, gdjs.fdizHistoria, gdjs.fdizCine, gdjs.fdizCanepa]) if (m && m.now !== P.ahora) m.now = P.ahora;\n  }\n  function activos() {\n    const out = [];\n    const H = (typeof Howler !== \"undefined\" && Howler) || (typeof window !== \"undefined\" && window.Howler);\n    for (const h of (H && H._howls) || []) for (const snd of h._sounds || []) if (!snd._paused && !snd._ended) out.push([h, snd._id]);\n    return out;\n  }\n  function videos(scn) {\n    const out = [];\n    try { for (const o of scn.getAdhocListOfAllInstances()) if (typeof o.isPlayed === \"function\" && typeof o.pause === \"function\") out.push(o); } catch (e) { /* sin lista */ }\n    return out;\n  }\n\n  P.tick = function (scn) {\n    relojes();\n    const st = scn._fdizPausaTotal || (scn._fdizPausaTotal = { activa: false, s: [], v: [] });\n    let menu = false; try { menu = scn.getVariables().get(\"Pausa\").getAsNumber() === 1; } catch (e) { return; }\n    const tuto = !!(scn._fdizTuto && scn._fdizTuto.open);\n    const pausa = menu || tuto;\n    if (pausa && !st.activa) {\n      st.activa = true; st.s = []; st.v = [];\n      P.congelado = Date.now() / 1000 - P.offset;\n      for (const [h, id] of activos()) { try { h.pause(id); st.s.push([h, id]); } catch (e) { /* ya terminó */ } }\n      for (const v of videos(scn)) { try { if (v.isPlayed()) { v.pause(); st.v.push(v); } } catch (e) { /* sin video */ } }\n    } else if (!pausa && st.activa) {\n      st.activa = false;\n      if (P.congelado !== null) { P.offset = Date.now() / 1000 - P.congelado; P.congelado = null; }\n      for (const [h, id] of st.s) { try { const snd = h._soundById ? h._soundById(id) : null; if (snd && snd._paused && !snd._ended) h.play(id); } catch (e) { /* ya no existe */ } }\n      for (const v of st.v) { try { if (v._livingOnScene !== false) v.play(); } catch (e) { /* ya no está */ } }\n      st.s = []; st.v = [];\n    }\n  };\n})(gdjs);\n\nif (gdjs.fdizPausaTotal) gdjs.fdizPausaTotal.tick(runtimeScene);\n",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
         },
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "/*FDIZ-FASE85-CINEUI*/\n/* FDI-Z · Fase 85 · Interfaz oculta en las cinemáticas y modo Escape sin armas de fuego.\n * Se incrusta en la escena Juego con scripts/fase85_pausa_ui_tutorial_escape.py (evento FDIZ-FASE85-CINEUI, el último de\n * la escena: así decide después de que cada módulo dibujó lo suyo).\n *\n * Cinemáticas (video o tarjeta de cine.js con CineModo, o de la Historia con HistCine): se esconde todo lo de la capa HUD\n * (paneles, minimapa, flechas hacia el objetivo, letrero de objetivo, avisos, ayudas, globos) y la mira, salvo lo que usa\n * la propia cinemática (video, velo, subtítulos, botón OMITIR). Lo que se escondió aquí vuelve a verse al terminar.\n * Balas y perdigones rompen una puerta normal aunque salgan pegados a ella (revisión por tramo, ver balasPuertas). Corre\n * también en FDIZ-FASE85-BALAS, justo después de «Combate: pegar»: a quemarropa el perdigón nace sobre el marco (muro) y el\n * evento de proyectiles lo borra en ese mismo cuadro.\n * Escape: no hay pistolas, escopeta ni AK-47. Las armas de fuego del piso se quitan al aparecer (las del mapa, la pistola\n * pequeña inicial y las de las escenas del casillero y el cajón) y nadie las conserva en la mano. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizCineUi && gdjs.fdizCineUi.VER === 1) return;\n  const C = (gdjs.fdizCineUi = { VER: 1 });\n  C.DEJAR = { CineDib: 1, TxtCine: 1, HistDib: 1, HistRetrato: 1, ProfPanel: 1, TxtHist: 1, TxtProfe: 1, BtnOmitir: 1, TxtOmitir: 1,\n    PausaBtn: 1, PausaPanel: 1, PausaVelo: 1, TxtPausaB0: 1, TxtPausaB1: 1, TxtPausaB2: 1, TxtPausaB3: 1, TxtPausaTit: 1, TxtPausaCtl1: 1, TxtPausaCtl2: 1 };\n  C.FUEGO = { pistola: 1, pistolita: 1, escopeta: 1, ak47: 1 };\n  const str = (o, n) => { try { return o.getVariables().get(n).getAsString(); } catch (e) { return \"\"; } };\n\n  C.enCine = function (scn) {\n    const cm = str(scn, \"CineModo\"), hc = str(scn, \"HistCine\");\n    return (cm !== \"\" && cm !== \"0\") || (hc !== \"\" && hc !== \"0\");\n  };\n\n  function interfaz(scn) {\n    const st = scn._fdizCineUi || (scn._fdizCineUi = { ocultos: new Set() });\n    if (C.enCine(scn)) {\n      let lista = [];\n      try { lista = scn.getAdhocListOfAllInstances(); } catch (e) { return; }\n      for (const o of lista) {\n        const n = o.getName();\n        const ui = o.getLayer() === \"HUD\" || n === \"Mira\" || n === \"TxtMordido\";\n        if (!ui || C.DEJAR[n] || /^Vid/.test(n) || o.getType && o.getType() === \"Video::VideoObject\") continue;\n        if (!(o.isHidden && o.isHidden())) { o.hide(true); st.ocultos.add(o); }\n      }\n    } else if (st.ocultos.size) {\n      for (const o of st.ocultos) { try { if (o._livingOnScene !== false) o.hide(false); } catch (e) { /* ya no está */ } }\n      st.ocultos.clear();\n    }\n  }\n\n  function sinFuego(scn) {\n    if (scn.getGame().getVariables().get(\"Modo\").getAsString() !== \"escape\") return;\n    if (scn.getGame().getVariables().get(\"NetRol\").getAsNumber() === 2) return;   // el host decide\n    for (const a of (scn.getObjects(\"ArmaPiso\") || []).slice()) if (C.FUEGO[str(a, \"Tipo\")]) a.deleteFromScene(scn);\n    for (const s of scn.getObjects(\"Sup\") || []) {\n      if (!C.FUEGO[str(s, \"Arma\")]) continue;\n      s.getVariables().get(\"Arma\").setString(\"puños\"); s.getVariables().get(\"Usos\").setNumber(0);\n    }\n  }\n\n  // balas y perdigones contra puertas normales, por tramo: entre el cuadro anterior y este una bala avanza ~30 px y de\n  // cerca podía brincarse la puerta (la escopeta a quemarropa no la rompía). Se revisa el segmento recorrido.\n  function balasPuertas(scn) {\n    if (scn.getGame().getVariables().get(\"NetRol\").getAsNumber() === 2) return;\n    let puertas = null;\n    for (const p of scn.getObjects(\"Proyectil\") || []) {\n      const tipo = str(p, \"Tipo\");\n      if (tipo !== \"bala\" && tipo !== \"perdigon\") continue;\n      let x = p.getCenterXInScene(), y = p.getCenterYInScene();\n      let ax = p.__f85x, ay = p.__f85y;\n      const nueva = ax === undefined;\n      if (ax === undefined) {                                    // bala nueva: el tramo empieza en el arma de quien disparó\n        ax = x; ay = y;                                          // (sale 34 px adelante: a quemarropa ya nace del otro lado)\n        const j = p.getVariables().get(\"Jugador\").getAsNumber();\n        const s = (scn.getObjects(\"Sup\") || []).find((q) => q.getVariables().get(\"Jugador\").getAsNumber() === j);\n        if (s) { ax = s.getX(); ay = s.getY() - 46; }\n      }\n      p.__f85x = x; p.__f85y = y;\n      if (nueva) {                                               // y lo que avanzará en su primer cuadro (si nace sobre el\n        const r = p.getAngle() * Math.PI / 180;                  // marco de la puerta, el evento de proyectiles la borra antes)\n        x += Math.cos(r) * 32; y += Math.sin(r) * 32;\n      }\n      if (!puertas) puertas = (scn.getObjects(\"Puerta\") || []).filter((q) => q.isVisible() && str(q, \"Tipo\") === \"normal\" && q.getVariables().get(\"Vida\").getAsNumber() > 0);\n      for (const q of puertas) {\n        const x0 = q.getX() - 6, y0 = q.getY() - 6, x1 = q.getX() + q.getWidth() + 6, y1 = q.getY() + q.getHeight() + 6;\n        let toca = false;\n        const n = Math.max(6, Math.ceil(Math.hypot(x - ax, y - ay) / 8));\n        for (let k = 0; k <= n && !toca; k++) { const px = ax + (x - ax) * k / n, py = ay + (y - ay) * k / n; toca = px >= x0 && px <= x1 && py >= y0 && py <= y1; }\n        if (!toca) continue;\n        q.getVariables().get(\"Vida\").setNumber(0);\n        try { q.setColor(\"255;160;160\"); } catch (e) { /* sin color */ }\n        p.getVariables().get(\"Pego\").setNumber(1);\n        try { if (scn.getGame().getVariables().get(\"SonidoActivo\").getAsNumber() === 1) gdjs.evtTools.sound.playSound(scn, \"efectos/mundo/puerta_golpe.wav\", false, 70, 1); } catch (e) { /* sin sonido */ }\n        break;\n      }\n    }\n  }\n\n  C.balas = function (scn) { try { balasPuertas(scn); } catch (e) { /* sin puertas */ } };   // también justo después de disparar\n  C.tick = function (scn) {\n    try { sinFuego(scn); } catch (e) { /* sin armas */ }\n    try { balasPuertas(scn); } catch (e) { /* sin puertas */ }\n    interfaz(scn);\n  };\n})(gdjs);\n\nif (gdjs.fdizCineUi) gdjs.fdizCineUi.tick(runtimeScene);\n",
+          "inlineCode": "/*FDIZ-FASE85-CINEUI*/\n/* FDI-Z · Fase 85 · Interfaz oculta en las cinemáticas y modo Escape sin armas de fuego.\n * Se incrusta en la escena Juego con scripts/fase85_pausa_ui_tutorial_escape.py (evento FDIZ-FASE85-CINEUI, el último de\n * la escena: así decide después de que cada módulo dibujó lo suyo).\n *\n * Cinemáticas (video o tarjeta de cine.js con CineModo, o de la Historia con HistCine): se esconde todo lo de la capa HUD\n * (paneles, minimapa, flechas hacia el objetivo, letrero de objetivo, avisos, ayudas, globos) y la mira, salvo lo que usa\n * la propia cinemática (video, velo, subtítulos, botón OMITIR). Lo que se escondió aquí vuelve a verse al terminar.\n * Balas y perdigones rompen una puerta normal aunque salgan pegados a ella (revisión por tramo, ver balasPuertas). Corre\n * también en FDIZ-FASE85-BALAS, justo después de «Combate: pegar»: a quemarropa el perdigón nace sobre el marco (muro) y el\n * evento de proyectiles lo borra en ese mismo cuadro.\n * Escape: no hay pistolas, escopeta ni AK-47. Las armas de fuego del piso se quitan al aparecer (las del mapa, la pistola\n * pequeña inicial y las de las escenas del casillero y el cajón) y nadie las conserva en la mano. */\n(function (gdjs) {\n  \"use strict\";\n  if (gdjs.fdizCineUi && gdjs.fdizCineUi.VER === 1) return;\n  const C = (gdjs.fdizCineUi = { VER: 1 });\n  C.DEJAR = { CineDib: 1, TxtCine: 1, HistDib: 1, HistRetrato: 1, ProfPanel: 1, TxtHist: 1, TxtProfe: 1, BtnOmitir: 1, TxtOmitir: 1,\n    PausaBtn: 1, PausaPanel: 1, PausaVelo: 1, TxtPausaB0: 1, TxtPausaB1: 1, TxtPausaB2: 1, TxtPausaB3: 1, TxtPausaTit: 1, TxtPausaCtl1: 1, TxtPausaCtl2: 1 };\n  C.FUEGO = { pistola: 1, pistolita: 1, escopeta: 1, ak47: 1 };\n  const str = (o, n) => { try { return o.getVariables().get(n).getAsString(); } catch (e) { return \"\"; } };\n\n  C.enCine = function (scn) {\n    const cm = str(scn, \"CineModo\"), hc = str(scn, \"HistCine\");\n    return (cm !== \"\" && cm !== \"0\") || (hc !== \"\" && hc !== \"0\");\n  };\n\n  function interfaz(scn) {\n    const st = scn._fdizCineUi || (scn._fdizCineUi = { ocultos: new Set() });\n    if (C.enCine(scn)) {\n      let lista = [];\n      try { lista = scn.getAdhocListOfAllInstances(); } catch (e) { return; }\n      for (const o of lista) {\n        const n = o.getName();\n        const ui = o.getLayer() === \"HUD\" || n === \"Mira\" || n === \"TxtMordido\";\n        if (!ui || C.DEJAR[n] || /^Vid/.test(n) || o.getType && o.getType() === \"Video::VideoObject\") continue;\n        if (!(o.isHidden && o.isHidden())) { o.hide(true); st.ocultos.add(o); }\n      }\n    } else if (st.ocultos.size) {\n      for (const o of st.ocultos) { try { if (o._livingOnScene !== false) o.hide(false); } catch (e) { /* ya no está */ } }\n      st.ocultos.clear();\n    }\n  }\n\n  function sinFuego(scn) {\n    if (scn.getGame().getVariables().get(\"Modo\").getAsString() !== \"escape\") return;\n    if (scn.getGame().getVariables().get(\"NetRol\").getAsNumber() === 2) return;   // el host decide\n    for (const a of (scn.getObjects(\"ArmaPiso\") || []).slice()) if (C.FUEGO[str(a, \"Tipo\")]) a.deleteFromScene(scn);\n    for (const s of scn.getObjects(\"Sup\") || []) {\n      if (!C.FUEGO[str(s, \"Arma\")]) continue;\n      s.getVariables().get(\"Arma\").setString(\"puños\"); s.getVariables().get(\"Usos\").setNumber(0);\n    }\n  }\n\n  // balas y perdigones contra puertas normales, por tramo: entre el cuadro anterior y este una bala avanza ~30 px y de\n  // cerca podía brincarse la puerta (la escopeta a quemarropa no la rompía). Se revisa el segmento recorrido.\n  function balasPuertas(scn) {\n    if (scn.getGame().getVariables().get(\"NetRol\").getAsNumber() === 2) return;\n    let puertas = null;\n    for (const p of scn.getObjects(\"Proyectil\") || []) {\n      const tipo = str(p, \"Tipo\");\n      if (tipo !== \"bala\" && tipo !== \"perdigon\") continue;\n      let x = p.getCenterXInScene(), y = p.getCenterYInScene();\n      let ax = p.__f85x, ay = p.__f85y;\n      const nueva = ax === undefined;\n      if (ax === undefined) {                                    // bala nueva: el tramo empieza en el arma de quien disparó\n        ax = x; ay = y;                                          // (sale 34 px adelante: a quemarropa ya nace del otro lado)\n        const j = p.getVariables().get(\"Jugador\").getAsNumber();\n        const s = (scn.getObjects(\"Sup\") || []).find((q) => q.getVariables().get(\"Jugador\").getAsNumber() === j);\n        if (s) { ax = s.getX(); ay = s.getY() - 46; }\n      }\n      p.__f85x = x; p.__f85y = y;\n      if (nueva) {                                               // y lo que avanzará en su primer cuadro (si nace sobre el\n        const r = p.getAngle() * Math.PI / 180;                  // marco de la puerta, el evento de proyectiles la borra antes)\n        x += Math.cos(r) * 32; y += Math.sin(r) * 32;\n      }\n      // normales y restringidas (dirección, conserjería: «derríbala»); no las electrónicas ni las que la Historia tiene\n      // cerradas a propósito (Vida 99999, la del salón hasta el paso 4)\n      if (!puertas) puertas = (scn.getObjects(\"Puerta\") || []).filter((q) => { const v = q.getVariables().get(\"Vida\").getAsNumber(), t = str(q, \"Tipo\");\n        return q.isVisible() && (t === \"normal\" || t === \"restringida\") && v > 0 && v < 9999; });\n      for (const q of puertas) {\n        const x0 = q.getX() - 6, y0 = q.getY() - 6, x1 = q.getX() + q.getWidth() + 6, y1 = q.getY() + q.getHeight() + 6;\n        let toca = false;\n        const n = Math.max(6, Math.ceil(Math.hypot(x - ax, y - ay) / 8));\n        for (let k = 0; k <= n && !toca; k++) { const px = ax + (x - ax) * k / n, py = ay + (y - ay) * k / n; toca = px >= x0 && px <= x1 && py >= y0 && py <= y1; }\n        if (!toca) continue;\n        q.getVariables().get(\"Vida\").setNumber(0);\n        try { q.setColor(\"255;160;160\"); } catch (e) { /* sin color */ }\n        p.getVariables().get(\"Pego\").setNumber(1);\n        try { if (scn.getGame().getVariables().get(\"SonidoActivo\").getAsNumber() === 1) gdjs.evtTools.sound.playSound(scn, \"efectos/mundo/puerta_golpe.wav\", false, 70, 1); } catch (e) { /* sin sonido */ }\n        break;\n      }\n    }\n  }\n\n  C.balas = function (scn) { try { balasPuertas(scn); } catch (e) { /* sin puertas */ } };   // también justo después de disparar\n  C.tick = function (scn) {\n    try { sinFuego(scn); } catch (e) { /* sin armas */ }\n    try { balasPuertas(scn); } catch (e) { /* sin puertas */ }\n    interfaz(scn);\n  };\n})(gdjs);\n\nif (gdjs.fdizCineUi) gdjs.fdizCineUi.tick(runtimeScene);\n",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": false
@@ -239115,7 +239147,7 @@
           "content": {
             "opacity": 255,
             "loop": true,
-            "volume": 3,
+            "volume": 0,
             "videoResource": "vid_VidDerrota"
           }
         },
@@ -239810,20 +239842,43 @@
               },
               "parameters": [
                 "",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "StopMusicCanal"
+              },
+              "parameters": [
+                "",
                 "2"
               ]
             },
             {
               "type": {
-                "value": "PlayMusicCanal"
+                "value": "StopSoundCanal"
               },
               "parameters": [
                 "",
-                "musica/derrota.ogg",
-                "1",
-                "no",
-                "50",
-                "1"
+                "7"
+              ]
+            },
+            {
+              "type": {
+                "value": "StopSoundCanal"
+              },
+              "parameters": [
+                "",
+                "8"
+              ]
+            },
+            {
+              "type": {
+                "value": "StopSoundCanal"
+              },
+              "parameters": [
+                "",
+                "9"
               ]
             }
           ]

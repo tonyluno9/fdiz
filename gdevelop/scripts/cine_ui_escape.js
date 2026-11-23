@@ -73,7 +73,10 @@
         const r = p.getAngle() * Math.PI / 180;                  // marco de la puerta, el evento de proyectiles la borra antes)
         x += Math.cos(r) * 32; y += Math.sin(r) * 32;
       }
-      if (!puertas) puertas = (scn.getObjects("Puerta") || []).filter((q) => q.isVisible() && str(q, "Tipo") === "normal" && q.getVariables().get("Vida").getAsNumber() > 0);
+      // normales y restringidas (dirección, conserjería: «derríbala»); no las electrónicas ni las que la Historia tiene
+      // cerradas a propósito (Vida 99999, la del salón hasta el paso 4)
+      if (!puertas) puertas = (scn.getObjects("Puerta") || []).filter((q) => { const v = q.getVariables().get("Vida").getAsNumber(), t = str(q, "Tipo");
+        return q.isVisible() && (t === "normal" || t === "restringida") && v > 0 && v < 9999; });
       for (const q of puertas) {
         const x0 = q.getX() - 6, y0 = q.getY() - 6, x1 = q.getX() + q.getWidth() + 6, y1 = q.getY() + q.getHeight() + 6;
         let toca = false;
